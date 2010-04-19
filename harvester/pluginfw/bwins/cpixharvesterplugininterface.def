@@ -1,0 +1,13 @@
+EXPORTS
+	??1CDelayedCallback@@UAE@XZ @ 1 NONAME ; CDelayedCallback::~CDelayedCallback(void)
+	??1CIndexingPlugin@@UAE@XZ @ 2 NONAME ; CIndexingPlugin::~CIndexingPlugin(void)
+	?CallbackPending@CDelayedCallback@@QBEHXZ @ 3 NONAME ; int CDelayedCallback::CallbackPending(void) const
+	?CancelCallback@CDelayedCallback@@QAEXXZ @ 4 NONAME ; void CDelayedCallback::CancelCallback(void)
+	?ListImplementationsL@CIndexingPlugin@@SAXAAV?$RPointerArray@VCImplementationInformation@@@@@Z @ 5 NONAME ; void CIndexingPlugin::ListImplementationsL(class RPointerArray<class CImplementationInformation> &)
+	?NewL@CDelayedCallback@@SAPAV1@H@Z @ 6 NONAME ; class CDelayedCallback * CDelayedCallback::NewL(int)
+	?NewL@CIndexingPlugin@@SAPAV1@VTUid@@@Z @ 7 NONAME ; class CIndexingPlugin * CIndexingPlugin::NewL(class TUid)
+	?SetObserver@CIndexingPlugin@@QAEXAAVMIndexingService@@@Z @ 8 NONAME ; void CIndexingPlugin::SetObserver(class MIndexingService &)
+	?Start@CDelayedCallback@@QAEXHPAVMDelayedCallbackObserver@@H@Z @ 9 NONAME ; void CDelayedCallback::Start(int, class MDelayedCallbackObserver *, int)
+	?SetSearchSession@CIndexingPlugin@@QAEXAAVRSearchServerSession@@@Z @ 10 NONAME ; void CIndexingPlugin::SetSearchSession(class RSearchServerSession &)
+	?Flush@CIndexingPlugin@@QAEXAAVCCPixIndexer@@@Z @ 11 NONAME ; void CIndexingPlugin::Flush(class CCPixIndexer &)
+

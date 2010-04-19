@@ -1,0 +1,1213 @@
+Testing searching maps index
+
+
+Searching for 'soome':
+Number of hits: 1
+NEXT ADDRESS:
+ o Distance: 3.3
+ o Type: Country
+ o Latitude: 60.1702
+ o Longitude: 24.938
+ o Country: FINLAND,ENG;FIN,ENG;FI,ENG;246,ENG;Cộng hòa Phần Lan,ENG;FI,ENG;FIN,ENG;FINLAND,ENG;FINLANDA,ENG;FINLANDE,ENG;FINLANDIA,ENG;FINLÂNDIA,ENG;FINNLAND,ENG;FINNORSZÁG,ENG;FINSKA,ENG;FINSKO,ENG;FÍNSKO,ENG;FİNLANDİYA,ENG;Phần Lan,ENG;SOMIJA,ENG;SOOME,ENG;SOOME VABARIIK,ENG;Suomi,ENG;Suomija,ENG;Suomijos,ENG;Suomijos Respublika,ENG;ΦΙΝΛΑΝΔΙΑ,ENG;ФИНЛАНДИЯ,ENG;ФИНЛЯНДИЯ,ENG;ФИНЛЯНДСКАЯ,ENG;ФИНЛЯНДСКАЯ РЕСПУБЛИКА,ENG;Фінляндія,ENG;פינלנד,ENG;فن,ENG;فنلاند,ENG;فنلندا,ENG;لینڈ,ENG;फ़‍िनलैंड,ENG;ฟินแลนด์,ENG;フィンランド,ENG;芬兰,ENG;芬蘭,ENG
+ o _appclass: root maps country
+ o _excerpt: FINLAND
+ o _docuid: 246
+
+
+Searching for 'finsko':
+Number of hits: 1
+NEXT ADDRESS:
+ o Distance: 3.3
+ o Type: Country
+ o Latitude: 60.1702
+ o Longitude: 24.938
+ o Country: FINLAND,ENG;FIN,ENG;FI,ENG;246,ENG;Cộng hòa Phần Lan,ENG;FI,ENG;FIN,ENG;FINLAND,ENG;FINLANDA,ENG;FINLANDE,ENG;FINLANDIA,ENG;FINLÂNDIA,ENG;FINNLAND,ENG;FINNORSZÁG,ENG;FINSKA,ENG;FINSKO,ENG;FÍNSKO,ENG;FİNLANDİYA,ENG;Phần Lan,ENG;SOMIJA,ENG;SOOME,ENG;SOOME VABARIIK,ENG;Suomi,ENG;Suomija,ENG;Suomijos,ENG;Suomijos Respublika,ENG;ΦΙΝΛΑΝΔΙΑ,ENG;ФИНЛАНДИЯ,ENG;ФИНЛЯНДИЯ,ENG;ФИНЛЯНДСКАЯ,ENG;ФИНЛЯНДСКАЯ РЕСПУБЛИКА,ENG;Фінляндія,ENG;פינלנד,ENG;فن,ENG;فنلاند,ENG;فنلندا,ENG;لینڈ,ENG;फ़‍िनलैंड,ENG;ฟินแลนด์,ENG;フィンランド,ENG;芬兰,ENG;芬蘭,ENG
+ o _appclass: root maps country
+ o _excerpt: FINLAND
+ o _docuid: 246
+
+
+Searching for 'suomi':
+Number of hits: 38
+NEXT ADDRESS:
+ o Distance: 3.3
+ o Type: Country
+ o Latitude: 60.1702
+ o Longitude: 24.938
+ o Country: FINLAND,ENG;FIN,ENG;FI,ENG;246,ENG;Cộng hòa Phần Lan,ENG;FI,ENG;FIN,ENG;FINLAND,ENG;FINLANDA,ENG;FINLANDE,ENG;FINLANDIA,ENG;FINLÂNDIA,ENG;FINNLAND,ENG;FINNORSZÁG,ENG;FINSKA,ENG;FINSKO,ENG;FÍNSKO,ENG;FİNLANDİYA,ENG;Phần Lan,ENG;SOMIJA,ENG;SOOME,ENG;SOOME VABARIIK,ENG;Suomi,ENG;Suomija,ENG;Suomijos,ENG;Suomijos Respublika,ENG;ΦΙΝΛΑΝΔΙΑ,ENG;ФИНЛАНДИЯ,ENG;ФИНЛЯНДИЯ,ENG;ФИНЛЯНДСКАЯ,ENG;ФИНЛЯНДСКАЯ РЕСПУБЛИКА,ENG;Фінляндія,ENG;פינלנד,ENG;فن,ENG;فنلاند,ENG;فنلندا,ENG;لینڈ,ENG;फ़‍िनलैंड,ENG;ฟินแลนด์,ENG;フィンランド,ENG;芬兰,ENG;芬蘭,ENG
+ o _appclass: root maps country
+ o _excerpt: FINLAND
+ o _docuid: 246
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:242:20505102:1000295
+ o _excerpt: Itä-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Itä-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 9
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:242:20499886:1000400
+ o _excerpt: Länsi-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Länsi-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 11
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:241:20505245:1000195
+ o _excerpt: Itä-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Itä-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 9
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:242:20504486:1000584
+ o _excerpt: Etelä-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Etelä-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 11
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:244:20504486:1001284
+ o _excerpt: Etelä-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Etelä-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 11
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:243:20504682:1001218
+ o _excerpt: Länsi-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Länsi-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 11
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:244:20505176:1000094
+ o _excerpt: Itä-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Itä-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 9
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:242:20501589:1000584
+ o _excerpt: Etelä-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Etelä-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 11
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:244:20505245:1000094
+ o _excerpt: Itä-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Itä-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 9
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:242:20504439:1000584
+ o _excerpt: Etelä-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Etelä-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 11
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:244:20505102:1000094
+ o _excerpt: Itä-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Itä-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 9
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:241:20505102:1000195
+ o _excerpt: Itä-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Itä-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 9
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:241:20448122:1003253
+ o _excerpt: Etelä-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Etelä-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 11
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:241:20504532:1000313
+ o _excerpt: Länsi-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Länsi-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 11
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:244:20504439:1001284
+ o _excerpt: Etelä-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Etelä-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 11
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:242:20504389:1000584
+ o _excerpt: Etelä-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Etelä-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 11
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:241:20428851:1000313
+ o _excerpt: Länsi-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Länsi-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 11
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:243:20504637:1001218
+ o _excerpt: Länsi-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Länsi-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 11
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:241:20499886:1000313
+ o _excerpt: Länsi-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Länsi-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 11
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:242:20448122:1000584
+ o _excerpt: Etelä-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Etelä-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 11
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:242:20504682:1000400
+ o _excerpt: Länsi-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Länsi-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 11
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:241:20504682:1000313
+ o _excerpt: Länsi-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Länsi-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 11
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:243:20505245:1001109
+ o _excerpt: Itä-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Itä-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 9
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:244:20504682:1001186
+ o _excerpt: Länsi-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Länsi-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 11
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:241:20501636:1000313
+ o _excerpt: Länsi-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Länsi-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 11
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:241:20504637:1000313
+ o _excerpt: Länsi-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Länsi-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 11
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:242:20422914:1000584
+ o _excerpt: Etelä-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Etelä-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 11
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:244:20504389:1001284
+ o _excerpt: Etelä-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Etelä-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 11
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:241:20504486:1003253
+ o _excerpt: Etelä-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Etelä-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 11
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:242:20428851:1000400
+ o _excerpt: Länsi-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Länsi-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 11
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:241:20504786:1000313
+ o _excerpt: Länsi-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Länsi-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 11
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:242:20499886:1000401
+ o _excerpt: Varsinais-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Länsi-Suomi,FIN
+ o County: Varsinais-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: County
+ o NameLength: 15
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:243:20504682:1001263
+ o _excerpt: Keski-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Länsi-Suomi,FIN
+ o County: Keski-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: County
+ o NameLength: 11
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:241:20499886:1001132
+ o _excerpt: Varsinais-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Länsi-Suomi,FIN
+ o County: Varsinais-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: County
+ o NameLength: 15
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:241:20504682:1002246
+ o _excerpt: Keski-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Länsi-Suomi,FIN
+ o County: Keski-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: County
+ o NameLength: 11
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:242:20504682:1000552
+ o _excerpt: Keski-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Länsi-Suomi,FIN
+ o County: Keski-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: County
+ o NameLength: 11
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:244:20504682:1001187
+ o _excerpt: Keski-Suomi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Länsi-Suomi,FIN
+ o County: Keski-Suomi,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: County
+ o NameLength: 11
+
+
+Searching for 'unkari':
+Number of hits: 1
+NEXT ADDRESS:
+ o Distance: 1457.1
+ o Type: Country
+ o Latitude: 47.4988
+ o Longitude: 19.0403
+ o Country: HUNGARY,ENG;HUN,ENG;HU,ENG;348,ENG;Cộng hòa Hungary,ENG;HONGARIA,ENG;HONGARIJE,ENG;HONGRIE,ENG;HU,ENG;HUN,ENG;HUNGARIA,ENG;HUNGARY,ENG;HUNGRIA,ENG;HUNGRÍA,ENG;MACARİSTAN,ENG;Madžarska,ENG;MAGYARORSZÁG,ENG;MAĎARSKO,ENG;MAĐARSKA,ENG;UNGARI,ENG;UNGARI VABARIIK,ENG;UNGARIA,ENG;UNGARN,ENG;UNGERN,ENG;UNGHERIA,ENG;UNGVERJALAND,ENG;UNGĀRIJA,ENG;Unkari,ENG;Vengrija,ENG;Vengrijos,ENG;Vengrijos Respublika,ENG;WĘGRY,ENG;ΟΥΓΓΑΡΙΑ,ENG;ВЕНГЕРСКАЯ,ENG;ВЕНГЕРСКАЯ РЕСПУБЛИКА,ENG;ВЕНГРИЯ,ENG;Угорщина,ENG;УНГАРИЯ,ENG;הונגריה,ENG;مجارستان,ENG;هنغاريا,ENG;ہنگری,ENG;हंगरी,ENG;ฮังการี,ENG;ハンガリー,ENG;匈牙利,ENG
+ o _appclass: root maps country
+ o _excerpt: HUNGARY
+ o _docuid: 348
+
+
+Searching for 'hungary':
+Number of hits: 1
+NEXT ADDRESS:
+ o Distance: 1457.1
+ o Type: Country
+ o Latitude: 47.4988
+ o Longitude: 19.0403
+ o Country: HUNGARY,ENG;HUN,ENG;HU,ENG;348,ENG;Cộng hòa Hungary,ENG;HONGARIA,ENG;HONGARIJE,ENG;HONGRIE,ENG;HU,ENG;HUN,ENG;HUNGARIA,ENG;HUNGARY,ENG;HUNGRIA,ENG;HUNGRÍA,ENG;MACARİSTAN,ENG;Madžarska,ENG;MAGYARORSZÁG,ENG;MAĎARSKO,ENG;MAĐARSKA,ENG;UNGARI,ENG;UNGARI VABARIIK,ENG;UNGARIA,ENG;UNGARN,ENG;UNGERN,ENG;UNGHERIA,ENG;UNGVERJALAND,ENG;UNGĀRIJA,ENG;Unkari,ENG;Vengrija,ENG;Vengrijos,ENG;Vengrijos Respublika,ENG;WĘGRY,ENG;ΟΥΓΓΑΡΙΑ,ENG;ВЕНГЕРСКАЯ,ENG;ВЕНГЕРСКАЯ РЕСПУБЛИКА,ENG;ВЕНГРИЯ,ENG;Угорщина,ENG;УНГАРИЯ,ENG;הונגריה,ENG;مجارستان,ENG;هنغاريا,ENG;ہنگری,ENG;हंगरी,ENG;ฮังการี,ENG;ハンガリー,ENG;匈牙利,ENG
+ o _appclass: root maps country
+ o _excerpt: HUNGARY
+ o _docuid: 348
+
+
+Searching for 'espoo':
+Number of hits: 3
+NEXT ADDRESS:
+ o Distance: 12.8
+ o _docuid: FIN:242:20422914:1001370
+ o _excerpt: Espoo, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o Township: Espoo,FIN
+ o State: Etelä-Suomi,FIN
+ o County: Uusimaa,FIN;Uudenmaa,DUT;Uudenmaa,GER
+ o Longitude: 24.684664999999995
+ o Latitude: 60.211040000000025
+ o Type: Township
+ o NameLength: 5
+NEXT ADDRESS:
+ o Distance: 14.0
+ o _docuid: FIN:242:20422914:1001378
+ o _excerpt: Espoo, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o Township: Espoo,FIN
+ o State: Etelä-Suomi,FIN
+ o City: Espoo,FIN;Esbo,SWE
+ o County: Uusimaa,FIN;Uudenmaa,DUT;Uudenmaa,GER
+ o Longitude: 24.6562
+ o Latitude: 60.20624
+ o Type: City
+ o NameLength: 5
+NEXT ADDRESS:
+ o Distance: 17.3
+ o _docuid: FIN:242:20422914:2000497
+ o _excerpt: Espoo, Vantaa, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o Other: Espoo,FIN;Esbo,SWE
+ o Township: Vantaa,FIN
+ o State: Etelä-Suomi,FIN
+ o City: Vantaa,FIN;Vanda,SWE
+ o County: Uusimaa,FIN;Uudenmaa,DUT;Uudenmaa,GER
+ o Longitude: 24.64185
+ o Latitude: 60.25163
+ o Type: Other
+ o NameLength: 5
+
+
+Searching for 'kirkkonummi':
+Number of hits: 3
+NEXT ADDRESS:
+ o Distance: 23.5
+ o _docuid: FIN:242:20422914:1001399
+ o _excerpt: Kirkkonummi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o Township: Kirkkonummi,FIN
+ o State: Etelä-Suomi,FIN
+ o County: Uusimaa,FIN;Uudenmaa,DUT;Uudenmaa,GER
+ o Longitude: 24.473950000000002
+ o Latitude: 60.10559999999998
+ o Type: Township
+ o NameLength: 11
+NEXT ADDRESS:
+ o Distance: 24.9
+ o _docuid: FIN:242:20422914:1001407
+ o _excerpt: Kirkkonummi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o Township: Kirkkonummi,FIN
+ o State: Etelä-Suomi,FIN
+ o City: Kirkkonummi,FIN;Kyrkslätt,SWE
+ o County: Uusimaa,FIN;Uudenmaa,DUT;Uudenmaa,GER
+ o Longitude: 24.44165
+ o Latitude: 60.12315
+ o Type: City
+ o NameLength: 11
+NEXT ADDRESS:
+ o Distance: 31.0
+ o _docuid: FIN:242:20422914:2000437
+ o _excerpt: Kirkkonummi, Böle, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o Other: Kirkkonummi,FIN;Kyrkslätt,SWE
+ o Township: Siuntio,FIN
+ o State: Etelä-Suomi,FIN
+ o City: Böle,SWE
+ o County: Uusimaa,FIN;Uudenmaa,DUT;Uudenmaa,GER
+ o Longitude: 24.33219
+ o Latitude: 60.11808
+ o Type: Other
+ o NameLength: 11
+
+
+Searching for 'lammi':
+Number of hits: 6
+NEXT ADDRESS:
+ o Distance: 102.8
+ o _docuid: FIN:242:20448122:1000698
+ o _excerpt: Lammi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o Township: Lammi,FIN
+ o State: Etelä-Suomi,FIN
+ o City: Lammi,FIN
+ o County: Häme,FIN
+ o Longitude: 25.00833
+ o Latitude: 61.07748
+ o Type: City
+ o NameLength: 5
+NEXT ADDRESS:
+ o Distance: 102.8
+ o _docuid: FIN:242:20448122:2000097
+ o _excerpt: Lammi Kirkonkylä, Lieso, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o Other: Lammi Kirkonkylä,FIN
+ o Township: Lammi,FIN
+ o State: Etelä-Suomi,FIN
+ o City: Lieso,FIN
+ o County: Häme,FIN
+ o Longitude: 25.00833
+ o Latitude: 61.07748
+ o Type: Other
+ o NameLength: 16
+NEXT ADDRESS:
+ o Distance: 104.3
+ o _docuid: FIN:242:20448122:1000684
+ o _excerpt: Lammi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o Township: Lammi,FIN
+ o State: Etelä-Suomi,FIN
+ o County: Häme,FIN
+ o Longitude: 25.020129999999995
+ o Latitude: 61.08986500000003
+ o Type: Township
+ o NameLength: 5
+NEXT ADDRESS:
+ o Distance: 107.5
+ o _docuid: FIN:242:20504486:2000097
+ o _excerpt: Lammi Kirkonkylä, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o Other: Lammi Kirkonkylä,FIN
+ o Township: Hämeenkoski,FIN
+ o State: Etelä-Suomi,FIN
+ o County: Päijät-Häme,FIN
+ o Longitude: 25.09972
+ o Latitude: 61.11569
+ o Type: Other
+ o NameLength: 16
+NEXT ADDRESS:
+ o Distance: 348.3
+ o _docuid: FIN:241:20504532:1000776
+ o _excerpt: Lammi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o Township: Kauhava,FIN
+ o State: Länsi-Suomi,FIN
+ o City: Lammi,FIN
+ o County: Etelä-Pohjanmaa,FIN
+ o Longitude: 22.99245
+ o Latitude: 63.1549
+ o Type: City
+ o NameLength: 5
+NEXT ADDRESS:
+ o Distance: 354.5
+ o _docuid: FIN:241:20504532:1000962
+ o _excerpt: Lammi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o District: Lammi,FIN
+ o Township: Lappajärvi,FIN
+ o State: Länsi-Suomi,FIN
+ o County: Etelä-Pohjanmaa,FIN
+ o Longitude: 23.60793
+ o Latitude: 63.2846
+ o Type: District
+ o NameLength: 5
+
+
+Searching for 'lahti':
+Number of hits: 4
+NEXT ADDRESS:
+ o Distance: 100.9
+ o _docuid: FIN:242:20504486:1001224
+ o _excerpt: Lahti, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o Township: Lahti,FIN;Lahtis,SWE
+ o State: Etelä-Suomi,FIN
+ o County: Päijät-Häme,FIN
+ o Longitude: 25.689144999999996
+ o Latitude: 60.972459999999955
+ o Type: Township
+ o NameLength: 5
+NEXT ADDRESS:
+ o Distance: 101.2
+ o _docuid: FIN:242:20504486:2000156
+ o _excerpt: Lahti, Hakosilta, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o Other: Lahti,FIN;Lahtis,SWE
+ o Township: Hollola,FIN
+ o State: Etelä-Suomi,FIN
+ o City: Hakosilta,FIN
+ o County: Päijät-Häme,FIN
+ o Longitude: 25.70094
+ o Latitude: 60.97218
+ o Type: Other
+ o NameLength: 5
+NEXT ADDRESS:
+ o Distance: 101.3
+ o _docuid: FIN:242:20504486:1001231
+ o _excerpt: Lahti, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o Township: Lahti,FIN;Lahtis,SWE
+ o State: Etelä-Suomi,FIN
+ o City: Lahti,FIN;Lahtis,SWE
+ o County: Päijät-Häme,FIN
+ o Longitude: 25.65739
+ o Latitude: 60.98299
+ o Type: City
+ o NameLength: 5
+NEXT ADDRESS:
+ o Distance: 195.0
+ o _docuid: FIN:241:20499886:1001504
+ o _excerpt: Lahti, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o Township: Uusikaupunki,FIN;Nystad,SWE
+ o State: Länsi-Suomi,FIN
+ o City: Lahti,FIN
+ o County: Varsinais-Suomi,FIN
+ o Longitude: 21.5542
+ o Latitude: 60.76707
+ o Type: City
+ o NameLength: 5
+
+
+Searching for 'oulu':
+Number of hits: 8
+NEXT ADDRESS:
+ o Distance: 510.1
+ o _docuid: FIN:243:20505470:1000706
+ o _excerpt: Oulu, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o Township: Oulu,FIN
+ o State: Oulu,FIN
+ o County: Pohjois-Pohjanmaa,FIN
+ o Longitude: 25.49892
+ o Latitude: 64.73320999999999
+ o Type: Township
+ o NameLength: 4
+NEXT ADDRESS:
+ o Distance: 538.3
+ o _docuid: FIN:243:20505470:2000053
+ o _excerpt: Oulu, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o Other: Oulu,FIN
+ o Township: Oulunsalo,FIN
+ o State: Oulu,FIN
+ o County: Pohjois-Pohjanmaa,FIN
+ o Longitude: 25.72082
+ o Latitude: 64.98084
+ o Type: Other
+ o NameLength: 4
+NEXT ADDRESS:
+ o Distance: 540.8
+ o _docuid: FIN:243:20505470:1000710
+ o _excerpt: Oulu, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o Township: Oulu,FIN
+ o State: Oulu,FIN
+ o City: Oulu,FIN
+ o County: Pohjois-Pohjanmaa,FIN
+ o Longitude: 25.4735
+ o Latitude: 65.0103
+ o Type: City
+ o NameLength: 4
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:243:20505470:1000562
+ o _excerpt: Oulu, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Oulu,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 4
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:244:20505431:1000019
+ o _excerpt: Oulu, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Oulu,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 4
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:241:20505470:1000120
+ o _excerpt: Oulu, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Oulu,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 4
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:244:20505470:1000019
+ o _excerpt: Oulu, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Oulu,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 4
+NEXT ADDRESS:
+ o Distance: 7023.4
+ o _docuid: FIN:243:20505431:1000562
+ o _excerpt: Oulu, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o State: Oulu,FIN
+ o Longitude: 0.0
+ o Latitude: 0.0
+ o Type: State
+ o NameLength: 4
+
+
+Searching for 'tampere':
+Number of hits: 3
+NEXT ADDRESS:
+ o Distance: 161.3
+ o _docuid: FIN:241:20428851:1002808
+ o _excerpt: Tampere, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o Township: Tampere,FIN;Tammerfors,SWE
+ o State: Länsi-Suomi,FIN
+ o City: Tampere,FIN;Tammerfors,SWE
+ o County: Pirkanmaa,FIN
+ o Longitude: 23.76226
+ o Latitude: 61.49781
+ o Type: City
+ o NameLength: 7
+NEXT ADDRESS:
+ o Distance: 165.5
+ o _docuid: FIN:241:20428851:2000537
+ o _excerpt: Tampere, Ylöjärvi, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o Other: Tampere,FIN;Tammerfors,SWE
+ o Township: Ylöjärvi,FIN
+ o State: Länsi-Suomi,FIN
+ o City: Ylöjärvi,FIN
+ o County: Pirkanmaa,FIN
+ o Longitude: 23.86628
+ o Latitude: 61.55758
+ o Type: Other
+ o NameLength: 7
+NEXT ADDRESS:
+ o Distance: 174.0
+ o _docuid: FIN:241:20428851:1002793
+ o _excerpt: Tampere, FINLAND
+ o _appclass: root maps city
+ o Country: FINLAND,ENG
+ o Township: Tampere,FIN;Tammerfors,SWE
+ o State: Länsi-Suomi,FIN
+ o County: Pirkanmaa,FIN
+ o Longitude: 23.83038499999998
+ o Latitude: 61.63200499999999
+ o Type: Township
+ o NameLength: 7
+
+
+Searching for 'lehdontie':
+Number of hits: 6
+NEXT ADDRESS:
+ o Distance: 576.4
+ o NameLength: 9
+ o Type: Street
+ o Latitude: 65.04822
+ o Longitude: 28.61748
+ o ZIP: 89660,ENG
+ o County: Kainuu,FIN
+ o State: Oulu,FIN
+ o Township: Suomussalmi,FIN
+ o Other: Takalo,FIN
+ o Country: FINLAND,ENG
+ o Street: Lehdontie,FIN
+ o _appclass: root maps street
+ o _excerpt: Lehdontie, Takalo 89660, FINLAND
+ o _docuid: FIN:243:20505431:2000226;;89660;Lehdontie
+NEXT ADDRESS:
+ o Distance: 659.8
+ o NameLength: 16
+ o Type: Street
+ o Latitude: 65.84109
+ o Longitude: 28.63709
+ o ZIP: 93630,ENG
+ o County: Pohjois-Pohjanmaa,FIN
+ o City: Majava,FIN
+ o State: Oulu,FIN
+ o Township: Kuusamo,FIN
+ o Other: Kuoliovaara,FIN
+ o Country: FINLAND,ENG
+ o Street: Haukka-Lehdontie,FIN
+ o _appclass: root maps street
+ o _excerpt: Haukka-Lehdontie, Kuoliovaara 93630, FINLAND
+ o _docuid: FIN:243:20505470:2000078;;93630;Haukka-Lehdontie
+NEXT ADDRESS:
+ o Distance: 702.0
+ o NameLength: 9
+ o Type: Street
+ o Latitude: 66.10093
+ o Longitude: 29.60439
+ o ZIP: 93920,ENG
+ o County: Pohjois-Pohjanmaa,FIN
+ o State: Oulu,FIN
+ o Township: Kuusamo,FIN
+ o Other: Määttälänvaara,FIN
+ o Country: FINLAND,ENG
+ o Street: Lehdontie,FIN;18888,UND
+ o _appclass: root maps street
+ o _excerpt: Lehdontie, Määttälänvaara 93920, FINLAND
+ o _docuid: FIN:243:20505470:2000215;;93920;Lehdontie
+NEXT ADDRESS:
+ o Distance: 856.9
+ o NameLength: 9
+ o Type: Street
+ o Latitude: 67.85802
+ o Longitude: 25.36259
+ o ZIP: 99250,ENG
+ o County: Lappi,FIN
+ o State: Lappi,FIN
+ o Township: Kittilä,FIN
+ o Other: Kiistala,FIN
+ o Country: FINLAND,ENG
+ o Street: Lehdontie,FIN
+ o _appclass: root maps street
+ o _excerpt: Lehdontie, Kiistala 99250, FINLAND
+ o _docuid: FIN:243:20505342:2000046;;99250;Lehdontie
+NEXT ADDRESS:
+ o Distance: 857.0
+ o NameLength: 9
+ o Type: Street
+ o Latitude: 67.85939
+ o Longitude: 25.35568
+ o ZIP: 99250,ENG
+ o County: Lappi,FIN
+ o City: Kiistala,FIN
+ o State: Lappi,FIN
+ o Township: Kittilä,FIN
+ o Country: FINLAND,ENG
+ o Street: Lehdontie,FIN
+ o _appclass: root maps street
+ o _excerpt: Lehdontie, Kittilä 99250, FINLAND
+ o _docuid: FIN:243:20505342:1000269;FIN:243:20505342:1000276;99250;Lehdontie
+NEXT ADDRESS:
+ o Distance: 865.1
+ o NameLength: 9
+ o Type: Street
+ o Latitude: 67.91698
+ o Longitude: 23.6752
+ o ZIP: 99300,ENG
+ o County: Lappi,FIN
+ o State: Lappi,FIN
+ o Township: Muonio,FIN
+ o Country: FINLAND,ENG
+ o Street: Lehdontie,FIN
+ o _appclass: root maps street
+ o _excerpt: Lehdontie, Muonio 99300, FINLAND
+ o _docuid: FIN:243:20505342:1000359;;99300;Lehdontie
+
+
+Searching for 'sentinoja':
+Number of hits: 1
+NEXT ADDRESS:
+ o Distance: 888.2
+ o NameLength: 9
+ o Type: Street
+ o Latitude: 68.01754
+ o Longitude: 28.14032
+ o ZIP: 99645,ENG
+ o County: Lappi,FIN
+ o State: Lappi,FIN
+ o Township: Sodankylä,FIN
+ o Other: Lokka,FIN
+ o Country: FINLAND,ENG
+ o Street: Sentinoja,FIN
+ o _appclass: root maps street
+ o _excerpt: Sentinoja, Lokka 99645, FINLAND
+ o _docuid: FIN:243:20505342:2000218;;99645;Sentinoja
+
+
+Searching for 'karvosentie':
+Number of hits: 4
+NEXT ADDRESS:
+ o Distance: 651.7
+ o NameLength: 11
+ o Type: Street
+ o Latitude: 65.67646
+ o Longitude: 29.22606
+ o ZIP: 93990,ENG
+ o County: Pohjois-Pohjanmaa,FIN
+ o State: Oulu,FIN
+ o Township: Kuusamo,FIN
+ o Other: Kärpänkylä,FIN
+ o Country: FINLAND,ENG
+ o Street: Karvosentie,FIN
+ o _appclass: root maps street
+ o _excerpt: Karvosentie, Kärpänkylä 93990, FINLAND
+ o _docuid: FIN:243:20505470:2000014;;93990;Karvosentie
+NEXT ADDRESS:
+ o Distance: 667.4
+ o NameLength: 11
+ o Type: Street
+ o Latitude: 65.94416
+ o Longitude: 28.39861
+ o ZIP: 97960,ENG
+ o County: Lappi,FIN
+ o State: Lappi,FIN
+ o Township: Posio,FIN
+ o Other: Kuloharju,FIN
+ o Country: FINLAND,ENG
+ o Street: Karvosentie,FIN
+ o _appclass: root maps street
+ o _excerpt: Karvosentie, Kuloharju 97960, FINLAND
+ o _docuid: FIN:243:20505342:2000207;;97960;Karvosentie
+NEXT ADDRESS:
+ o Distance: 668.7
+ o NameLength: 11
+ o Type: Street
+ o Latitude: 65.95741
+ o Longitude: 28.39022
+ o ZIP: 93630,ENG
+ o County: Pohjois-Pohjanmaa,FIN
+ o City: Majava,FIN
+ o State: Oulu,FIN
+ o Township: Kuusamo,FIN
+ o Other: Kuoliovaara,FIN
+ o Country: FINLAND,ENG
+ o Street: Karvosentie,FIN
+ o _appclass: root maps street
+ o _excerpt: Karvosentie, Kuoliovaara 93630, FINLAND
+ o _docuid: FIN:243:20505470:2000078;;93630;Karvosentie
+NEXT ADDRESS:
+ o Distance: 669.9
+ o NameLength: 11
+ o Type: Street
+ o Latitude: 65.98643
+ o Longitude: 28.2454
+ o ZIP: 97950,ENG
+ o County: Lappi,FIN
+ o State: Lappi,FIN
+ o Township: Posio,FIN
+ o Other: Säikkä,FIN
+ o Country: FINLAND,ENG
+ o Street: Karvosentie,FIN
+ o _appclass: root maps street
+ o _excerpt: Karvosentie, Säikkä 97950, FINLAND
+ o _docuid: FIN:243:20505342:2000092;;97950;Karvosentie
+
+
+Searching for 'kivitie':
+Number of hits: 4
+NEXT ADDRESS:
+ o Distance: 661.0
+ o NameLength: 7
+ o Type: Street
+ o Latitude: 65.89195
+ o Longitude: 28.33828
+ o ZIP: 97965,ENG
+ o County: Lappi,FIN
+ o City: Kynsivaara,FIN
+ o State: Lappi,FIN
+ o Township: Posio,FIN
+ o Country: FINLAND,ENG
+ o Street: Kivitie,FIN
+ o _appclass: root maps street
+ o _excerpt: Kivitie, Kynsilä 97965, FINLAND
+ o _docuid: FIN:243:20505342:2000238;FIN:243:20505342:1000064;97965;Kivitie
+NEXT ADDRESS:
+ o Distance: 810.0
+ o NameLength: 7
+ o Type: Street
+ o Latitude: 67.29527
+ o Longitude: 28.17001
+ o ZIP: 98800,ENG
+ o County: Lappi,FIN
+ o City: Savukoski,FIN
+ o State: Lappi,FIN
+ o Township: Savukoski,FIN
+ o Country: FINLAND,ENG
+ o Street: Kivitie,FIN
+ o _appclass: root maps street
+ o _excerpt: Kivitie, Savukoski 98800, FINLAND
+ o _docuid: FIN:243:20505342:1000348;FIN:243:20505342:1000358;98800;Kivitie
+NEXT ADDRESS:
+ o Distance: 822.6
+ o NameLength: 7
+ o Type: Street
+ o Latitude: 67.54107
+ o Longitude: 23.96085
+ o ZIP: 95900,ENG
+ o County: Lappi,FIN
+ o State: Lappi,FIN
+ o Township: Kolari,FIN
+ o Country: FINLAND,ENG
+ o Street: Kivitie,FIN
+ o _appclass: root maps street
+ o _excerpt: Kivitie, Kolari 95900, FINLAND
+ o _docuid: FIN:243:20505342:1000428;;95900;Kivitie
+NEXT ADDRESS:
+ o Distance: 834.2
+ o NameLength: 7
+ o Type: Street
+ o Latitude: 67.65632
+ o Longitude: 24.90333
+ o ZIP: 99100,ENG
+ o County: Lappi,FIN
+ o City: Kittilä,FIN
+ o State: Lappi,FIN
+ o Township: Kittilä,FIN
+ o Country: FINLAND,ENG
+ o Street: Kivitie,FIN
+ o _appclass: root maps street
+ o _excerpt: Kivitie, Kittilä 99100, FINLAND
+ o _docuid: FIN:243:20505342:1000269;FIN:243:20505342:1000270;99100;Kivitie
+
+
+Searching for 'ludvig filipintie':
+Number of hits: 1
+NEXT ADDRESS:
+ o Distance: 869.5
+ o NameLength: 17
+ o Type: Street
+ o Latitude: 67.95699
+ o Longitude: 23.68006
+ o ZIP: 99300,ENG
+ o County: Lappi,FIN
+ o City: Muonio,FIN
+ o State: Lappi,FIN
+ o Township: Muonio,FIN
+ o Country: FINLAND,ENG
+ o Street: Ludvig Filipintie,FIN
+ o _appclass: root maps street
+ o _excerpt: Ludvig Filipintie, Muonio 99300, FINLAND
+ o _docuid: FIN:243:20505342:1000359;FIN:243:20505342:1000369;99300;Ludvig Filipintie
+
+
+Searching for 'Revontulentie':
+Number of hits: 3
+NEXT ADDRESS:
+ o Distance: 679.7
+ o NameLength: 13
+ o Type: Street
+ o Latitude: 65.95785
+ o Longitude: 29.14974
+ o ZIP: 93600,ENG
+ o County: Pohjois-Pohjanmaa,FIN
+ o City: Kuusamo,FIN
+ o State: Oulu,FIN
+ o Township: Kuusamo,FIN
+ o Country: FINLAND,ENG
+ o Street: Revontulentie,FIN
+ o _appclass: root maps street
+ o _excerpt: Revontulentie, Kuusamo 93600, FINLAND
+ o _docuid: FIN:243:20505470:1000732;FIN:243:20505470:1000733;93600;Revontulentie
+NEXT ADDRESS:
+ o Distance: 759.0
+ o NameLength: 13
+ o Type: Street
+ o Latitude: 66.75983
+ o Longitude: 28.76934
+ o ZIP: 98900,ENG
+ o County: Lappi,FIN
+ o City: Tunturimännikkö,FIN
+ o State: Lappi,FIN
+ o Township: Salla,FIN
+ o Country: FINLAND,ENG
+ o Street: Revontulentie,FIN
+ o _appclass: root maps street
+ o _excerpt: Revontulentie, Salla 98900, FINLAND
+ o _docuid: FIN:243:20505342:1000238;FIN:243:20505342:1000260;98900;Revontulentie
+NEXT ADDRESS:
+ o Distance: 927.0
+ o NameLength: 13
+ o Type: Street
+ o Latitude: 68.42029
+ o Longitude: 27.42553
+ o ZIP: 99830,ENG
+ o County: Lappi,FIN
+ o City: Saariselkä,FIN
+ o State: Lappi,FIN
+ o Township: Inari,FIN
+ o Country: FINLAND,ENG
+ o Street: Revontulentie,FIN
+ o _appclass: root maps street
+ o _excerpt: Revontulentie, Inari 99830, FINLAND
+ o _docuid: FIN:243:20505342:1000302;FIN:243:20505342:1000308;99830;Revontulentie
+
+
+Searching for 'Revontulentie Salla':
+Number of hits: 1
+NEXT ADDRESS:
+ o Distance: 759.0
+ o NameLength: 13
+ o Type: Street
+ o Latitude: 66.75983
+ o Longitude: 28.76934
+ o ZIP: 98900,ENG
+ o County: Lappi,FIN
+ o City: Tunturimännikkö,FIN
+ o State: Lappi,FIN
+ o Township: Salla,FIN
+ o Country: FINLAND,ENG
+ o Street: Revontulentie,FIN
+ o _appclass: root maps street
+ o _excerpt: Revontulentie, Salla 98900, FINLAND
+ o _docuid: FIN:243:20505342:1000238;FIN:243:20505342:1000260;98900;Revontulentie

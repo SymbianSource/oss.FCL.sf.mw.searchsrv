@@ -1,0 +1,8 @@
+#ifndef PLATFORMSYMBIAN32_H_
+#define PLATFORMSYMBIAN32_H_
+
+# define PATH_DELIMITER  _T("\\")
+# define PATH_DELIMITERA "\\"
+# define PATH_DELIMITERC '\\'
+
+#endif /*PLATFORMSYMBIAN32_H_*/

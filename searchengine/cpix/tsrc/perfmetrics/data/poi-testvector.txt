@@ -1,0 +1,105 @@
+# TestVector definition file for perfmetrics.exe
+
+# This testvector is specifically suited for doing ONLY search types
+# of tests on BIG indexes like poi. To be able to run the tests you
+# actually need a one-liner test corpus from which one record is read
+# but is NOT added actually to the index (number of firsts is -1).
+
+# name of the test. If using 'poi', the path
+# data\\indexing\\searched\\perfmetrics\\pois.txt is used instead of
+# HugeTestCorpus as well as POI schema applied to base app class "root
+# maps poi".
+#plain
+poi
+
+# (re-)create index database on start (1: yes, 0: no)
+#1
+0
+
+# RAM Buffer Size (in bytes) 
+32768 
+
+# number of preindexed (or skipped) items
+#  if positive, this many items are read from corpus, indexing
+#  if negative, this many items are read from corpus, discarding
+0
+
+# max input size - this many items are read from the corpus at most
+# (not counting the preindexed items)
+#60000
+#147729
+1
+
+# lump size - measurements are organized into lumps
+#5000
+1
+
+# number of firsts - for each lump, this many items are indexed (while
+# measuring time and memory consumption)
+#10
+-1
+
+
+# number of lasts - for each lump, after indexing the firsts
+# (measuring them), and possibly (usually) indexing more, the last
+# items are also of special interest (they are added, deleted,
+# re-added, updated: all this while taking measurements)
+#10
+0
+
+# searches - for each query term, this many times the search is
+# executed in a loop (can be 0 to switch of search measurements)
+#5
+5
+
+# incremental searches - for each query term, this many times an
+# incremental search is executed in a loop (can be 0 to switch of
+# incremental search measurements)
+#5
+5
+
+# minimal incremental length: the minimal perfix length for each query
+# term to form a wildcard query for incremental search
+# purposes. E.g. if the query term is "character" and the minimal
+# incremental length is 2, then wildcard searches start with "ch*"
+3
+
+# suggestion searches - for each query term, this many times an
+# suggest searches is executed in a loop (can be 0 to switch of
+# suggest search measurements)
+5
+
+# minimal suggestion length: the minimal perfix length for each query
+# term to form a wildcard query for suggestion
+# purposes. E.g. if the query term is "character" and the minimal
+# incremental length is 2, then wildcard searches start with "ch*"
+2
+
+# whether to take snapshot of the index at certain points (copying the
+# physical index to c:\data\perfmetrics\idxs\NNN\... where NNN is the
+# id of the lump at the end of which the snapshot was taken. Values: 0
+# no, 1 yes.
+#0
+0
+
+# whether to add lasts. If "number of lasts" > 0 and "add lasts" == 1
+# (true) then the lasts are added. 0: no, 1: yes
+1
+
+# whether to delete and re-add lasts. If "number of lasts" > 0 and
+# "delete and re-add lasts" == 1 (true) then the lasts are deleted and
+# re-added. 0: no, 1: yes
+1
+
+# whether to update lasts. If "number of lasts" > 0 and "update lasts"
+# == 1 (true) then the lasts are updated. 0: no, 1: yes
+1
+
+# query terms - these terms will be searched for at the end of every
+# lump
+bmp
+xiao
+cheng
+John
+Neilson
+Hilda

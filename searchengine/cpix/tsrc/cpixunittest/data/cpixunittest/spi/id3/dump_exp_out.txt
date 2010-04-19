@@ -1,0 +1,54 @@
+Dumping id3 information from !:\data\cpixunittestcorpus\media\Albert Einstein, E mc 2.mp3
+Frame Id: 10
+Field Id: 1
+Value:Physics
+Frame Id: 20
+Field Id: 1
+Value:E=mc^2
+Frame Id: 38
+Field Id: 1
+Value:1
+Frame Id: 12
+Field Id: 1
+Value:Other
+Frame Id: 34
+Field Id: 1
+Value:Albert Einstein
+Dumping id3 information from !:\data\cpixunittestcorpus\media\One Step For Man.mp3
+Frame Id: 10
+Field Id: 1
+Value:Apollo 11
+Frame Id: 42
+Field Id: 1
+Value:1969
+Frame Id: 38
+Field Id: 1
+Value:2
+Frame Id: 12
+Field Id: 1
+Value:Other
+Frame Id: 20
+Field Id: 1
+Value:One Step for Man
+Frame Id: 34
+Field Id: 1
+Value:Neil Armstrong
+Dumping id3 information from !:\data\cpixunittestcorpus\media\The Eagle Has Landed.mp3
+Frame Id: 12
+Field Id: 1
+Value:Other
+Frame Id: 38
+Field Id: 1
+Value:1
+Frame Id: 10
+Field Id: 1
+Value:Apollo 11
+Frame Id: 42
+Field Id: 1
+Value:1969
+Frame Id: 20
+Field Id: 1
+Value:The Eagle Has Landed
+Frame Id: 34
+Field Id: 1
+Value:Neil Armstrong

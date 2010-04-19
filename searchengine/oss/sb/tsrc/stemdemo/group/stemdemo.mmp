@@ -1,0 +1,92 @@
+/*
+============================================================================
+ Name        : stemdemo.mmp
+ Author      : 
+ 
+ Description : This is the project specification file for stemdemo.
+============================================================================
+*/
+
+/*
+
+Copyright (c) 2001, Dr Martin Porter
+Copyright (c) 2002, Richard Boulton
+All rights reserved.
+
+Redistribution and use in source and binary forms, with 
+or without modification, are permitted provided that the 
+following conditions are met:
+
+*	Redistributions of source code must retain the 
+	above copyright notice, this list of conditions and 
+	the following disclaimer. 
+*	Redistributions in binary form must reproduce 
+	above copyright notice, this list of conditions and
+ 	the following disclaimer in the documentation and/or 
+	other materials provided with the distribution. 
+*	Neither the name of the <ORGANIZATION> nor the 
+	names of its contributors may be used to endorse or 
+	promote products derived from this software without
+	specific rior written permission. 
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND 
+CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR 
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, 
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR 
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS 
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING 
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE 
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH 
+DAMAGE.
+
+*/
+
+TARGET          stemdemo.exe
+TARGETTYPE      exe
+UID             0x100039CE 0x0B743E89
+VENDORID        0
+
+SOURCEPATH      ../data
+START RESOURCE  stemdemo_reg.rss
+#ifdef WINSCW
+TARGETPATH      /private/10003a3f/apps
+#else
+TARGETPATH      /private/10003a3f/import/apps
+#endif
+END //RESOURCE
+
+SOURCEPATH      ../src
+SOURCE          stemdemo.cpp
+
+USERINCLUDE  	../../../../../../searchsrv_plat/cpix_utility_api/inc
+
+USERINCLUDE     ../inc
+USERINCLUDE     ../../../snowball/include
+
+SYSTEMINCLUDE   /epoc32/include
+OS_LAYER_LIBC_SYSTEMINCLUDE
+OS_LAYER_STDCPP_SYSTEMINCLUDE
+SYSTEMINCLUDE   /epoc32/include/stdapis/stlportv5
+OS_LAYER_GLIB_SYSTEMINCLUDE
+
+
+// Using main() as entry point
+STATICLIBRARY   libcrt0.lib
+STATICLIBRARY   libstemmer.lib
+
+// libc and euser are always needed when using main() entry point
+LIBRARY         libc.lib 
+LIBRARY         euser.lib libstdcpp.lib
+LIBRARY           libz.lib
+
+// No capabilities needed by this application
+CAPABILITY      None
+
+OPTION CW -wchar_t on
+
+MACRO _WCHAR_T_DECLARED

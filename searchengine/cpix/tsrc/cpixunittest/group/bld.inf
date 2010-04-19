@@ -1,0 +1,362 @@
+/*
+* Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+PRJ_TESTEXPORTS
+
+//
+// Test Definition Files (For ITK IOCapture testing)
+//
+
+../data/cpixunittest/partsms/simpleidx/addSome_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/simpleidx/addSome_exp_out.txt
+../data/cpixunittest/partsms/simpleidx/search_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/simpleidx/search_exp_out.txt
+../data/cpixunittest/partsms/simpleidx/update_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/simpleidx/update_exp_out.txt
+../data/cpixunittest/partsms/simpleidx/search2_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/simpleidx/search2_exp_out.txt
+../data/cpixunittest/partsms/simpleidx/suggest_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/simpleidx/suggest_exp_out.txt
+../data/cpixunittest/partsms/simpleidx/suggest2_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/simpleidx/suggest2_exp_out.txt
+../data/cpixunittest/partsms/simpleidx/dump1_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/simpleidx/dump1_exp_out.txt
+../data/cpixunittest/partsms/simpleidx/dump2_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/simpleidx/dump2_exp_out.txt
+../data/cpixunittest/partsms/simpleidx/dump3_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/simpleidx/dump3_exp_out.txt
+../data/cpixunittest/partsms/simpleidx/dump4_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/simpleidx/dump4_exp_out.txt
+
+../data/cpixunittest/partsms/parallelidx/addSome1_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/parallelidx/addSome1_exp_out.txt
+../data/cpixunittest/partsms/parallelidx/search1_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/parallelidx/search1_exp_out.txt
+../data/cpixunittest/partsms/parallelidx/addSome2_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/parallelidx/addSome2_exp_out.txt
+../data/cpixunittest/partsms/parallelidx/search2_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/parallelidx/search2_exp_out.txt
+../data/cpixunittest/partsms/parallelidx/addSome3_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/parallelidx/addSome3_exp_out.txt
+../data/cpixunittest/partsms/parallelidx/search3_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/parallelidx/search3_exp_out.txt
+../data/cpixunittest/partsms/parallelidx/addSome4_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/parallelidx/addSome4_exp_out.txt
+../data/cpixunittest/partsms/parallelidx/search4_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/parallelidx/search4_exp_out.txt
+../data/cpixunittest/partsms/parallelidx/update_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/parallelidx/update_exp_out.txt
+../data/cpixunittest/partsms/parallelidx/search5_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/parallelidx/search5_exp_out.txt
+
+../data/cpixunittest/partsms/parmsearcheridx/addSome1_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/parmsearcheridx/addSome1_exp_out.txt
+../data/cpixunittest/partsms/parmsearcheridx/search1_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/parmsearcheridx/search1_exp_out.txt
+../data/cpixunittest/partsms/parmsearcheridx/addSome2_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/parmsearcheridx/addSome2_exp_out.txt
+../data/cpixunittest/partsms/parmsearcheridx/search2_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/parmsearcheridx/search2_exp_out.txt
+../data/cpixunittest/partsms/parmsearcheridx/addSome3_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/parmsearcheridx/addSome3_exp_out.txt
+../data/cpixunittest/partsms/parmsearcheridx/search3_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/parmsearcheridx/search3_exp_out.txt
+../data/cpixunittest/partsms/parmsearcheridx/addSome4_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/parmsearcheridx/addSome4_exp_out.txt
+../data/cpixunittest/partsms/parmsearcheridx/search4_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/parmsearcheridx/search4_exp_out.txt
+../data/cpixunittest/partsms/parmsearcheridx/update_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/parmsearcheridx/update_exp_out.txt
+../data/cpixunittest/partsms/parmsearcheridx/search5_exp_out.txt     /epoc32/winscw/c/Data/cpixunittest/partsms/parmsearcheridx/search5_exp_out.txt
+
+
+../data/cpixunittest/deletion/00_add_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/deletion/00_add_exp_out.txt
+../data/cpixunittest/deletion/01_add_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/deletion/01_add_exp_out.txt
+../data/cpixunittest/deletion/03_add_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/deletion/03_add_exp_out.txt
+../data/cpixunittest/deletion/04_delete_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/deletion/04_delete_exp_out.txt
+../data/cpixunittest/deletion/05_delete_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/deletion/05_delete_exp_out.txt
+../data/cpixunittest/deletion/06_reopen_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/deletion/06_reopen_exp_out.txt
+../data/cpixunittest/deletion/07_add_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/deletion/07_add_exp_out.txt
+../data/cpixunittest/deletion/08_add_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/deletion/08_add_exp_out.txt
+../data/cpixunittest/deletion/09_delete_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/deletion/09_delete_exp_out.txt
+../data/cpixunittest/deletion/10_delete_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/deletion/10_delete_exp_out.txt
+../data/cpixunittest/deletion/11_reopen_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/deletion/11_reopen_exp_out.txt
+
+../data/cpixunittest/destructive/invalidation_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/destructive/invalidation_exp_out.txt
+../data/cpixunittest/destructive/writingWhenHitIterating_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/destructive/writingWhenHitIterating_exp_out.txt
+../data/cpixunittest/destructive/writingWhenHitIterating2_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/destructive/writingWhenHitIterating2_exp_out.txt
+
+../data/cpixunittest/partsms/mixedidx/addSomeSms1_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/partsms/mixedidx/addSomeSms1_exp_out.txt
+../data/cpixunittest/partsms/mixedidx/addSomeFiles1_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/partsms/mixedidx/addSomeFiles1_exp_out.txt
+../data/cpixunittest/partsms/mixedidx/addSomeSms2_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/partsms/mixedidx/addSomeSms2_exp_out.txt
+../data/cpixunittest/partsms/mixedidx/searchSms1_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/partsms/mixedidx/searchSms1_exp_out.txt
+../data/cpixunittest/partsms/mixedidx/searchFiles1_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/partsms/mixedidx/searchFiles1_exp_out.txt
+../data/cpixunittest/partsms/mixedidx/searchSms2_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/partsms/mixedidx/searchSms2_exp_out.txt
+
+../data/cpixunittest/stem/en/adding_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/stem/en/adding_exp_out.txt
+../data/cpixunittest/stem/en/searching_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/stem/en/searching_exp_out.txt
+../data/cpixunittest/stem/en/deleting_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/stem/en/deleting_exp_out.txt
+../data/cpixunittest/stem/en/searching2_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/stem/en/searching2_exp_out.txt
+
+../data/cpixunittest/aggregate/adding_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/aggregate/adding_exp_out.txt
+../data/cpixunittest/aggregate/searchHappening_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/aggregate/searchHappening_exp_out.txt
+../data/cpixunittest/aggregate/searchHappy_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/aggregate/searchHappy_exp_out.txt
+../data/cpixunittest/aggregate/searchImportant_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/aggregate/searchImportant_exp_out.txt
+../data/cpixunittest/aggregate/searchLook_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/aggregate/searchLook_exp_out.txt
+../data/cpixunittest/aggregate/searchChristmas_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/aggregate/searchChristmas_exp_out.txt
+
+../data/cpixunittest/geo/harvestJpg_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/geo/harvestJpg_exp_out.txt
+../data/cpixunittest/geo/searchJpg_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/geo/searchJpg_exp_out.txt
+
+../data/cpixunittest/multivolume/plain/adding_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/multivolume/plain/adding_exp_out.txt
+../data/cpixunittest/multivolume/plain/searchingAll_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/multivolume/plain/searchingAll_exp_out.txt
+../data/cpixunittest/multivolume/dyn/creatingVols_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/multivolume/dyn/creatingVols_exp_out.txt
+../data/cpixunittest/multivolume/dyn/mountingVols_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/multivolume/dyn/mountingVols_exp_out.txt
+../data/cpixunittest/multivolume/dyn/unmountingVols_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/multivolume/dyn/unmountingVols_exp_out.txt
+
+../data/cpixunittest/domain/selection/createIdxs_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/domain/selection/createIdxs_exp_out.txt
+../data/cpixunittest/domain/selection/unmountC_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/domain/selection/unmountC_exp_out.txt
+../data/cpixunittest/domain/selection/unmountD_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/domain/selection/unmountD_exp_out.txt
+../data/cpixunittest/domain/selection/unmountE_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/domain/selection/unmountE_exp_out.txt
+../data/cpixunittest/domain/selection/mountC_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/domain/selection/mountC_exp_out.txt
+../data/cpixunittest/domain/selection/mountD_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/domain/selection/mountD_exp_out.txt
+../data/cpixunittest/domain/selection/mountE_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/domain/selection/mountE_exp_out.txt
+
+../data/cpixunittest/whitebox/unifiedSearchParse_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/unifiedSearchParse_exp_out.txt
+../data/cpixunittest/whitebox/page/addSome_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/page/addSome_exp_out.txt
+../data/cpixunittest/whitebox/page/searchPages_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/page/searchPages_exp_out.txt
+
+// delta logic tests - wrd-*
+../data/cpixunittest/whitebox/delta/wrd-dels_committed/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wrd-dels_committed/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/wrd-dels_committed/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wrd-dels_committed/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/wrd-ibuf_committing/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wrd-ibuf_committing/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/wrd-ibuf_committing/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wrd-ibuf_committing/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/wrd-ibuf_committed/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wrd-ibuf_committed/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/wrd-ibuf_committed/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wrd-ibuf_committed/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/wrd-merging/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wrd-merging/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/wrd-merging/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wrd-merging/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/wrd-merged/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wrd-merged/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/wrd-merged/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wrd-merged/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/wrd-complete/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wrd-complete/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/wrd-complete/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wrd-complete/recoveredStage_exp_out.txt
+
+// delta logic tests - wnn-*
+../data/cpixunittest/whitebox/delta/wnn-dels_committed/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wnn-dels_committed/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/wnn-dels_committed/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wnn-dels_committed/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/wnn-ibuf_committing/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wnn-ibuf_committing/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/wnn-ibuf_committing/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wnn-ibuf_committing/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/wnn-ibuf_committed/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wnn-ibuf_committed/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/wnn-ibuf_committed/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wnn-ibuf_committed/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/wnn-merging/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wnn-merging/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/wnn-merging/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wnn-merging/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/wnn-merged/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wnn-merged/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/wnn-merged/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wnn-merged/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/wnn-complete/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wnn-complete/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/wnn-complete/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wnn-complete/recoveredStage_exp_out.txt
+
+// delta logic tests - nrn-*
+../data/cpixunittest/whitebox/delta/nrn-dels_committed/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nrn-dels_committed/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/nrn-dels_committed/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nrn-dels_committed/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/nrn-ibuf_committing/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nrn-ibuf_committing/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/nrn-ibuf_committing/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nrn-ibuf_committing/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/nrn-ibuf_committed/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nrn-ibuf_committed/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/nrn-ibuf_committed/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nrn-ibuf_committed/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/nrn-merging/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nrn-merging/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/nrn-merging/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nrn-merging/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/nrn-merged/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nrn-merged/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/nrn-merged/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nrn-merged/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/nrn-complete/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nrn-complete/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/nrn-complete/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nrn-complete/recoveredStage_exp_out.txt
+
+// delta logic tests - nrd-*
+../data/cpixunittest/whitebox/delta/nrd-dels_committed/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nrd-dels_committed/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/nrd-dels_committed/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nrd-dels_committed/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/nrd-ibuf_committing/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nrd-ibuf_committing/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/nrd-ibuf_committing/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nrd-ibuf_committing/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/nrd-ibuf_committed/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nrd-ibuf_committed/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/nrd-ibuf_committed/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nrd-ibuf_committed/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/nrd-merging/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nrd-merging/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/nrd-merging/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nrd-merging/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/nrd-merged/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nrd-merged/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/nrd-merged/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nrd-merged/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/nrd-complete/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nrd-complete/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/nrd-complete/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nrd-complete/recoveredStage_exp_out.txt
+
+// delta logic tests - nnn-*
+../data/cpixunittest/whitebox/delta/nnn-dels_committed/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nnn-dels_committed/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/nnn-dels_committed/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nnn-dels_committed/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/nnn-ibuf_committing/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nnn-ibuf_committing/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/nnn-ibuf_committing/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nnn-ibuf_committing/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/nnn-ibuf_committed/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nnn-ibuf_committed/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/nnn-ibuf_committed/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nnn-ibuf_committed/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/nnn-merging/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nnn-merging/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/nnn-merging/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nnn-merging/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/nnn-merged/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nnn-merged/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/nnn-merged/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nnn-merged/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/nnn-complete/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nnn-complete/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/nnn-complete/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/nnn-complete/recoveredStage_exp_out.txt
+
+// delta logic tests - wrn-*
+../data/cpixunittest/whitebox/delta/wrn-dels_committed/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wrn-dels_committed/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/wrn-dels_committed/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wrn-dels_committed/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/wrn-ibuf_committing/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wrn-ibuf_committing/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/wrn-ibuf_committing/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wrn-ibuf_committing/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/wrn-ibuf_committed/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wrn-ibuf_committed/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/wrn-ibuf_committed/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wrn-ibuf_committed/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/wrn-merging/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wrn-merging/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/wrn-merging/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wrn-merging/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/wrn-merged/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wrn-merged/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/wrn-merged/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wrn-merged/recoveredStage_exp_out.txt
+
+../data/cpixunittest/whitebox/delta/wrn-complete/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wrn-complete/startStage_exp_out.txt
+../data/cpixunittest/whitebox/delta/wrn-complete/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wrn-complete/recoveredStage_exp_out.txt
+
+
+
+../data/cpixunittest/analysis/parsing_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/analysis/parsing_exp_out.txt
+../data/cpixunittest/analysis/switchParsing_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/analysis/switchParsing_exp_out.txt
+../data/cpixunittest/analysis/usage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/analysis/usage_exp_out.txt
+../data/cpixunittest/analysis/whitebox/analyzer_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/analysis/whitebox/analyzer_exp_out.txt
+../data/cpixunittest/analysis/whitebox/parsing_exp_out.txt 		/epoc32/winscw/c/Data/cpixunittest/analysis/whitebox/parsing_exp_out.txt
+../data/cpixunittest/analysis/whitebox/parsing2_exp_out.txt 		/epoc32/winscw/c/Data/cpixunittest/analysis/whitebox/parsing2_exp_out.txt
+../data/cpixunittest/analysis/whitebox/parsingerrors_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/analysis/whitebox/parsingerrors_exp_out.txt
+../data/cpixunittest/analysis/whitebox/switchAnalyzer_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/analysis/whitebox/switchAnalyzer_exp_out.txt
+../data/cpixunittest/analysis/whitebox/tokenization_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/analysis/whitebox/tokenization_exp_out.txt
+
+../data/cpixunittest/utf8/utf8_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/utf8/utf8_exp_out.txt
+
+../data/cpixunittest/maps/searchMaps_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/maps/searchMaps_exp_out.txt
+
+../data/cpixunittest/spi/exif/dump_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/spi/exif/dump_exp_out.txt
+../data/cpixunittest/spi/exif/extract_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/spi/exif/extract_exp_out.txt
+../data/cpixunittest/spi/id3/dump_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/spi/id3/dump_exp_out.txt
+../data/cpixunittest/spi/id3/extract_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/spi/id3/extract_exp_out.txt
+
+../data/cpixunittest/flush/emptyIndex_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/flush/emptyIndex_exp_out.txt
+../data/cpixunittest/flush/addingBy512B_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/flush/addingBy512B_exp_out.txt
+../data/cpixunittest/flush/addingBy10KB_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/flush/addingBy10KB_exp_out.txt
+../data/cpixunittest/flush/flushing_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/flush/flushing_exp_out.txt
+
+../data/cpixunittest/heartbeat/00_createFileIdxDb_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/heartbeat/00_createFileIdxDb_exp_out.txt
+../data/cpixunittest/heartbeat/01_createSmsIdxDb_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/heartbeat/01_createSmsIdxDb_exp_out.txt
+../data/cpixunittest/heartbeat/02_addSomeSms_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/heartbeat/02_addSomeSms_exp_out.txt
+../data/cpixunittest/heartbeat/03_idle_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/heartbeat/03_idle_exp_out.txt
+../data/cpixunittest/heartbeat/04_idle_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/heartbeat/04_idle_exp_out.txt
+../data/cpixunittest/heartbeat/05_idle_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/heartbeat/05_idle_exp_out.txt
+../data/cpixunittest/heartbeat/06_useMultiSearcher_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/heartbeat/06_useMultiSearcher_exp_out.txt
+../data/cpixunittest/heartbeat/07_addSomeFile_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/heartbeat/07_addSomeFile_exp_out.txt
+../data/cpixunittest/heartbeat/08_idle_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/heartbeat/08_idle_exp_out.txt
+../data/cpixunittest/heartbeat/09_idle_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/heartbeat/09_idle_exp_out.txt
+../data/cpixunittest/heartbeat/10_idle_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/heartbeat/10_idle_exp_out.txt
+../data/cpixunittest/heartbeat/11_useMultiSearcher_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/heartbeat/11_useMultiSearcher_exp_out.txt
+../data/cpixunittest/heartbeat/12_releaseAll_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/heartbeat/12_releaseAll_exp_out.txt
+../data/cpixunittest/heartbeat/13_idle_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/heartbeat/13_idle_exp_out.txt
+
+../data/cpixunittest/terms/allterms_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/terms/allterms_exp_out.txt
+../data/cpixunittest/terms/mp3terms_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/terms/mp3terms_exp_out.txt
+../data/cpixunittest/terms/textterms_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/terms/textterms_exp_out.txt
+
+../data/cpixunittest/async/si_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/async/si_exp_out.txt
+../data/cpixunittest/async/sq_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/async/sq_exp_out.txt
+// this is not a test case (it is not *_exp_out.txt), only a place
+// holder for the output that is only produced but not tested
+../data/cpixunittest/async/mt_res_out.txt /epoc32/winscw/c/Data/cpixunittest/async/mt_res_out.txt
+
+
+../data/cpixunittest/prematureqry/beforeContentDefs_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/prematureqry/beforeContentDefs_exp_out.txt
+../data/cpixunittest/prematureqry/beforeVolDefs_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/prematureqry/beforeVolDefs_exp_out.txt
+../data/cpixunittest/prematureqry/ready_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/prematureqry/ready_exp_out.txt
+
+
+../data/cpixunittest/utf8path/createUtf8PathFiles_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/utf8path/createUtf8PathFiles_exp_out.txt
+../data/cpixunittest/utf8path/harvest_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/utf8path/harvest_exp_out.txt
+../data/cpixunittest/utf8path/search_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/utf8path/search_exp_out.txt
+
+
+// 
+// Corpus files
+//
+
+"../data/cpixunittestcorpus/jpgs/08012009047.jpg"                     "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/08012009047.jpg"
+"../data/cpixunittestcorpus/jpgs/08012009048.jpg"                     "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/08012009048.jpg"
+"../data/cpixunittestcorpus/jpgs/asema.jpg"                           "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/asema.jpg"
+"../data/cpixunittestcorpus/jpgs/Babai.jpg"                           "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/Babai.jpg"
+"../data/cpixunittestcorpus/jpgs/Budapest.jpg"                        "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/Budapest.jpg"
+"../data/cpixunittestcorpus/jpgs/Calcutta.jpg"                        "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/Calcutta.jpg"
+"../data/cpixunittestcorpus/jpgs/Debrecen.jpg"                        "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/Debrecen.jpg"
+"../data/cpixunittestcorpus/jpgs/Dergachi.jpg"                        "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/Dergachi.jpg"
+"../data/cpixunittestcorpus/jpgs/Dnipropetrovsk.jpg"                  "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/Dnipropetrovsk.jpg"
+"../data/cpixunittestcorpus/jpgs/fake_Thumbs.db"                      "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/fake_Thumbs.db"
+"../data/cpixunittestcorpus/jpgs/futurice.jpg"                        "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/futurice.jpg"
+"../data/cpixunittestcorpus/jpgs/hietaniemi.jpg"                      "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/hietaniemi.jpg"
+"../data/cpixunittestcorpus/jpgs/Kharkiv.jpg"                         "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/Kharkiv.jpg"
+"../data/cpixunittestcorpus/jpgs/Kyiv.jpg"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/Kyiv.jpg"
+"../data/cpixunittestcorpus/jpgs/Lagos.jpg"                           "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/Lagos.jpg"
+"../data/cpixunittestcorpus/jpgs/Lahti.jpg"                           "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/Lahti.jpg"
+"../data/cpixunittestcorpus/jpgs/Lammi.jpg"                           "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/Lammi.jpg"
+"../data/cpixunittestcorpus/jpgs/Leicester.jpg"                       "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/Leicester.jpg"
+"../data/cpixunittestcorpus/jpgs/leicestersquare.jpg"                 "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/leicestersquare.jpg"
+"../data/cpixunittestcorpus/jpgs/Liverpool.jpg"                       "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/Liverpool.jpg"
+"../data/cpixunittestcorpus/jpgs/Lviv.jpg"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/Lviv.jpg"
+"../data/cpixunittestcorpus/jpgs/Manchester.jpg"                      "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/Manchester.jpg"
+"../data/cpixunittestcorpus/jpgs/Merefa.jpg"                          "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/Merefa.jpg"
+"../data/cpixunittestcorpus/jpgs/Mexico.jpg"                          "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/Mexico.jpg"
+"../data/cpixunittestcorpus/jpgs/Mumbai.jpg"                          "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/Mumbai.jpg"
+"../data/cpixunittestcorpus/jpgs/Naantali.jpg"                        "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/Naantali.jpg"
+"../data/cpixunittestcorpus/jpgs/New_York.jpg"                        "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/New_York.jpg"
+"../data/cpixunittestcorpus/jpgs/nokiahouse.jpg"                      "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/nokiahouse.jpg"
+"../data/cpixunittestcorpus/jpgs/northhaaga.jpg"                      "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/northhaaga.jpg"
+"../data/cpixunittestcorpus/jpgs/nrc.jpg"                             "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/nrc.jpg"
+"../data/cpixunittestcorpus/jpgs/otaniemi.jpg"                        "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/otaniemi.jpg"
+"../data/cpixunittestcorpus/jpgs/Pecz.jpg"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/Pecz.jpg"
+"../data/cpixunittestcorpus/jpgs/Sao_Paolo.jpg"                       "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/Sao_Paolo.jpg"
+"../data/cpixunittestcorpus/jpgs/Shanghai.jpg"                        "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/Shanghai.jpg"
+"../data/cpixunittestcorpus/jpgs/southhaaga.jpg"                      "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/southhaaga.jpg"
+"../data/cpixunittestcorpus/jpgs/Szeged.jpg"                          "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/Szeged.jpg"
+"../data/cpixunittestcorpus/jpgs/tallinnharbour.jpg"                  "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/tallinnharbour.jpg"
+"../data/cpixunittestcorpus/jpgs/Tokyo.jpg"                           "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/Tokyo.jpg"
+"../data/cpixunittestcorpus/jpgs/Turku.jpg"                           "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/Turku.jpg"
+"../data/cpixunittestcorpus/jpgs/verkkokauppa.jpg"                    "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/verkkokauppa.jpg"
+"../data/cpixunittestcorpus/jpgs/viruhotel.jpg"                       "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/viruhotel.jpg"
+"../data/cpixunittestcorpus/jpgs/Zanki.jpg"                           "/epoc32/winscw/c/Data/cpixunittestcorpus/jpgs/Zanki.jpg"
+
+"../data/cpixunittestcorpus/maps/root/maps/city/fin/_0/segments"         "/epoc32/winscw/c/Data/cpixunittestcorpus/maps/root/maps/city/fin/_0/segments"
+"../data/cpixunittestcorpus/maps/root/maps/city/fin/_0/_96s.cfs"         "/epoc32/winscw/c/Data/cpixunittestcorpus/maps/root/maps/city/fin/_0/_96s.cfs"
+"../data/cpixunittestcorpus/maps/root/maps/country/_0/segments"          "/epoc32/winscw/c/Data/cpixunittestcorpus/maps/root/maps/country/_0/segments"
+"../data/cpixunittestcorpus/maps/root/maps/country/_0/_6s.cfs"           "/epoc32/winscw/c/Data/cpixunittestcorpus/maps/root/maps/country/_0/_6s.cfs"
+"../data/cpixunittestcorpus/maps/root/maps/street/fin/_0/segments"       "/epoc32/winscw/c/Data/cpixunittestcorpus/maps/root/maps/street/fin/_0/segments"
+"../data/cpixunittestcorpus/maps/root/maps/street/fin/_0/_3uw.cfs"       "/epoc32/winscw/c/Data/cpixunittestcorpus/maps/root/maps/street/fin/_0/_3uw.cfs"
+
+"../data/cpixunittestcorpus/media/Albert Einstein, E mc 2.mp3"        "/epoc32/winscw/c/Data/cpixunittestcorpus/media/Albert Einstein, E mc 2.mp3"
+"../data/cpixunittestcorpus/media/One Step For Man.mp3"               "/epoc32/winscw/c/Data/cpixunittestcorpus/media/One Step For Man.mp3"
+"../data/cpixunittestcorpus/media/The Eagle Has Landed.mp3"           "/epoc32/winscw/c/Data/cpixunittestcorpus/media/The Eagle Has Landed.mp3"
+
+"../data/cpixunittestcorpus/sms/SMS_corpus.txt"                       "/epoc32/winscw/c/Data/cpixunittestcorpus/sms/SMS_corpus.txt"
+
+"../data/cpixunittestcorpus/stem/en/1.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/stem/en/1.txt"
+"../data/cpixunittestcorpus/stem/en/2.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/stem/en/2.txt"
+"../data/cpixunittestcorpus/stem/en/3.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/stem/en/3.txt"
+"../data/cpixunittestcorpus/stem/en/4.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/stem/en/4.txt"
+"../data/cpixunittestcorpus/stem/en/longline.txt"					  "/epoc32/winscw/c/Data/cpixunittestcorpus/stem/en/longline.txt"
+"../data/cpixunittestcorpus/stem/fi/1.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/stem/fi/1.txt"
+"../data/cpixunittestcorpus/stem/fi/2.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/stem/fi/2.txt"
+"../data/cpixunittestcorpus/stem/fi/3.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/stem/fi/3.txt"
+"../data/cpixunittestcorpus/stem/fi/4.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/stem/fi/4.txt"
+
+
+
+PRJ_TESTMMPFILES
+cpixunittest.mmp

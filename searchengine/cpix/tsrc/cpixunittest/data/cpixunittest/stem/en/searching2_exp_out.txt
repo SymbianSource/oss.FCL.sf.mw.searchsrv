@@ -1,0 +1,2 @@
+Number of hits: 1
+DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh happiness!

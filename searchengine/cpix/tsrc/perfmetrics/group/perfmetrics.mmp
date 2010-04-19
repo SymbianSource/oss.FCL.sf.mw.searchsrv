@@ -1,0 +1,85 @@
+/*
+* Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: This is the project specification file for perfmetrics
+*
+*/
+
+OPTION CW -wchar_t on
+MACRO _WCHAR_T_DECLARED
+
+TARGET          perfmetrics.exe
+TARGETTYPE      exe
+UID             0x100039CE 0xE3659B5C
+VENDORID        0
+EPOCSTACKSIZE   0x10000
+// Needs heap size to process large test data volume
+EPOCHEAPSIZE    0x50000 0x4000000 
+
+SOURCEPATH      ../data
+START RESOURCE  perfmetrics_reg.rss
+#ifdef WINSCW
+TARGETPATH      /private/10003a3f/apps
+#else
+TARGETPATH      /private/10003a3f/import/apps
+#endif
+END //RESOURCE
+
+SOURCEPATH      ../src
+SOURCE          perfmetrics.cpp
+SOURCE          corpus.cpp
+SOURCE          corpustester.cpp
+SOURCE          idxutil.cpp
+SOURCE          testvector.cpp
+
+USERINCLUDE     ../../../../../searchsrv_plat/cpix_utility_api/inc
+USERINCLUDE     ../inc
+USERINCLUDE     ../../../cpix/inc/public
+USERINCLUDE     ../../../../util/tsrc/itk/inc/public
+USERINCLUDE     ../../../../util/cpixtools/inc/public
+
+MW_LAYER_SYSTEMINCLUDE
+OS_LAYER_LIBC_SYSTEMINCLUDE
+OS_LAYER_STDCPP_SYSTEMINCLUDE
+OS_LAYER_GLIB_SYSTEMINCLUDE
+
+// Using main() as entry point
+STATICLIBRARY   libcrt0.lib
+STATICLIBRARY   libcpix.lib
+STATICLIBRARY   libclucene.lib
+STATICLIBRARY   libstemmer.lib
+STATICLIBRARY   libitk.lib
+STATICLIBRARY   libcpixtools.lib
+
+// For SPI 
+LIBRARY   efsrv.lib
+LIBRARY   exiflib.lib
+LIBRARY   MetaDataUtility.lib
+LIBRARY   charconv.lib
+
+// libc and euser are always needed when using main() entry point
+LIBRARY           libc.lib
+LIBRARY           libglib.lib
+LIBRARY           libstdcpp.lib
+LIBRARY           libm.lib
+LIBRARY           euser.lib
+LIBRARY  		  libpthread.lib
+LIBRARY           libz.lib
+
+
+// No capabilities needed by this application
+CAPABILITY      ReadUserData WriteUserData AllFiles
+
+#ifdef ENABLE_ABIV2_MODE
+DEBUGGABLE_UDEBONLY
+#endif

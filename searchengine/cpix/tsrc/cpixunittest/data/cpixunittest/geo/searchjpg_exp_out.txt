@@ -1,0 +1,93 @@
+Number of hits: 9
+DOCUMENT:
+ o Distance: 0.0
+ o QNR: DCADACADDABBCCBC DCADACADDABBCCB DCADACADDABBCC DCADACADDABBC DCADACADDABB DCADACADDAB DCADACADDA DCADACADD DCADACAD DCADACA DCADAC DCADA DCAD DCA DC D
+ o DateTimeOriginal: 2009:01:28 13:51:25
+ o Longitude: 24.8867230161
+ o Latitude: 60.1543275514
+ o _appclass: root file media jpg
+ o _mimetype: image/jpg
+ o _excerpt: futurice.jpg
+ o _docuid: !:\data\cpixunittestcorpus\jpgs\futurice.jpg
+DOCUMENT:
+ o Distance: 0.6
+ o QNR: DCADACADDABBCCDD DCADACADDABBCCD DCADACADDABBCC DCADACADDABBC DCADACADDABB DCADACADDAB DCADACADDA DCADACADD DCADACAD DCADACA DCADAC DCADA DCAD DCA DC D
+ o DateTimeOriginal: 2009:01:08 12:20:57
+ o Comment: kellari lauttasaari futurice harbor
+ o Longitude: 24.8902999999
+ o Latitude: 60.1598027777
+ o _appclass: root file media jpg
+ o _mimetype: image/jpg
+ o _excerpt: 08012009048.jpg
+ o _docuid: !:\data\cpixunittestcorpus\jpgs\08012009048.jpg
+DOCUMENT:
+ o Distance: 0.6
+ o QNR: DCADACADDABBCCDD DCADACADDABBCCD DCADACADDABBCC DCADACADDABBC DCADACADDABB DCADACADDAB DCADACADDA DCADACADD DCADACAD DCADACA DCADAC DCADA DCAD DCA DC D
+ o DateTimeOriginal: 2009:01:08 12:20:39
+ o Comment: kellari lauttasaari futurice ruoholahti sea
+ o Longitude: 24.8902999999
+ o Latitude: 60.1598027777
+ o _appclass: root file media jpg
+ o _mimetype: image/jpg
+ o _excerpt: 08012009047.jpg
+ o _docuid: !:\data\cpixunittestcorpus\jpgs\08012009047.jpg
+DOCUMENT:
+ o Distance: 1.5
+ o QNR: DCADACADDABDABBA DCADACADDABDABB DCADACADDABDAB DCADACADDABDA DCADACADDABD DCADACADDAB DCADACADDA DCADACADD DCADACAD DCADACA DCADAC DCADA DCAD DCA DC D
+ o DateTimeOriginal: 2009:01:28 13:51:46
+ o Longitude: 24.9088407343
+ o Latitude: 60.1634653914
+ o _appclass: root file media jpg
+ o _mimetype: image/jpg
+ o _excerpt: verkkokauppa.jpg
+ o _docuid: !:\data\cpixunittestcorpus\jpgs\verkkokauppa.jpg
+DOCUMENT:
+ o Distance: 1.9
+ o QNR: DCADACADDABDABBD DCADACADDABDABB DCADACADDABDAB DCADACADDABDA DCADACADDABD DCADACADDAB DCADACADDA DCADACADD DCADACAD DCADACA DCADAC DCADA DCAD DCA DC D
+ o DateTimeOriginal: 2009:01:28 13:51:19
+ o Longitude: 24.9162191060
+ o Latitude: 60.1639720419
+ o _appclass: root file media jpg
+ o _mimetype: image/jpg
+ o _excerpt: nrc.jpg
+ o _docuid: !:\data\cpixunittestcorpus\jpgs\nrc.jpg
+DOCUMENT:
+ o Distance: 2.4
+ o QNR: DCADACADDABDADBA DCADACADDABDADB DCADACADDABDAD DCADACADDABDA DCADACADDABD DCADACADDAB DCADACADDA DCADACADD DCADACAD DCADACA DCADAC DCADA DCAD DCA DC D
+ o DateTimeOriginal: 2009:01:28 13:51:12
+ o Longitude: 24.9070631802
+ o Latitude: 60.1741509235
+ o _appclass: root file media jpg
+ o _mimetype: image/jpg
+ o _excerpt: hietaniemi.jpg
+ o _docuid: !:\data\cpixunittestcorpus\jpgs\hietaniemi.jpg
+DOCUMENT:
+ o Distance: 3.5
+ o QNR: DCADACADDABDBBCC DCADACADDABDBBC DCADACADDABDBB DCADACADDABDB DCADACADDABD DCADACADDAB DCADACADDA DCADACADD DCADACAD DCADACA DCADAC DCADA DCAD DCA DC D
+ o DateTimeOriginal: 2009:01:28 13:51:35
+ o Longitude: 24.9414186387
+ o Latitude: 60.1708615792
+ o _appclass: root file media jpg
+ o _mimetype: image/jpg
+ o _excerpt: asema.jpg
+ o _docuid: !:\data\cpixunittestcorpus\jpgs\asema.jpg
+DOCUMENT:
+ o Distance: 3.7
+ o QNR: DCADACADDABCABDD DCADACADDABCABD DCADACADDABCAB DCADACADDABCA DCADACADDABC DCADACADDAB DCADACADDA DCADACADD DCADACAD DCADACA DCADAC DCADA DCAD DCA DC D
+ o DateTimeOriginal: 2009:01:28 13:51:04
+ o Longitude: 24.8284701365
+ o Latitude: 60.1705486771
+ o _appclass: root file media jpg
+ o _mimetype: image/jpg
+ o _excerpt: nokiahouse.jpg
+ o _docuid: !:\data\cpixunittestcorpus\jpgs\nokiahouse.jpg
+DOCUMENT:
+ o Distance: 5.1
+ o QNR: DCADACADDABCCBBC DCADACADDABCCBB DCADACADDABCCB DCADACADDABCC DCADACADDABC DCADACADDAB DCADACADDA DCADACADD DCADACAD DCADACA DCADAC DCADA DCAD DCA DC D
+ o DateTimeOriginal: 2009:01:28 13:50:57
+ o Longitude: 24.8214801348
+ o Latitude: 60.1868864435
+ o _appclass: root file media jpg
+ o _mimetype: image/jpg
+ o _excerpt: otaniemi.jpg
+ o _docuid: !:\data\cpixunittestcorpus\jpgs\otaniemi.jpg

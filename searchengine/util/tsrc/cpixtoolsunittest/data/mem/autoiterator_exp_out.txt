@@ -1,0 +1,4 @@
+Animal: ape
+Animal: snake
+Animal: bird
+Iterator down.

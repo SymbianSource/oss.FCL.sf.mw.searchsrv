@@ -1,0 +1,54 @@
+/*
+* Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: This is the project specification file for itk,
+*               The "Integration Test Kit" (static) library.
+*
+*/
+
+
+OPTION CW -wchar_t on
+MACRO _WCHAR_T_DECLARED
+
+TARGET            libitk.lib
+TARGETTYPE        lib
+
+
+SOURCEPATH        ../src
+SOURCE            itk.cpp
+SOURCE            itkimpl.cpp
+SOURCE            testevent.cpp
+SOURCE            testexc.cpp
+SOURCE            itkobservers.cpp
+SOURCE            itktesters.cpp
+SOURCE            itktestmgr.cpp itkperf.cpp
+
+USERINCLUDE       ../inc/public
+USERINCLUDE       ../inc/private
+USERINCLUDE       ../../../cpixtools/inc/public
+
+SYSTEMINCLUDE     /epoc32/include
+OS_LAYER_LIBC_SYSTEMINCLUDE
+OS_LAYER_STDCPP_SYSTEMINCLUDE
+SYSTEMINCLUDE     /epoc32/include/stdapis/stlportv5
+OS_LAYER_GLIB_SYSTEMINCLUDE
+
+// libc and euser are always needed when using main() entry point
+LIBRARY           libc.lib
+LIBRARY           libglib.lib
+LIBRARY           libstdcpp.lib
+LIBRARY           libm.lib
+LIBRARY           euser.lib
+
+// No capabilities needed by this application
+CAPABILITY        None

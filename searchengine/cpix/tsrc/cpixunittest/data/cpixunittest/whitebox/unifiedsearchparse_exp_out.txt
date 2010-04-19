@@ -1,0 +1,48 @@
+Whitebox testing parsing of unified search syntax
+
+Trying to parse $foo:
+	o qry type id: foo
+	o qry arguments: 
+	o inner qry: ''
+Trying to parse $bar<1.2,'blabla',3>:
+	o qry type id: bar
+	o qry arguments: 1.2 'blabla' 3 
+	o inner qry: ''
+Trying to parse  $ bar < 1.2 , 'blabla' , 3 > :
+	o qry type id: bar
+	o qry arguments: 1.2 'blabla' 3 
+	o inner qry: ''
+Trying to parse $barf(inner query):
+	o qry type id: barf
+	o qry arguments: 
+	o inner qry: 'inner query'
+Trying to parse  $ barf ( inner query ) :
+	o qry type id: barf
+	o qry arguments: 
+	o inner qry: ' inner query '
+Trying to parse $barfology<'bloblo',3.1415>(inner query):
+	o qry type id: barfology
+	o qry arguments: 'bloblo' 3.1415 
+	o inner qry: 'inner query'
+Trying to parse  $ barfology < 'bloblo' , 3.1415 > ( inner query ) :
+	o qry type id: barfology
+	o qry arguments: 'bloblo' 3.1415 
+	o inner qry: ' inner query '
+Trying to parse some query:
+	o qry type id: plain
+	o qry arguments: 
+	o inner qry: 'some query'
+Trying to parse *:
+	o qry type id: dump
+	o qry arguments: 
+	o inner qry: '*'
+Trying to parse * AND some more criteria:
+	o qry type id: dump
+	o qry arguments: 
+	o inner qry: '* AND some more criteria'
+Trying to parse $barf<1.23(blo):
+Failed to parse: Parse error - bad syntax '$barf<1.23(blo)'
+Trying to parse $farb<1.23>(blo:
+Failed to parse: Parse error - unbalanced parenthesis '$farb<1.23>(blo'
+Trying to parse $farb<1.23>(blo ) oops more data:
+Failed to parse: Parse error - unbalanced parenthesis '$farb<1.23>(blo ) oops more data'

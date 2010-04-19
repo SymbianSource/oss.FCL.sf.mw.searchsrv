@@ -1,0 +1,11 @@
+Harvesting files with utf8 paths and content
+
+Indexed file: !:\Data\cpixunittest\_txt\russian 2\Русский язык.txt
+
+Indexed file: !:\Data\cpixunittest\_txt\japanese 4\日本語.txt
+
+Indexed file: !:\Data\cpixunittest\_txt\finnish 5\äÄöÖ.txt
+
+Indexed file: !:\Data\cpixunittest\_txt\english 1\great ideas.txt
+
+Indexed file: !:\Data\cpixunittest\_txt\chinese 3\中文.txt

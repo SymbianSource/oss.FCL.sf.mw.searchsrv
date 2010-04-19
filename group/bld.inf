@@ -1,0 +1,40 @@
+/*
+* Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies). 
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  Build information file
+*
+*/
+
+
+#include <platform_paths.hrh>
+
+//searchsrv_plat platform APIs
+#include "../searchsrv_plat/group/bld.inf"
+
+#include "../searchengine/group/bld.inf"
+#include "../searcher/group/bld.inf"
+#include "../harvester/group/bld.inf"
+#include "../WatchDog/group/bld.inf"
+#include "../tsrc/CPixMWTester/group/bld.inf"
+
+PRJ_PLATFORMS
+    DEFAULT
+
+PRJ_EXPORTS
+../rom/CPix_mw.iby	CORE_MW_LAYER_IBY_EXPORT_PATH(CPix_mw.iby)
+
+PRJ_TESTMMPFILES
+
+PRJ_TESTEXPORTS
+//To DO
+//../rom/ids_testers.iby	CORE_MW_LAYER_IBY_EXPORT_PATH(ids_testers.iby)

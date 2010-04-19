@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api id="9d1a01ec317dc995ea9eb62c5ebc84b3" dataversion="2.0">
+  <name>cpix_framework_api</name>
+  <description>These APIs provide search and harvesting functionality to S60 applications.</description>
+  <type>c++</type>
+  <collection>searcher</collection>
+  <libs>
+    <lib name="CPixSearchClient.lib"/>
+    <lib name="CPixHarvesterPluginInterface.lib"/>
+    <lib name="CPixSearchServer.lib"/>
+  </libs>
+  <release category="platform" sinceversion="10.1"/>
+  <attributes>
+    <htmldocprovided>no</htmldocprovided>
+    <adaptation>no</adaptation>
+  </attributes>
+</api>

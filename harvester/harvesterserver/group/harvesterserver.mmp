@@ -1,0 +1,53 @@
+/*
+* Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+
+TARGET            CPixHarvesterServer.exe
+TARGETTYPE        exe
+UID               0x0 0x2001F6FB
+EPOCSTACKSIZE     0x5000
+EPOCHEAPSIZE      0x50000 0x300000 // From about 65KB to about 3 MB
+
+SOURCEPATH        ../data
+START RESOURCE    2001F6FB.rss
+TARGETPATH        /private/101f875a/import
+END
+
+USERINCLUDE       ../inc
+USERINCLUDE       ../../../searchengine/cpix/cpix/inc/public //TODO: Needs to be changed
+
+MW_LAYER_SYSTEMINCLUDE
+
+SOURCEPATH        ../src
+SOURCE            CHarvesterServer.cpp
+SOURCE            CHarvesterServerSession.cpp
+SOURCE			      CIndexingManager.cpp CBlacklistMgr.cpp CBlacklistDb.cpp 
+
+LIBRARY           euser.lib 
+LIBRARY			      estor.lib
+LIBRARY			      efsrv.lib
+LIBRARY           CPixSearchClient.lib
+LIBRARY			      CPixHarvesterPluginInterface.lib
+LIBRARY           edbms.lib
+
+// Logging
+LIBRARY           flogger.lib 
+VENDORID          0
+
+CAPABILITY        ALL -TCB -DRM -AllFiles
+
+// End of File

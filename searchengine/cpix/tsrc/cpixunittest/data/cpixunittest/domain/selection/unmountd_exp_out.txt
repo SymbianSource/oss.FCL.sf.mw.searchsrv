@@ -1,0 +1,92 @@
+Unmounting volume @d:root file ...
+... unmounted volume @d:root file.
+
+
+And now searching with all searchers
+Searching with domain selector 'root':
+Number of hits: 3
+DOC (dc): Happy birthday to ? ...... May all yr wishes come true. Work hard for yr A levels and never give up! Take care always...
+DOC (agb): Anyway i dun think i've really done a lot. As long as u r happy, things dat i can do for i'll do it for u..
+DOC (!:\data\cpixunittestcorpus\stem\en\4.txt): What is happening here?
+
+Searching with domain selector 'root msg':
+Number of hits: 2
+DOC (dc): Happy birthday to ? ...... May all yr wishes come true. Work hard for yr A levels and never give up! Take care always...
+DOC (agb): Anyway i dun think i've really done a lot. As long as u r happy, things dat i can do for i'll do it for u..
+
+Searching with domain selector '@d:root file,root msg phone sms':
+Number of hits: 2
+DOC (dc): Happy birthday to ? ...... May all yr wishes come true. Work hard for yr A levels and never give up! Take care always...
+DOC (agb): Anyway i dun think i've really done a lot. As long as u r happy, things dat i can do for i'll do it for u..
+
+Searching with domain selector '@d:root file,@f:root file':
+Number of hits: 1
+DOC (!:\data\cpixunittestcorpus\stem\en\4.txt): What is happening here?
+
+
+
+And now suggesting for 'ha*' with all searchers
+Searching with domain selector 'root':
+haha 15
+have 7
+having 4
+hair 3
+haiz 2
+happy 2
+hard 2
+haven 2
+had 1
+haf 1
+hafta 1
+hah 1
+hai 1
+hall 1
+hang 1
+happening 1
+hate 1
+havent 1
+hawkes 1
+
+Searching with domain selector 'root msg':
+haha 15
+have 7
+having 4
+hair 3
+haiz 2
+happy 2
+hard 2
+haven 2
+had 1
+haf 1
+hafta 1
+hah 1
+hai 1
+hall 1
+hang 1
+hate 1
+havent 1
+hawkes 1
+
+Searching with domain selector '@d:root file,root msg phone sms':
+haha 15
+have 7
+having 4
+hair 3
+haiz 2
+happy 2
+hard 2
+haven 2
+had 1
+haf 1
+hafta 1
+hah 1
+hai 1
+hall 1
+hang 1
+hate 1
+havent 1
+hawkes 1
+
+Searching with domain selector '@d:root file,@f:root file':
+happening 1
+

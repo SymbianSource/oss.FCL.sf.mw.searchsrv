@@ -1,0 +1,10 @@
+Creating 1 producers and 1 consumers
+#IGNORE [B:823] (B) . >0 <0 . . >1 <1 . . >2 <2 . . >3 <3 . . >4 <4 . . >5 <5 . . >6 <6 . . >7 <7 . . >8 <8 . . >9 <9 . . >10 
+#IGNORE [E] <10 . . forcing stop forced stop joining threads j:0 j:1 
+#IGNORE !X xA 
+#IGNORE (E) 
+Joined all workers
+
+#IGNORE SUM: 55
+
+ session done.

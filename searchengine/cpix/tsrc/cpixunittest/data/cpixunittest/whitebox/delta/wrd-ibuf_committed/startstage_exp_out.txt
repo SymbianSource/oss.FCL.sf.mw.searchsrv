@@ -1,0 +1,7 @@
+Start state of index:
+SEARCHING for 'hello' resulted in 2 hits:
+  o  DOC 0 : Hello it is a nice day
+  o  DOC 2 : Did you say hello to her?
+... added extra docs to insert buffer
+... deleted doc 2
+... deleted doc 3

@@ -1,0 +1,156 @@
+Analyzer "stdtokens":
+File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
+ 'I' 'am' 'happy'
+File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
+ 'Oh' 'happiness'
+File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
+ 'Nothing' 'important' 'in' 'here' 'So' 'don't' 'even' 'look' 'Because' 'you' 'shall' 'find' 'nothing' 'whatsoever'
+File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
+ 'Juon' 'nyt' 'teetä'
+File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
+ 'Tee' 'näin'
+Analyzer "whitespace":
+File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
+ 'I' 'am' 'happy.'
+File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
+ 'Oh' 'happiness!'
+File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
+ 'Nothing' 'important' 'in' 'here.' 'So' 'don't' 'even' 'look.' 'Because' 'you' 'shall' 'find' 'nothing' 'whatsoever.'
+File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
+ 'Juon' 'nyt' 'teetä.'
+File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
+ 'Tee' 'näin!'
+Analyzer "whitespace>lowercase":
+File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
+ 'i' 'am' 'happy.'
+File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
+ 'oh' 'happiness!'
+File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
+ 'nothing' 'important' 'in' 'here.' 'so' 'don't' 'even' 'look.' 'because' 'you' 'shall' 'find' 'nothing' 'whatsoever.'
+File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
+ 'juon' 'nyt' 'teetä.'
+File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
+ 'tee' 'näin!'
+Analyzer "whitespace>accent":
+File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
+ 'I' 'am' 'happy.'
+File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
+ 'Oh' 'happiness!'
+File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
+ 'Nothing' 'important' 'in' 'here.' 'So' 'don't' 'even' 'look.' 'Because' 'you' 'shall' 'find' 'nothing' 'whatsoever.'
+File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
+ 'Juon' 'nyt' 'teeta.'
+File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
+ 'Tee' 'nain!'
+Analyzer "letter":
+File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
+ 'I' 'am' 'happy'
+File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
+ 'Oh' 'happiness'
+File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
+ 'Nothing' 'important' 'in' 'here' 'So' 'don' 't' 'even' 'look' 'Because' 'you' 'shall' 'find' 'nothing' 'whatsoever'
+File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
+ 'Juon' 'nyt' 'teetä'
+File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
+ 'Tee' 'näin'
+Analyzer "letter>lowercase":
+File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
+ 'i' 'am' 'happy'
+File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
+ 'oh' 'happiness'
+File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
+ 'nothing' 'important' 'in' 'here' 'so' 'don' 't' 'even' 'look' 'because' 'you' 'shall' 'find' 'nothing' 'whatsoever'
+File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
+ 'juon' 'nyt' 'teetä'
+File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
+ 'tee' 'näin'
+Analyzer "keyword":
+File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
+ 'I am happy.
+'
+File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
+ 'Oh happiness!
+'
+File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
+ '
+Nothing 
+
+
+important    in
+  here.
+So  don't     even look.  Because
+              you shall         find
+nothing
+whatsoever.
+'
+File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
+ 'Juon nyt teetä.'
+File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
+ 'Tee näin! '
+Analyzer "keyword>lowercase":
+File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
+ 'i am happy.
+'
+File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
+ 'oh happiness!
+'
+File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
+ '
+nothing 
+
+
+important    in
+  here.
+so  don't     even look.  because
+              you shall         find
+nothing
+whatsoever.
+'
+File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
+ 'juon nyt teetä.'
+File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
+ 'tee näin! '
+Analyzer "stdtokens>lowercase>accent>stem(en)":
+File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
+ 'i' 'am' 'happi'
+File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
+ 'oh' 'happi'
+File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
+ 'noth' 'import' 'in' 'here' 'so' 'don't' 'even' 'look' 'becaus' 'you' 'shall' 'find' 'noth' 'whatsoev'
+File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
+ 'juon' 'nyt' 'teeta'
+File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
+ 'tee' 'nain'
+Analyzer "letter>lowercase>accent>stop(en)":
+File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
+ 'i' 'am' 'happy'
+File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
+ 'oh' 'happiness'
+File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
+ 'nothing' 'important' 'here' 'so' 'don' 'even' 'look' 'because' 'you' 'shall' 'find' 'nothing' 'whatsoever'
+File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
+ 'juon' 'nyt' 'teeta'
+File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
+ 'tee' 'nain'
+Analyzer "letter>lowercase>stop('i', 'oh', 'nyt', 'näin')":
+File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
+ 'am' 'happy'
+File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
+ 'happiness'
+File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
+ 'nothing' 'important' 'in' 'here' 'so' 'don' 't' 'even' 'look' 'because' 'you' 'shall' 'find' 'nothing' 'whatsoever'
+File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
+ 'juon' 'teetä'
+File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
+ 'tee'
+Analyzer "letter>length(2, 4)":
+File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
+ 'am'
+File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
+ 'Oh'
+File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
+ 'in' 'here' 'So' 'don' 'even' 'look' 'you' 'find'
+File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
+ 'Juon' 'nyt'
+File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
+ 'Tee' 'näin'

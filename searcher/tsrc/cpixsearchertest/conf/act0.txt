@@ -1,0 +1,37 @@
+William Shakespeare
+
+All's Well That Ends Well
+     __________________________________________________________________
+
+The Characters of the Play
+
+UniqueWordOnlyFoundOnceInCorpus
+
+   King of France.
+   The Duke of Florence.
+   Bertram, Count of Rousillon.
+   Lafeu, an old Lord.
+   Parolles, a follower of Bertram.
+   Several young French Lords, that serve with Bertram in the Florentine
+   War.
+   Steward, Servant to the Countess of Rousillon.
+   Clown, Servant to the Countess of Rousillon.
+   A Page, Servant to the Countess of Rousillon.
+   Countess of Rousillon, Mother to Bertram.
+   Helena, a Gentlewoman protected by the Countess.
+   An old Widow of Florence.
+   Diana, daughter to the Widow.
+   Violenta, neighbour and friend to the Widow.
+   Mariana, neighbour and friend to the Widow.
+   Lords attending on the King; Officers; Soldiers, &c., French and
+   Florentine.
+
+   | [1]Table of Contents | [2]Next |
+
+   Last updated on Wed Sep 29 20:06:20 2004 for [3]eBooks@Adelaide.
+
+References
+
+   1. file://localhost/home/arau/shakespeare/allswell/index.html
+   2. file://localhost/home/arau/shakespeare/allswell/act1.html
+   3. http://etext.library.adelaide.edu.au/

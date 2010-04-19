@@ -1,0 +1,892 @@
+============== QNr from GPS E 0/1 0/1 1/100  N 0/1 0/1 1/100 
+On level 15
+C: QNr(x:8000, y:8000, l:15, s:DAAAAAAAAAAAAAAA)
+Adjacents: 
+ o QNr(x:7fff, y:7fff, l:15, s:ADDDDDDDDDDDDDDD)
+ o QNr(x:7fff, y:8000, l:15, s:CBBBBBBBBBBBBBBB)
+ o QNr(x:7fff, y:8001, l:15, s:CBBBBBBBBBBBBBBD)
+ o QNr(x:8000, y:7fff, l:15, s:BCCCCCCCCCCCCCCC)
+ o QNr(x:8000, y:8000, l:15, s:DAAAAAAAAAAAAAAA)
+ o QNr(x:8000, y:8001, l:15, s:DAAAAAAAAAAAAAAC)
+ o QNr(x:8001, y:7fff, l:15, s:BCCCCCCCCCCCCCCD)
+ o QNr(x:8001, y:8000, l:15, s:DAAAAAAAAAAAAAAB)
+ o QNr(x:8001, y:8001, l:15, s:DAAAAAAAAAAAAAAD)
+On level 14
+C: QNr(x:4000, y:4000, l:14, s:DAAAAAAAAAAAAAA)
+Adjacents: 
+ o QNr(x:3fff, y:3fff, l:14, s:ADDDDDDDDDDDDDD)
+ o QNr(x:3fff, y:4000, l:14, s:CBBBBBBBBBBBBBB)
+ o QNr(x:3fff, y:4001, l:14, s:CBBBBBBBBBBBBBD)
+ o QNr(x:4000, y:3fff, l:14, s:BCCCCCCCCCCCCCC)
+ o QNr(x:4000, y:4000, l:14, s:DAAAAAAAAAAAAAA)
+ o QNr(x:4000, y:4001, l:14, s:DAAAAAAAAAAAAAC)
+ o QNr(x:4001, y:3fff, l:14, s:BCCCCCCCCCCCCCD)
+ o QNr(x:4001, y:4000, l:14, s:DAAAAAAAAAAAAAB)
+ o QNr(x:4001, y:4001, l:14, s:DAAAAAAAAAAAAAD)
+On level 2
+C: QNr(x:4, y:4, l:2, s:DAA)
+Adjacents: 
+ o QNr(x:3, y:3, l:2, s:ADD)
+ o QNr(x:3, y:4, l:2, s:CBB)
+ o QNr(x:3, y:5, l:2, s:CBD)
+ o QNr(x:4, y:3, l:2, s:BCC)
+ o QNr(x:4, y:4, l:2, s:DAA)
+ o QNr(x:4, y:5, l:2, s:DAC)
+ o QNr(x:5, y:3, l:2, s:BCD)
+ o QNr(x:5, y:4, l:2, s:DAB)
+ o QNr(x:5, y:5, l:2, s:DAD)
+On level 1
+C: QNr(x:2, y:2, l:1, s:DA)
+Adjacents: 
+ o QNr(x:1, y:1, l:1, s:AD)
+ o QNr(x:1, y:2, l:1, s:CB)
+ o QNr(x:1, y:3, l:1, s:CD)
+ o QNr(x:2, y:1, l:1, s:BC)
+ o QNr(x:2, y:2, l:1, s:DA)
+ o QNr(x:2, y:3, l:1, s:DC)
+ o QNr(x:3, y:1, l:1, s:BD)
+ o QNr(x:3, y:2, l:1, s:DB)
+ o QNr(x:3, y:3, l:1, s:DD)
+On level 0
+C: QNr(x:1, y:1, l:0, s:D)
+Adjacents: 
+ o QNr(x:0, y:0, l:0, s:A)
+ o QNr(x:0, y:1, l:0, s:C)
+ o QNr(x:1, y:0, l:0, s:B)
+ o QNr(x:1, y:1, l:0, s:D)
+
+============== QNr from GPS E 0/1 0/1 1/100  S 0/1 0/1 1/100 
+On level 15
+C: QNr(x:8000, y:7fff, l:15, s:BCCCCCCCCCCCCCCC)
+Adjacents: 
+ o QNr(x:7fff, y:7ffe, l:15, s:ADDDDDDDDDDDDDDB)
+ o QNr(x:7fff, y:7fff, l:15, s:ADDDDDDDDDDDDDDD)
+ o QNr(x:7fff, y:8000, l:15, s:CBBBBBBBBBBBBBBB)
+ o QNr(x:8000, y:7ffe, l:15, s:BCCCCCCCCCCCCCCA)
+ o QNr(x:8000, y:7fff, l:15, s:BCCCCCCCCCCCCCCC)
+ o QNr(x:8000, y:8000, l:15, s:DAAAAAAAAAAAAAAA)
+ o QNr(x:8001, y:7ffe, l:15, s:BCCCCCCCCCCCCCCB)
+ o QNr(x:8001, y:7fff, l:15, s:BCCCCCCCCCCCCCCD)
+ o QNr(x:8001, y:8000, l:15, s:DAAAAAAAAAAAAAAB)
+On level 14
+C: QNr(x:4000, y:3fff, l:14, s:BCCCCCCCCCCCCCC)
+Adjacents: 
+ o QNr(x:3fff, y:3ffe, l:14, s:ADDDDDDDDDDDDDB)
+ o QNr(x:3fff, y:3fff, l:14, s:ADDDDDDDDDDDDDD)
+ o QNr(x:3fff, y:4000, l:14, s:CBBBBBBBBBBBBBB)
+ o QNr(x:4000, y:3ffe, l:14, s:BCCCCCCCCCCCCCA)
+ o QNr(x:4000, y:3fff, l:14, s:BCCCCCCCCCCCCCC)
+ o QNr(x:4000, y:4000, l:14, s:DAAAAAAAAAAAAAA)
+ o QNr(x:4001, y:3ffe, l:14, s:BCCCCCCCCCCCCCB)
+ o QNr(x:4001, y:3fff, l:14, s:BCCCCCCCCCCCCCD)
+ o QNr(x:4001, y:4000, l:14, s:DAAAAAAAAAAAAAB)
+On level 2
+C: QNr(x:4, y:3, l:2, s:BCC)
+Adjacents: 
+ o QNr(x:3, y:2, l:2, s:ADB)
+ o QNr(x:3, y:3, l:2, s:ADD)
+ o QNr(x:3, y:4, l:2, s:CBB)
+ o QNr(x:4, y:2, l:2, s:BCA)
+ o QNr(x:4, y:3, l:2, s:BCC)
+ o QNr(x:4, y:4, l:2, s:DAA)
+ o QNr(x:5, y:2, l:2, s:BCB)
+ o QNr(x:5, y:3, l:2, s:BCD)
+ o QNr(x:5, y:4, l:2, s:DAB)
+On level 1
+C: QNr(x:2, y:1, l:1, s:BC)
+Adjacents: 
+ o QNr(x:1, y:0, l:1, s:AB)
+ o QNr(x:1, y:1, l:1, s:AD)
+ o QNr(x:1, y:2, l:1, s:CB)
+ o QNr(x:2, y:0, l:1, s:BA)
+ o QNr(x:2, y:1, l:1, s:BC)
+ o QNr(x:2, y:2, l:1, s:DA)
+ o QNr(x:3, y:0, l:1, s:BB)
+ o QNr(x:3, y:1, l:1, s:BD)
+ o QNr(x:3, y:2, l:1, s:DB)
+On level 0
+C: QNr(x:1, y:0, l:0, s:B)
+Adjacents: 
+ o QNr(x:0, y:0, l:0, s:A)
+ o QNr(x:0, y:1, l:0, s:C)
+ o QNr(x:1, y:0, l:0, s:B)
+ o QNr(x:1, y:1, l:0, s:D)
+
+============== QNr from GPS W 0/1 0/1 1/100  N 0/1 0/1 1/100 
+On level 15
+C: QNr(x:7fff, y:8000, l:15, s:CBBBBBBBBBBBBBBB)
+Adjacents: 
+ o QNr(x:7ffe, y:7fff, l:15, s:ADDDDDDDDDDDDDDC)
+ o QNr(x:7ffe, y:8000, l:15, s:CBBBBBBBBBBBBBBA)
+ o QNr(x:7ffe, y:8001, l:15, s:CBBBBBBBBBBBBBBC)
+ o QNr(x:7fff, y:7fff, l:15, s:ADDDDDDDDDDDDDDD)
+ o QNr(x:7fff, y:8000, l:15, s:CBBBBBBBBBBBBBBB)
+ o QNr(x:7fff, y:8001, l:15, s:CBBBBBBBBBBBBBBD)
+ o QNr(x:8000, y:7fff, l:15, s:BCCCCCCCCCCCCCCC)
+ o QNr(x:8000, y:8000, l:15, s:DAAAAAAAAAAAAAAA)
+ o QNr(x:8000, y:8001, l:15, s:DAAAAAAAAAAAAAAC)
+On level 14
+C: QNr(x:3fff, y:4000, l:14, s:CBBBBBBBBBBBBBB)
+Adjacents: 
+ o QNr(x:3ffe, y:3fff, l:14, s:ADDDDDDDDDDDDDC)
+ o QNr(x:3ffe, y:4000, l:14, s:CBBBBBBBBBBBBBA)
+ o QNr(x:3ffe, y:4001, l:14, s:CBBBBBBBBBBBBBC)
+ o QNr(x:3fff, y:3fff, l:14, s:ADDDDDDDDDDDDDD)
+ o QNr(x:3fff, y:4000, l:14, s:CBBBBBBBBBBBBBB)
+ o QNr(x:3fff, y:4001, l:14, s:CBBBBBBBBBBBBBD)
+ o QNr(x:4000, y:3fff, l:14, s:BCCCCCCCCCCCCCC)
+ o QNr(x:4000, y:4000, l:14, s:DAAAAAAAAAAAAAA)
+ o QNr(x:4000, y:4001, l:14, s:DAAAAAAAAAAAAAC)
+On level 2
+C: QNr(x:3, y:4, l:2, s:CBB)
+Adjacents: 
+ o QNr(x:2, y:3, l:2, s:ADC)
+ o QNr(x:2, y:4, l:2, s:CBA)
+ o QNr(x:2, y:5, l:2, s:CBC)
+ o QNr(x:3, y:3, l:2, s:ADD)
+ o QNr(x:3, y:4, l:2, s:CBB)
+ o QNr(x:3, y:5, l:2, s:CBD)
+ o QNr(x:4, y:3, l:2, s:BCC)
+ o QNr(x:4, y:4, l:2, s:DAA)
+ o QNr(x:4, y:5, l:2, s:DAC)
+On level 1
+C: QNr(x:1, y:2, l:1, s:CB)
+Adjacents: 
+ o QNr(x:0, y:1, l:1, s:AC)
+ o QNr(x:0, y:2, l:1, s:CA)
+ o QNr(x:0, y:3, l:1, s:CC)
+ o QNr(x:1, y:1, l:1, s:AD)
+ o QNr(x:1, y:2, l:1, s:CB)
+ o QNr(x:1, y:3, l:1, s:CD)
+ o QNr(x:2, y:1, l:1, s:BC)
+ o QNr(x:2, y:2, l:1, s:DA)
+ o QNr(x:2, y:3, l:1, s:DC)
+On level 0
+C: QNr(x:0, y:1, l:0, s:C)
+Adjacents: 
+ o QNr(x:0, y:0, l:0, s:A)
+ o QNr(x:0, y:1, l:0, s:C)
+ o QNr(x:1, y:0, l:0, s:B)
+ o QNr(x:1, y:1, l:0, s:D)
+
+============== QNr from GPS W 0/1 0/1 1/100  S 0/1 0/1 1/100 
+On level 15
+C: QNr(x:7fff, y:7fff, l:15, s:ADDDDDDDDDDDDDDD)
+Adjacents: 
+ o QNr(x:7ffe, y:7ffe, l:15, s:ADDDDDDDDDDDDDDA)
+ o QNr(x:7ffe, y:7fff, l:15, s:ADDDDDDDDDDDDDDC)
+ o QNr(x:7ffe, y:8000, l:15, s:CBBBBBBBBBBBBBBA)
+ o QNr(x:7fff, y:7ffe, l:15, s:ADDDDDDDDDDDDDDB)
+ o QNr(x:7fff, y:7fff, l:15, s:ADDDDDDDDDDDDDDD)
+ o QNr(x:7fff, y:8000, l:15, s:CBBBBBBBBBBBBBBB)
+ o QNr(x:8000, y:7ffe, l:15, s:BCCCCCCCCCCCCCCA)
+ o QNr(x:8000, y:7fff, l:15, s:BCCCCCCCCCCCCCCC)
+ o QNr(x:8000, y:8000, l:15, s:DAAAAAAAAAAAAAAA)
+On level 14
+C: QNr(x:3fff, y:3fff, l:14, s:ADDDDDDDDDDDDDD)
+Adjacents: 
+ o QNr(x:3ffe, y:3ffe, l:14, s:ADDDDDDDDDDDDDA)
+ o QNr(x:3ffe, y:3fff, l:14, s:ADDDDDDDDDDDDDC)
+ o QNr(x:3ffe, y:4000, l:14, s:CBBBBBBBBBBBBBA)
+ o QNr(x:3fff, y:3ffe, l:14, s:ADDDDDDDDDDDDDB)
+ o QNr(x:3fff, y:3fff, l:14, s:ADDDDDDDDDDDDDD)
+ o QNr(x:3fff, y:4000, l:14, s:CBBBBBBBBBBBBBB)
+ o QNr(x:4000, y:3ffe, l:14, s:BCCCCCCCCCCCCCA)
+ o QNr(x:4000, y:3fff, l:14, s:BCCCCCCCCCCCCCC)
+ o QNr(x:4000, y:4000, l:14, s:DAAAAAAAAAAAAAA)
+On level 2
+C: QNr(x:3, y:3, l:2, s:ADD)
+Adjacents: 
+ o QNr(x:2, y:2, l:2, s:ADA)
+ o QNr(x:2, y:3, l:2, s:ADC)
+ o QNr(x:2, y:4, l:2, s:CBA)
+ o QNr(x:3, y:2, l:2, s:ADB)
+ o QNr(x:3, y:3, l:2, s:ADD)
+ o QNr(x:3, y:4, l:2, s:CBB)
+ o QNr(x:4, y:2, l:2, s:BCA)
+ o QNr(x:4, y:3, l:2, s:BCC)
+ o QNr(x:4, y:4, l:2, s:DAA)
+On level 1
+C: QNr(x:1, y:1, l:1, s:AD)
+Adjacents: 
+ o QNr(x:0, y:0, l:1, s:AA)
+ o QNr(x:0, y:1, l:1, s:AC)
+ o QNr(x:0, y:2, l:1, s:CA)
+ o QNr(x:1, y:0, l:1, s:AB)
+ o QNr(x:1, y:1, l:1, s:AD)
+ o QNr(x:1, y:2, l:1, s:CB)
+ o QNr(x:2, y:0, l:1, s:BA)
+ o QNr(x:2, y:1, l:1, s:BC)
+ o QNr(x:2, y:2, l:1, s:DA)
+On level 0
+C: QNr(x:0, y:0, l:0, s:A)
+Adjacents: 
+ o QNr(x:0, y:0, l:0, s:A)
+ o QNr(x:0, y:1, l:0, s:C)
+ o QNr(x:1, y:0, l:0, s:B)
+ o QNr(x:1, y:1, l:0, s:D)
+
+============== QNr from GPS E 90/1 0/1 0/1  N 45/1 0/1 0/1 
+On level 15
+C: QNr(x:c000, y:c000, l:15, s:DDAAAAAAAAAAAAAA)
+Adjacents: 
+ o QNr(x:bfff, y:bfff, l:15, s:DADDDDDDDDDDDDDD)
+ o QNr(x:bfff, y:c000, l:15, s:DCBBBBBBBBBBBBBB)
+ o QNr(x:bfff, y:c001, l:15, s:DCBBBBBBBBBBBBBD)
+ o QNr(x:c000, y:bfff, l:15, s:DBCCCCCCCCCCCCCC)
+ o QNr(x:c000, y:c000, l:15, s:DDAAAAAAAAAAAAAA)
+ o QNr(x:c000, y:c001, l:15, s:DDAAAAAAAAAAAAAC)
+ o QNr(x:c001, y:bfff, l:15, s:DBCCCCCCCCCCCCCD)
+ o QNr(x:c001, y:c000, l:15, s:DDAAAAAAAAAAAAAB)
+ o QNr(x:c001, y:c001, l:15, s:DDAAAAAAAAAAAAAD)
+On level 14
+C: QNr(x:6000, y:6000, l:14, s:DDAAAAAAAAAAAAA)
+Adjacents: 
+ o QNr(x:5fff, y:5fff, l:14, s:DADDDDDDDDDDDDD)
+ o QNr(x:5fff, y:6000, l:14, s:DCBBBBBBBBBBBBB)
+ o QNr(x:5fff, y:6001, l:14, s:DCBBBBBBBBBBBBD)
+ o QNr(x:6000, y:5fff, l:14, s:DBCCCCCCCCCCCCC)
+ o QNr(x:6000, y:6000, l:14, s:DDAAAAAAAAAAAAA)
+ o QNr(x:6000, y:6001, l:14, s:DDAAAAAAAAAAAAC)
+ o QNr(x:6001, y:5fff, l:14, s:DBCCCCCCCCCCCCD)
+ o QNr(x:6001, y:6000, l:14, s:DDAAAAAAAAAAAAB)
+ o QNr(x:6001, y:6001, l:14, s:DDAAAAAAAAAAAAD)
+On level 2
+C: QNr(x:6, y:6, l:2, s:DDA)
+Adjacents: 
+ o QNr(x:5, y:5, l:2, s:DAD)
+ o QNr(x:5, y:6, l:2, s:DCB)
+ o QNr(x:5, y:7, l:2, s:DCD)
+ o QNr(x:6, y:5, l:2, s:DBC)
+ o QNr(x:6, y:6, l:2, s:DDA)
+ o QNr(x:6, y:7, l:2, s:DDC)
+ o QNr(x:7, y:5, l:2, s:DBD)
+ o QNr(x:7, y:6, l:2, s:DDB)
+ o QNr(x:7, y:7, l:2, s:DDD)
+On level 1
+C: QNr(x:3, y:3, l:1, s:DD)
+Adjacents: 
+ o QNr(x:0, y:2, l:1, s:CA)
+ o QNr(x:0, y:3, l:1, s:CC)
+ o QNr(x:1, y:3, l:1, s:CD)
+ o QNr(x:2, y:2, l:1, s:DA)
+ o QNr(x:2, y:3, l:1, s:DC)
+ o QNr(x:3, y:2, l:1, s:DB)
+ o QNr(x:3, y:3, l:1, s:DD)
+On level 0
+C: QNr(x:1, y:1, l:0, s:D)
+Adjacents: 
+ o QNr(x:0, y:0, l:0, s:A)
+ o QNr(x:0, y:1, l:0, s:C)
+ o QNr(x:1, y:0, l:0, s:B)
+ o QNr(x:1, y:1, l:0, s:D)
+
+============== QNr from GPS E 90/1 0/1 0/1  S 45/1 0/1 0/1 
+On level 15
+C: QNr(x:c000, y:4000, l:15, s:BDAAAAAAAAAAAAAA)
+Adjacents: 
+ o QNr(x:bfff, y:3fff, l:15, s:BADDDDDDDDDDDDDD)
+ o QNr(x:bfff, y:4000, l:15, s:BCBBBBBBBBBBBBBB)
+ o QNr(x:bfff, y:4001, l:15, s:BCBBBBBBBBBBBBBD)
+ o QNr(x:c000, y:3fff, l:15, s:BBCCCCCCCCCCCCCC)
+ o QNr(x:c000, y:4000, l:15, s:BDAAAAAAAAAAAAAA)
+ o QNr(x:c000, y:4001, l:15, s:BDAAAAAAAAAAAAAC)
+ o QNr(x:c001, y:3fff, l:15, s:BBCCCCCCCCCCCCCD)
+ o QNr(x:c001, y:4000, l:15, s:BDAAAAAAAAAAAAAB)
+ o QNr(x:c001, y:4001, l:15, s:BDAAAAAAAAAAAAAD)
+On level 14
+C: QNr(x:6000, y:2000, l:14, s:BDAAAAAAAAAAAAA)
+Adjacents: 
+ o QNr(x:5fff, y:1fff, l:14, s:BADDDDDDDDDDDDD)
+ o QNr(x:5fff, y:2000, l:14, s:BCBBBBBBBBBBBBB)
+ o QNr(x:5fff, y:2001, l:14, s:BCBBBBBBBBBBBBD)
+ o QNr(x:6000, y:1fff, l:14, s:BBCCCCCCCCCCCCC)
+ o QNr(x:6000, y:2000, l:14, s:BDAAAAAAAAAAAAA)
+ o QNr(x:6000, y:2001, l:14, s:BDAAAAAAAAAAAAC)
+ o QNr(x:6001, y:1fff, l:14, s:BBCCCCCCCCCCCCD)
+ o QNr(x:6001, y:2000, l:14, s:BDAAAAAAAAAAAAB)
+ o QNr(x:6001, y:2001, l:14, s:BDAAAAAAAAAAAAD)
+On level 2
+C: QNr(x:6, y:2, l:2, s:BDA)
+Adjacents: 
+ o QNr(x:5, y:1, l:2, s:BAD)
+ o QNr(x:5, y:2, l:2, s:BCB)
+ o QNr(x:5, y:3, l:2, s:BCD)
+ o QNr(x:6, y:1, l:2, s:BBC)
+ o QNr(x:6, y:2, l:2, s:BDA)
+ o QNr(x:6, y:3, l:2, s:BDC)
+ o QNr(x:7, y:1, l:2, s:BBD)
+ o QNr(x:7, y:2, l:2, s:BDB)
+ o QNr(x:7, y:3, l:2, s:BDD)
+On level 1
+C: QNr(x:3, y:1, l:1, s:BD)
+Adjacents: 
+ o QNr(x:0, y:0, l:1, s:AA)
+ o QNr(x:0, y:1, l:1, s:AC)
+ o QNr(x:0, y:2, l:1, s:CA)
+ o QNr(x:2, y:0, l:1, s:BA)
+ o QNr(x:2, y:1, l:1, s:BC)
+ o QNr(x:2, y:2, l:1, s:DA)
+ o QNr(x:3, y:0, l:1, s:BB)
+ o QNr(x:3, y:1, l:1, s:BD)
+ o QNr(x:3, y:2, l:1, s:DB)
+On level 0
+C: QNr(x:1, y:0, l:0, s:B)
+Adjacents: 
+ o QNr(x:0, y:0, l:0, s:A)
+ o QNr(x:0, y:1, l:0, s:C)
+ o QNr(x:1, y:0, l:0, s:B)
+ o QNr(x:1, y:1, l:0, s:D)
+
+============== QNr from GPS W 90/1 0/1 0/1  N 45/1 0/1 0/1 
+On level 15
+C: QNr(x:4000, y:c000, l:15, s:CDAAAAAAAAAAAAAA)
+Adjacents: 
+ o QNr(x:3fff, y:bfff, l:15, s:CADDDDDDDDDDDDDD)
+ o QNr(x:3fff, y:c000, l:15, s:CCBBBBBBBBBBBBBB)
+ o QNr(x:3fff, y:c001, l:15, s:CCBBBBBBBBBBBBBD)
+ o QNr(x:4000, y:bfff, l:15, s:CBCCCCCCCCCCCCCC)
+ o QNr(x:4000, y:c000, l:15, s:CDAAAAAAAAAAAAAA)
+ o QNr(x:4000, y:c001, l:15, s:CDAAAAAAAAAAAAAC)
+ o QNr(x:4001, y:bfff, l:15, s:CBCCCCCCCCCCCCCD)
+ o QNr(x:4001, y:c000, l:15, s:CDAAAAAAAAAAAAAB)
+ o QNr(x:4001, y:c001, l:15, s:CDAAAAAAAAAAAAAD)
+On level 14
+C: QNr(x:2000, y:6000, l:14, s:CDAAAAAAAAAAAAA)
+Adjacents: 
+ o QNr(x:1fff, y:5fff, l:14, s:CADDDDDDDDDDDDD)
+ o QNr(x:1fff, y:6000, l:14, s:CCBBBBBBBBBBBBB)
+ o QNr(x:1fff, y:6001, l:14, s:CCBBBBBBBBBBBBD)
+ o QNr(x:2000, y:5fff, l:14, s:CBCCCCCCCCCCCCC)
+ o QNr(x:2000, y:6000, l:14, s:CDAAAAAAAAAAAAA)
+ o QNr(x:2000, y:6001, l:14, s:CDAAAAAAAAAAAAC)
+ o QNr(x:2001, y:5fff, l:14, s:CBCCCCCCCCCCCCD)
+ o QNr(x:2001, y:6000, l:14, s:CDAAAAAAAAAAAAB)
+ o QNr(x:2001, y:6001, l:14, s:CDAAAAAAAAAAAAD)
+On level 2
+C: QNr(x:2, y:6, l:2, s:CDA)
+Adjacents: 
+ o QNr(x:1, y:5, l:2, s:CAD)
+ o QNr(x:1, y:6, l:2, s:CCB)
+ o QNr(x:1, y:7, l:2, s:CCD)
+ o QNr(x:2, y:5, l:2, s:CBC)
+ o QNr(x:2, y:6, l:2, s:CDA)
+ o QNr(x:2, y:7, l:2, s:CDC)
+ o QNr(x:3, y:5, l:2, s:CBD)
+ o QNr(x:3, y:6, l:2, s:CDB)
+ o QNr(x:3, y:7, l:2, s:CDD)
+On level 1
+C: QNr(x:1, y:3, l:1, s:CD)
+Adjacents: 
+ o QNr(x:0, y:2, l:1, s:CA)
+ o QNr(x:0, y:3, l:1, s:CC)
+ o QNr(x:1, y:2, l:1, s:CB)
+ o QNr(x:1, y:3, l:1, s:CD)
+ o QNr(x:2, y:2, l:1, s:DA)
+ o QNr(x:2, y:3, l:1, s:DC)
+ o QNr(x:3, y:3, l:1, s:DD)
+On level 0
+C: QNr(x:0, y:1, l:0, s:C)
+Adjacents: 
+ o QNr(x:0, y:0, l:0, s:A)
+ o QNr(x:0, y:1, l:0, s:C)
+ o QNr(x:1, y:0, l:0, s:B)
+ o QNr(x:1, y:1, l:0, s:D)
+
+============== QNr from GPS W 90/1 0/1 0/1  S 45/1 0/1 0/1 
+On level 15
+C: QNr(x:4000, y:4000, l:15, s:ADAAAAAAAAAAAAAA)
+Adjacents: 
+ o QNr(x:3fff, y:3fff, l:15, s:AADDDDDDDDDDDDDD)
+ o QNr(x:3fff, y:4000, l:15, s:ACBBBBBBBBBBBBBB)
+ o QNr(x:3fff, y:4001, l:15, s:ACBBBBBBBBBBBBBD)
+ o QNr(x:4000, y:3fff, l:15, s:ABCCCCCCCCCCCCCC)
+ o QNr(x:4000, y:4000, l:15, s:ADAAAAAAAAAAAAAA)
+ o QNr(x:4000, y:4001, l:15, s:ADAAAAAAAAAAAAAC)
+ o QNr(x:4001, y:3fff, l:15, s:ABCCCCCCCCCCCCCD)
+ o QNr(x:4001, y:4000, l:15, s:ADAAAAAAAAAAAAAB)
+ o QNr(x:4001, y:4001, l:15, s:ADAAAAAAAAAAAAAD)
+On level 14
+C: QNr(x:2000, y:2000, l:14, s:ADAAAAAAAAAAAAA)
+Adjacents: 
+ o QNr(x:1fff, y:1fff, l:14, s:AADDDDDDDDDDDDD)
+ o QNr(x:1fff, y:2000, l:14, s:ACBBBBBBBBBBBBB)
+ o QNr(x:1fff, y:2001, l:14, s:ACBBBBBBBBBBBBD)
+ o QNr(x:2000, y:1fff, l:14, s:ABCCCCCCCCCCCCC)
+ o QNr(x:2000, y:2000, l:14, s:ADAAAAAAAAAAAAA)
+ o QNr(x:2000, y:2001, l:14, s:ADAAAAAAAAAAAAC)
+ o QNr(x:2001, y:1fff, l:14, s:ABCCCCCCCCCCCCD)
+ o QNr(x:2001, y:2000, l:14, s:ADAAAAAAAAAAAAB)
+ o QNr(x:2001, y:2001, l:14, s:ADAAAAAAAAAAAAD)
+On level 2
+C: QNr(x:2, y:2, l:2, s:ADA)
+Adjacents: 
+ o QNr(x:1, y:1, l:2, s:AAD)
+ o QNr(x:1, y:2, l:2, s:ACB)
+ o QNr(x:1, y:3, l:2, s:ACD)
+ o QNr(x:2, y:1, l:2, s:ABC)
+ o QNr(x:2, y:2, l:2, s:ADA)
+ o QNr(x:2, y:3, l:2, s:ADC)
+ o QNr(x:3, y:1, l:2, s:ABD)
+ o QNr(x:3, y:2, l:2, s:ADB)
+ o QNr(x:3, y:3, l:2, s:ADD)
+On level 1
+C: QNr(x:1, y:1, l:1, s:AD)
+Adjacents: 
+ o QNr(x:0, y:0, l:1, s:AA)
+ o QNr(x:0, y:1, l:1, s:AC)
+ o QNr(x:0, y:2, l:1, s:CA)
+ o QNr(x:1, y:0, l:1, s:AB)
+ o QNr(x:1, y:1, l:1, s:AD)
+ o QNr(x:1, y:2, l:1, s:CB)
+ o QNr(x:2, y:0, l:1, s:BA)
+ o QNr(x:2, y:1, l:1, s:BC)
+ o QNr(x:2, y:2, l:1, s:DA)
+On level 0
+C: QNr(x:0, y:0, l:0, s:A)
+Adjacents: 
+ o QNr(x:0, y:0, l:0, s:A)
+ o QNr(x:0, y:1, l:0, s:C)
+ o QNr(x:1, y:0, l:0, s:B)
+ o QNr(x:1, y:1, l:0, s:D)
+
+============== QNr from GPS E 90/1 0/1 0/1  N 60/1 0/1 0/1 
+On level 15
+C: QNr(x:c000, y:d555, l:15, s:DDACACACACACACAC)
+Adjacents: 
+ o QNr(x:bfff, y:d554, l:15, s:DCBDBDBDBDBDBDBB)
+ o QNr(x:bfff, y:d555, l:15, s:DCBDBDBDBDBDBDBD)
+ o QNr(x:bfff, y:d556, l:15, s:DCBDBDBDBDBDBDDB)
+ o QNr(x:c000, y:d554, l:15, s:DDACACACACACACAA)
+ o QNr(x:c000, y:d555, l:15, s:DDACACACACACACAC)
+ o QNr(x:c000, y:d556, l:15, s:DDACACACACACACCA)
+ o QNr(x:c001, y:d554, l:15, s:DDACACACACACACAB)
+ o QNr(x:c001, y:d555, l:15, s:DDACACACACACACAD)
+ o QNr(x:c001, y:d556, l:15, s:DDACACACACACACCB)
+On level 14
+C: QNr(x:6000, y:6aaa, l:14, s:DDACACACACACACA)
+Adjacents: 
+ o QNr(x:5fff, y:6aa9, l:14, s:DCBDBDBDBDBDBBD)
+ o QNr(x:5fff, y:6aaa, l:14, s:DCBDBDBDBDBDBDB)
+ o QNr(x:5fff, y:6aab, l:14, s:DCBDBDBDBDBDBDD)
+ o QNr(x:6000, y:6aa9, l:14, s:DDACACACACACAAC)
+ o QNr(x:6000, y:6aaa, l:14, s:DDACACACACACACA)
+ o QNr(x:6000, y:6aab, l:14, s:DDACACACACACACC)
+ o QNr(x:6001, y:6aa9, l:14, s:DDACACACACACAAD)
+ o QNr(x:6001, y:6aaa, l:14, s:DDACACACACACACB)
+ o QNr(x:6001, y:6aab, l:14, s:DDACACACACACACD)
+On level 2
+C: QNr(x:6, y:6, l:2, s:DDA)
+Adjacents: 
+ o QNr(x:5, y:5, l:2, s:DAD)
+ o QNr(x:5, y:6, l:2, s:DCB)
+ o QNr(x:5, y:7, l:2, s:DCD)
+ o QNr(x:6, y:5, l:2, s:DBC)
+ o QNr(x:6, y:6, l:2, s:DDA)
+ o QNr(x:6, y:7, l:2, s:DDC)
+ o QNr(x:7, y:5, l:2, s:DBD)
+ o QNr(x:7, y:6, l:2, s:DDB)
+ o QNr(x:7, y:7, l:2, s:DDD)
+On level 1
+C: QNr(x:3, y:3, l:1, s:DD)
+Adjacents: 
+ o QNr(x:0, y:2, l:1, s:CA)
+ o QNr(x:0, y:3, l:1, s:CC)
+ o QNr(x:1, y:3, l:1, s:CD)
+ o QNr(x:2, y:2, l:1, s:DA)
+ o QNr(x:2, y:3, l:1, s:DC)
+ o QNr(x:3, y:2, l:1, s:DB)
+ o QNr(x:3, y:3, l:1, s:DD)
+On level 0
+C: QNr(x:1, y:1, l:0, s:D)
+Adjacents: 
+ o QNr(x:0, y:0, l:0, s:A)
+ o QNr(x:0, y:1, l:0, s:C)
+ o QNr(x:1, y:0, l:0, s:B)
+ o QNr(x:1, y:1, l:0, s:D)
+
+============== QNr from GPS E 90/1 0/1 0/1  S 60/1 0/1 0/1 
+On level 15
+C: QNr(x:c000, y:2aaa, l:15, s:BBCACACACACACACA)
+Adjacents: 
+ o QNr(x:bfff, y:2aa9, l:15, s:BADBDBDBDBDBDBBD)
+ o QNr(x:bfff, y:2aaa, l:15, s:BADBDBDBDBDBDBDB)
+ o QNr(x:bfff, y:2aab, l:15, s:BADBDBDBDBDBDBDD)
+ o QNr(x:c000, y:2aa9, l:15, s:BBCACACACACACAAC)
+ o QNr(x:c000, y:2aaa, l:15, s:BBCACACACACACACA)
+ o QNr(x:c000, y:2aab, l:15, s:BBCACACACACACACC)
+ o QNr(x:c001, y:2aa9, l:15, s:BBCACACACACACAAD)
+ o QNr(x:c001, y:2aaa, l:15, s:BBCACACACACACACB)
+ o QNr(x:c001, y:2aab, l:15, s:BBCACACACACACACD)
+On level 14
+C: QNr(x:6000, y:1555, l:14, s:BBCACACACACACAC)
+Adjacents: 
+ o QNr(x:5fff, y:1554, l:14, s:BADBDBDBDBDBDBB)
+ o QNr(x:5fff, y:1555, l:14, s:BADBDBDBDBDBDBD)
+ o QNr(x:5fff, y:1556, l:14, s:BADBDBDBDBDBDDB)
+ o QNr(x:6000, y:1554, l:14, s:BBCACACACACACAA)
+ o QNr(x:6000, y:1555, l:14, s:BBCACACACACACAC)
+ o QNr(x:6000, y:1556, l:14, s:BBCACACACACACCA)
+ o QNr(x:6001, y:1554, l:14, s:BBCACACACACACAB)
+ o QNr(x:6001, y:1555, l:14, s:BBCACACACACACAD)
+ o QNr(x:6001, y:1556, l:14, s:BBCACACACACACCB)
+On level 2
+C: QNr(x:6, y:1, l:2, s:BBC)
+Adjacents: 
+ o QNr(x:5, y:0, l:2, s:BAB)
+ o QNr(x:5, y:1, l:2, s:BAD)
+ o QNr(x:5, y:2, l:2, s:BCB)
+ o QNr(x:6, y:0, l:2, s:BBA)
+ o QNr(x:6, y:1, l:2, s:BBC)
+ o QNr(x:6, y:2, l:2, s:BDA)
+ o QNr(x:7, y:0, l:2, s:BBB)
+ o QNr(x:7, y:1, l:2, s:BBD)
+ o QNr(x:7, y:2, l:2, s:BDB)
+On level 1
+C: QNr(x:3, y:0, l:1, s:BB)
+Adjacents: 
+ o QNr(x:0, y:0, l:1, s:AA)
+ o QNr(x:0, y:1, l:1, s:AC)
+ o QNr(x:1, y:0, l:1, s:AB)
+ o QNr(x:2, y:0, l:1, s:BA)
+ o QNr(x:2, y:1, l:1, s:BC)
+ o QNr(x:3, y:0, l:1, s:BB)
+ o QNr(x:3, y:1, l:1, s:BD)
+On level 0
+C: QNr(x:1, y:0, l:0, s:B)
+Adjacents: 
+ o QNr(x:0, y:0, l:0, s:A)
+ o QNr(x:0, y:1, l:0, s:C)
+ o QNr(x:1, y:0, l:0, s:B)
+ o QNr(x:1, y:1, l:0, s:D)
+
+============== QNr from GPS W 90/1 0/1 0/1  N 60/1 0/1 0/1 
+On level 15
+C: QNr(x:4000, y:d555, l:15, s:CDACACACACACACAC)
+Adjacents: 
+ o QNr(x:3fff, y:d554, l:15, s:CCBDBDBDBDBDBDBB)
+ o QNr(x:3fff, y:d555, l:15, s:CCBDBDBDBDBDBDBD)
+ o QNr(x:3fff, y:d556, l:15, s:CCBDBDBDBDBDBDDB)
+ o QNr(x:4000, y:d554, l:15, s:CDACACACACACACAA)
+ o QNr(x:4000, y:d555, l:15, s:CDACACACACACACAC)
+ o QNr(x:4000, y:d556, l:15, s:CDACACACACACACCA)
+ o QNr(x:4001, y:d554, l:15, s:CDACACACACACACAB)
+ o QNr(x:4001, y:d555, l:15, s:CDACACACACACACAD)
+ o QNr(x:4001, y:d556, l:15, s:CDACACACACACACCB)
+On level 14
+C: QNr(x:2000, y:6aaa, l:14, s:CDACACACACACACA)
+Adjacents: 
+ o QNr(x:1fff, y:6aa9, l:14, s:CCBDBDBDBDBDBBD)
+ o QNr(x:1fff, y:6aaa, l:14, s:CCBDBDBDBDBDBDB)
+ o QNr(x:1fff, y:6aab, l:14, s:CCBDBDBDBDBDBDD)
+ o QNr(x:2000, y:6aa9, l:14, s:CDACACACACACAAC)
+ o QNr(x:2000, y:6aaa, l:14, s:CDACACACACACACA)
+ o QNr(x:2000, y:6aab, l:14, s:CDACACACACACACC)
+ o QNr(x:2001, y:6aa9, l:14, s:CDACACACACACAAD)
+ o QNr(x:2001, y:6aaa, l:14, s:CDACACACACACACB)
+ o QNr(x:2001, y:6aab, l:14, s:CDACACACACACACD)
+On level 2
+C: QNr(x:2, y:6, l:2, s:CDA)
+Adjacents: 
+ o QNr(x:1, y:5, l:2, s:CAD)
+ o QNr(x:1, y:6, l:2, s:CCB)
+ o QNr(x:1, y:7, l:2, s:CCD)
+ o QNr(x:2, y:5, l:2, s:CBC)
+ o QNr(x:2, y:6, l:2, s:CDA)
+ o QNr(x:2, y:7, l:2, s:CDC)
+ o QNr(x:3, y:5, l:2, s:CBD)
+ o QNr(x:3, y:6, l:2, s:CDB)
+ o QNr(x:3, y:7, l:2, s:CDD)
+On level 1
+C: QNr(x:1, y:3, l:1, s:CD)
+Adjacents: 
+ o QNr(x:0, y:2, l:1, s:CA)
+ o QNr(x:0, y:3, l:1, s:CC)
+ o QNr(x:1, y:2, l:1, s:CB)
+ o QNr(x:1, y:3, l:1, s:CD)
+ o QNr(x:2, y:2, l:1, s:DA)
+ o QNr(x:2, y:3, l:1, s:DC)
+ o QNr(x:3, y:3, l:1, s:DD)
+On level 0
+C: QNr(x:0, y:1, l:0, s:C)
+Adjacents: 
+ o QNr(x:0, y:0, l:0, s:A)
+ o QNr(x:0, y:1, l:0, s:C)
+ o QNr(x:1, y:0, l:0, s:B)
+ o QNr(x:1, y:1, l:0, s:D)
+
+============== QNr from GPS W 90/1 0/1 0/1  S 60/1 0/1 0/1 
+On level 15
+C: QNr(x:4000, y:2aaa, l:15, s:ABCACACACACACACA)
+Adjacents: 
+ o QNr(x:3fff, y:2aa9, l:15, s:AADBDBDBDBDBDBBD)
+ o QNr(x:3fff, y:2aaa, l:15, s:AADBDBDBDBDBDBDB)
+ o QNr(x:3fff, y:2aab, l:15, s:AADBDBDBDBDBDBDD)
+ o QNr(x:4000, y:2aa9, l:15, s:ABCACACACACACAAC)
+ o QNr(x:4000, y:2aaa, l:15, s:ABCACACACACACACA)
+ o QNr(x:4000, y:2aab, l:15, s:ABCACACACACACACC)
+ o QNr(x:4001, y:2aa9, l:15, s:ABCACACACACACAAD)
+ o QNr(x:4001, y:2aaa, l:15, s:ABCACACACACACACB)
+ o QNr(x:4001, y:2aab, l:15, s:ABCACACACACACACD)
+On level 14
+C: QNr(x:2000, y:1555, l:14, s:ABCACACACACACAC)
+Adjacents: 
+ o QNr(x:1fff, y:1554, l:14, s:AADBDBDBDBDBDBB)
+ o QNr(x:1fff, y:1555, l:14, s:AADBDBDBDBDBDBD)
+ o QNr(x:1fff, y:1556, l:14, s:AADBDBDBDBDBDDB)
+ o QNr(x:2000, y:1554, l:14, s:ABCACACACACACAA)
+ o QNr(x:2000, y:1555, l:14, s:ABCACACACACACAC)
+ o QNr(x:2000, y:1556, l:14, s:ABCACACACACACCA)
+ o QNr(x:2001, y:1554, l:14, s:ABCACACACACACAB)
+ o QNr(x:2001, y:1555, l:14, s:ABCACACACACACAD)
+ o QNr(x:2001, y:1556, l:14, s:ABCACACACACACCB)
+On level 2
+C: QNr(x:2, y:1, l:2, s:ABC)
+Adjacents: 
+ o QNr(x:1, y:0, l:2, s:AAB)
+ o QNr(x:1, y:1, l:2, s:AAD)
+ o QNr(x:1, y:2, l:2, s:ACB)
+ o QNr(x:2, y:0, l:2, s:ABA)
+ o QNr(x:2, y:1, l:2, s:ABC)
+ o QNr(x:2, y:2, l:2, s:ADA)
+ o QNr(x:3, y:0, l:2, s:ABB)
+ o QNr(x:3, y:1, l:2, s:ABD)
+ o QNr(x:3, y:2, l:2, s:ADB)
+On level 1
+C: QNr(x:1, y:0, l:1, s:AB)
+Adjacents: 
+ o QNr(x:0, y:0, l:1, s:AA)
+ o QNr(x:0, y:1, l:1, s:AC)
+ o QNr(x:1, y:0, l:1, s:AB)
+ o QNr(x:1, y:1, l:1, s:AD)
+ o QNr(x:2, y:0, l:1, s:BA)
+ o QNr(x:2, y:1, l:1, s:BC)
+ o QNr(x:3, y:0, l:1, s:BB)
+On level 0
+C: QNr(x:0, y:0, l:0, s:A)
+Adjacents: 
+ o QNr(x:0, y:0, l:0, s:A)
+ o QNr(x:0, y:1, l:0, s:C)
+ o QNr(x:1, y:0, l:0, s:B)
+ o QNr(x:1, y:1, l:0, s:D)
+
+============== QNr from GPS E 179/1 59/1 5999/100  N 89/1 59/1 5999/100 
+On level 15
+C: QNr(x:ffff, y:ffff, l:15, s:DDDDDDDDDDDDDDDD)
+Adjacents: 
+ o QNr(x:0, y:fffe, l:15, s:CCCCCCCCCCCCCCCA)
+ o QNr(x:0, y:ffff, l:15, s:CCCCCCCCCCCCCCCC)
+ o QNr(x:7ffe, y:ffff, l:15, s:CDDDDDDDDDDDDDDC)
+ o QNr(x:7fff, y:ffff, l:15, s:CDDDDDDDDDDDDDDD)
+ o QNr(x:8000, y:ffff, l:15, s:DCCCCCCCCCCCCCCC)
+ o QNr(x:fffe, y:fffe, l:15, s:DDDDDDDDDDDDDDDA)
+ o QNr(x:fffe, y:ffff, l:15, s:DDDDDDDDDDDDDDDC)
+ o QNr(x:ffff, y:fffe, l:15, s:DDDDDDDDDDDDDDDB)
+ o QNr(x:ffff, y:ffff, l:15, s:DDDDDDDDDDDDDDDD)
+On level 14
+C: QNr(x:7fff, y:7fff, l:14, s:DDDDDDDDDDDDDDD)
+Adjacents: 
+ o QNr(x:0, y:7ffe, l:14, s:CCCCCCCCCCCCCCA)
+ o QNr(x:0, y:7fff, l:14, s:CCCCCCCCCCCCCCC)
+ o QNr(x:3ffe, y:7fff, l:14, s:CDDDDDDDDDDDDDC)
+ o QNr(x:3fff, y:7fff, l:14, s:CDDDDDDDDDDDDDD)
+ o QNr(x:4000, y:7fff, l:14, s:DCCCCCCCCCCCCCC)
+ o QNr(x:7ffe, y:7ffe, l:14, s:DDDDDDDDDDDDDDA)
+ o QNr(x:7ffe, y:7fff, l:14, s:DDDDDDDDDDDDDDC)
+ o QNr(x:7fff, y:7ffe, l:14, s:DDDDDDDDDDDDDDB)
+ o QNr(x:7fff, y:7fff, l:14, s:DDDDDDDDDDDDDDD)
+On level 2
+C: QNr(x:7, y:7, l:2, s:DDD)
+Adjacents: 
+ o QNr(x:0, y:6, l:2, s:CCA)
+ o QNr(x:0, y:7, l:2, s:CCC)
+ o QNr(x:2, y:7, l:2, s:CDC)
+ o QNr(x:3, y:7, l:2, s:CDD)
+ o QNr(x:4, y:7, l:2, s:DCC)
+ o QNr(x:6, y:6, l:2, s:DDA)
+ o QNr(x:6, y:7, l:2, s:DDC)
+ o QNr(x:7, y:6, l:2, s:DDB)
+ o QNr(x:7, y:7, l:2, s:DDD)
+On level 1
+C: QNr(x:3, y:3, l:1, s:DD)
+Adjacents: 
+ o QNr(x:0, y:2, l:1, s:CA)
+ o QNr(x:0, y:3, l:1, s:CC)
+ o QNr(x:1, y:3, l:1, s:CD)
+ o QNr(x:2, y:2, l:1, s:DA)
+ o QNr(x:2, y:3, l:1, s:DC)
+ o QNr(x:3, y:2, l:1, s:DB)
+ o QNr(x:3, y:3, l:1, s:DD)
+On level 0
+C: QNr(x:1, y:1, l:0, s:D)
+Adjacents: 
+ o QNr(x:0, y:0, l:0, s:A)
+ o QNr(x:0, y:1, l:0, s:C)
+ o QNr(x:1, y:0, l:0, s:B)
+ o QNr(x:1, y:1, l:0, s:D)
+
+============== QNr from GPS E 179/1 59/1 5999/100  S 89/1 59/1 5999/100 
+On level 15
+C: QNr(x:ffff, y:0, l:15, s:BBBBBBBBBBBBBBBB)
+Adjacents: 
+ o QNr(x:0, y:0, l:15, s:AAAAAAAAAAAAAAAA)
+ o QNr(x:0, y:1, l:15, s:AAAAAAAAAAAAAAAC)
+ o QNr(x:7ffe, y:0, l:15, s:ABBBBBBBBBBBBBBA)
+ o QNr(x:7fff, y:0, l:15, s:ABBBBBBBBBBBBBBB)
+ o QNr(x:8000, y:0, l:15, s:BAAAAAAAAAAAAAAA)
+ o QNr(x:fffe, y:0, l:15, s:BBBBBBBBBBBBBBBA)
+ o QNr(x:fffe, y:1, l:15, s:BBBBBBBBBBBBBBBC)
+ o QNr(x:ffff, y:0, l:15, s:BBBBBBBBBBBBBBBB)
+ o QNr(x:ffff, y:1, l:15, s:BBBBBBBBBBBBBBBD)
+On level 14
+C: QNr(x:7fff, y:0, l:14, s:BBBBBBBBBBBBBBB)
+Adjacents: 
+ o QNr(x:0, y:0, l:14, s:AAAAAAAAAAAAAAA)
+ o QNr(x:0, y:1, l:14, s:AAAAAAAAAAAAAAC)
+ o QNr(x:3ffe, y:0, l:14, s:ABBBBBBBBBBBBBA)
+ o QNr(x:3fff, y:0, l:14, s:ABBBBBBBBBBBBBB)
+ o QNr(x:4000, y:0, l:14, s:BAAAAAAAAAAAAAA)
+ o QNr(x:7ffe, y:0, l:14, s:BBBBBBBBBBBBBBA)
+ o QNr(x:7ffe, y:1, l:14, s:BBBBBBBBBBBBBBC)
+ o QNr(x:7fff, y:0, l:14, s:BBBBBBBBBBBBBBB)
+ o QNr(x:7fff, y:1, l:14, s:BBBBBBBBBBBBBBD)
+On level 2
+C: QNr(x:7, y:0, l:2, s:BBB)
+Adjacents: 
+ o QNr(x:0, y:0, l:2, s:AAA)
+ o QNr(x:0, y:1, l:2, s:AAC)
+ o QNr(x:2, y:0, l:2, s:ABA)
+ o QNr(x:3, y:0, l:2, s:ABB)
+ o QNr(x:4, y:0, l:2, s:BAA)
+ o QNr(x:6, y:0, l:2, s:BBA)
+ o QNr(x:6, y:1, l:2, s:BBC)
+ o QNr(x:7, y:0, l:2, s:BBB)
+ o QNr(x:7, y:1, l:2, s:BBD)
+On level 1
+C: QNr(x:3, y:0, l:1, s:BB)
+Adjacents: 
+ o QNr(x:0, y:0, l:1, s:AA)
+ o QNr(x:0, y:1, l:1, s:AC)
+ o QNr(x:1, y:0, l:1, s:AB)
+ o QNr(x:2, y:0, l:1, s:BA)
+ o QNr(x:2, y:1, l:1, s:BC)
+ o QNr(x:3, y:0, l:1, s:BB)
+ o QNr(x:3, y:1, l:1, s:BD)
+On level 0
+C: QNr(x:1, y:0, l:0, s:B)
+Adjacents: 
+ o QNr(x:0, y:0, l:0, s:A)
+ o QNr(x:0, y:1, l:0, s:C)
+ o QNr(x:1, y:0, l:0, s:B)
+ o QNr(x:1, y:1, l:0, s:D)
+
+============== QNr from GPS W 179/1 59/1 5999/100  N 89/1 59/1 5999/100 
+On level 15
+C: QNr(x:0, y:ffff, l:15, s:CCCCCCCCCCCCCCCC)
+Adjacents: 
+ o QNr(x:0, y:fffe, l:15, s:CCCCCCCCCCCCCCCA)
+ o QNr(x:0, y:ffff, l:15, s:CCCCCCCCCCCCCCCC)
+ o QNr(x:1, y:fffe, l:15, s:CCCCCCCCCCCCCCCB)
+ o QNr(x:1, y:ffff, l:15, s:CCCCCCCCCCCCCCCD)
+ o QNr(x:7fff, y:ffff, l:15, s:CDDDDDDDDDDDDDDD)
+ o QNr(x:8000, y:ffff, l:15, s:DCCCCCCCCCCCCCCC)
+ o QNr(x:8001, y:ffff, l:15, s:DCCCCCCCCCCCCCCD)
+ o QNr(x:ffff, y:fffe, l:15, s:DDDDDDDDDDDDDDDB)
+ o QNr(x:ffff, y:ffff, l:15, s:DDDDDDDDDDDDDDDD)
+On level 14
+C: QNr(x:0, y:7fff, l:14, s:CCCCCCCCCCCCCCC)
+Adjacents: 
+ o QNr(x:0, y:7ffe, l:14, s:CCCCCCCCCCCCCCA)
+ o QNr(x:0, y:7fff, l:14, s:CCCCCCCCCCCCCCC)
+ o QNr(x:1, y:7ffe, l:14, s:CCCCCCCCCCCCCCB)
+ o QNr(x:1, y:7fff, l:14, s:CCCCCCCCCCCCCCD)
+ o QNr(x:3fff, y:7fff, l:14, s:CDDDDDDDDDDDDDD)
+ o QNr(x:4000, y:7fff, l:14, s:DCCCCCCCCCCCCCC)
+ o QNr(x:4001, y:7fff, l:14, s:DCCCCCCCCCCCCCD)
+ o QNr(x:7fff, y:7ffe, l:14, s:DDDDDDDDDDDDDDB)
+ o QNr(x:7fff, y:7fff, l:14, s:DDDDDDDDDDDDDDD)
+On level 2
+C: QNr(x:0, y:7, l:2, s:CCC)
+Adjacents: 
+ o QNr(x:0, y:6, l:2, s:CCA)
+ o QNr(x:0, y:7, l:2, s:CCC)
+ o QNr(x:1, y:6, l:2, s:CCB)
+ o QNr(x:1, y:7, l:2, s:CCD)
+ o QNr(x:3, y:7, l:2, s:CDD)
+ o QNr(x:4, y:7, l:2, s:DCC)
+ o QNr(x:5, y:7, l:2, s:DCD)
+ o QNr(x:7, y:6, l:2, s:DDB)
+ o QNr(x:7, y:7, l:2, s:DDD)
+On level 1
+C: QNr(x:0, y:3, l:1, s:CC)
+Adjacents: 
+ o QNr(x:0, y:2, l:1, s:CA)
+ o QNr(x:0, y:3, l:1, s:CC)
+ o QNr(x:1, y:2, l:1, s:CB)
+ o QNr(x:1, y:3, l:1, s:CD)
+ o QNr(x:2, y:3, l:1, s:DC)
+ o QNr(x:3, y:2, l:1, s:DB)
+ o QNr(x:3, y:3, l:1, s:DD)
+On level 0
+C: QNr(x:0, y:1, l:0, s:C)
+Adjacents: 
+ o QNr(x:0, y:0, l:0, s:A)
+ o QNr(x:0, y:1, l:0, s:C)
+ o QNr(x:1, y:0, l:0, s:B)
+ o QNr(x:1, y:1, l:0, s:D)
+
+============== QNr from GPS W 179/1 59/1 5999/100  S 89/1 59/1 5999/100 
+On level 15
+C: QNr(x:0, y:0, l:15, s:AAAAAAAAAAAAAAAA)
+Adjacents: 
+ o QNr(x:0, y:0, l:15, s:AAAAAAAAAAAAAAAA)
+ o QNr(x:0, y:1, l:15, s:AAAAAAAAAAAAAAAC)
+ o QNr(x:1, y:0, l:15, s:AAAAAAAAAAAAAAAB)
+ o QNr(x:1, y:1, l:15, s:AAAAAAAAAAAAAAAD)
+ o QNr(x:7fff, y:0, l:15, s:ABBBBBBBBBBBBBBB)
+ o QNr(x:8000, y:0, l:15, s:BAAAAAAAAAAAAAAA)
+ o QNr(x:8001, y:0, l:15, s:BAAAAAAAAAAAAAAB)
+ o QNr(x:ffff, y:0, l:15, s:BBBBBBBBBBBBBBBB)
+ o QNr(x:ffff, y:1, l:15, s:BBBBBBBBBBBBBBBD)
+On level 14
+C: QNr(x:0, y:0, l:14, s:AAAAAAAAAAAAAAA)
+Adjacents: 
+ o QNr(x:0, y:0, l:14, s:AAAAAAAAAAAAAAA)
+ o QNr(x:0, y:1, l:14, s:AAAAAAAAAAAAAAC)
+ o QNr(x:1, y:0, l:14, s:AAAAAAAAAAAAAAB)
+ o QNr(x:1, y:1, l:14, s:AAAAAAAAAAAAAAD)
+ o QNr(x:3fff, y:0, l:14, s:ABBBBBBBBBBBBBB)
+ o QNr(x:4000, y:0, l:14, s:BAAAAAAAAAAAAAA)
+ o QNr(x:4001, y:0, l:14, s:BAAAAAAAAAAAAAB)
+ o QNr(x:7fff, y:0, l:14, s:BBBBBBBBBBBBBBB)
+ o QNr(x:7fff, y:1, l:14, s:BBBBBBBBBBBBBBD)
+On level 2
+C: QNr(x:0, y:0, l:2, s:AAA)
+Adjacents: 
+ o QNr(x:0, y:0, l:2, s:AAA)
+ o QNr(x:0, y:1, l:2, s:AAC)
+ o QNr(x:1, y:0, l:2, s:AAB)
+ o QNr(x:1, y:1, l:2, s:AAD)
+ o QNr(x:3, y:0, l:2, s:ABB)
+ o QNr(x:4, y:0, l:2, s:BAA)
+ o QNr(x:5, y:0, l:2, s:BAB)
+ o QNr(x:7, y:0, l:2, s:BBB)
+ o QNr(x:7, y:1, l:2, s:BBD)
+On level 1
+C: QNr(x:0, y:0, l:1, s:AA)
+Adjacents: 
+ o QNr(x:0, y:0, l:1, s:AA)
+ o QNr(x:0, y:1, l:1, s:AC)
+ o QNr(x:1, y:0, l:1, s:AB)
+ o QNr(x:1, y:1, l:1, s:AD)
+ o QNr(x:2, y:0, l:1, s:BA)
+ o QNr(x:3, y:0, l:1, s:BB)
+ o QNr(x:3, y:1, l:1, s:BD)
+On level 0
+C: QNr(x:0, y:0, l:0, s:A)
+Adjacents: 
+ o QNr(x:0, y:0, l:0, s:A)
+ o QNr(x:0, y:1, l:0, s:C)
+ o QNr(x:1, y:0, l:0, s:B)
+ o QNr(x:1, y:1, l:0, s:D)
+

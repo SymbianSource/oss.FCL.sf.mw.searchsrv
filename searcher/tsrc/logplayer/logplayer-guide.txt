@@ -1,0 +1,60 @@
+General
+=======
+
+Log Player framework contains two components: Log Player recorder and
+Log Player for executing recorded log files. Log Player recorder is 
+part of Search Server. By default Search Server does not record log files and
+Search Server must be instrumented separately to generate log files. 
+Log Player is separate program used to execute stored log files.
+
+Recording log file
+==================
+
+Log file recording is disabled by default. To enable recording:
+1) Open file cfg/searchserverdefs.h
+2) This file should contain following line
+   //#define RECORD_FOR_LOG_PLAYER
+   Uncomment this to enable log recording
+3) Recompile Search Server and reinstall sis-file to phone.
+4) Create folder C:\logs\CPix\LogPlayer
+5) All search/indexing activities will be logged to
+   c:\logs\CPix\LogPlayer\LogPlayer.txt
+   This will work on urel and udeb builds.
+Note: Remember to delete old log file before recording new logs. If there
+exists old file then new data is added to start of file.
+
+Executing stored log file
+=========================
+
+LogPlayer.exe is used to execute stored log file. Steps to execute log:
+1) Compile LogPlayer. This is also included from main bld.inf file.
+   (LogPlayer is test component so build with "abld test build")
+2) Install LogPlayer to phone
+   (Generate sis-file from s60\test\LogPlayer\sis\logplayer.pkg)
+3) Move stored log file to place where Log Player can find it. There are
+   2 possibilities
+
+   Option 1. Create file c:\data\LPConf.txt. 
+   
+   Content of this file should be absolute paths to log files.
+   Each line should be in own line.
+   
+   Example content:
+
+   c:\data\MyLogPlayer1.txt
+   c:\data\MyLogPlayer2.txt
+   
+   Log Player will execute each specified log file in given order
+
+
+   Option 2. Move log data to file C:\data\LPDefault.txt.
+   
+   Log Player will execute log data from that file. Note: LPConf.txt must
+   be deleted or Log Player will never read log data from LPDefault.txt
+
+4) Start LogPlayer.exe
+   - Run from Applications menu or
+   - From eshell typing "LogPlayer"
+
+   Log Player starts interpreting given log file. Log Player will 
+   print latest command to console. 

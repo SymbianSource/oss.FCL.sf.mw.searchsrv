@@ -1,0 +1,15 @@
+Number of hits: 2
+DOC (multifield) (!:\data\cpixunittestcorpus\stem\en\2.txt):
+ o dummy: happening there
+ o dummy2: thanksgiving
+ o dummy3: christmas for ever
+ o _excerpt: Oh happiness!
+ o _appclass: root file usrdoc text
+ o _mimetype: text/plain
+DOC (multifield) (!:\data\cpixunittestcorpus\stem\en\4.txt):
+ o dummy: happy words
+ o dummy2: christmas easter
+ o dummy3: rabid happening
+ o _excerpt: What is happening here?
+ o _appclass: root file usrdoc text
+ o _mimetype: text/plain

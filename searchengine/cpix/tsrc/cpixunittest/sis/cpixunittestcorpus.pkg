@@ -1,0 +1,109 @@
+;
+; Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
+; All rights reserved.
+; This component and the accompanying materials are made available
+; under the terms of "Eclipse Public License v1.0"
+; which accompanies this distribution, and is available
+; at the URL "http://www.eclipse.org/legal/epl-v10.html".
+;
+; Initial Contributors:
+; Nokia Corporation - initial contribution.
+;
+; Contributors:
+;
+; Description: 
+;
+; Installation file for test corpus
+;
+; This is an auto-generated PKG file by Carbide.
+; This file uses variables specific to Carbide builds that will not work
+; on command-line builds. If you want to use this generated PKG file from the
+; command-line tools you will need to modify the variables with the appropriate
+; values $(EPOCROOT), $(PLATFORM), $(TARGET)
+;
+;Languages
+&EN
+
+;
+; UID is the app's UID
+;
+#{"cpixunittestcorpus"},(0xEC4D44A5),1,0,0
+	
+;Localised Vendor name
+%{"Vendor-EN"}
+
+;Unique Vendor name
+:"Vendor"
+
+; Supports Series 60 v 3.0
+[0x101F7961], 0, 0, 0, {"S60ProductID"}
+
+"..\data\cpixunittestcorpus\jpgs\08012009047.jpg"                  - "e:\data\cpixunittestcorpus\jpgs\08012009047.jpg"
+"..\data\cpixunittestcorpus\jpgs\08012009048.jpg"                  - "e:\data\cpixunittestcorpus\jpgs\08012009048.jpg"
+"..\data\cpixunittestcorpus\jpgs\asema.jpg"                        - "e:\data\cpixunittestcorpus\jpgs\asema.jpg"
+"..\data\cpixunittestcorpus\jpgs\Babai.jpg"                        - "e:\data\cpixunittestcorpus\jpgs\Babai.jpg"
+"..\data\cpixunittestcorpus\jpgs\Budapest.jpg"                     - "e:\data\cpixunittestcorpus\jpgs\Budapest.jpg"
+"..\data\cpixunittestcorpus\jpgs\Calcutta.jpg"                     - "e:\data\cpixunittestcorpus\jpgs\Calcutta.jpg"
+"..\data\cpixunittestcorpus\jpgs\Debrecen.jpg"                     - "e:\data\cpixunittestcorpus\jpgs\Debrecen.jpg"
+"..\data\cpixunittestcorpus\jpgs\Dergachi.jpg"                     - "e:\data\cpixunittestcorpus\jpgs\Dergachi.jpg"
+"..\data\cpixunittestcorpus\jpgs\Dnipropetrovsk.jpg"               - "e:\data\cpixunittestcorpus\jpgs\Dnipropetrovsk.jpg"
+"..\data\cpixunittestcorpus\jpgs\fake_Thumbs.db"                   - "e:\data\cpixunittestcorpus\jpgs\fake_Thumbs.db"
+"..\data\cpixunittestcorpus\jpgs\futurice.jpg"                     - "e:\data\cpixunittestcorpus\jpgs\futurice.jpg"
+"..\data\cpixunittestcorpus\jpgs\hietaniemi.jpg"                   - "e:\data\cpixunittestcorpus\jpgs\hietaniemi.jpg"
+"..\data\cpixunittestcorpus\jpgs\Kharkiv.jpg"                      - "e:\data\cpixunittestcorpus\jpgs\Kharkiv.jpg"
+"..\data\cpixunittestcorpus\jpgs\Kyiv.jpg"                         - "e:\data\cpixunittestcorpus\jpgs\Kyiv.jpg"
+"..\data\cpixunittestcorpus\jpgs\Lagos.jpg"                        - "e:\data\cpixunittestcorpus\jpgs\Lagos.jpg"
+"..\data\cpixunittestcorpus\jpgs\Lahti.jpg"                        - "e:\data\cpixunittestcorpus\jpgs\Lahti.jpg"
+"..\data\cpixunittestcorpus\jpgs\Lammi.jpg"                        - "e:\data\cpixunittestcorpus\jpgs\Lammi.jpg"
+"..\data\cpixunittestcorpus\jpgs\Leicester.jpg"                    - "e:\data\cpixunittestcorpus\jpgs\Leicester.jpg"
+"..\data\cpixunittestcorpus\jpgs\leicestersquare.jpg"              - "e:\data\cpixunittestcorpus\jpgs\leicestersquare.jpg"
+"..\data\cpixunittestcorpus\jpgs\Liverpool.jpg"                    - "e:\data\cpixunittestcorpus\jpgs\Liverpool.jpg"
+"..\data\cpixunittestcorpus\jpgs\Lviv.jpg"                         - "e:\data\cpixunittestcorpus\jpgs\Lviv.jpg"
+"..\data\cpixunittestcorpus\jpgs\Manchester.jpg"                   - "e:\data\cpixunittestcorpus\jpgs\Manchester.jpg"
+"..\data\cpixunittestcorpus\jpgs\Merefa.jpg"                       - "e:\data\cpixunittestcorpus\jpgs\Merefa.jpg"
+"..\data\cpixunittestcorpus\jpgs\Mexico.jpg"                       - "e:\data\cpixunittestcorpus\jpgs\Mexico.jpg"
+"..\data\cpixunittestcorpus\jpgs\Mumbai.jpg"                       - "e:\data\cpixunittestcorpus\jpgs\Mumbai.jpg"
+"..\data\cpixunittestcorpus\jpgs\Naantali.jpg"                     - "e:\data\cpixunittestcorpus\jpgs\Naantali.jpg"
+"..\data\cpixunittestcorpus\jpgs\New_York.jpg"                     - "e:\data\cpixunittestcorpus\jpgs\New_York.jpg"
+"..\data\cpixunittestcorpus\jpgs\nokiahouse.jpg"                   - "e:\data\cpixunittestcorpus\jpgs\nokiahouse.jpg"
+"..\data\cpixunittestcorpus\jpgs\northhaaga.jpg"                   - "e:\data\cpixunittestcorpus\jpgs\northhaaga.jpg"
+"..\data\cpixunittestcorpus\jpgs\nrc.jpg"                          - "e:\data\cpixunittestcorpus\jpgs\nrc.jpg"
+"..\data\cpixunittestcorpus\jpgs\otaniemi.jpg"                     - "e:\data\cpixunittestcorpus\jpgs\otaniemi.jpg"
+"..\data\cpixunittestcorpus\jpgs\Pecz.jpg"                         - "e:\data\cpixunittestcorpus\jpgs\Pecz.jpg"
+"..\data\cpixunittestcorpus\jpgs\Sao_Paolo.jpg"                    - "e:\data\cpixunittestcorpus\jpgs\Sao_Paolo.jpg"
+"..\data\cpixunittestcorpus\jpgs\Shanghai.jpg"                     - "e:\data\cpixunittestcorpus\jpgs\Shanghai.jpg"
+"..\data\cpixunittestcorpus\jpgs\southhaaga.jpg"                   - "e:\data\cpixunittestcorpus\jpgs\southhaaga.jpg"
+"..\data\cpixunittestcorpus\jpgs\Szeged.jpg"                       - "e:\data\cpixunittestcorpus\jpgs\Szeged.jpg"
+"..\data\cpixunittestcorpus\jpgs\tallinnharbour.jpg"               - "e:\data\cpixunittestcorpus\jpgs\tallinnharbour.jpg"
+"..\data\cpixunittestcorpus\jpgs\Tokyo.jpg"                        - "e:\data\cpixunittestcorpus\jpgs\Tokyo.jpg"
+"..\data\cpixunittestcorpus\jpgs\Turku.jpg"                        - "e:\data\cpixunittestcorpus\jpgs\Turku.jpg"
+"..\data\cpixunittestcorpus\jpgs\verkkokauppa.jpg"                 - "e:\data\cpixunittestcorpus\jpgs\verkkokauppa.jpg"
+"..\data\cpixunittestcorpus\jpgs\viruhotel.jpg"                    - "e:\data\cpixunittestcorpus\jpgs\viruhotel.jpg"
+"..\data\cpixunittestcorpus\jpgs\Zanki.jpg"                        - "e:\data\cpixunittestcorpus\jpgs\Zanki.jpg"
+
+"..\data\cpixunittestcorpus\maps\root\maps\city\fin\_0\segments"      - "e:\data\cpixunittestcorpus\maps\root\maps\city\fin\_0\segments"
+"..\data\cpixunittestcorpus\maps\root\maps\city\fin\_0\_96s.cfs"      - "e:\data\cpixunittestcorpus\maps\root\maps\city\fin\_0\_96s.cfs"
+"..\data\cpixunittestcorpus\maps\root\maps\country\_0\segments"       - "e:\data\cpixunittestcorpus\maps\root\maps\country\_0\segments"
+"..\data\cpixunittestcorpus\maps\root\maps\country\_0\_6s.cfs"        - "e:\data\cpixunittestcorpus\maps\root\maps\country\_0\_6s.cfs"
+"..\data\cpixunittestcorpus\maps\root\maps\street\fin\_0\segments"    - "e:\data\cpixunittestcorpus\maps\root\maps\street\fin\_0\segments"
+"..\data\cpixunittestcorpus\maps\root\maps\street\fin\_0\_3uw.cfs"    - "e:\data\cpixunittestcorpus\maps\root\maps\street\fin\_0\_3uw.cfs"
+
+"..\data\cpixunittestcorpus\media\Albert Einstein, E mc 2.mp3"     - "e:\data\cpixunittestcorpus\media\Albert Einstein, E mc 2.mp3"
+"..\data\cpixunittestcorpus\media\One Step For Man.mp3"            - "e:\data\cpixunittestcorpus\media\One Step For Man.mp3"
+"..\data\cpixunittestcorpus\media\The Eagle Has Landed.mp3"        - "e:\data\cpixunittestcorpus\media\The Eagle Has Landed.mp3"
+
+"..\data\cpixunittestcorpus\sms\SMS_corpus.txt"                    - "e:\data\cpixunittestcorpus\sms\SMS_corpus.txt"
+
+"..\data\cpixunittestcorpus\stem\en\1.txt"                         - "e:\data\cpixunittestcorpus\stem\en\1.txt"
+"..\data\cpixunittestcorpus\stem\en\2.txt"                         - "e:\data\cpixunittestcorpus\stem\en\2.txt"
+"..\data\cpixunittestcorpus\stem\en\3.txt"                         - "e:\data\cpixunittestcorpus\stem\en\3.txt"
+"..\data\cpixunittestcorpus\stem\en\4.txt"                         - "e:\data\cpixunittestcorpus\stem\en\4.txt"
+"..\data\cpixunittestcorpus\stem\en\longline.txt"                  - "e:\data\cpixunittestcorpus\stem\en\longline.txt"
+"..\data\cpixunittestcorpus\stem\fi\1.txt"                         - "e:\data\cpixunittestcorpus\stem\fi\1.txt"
+"..\data\cpixunittestcorpus\stem\fi\2.txt"                         - "e:\data\cpixunittestcorpus\stem\fi\2.txt"
+"..\data\cpixunittestcorpus\stem\fi\3.txt"                         - "e:\data\cpixunittestcorpus\stem\fi\3.txt"
+"..\data\cpixunittestcorpus\stem\fi\4.txt"                         - "e:\data\cpixunittestcorpus\stem\fi\4.txt"
+"..\data\cpixunittestcorpus\pdf\ctutor.pdf"                        - "e:\data\cpixunittestcorpus\pdf\ctutor.pdf"
+"..\data\cpixunittestcorpus\pdf\geology.pdf"                       - "e:\data\cpixunittestcorpus\pdf\geology.pdf"
+"..\data\cpixunittestcorpus\pdf\samplepdf.pdf"                     - "e:\data\cpixunittestcorpus\pdf\samplepdf.pdf"
+"..\data\cpixunittestcorpus\pdf\windjack.pdf"                      - "e:\data\cpixunittestcorpus\pdf\windjack.pdf"

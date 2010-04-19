@@ -1,0 +1,42 @@
+Extracting gps information from !:\data\cpixunittestcorpus\jpgs\08012009047.jpg
+Loading data succeeded
+Comment: kellari lauttasaari futurice ruoholahti sea
+Latitude
+Reference: N
+Degrees: 60/1
+Minutes: 9/1
+Seconds: 3529/100
+Longitude: 
+Reference: E
+Degrees: 24/1
+Minutes: 53/1
+Seconds: 2508/100
+
+Extracting gps information from !:\data\cpixunittestcorpus\jpgs\08012009048.jpg
+Loading data succeeded
+Comment: kellari lauttasaari futurice harbor
+Latitude
+Reference: N
+Degrees: 60/1
+Minutes: 9/1
+Seconds: 3529/100
+Longitude: 
+Reference: E
+Degrees: 24/1
+Minutes: 53/1
+Seconds: 2508/100
+
+Extracting gps information from !:\data\cpixunittestcorpus\jpgs\New_York.jpg
+Loading data succeeded
+Comment: New York NYK Big Apple Wallstreet Skyscrapers USA US United States of America
+Latitude
+Reference: N
+Degrees: 40/1
+Minutes: 46/1
+Seconds: 2147483635/79173990
+Longitude: 
+Reference: W
+Degrees: 73/1
+Minutes: 59/1
+Seconds: 2147483645/73213996
+

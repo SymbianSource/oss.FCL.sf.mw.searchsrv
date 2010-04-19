@@ -1,0 +1,61 @@
+#
+# This configuration file configures robustness test runs. 
+#
+
+# Robustness test is divided into periods called 'ticks'.
+# During each 'tick', the test requests the server to dump out 
+# the heap record and prints 'ok' to notify the user that the 
+# sofware is still running and responsive. 
+# 
+#
+
+#
+# The amount of ticks for the test. On each tick, the heap usage is 
+# requested from server and 'ok' is printed
+15
+
+#
+# The length of one tick in seconds. (60 equals one minute)
+60
+
+#
+# How many items to index before starting the process
+# Both busy and normal index will contain this many documents
+# on start.
+#
+0
+
+#
+# The average amount of items per index. NOTE: it may take a while 
+# before indexer populates the index to have the amount of items.
+# (2000 items equals about 250 KB per index)
+1000
+
+#
+# Toggles indexing on and off. 1 enables indexing, 0 disables.
+1
+
+#
+# Toggles deletes on and off. 1 enables deletes, 0 disables.
+1
+
+#
+# Toggles searchers on and off. 1 enables searchers, 0 disables.
+1
+
+#
+# Toggles cancelling on and off. 
+1
+
+#
+# The indexer sleep this time (in milliseconds) after each indexing
+# operation
+100
+
+#
+#
+# The searcher sleep time for indexer between indexing in
+# milliseconds
+50
+
+# End of configuration

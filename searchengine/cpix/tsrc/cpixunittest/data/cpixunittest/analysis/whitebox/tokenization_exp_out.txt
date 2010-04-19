@@ -1,0 +1,1 @@
+sw('switch')lbc('{')case('case')str-lit(''_docuid'')comma(',')str-lit(''_mimetype'')cl(':')id('keywords')tr(';')case('case')str-lit(''_baseappclass'')cl(':')id('whitespace')pipe('>')id('lowercase')tr(';')default('default')cl(':')id('natural')lbr('(')id('en')rbr(')')tr(';')rbc('}')

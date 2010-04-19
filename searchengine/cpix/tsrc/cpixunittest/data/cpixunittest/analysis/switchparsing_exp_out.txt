@@ -1,0 +1,4 @@
+Creating analyzer switch {case '_docuid':          keyword; case '_appclass':        whitespace>lowercase;case 'title', 'message': standard>lowercase>stem(en)>stop(en);default:                 standard;}
+Creating analyzer switch{ case '_qnr': whitespace; default: standard; }>lowercase
+Creating analyzer switch{ default: 	standard; }
+Creating analyzer switch{ case '_qnr': switch{ case '_docuid': keyword; default: whitespace; }; default: standard; }

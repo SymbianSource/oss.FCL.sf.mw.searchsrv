@@ -1,0 +1,11 @@
+Reader (either the original or the re-created):
+SEARCHING for 'hello' resulted in 2 hits:
+  o  DOC 0 : Hello it is a nice day
+  o  DOC 4 : Do hello, hallo and hullo mean the same?
+
+
+Recovering (most of the) state of the index:
+The recovered state of index:
+SEARCHING for 'hello' resulted in 2 hits:
+  o  DOC 0 : Hello it is a nice day
+  o  DOC 4 : Do hello, hallo and hullo mean the same?

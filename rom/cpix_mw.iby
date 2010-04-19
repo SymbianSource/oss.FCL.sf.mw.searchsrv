@@ -1,0 +1,55 @@
+/*
+* Copyright (c) 2002 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  Includes additional application IBYs for PF52.50/ivalo
+*       
+*
+*/
+
+
+#ifndef __CPIXENGINE_IBY__
+#define __CPIXENGINE_IBY__
+
+
+// CPiX Harvester Server
+
+#ifdef FF_SEARCH_SW
+
+file=ABI_DIR\BUILD_DIR\CPixHarvesterServer.exe	SHARED_LIB_DIR\CPixHarvesterServer.exe 
+file=ABI_DIR\BUILD_DIR\CPixHarvesterPluginInterface.dll	SHARED_LIB_DIR\CPixHarvesterPluginInterface.dll
+
+
+// CPiX Search Server
+
+file=ABI_DIR\BUILD_DIR\CPixSearchClient.dll	   SHARED_LIB_DIR\CPixSearchClient.dll
+file=ABI_DIR\BUILD_DIR\CPixSearchServer.exe	   SHARED_LIB_DIR\CPixSearchServer.exe 
+
+// CPiX NP Plugin
+//ECOM_PLUGIN( npCPixPlugin.dll, npCPixPlugin.rsc)
+
+//file=ABI_DIR\BUILD_DIR\npCPixPlugin.dll  SHARED_LIB_DIR\npCPixPlugin.dll
+//data=DATAZ_\RESOURCE_FILES_DIR\plugins\npCPixPlugin.rsc RESOURCE_FILES_DIR\plugins\npCPixPlugin.rsc
+
+//CPIX QT
+file=ABI_DIR\BUILD_DIR\qcpixsearchclient.dll	SHARED_LIB_DIR\qcpixsearchclient.dll 
+
+//CPiX Watchdog
+file=ABI_DIR\BUILD_DIR\cpixwatchdog.exe	SHARED_LIB_DIR\cpixwatchdog.exe
+
+// Watchdog is started at boot time - copy resource file
+// must be hardcoded 'c' drive for this file
+
+data=DATAZ_\PRIVATE\101f875a\import\20029ab8.rsc  private\101f875a\import\20029ab8.rsc
+#endif //FF_SEARCH_SW
+
+#endif // __CPIXENGINE_IBY__

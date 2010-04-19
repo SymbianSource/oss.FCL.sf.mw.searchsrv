@@ -1,0 +1,8 @@
+Number of hits: 1
+DOC (multifield) (!:\data\cpixunittestcorpus\stem\en\3.txt):
+ o dummy: look at you
+ o dummy2: summer's midnight eve
+ o dummy3: look, important and happy robot
+ o _excerpt: Nothing important in here. So don't even look. Because you
+ o _appclass: root file usrdoc text
+ o _mimetype: text/plain

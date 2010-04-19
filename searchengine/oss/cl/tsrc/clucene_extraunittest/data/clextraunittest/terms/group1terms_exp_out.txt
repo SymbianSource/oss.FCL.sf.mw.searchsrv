@@ -1,0 +1,327 @@
+Advanced term search.
+Loading field cache took 185 ms.
+Searching terms for e* took 10 ms.
+even (132)
+eyes (108)
+ever (105)
+every (93)
+earth (93)
+Searching terms for ex* took 5 ms.
+exactly (61)
+extremely (35)
+except (30)
+extraordinary (27)
+existence (26)
+Searching terms for exc* took 0 ms.
+except (30)
+excuse (19)
+excitement (18)
+excited (14)
+exciting (12)
+Searching terms for exce* took 0 ms.
+except (30)
+excellent (3)
+exception (2)
+exceedingly (2)
+exceed (2)
+Searching terms for excep* took 0 ms.
+except (30)
+exceptionally (2)
+exception (2)
+Searching terms for except* took 0 ms.
+except (30)
+exceptionally (2)
+exception (2)
+Searching terms for excepti* took 0 ms.
+exceptionally (2)
+exception (2)
+Searching terms for exceptio* took 0 ms.
+exceptionally (2)
+exception (2)
+Searching terms for e* took 10 ms.
+even (132)
+eyes (108)
+ever (105)
+every (93)
+earth (93)
+Searching terms for ev* took 5 ms.
+even (132)
+ever (105)
+every (93)
+everything (72)
+everyone (29)
+Searching terms for eve* took 5 ms.
+even (132)
+ever (105)
+every (93)
+everything (72)
+everyone (29)
+Searching terms for ever* took 0 ms.
+ever (105)
+every (93)
+everything (72)
+everyone (29)
+everybody (27)
+Searching terms for every* took 5 ms.
+every (93)
+everything (72)
+everyone (29)
+everybody (27)
+everywhere (4)
+Searching terms for everyw* took 0 ms.
+everywhere (4)
+Searching terms for everywh* took 0 ms.
+everywhere (4)
+Searching terms for everywhe* took 0 ms.
+everywhere (4)
+Searching terms for everywher* took 0 ms.
+everywhere (4)
+Searching terms for r* took 13 ms.
+round (139)
+re (138)
+right (133)
+robot (131)
+rather (127)
+Searching terms for re* took 5 ms.
+re (138)
+really (106)
+reason (51)
+real (51)
+realized (32)
+Searching terms for rea* took 5 ms.
+really (106)
+reason (51)
+real (51)
+realized (32)
+realised (27)
+Searching terms for real* took 0 ms.
+really (106)
+real (51)
+realized (32)
+realised (27)
+realize (17)
+Searching terms for reali* took 0 ms.
+realized (32)
+realised (27)
+realize (17)
+realise (9)
+reality (6)
+Searching terms for realiz* took 0 ms.
+realized (32)
+realize (17)
+realization (3)
+Searching terms for realize* took 0 ms.
+realized (32)
+realize (17)
+Searching terms for t* took 30 ms.
+the (6761)
+to (3479)
+that (1858)
+t (941)
+they (889)
+Searching terms for te* took 5 ms.
+tell (98)
+ten (38)
+terrible (32)
+terribly (31)
+telling (20)
+Searching terms for ter* took 0 ms.
+terrible (32)
+terribly (31)
+terrific (14)
+terminal (11)
+terms (8)
+Searching terms for terr* took 0 ms.
+terrible (32)
+terribly (31)
+terrific (14)
+terror (11)
+terrains (2)
+Searching terms for terri* took 0 ms.
+terrible (32)
+terribly (31)
+terrific (14)
+terrifying (2)
+terrifically (2)
+Searching terms for terrib* took 0 ms.
+terrible (32)
+terribly (31)
+Searching terms for terribl* took 0 ms.
+terrible (32)
+terribly (31)
+Searching terms for m* took 20 ms.
+me (265)
+more (199)
+moment (195)
+man (193)
+m (144)
+Searching terms for mi* took 5 ms.
+mind (110)
+might (67)
+million (41)
+minutes (37)
+miles (29)
+Searching terms for mie* took 5 ms.
+miehelle (1)
+mieheksi (1)
+miehekk‰h‰t (1)
+miehe (1)
+mie (1)
+Searching terms for miel* took 0 ms.
+mielehisen (1)
+mielehens‰ (1)
+mieleheni (1)
+mielehen (1)
+miel (1)
+Searching terms for miele* took 0 ms.
+mielelle (1)
+mielehisen (1)
+mielehens‰ (1)
+mieleheni (1)
+mielehen (1)
+Searching terms for mielen* took 0 ms.
+mielens‰ (1)
+mieleni (1)
+mielen (1)
+Searching terms for m* took 20 ms.
+me (265)
+more (199)
+moment (195)
+man (193)
+m (144)
+Searching terms for me* took 5 ms.
+me (265)
+mean (71)
+meant (51)
+message (31)
+means (26)
+Searching terms for mer* took 5 ms.
+merely (26)
+mere (19)
+merest (6)
+merchants (3)
+merciless (2)
+Searching terms for mere* took 0 ms.
+merely (26)
+mere (19)
+merest (6)
+merelliselle (1)
+merellisehen (1)
+Searching terms for merel* took 0 ms.
+merely (26)
+merelliselt‰ (1)
+merellisell‰ (1)
+merelliselle (1)
+merellisehen (1)
+Searching terms for merell* took 0 ms.
+merelliselt‰ (1)
+merellisell‰ (1)
+merelliselle (1)
+merellisehen (1)
+merelle (1)
+Searching terms for merelli* took 0 ms.
+merelliselt‰ (1)
+merellisell‰ (1)
+merelliselle (1)
+merellisehen (1)
+Searching terms for merellis* took 0 ms.
+merelliselt‰ (1)
+merellisell‰ (1)
+merelliselle (1)
+merellisehen (1)
+Searching terms for merellise* took 0 ms.
+merelliselt‰ (1)
+merellisell‰ (1)
+merelliselle (1)
+merellisehen (1)
+Searching terms for merellisel* took 0 ms.
+merelliselt‰ (1)
+merellisell‰ (1)
+merelliselle (1)
+Searching terms for merellisell* took 0 ms.
+merellisell‰ (1)
+merelliselle (1)
+Searching terms for p* took 42 ms.
+planet (190)
+people (182)
+point (131)
+put (90)
+prefect (65)
+Searching terms for p‰* took 5 ms.
+p‰itse (1)
+p‰ist‰ (1)
+p‰iss‰ (1)
+p‰in (1)
+p‰ (1)
+Searching terms for p‰‰* took 0 ms.
+p‰‰h‰n (1)
+p‰‰hyt (1)
+p‰‰hkeni‰ (1)
+p‰‰aloille (1)
+p‰‰ (1)
+Searching terms for p‰‰s* took 0 ms.
+p‰‰sev‰ni (1)
+p‰‰set (1)
+p‰‰sen (1)
+p‰‰sem‰tt‰ns‰ (1)
+p‰‰se (1)
+Searching terms for p‰‰st* took 0 ms.
+p‰‰stimeksi (1)
+p‰‰sti (1)
+p‰‰ste‰ (1)
+p‰‰stess‰ns‰ (1)
+p‰‰stelevi (1)
+Searching terms for p‰‰st‰* took 0 ms.
+p‰‰st‰m‰h‰n (1)
+p‰‰st‰ksesi (1)
+p‰‰st‰kseni (1)
+p‰‰st‰isit (1)
+p‰‰st‰ (1)
+Searching terms for p‰‰st‰m* took 5 ms.
+p‰‰st‰m‰h‰n (1)
+Searching terms for p‰‰st‰m‰* took 0 ms.
+p‰‰st‰m‰h‰n (1)
+Searching terms for p‰‰st‰m‰h* took 0 ms.
+p‰‰st‰m‰h‰n (1)
+Searching terms for p‰‰st‰m‰h‰* took 0 ms.
+p‰‰st‰m‰h‰n (1)
+Searching terms for v* took 25 ms.
+very (344)
+ve (150)
+voice (134)
+vogon (52)
+vogons (30)
+Searching terms for ve* took 5 ms.
+very (344)
+ve (150)
+ventilation (9)
+venture (5)
+velocity (4)
+Searching terms for ven* took 0 ms.
+ventilation (9)
+venture (5)
+ventured (3)
+vendetta (2)
+venehen (1)
+Searching terms for vene* took 0 ms.
+venehesen (1)
+venehesemme (1)
+venehen (1)
+venehell‰ (1)
+vene (1)
+Searching terms for veneh* took 0 ms.
+venehess‰ (1)
+venehesen (1)
+venehesemme (1)
+venehen (1)
+venehell‰ (1)
+Searching terms for venehe* took 0 ms.
+venehess‰ (1)
+venehesen (1)
+venehesemme (1)
+venehen (1)
+venehell‰ (1)
+All term searches together took 240 ms.
+
+240 ms per search.
+

@@ -1,0 +1,66 @@
+/*
+============================================================================
+ Name		: RobustnessTest.mmp
+ Author	  : 
+ Copyright   : Your copyright notice
+ Description : This is the project specification file for SearchServerTest.
+============================================================================
+*/
+
+TARGET		  RobustnessTest.exe
+TARGETTYPE	  exe
+UID			  0 0xE2DD2923
+
+OPTION CW -wchar_t on
+MACRO _WCHAR_T_DECLARED
+
+EPOCHEAPSIZE    0x50000 0xa00000 // From about 65KB to about 10 MB
+
+USERINCLUDE	  ../inc
+USERINCLUDE   ../../../../searchsrv_plat/cpix_utility_api/inc
+USERINCLUDE   ../../../SearchClient/inc
+USERINCLUDE   ../../../../harvester/harvesterserver/inc
+USERINCLUDE   ../../../SearchServer/inc
+USERINCLUDE   ../../../../searchengine/util/QaUtils/inc
+
+MW_LAYER_SYSTEMINCLUDE
+OS_LAYER_LIBC_SYSTEMINCLUDE
+OS_LAYER_STDCPP_SYSTEMINCLUDE
+SYSTEMINCLUDE   /epoc32/include/stdapis/stlportv5
+
+START RESOURCE ../data/RobustnessTest_reg.rss
+	TARGETPATH /private/10003a3f/import/apps
+END
+
+
+SOURCEPATH	    ../src
+SOURCE robustnesstest.cpp 
+SOURCE CRobustnessTest.cpp 
+SOURCE CStressWorker.cpp 
+SOURCE CProcessMonitor.cpp 
+SOURCE CWorker.cpp CIndexingWorker.cpp CSearchingWorker.cpp
+
+
+LIBRARY 	  	  libpthread.lib
+STATICLIBRARY 	  libqautils.lib
+
+LIBRARY		 	  euser.lib
+LIBRARY 		  estor.lib 
+LIBRARY 		  efsrv.lib 
+LIBRARY           apparc.lib
+LIBRARY           cone.lib
+LIBRARY           eikcore.lib
+LIBRARY           eikcoctl.lib
+LIBRARY           avkon.lib
+LIBRARY           eikctl.lib
+LIBRARY           bafl.lib
+LIBRARY           CPixSearchClient.lib
+LIBRARY		 	  libc.lib
+LIBRARY           libstdcpp.lib
+LIBRARY 		  charconv.lib
+
+CAPABILITY        ReadUserData WriteUserData
+
+#ifdef ENABLE_ABIV2_MODE
+DEBUGGABLE
+#endif

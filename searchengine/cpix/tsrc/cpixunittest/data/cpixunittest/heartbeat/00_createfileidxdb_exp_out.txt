@@ -1,0 +1,8 @@
+Housekept.
+ T DUMPING IdxDbMgr singleton instance: BEGIN
+ T   o cpixDir_: c:\Data\indexing\indexdb
+ T   o regFilePath_: c:\Data\cpixreg.txt
+ T   o qbacs_:
+ T   o idxDb_:
+ T   o multiIdxDb_:
+ T DUMPING IdxDbMgr singleton instance: END.

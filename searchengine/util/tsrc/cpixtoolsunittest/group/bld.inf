@@ -1,0 +1,59 @@
+/*
+* Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: This file provides the information required for building the
+*               whole of a cpixtoolsunittest
+*/
+
+
+PRJ_TESTMMPFILES
+cpixtoolsunittest.mmp
+
+PRJ_TESTEXPORTS
+../data/conversion/double_exp_out.txt   	/epoc32/winscw/c/Data/cpixtoolsunittest/conversion/double_exp_out.txt
+../data/conversion/float_exp_out.txt   		/epoc32/winscw/c/Data/cpixtoolsunittest/conversion/float_exp_out.txt
+../data/conversion/integer_16_exp_out.txt   /epoc32/winscw/c/Data/cpixtoolsunittest/conversion/integer_16_exp_out.txt
+../data/conversion/integer_8_exp_out.txt   	/epoc32/winscw/c/Data/cpixtoolsunittest/conversion/integer_8_exp_out.txt
+../data/conversion/integer_exp_out.txt   	/epoc32/winscw/c/Data/cpixtoolsunittest/conversion/integer_exp_out.txt
+  
+../data/geo/plain_exp_out.txt   			/epoc32/winscw/c/Data/cpixtoolsunittest/geo/plain_exp_out.txt  
+../data/geo/adjacentQNrs_exp_out.txt   		/epoc32/winscw/c/Data/cpixtoolsunittest/geo/adjacentQNrs_exp_out.txt
+
+../data/jobqueue/cancel_res_out.txt   		/epoc32/winscw/c/Data/cpixtoolsunittest/jobqueue/cancel_res_out.txt
+
+../data/mem/autoiterator_exp_out.txt   		/epoc32/winscw/c/Data/cpixtoolsunittest/mem/autoiterator_exp_out.txt
+
+../data/parsing/tokenization1_exp_out.txt   /epoc32/winscw/c/Data/cpixtoolsunittest/parsing/tokenization1_exp_out.txt  
+../data/parsing/tokenization2_exp_out.txt   /epoc32/winscw/c/Data/cpixtoolsunittest/parsing/tokenization2_exp_out.txt  
+../data/parsing/tokenization3_exp_out.txt   /epoc32/winscw/c/Data/cpixtoolsunittest/parsing/tokenization3_exp_out.txt  
+../data/parsing/tokenization4_exp_out.txt   /epoc32/winscw/c/Data/cpixtoolsunittest/parsing/tokenization4_exp_out.txt  
+../data/parsing/tokenization5_exp_out.txt   /epoc32/winscw/c/Data/cpixtoolsunittest/parsing/tokenization5_exp_out.txt  
+../data/parsing/syntaxerrors_exp_out.txt    /epoc32/winscw/c/Data/cpixtoolsunittest/parsing/syntaxerrors_exp_out.txt  
+
+../data/pool/multiThreadedUse_exp_out.txt   /epoc32/winscw/c/Data/cpixtoolsunittest/pool/multiThreadedUse_exp_out.txt
+../data/pool/singleThreadedUse_exp_out.txt   /epoc32/winscw/c/Data/cpixtoolsunittest/pool/singleThreadedUse_exp_out.txt
+
+../data/syncqueue/earlyStop1_exp_out.txt   /epoc32/winscw/c/Data/cpixtoolsunittest/syncqueue/earlyStop1_exp_out.txt
+../data/syncqueue/earlyStop2_exp_out.txt   /epoc32/winscw/c/Data/cpixtoolsunittest/syncqueue/earlyStop2_exp_out.txt
+../data/syncqueue/earlyStop5_exp_out.txt   /epoc32/winscw/c/Data/cpixtoolsunittest/syncqueue/earlyStop5_exp_out.txt
+../data/syncqueue/lateStop1_exp_out.txt    /epoc32/winscw/c/Data/cpixtoolsunittest/syncqueue/lateStop1_exp_out.txt
+../data/syncqueue/lateStop2_exp_out.txt    /epoc32/winscw/c/Data/cpixtoolsunittest/syncqueue/lateStop2_exp_out.txt
+../data/syncqueue/lateStop5_exp_out.txt    /epoc32/winscw/c/Data/cpixtoolsunittest/syncqueue/lateStop5_exp_out.txt
+
+
+../data/mutex/syncexc_exp_out.txt          /epoc32/winscw/c/Data/cpixtoolsunittest/mutex/syncexc_exp_out.txt
+../data/mutex/syncexc2_exp_out.txt          /epoc32/winscw/c/Data/cpixtoolsunittest/mutex/syncexc2_exp_out.txt
+
+
+../data/auto_array/mbs2wcs_exp_out.txt /epoc32/winscw/c/Data/cpixtoolsunittest/auto_array/mbs2wcs_exp_out.txt
+../data/auto_array/wcs2mbs_exp_out.txt /epoc32/winscw/c/Data/cpixtoolsunittest/auto_array/wcs2mbs_exp_out.txt

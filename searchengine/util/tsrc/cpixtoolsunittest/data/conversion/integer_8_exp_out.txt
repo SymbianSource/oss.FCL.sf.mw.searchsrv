@@ -1,0 +1,11 @@
+TESTING integer (octal) formatting. Target: unsigned int
+pass:
+SUCCESS: 0: 0
+SUCCESS: 123: 83
+SUCCESS: 0100: 64
+SUCCESS: 100: 64
+fail:
+FAILURE: 0a: unsigned integer (octal format)
+FAILURE: 123a: unsigned integer (octal format)
+FAILURE: 01009: unsigned integer (octal format)
+FAILURE: 100.: unsigned integer (octal format)

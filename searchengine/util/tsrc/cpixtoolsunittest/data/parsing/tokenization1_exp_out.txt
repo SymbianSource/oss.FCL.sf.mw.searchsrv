@@ -1,0 +1,1 @@
+id('stdtokens')pipe('>')id('lowercase')pipe('>')id('stopwords')lbr('(')lit(''a'')comma(',')lit(''an'')comma(',')lit(''the'')rbr(')')pipe('>')id('stem')lbr('(')lit(''en'')rbr(')')

@@ -1,0 +1,1296 @@
+QNr from GPS E 0/1 0/1 1/100  N 0/1 0/1 1/100 
+level 15
+qnr str: DAAAAAAAAAAAAAAA
+qnr km width:       0.61149597
+qnr km height:       0.30523682
+
+level 14
+qnr str: DAAAAAAAAAAAAAA
+qnr km width:       1.22299194
+qnr km height:       0.61047363
+
+level 13
+qnr str: DAAAAAAAAAAAAA
+qnr km width:       2.44598388
+qnr km height:       1.22094727
+
+level 12
+qnr str: DAAAAAAAAAAAA
+qnr km width:       4.89196768
+qnr km height:       2.44189453
+
+level 11
+qnr str: DAAAAAAAAAAA
+qnr km width:       9.78393483
+qnr km height:       4.88378906
+
+level 10
+qnr str: DAAAAAAAAAA
+qnr km width:      19.56786534
+qnr km height:       9.76757812
+
+level 9
+qnr str: DAAAAAAAAA
+qnr km width:      39.13569614
+qnr km height:      19.53515625
+
+level 8
+qnr str: DAAAAAAAA
+qnr km width:      78.27111601
+qnr km height:      39.07031250
+
+level 7
+qnr str: DAAAAAAA
+qnr km width:     156.54002187
+qnr km height:      78.14062500
+
+level 6
+qnr str: DAAAAAA
+qnr km width:     313.06236270
+qnr km height:     156.28125000
+
+level 5
+qnr str: DAAAAA
+qnr km width:     625.98328374
+qnr km height:     312.56250000
+
+level 4
+qnr str: DAAAA
+qnr km width:    1250.83524711
+qnr km height:     625.12500000
+
+level 3
+qnr str: DAAA
+qnr km width:    2492.62674509
+qnr km height:    1250.25000000
+
+level 2
+qnr str: DAA
+qnr km width:    4913.12126402
+qnr km height:    2500.50000000
+
+level 1
+qnr str: DA
+qnr km width:    9256.11806635
+qnr km height:    5001.00000000
+
+level 0
+qnr str: D
+qnr km width:   14168.65212803
+qnr km height:   10002.00000000
+
+QNr from GPS E 0/1 0/1 1/100  S 0/1 0/1 1/100 
+level 15
+qnr str: BCCCCCCCCCCCCCCC
+qnr km width:       0.61149597
+qnr km height:       0.30523682
+
+level 14
+qnr str: BCCCCCCCCCCCCCC
+qnr km width:       1.22299194
+qnr km height:       0.61047363
+
+level 13
+qnr str: BCCCCCCCCCCCCC
+qnr km width:       2.44598388
+qnr km height:       1.22094727
+
+level 12
+qnr str: BCCCCCCCCCCCC
+qnr km width:       4.89196768
+qnr km height:       2.44189453
+
+level 11
+qnr str: BCCCCCCCCCCC
+qnr km width:       9.78393483
+qnr km height:       4.88378906
+
+level 10
+qnr str: BCCCCCCCCCC
+qnr km width:      19.56786534
+qnr km height:       9.76757812
+
+level 9
+qnr str: BCCCCCCCCC
+qnr km width:      39.13569614
+qnr km height:      19.53515625
+
+level 8
+qnr str: BCCCCCCCC
+qnr km width:      78.27111601
+qnr km height:      39.07031250
+
+level 7
+qnr str: BCCCCCCC
+qnr km width:     156.54002187
+qnr km height:      78.14062500
+
+level 6
+qnr str: BCCCCCC
+qnr km width:     313.06236270
+qnr km height:     156.28125000
+
+level 5
+qnr str: BCCCCC
+qnr km width:     625.98328374
+qnr km height:     312.56250000
+
+level 4
+qnr str: BCCCC
+qnr km width:    1250.83524711
+qnr km height:     625.12500000
+
+level 3
+qnr str: BCCC
+qnr km width:    2492.62674509
+qnr km height:    1250.25000000
+
+level 2
+qnr str: BCC
+qnr km width:    4913.12126402
+qnr km height:    2500.50000000
+
+level 1
+qnr str: BC
+qnr km width:    9256.11806635
+qnr km height:    5001.00000000
+
+level 0
+qnr str: B
+qnr km width:   14168.65212803
+qnr km height:   10002.00000000
+
+QNr from GPS W 0/1 0/1 1/100  N 0/1 0/1 1/100 
+level 15
+qnr str: CBBBBBBBBBBBBBBB
+qnr km width:       0.61149597
+qnr km height:       0.30523682
+
+level 14
+qnr str: CBBBBBBBBBBBBBB
+qnr km width:       1.22299194
+qnr km height:       0.61047363
+
+level 13
+qnr str: CBBBBBBBBBBBBB
+qnr km width:       2.44598388
+qnr km height:       1.22094727
+
+level 12
+qnr str: CBBBBBBBBBBBB
+qnr km width:       4.89196768
+qnr km height:       2.44189453
+
+level 11
+qnr str: CBBBBBBBBBBB
+qnr km width:       9.78393483
+qnr km height:       4.88378906
+
+level 10
+qnr str: CBBBBBBBBBB
+qnr km width:      19.56786534
+qnr km height:       9.76757812
+
+level 9
+qnr str: CBBBBBBBBB
+qnr km width:      39.13569614
+qnr km height:      19.53515625
+
+level 8
+qnr str: CBBBBBBBB
+qnr km width:      78.27111601
+qnr km height:      39.07031250
+
+level 7
+qnr str: CBBBBBBB
+qnr km width:     156.54002187
+qnr km height:      78.14062500
+
+level 6
+qnr str: CBBBBBB
+qnr km width:     313.06236270
+qnr km height:     156.28125000
+
+level 5
+qnr str: CBBBBB
+qnr km width:     625.98328374
+qnr km height:     312.56250000
+
+level 4
+qnr str: CBBBB
+qnr km width:    1250.83524711
+qnr km height:     625.12500000
+
+level 3
+qnr str: CBBB
+qnr km width:    2492.62674509
+qnr km height:    1250.25000000
+
+level 2
+qnr str: CBB
+qnr km width:    4913.12126402
+qnr km height:    2500.50000000
+
+level 1
+qnr str: CB
+qnr km width:    9256.11806635
+qnr km height:    5001.00000000
+
+level 0
+qnr str: C
+qnr km width:   14168.65212803
+qnr km height:   10002.00000000
+
+QNr from GPS W 0/1 0/1 1/100  S 0/1 0/1 1/100 
+level 15
+qnr str: ADDDDDDDDDDDDDDD
+qnr km width:       0.61149597
+qnr km height:       0.30523682
+
+level 14
+qnr str: ADDDDDDDDDDDDDD
+qnr km width:       1.22299194
+qnr km height:       0.61047363
+
+level 13
+qnr str: ADDDDDDDDDDDDD
+qnr km width:       2.44598388
+qnr km height:       1.22094727
+
+level 12
+qnr str: ADDDDDDDDDDDD
+qnr km width:       4.89196768
+qnr km height:       2.44189453
+
+level 11
+qnr str: ADDDDDDDDDDD
+qnr km width:       9.78393483
+qnr km height:       4.88378906
+
+level 10
+qnr str: ADDDDDDDDDD
+qnr km width:      19.56786534
+qnr km height:       9.76757812
+
+level 9
+qnr str: ADDDDDDDDD
+qnr km width:      39.13569614
+qnr km height:      19.53515625
+
+level 8
+qnr str: ADDDDDDDD
+qnr km width:      78.27111601
+qnr km height:      39.07031250
+
+level 7
+qnr str: ADDDDDDD
+qnr km width:     156.54002187
+qnr km height:      78.14062500
+
+level 6
+qnr str: ADDDDDD
+qnr km width:     313.06236270
+qnr km height:     156.28125000
+
+level 5
+qnr str: ADDDDD
+qnr km width:     625.98328374
+qnr km height:     312.56250000
+
+level 4
+qnr str: ADDDD
+qnr km width:    1250.83524711
+qnr km height:     625.12500000
+
+level 3
+qnr str: ADDD
+qnr km width:    2492.62674509
+qnr km height:    1250.25000000
+
+level 2
+qnr str: ADD
+qnr km width:    4913.12126402
+qnr km height:    2500.50000000
+
+level 1
+qnr str: AD
+qnr km width:    9256.11806635
+qnr km height:    5001.00000000
+
+level 0
+qnr str: A
+qnr km width:   14168.65212803
+qnr km height:   10002.00000000
+
+QNr from GPS E 90/1 0/1 0/1  N 45/1 0/1 0/1 
+level 15
+qnr str: DDAAAAAAAAAAAAAA
+qnr km width:       0.43238258
+qnr km height:       0.30523682
+
+level 14
+qnr str: DDAAAAAAAAAAAAA
+qnr km width:       0.86474444
+qnr km height:       0.61047363
+
+level 13
+qnr str: DDAAAAAAAAAAAA
+qnr km width:       1.72940596
+qnr km height:       1.22094727
+
+level 12
+qnr str: DDAAAAAAAAAAA
+qnr km width:       3.45848024
+qnr km height:       2.44189453
+
+level 11
+qnr str: DDAAAAAAAAAA
+qnr km width:       6.91563353
+qnr km height:       4.88378906
+
+level 10
+qnr str: DDAAAAAAAAA
+qnr km width:      13.82595776
+qnr km height:       9.76757812
+
+level 9
+qnr str: DDAAAAAAAA
+qnr km width:      27.63066607
+qnr km height:      19.53515625
+
+level 8
+qnr str: DDAAAAAAA
+qnr km width:      55.17623686
+qnr km height:      39.07031250
+
+level 7
+qnr str: DDAAAAAA
+qnr km width:     110.01131400
+qnr km height:      78.14062500
+
+level 6
+qnr str: DDAAAAA
+qnr km width:     218.65178277
+qnr km height:     156.28125000
+
+level 5
+qnr str: DDAAAA
+qnr km width:     431.77089579
+qnr km height:     312.56250000
+
+level 4
+qnr str: DDAAA
+qnr km width:     841.02265986
+qnr km height:     625.12500000
+
+level 3
+qnr str: DDAA
+qnr km width:    1588.95692893
+qnr km height:    1250.25000000
+
+level 2
+qnr str: DDA
+qnr km width:    2783.05963603
+qnr km height:    2500.50000000
+
+level 1
+qnr str: DD
+qnr km width:    3834.00963801
+qnr km height:    5001.00000000
+
+level 0
+qnr str: D
+qnr km width:   14168.65212803
+qnr km height:   10002.00000000
+
+QNr from GPS E 90/1 0/1 0/1  S 45/1 0/1 0/1 
+level 15
+qnr str: BDAAAAAAAAAAAAAA
+qnr km width:       0.43240331
+qnr km height:       0.30523682
+
+level 14
+qnr str: BDAAAAAAAAAAAAA
+qnr km width:       0.86482735
+qnr km height:       0.61047363
+
+level 13
+qnr str: BDAAAAAAAAAAAA
+qnr km width:       1.72973761
+qnr km height:       1.22094727
+
+level 12
+qnr str: BDAAAAAAAAAAA
+qnr km width:       3.45980680
+qnr km height:       2.44189453
+
+level 11
+qnr str: BDAAAAAAAAAA
+qnr km width:       6.92093979
+qnr km height:       4.88378906
+
+level 10
+qnr str: BDAAAAAAAAA
+qnr km width:      13.84718279
+qnr km height:       9.76757812
+
+level 9
+qnr str: BDAAAAAAAA
+qnr km width:      27.71556619
+qnr km height:      19.53515625
+
+level 8
+qnr str: BDAAAAAAA
+qnr km width:      55.51583695
+qnr km height:      39.07031250
+
+level 7
+qnr str: BDAAAAAA
+qnr km width:     111.36970799
+qnr km height:      78.14062500
+
+level 6
+qnr str: BDAAAAA
+qnr km width:     224.08525643
+qnr km height:     156.28125000
+
+level 5
+qnr str: BDAAAA
+qnr km width:     453.50315390
+qnr km height:     312.56250000
+
+level 4
+qnr str: BDAAA
+qnr km width:     927.92551089
+qnr km height:     625.12500000
+
+level 3
+qnr str: BDAA
+qnr km width:    1936.14961991
+qnr km height:    1250.25000000
+
+level 2
+qnr str: BDA
+qnr km width:    4165.14308913
+qnr km height:    2500.50000000
+
+level 1
+qnr str: BD
+qnr km width:    9256.11806635
+qnr km height:    5001.00000000
+
+level 0
+qnr str: B
+qnr km width:   14168.65212803
+qnr km height:   10002.00000000
+
+QNr from GPS W 90/1 0/1 0/1  N 45/1 0/1 0/1 
+level 15
+qnr str: CDAAAAAAAAAAAAAA
+qnr km width:       0.43238258
+qnr km height:       0.30523682
+
+level 14
+qnr str: CDAAAAAAAAAAAAA
+qnr km width:       0.86474444
+qnr km height:       0.61047363
+
+level 13
+qnr str: CDAAAAAAAAAAAA
+qnr km width:       1.72940596
+qnr km height:       1.22094727
+
+level 12
+qnr str: CDAAAAAAAAAAA
+qnr km width:       3.45848024
+qnr km height:       2.44189453
+
+level 11
+qnr str: CDAAAAAAAAAA
+qnr km width:       6.91563353
+qnr km height:       4.88378906
+
+level 10
+qnr str: CDAAAAAAAAA
+qnr km width:      13.82595776
+qnr km height:       9.76757812
+
+level 9
+qnr str: CDAAAAAAAA
+qnr km width:      27.63066607
+qnr km height:      19.53515625
+
+level 8
+qnr str: CDAAAAAAA
+qnr km width:      55.17623686
+qnr km height:      39.07031250
+
+level 7
+qnr str: CDAAAAAA
+qnr km width:     110.01131400
+qnr km height:      78.14062500
+
+level 6
+qnr str: CDAAAAA
+qnr km width:     218.65178277
+qnr km height:     156.28125000
+
+level 5
+qnr str: CDAAAA
+qnr km width:     431.77089579
+qnr km height:     312.56250000
+
+level 4
+qnr str: CDAAA
+qnr km width:     841.02265986
+qnr km height:     625.12500000
+
+level 3
+qnr str: CDAA
+qnr km width:    1588.95692893
+qnr km height:    1250.25000000
+
+level 2
+qnr str: CDA
+qnr km width:    2783.05963603
+qnr km height:    2500.50000000
+
+level 1
+qnr str: CD
+qnr km width:    3834.00963801
+qnr km height:    5001.00000000
+
+level 0
+qnr str: C
+qnr km width:   14168.65212803
+qnr km height:   10002.00000000
+
+QNr from GPS W 90/1 0/1 0/1  S 45/1 0/1 0/1 
+level 15
+qnr str: ADAAAAAAAAAAAAAA
+qnr km width:       0.43240331
+qnr km height:       0.30523682
+
+level 14
+qnr str: ADAAAAAAAAAAAAA
+qnr km width:       0.86482735
+qnr km height:       0.61047363
+
+level 13
+qnr str: ADAAAAAAAAAAAA
+qnr km width:       1.72973761
+qnr km height:       1.22094727
+
+level 12
+qnr str: ADAAAAAAAAAAA
+qnr km width:       3.45980680
+qnr km height:       2.44189453
+
+level 11
+qnr str: ADAAAAAAAAAA
+qnr km width:       6.92093979
+qnr km height:       4.88378906
+
+level 10
+qnr str: ADAAAAAAAAA
+qnr km width:      13.84718279
+qnr km height:       9.76757812
+
+level 9
+qnr str: ADAAAAAAAA
+qnr km width:      27.71556619
+qnr km height:      19.53515625
+
+level 8
+qnr str: ADAAAAAAA
+qnr km width:      55.51583695
+qnr km height:      39.07031250
+
+level 7
+qnr str: ADAAAAAA
+qnr km width:     111.36970799
+qnr km height:      78.14062500
+
+level 6
+qnr str: ADAAAAA
+qnr km width:     224.08525643
+qnr km height:     156.28125000
+
+level 5
+qnr str: ADAAAA
+qnr km width:     453.50315390
+qnr km height:     312.56250000
+
+level 4
+qnr str: ADAAA
+qnr km width:     927.92551089
+qnr km height:     625.12500000
+
+level 3
+qnr str: ADAA
+qnr km width:    1936.14961991
+qnr km height:    1250.25000000
+
+level 2
+qnr str: ADA
+qnr km width:    4165.14308913
+qnr km height:    2500.50000000
+
+level 1
+qnr str: AD
+qnr km width:    9256.11806635
+qnr km height:    5001.00000000
+
+level 0
+qnr str: A
+qnr km width:   14168.65212803
+qnr km height:   10002.00000000
+
+QNr from GPS E 90/1 0/1 0/1  N 60/1 0/1 0/1 
+level 15
+qnr str: DDACACACACACACAC
+qnr km width:       0.30574375
+qnr km height:       0.30523682
+
+level 14
+qnr str: DDACACACACACACA
+qnr km width:       0.61151290
+qnr km height:       0.61047363
+
+level 13
+qnr str: DDACACACACACAC
+qnr km width:       1.22292425
+qnr km height:       1.22094727
+
+level 12
+qnr str: DDACACACACACA
+qnr km width:       2.44625467
+qnr km height:       2.44189453
+
+level 11
+qnr str: DDACACACACAC
+qnr km width:       4.89088460
+qnr km height:       4.88378906
+
+level 10
+qnr str: DDACACACACA
+qnr km width:       9.78826777
+qnr km height:       9.76757812
+
+level 9
+qnr str: DDACACACAC
+qnr km width:      19.55053836
+qnr km height:      19.53515625
+
+level 8
+qnr str: DDACACACA
+qnr km width:      39.20504240
+qnr km height:      39.07031250
+
+level 7
+qnr str: DDACACAC
+qnr km width:      77.99403810
+qnr km height:      78.14062500
+
+level 6
+qnr str: DDACACA
+qnr km width:     157.65078694
+qnr km height:     156.28125000
+
+level 5
+qnr str: DDACAC
+qnr km width:     308.63898521
+qnr km height:     312.56250000
+
+level 4
+qnr str: DDACA
+qnr km width:     643.83335855
+qnr km height:     625.12500000
+
+level 3
+qnr str: DDAC
+qnr km width:    1180.70151427
+qnr km height:    1250.25000000
+
+level 2
+qnr str: DDA
+qnr km width:    2783.05963603
+qnr km height:    2500.50000000
+
+level 1
+qnr str: DD
+qnr km width:    3834.00963801
+qnr km height:    5001.00000000
+
+level 0
+qnr str: D
+qnr km width:   14168.65212803
+qnr km height:   10002.00000000
+
+QNr from GPS E 90/1 0/1 0/1  S 60/1 0/1 0/1 
+level 15
+qnr str: BBCACACACACACACA
+qnr km width:       0.30574375
+qnr km height:       0.30523682
+
+level 14
+qnr str: BBCACACACACACAC
+qnr km width:       0.61151290
+qnr km height:       0.61047363
+
+level 13
+qnr str: BBCACACACACACA
+qnr km width:       1.22292425
+qnr km height:       1.22094727
+
+level 12
+qnr str: BBCACACACACAC
+qnr km width:       2.44625467
+qnr km height:       2.44189453
+
+level 11
+qnr str: BBCACACACACA
+qnr km width:       4.89088460
+qnr km height:       4.88378906
+
+level 10
+qnr str: BBCACACACAC
+qnr km width:       9.78826777
+qnr km height:       9.76757812
+
+level 9
+qnr str: BBCACACACA
+qnr km width:      19.55053836
+qnr km height:      19.53515625
+
+level 8
+qnr str: BBCACACAC
+qnr km width:      39.20504240
+qnr km height:      39.07031250
+
+level 7
+qnr str: BBCACACA
+qnr km width:      77.99403810
+qnr km height:      78.14062500
+
+level 6
+qnr str: BBCACAC
+qnr km width:     157.65078694
+qnr km height:     156.28125000
+
+level 5
+qnr str: BBCACA
+qnr km width:     308.63898521
+qnr km height:     312.56250000
+
+level 4
+qnr str: BBCAC
+qnr km width:     643.83335855
+qnr km height:     625.12500000
+
+level 3
+qnr str: BBCA
+qnr km width:    1180.70151427
+qnr km height:    1250.25000000
+
+level 2
+qnr str: BBC
+qnr km width:    2783.05963603
+qnr km height:    2500.50000000
+
+level 1
+qnr str: BB
+qnr km width:    3834.00963801
+qnr km height:    5001.00000000
+
+level 0
+qnr str: B
+qnr km width:   14168.65212803
+qnr km height:   10002.00000000
+
+QNr from GPS W 90/1 0/1 0/1  N 60/1 0/1 0/1 
+level 15
+qnr str: CDACACACACACACAC
+qnr km width:       0.30574375
+qnr km height:       0.30523682
+
+level 14
+qnr str: CDACACACACACACA
+qnr km width:       0.61151290
+qnr km height:       0.61047363
+
+level 13
+qnr str: CDACACACACACAC
+qnr km width:       1.22292425
+qnr km height:       1.22094727
+
+level 12
+qnr str: CDACACACACACA
+qnr km width:       2.44625467
+qnr km height:       2.44189453
+
+level 11
+qnr str: CDACACACACAC
+qnr km width:       4.89088460
+qnr km height:       4.88378906
+
+level 10
+qnr str: CDACACACACA
+qnr km width:       9.78826777
+qnr km height:       9.76757812
+
+level 9
+qnr str: CDACACACAC
+qnr km width:      19.55053836
+qnr km height:      19.53515625
+
+level 8
+qnr str: CDACACACA
+qnr km width:      39.20504240
+qnr km height:      39.07031250
+
+level 7
+qnr str: CDACACAC
+qnr km width:      77.99403810
+qnr km height:      78.14062500
+
+level 6
+qnr str: CDACACA
+qnr km width:     157.65078694
+qnr km height:     156.28125000
+
+level 5
+qnr str: CDACAC
+qnr km width:     308.63898521
+qnr km height:     312.56250000
+
+level 4
+qnr str: CDACA
+qnr km width:     643.83335855
+qnr km height:     625.12500000
+
+level 3
+qnr str: CDAC
+qnr km width:    1180.70151427
+qnr km height:    1250.25000000
+
+level 2
+qnr str: CDA
+qnr km width:    2783.05963603
+qnr km height:    2500.50000000
+
+level 1
+qnr str: CD
+qnr km width:    3834.00963801
+qnr km height:    5001.00000000
+
+level 0
+qnr str: C
+qnr km width:   14168.65212803
+qnr km height:   10002.00000000
+
+QNr from GPS W 90/1 0/1 0/1  S 60/1 0/1 0/1 
+level 15
+qnr str: ABCACACACACACACA
+qnr km width:       0.30574375
+qnr km height:       0.30523682
+
+level 14
+qnr str: ABCACACACACACAC
+qnr km width:       0.61151290
+qnr km height:       0.61047363
+
+level 13
+qnr str: ABCACACACACACA
+qnr km width:       1.22292425
+qnr km height:       1.22094727
+
+level 12
+qnr str: ABCACACACACAC
+qnr km width:       2.44625467
+qnr km height:       2.44189453
+
+level 11
+qnr str: ABCACACACACA
+qnr km width:       4.89088460
+qnr km height:       4.88378906
+
+level 10
+qnr str: ABCACACACAC
+qnr km width:       9.78826777
+qnr km height:       9.76757812
+
+level 9
+qnr str: ABCACACACA
+qnr km width:      19.55053836
+qnr km height:      19.53515625
+
+level 8
+qnr str: ABCACACAC
+qnr km width:      39.20504240
+qnr km height:      39.07031250
+
+level 7
+qnr str: ABCACACA
+qnr km width:      77.99403810
+qnr km height:      78.14062500
+
+level 6
+qnr str: ABCACAC
+qnr km width:     157.65078694
+qnr km height:     156.28125000
+
+level 5
+qnr str: ABCACA
+qnr km width:     308.63898521
+qnr km height:     312.56250000
+
+level 4
+qnr str: ABCAC
+qnr km width:     643.83335855
+qnr km height:     625.12500000
+
+level 3
+qnr str: ABCA
+qnr km width:    1180.70151427
+qnr km height:    1250.25000000
+
+level 2
+qnr str: ABC
+qnr km width:    2783.05963603
+qnr km height:    2500.50000000
+
+level 1
+qnr str: AB
+qnr km width:    3834.00963801
+qnr km height:    5001.00000000
+
+level 0
+qnr str: A
+qnr km width:   14168.65212803
+qnr km height:   10002.00000000
+
+QNr from GPS E 179/1 59/1 5999/100  N 89/1 59/1 5999/100 
+level 15
+qnr str: DDDDDDDDDDDDDDDD
+qnr km width:       0.00001466
+qnr km height:       0.30523682
+
+level 14
+qnr str: DDDDDDDDDDDDDDD
+qnr km width:       0.00005863
+qnr km height:       0.61047363
+
+level 13
+qnr str: DDDDDDDDDDDDDD
+qnr km width:       0.00023451
+qnr km height:       1.22094727
+
+level 12
+qnr str: DDDDDDDDDDDDD
+qnr km width:       0.00093802
+qnr km height:       2.44189453
+
+level 11
+qnr str: DDDDDDDDDDDD
+qnr km width:       0.00375209
+qnr km height:       4.88378906
+
+level 10
+qnr str: DDDDDDDDDDD
+qnr km width:       0.01500837
+qnr km height:       9.76757812
+
+level 9
+qnr str: DDDDDDDDDD
+qnr km width:       0.06003345
+qnr km height:      19.53515625
+
+level 8
+qnr str: DDDDDDDDD
+qnr km width:       0.24013353
+qnr km height:      39.07031250
+
+level 7
+qnr str: DDDDDDDD
+qnr km width:       0.96052960
+qnr km height:      78.14062500
+
+level 6
+qnr str: DDDDDDD
+qnr km width:       3.84204607
+qnr km height:     156.28125000
+
+level 5
+qnr str: DDDDDD
+qnr km width:      15.36702708
+qnr km height:     312.56250000
+
+level 4
+qnr str: DDDDD
+qnr km width:      61.44959527
+qnr km height:     625.12500000
+
+level 3
+qnr str: DDDD
+qnr km width:     245.50230617
+qnr km height:    1250.25000000
+
+level 2
+qnr str: DDD
+qnr km width:     977.28058185
+qnr km height:    2500.50000000
+
+level 1
+qnr str: DD
+qnr km width:    3834.00963801
+qnr km height:    5001.00000000
+
+level 0
+qnr str: D
+qnr km width:   14168.65212803
+qnr km height:   10002.00000000
+
+QNr from GPS E 179/1 59/1 5999/100  S 89/1 59/1 5999/100 
+level 15
+qnr str: BBBBBBBBBBBBBBBB
+qnr km width:       0.00001466
+qnr km height:       0.30523682
+
+level 14
+qnr str: BBBBBBBBBBBBBBB
+qnr km width:       0.00005863
+qnr km height:       0.61047363
+
+level 13
+qnr str: BBBBBBBBBBBBBB
+qnr km width:       0.00023451
+qnr km height:       1.22094727
+
+level 12
+qnr str: BBBBBBBBBBBBB
+qnr km width:       0.00093802
+qnr km height:       2.44189453
+
+level 11
+qnr str: BBBBBBBBBBBB
+qnr km width:       0.00375209
+qnr km height:       4.88378906
+
+level 10
+qnr str: BBBBBBBBBBB
+qnr km width:       0.01500837
+qnr km height:       9.76757812
+
+level 9
+qnr str: BBBBBBBBBB
+qnr km width:       0.06003345
+qnr km height:      19.53515625
+
+level 8
+qnr str: BBBBBBBBB
+qnr km width:       0.24013353
+qnr km height:      39.07031250
+
+level 7
+qnr str: BBBBBBBB
+qnr km width:       0.96052960
+qnr km height:      78.14062500
+
+level 6
+qnr str: BBBBBBB
+qnr km width:       3.84204607
+qnr km height:     156.28125000
+
+level 5
+qnr str: BBBBBB
+qnr km width:      15.36702708
+qnr km height:     312.56250000
+
+level 4
+qnr str: BBBBB
+qnr km width:      61.44959527
+qnr km height:     625.12500000
+
+level 3
+qnr str: BBBB
+qnr km width:     245.50230617
+qnr km height:    1250.25000000
+
+level 2
+qnr str: BBB
+qnr km width:     977.28058185
+qnr km height:    2500.50000000
+
+level 1
+qnr str: BB
+qnr km width:    3834.00963801
+qnr km height:    5001.00000000
+
+level 0
+qnr str: B
+qnr km width:   14168.65212803
+qnr km height:   10002.00000000
+
+QNr from GPS W 179/1 59/1 5999/100  N 89/1 59/1 5999/100 
+level 15
+qnr str: CCCCCCCCCCCCCCCC
+qnr km width:       0.00001466
+qnr km height:       0.30523682
+
+level 14
+qnr str: CCCCCCCCCCCCCCC
+qnr km width:       0.00005863
+qnr km height:       0.61047363
+
+level 13
+qnr str: CCCCCCCCCCCCCC
+qnr km width:       0.00023451
+qnr km height:       1.22094727
+
+level 12
+qnr str: CCCCCCCCCCCCC
+qnr km width:       0.00093802
+qnr km height:       2.44189453
+
+level 11
+qnr str: CCCCCCCCCCCC
+qnr km width:       0.00375209
+qnr km height:       4.88378906
+
+level 10
+qnr str: CCCCCCCCCCC
+qnr km width:       0.01500837
+qnr km height:       9.76757812
+
+level 9
+qnr str: CCCCCCCCCC
+qnr km width:       0.06003345
+qnr km height:      19.53515625
+
+level 8
+qnr str: CCCCCCCCC
+qnr km width:       0.24013353
+qnr km height:      39.07031250
+
+level 7
+qnr str: CCCCCCCC
+qnr km width:       0.96052960
+qnr km height:      78.14062500
+
+level 6
+qnr str: CCCCCCC
+qnr km width:       3.84204607
+qnr km height:     156.28125000
+
+level 5
+qnr str: CCCCCC
+qnr km width:      15.36702708
+qnr km height:     312.56250000
+
+level 4
+qnr str: CCCCC
+qnr km width:      61.44959527
+qnr km height:     625.12500000
+
+level 3
+qnr str: CCCC
+qnr km width:     245.50230617
+qnr km height:    1250.25000000
+
+level 2
+qnr str: CCC
+qnr km width:     977.28058185
+qnr km height:    2500.50000000
+
+level 1
+qnr str: CC
+qnr km width:    3834.00963801
+qnr km height:    5001.00000000
+
+level 0
+qnr str: C
+qnr km width:   14168.65212803
+qnr km height:   10002.00000000
+
+QNr from GPS W 179/1 59/1 5999/100  S 89/1 59/1 5999/100 
+level 15
+qnr str: AAAAAAAAAAAAAAAA
+qnr km width:       0.00001466
+qnr km height:       0.30523682
+
+level 14
+qnr str: AAAAAAAAAAAAAAA
+qnr km width:       0.00005863
+qnr km height:       0.61047363
+
+level 13
+qnr str: AAAAAAAAAAAAAA
+qnr km width:       0.00023451
+qnr km height:       1.22094727
+
+level 12
+qnr str: AAAAAAAAAAAAA
+qnr km width:       0.00093802
+qnr km height:       2.44189453
+
+level 11
+qnr str: AAAAAAAAAAAA
+qnr km width:       0.00375209
+qnr km height:       4.88378906
+
+level 10
+qnr str: AAAAAAAAAAA
+qnr km width:       0.01500837
+qnr km height:       9.76757812
+
+level 9
+qnr str: AAAAAAAAAA
+qnr km width:       0.06003345
+qnr km height:      19.53515625
+
+level 8
+qnr str: AAAAAAAAA
+qnr km width:       0.24013353
+qnr km height:      39.07031250
+
+level 7
+qnr str: AAAAAAAA
+qnr km width:       0.96052960
+qnr km height:      78.14062500
+
+level 6
+qnr str: AAAAAAA
+qnr km width:       3.84204607
+qnr km height:     156.28125000
+
+level 5
+qnr str: AAAAAA
+qnr km width:      15.36702708
+qnr km height:     312.56250000
+
+level 4
+qnr str: AAAAA
+qnr km width:      61.44959527
+qnr km height:     625.12500000
+
+level 3
+qnr str: AAAA
+qnr km width:     245.50230617
+qnr km height:    1250.25000000
+
+level 2
+qnr str: AAA
+qnr km width:     977.28058185
+qnr km height:    2500.50000000
+
+level 1
+qnr str: AA
+qnr km width:    3834.00963801
+qnr km height:    5001.00000000
+
+level 0
+qnr str: A
+qnr km width:   14168.65212803
+qnr km height:   10002.00000000
+

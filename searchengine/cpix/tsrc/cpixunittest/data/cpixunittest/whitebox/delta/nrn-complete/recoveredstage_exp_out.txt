@@ -1,0 +1,11 @@
+Reader (either the original or the re-created):
+SEARCHING for 'hello' resulted in 2 hits:
+  o  DOC 0 : Hello it is a nice day
+  o  DOC 2 : Did you say hello to her?
+
+
+Recovering (most of the) state of the index:
+The recovered state of index:
+SEARCHING for 'hello' resulted in 2 hits:
+  o  DOC 0 : Hello it is a nice day
+  o  DOC 2 : Did you say hello to her?

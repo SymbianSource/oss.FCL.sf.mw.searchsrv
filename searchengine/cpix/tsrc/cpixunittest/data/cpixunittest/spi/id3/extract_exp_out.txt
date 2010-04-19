@@ -1,0 +1,9 @@
+Extracting id3 information from !:\data\cpixunittestcorpus\media\Albert Einstein, E mc 2.mp3
+Title: E=mc^2
+Album: Physics
+Extracting id3 information from !:\data\cpixunittestcorpus\media\One Step For Man.mp3
+Title: One Step for Man
+Album: Apollo 11
+Extracting id3 information from !:\data\cpixunittestcorpus\media\The Eagle Has Landed.mp3
+Title: The Eagle Has Landed
+Album: Apollo 11

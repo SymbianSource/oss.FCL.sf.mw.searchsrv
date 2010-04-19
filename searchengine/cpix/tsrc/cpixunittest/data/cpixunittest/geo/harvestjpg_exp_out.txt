@@ -1,0 +1,82 @@
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\Zanki.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\viruhotel.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\verkkokauppa.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\Turku.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\Tokyo.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\tallinnharbour.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\Szeged.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\southhaaga.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\Shanghai.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\Sao_Paolo.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\Pecz.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\otaniemi.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\nrc.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\northhaaga.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\nokiahouse.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\New_York.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\Naantali.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\Mumbai.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\Mexico.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\Merefa.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\Manchester.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\Lviv.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\Liverpool.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\Leicester.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\leicestersquare.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\Lammi.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\Lahti.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\Lagos.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\Kyiv.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\Kharkiv.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\hietaniemi.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\futurice.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\Dnipropetrovsk.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\Dergachi.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\Debrecen.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\Calcutta.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\Budapest.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\Babai.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\asema.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\08012009048.jpg
+
+Indexed file: !:\data\cpixunittestcorpus\jpgs\08012009047.jpg

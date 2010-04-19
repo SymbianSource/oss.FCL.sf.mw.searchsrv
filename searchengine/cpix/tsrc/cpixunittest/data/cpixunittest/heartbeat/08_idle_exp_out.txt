@@ -1,0 +1,31 @@
+Sleeping 2 seconds...
+... slept.
+Housekept.
+ T DUMPING IdxDbMgr singleton instance: BEGIN
+ T   o cpixDir_: c:\Data\indexing\indexdb
+ T   o regFilePath_: c:\Data\cpixreg.txt
+ T   o qbacs_:
+ T     o  entry: [@0:root msg phone sms] -> (c:\Data\indexing\indexdb\root\msg\phone\sms, 1)
+ T     o  entry: [@c:root file] -> (c:\Data\indexing\indexdb\root\file, 0)
+ T   o idxDb_:
+ T     o entry [0] -> (@?, 2)
+ T             (last accessed: 1255355132)
+ T     DUMPING IdxDb instance: BEGIN
+ T     o  idxDbPath_ : c:\Data\indexing\indexdb\root\file
+ T     o  state (SRDW) .r..
+ T     DUMPING IdxDb instance: END.
+ T     o entry [1] -> (@?, 2)
+ T             (last accessed: 1255355130)
+ T     DUMPING IdxDb instance: BEGIN
+ T     o  idxDbPath_ : c:\Data\indexing\indexdb\root\msg\phone\sms
+ T     o  state (SRDW) .r..
+ T     DUMPING IdxDb instance: END.
+ T   o multiIdxDb_:
+ T     o entry [0] -> (@?, 1)
+ T             (last accessed: 1255355130)
+ T     DUMPING MultiIdxDb instance: BEGIN
+ T     o domainSelector_: root
+ T     o idxDbHndl 0
+ T     o idxDbHndl 1
+ T     DUMPING MultiIdxDb instance: END.
+ T DUMPING IdxDbMgr singleton instance: END.

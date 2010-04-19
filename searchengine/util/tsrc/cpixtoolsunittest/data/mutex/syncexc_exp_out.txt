@@ -1,0 +1,4 @@
+Locking unitialized mutex have failed (as should): Could not lock mutex (error: 22)
+Unlocking unitialized mutex have failed (as should): Could not unlock mutex (error: 22)
+Unlocking initialized but non-locked mutex have failed (as should): Could not unlock mutex (error: 1)
+Locked and unlocked mutex

@@ -1,0 +1,3 @@
+Before volume definitions
+Trying to search with cpix_IdxDb instance
+Trying to search with cpix_IdxSearcher instance

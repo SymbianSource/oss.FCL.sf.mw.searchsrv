@@ -1,0 +1,11 @@
+File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized for field _docuid:
+ 'I am happy.
+'
+File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized for field _appclass:
+ 'i' 'am' 'happy.'
+File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized for field Title:
+ 'am' 'happy'
+File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized for field message:
+ 'i' 'am' 'happi'
+File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized for field field:
+ 'am' 'happy'

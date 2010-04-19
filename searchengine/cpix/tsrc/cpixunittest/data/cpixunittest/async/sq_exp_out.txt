@@ -1,0 +1,724 @@
+MAIN: Created searcher thread
+MAIN: waiting for worker thread (searcher)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 42
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 430
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 42
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 430
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 42
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 430
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 42
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 430
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 42
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 430
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 42
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 430
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 42
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 430
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 42
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 430
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 42
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 430
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 42
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 430
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 42
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 430
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)

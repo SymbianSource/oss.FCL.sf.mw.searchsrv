@@ -1,0 +1,44 @@
+TestPoolItem ctor 1, dtor 0, count 1
+Thread main: items in use: 1
+TestPoolItem ctor 2, dtor 0, count 2
+Thread extra: items in use: 1
+TestPoolItem ctor 3, dtor 0, count 3
+Thread main: items in use: 2
+TestPoolItem ctor 4, dtor 0, count 4
+Thread extra: items in use: 2
+TestPoolItem ctor 4, dtor 0, count 4
+Thread main: items in use: 1
+TestPoolItem ctor 4, dtor 0, count 4
+Thread extra: items in use: 1
+TestPoolItem ctor 4, dtor 0, count 4
+Thread main: items in use: 2
+TestPoolItem ctor 4, dtor 0, count 4
+Thread extra: items in use: 2
+TestPoolItem ctor 5, dtor 0, count 5
+Thread main: items in use: 3
+TestPoolItem ctor 6, dtor 0, count 6
+Thread extra: items in use: 3
+TestPoolItem ctor 7, dtor 0, count 7
+Thread main: items in use: 4
+TestPoolItem ctor 8, dtor 0, count 8
+Thread extra: items in use: 4
+TestPoolItem ctor 8, dtor 0, count 8
+Thread main: items in use: 3
+TestPoolItem ctor 8, dtor 0, count 8
+Thread extra: items in use: 3
+TestPoolItem ctor 8, dtor 1, count 7
+Thread main: items in use: 2
+TestPoolItem ctor 8, dtor 2, count 6
+Thread extra: items in use: 2
+TestPoolItem ctor 8, dtor 3, count 5
+Thread main: items in use: 1
+TestPoolItem ctor 8, dtor 4, count 4
+Thread extra: items in use: 1
+TestPoolItem ctor 8, dtor 5, count 3
+Thread main: items in use: 0
+TestPoolItem ctor 8, dtor 6, count 2
+Thread extra: items in use: 0
+Thread main is DONE.
+main: Joining extra
+Thread extra is DONE.
+main: joined extra

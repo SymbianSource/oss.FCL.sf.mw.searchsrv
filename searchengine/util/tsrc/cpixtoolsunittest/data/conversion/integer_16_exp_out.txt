@@ -1,0 +1,12 @@
+TESTING integer (hexadecimal) formatting. Target: unsigned int
+pass:
+SUCCESS: ff: 255
+SUCCESS: beef: 48879
+SUCCESS: 123: 291
+SUCCESS: 0100: 256
+SUCCESS: 100: 256
+fail:
+FAILURE: 0z: unsigned integer (hexadecimal format)
+FAILURE: 123g: unsigned integer (hexadecimal format)
+FAILURE: 0100g: unsigned integer (hexadecimal format)
+FAILURE: 100.: unsigned integer (hexadecimal format)

@@ -1,0 +1,30 @@
+
+And now searching all 'root file'!
+Number of hits: 3
+DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh happiness!
+DOC (!:\data\cpixunittestcorpus\stem\en\1.txt): I am happy.
+DOC (!:\data\cpixunittestcorpus\stem\en\4.txt): What is happening here?
+Undefining (unmounting) volume @c:root file ...
+... undefined (unmounted) volume @c:root file.
+
+And now searching all 'root file'!
+Number of hits: 2
+DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh happiness!
+DOC (!:\data\cpixunittestcorpus\stem\en\4.txt): What is happening here?
+Undefining (unmounting) volume @d:root file ...
+... undefined (unmounted) volume @d:root file.
+
+And now searching all 'root file'!
+Number of hits: 1
+DOC (!:\data\cpixunittestcorpus\stem\en\4.txt): What is happening here?
+Undefining (unmounting) volume @e:root file ...
+... undefined (unmounted) volume @e:root file.
+
+And now searching all 'root file'!
+Number of hits: 1
+DOC (!:\data\cpixunittestcorpus\stem\en\4.txt): What is happening here?
+Undefining (unmounting) volume @f:root file ...
+... undefined (unmounted) volume @f:root file.
+
+And now searching all 'root file'!
+Number of hits: 0

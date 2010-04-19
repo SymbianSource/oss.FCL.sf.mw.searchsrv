@@ -1,0 +1,4 @@
+
+Deleted document !:\data\cpixunittestcorpus\stem\en\1.txt
+
+Deleted document !:\data\cpixunittestcorpus\stem\en\4.txt

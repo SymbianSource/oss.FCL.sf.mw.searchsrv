@@ -1,0 +1,16 @@
+Creating volume @c:root file ...
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\1.txt
+... created volume @c:root file
+Creating volume @d:root file ...
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\2.txt
+... created volume @d:root file
+Creating volume @e:root file ...
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\3.txt
+... created volume @e:root file
+Creating volume @f:root file ...
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\4.txt
+... created volume @f:root file

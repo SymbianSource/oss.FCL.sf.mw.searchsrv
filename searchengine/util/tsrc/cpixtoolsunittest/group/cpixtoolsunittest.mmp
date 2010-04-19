@@ -1,0 +1,76 @@
+/*
+* Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: This is the project specification file for cpixtoolsunittest
+*/
+
+
+OPTION CW -wchar_t on
+MACRO _WCHAR_T_DECLARED
+
+
+TARGET          cpixtoolsunittest.exe
+TARGETTYPE      exe
+UID             0x100039CE 0xE5DD12DC
+VENDORID        0
+
+SOURCEPATH      ../data
+START RESOURCE  cpixtoolsunittest_reg.rss
+#ifdef WINSCW
+TARGETPATH      /private/10003a3f/apps
+#else
+TARGETPATH      /private/10003a3f/import/apps
+#endif
+END //RESOURCE
+
+SOURCEPATH      ../src
+SOURCE          cpixtoolsunittest.cpp
+SOURCE          geotests.cpp
+SOURCE          parseunittest.cpp
+SOURCE          conversiontests.cpp
+SOURCE          memorytest.cpp
+SOURCE          mutextest.cpp
+SOURCE          syncqueuetests.cpp
+SOURCE          jobqueuetests.cpp
+SOURCE          pooltests.cpp
+SOURCE          autoarraytests.cpp
+
+USERINCLUDE     ../inc
+USERINCLUDE     ../../itk/inc/public
+USERINCLUDE     ../../../cpixtools/inc/public
+
+SYSTEMINCLUDE   /epoc32/include
+OS_LAYER_LIBC_SYSTEMINCLUDE
+OS_LAYER_STDCPP_SYSTEMINCLUDE
+SYSTEMINCLUDE   /epoc32/include/stdapis/stlportv5
+OS_LAYER_GLIB_SYSTEMINCLUDE
+
+
+// Using main() as entry point
+STATICLIBRARY   libcrt0.lib
+STATICLIBRARY   libcpixtools.lib
+STATICLIBRARY   libitk.lib
+
+
+// libc and euser are always needed when using main() entry point
+LIBRARY         libc.lib
+LIBRARY         libglib.lib
+LIBRARY         libstdcpp.lib
+LIBRARY   		libpthread.lib
+LIBRARY         libm.lib
+LIBRARY         euser.lib
+
+// No capabilities needed by this application
+CAPABILITY      ReadUserData WriteUserData
+
+

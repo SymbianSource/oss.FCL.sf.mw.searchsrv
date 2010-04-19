@@ -1,0 +1,249 @@
+Advanced term search.
+Loading field cache took 188 ms.
+Searching terms for e* took 10 ms.
+ei (477)
+en (213)
+eik‰ (116)
+em‰nt‰ (111)
+emo (75)
+Searching terms for ex* took 0 ms.
+Searching terms for exc* took 0 ms.
+Searching terms for exce* took 0 ms.
+Searching terms for excep* took 0 ms.
+Searching terms for except* took 0 ms.
+Searching terms for excepti* took 0 ms.
+Searching terms for exceptio* took 0 ms.
+Searching terms for e* took 15 ms.
+ei (477)
+en (213)
+eik‰ (116)
+em‰nt‰ (111)
+emo (75)
+Searching terms for ev* took 0 ms.
+ev‰st‰ (3)
+ev‰n (2)
+ev‰h‰t (2)
+ev‰hi‰ (2)
+ev‰lle (1)
+Searching terms for eve* took 5 ms.
+Searching terms for ever* took 5 ms.
+Searching terms for every* took 5 ms.
+Searching terms for everyw* took 0 ms.
+Searching terms for everywh* took 0 ms.
+Searching terms for everywhe* took 0 ms.
+Searching terms for everywher* took 0 ms.
+Searching terms for r* took 15 ms.
+runo (32)
+rauta (32)
+raukka (27)
+rauan (27)
+rukka (18)
+Searching terms for re* took 5 ms.
+re (16)
+reki (15)
+rekehen (13)
+revon (8)
+reen (6)
+Searching terms for rea* took 0 ms.
+Searching terms for real* took 0 ms.
+Searching terms for reali* took 0 ms.
+Searching terms for realiz* took 0 ms.
+Searching terms for realize* took 0 ms.
+Searching terms for t* took 30 ms.
+tuon (218)
+toisen (105)
+tuo (100)
+tuota (87)
+tuosta (86)
+Searching terms for te* took 5 ms.
+terve (14)
+terhenisen (11)
+tempasi (11)
+teki (11)
+tekevi (11)
+Searching terms for ter* took 5 ms.
+terve (14)
+terhenisen (11)
+terveheksi (8)
+ter‰ (6)
+tervehen‰ (3)
+Searching terms for terr* took 0 ms.
+Searching terms for terri* took 0 ms.
+Searching terms for terrib* took 0 ms.
+Searching terms for terribl* took 0 ms.
+Searching terms for m* took 20 ms.
+miehen (90)
+meren (85)
+mit‰ (68)
+minun (67)
+min‰ (64)
+Searching terms for mi* took 5 ms.
+miehen (90)
+mit‰ (68)
+minun (67)
+min‰ (64)
+mies (59)
+Searching terms for mie* took 0 ms.
+miehen (90)
+mies (59)
+miest‰ (48)
+miehet (33)
+miekan (31)
+Searching terms for miel* took 0 ms.
+mielt‰ (28)
+mieli (23)
+mielin (22)
+mielen (6)
+miel (6)
+Searching terms for miele* took 5 ms.
+mielen (6)
+mielell‰ (5)
+mielesi (4)
+mieleni (4)
+mielell‰ns‰ (2)
+Searching terms for mielen* took 5 ms.
+mielen (6)
+mieleni (4)
+mielens‰ (2)
+Searching terms for m* took 20 ms.
+miehen (90)
+meren (85)
+mit‰ (68)
+minun (67)
+min‰ (64)
+Searching terms for me* took 5 ms.
+meren (85)
+mets‰n (44)
+meni (36)
+mett‰ (20)
+merta (19)
+Searching terms for mer* took 5 ms.
+meren (85)
+merta (19)
+merest‰ (19)
+merehen (18)
+merell‰ (11)
+Searching terms for mere* took 5 ms.
+meren (85)
+merest‰ (19)
+merehen (18)
+merell‰ (11)
+merelle (6)
+Searching terms for merel* took 0 ms.
+merell‰ (11)
+merelle (6)
+merelt‰ (3)
+merelliselt‰ (3)
+merellisehen (2)
+Searching terms for merell* took 0 ms.
+merell‰ (11)
+merelle (6)
+merelliselt‰ (3)
+merellisehen (2)
+merellisell‰ (1)
+Searching terms for merelli* took 0 ms.
+merelliselt‰ (3)
+merellisehen (2)
+merellisell‰ (1)
+merelliselle (1)
+Searching terms for merellis* took 0 ms.
+merelliselt‰ (3)
+merellisehen (2)
+merellisell‰ (1)
+merelliselle (1)
+Searching terms for merellise* took 0 ms.
+merelliselt‰ (3)
+merellisehen (2)
+merellisell‰ (1)
+merelliselle (1)
+Searching terms for merellisel* took 0 ms.
+merelliselt‰ (3)
+merellisell‰ (1)
+merelliselle (1)
+Searching terms for merellisell* took 0 ms.
+merellisell‰ (1)
+merelliselle (1)
+Searching terms for p* took 30 ms.
+poika (168)
+pohjolan (155)
+p‰iv‰n (108)
+pohjan (73)
+poikki (55)
+Searching terms for p‰* took 0 ms.
+p‰iv‰n (108)
+p‰‰lle (68)
+p‰‰t‰ (51)
+p‰‰h‰n (49)
+p‰‰ss‰ (48)
+Searching terms for p‰‰* took 0 ms.
+p‰‰lle (68)
+p‰‰t‰ (51)
+p‰‰h‰n (49)
+p‰‰ss‰ (48)
+p‰‰st‰ (41)
+Searching terms for p‰‰s* took 0 ms.
+p‰‰ss‰ (48)
+p‰‰st‰ (41)
+p‰‰si (26)
+p‰‰se (13)
+p‰‰snyt (8)
+Searching terms for p‰‰st* took 0 ms.
+p‰‰st‰ (41)
+p‰‰st‰m‰h‰n (4)
+p‰‰sty‰ns‰ (3)
+p‰‰stimeksi (3)
+p‰‰sti (3)
+Searching terms for p‰‰st‰* took 0 ms.
+p‰‰st‰ (41)
+p‰‰st‰m‰h‰n (4)
+p‰‰st‰ksesi (3)
+p‰‰st‰kseni (2)
+p‰‰st‰isit (1)
+Searching terms for p‰‰st‰m* took 0 ms.
+p‰‰st‰m‰h‰n (4)
+Searching terms for p‰‰st‰m‰* took 0 ms.
+p‰‰st‰m‰h‰n (4)
+Searching terms for p‰‰st‰m‰h* took 0 ms.
+p‰‰st‰m‰h‰n (4)
+Searching terms for p‰‰st‰m‰h‰* took 0 ms.
+p‰‰st‰m‰h‰n (4)
+Searching terms for v* took 20 ms.
+vanha (258)
+v‰in‰mˆinen (256)
+virkkoi (203)
+virkki (192)
+vaka (93)
+Searching terms for ve* took 5 ms.
+ve (74)
+vett‰ (39)
+veen (32)
+veti (28)
+venett‰ (26)
+Searching terms for ven* took 5 ms.
+venett‰ (26)
+venon (17)
+vene (17)
+veno (16)
+venehen (15)
+Searching terms for vene* took 0 ms.
+venett‰ (26)
+vene (17)
+venehen (15)
+venehest‰ (4)
+venehess‰ (2)
+Searching terms for veneh* took 0 ms.
+venehen (15)
+venehest‰ (4)
+venehin (2)
+venehess‰ (2)
+venehesen (1)
+Searching terms for venehe* took 0 ms.
+venehen (15)
+venehest‰ (4)
+venehess‰ (2)
+venehesen (1)
+venehesemme (1)
+All term searches together took 230 ms.
+
+230 ms per search.
+

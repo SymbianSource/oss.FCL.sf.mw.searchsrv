@@ -1,0 +1,1 @@
+lit(''hallo'')real-lit('0.0')real-lit('.0')real-lit('.5')real-lit('-1.0')real-lit('-.05')int-lit('45')lit(''bar'')real-lit('+.123')real-lit('+3.1415')

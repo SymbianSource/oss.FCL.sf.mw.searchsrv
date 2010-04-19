@@ -1,0 +1,5 @@
+
+Indexed SMS 4
+Number of hits: 2
+DOC (c, line 3): This is another happy message
+DOC (e, line 5): This is the 4th happy message

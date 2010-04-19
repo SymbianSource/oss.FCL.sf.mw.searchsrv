@@ -1,0 +1,85 @@
+Indexing and searching with whitespace
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\1.txt
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\2.txt
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\3.txt
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\4.txt
+
+Indexed empty item.
+Number of hits: 0
+Number of hits: 0
+Number of hits: 1
+DOC (!:\data\cpixunittestcorpus\stem\en\4.txt): What is happening here?
+Indexing and searching with letter>lowercase
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\1.txt
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\2.txt
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\3.txt
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\4.txt
+
+Indexed empty item.
+Number of hits: 1
+DOC (!:\data\cpixunittestcorpus\stem\en\1.txt): I am happy.
+Number of hits: 1
+DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh happiness!
+Number of hits: 1
+DOC (!:\data\cpixunittestcorpus\stem\en\4.txt): What is happening here?
+Indexing and searching with stdtokens>lowercase>stem(en)
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\1.txt
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\2.txt
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\3.txt
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\4.txt
+
+Indexed empty item.
+Number of hits: 2
+DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh happiness!
+DOC (!:\data\cpixunittestcorpus\stem\en\1.txt): I am happy.
+Number of hits: 2
+DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh happiness!
+DOC (!:\data\cpixunittestcorpus\stem\en\1.txt): I am happy.
+Number of hits: 1
+DOC (!:\data\cpixunittestcorpus\stem\en\4.txt): What is happening here?
+Indexing and searching with letter>lowercase>stop(en)
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\1.txt
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\2.txt
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\3.txt
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\4.txt
+
+Indexed empty item.
+Number of hits: 1
+DOC (!:\data\cpixunittestcorpus\stem\en\1.txt): I am happy.
+Number of hits: 1
+DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh happiness!
+Number of hits: 1
+DOC (!:\data\cpixunittestcorpus\stem\en\4.txt): What is happening here?
+Indexing and searching with letter>lowercase>stop('a', 'an', 'the')
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\1.txt
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\2.txt
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\3.txt
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\4.txt
+
+Indexed empty item.
+Number of hits: 1
+DOC (!:\data\cpixunittestcorpus\stem\en\1.txt): I am happy.
+Number of hits: 1
+DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh happiness!
+Number of hits: 1
+DOC (!:\data\cpixunittestcorpus\stem\en\4.txt): What is happening here?

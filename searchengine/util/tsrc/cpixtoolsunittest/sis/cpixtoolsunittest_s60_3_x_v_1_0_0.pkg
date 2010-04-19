@@ -1,0 +1,87 @@
+;
+; Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
+; All rights reserved.
+; This component and the accompanying materials are made available
+; under the terms of "Eclipse Public License v1.0"
+; which accompanies this distribution, and is available
+; at the URL "http://www.eclipse.org/legal/epl-v10.html".
+;
+; Initial Contributors:
+; Nokia Corporation - initial contribution.
+;
+; Contributors:
+;
+; Description: 
+;
+; Installation file for cpixtoolsunittest application
+;
+; This is an auto-generated PKG file by Carbide.
+; This file uses variables specific to Carbide builds that will not work
+; on command-line builds. If you want to use this generated PKG file from the
+; command-line tools you will need to modify the variables with the appropriate
+; values: $(EPOCROOT), $(PLATFORM), $(TARGET)
+;
+;Languages
+&EN
+
+;
+; UID is the app's UID
+;
+#{"cpixtoolsunittest"},(0xE5DD12DC),1,0,0
+
+;Localised Vendor name
+%{"Vendor-EN"}
+
+;Unique Vendor name
+:"Vendor"
+
+; Supports Series 60 v 3.0
+[0x101F7961], 0, 0, 0, {"S60ProductID"}
+
+; Files to install
+; Symbols set up for the source location are Carbide.c++ specific symbols
+"$(EPOCROOT)epoc32\release\$(PLATFORM)\$(TARGET)\cpixtoolsunittest.exe"             -"!:\sys\bin\cpixtoolsunittest.exe"
+"$(EPOCROOT)epoc32\data\z\private\10003a3f\import\apps\cpixtoolsunittest_reg.rsc"   -"!:\private\10003a3f\import\apps\cpixtoolsunittest_reg.rsc"
+
+; required for application to be covered by backup/restore facility 
+"..\sis\backup_registration.xml"    -"!:\private\E5DD12DC\backup_registration.xml"
+
+; unit test cases
+"..\data\geo\plain_exp_out.txt" 			- "!:\data\cpixtoolsunittest\geo\plain_exp_out.txt"
+"..\data\geo\adjacentQNrs_exp_out.txt" 		- "!:\data\cpixtoolsunittest\geo\adjacentQNrs_exp_out.txt"
+
+"..\data\parsing\tokenization1_exp_out.txt" - "!:\data\cpixtoolsunittest\parsing\tokenization1_exp_out.txt"
+"..\data\parsing\tokenization2_exp_out.txt" - "!:\data\cpixtoolsunittest\parsing\tokenization2_exp_out.txt"
+"..\data\parsing\tokenization3_exp_out.txt" - "!:\data\cpixtoolsunittest\parsing\tokenization3_exp_out.txt"
+"..\data\parsing\tokenization4_exp_out.txt" - "!:\data\cpixtoolsunittest\parsing\tokenization4_exp_out.txt"
+"..\data\parsing\tokenization5_exp_out.txt" - "!:\data\cpixtoolsunittest\parsing\tokenization5_exp_out.txt"
+"..\data\parsing\syntaxerrors_exp_out.txt" 	- "!:\data\cpixtoolsunittest\parsing\syntaxerrors_exp_out.txt"
+
+"..\data\conversion\integer_exp_out.txt" - "!:\data\cpixtoolsunittest\conversion\integer_exp_out.txt"
+"..\data\conversion\integer_8_exp_out.txt" - "!:\data\cpixtoolsunittest\conversion\integer_8_exp_out.txt"
+"..\data\conversion\integer_16_exp_out.txt" - "!:\data\cpixtoolsunittest\conversion\integer_16_exp_out.txt"
+"..\data\conversion\float_exp_out.txt" - "!:\data\cpixtoolsunittest\conversion\float_exp_out.txt"
+"..\data\conversion\double_exp_out.txt" - "!:\data\cpixtoolsunittest\conversion\double_exp_out.txt"
+
+"..\data\mem\autoiterator_exp_out.txt" - "!:\data\cpixtoolsunittest\mem\autoiterator_exp_out.txt"
+
+"..\data\syncqueue\earlyStop1_exp_out.txt" - "!:\data\cpixtoolsunittest\syncqueue\earlyStop1_exp_out.txt"
+"..\data\syncqueue\earlyStop2_exp_out.txt" - "!:\data\cpixtoolsunittest\syncqueue\earlyStop2_exp_out.txt"
+"..\data\syncqueue\earlyStop5_exp_out.txt" - "!:\data\cpixtoolsunittest\syncqueue\earlyStop5_exp_out.txt"
+"..\data\syncqueue\lateStop1_exp_out.txt" - "!:\data\cpixtoolsunittest\syncqueue\lateStop1_exp_out.txt"
+"..\data\syncqueue\lateStop2_exp_out.txt" - "!:\data\cpixtoolsunittest\syncqueue\lateStop2_exp_out.txt"
+"..\data\syncqueue\lateStop5_exp_out.txt" - "!:\data\cpixtoolsunittest\syncqueue\lateStop5_exp_out.txt"
+
+; just a placeholder to make sure the target directory exists, but
+;  there is no test case merely a redirection
+"..\data\jobqueue\cancel_res_out.txt" - "!:\data\cpixtoolsunittest\jobqueue\cancel_res_out.txt"
+
+
+"..\data\pool\singleThreadedUse_exp_out.txt" - "!:\data\cpixtoolsunittest\pool\singleThreadedUse_exp_out.txt"
+"..\data\pool\multiThreadedUse_exp_out.txt" - "!:\data\cpixtoolsunittest\pool\multiThreadedUse_exp_out.txt"
+
+"..\data\mutex\syncexc_exp_out.txt" - "!:\data\cpixtoolsunittest\mutex\syncexc_exp_out.txt"
+"..\data\mutex\syncexc2_exp_out.txt" - "!:\data\cpixtoolsunittest\mutex\syncexc2_exp_out.txt"
+
+"..\data\auto_array\mbs2wcs_exp_out.txt" - "!:\data\cpixtoolsunittest\auto_array\mbs2wcs_exp_out.txt"
+"..\data\auto_array\wcs2mbs_exp_out.txt" - "!:\data\cpixtoolsunittest\auto_array\wcs2mbs_exp_out.txt"

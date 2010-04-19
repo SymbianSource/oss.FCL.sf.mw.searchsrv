@@ -1,0 +1,21 @@
+/*
+============================================================================
+ Name        : stemdemo_reg.rss
+ Author      : 
+ Copyright   : Your copyright notice
+ Description : This file contains all the resources for the stemdemo.
+============================================================================
+*/
+
+#include <appinfo.rh>
+
+UID2 KUidAppRegistrationResourceFile
+UID3 0x0B743E89
+
+RESOURCE APP_REGISTRATION_INFO
+    {
+    app_file = "stemdemo";
+    embeddability = KAppNotEmbeddable;
+    newfile = KAppDoesNotSupportNewFile;
+    }
+

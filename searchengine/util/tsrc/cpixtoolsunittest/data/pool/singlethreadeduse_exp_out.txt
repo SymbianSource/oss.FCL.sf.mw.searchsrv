@@ -1,0 +1,20 @@
+TestPoolItem ctor 1, dtor 0, count 1
+Items in use: 1
+TestPoolItem ctor 2, dtor 0, count 2
+Items in use: 2
+TestPoolItem ctor 2, dtor 0, count 2
+Items in use: 1
+TestPoolItem ctor 2, dtor 0, count 2
+Items in use: 2
+TestPoolItem ctor 3, dtor 0, count 3
+Items in use: 3
+TestPoolItem ctor 4, dtor 0, count 4
+Items in use: 4
+TestPoolItem ctor 4, dtor 0, count 4
+Items in use: 3
+TestPoolItem ctor 4, dtor 0, count 4
+Items in use: 2
+TestPoolItem ctor 4, dtor 1, count 3
+Items in use: 1
+TestPoolItem ctor 4, dtor 2, count 2
+Items in use: 0

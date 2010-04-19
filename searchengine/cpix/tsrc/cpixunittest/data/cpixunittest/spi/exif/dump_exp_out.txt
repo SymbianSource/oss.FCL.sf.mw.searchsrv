@@ -1,0 +1,336 @@
+Dumping exif contents for !:\data\cpixunittestcorpus\jpgs\08012009047.jpg
+Loading data succeeded.
+Ifd: 0
+Tag: 271 0x10f
+Value: Nokia (ascii)
+Ifd: 0
+Tag: 272 0x110
+Value: 5800 Xpres (ascii)
+Ifd: 0
+Tag: 274 0x112
+Value: ? (short)
+Ifd: 0
+Tag: 282 0x11a
+Value: 300/1 (rational)
+Ifd: 0
+Tag: 283 0x11b
+Value: 300/1 (rational)
+Ifd: 0
+Tag: 296 0x128
+Value: ? (short)
+Ifd: 0
+Tag: 531 0x213
+Value: ? (short)
+Ifd: 0
+Tag: 34665 0x8769
+Value: ? (long)
+Ifd: 0
+Tag: 34853 0x8825
+Value: ? (long)
+Ifd: exif
+Tag: 33434 0x829a
+Value: 1000/1000000 (rational)
+Ifd: exif
+Tag: 33437 0x829d
+Value: 28/10 (rational)
+Ifd: exif
+Tag: 34855 0x8827
+Value: ? (short)
+Ifd: exif
+Tag: 36864 0x9000
+Value: ? (undefined)
+Ifd: exif
+Tag: 36867 0x9003
+Value: 2009:01:08 12:20:39 (ascii)
+Ifd: exif
+Tag: 36868 0x9004
+Value: 2009:01:08 12:20:39 (ascii)
+Ifd: exif
+Tag: 37121 0x9101
+Value: ? (undefined)
+Ifd: exif
+Tag: 37377 0x9201
+Value: ? (srational)
+Ifd: exif
+Tag: 37378 0x9202
+Value: 297/100 (rational)
+Ifd: exif
+Tag: 37384 0x9208
+Value: ? (short)
+Ifd: exif
+Tag: 37385 0x9209
+Value: ? (short)
+Ifd: exif
+Tag: 37386 0x920a
+Value: 37/10 (rational)
+Ifd: exif
+Tag: 37500 0x927c
+Value: ? (undefined)
+Ifd: exif
+Tag: 37510 0x9286
+Value: ? (undefined)
+Ifd: exif
+Tag: 40960 0xa000
+Value: ? (undefined)
+Ifd: exif
+Tag: 40961 0xa001
+Value: ? (short)
+Ifd: exif
+Tag: 40962 0xa002
+Value: ? (long)
+Ifd: exif
+Tag: 40963 0xa003
+Value: ? (long)
+Ifd: exif
+Tag: 41985 0xa401
+Value: ? (short)
+Ifd: exif
+Tag: 41986 0xa402
+Value: ? (short)
+Ifd: exif
+Tag: 41987 0xa403
+Value: ? (short)
+Ifd: exif
+Tag: 41988 0xa404
+Value: 100/100 (rational)
+Ifd: exif
+Tag: 41990 0xa406
+Value: ? (short)
+Ifd: exif
+Tag: 41991 0xa407
+Value: ? (short)
+Ifd: 1
+Tag: 259 0x103
+Value: ? (short)
+Ifd: 1
+Tag: 282 0x11a
+Value: 72/1 (rational)
+Ifd: 1
+Tag: 283 0x11b
+Value: 72/1 (rational)
+Ifd: 1
+Tag: 296 0x128
+Value: ? (short)
+Ifd: 1
+Tag: 513 0x201
+Value: ? (long)
+Ifd: 1
+Tag: 514 0x202
+Value: ? (long)
+Ifd: gps
+Tag: 0 0x0
+Value: ? (byte)
+Ifd: gps
+Tag: 1 0x1
+Value: N (ascii)
+Ifd: gps
+Tag: 2 0x2
+Value: 60/1 9/1 3529/100 (rational)
+Ifd: gps
+Tag: 3 0x3
+Value: E (ascii)
+Ifd: gps
+Tag: 4 0x4
+Value: 24/1 53/1 2508/100 (rational)
+Ifd: gps
+Tag: 7 0x7
+Value: 0/1 0/1 0/1 (rational)
+Ifd: gps
+Tag: 29 0x1d
+Value: 0000:01:01 (ascii)
+
+Dumping exif contents for !:\data\cpixunittestcorpus\jpgs\08012009048.jpg
+Loading data succeeded.
+Ifd: 0
+Tag: 271 0x10f
+Value: Nokia (ascii)
+Ifd: 0
+Tag: 272 0x110
+Value: 5800 Xpres (ascii)
+Ifd: 0
+Tag: 274 0x112
+Value: ? (short)
+Ifd: 0
+Tag: 282 0x11a
+Value: 300/1 (rational)
+Ifd: 0
+Tag: 283 0x11b
+Value: 300/1 (rational)
+Ifd: 0
+Tag: 296 0x128
+Value: ? (short)
+Ifd: 0
+Tag: 531 0x213
+Value: ? (short)
+Ifd: 0
+Tag: 34665 0x8769
+Value: ? (long)
+Ifd: 0
+Tag: 34853 0x8825
+Value: ? (long)
+Ifd: exif
+Tag: 33434 0x829a
+Value: 2000/1000000 (rational)
+Ifd: exif
+Tag: 33437 0x829d
+Value: 28/10 (rational)
+Ifd: exif
+Tag: 34855 0x8827
+Value: ? (short)
+Ifd: exif
+Tag: 36864 0x9000
+Value: ? (undefined)
+Ifd: exif
+Tag: 36867 0x9003
+Value: 2009:01:08 12:20:57 (ascii)
+Ifd: exif
+Tag: 36868 0x9004
+Value: 2009:01:08 12:20:57 (ascii)
+Ifd: exif
+Tag: 37121 0x9101
+Value: ? (undefined)
+Ifd: exif
+Tag: 37377 0x9201
+Value: ? (srational)
+Ifd: exif
+Tag: 37378 0x9202
+Value: 297/100 (rational)
+Ifd: exif
+Tag: 37384 0x9208
+Value: ? (short)
+Ifd: exif
+Tag: 37385 0x9209
+Value: ? (short)
+Ifd: exif
+Tag: 37386 0x920a
+Value: 37/10 (rational)
+Ifd: exif
+Tag: 37500 0x927c
+Value: ? (undefined)
+Ifd: exif
+Tag: 37510 0x9286
+Value: ? (undefined)
+Ifd: exif
+Tag: 40960 0xa000
+Value: ? (undefined)
+Ifd: exif
+Tag: 40961 0xa001
+Value: ? (short)
+Ifd: exif
+Tag: 40962 0xa002
+Value: ? (long)
+Ifd: exif
+Tag: 40963 0xa003
+Value: ? (long)
+Ifd: exif
+Tag: 41985 0xa401
+Value: ? (short)
+Ifd: exif
+Tag: 41986 0xa402
+Value: ? (short)
+Ifd: exif
+Tag: 41987 0xa403
+Value: ? (short)
+Ifd: exif
+Tag: 41988 0xa404
+Value: 100/100 (rational)
+Ifd: exif
+Tag: 41990 0xa406
+Value: ? (short)
+Ifd: exif
+Tag: 41991 0xa407
+Value: ? (short)
+Ifd: 1
+Tag: 259 0x103
+Value: ? (short)
+Ifd: 1
+Tag: 282 0x11a
+Value: 72/1 (rational)
+Ifd: 1
+Tag: 283 0x11b
+Value: 72/1 (rational)
+Ifd: 1
+Tag: 296 0x128
+Value: ? (short)
+Ifd: 1
+Tag: 513 0x201
+Value: ? (long)
+Ifd: 1
+Tag: 514 0x202
+Value: ? (long)
+Ifd: gps
+Tag: 0 0x0
+Value: ? (byte)
+Ifd: gps
+Tag: 1 0x1
+Value: N (ascii)
+Ifd: gps
+Tag: 2 0x2
+Value: 60/1 9/1 3529/100 (rational)
+Ifd: gps
+Tag: 3 0x3
+Value: E (ascii)
+Ifd: gps
+Tag: 4 0x4
+Value: 24/1 53/1 2508/100 (rational)
+Ifd: gps
+Tag: 7 0x7
+Value: 0/1 0/1 0/1 (rational)
+Ifd: gps
+Tag: 29 0x1d
+Value: 0000:01:01 (ascii)
+
+Dumping exif contents for !:\data\cpixunittestcorpus\jpgs\New_York.jpg
+Loading data succeeded.
+Ifd: 0
+Tag: 305 0x131
+Value: Picasa 3.0 (ascii)
+Ifd: 0
+Tag: 34665 0x8769
+Value: ? (long)
+Ifd: 0
+Tag: 34853 0x8825
+Value: ? (long)
+Ifd: exif
+Tag: 36864 0x9000
+Value: ? (undefined)
+Ifd: exif
+Tag: 36867 0x9003
+Value: 2009:01:28 15:00:36 (ascii)
+Ifd: exif
+Tag: 37510 0x9286
+Value: ? (undefined)
+Ifd: exif
+Tag: 40965 0xa005
+Value: ? (long)
+Ifd: exif
+Tag: 42016 0xa420
+Value: 93b8ce0d6bc153cfa6f339f05794d9c3 (ascii)
+Ifd: gps
+Tag: 0 0x0
+Value: ? (byte)
+Ifd: gps
+Tag: 1 0x1
+Value: N (ascii)
+Ifd: gps
+Tag: 2 0x2
+Value: 40/1 46/1 2147483635/79173990 (rational)
+Ifd: gps
+Tag: 3 0x3
+Value: W (ascii)
+Ifd: gps
+Tag: 4 0x4
+Value: 73/1 59/1 2147483645/73213996 (rational)
+Ifd: gps
+Tag: 5 0x5
+Value: ? (byte)
+Ifd: gps
+Tag: 6 0x6
+Value: 0/1 (rational)
+Ifd: interoperability
+Tag: 1 0x1
+Value:      (ascii)
+Ifd: interoperability
+Tag: 2 0x2
+Value: ? (undefined)
+

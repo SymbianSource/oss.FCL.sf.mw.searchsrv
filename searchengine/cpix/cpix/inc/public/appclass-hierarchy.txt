@@ -1,0 +1,142 @@
+
+
+  root
+    | [ _docuid      ]		{EStoreYes | EIndexUnTokenized}
+    | [ _appclass    ]		{EStoreYes | EIndexTokenized}	
+    | [ _appclass_ut ]		{EStoreNo  | EIndexUnTokenized}
+    | [ _aggregate   ]      {EStoreNo  | EIndexUnTokenized} 	
+    | [ _excerpt     ]		{EStoreYes | EIndexNo}
+    | [ _mimetype (opt) ]	{EStoreYes | EIndexNo}
+    |
+    +-- msg
+    | [ To     		]	{EStoreYes | EIndexTokenized}
+    | [ From   		]	{EStoreYes | EIndexTokenized}
+    | [ Body   		]	{EStoreYes | EIndexTokenized}
+    | [ Folder 		]	{EStoreYes | EIndexNo}
+    | [ Subject 	] 	{EStoreYes | EIndexTokenized}
+    |
+    |
+    +-- file
+    | [ BaseName  	]	{EStoreYes | EIndexTokenized}
+    | [ Extension 	]	{EStoreYes | EIndexTokenized}
+    | [ FullName  	]	{EStoreYes | EIndexTokenized} 
+    | [ Contents 	]	{EStoreYes | EIndexTokenized}
+    |     
+    |           
+    |      
+    +-- media
+    |     | 
+    |     |
+    |     +-- audio
+    |     | [ Name           ]	{EStoreYes | EIndexTokenized}
+    |     | [ MediaId        ]	{EStoreYes | EIndexUnTokenized}
+    |     | [ Title          ]  {EStoreYes | EIndexTokenized}
+    |     | [ ItemType       ]  {EStoreYes | EIndexUnTokenized}
+    |     | [ Extension      ]  {EStoreYes | EIndexTokenized}
+    |     | [ Album          ]  {EStoreYes | EIndexTokenized}
+    |	    | [ AlbumArtist    ]	{EStoreYes | EIndexTokenized}
+    |     | [ OriginalArtist ]	{EStoreYes | EIndexTokenized}
+    |     | [ Composer       ]	{EStoreYes | EIndexTokenized}
+    |     | [ Artist         ]	{EStoreYes | EIndexTokenized}
+    |     | 
+    |     |
+    |     +-- image
+    |     | [ Name           ]	{EStoreYes | EIndexTokenized}
+    |     | [ MediaId        ]	{EStoreYes | EIndexUnTokenized}
+    |     | [ Title          ]  {EStoreYes | EIndexTokenized}
+    |     | [ ItemType       ]  {EStoreYes | EIndexUnTokenized}
+    |     | [ Extension      ]  {EStoreYes | EIndexTokenized}    
+    |     | [ Comment        ]  {EStoreYes | EIndexTokenized}
+    |     | [ DateTimeOrignal]	{EStoreYes | EIndexUnTokenized}
+    |     |
+    |     |    
+    |     +-- video
+    |	      [ Name           ]	{EStoreYes | EIndexTokenized}
+    |       [ MediaId        ]	{EStoreYes | EIndexUnTokenized}
+    |       [ Title          ]  {EStoreYes | EIndexTokenized}
+    |       [ ItemType       ]  {EStoreYes | EIndexUnTokenized}
+    |       [ Extension      ]  {EStoreYes | EIndexTokenized}
+    |	      [ Artist         ]  {EStoreYes | EIndexTokenized}
+    |       [ Author         ]	{EStoreYes | EIndexTokenized}
+    |       [ Copyright      ]  {EStoreYes | EIndexTokenized}
+    |       [ Description    ]	{EStoreYes | EIndexTokenized}
+    |	      [ Comment        ]	{EStoreYes | EIndexTokenized}  
+    |
+    |
+    +-- contact
+    | [ GivenName   		]	{EStoreYes | EIndexTokenized}
+    | [ FamilyName  		]	{EStoreYes | EIndexTokenized}	
+    | [ CompanyName 		]	{EStoreYes | EIndexTokenized}
+    | [ PhoneNumber 		]	{EStoreYes | EIndexTokenized}
+    | [ Address     		]	{EStoreYes | EIndexTokenized}
+    | [ Note        		]	{EStoreYes | EIndexTokenized}
+    | [ JobTitle    		]	{EStoreYes | EIndexTokenized}
+    | [ SecondName  		]	{EStoreYes | EIndexTokenized}
+    | [ Suffix      		]	{EStoreYes | EIndexTokenized}
+    | [ EMail       		]	{EStoreYes | EIndexTokenized}
+    | [ URL         		]	{EStoreYes | EIndexTokenized}
+    | [ PostOffice  		]	{EStoreYes | EIndexTokenized}
+    | [ ExtendedAddress  	]	{EStoreYes | EIndexTokenized}
+    | [ Locality  		]	{EStoreYes | EIndexTokenized}
+    | [ Region  		]	{EStoreYes | EIndexTokenized}
+    | [ PostCode  		]	{EStoreYes | EIndexTokenized}
+    | [ Country  		]	{EStoreYes | EIndexTokenized}
+    | [ SIPID  			]	{EStoreYes | EIndexTokenized}
+    | [ Spouse  		]	{EStoreYes | EIndexTokenized}
+    | [ Children  		]	{EStoreYes | EIndexTokenized}
+    | [ Class  			]	{EStoreYes | EIndexTokenized}	
+    | [ Prefix  		]	{EStoreYes | EIndexTokenized}
+    | [ AdditionalName  	]	{EStoreYes | EIndexTokenized}
+    | [ Fax  			]	{EStoreYes | EIndexTokenized}
+    | [ GivenNamePronunciation 	]	{EStoreYes | EIndexTokenized}
+    | [ FamilyNamePronunciation ]	{EStoreYes | EIndexTokenized}
+    | [ CompanyNamePronunciation]	{EStoreYes | EIndexTokenized}
+    |
+    |
+    +-- calendar
+    | [ Summary     	]   	{EStoreYes | EIndexTokenized}
+    | [ Description 	]	{EStoreYes | EIndexTokenized}
+    | [ Location    	]	{EStoreYes | EIndexTokenized}
+    | [ StartTime   	] (YYYYMMDDHHSS) (TimeZone UTC)	{EStoreYes | EIndexUnTokenized}
+    | [ EndTime     	] (YYYYMMDDHHSS) (TimeZone UTC)	{EStoreYes | EIndexUnTokenized}
+    | 
+    |    
+    +-- bookmark
+    | [ Name       ] 		{EStoreYes | EIndexTokenized}
+    | [ Url 	   ] 		{EStoreYes | EIndexTokenized} 
+    |
+    +-- applications
+    | [ Name       ]       	{EStoreYes | EIndexTokenized}
+    | [ Uid        ]       	{EStoreYes | EIndexTokenized}
+    | [ Path       ]       	{EStoreYes | EIndexTokenized}
+    |
+    +-- notes
+    | [ Date       ]  (YYYYMMDDHHSS)  {EStoreYes | EIndexUnTokenized}
+    | [ Memo       ]       	{EStoreYes | EIndexTokenized}
+
+
+For instance, a document for an email message should have the
+appclass value defined as "root msg email" (with spaces in between the
+words). SMS message would have it as "root msg phone sms".
+
+If SMS, MMS and email messages originated from the same messenger
+application and are indexed to the same indexed database, then the
+appclass value given to the IdxDb retrieval call would be the common
+denominator, which is "root msg", as well as the baseAppClass value
+for creating the index would be the same, "root msg".
+
+The field names are also put under the corresponding app classes. Some
+field names are for system use, so they are defined on the root class,
+prefixed with underscore to avoid name clashes. Application specific
+harvesters should use names without underscore prefixes.
+
+The exact hierarchy will undergo some obvious evolution, its structure
+and the field names are up to the harvesters. However, the
+preinstalled application suites should define a neatly structured
+hieararchy facilitating flexible and sensible search narrowing and
+widening.
+
+NOTE: Later cpix library versions provide the feuture of searching any
+field, one just have to use cpix_DEFAULT_FIELd field name (when
+creating the cpix_QueryParser instance).
+

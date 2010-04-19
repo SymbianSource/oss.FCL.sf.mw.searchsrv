@@ -1,0 +1,93 @@
+EXPORTS
+	??0RSearchServerSession@@QAE@XZ @ 1 NONAME ; RSearchServerSession::RSearchServerSession(void)
+	??1CCPixIndexer@@UAE@XZ @ 2 NONAME ; CCPixIndexer::~CCPixIndexer(void)
+	??1CCPixSearcher@@UAE@XZ @ 3 NONAME ; CCPixSearcher::~CCPixSearcher(void)
+	??1CDocumentField@@UAE@XZ @ 4 NONAME ; CDocumentField::~CDocumentField(void)
+	??1CSearchDocument@@UAE@XZ @ 5 NONAME ; CSearchDocument::~CSearchDocument(void)
+	?Add@RSearchServerSubSession@@QAEXABVTDesC8@@AAVTRequestStatus@@@Z @ 6 NONAME ; void RSearchServerSubSession::Add(class TDesC8 const &, class TRequestStatus &)
+	?AddExcerptL@CSearchDocument@@QAEXABVTDesC16@@@Z @ 7 NONAME ; void CSearchDocument::AddExcerptL(class TDesC16 const &)
+	?AddFieldL@CSearchDocument@@QAEAAVCDocumentField@@ABVTDesC16@@0H@Z @ 8 NONAME ; class CDocumentField & CSearchDocument::AddFieldL(class TDesC16 const &, class TDesC16 const &, int)
+	?AddL@CCPixIndexer@@QAEXAAVMCPixIndexingRequestObserver@@ABVCSearchDocument@@@Z @ 9 NONAME ; void CCPixIndexer::AddL(class MCPixIndexingRequestObserver &, class CSearchDocument const &)
+	?AddL@CCPixIndexer@@QAEXABVCSearchDocument@@@Z @ 10 NONAME ; void CCPixIndexer::AddL(class CSearchDocument const &)
+	?AddL@RSearchServerSubSession@@QAEXABVTDesC8@@@Z @ 11 NONAME ; void RSearchServerSubSession::AddL(class TDesC8 const &)
+	?AppClass@CSearchDocument@@QBEABVTDesC16@@XZ @ 12 NONAME ; class TDesC16 const & CSearchDocument::AppClass(void) const
+	?Boost@CDocumentField@@QBEMXZ @ 13 NONAME ; float CDocumentField::Boost(void) const
+	?Boost@CSearchDocument@@QBEMXZ @ 14 NONAME ; float CSearchDocument::Boost(void) const
+	?CancelAll@RSearchServerSubSession@@QBEXXZ @ 15 NONAME ; void RSearchServerSubSession::CancelAll(void) const
+	?Close@RSearchServerSession@@QAEXXZ @ 16 NONAME ; void RSearchServerSession::Close(void)
+	?Config@CDocumentField@@QBEHXZ @ 17 NONAME ; int CDocumentField::Config(void) const
+	?Connect@RSearchServerSession@@QAEHXZ @ 18 NONAME ; int RSearchServerSession::Connect(void)
+	?DefineVolume@RSearchServerSession@@QAEHABVTDesC16@@0@Z @ 19 NONAME ; int RSearchServerSession::DefineVolume(class TDesC16 const &, class TDesC16 const &)
+	?Delete@RSearchServerSubSession@@QAEXABVTDesC16@@AAVTRequestStatus@@@Z @ 20 NONAME ; void RSearchServerSubSession::Delete(class TDesC16 const &, class TRequestStatus &)
+	?DeleteL@CCPixIndexer@@QAEXAAVMCPixIndexingRequestObserver@@ABVTDesC16@@@Z @ 21 NONAME ; void CCPixIndexer::DeleteL(class MCPixIndexingRequestObserver &, class TDesC16 const &)
+	?DeleteL@CCPixIndexer@@QAEXABVTDesC16@@@Z @ 22 NONAME ; void CCPixIndexer::DeleteL(class TDesC16 const &)
+	?DeleteL@RSearchServerSubSession@@QAEXABVTDesC16@@@Z @ 23 NONAME ; void RSearchServerSubSession::DeleteL(class TDesC16 const &)
+	?Excerpt@CSearchDocument@@QBEABVTDesC16@@XZ @ 24 NONAME ; class TDesC16 const & CSearchDocument::Excerpt(void) const
+	?ExternalizeL@CDocumentField@@QBEXAAVRWriteStream@@@Z @ 25 NONAME ; void CDocumentField::ExternalizeL(class RWriteStream &) const
+	?ExternalizeL@CSearchDocument@@QBEXAAVRWriteStream@@@Z @ 26 NONAME ; void CSearchDocument::ExternalizeL(class RWriteStream &) const
+	?Field@CSearchDocument@@QBEABVCDocumentField@@H@Z @ 27 NONAME ; class CDocumentField const & CSearchDocument::Field(int) const
+	?Field@CSearchDocument@@QBEPBVCDocumentField@@ABVTDesC16@@@Z @ 28 NONAME ; class CDocumentField const * CSearchDocument::Field(class TDesC16 const &) const
+	?FieldCount@CSearchDocument@@QBEHXZ @ 29 NONAME ; int CSearchDocument::FieldCount(void) const
+	?Flush@RSearchServerSubSession@@QAEXAAVTRequestStatus@@@Z @ 30 NONAME ; void RSearchServerSubSession::Flush(class TRequestStatus &)
+	?FlushL@CCPixIndexer@@QAEXAAVMCPixIndexingRequestObserver@@@Z @ 31 NONAME ; void CCPixIndexer::FlushL(class MCPixIndexingRequestObserver &)
+	?FlushL@CCPixIndexer@@QAEXXZ @ 32 NONAME ; void CCPixIndexer::FlushL(void)
+	?FlushL@RSearchServerSubSession@@QAEXXZ @ 33 NONAME ; void RSearchServerSubSession::FlushL(void)
+	?GetBaseAppClass@CCPixIndexer@@QBEABVTDesC16@@XZ @ 34 NONAME ; class TDesC16 const & CCPixIndexer::GetBaseAppClass(void) const
+	?GetBaseAppClass@CCPixSearcher@@QBEABVTDesC16@@XZ @ 35 NONAME ; class TDesC16 const & CCPixSearcher::GetBaseAppClass(void) const
+	?GetDocument@RSearchServerSubSession@@QAEXHAAVTRequestStatus@@@Z @ 36 NONAME ; void RSearchServerSubSession::GetDocument(int, class TRequestStatus &)
+	?GetDocumentL@CCPixSearcher@@QAEPAVCSearchDocument@@H@Z @ 37 NONAME ; class CSearchDocument * CCPixSearcher::GetDocumentL(int)
+	?GetDocumentL@CCPixSearcher@@QAEXHAAVMCPixNextDocumentRequestObserver@@@Z @ 38 NONAME ; void CCPixSearcher::GetDocumentL(int, class MCPixNextDocumentRequestObserver &)
+	?GetDocumentL@RSearchServerSubSession@@QAEPAVCSearchDocument@@H@Z @ 39 NONAME ; class CSearchDocument * RSearchServerSubSession::GetDocumentL(int)
+	?GetDocumentObjectL@RSearchServerSubSession@@QAEPAVCSearchDocument@@XZ @ 40 NONAME ; class CSearchDocument * RSearchServerSubSession::GetDocumentObjectL(void)
+	?Id@CSearchDocument@@QBEABVTDesC16@@XZ @ 41 NONAME ; class TDesC16 const & CSearchDocument::Id(void) const
+	?InternalizeL@CDocumentField@@QAEXAAVRReadStream@@@Z @ 42 NONAME ; void CDocumentField::InternalizeL(class RReadStream &)
+	?InternalizeL@CSearchDocument@@QAEXAAVRReadStream@@@Z @ 43 NONAME ; void CSearchDocument::InternalizeL(class RReadStream &)
+	?IsDatabaseOpen@CCPixIndexer@@QBEHXZ @ 44 NONAME ; int CCPixIndexer::IsDatabaseOpen(void) const
+	?IsDatabaseOpen@CCPixSearcher@@QBEHXZ @ 45 NONAME ; int CCPixSearcher::IsDatabaseOpen(void) const
+	?Name@CDocumentField@@QBEABVTDesC16@@XZ @ 46 NONAME ; class TDesC16 const & CDocumentField::Name(void) const
+	?NewL@CCPixIndexer@@SAPAV1@AAVRSearchServerSession@@@Z @ 47 NONAME ; class CCPixIndexer * CCPixIndexer::NewL(class RSearchServerSession &)
+	?NewL@CCPixSearcher@@SAPAV1@AAVRSearchServerSession@@ABVTDesC16@@@Z @ 48 NONAME ; class CCPixSearcher * CCPixSearcher::NewL(class RSearchServerSession &, class TDesC16 const &)
+	?NewL@CDocumentField@@SAPAV1@AAVRReadStream@@@Z @ 49 NONAME ; class CDocumentField * CDocumentField::NewL(class RReadStream &)
+	?NewL@CDocumentField@@SAPAV1@ABVTDesC16@@0H@Z @ 50 NONAME ; class CDocumentField * CDocumentField::NewL(class TDesC16 const &, class TDesC16 const &, int)
+	?NewL@CSearchDocument@@SAPAV1@AAVRReadStream@@@Z @ 51 NONAME ; class CSearchDocument * CSearchDocument::NewL(class RReadStream &)
+	?NewL@CSearchDocument@@SAPAV1@ABVTDesC16@@00W4TFilterId@1@@Z @ 52 NONAME ; class CSearchDocument * CSearchDocument::NewL(class TDesC16 const &, class TDesC16 const &, class TDesC16 const &, enum CSearchDocument::TFilterId)
+	?NewLC@CCPixIndexer@@SAPAV1@AAVRSearchServerSession@@@Z @ 53 NONAME ; class CCPixIndexer * CCPixIndexer::NewLC(class RSearchServerSession &)
+	?NewLC@CCPixSearcher@@SAPAV1@AAVRSearchServerSession@@ABVTDesC16@@@Z @ 54 NONAME ; class CCPixSearcher * CCPixSearcher::NewLC(class RSearchServerSession &, class TDesC16 const &)
+	?NewLC@CDocumentField@@SAPAV1@AAVRReadStream@@@Z @ 55 NONAME ; class CDocumentField * CDocumentField::NewLC(class RReadStream &)
+	?NewLC@CDocumentField@@SAPAV1@ABVTDesC16@@0H@Z @ 56 NONAME ; class CDocumentField * CDocumentField::NewLC(class TDesC16 const &, class TDesC16 const &, int)
+	?NewLC@CSearchDocument@@SAPAV1@AAVRReadStream@@@Z @ 57 NONAME ; class CSearchDocument * CSearchDocument::NewLC(class RReadStream &)
+	?NewLC@CSearchDocument@@SAPAV1@ABVTDesC16@@00W4TFilterId@1@@Z @ 58 NONAME ; class CSearchDocument * CSearchDocument::NewLC(class TDesC16 const &, class TDesC16 const &, class TDesC16 const &, enum CSearchDocument::TFilterId)
+	?OpenDatabaseL@CCPixIndexer@@QAEXAAVMCPixOpenDatabaseRequestObserver@@ABVTDesC16@@@Z @ 59 NONAME ; void CCPixIndexer::OpenDatabaseL(class MCPixOpenDatabaseRequestObserver &, class TDesC16 const &)
+	?OpenDatabaseL@CCPixIndexer@@QAEXABVTDesC16@@@Z @ 60 NONAME ; void CCPixIndexer::OpenDatabaseL(class TDesC16 const &)
+	?OpenDatabaseL@CCPixSearcher@@QAEXAAVMCPixOpenDatabaseRequestObserver@@ABVTDesC16@@@Z @ 61 NONAME ; void CCPixSearcher::OpenDatabaseL(class MCPixOpenDatabaseRequestObserver &, class TDesC16 const &)
+	?OpenDatabaseL@CCPixSearcher@@QAEXABVTDesC16@@@Z @ 62 NONAME ; void CCPixSearcher::OpenDatabaseL(class TDesC16 const &)
+	?RemoveField@CSearchDocument@@QAEHABVTDesC16@@@Z @ 63 NONAME ; int CSearchDocument::RemoveField(class TDesC16 const &)
+	?Reset@RSearchServerSubSession@@QAEXAAVTRequestStatus@@@Z @ 64 NONAME ; void RSearchServerSubSession::Reset(class TRequestStatus &)
+	?ResetL@CCPixIndexer@@QAEXAAVMCPixIndexingRequestObserver@@@Z @ 65 NONAME ; void CCPixIndexer::ResetL(class MCPixIndexingRequestObserver &)
+	?ResetL@CCPixIndexer@@QAEXXZ @ 66 NONAME ; void CCPixIndexer::ResetL(void)
+	?ResetL@RSearchServerSubSession@@QAEXXZ @ 67 NONAME ; void RSearchServerSubSession::ResetL(void)
+	?Search@RSearchServerSubSession@@QAEXABVTDesC16@@AAVTRequestStatus@@@Z @ 68 NONAME ; void RSearchServerSubSession::Search(class TDesC16 const &, class TRequestStatus &)
+	?SearchL@CCPixSearcher@@QAEHABVTDesC16@@0@Z @ 69 NONAME ; int CCPixSearcher::SearchL(class TDesC16 const &, class TDesC16 const &)
+	?SearchL@CCPixSearcher@@QAEXAAVMCPixSearchRequestObserver@@ABVTDesC16@@1@Z @ 70 NONAME ; void CCPixSearcher::SearchL(class MCPixSearchRequestObserver &, class TDesC16 const &, class TDesC16 const &)
+	?SearchL@RSearchServerSubSession@@QAEXABVTDesC16@@@Z @ 71 NONAME ; void RSearchServerSubSession::SearchL(class TDesC16 const &)
+	?SetAnalyzer@RSearchServerSubSession@@QAEXABVTDesC16@@AAVTRequestStatus@@@Z @ 72 NONAME ; void RSearchServerSubSession::SetAnalyzer(class TDesC16 const &, class TRequestStatus &)
+	?SetAnalyzerL@CCPixIndexer@@QAEXAAVMCPixSetAnalyzerRequestObserver@@ABVTDesC16@@@Z @ 73 NONAME ; void CCPixIndexer::SetAnalyzerL(class MCPixSetAnalyzerRequestObserver &, class TDesC16 const &)
+	?SetAnalyzerL@CCPixIndexer@@QAEXABVTDesC16@@@Z @ 74 NONAME ; void CCPixIndexer::SetAnalyzerL(class TDesC16 const &)
+	?SetAnalyzerL@CCPixSearcher@@QAEXAAVMCPixSetAnalyzerRequestObserver@@ABVTDesC16@@@Z @ 75 NONAME ; void CCPixSearcher::SetAnalyzerL(class MCPixSetAnalyzerRequestObserver &, class TDesC16 const &)
+	?SetAnalyzerL@CCPixSearcher@@QAEXABVTDesC16@@@Z @ 76 NONAME ; void CCPixSearcher::SetAnalyzerL(class TDesC16 const &)
+	?SetAnalyzerL@RSearchServerSubSession@@QAEXABVTDesC16@@@Z @ 77 NONAME ; void RSearchServerSubSession::SetAnalyzerL(class TDesC16 const &)
+	?SetBoost@CDocumentField@@QAEXM@Z @ 78 NONAME ; void CDocumentField::SetBoost(float)
+	?SetBoost@CSearchDocument@@QAEXM@Z @ 79 NONAME ; void CSearchDocument::SetBoost(float)
+	?Size@CDocumentField@@QBEHXZ @ 80 NONAME ; int CDocumentField::Size(void) const
+	?Size@CSearchDocument@@QBEHXZ @ 81 NONAME ; int CSearchDocument::Size(void) const
+	?UnDefineVolume@RSearchServerSession@@QAEHABVTDesC16@@@Z @ 82 NONAME ; int RSearchServerSession::UnDefineVolume(class TDesC16 const &)
+	?Update@RSearchServerSubSession@@QAEXABVTDesC8@@AAVTRequestStatus@@@Z @ 83 NONAME ; void RSearchServerSubSession::Update(class TDesC8 const &, class TRequestStatus &)
+	?UpdateL@CCPixIndexer@@QAEXAAVMCPixIndexingRequestObserver@@ABVCSearchDocument@@@Z @ 84 NONAME ; void CCPixIndexer::UpdateL(class MCPixIndexingRequestObserver &, class CSearchDocument const &)
+	?UpdateL@CCPixIndexer@@QAEXABVCSearchDocument@@@Z @ 85 NONAME ; void CCPixIndexer::UpdateL(class CSearchDocument const &)
+	?UpdateL@RSearchServerSubSession@@QAEXABVTDesC8@@@Z @ 86 NONAME ; void RSearchServerSubSession::UpdateL(class TDesC8 const &)
+	?Value@CDocumentField@@QBEABVTDesC16@@XZ @ 87 NONAME ; class TDesC16 const & CDocumentField::Value(void) const
+	?Version@RSearchServerSession@@QBE?AVTVersion@@XZ @ 88 NONAME ; class TVersion RSearchServerSession::Version(void) const
+	?ContinueHouseKeeping@RSearchServerSession@@QAEHXZ @ 89 NONAME ; int RSearchServerSession::ContinueHouseKeeping(void)
+	?ForceHouseKeeping@RSearchServerSession@@QAEHXZ @ 90 NONAME ; int RSearchServerSession::ForceHouseKeeping(void)
+	?StopHouseKeeping@RSearchServerSession@@QAEHXZ @ 91 NONAME ; int RSearchServerSession::StopHouseKeeping(void)
+

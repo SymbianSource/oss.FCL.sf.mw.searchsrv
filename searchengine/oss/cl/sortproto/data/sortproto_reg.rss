@@ -1,0 +1,21 @@
+/*
+============================================================================
+ Name        : sortproto_reg.rss
+ Author      : 
+ Copyright   : Your copyright notice
+ Description : This file contains all the resources for the sortproto.
+============================================================================
+*/
+
+#include <appinfo.rh>
+
+UID2 KUidAppRegistrationResourceFile
+UID3 0xE79EE5CF
+
+RESOURCE APP_REGISTRATION_INFO
+    {
+    app_file = "sortproto";
+    embeddability = KAppNotEmbeddable;
+    newfile = KAppDoesNotSupportNewFile;
+    }
+

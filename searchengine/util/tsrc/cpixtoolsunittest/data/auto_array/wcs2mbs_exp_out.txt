@@ -1,0 +1,75 @@
+Converting: wcs '', expecting: ''.
+ -> result: ''
+
+Converting: wcs 'hello', expecting: 'hello'.
+ -> result: 'hello'
+
+Converting: wcs 'Three rings for the Elven kings under the stars', expecting: 'Three rings for the Elven kings under the stars'.
+ -> result: 'Three rings for the Elven kings under the stars'
+
+Converting: wcs 'Русский язык', expecting: 'Русский язык'.
+ -> result: 'Русский язык'
+
+Converting: wcs 'Подарок обошелся в $12 тысяч', expecting: 'Подарок обошелся в $12 тысяч'.
+ -> result: 'Подарок обошелся в $12 тысяч'
+
+Converting: wcs 'Голливудский актер Брэд Питт попал в аварию в Лос-Анджелесе', expecting: 'Голливудский актер Брэд Питт попал в аварию в Лос-Анджелесе'.
+ -> result: 'Голливудский актер Брэд Питт попал в аварию в Лос-Анджелесе'
+
+Converting: wcs 'Она заказала Ducati Monster 1100S Titanium в Италии', expecting: 'Она заказала Ducati Monster 1100S Titanium в Италии'.
+ -> result: 'Она заказала Ducati Monster 1100S Titanium в Италии'
+
+Converting: wcs 'Suomi', expecting: 'Suomi'.
+ -> result: 'Suomi'
+
+Converting: wcs 'Ää Öö Åå.', expecting: 'Ää Öö Åå.'.
+ -> result: 'Ää Öö Åå.'
+
+Converting: wcs 'Kaikki erityisryhmät on rokotettu vuoden loppuun mennessä.', expecting: 'Kaikki erityisryhmät on rokotettu vuoden loppuun mennessä.'.
+ -> result: 'Kaikki erityisryhmät on rokotettu vuoden loppuun mennessä.'
+
+Converting: wcs 'Rokotteita on tällä viikolla käytössä 437 000, joka viikko tulee 100 000 - 200 000 annosta lisää.', expecting: 'Rokotteita on tällä viikolla käytössä 437 000, joka viikko tulee 100 000 - 200 000 annosta lisää.'.
+ -> result: 'Rokotteita on tällä viikolla käytössä 437 000, joka viikko tulee 100 000 - 200 000 annosta lisää.'
+
+Converting: wcs '### Magyar', expecting: '### Magyar'.
+ -> result: '### Magyar'
+
+Converting: wcs 'Áá Éé Íí Óó Öö Õõ Úú Üü Űű.', expecting: 'Áá Éé Íí Óó Öö Õõ Úú Üü Űű.'.
+ -> result: 'Áá Éé Íí Óó Öö Õõ Úú Üü Űű.'
+
+Converting: wcs 'Nagy méretű, izzó,', expecting: 'Nagy méretű, izzó,'.
+ -> result: 'Nagy méretű, izzó,'
+
+Converting: wcs 'majd a földet érés után lángba boruló,', expecting: 'majd a földet érés után lángba boruló,'.
+ -> result: 'majd a földet érés után lángba boruló,'
+
+Converting: wcs 'egyelőre azonosítatlan tárgy csapódott be [1] Lettországban, Mazsalaca [2] ', expecting: 'egyelőre azonosítatlan tárgy csapódott be [1] Lettországban, Mazsalaca [2] '.
+ -> result: 'egyelőre azonosítatlan tárgy csapódott be [1] Lettországban, Mazsalaca [2] '
+
+Converting: wcs 'kisváros mellett egy elhagyatott legelőn vasárnapról hétfőre virradó éjjel, közölte a helyi katasztrófaelhárítás.', expecting: 'kisváros mellett egy elhagyatott legelőn vasárnapról hétfőre virradó éjjel, közölte a helyi katasztrófaelhárítás.'.
+ -> result: 'kisváros mellett egy elhagyatott legelőn vasárnapról hétfőre virradó éjjel, közölte a helyi katasztrófaelhárítás.'
+
+Converting: wcs '中文', expecting: '中文'.
+ -> result: '中文'
+
+Converting: wcs '解放军今年演习强度密度"罕见" 开放透明度空前 高清', expecting: '解放军今年演习强度密度"罕见" 开放透明度空前 高清'.
+ -> result: '解放军今年演习强度密度"罕见" 开放透明度空前 高清'
+
+Converting: wcs '税务总局：年底将力争实现扣缴单位明细申报个税管理', expecting: '税务总局：年底将力争实现扣缴单位明细申报个税管理'.
+ -> result: '税务总局：年底将力争实现扣缴单位明细申报个税管理'
+
+Converting: wcs '发改委制定的收入分配调节方案 已经上报国务院待批', expecting: '发改委制定的收入分配调节方案 已经上报国务院待批'.
+ -> result: '发改委制定的收入分配调节方案 已经上报国务院待批'
+
+Converting: wcs '日本語', expecting: '日本語'.
+ -> result: '日本語'
+
+Converting: wcs '10月25日（日曜日）、', expecting: '10月25日（日曜日）、'.
+ -> result: '10月25日（日曜日）、'
+
+Converting: wcs 'イラク・バグダッドにおいて連続爆発テロが発生し、', expecting: 'イラク・バグダッドにおいて連続爆発テロが発生し、'.
+ -> result: 'イラク・バグダッドにおいて連続爆発テロが発生し、'
+
+Converting: wcs '数百名の死傷者が出たことに、我が国は強い衝撃と憤りを覚えます。', expecting: '数百名の死傷者が出たことに、我が国は強い衝撃と憤りを覚えます。'.
+ -> result: '数百名の死傷者が出たことに、我が国は強い衝撃と憤りを覚えます。'
+

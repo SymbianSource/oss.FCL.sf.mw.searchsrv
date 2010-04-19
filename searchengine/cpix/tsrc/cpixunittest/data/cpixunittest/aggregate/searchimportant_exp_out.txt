@@ -1,0 +1,15 @@
+Number of hits: 2
+DOC (multifield) (!:\data\cpixunittestcorpus\stem\en\1.txt):
+ o dummy: important happiness
+ o dummy2: vappu
+ o dummy3: christmas is an important and happy happening
+ o _excerpt: I am happy.
+ o _appclass: root file usrdoc text
+ o _mimetype: text/plain
+DOC (multifield) (!:\data\cpixunittestcorpus\stem\en\3.txt):
+ o dummy: look at you
+ o dummy2: summer's midnight eve
+ o dummy3: look, important and happy robot
+ o _excerpt: Nothing important in here. So don't even look. Because you
+ o _appclass: root file usrdoc text
+ o _mimetype: text/plain

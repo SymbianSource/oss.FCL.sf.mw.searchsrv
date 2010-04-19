@@ -1,0 +1,70 @@
+/*
+============================================================================
+ Name        : clucene_extraunittest.mmp
+ ===========================================================================
+*/
+
+/*------------------------------------------------------------------------------
+* Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies). 
+* 
+* Distributable under the terms of either the Apache License (Version 2.0) or 
+* the GNU Lesser General Public License, as specified in the COPYING file.
+------------------------------------------------------------------------------*/
+
+OPTION CW -wchar_t on
+MACRO _WCHAR_T_DECLARED RVCT22_STATICS_WORKAROUND CPIX_ASYNC_MT 
+OPTION GCCE -finput-charset=ISO-8859-1
+
+TARGET          clucene_extraunittest.exe
+TARGETTYPE      exe
+UID             0x100039CE 0x0EE49B30
+VENDORID        0
+
+EPOCSTACKSIZE   0x10000
+// Needs heap size to process large test data volume
+EPOCHEAPSIZE    0x50000 0x4000000 
+
+SOURCEPATH      ../data
+START RESOURCE  clucene_extraunittest_reg.rss
+#ifdef WINSCW
+TARGETPATH      /private/10003a3f/apps
+#else
+TARGETPATH      /private/10003a3f/import/apps
+#endif
+END //RESOURCE
+
+USERINCLUDE     ../inc
+USERINCLUDE     ../../../clucene/src
+USERINCLUDE     ../../../../../util/cpixtools/inc/public
+USERINCLUDE     ../../../../../util/tsrc/itk/inc/public
+
+SYSTEMINCLUDE   /epoc32/include
+OS_LAYER_LIBC_SYSTEMINCLUDE
+OS_LAYER_STDCPP_SYSTEMINCLUDE
+SYSTEMINCLUDE     /epoc32/include/stdapis/stlportv5
+OS_LAYER_GLIB_SYSTEMINCLUDE
+
+
+// Using main() as entry point
+STATICLIBRARY   libcrt0.lib
+
+STATICLIBRARY   libitk.lib
+STATICLIBRARY   libcpixtools.lib
+STATICLIBRARY   libclucene.lib
+
+// libc and euser are always needed when using main() entry point
+LIBRARY         libc.lib 
+LIBRARY			libm.lib	// for ? 
+LIBRARY         libglib.lib // for libitk
+
+LIBRARY         euser.lib
+LIBRARY 	    libstdcpp.lib
+LIBRARY         libpthread.lib // for libitk
+LIBRARY           libz.lib
+
+// No capabilities needed by this application
+CAPABILITY      None
+
+SOURCEPATH ../src
+SOURCE clucene_unittest.cpp deletetest.cpp termstest.cpp corpus.cpp
+

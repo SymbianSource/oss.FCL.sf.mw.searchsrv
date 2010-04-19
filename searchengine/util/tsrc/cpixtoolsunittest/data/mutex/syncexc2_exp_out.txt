@@ -1,0 +1,7 @@
+Sleep(1) ...
+# SyncExc2 / StupidThread BEGIN.
+# Unlocking mutex owned by another thread have failed (as should): Could not unlock mutex (error: 1)
+# SyncExc2 / StupidThread END.
+... awake(1)
+has joined stupid thread, unlocking mutex
+SyncExc2 test done.

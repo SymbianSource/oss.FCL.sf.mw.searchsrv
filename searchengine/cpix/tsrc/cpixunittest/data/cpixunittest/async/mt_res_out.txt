@@ -1,0 +1,2844 @@
+MAIN: Created indexer thread
+MAIN: Created searcher thread
+MAIN: waiting for both worker threads
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 0
+
+Indexed
+
+Indexed
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 388
+
+Indexed
+
+Indexed
+
+Doc is retrieved
+DOC (FIN:242:20501589:3000100): 06400, Hamari, FINLAND
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (FIN:241:20501532:1000046): Djäkenböle, FINLAND
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (FIN:241:20501532:1000045): Frebbenby, FINLAND
+
+Updated
+
+Doc is retrieved
+DOC (FIN:241:20501532:1000044): Kattby, FINLAND
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (FIN:241:20501532:1000042): Sålis, FINLAND
+
+Indexed
+
+Doc is retrieved
+DOC (FIN:241:20501532:1000041): Bovik, FINLAND
+
+Indexed
+
+Doc is retrieved
+DOC (FIN:241:20501532:1000038): Mörby, FINLAND
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Search/terms query CANCELLED (3)
+
+Search/terms query CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 1
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Indexed
+
+Indexed
+
+Deleted 1
+
+Updated
+
+Search/terms query SUCCEEDED
+
+Num of hits: 389
+
+Indexed
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (FIN:243:20505470:3000360): 90860, Halosenniemi, FINLAND
+
+Indexed
+
+Doc is retrieved
+DOC (FIN:241:20501532:1000046): Djäkenböle, FINLAND
+
+Indexed
+
+Doc is retrieved
+DOC (FIN:241:20501532:1000045): Frebbenby, FINLAND
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (FIN:241:20501532:1000043): Lillbolstad, FINLAND
+
+Indexed
+
+Doc is retrieved
+DOC (FIN:241:20501532:1000042): Sålis, FINLAND
+
+Indexed
+
+Doc is retrieved
+DOC (FIN:241:20501532:1000041): Bovik, FINLAND
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Search/terms query CANCELLED (3)
+
+Indexed
+
+Search/terms query CANCELLED (0)
+
+Deleted 1
+
+Search/terms query SUCCEEDED
+
+Num of hits: 2
+
+Updated
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 391
+
+Indexed
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (FIN:242:20501589:3000100): 06400, Hamari, FINLAND
+
+Indexed
+
+Doc is retrieved
+DOC (FIN:243:20505470:3000360): 90860, Halosenniemi, FINLAND
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (FIN:241:20501532:1000045): Frebbenby, FINLAND
+
+Updated
+
+Doc is retrieved
+DOC (FIN:241:20501532:1000044): Kattby, FINLAND
+
+Indexed
+
+Doc is retrieved
+DOC (FIN:241:20501532:1000043): Lillbolstad, FINLAND
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Search/terms query CANCELLED (3)
+
+Search/terms query CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 4
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Indexed
+
+Deleted 1
+
+Updated
+
+Search/terms query SUCCEEDED
+
+Num of hits: 394
+
+Indexed
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (FIN:242:20501589:3000100): 06400, Hamari, FINLAND
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (FIN:241:20501532:1000046): Djäkenböle, FINLAND
+
+Indexed
+
+Doc is retrieved
+DOC (FIN:241:20501532:1000045): Frebbenby, FINLAND
+
+Indexed
+
+Doc is retrieved
+DOC (FIN:241:20501532:1000044): Kattby, FINLAND
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Search/terms query CANCELLED (3)
+
+Indexed
+
+Search/terms query CANCELLED (0)
+
+Deleted 1
+
+Search/terms query SUCCEEDED
+
+Num of hits: 7
+
+Updated
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (dc): Happy birthday to ? ...... May all yr wishes come true. Work hard for yr A levels and never give up! Take care always...
+
+Indexed
+
+Indexed
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 396
+
+Indexed
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Deleted 1
+
+Doc is retrieved
+DOC (d): happy bla
+
+Updated
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Indexed
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (FIN:242:20501589:3000100): 06400, Hamari, FINLAND
+
+Indexed
+
+Doc is retrieved
+DOC (FIN:243:20505470:3000360): 90860, Halosenniemi, FINLAND
+
+Indexed
+
+Doc is retrieved
+DOC (dc): Happy birthday to ? ...... May all yr wishes come true. Work hard for yr A levels and never give up! Take care always...
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query CANCELLED (3)
+
+Indexed
+
+Search/terms query CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 9
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Updated
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (h): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (dc): Happy birthday to ? ...... May all yr wishes come true. Work hard for yr A levels and never give up! Take care always...
+
+Indexed
+
+Indexed
+
+Doc is retrieved
+DOC (dc): Happy birthday to ? ...... May all yr wishes come true. Work hard for yr A levels and never give up! Take care always...
+
+Indexed
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 398
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Updated
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (h): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (FIN:242:20501589:3000100): 06400, Hamari, FINLAND
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Search/terms query CANCELLED (3)
+
+Search/terms query CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 11
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Updated
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (h): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 400
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (e): happy bla
+
+Updated
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (h): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Search/terms query CANCELLED (3)
+
+Search/terms query CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 13
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (e): happy bla
+
+Updated
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (h): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 402
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (h): happy bla
+
+Updated
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Search/terms query CANCELLED (3)
+
+Search/terms query CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 15
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (h): happy bla
+
+Updated
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 404
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (h): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Updated
+
+Search/terms query CANCELLED (3)
+
+Search/terms query CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 17
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (h): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Updated
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 406
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (h): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Search/terms query CANCELLED (3)
+
+Search/terms query CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Deleted 1
+
+Search/terms query SUCCEEDED
+
+Num of hits: 18
+
+Updated
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 407
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (e): happy bla
+
+Updated
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (h): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Search/terms query CANCELLED (3)
+
+Search/terms query CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 20
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (e): happy bla
+
+Updated
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (h): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 409
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (h): happy bla
+
+Updated
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query CANCELLED (3)
+
+Indexed
+
+Search/terms query CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 22
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Updated
+
+Doc is retrieved
+DOC (h): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 411
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (h): happy bla
+
+Updated
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Search/terms query CANCELLED (3)
+
+Search/terms query CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 24
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (h): happy bla
+
+Updated
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 411
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (h): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query CANCELLED (3)
+
+Updated
+
+Search/terms query CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 24
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (h): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Updated
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 413
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (h): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Search/terms query CANCELLED (3)
+
+Search/terms query CANCELLED (0)
+
+Indexed
+
+Deleted 1
+
+Search/terms query SUCCEEDED
+
+Num of hits: 25
+
+Updated
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (h): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 414
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Deleted 1
+
+Doc is retrieved
+DOC (d): happy bla
+
+Updated
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (h): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Search/terms query CANCELLED (3)
+
+Search/terms query CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 27
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Updated
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (h): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 416
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (e): happy bla
+
+Updated
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (h): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query CANCELLED (3)
+
+Indexed
+
+Search/terms query CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 29
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (e): happy bla
+
+Updated
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (h): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 418
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (h): happy bla
+
+Updated
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Search/terms query CANCELLED (3)
+
+Search/terms query CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 31
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Updated
+
+Doc is retrieved
+DOC (h): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 422
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (h): happy bla
+
+Updated
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Search/terms query CANCELLED (3)
+
+Search/terms query CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 35
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (h): happy bla
+
+Updated
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 424
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (h): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query CANCELLED (3)
+
+Updated
+
+Search/terms query CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 37
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (h): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Updated
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 426
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (h): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Search/terms query CANCELLED (3)
+
+Search/terms query CANCELLED (0)
+
+Indexed
+
+Deleted 1
+
+Search/terms query SUCCEEDED
+
+Num of hits: 38
+
+Updated
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (h): happy bla
+
+Indexed
+
+Indexed
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 427
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Updated
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (h): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Search/terms query CANCELLED (3)
+
+Search/terms query CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 40
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Deleted 1
+
+Doc is retrieved
+DOC (d): happy bla
+
+Updated
+
+Doc is retrieved
+DOC (e): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (h): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (i): happy bla
+
+Indexed
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Indexed
+
+Indexed
+
+Search/terms query SUCCEEDED
+
+Num of hits: 429
+
+Indexed
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Indexed
+
+Doc is retrieved
+DOC (d): happy bla
+
+Indexed
+
+Deleted 1
+
+Doc is retrieved
+DOC (e): happy bla
+
+Updated
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 42
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 430
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 42
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 430
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 42
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 430
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 42
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 430
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 42
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 430
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 42
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 430
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 42
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query SUCCEEDED
+
+Num of hits: 430
+
+Doc is retrieved
+DOC (b): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (d): happy bla
+
+Doc is retrieved
+DOC (e): happy bla
+
+Doc is retrieved
+DOC (f): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Doc is retrieved
+DOC (h): happy bla
+
+Doc is retrieved
+DOC (i): happy bla
+
+Doc is retrieved
+DOC (j): happy bla
+
+Doc retrieval CANCELLED (0)
+
+Search/terms query CANCELLED (0)
+
+Search/terms query CANCELLED (0)

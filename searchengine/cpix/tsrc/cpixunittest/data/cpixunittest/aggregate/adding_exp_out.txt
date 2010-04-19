@@ -1,0 +1,8 @@
+
+Indexed file (multifield): !:\data\cpixunittestcorpus\stem\en\4.txt
+
+Indexed file (multifield): !:\data\cpixunittestcorpus\stem\en\3.txt
+
+Indexed file (multifield): !:\data\cpixunittestcorpus\stem\en\2.txt
+
+Indexed file (multifield): !:\data\cpixunittestcorpus\stem\en\1.txt

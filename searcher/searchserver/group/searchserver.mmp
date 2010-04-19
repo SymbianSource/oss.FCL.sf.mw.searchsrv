@@ -1,0 +1,95 @@
+/*
+* Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+
+#include "../inc/SearchServerConfiguration.h"
+
+TARGET            CPixSearchServer.exe
+TARGETTYPE        exe
+UID               0x0 0x2001F6F7 //0xE11C75A6
+EPOCSTACKSIZE     0x5000
+EPOCHEAPSIZE      0x50000 0x2000000 // From about 65KB to about 32 MB
+
+/*SOURCEPATH        ../data
+START RESOURCE    2001F6F7.rss
+TARGETPATH        /private/101f875a/import
+END*/
+
+MW_LAYER_SYSTEMINCLUDE
+OS_LAYER_LIBC_SYSTEMINCLUDE
+OS_LAYER_STDCPP_SYSTEMINCLUDE
+SYSTEMINCLUDE     /epoc32/include/stdapis/stlportv5
+OS_LAYER_GLIB_SYSTEMINCLUDE
+
+USERINCLUDE       ../inc
+USERINCLUDE       ../../../searchsrv_plat/cpix_utility_api/inc
+USERINCLUDE       ../../SearchClient/inc
+USERINCLUDE       ../../../searchengine/cpix/cpix/inc/public
+
+
+
+SOURCEPATH        ../src
+SOURCE            CSearchServer.cpp
+SOURCE            CSearchServerSession.cpp
+SOURCE            CCPixIdxDb.cpp
+SOURCE            CCPixSearch.cpp
+SOURCE            SearchServerTesting.cpp
+SOURCE			  CSearchServerSubSession.cpp
+SOURCE			  CHeartBeatTimer.cpp
+SOURCE			  CCPixAsyncronizer.cpp
+SOURCE 			  CHouseKeepingHandler.cpp
+SOURCE 			  CLogPlayerRecorder.cpp
+
+LIBRARY           euser.lib 
+LIBRARY           efsrv.lib 
+LIBRARY			  estor.lib
+LIBRARY           CPixSearchClient.lib
+
+// OpenC
+LIBRARY           libc.lib
+LIBRARY           libglib.lib
+LIBRARY           libstdcpp.lib
+LIBRARY           libm.lib
+LIBRARY           libz.lib
+
+// CLucene and CPix
+STATICLIBRARY     libcpix.lib
+STATICLIBRARY     libcpixtools.lib
+STATICLIBRARY     libstemmer.lib
+STATICLIBRARY     libclucene.lib
+LIBRARY  	      libpthread.lib
+
+// For SPI 
+LIBRARY   exiflib.lib
+LIBRARY   MetaDataUtility.lib
+LIBRARY   charconv.lib
+
+// Logging
+LIBRARY           flogger.lib 
+
+#ifdef RECORD_PERFORMANCE
+USERINCLUDE       ../../../util/QaUtils/inc
+LIBRARY     	  libpthread.lib
+STATICLIBRARY	  libqautils.lib
+#endif
+
+
+VENDORID          0
+
+CAPABILITY        CAP_SERVER AllFiles 
+
+// End of File

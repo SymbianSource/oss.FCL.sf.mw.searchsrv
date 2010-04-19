@@ -1,0 +1,68 @@
+/*------------------------------------------------------------------------------
+* Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies). 
+* 
+* Distributable under the terms of either the Apache License (Version 2.0) or 
+* the GNU Lesser General Public License, as specified in the COPYING file.
+------------------------------------------------------------------------------*/
+
+/*
+============================================================================
+ Name        : sortproto.mmp
+ Description : This is the project specification file for sortproto.
+============================================================================
+*/
+
+OPTION CW -wchar_t on
+MACRO _WCHAR_T_DECLARED RVCT22_STATICS_WORKAROUND CPIX_ASYNC_MT 
+
+
+TARGET          sortproto.exe
+TARGETTYPE      exe
+UID             0x100039CE 0xE79EE5CF
+VENDORID        0
+
+SOURCEPATH      ../data
+START RESOURCE  sortproto_reg.rss
+#ifdef WINSCW
+TARGETPATH      /private/10003a3f/apps
+#else
+TARGETPATH      /private/10003a3f/import/apps
+#endif
+END //RESOURCE
+
+SOURCEPATH      ../src
+SOURCE          sortproto.cpp
+SOURCE          idx.cpp
+
+USERINCLUDE     ../inc
+USERINCLUDE  ../../../../../searchsrv_plat/cpix_utility_api/inc
+
+SYSTEMINCLUDE   ../../clucene/src
+SYSTEMINCLUDE   ../../../../util/cpixtools/inc/public
+SYSTEMINCLUDE   /epoc32/include
+# BEGIN for earlier OpenC releases
+OS_LAYER_LIBC_SYSTEMINCLUDE
+OS_LAYER_STDCPP_SYSTEMINCLUDE
+SYSTEMINCLUDE     /epoc32/include/stdapis/stlportv5
+# END for earlier OpenC releases
+
+
+// Using main() as entry point
+STATICLIBRARY   libcrt0.lib
+STATICLIBRARY   libclucene.lib
+STATICLIBRARY   libcpixtools.lib
+
+// libc and euser are always needed when using main() entry point
+LIBRARY         libc.lib 
+LIBRARY         euser.lib
+LIBRARY 	libstdcpp.lib
+LIBRARY 	libm.lib
+LIBRARY         libpthread.lib
+
+
+// No capabilities needed by this application
+CAPABILITY ReadUserData WriteUserData
+
+#ifdef ENABLE_ABIV2_MODE
+DEBUGGABLE_UDEBONLY
+#endif

@@ -1,0 +1,124 @@
+; Installation file for Search application
+; Installation file for Search application
+;
+; This is an auto-generated PKG file by Carbide.
+; This file uses variables specific to Carbide builds that will not work
+; on command-line builds. If you want to use this generated PKG file from the
+; command-line tools you will need to modify the variables with the appropriate
+; values: $(EPOCROOT), $(PLATFORM), $(TARGET)
+;
+;Languages
+&EN
+
+;
+; UID is the app's UID
+;
+#{"CPix Search"},(0x2001F6FB),1,0,0, TYPE=SA;$(SVN)
+
+; Supports Series 60 v 3.0
+[0x101F7961], 0, 0, 0, {"S60ProductID"}
+
+; Vendor names
+%{"Nokia-EN"}
+:"Nokia"
+
+; Files to install
+; Symbols set up for the source location are Carbide.c++ specific symbols
+
+;@"cpix_cert_installer.sis", (0x101FB665)
+;@"..\WidgetInstaller\sis\WidgetInstaller.sisx", (0x2001F709)
+
+; CPiX Search Server
+
+"$(EPOCROOT)epoc32\release\armv5\$(TARGET)\CPixSearchServer.exe"
+-"c:\sys\bin\CPixSearchServer.exe"
+
+"$(EPOCROOT)epoc32\release\armv5\$(TARGET)\CPixSearchClient.dll"
+-"c:\sys\bin\CPixSearchClient.dll"
+
+; CPiX NP Plugin
+
+;"$(EPOCROOT)epoc32\data\z\resource\plugins\npCPixPlugin.rsc"
+;-"c:\resource\plugins\npCPixPlugin.rsc"
+
+;"$(EPOCROOT)epoc32\release\armv5\$(TARGET)\npCPixPlugin.dll"
+;-"c:\sys\bin\npCPixPlugin.dll"
+
+;QT CPIX Launcher dll
+;"$(EPOCROOT)epoc32\release\armv5\$(TARGET)\qtcpixapplauncher.dll"
+;-"c:\sys\bin\qtcpixapplauncher.dll"
+
+; CPiX Harvester Server
+
+"$(EPOCROOT)epoc32\release\armv5\$(TARGET)\CPixHarvesterServer.exe"
+-"c:\sys\bin\CPixHarvesterServer.exe"
+
+; HarvesterServer is started at boot time - copy resource file
+; must be hardcoded 'c' drive for this file
+"$(EPOCROOT)epoc32\data\z\private\101f875a\import\2001F6FB.rsc"
+-"c:\private\101f875a\import\[2001F6FB].rsc"
+
+"$(EPOCROOT)epoc32\release\armv5\$(TARGET)\CPixHarvesterPluginInterface.dll"
+-"c:\sys\bin\CPixHarvesterPluginInterface.dll"
+
+; Media Audio plugin
+"\epoc32\data\z\resource\plugins\cpixaudioplugin.rsc"
+-"c:\resource\plugins\cpixaudioplugin.rsc"
+"\epoc32\release\armv5\$(TARGET)\cpixaudioplugin.dll"
+-"c:\sys\bin\cpixaudioplugin.dll"
+
+; Media Image plugin
+"\epoc32\data\z\resource\plugins\cpiximageplugin.rsc"
+-"c:\resource\plugins\cpiximageplugin.rsc"
+"\epoc32\release\armv5\$(TARGET)\cpiximageplugin.dll"
+-"c:\sys\bin\cpiximageplugin.dll"
+
+; Media video plugin
+"\epoc32\data\z\resource\plugins\cpixvideoplugin.rsc"
+-"c:\resource\plugins\cpixvideoplugin.rsc"
+"\epoc32\release\armv5\$(TARGET)\cpixvideoplugin.dll"
+-"c:\sys\bin\cpixvideoplugin.dll"
+
+"$(EPOCROOT)epoc32\data\z\resource\plugins\cpixmessageplugin.rsc"
+-"c:\resource\plugins\cpixmessageplugin.rsc"
+"$(EPOCROOT)epoc32\release\armv5\$(TARGET)\cpixmessageplugin.dll"
+-"c:\sys\bin\cpixmessageplugin.dll"
+
+"$(EPOCROOT)epoc32\data\z\resource\plugins\cpixcontactsplugin.rsc"
+-"c:\resource\plugins\cpixcontactsplugin.rsc"
+"$(EPOCROOT)epoc32\release\armv5\$(TARGET)\cpixcontactsplugin.dll"
+-"c:\sys\bin\cpixcontactsplugin.dll"
+
+"$(EPOCROOT)epoc32\data\z\resource\plugins\cpixfileplugin.rsc"
+-"c:\resource\plugins\cpixfileplugin.rsc"
+"$(EPOCROOT)epoc32\release\armv5\$(TARGET)\cpixfileplugin.dll"
+-"c:\sys\bin\cpixfileplugin.dll"
+
+"$(EPOCROOT)epoc32\data\z\resource\plugins\cpixbookmarksplugin.rsc"
+-"c:\resource\plugins\cpixbookmarksplugin.rsc"
+"$(EPOCROOT)epoc32\release\armv5\$(TARGET)\cpixbookmarksplugin.dll"
+-"c:\sys\bin\cpixbookmarksplugin.dll"
+
+"$(EPOCROOT)epoc32\data\z\resource\plugins\cpixcalendarplugin.rsc"
+-"c:\resource\plugins\cpixcalendarplugin.rsc"
+"$(EPOCROOT)epoc32\release\armv5\$(TARGET)\cpixcalendarplugin.dll"
+-"c:\sys\bin\cpixcalendarplugin.dll"
+
+; cpixfileserverplugin.pxt, file server pxt plugin
+"$(EPOCROOT)epoc32\release\armv5\$(TARGET)\cpixfileserverplugin.pxt" 
+-"c:\sys\bin\cpixfileserverplugin.pxt"
+
+"\epoc32\data\z\resource\plugins\cpixapplicationsplugin.rsc"
+-"c:\resource\plugins\cpixapplicationsplugin.rsc"
+"\epoc32\release\armv5\$(TARGET)\cpixapplicationsplugin.dll"
+-"c:\sys\bin\cpixapplicationsplugin.dll"
+
+"\epoc32\data\z\resource\plugins\cpixnotesplugin.rsc"
+-"c:\resource\plugins\cpixnotesplugin.rsc"
+"\epoc32\release\armv5\$(TARGET)\cpixnotesplugin.dll"
+-"c:\sys\bin\cpixnotesplugin.dll"
+
+
+"\epoc32\release\armv5\$(TARGET)\qcpixsearchclient.dll"    - "!:\sys\bin\qcpixsearchclient.dll"
+
+@"centrep.sisx", (0x10202BE9)

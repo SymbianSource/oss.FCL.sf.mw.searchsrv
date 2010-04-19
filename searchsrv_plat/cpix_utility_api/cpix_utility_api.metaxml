@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api id="1088f419fec830e3f99799092ee7ad3e" dataversion="2.0">
+  <name>cpix_utility_api</name>
+  <description>These headers provide common defnitions for search and harvesting functionalities.</description>
+  <type>c++</type>
+  <collection>searcher</collection>
+  <libs/>
+  <release category="platform" sinceversion="10.1"/>
+  <attributes>
+    <htmldocprovided>no</htmldocprovided>
+    <adaptation>no</adaptation>
+  </attributes>
+</api>

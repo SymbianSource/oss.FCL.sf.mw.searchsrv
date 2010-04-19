@@ -1,0 +1,13 @@
+TESTING double (generic, default) formatting. Target: double
+pass:
+SUCCESS: 0: 0
+SUCCESS: 0.5: 0.5
+SUCCESS: .5: 0.5
+SUCCESS: -.5: -0.5
+SUCCESS: +.5: 0.5
+SUCCESS: +12.345: 12.345
+fail:
+FAILURE: a: double
+FAILURE: .-5: double
+FAILURE: zaza: double
+FAILURE: 3.1415a: double

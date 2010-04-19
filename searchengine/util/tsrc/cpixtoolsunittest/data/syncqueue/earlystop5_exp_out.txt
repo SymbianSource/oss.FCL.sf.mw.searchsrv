@@ -1,0 +1,22 @@
+Creating 5 producers and 5 consumers
+#IGNORE [B:358] (B) . [B:30] (B) . [B:872] (B) . [B:244] (B) . [B:1078] (B) . >0 <0 . . >1 <1 . . >2 <2 . . >3 <3 . . >4 <4 . . >5 <5 . . >6 <6 . . >7 <7 . . >0 <0 . . >8 <8 . . >9 <9 . . >10 
+#IGNORE [E] <10 . . >0 <0 . . >1 <1 . . >1 <1 . . >2 <2 . . >0 <0 . . >3 <3 . . >2 <2 . . >0 <0 . . >4 <4 . . >3 <3 . . >5 <5 . . >1 >6 <1 . . <6 . . >4 <4 . . >7 <7 . . forcing stop forced stop joining threads j:0 
+#IGNORE !X xA 
+#IGNORE (E) 
+#IGNORE !X xA 
+#IGNORE (E) 
+#IGNORE !X xA 
+#IGNORE (E) 
+#IGNORE !X xA 
+#IGNORE (E) 
+#IGNORE !X xA 
+#IGNORE (E) >5 
+#IGNORE [E] j:1 j:2 j:3 j:4 >1 
+#IGNORE [E] >8 
+#IGNORE [E] >2 
+#IGNORE [E] j:5 j:6 j:7 j:8 j:9 
+Joined all workers
+
+#IGNORE SUM: 94
+
+ session done.

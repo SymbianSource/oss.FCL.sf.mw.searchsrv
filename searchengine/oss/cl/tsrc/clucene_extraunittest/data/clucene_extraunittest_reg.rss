@@ -1,0 +1,21 @@
+/*
+============================================================================
+ Name        : clucenetest_reg.rss
+ Author      : 
+ Copyright   : Lesser GPL / Apache dual license
+ Description : This file contains all the resources for the clucenetest.
+============================================================================
+*/
+
+#include <appinfo.rh>
+
+UID2 KUidAppRegistrationResourceFile
+UID3 0x0EE49B30
+
+RESOURCE APP_REGISTRATION_INFO
+    {
+    app_file = "clucene_extraunittest";
+    embeddability = KAppNotEmbeddable;
+    newfile = KAppDoesNotSupportNewFile;
+    }
+

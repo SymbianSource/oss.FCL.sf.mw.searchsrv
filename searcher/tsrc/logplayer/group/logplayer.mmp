@@ -1,0 +1,53 @@
+/*
+* Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+
+TARGET		  LogPlayer.exe
+TARGETTYPE	  exe
+UID			 0 0xEA2ABA3C
+
+EPOCHEAPSIZE    0x50000 0xa00000 // From about 65KB to about 10 MB
+EPOCSTACKSIZE    81920
+
+
+USERINCLUDE	 ../inc
+USERINCLUDE	 ../../../SearchClient/inc
+USERINCLUDE	 ../../../../searchsrv_plat/cpix_utility_api/inc
+MW_LAYER_SYSTEMINCLUDE
+
+START RESOURCE ../data/LogPlayer_reg.rss
+	TARGETPATH /private/10003a3f/import/apps
+END
+
+
+SOURCEPATH	  ../src
+SOURCE		  LogPlayerConsole.cpp
+SOURCE		  LogPlayerManager.cpp
+SOURCE		  LogPlayerTimer.cpp
+
+LIBRARY		 euser.lib
+LIBRARY      efsrv.lib
+LIBRARY      estor.lib
+LIBRARY      bafl.lib
+
+LIBRARY CPixSearchClient.lib	// CPixSearchClient
+
+#ifdef ENABLE_ABIV2_MODE
+  DEBUGGABLE_UDEBONLY
+#endif
+
+CAPABILITY ALL -TCB

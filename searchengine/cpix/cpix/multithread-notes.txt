@@ -1,0 +1,115 @@
+
+
+  MULTITHREADING
+  ==============
+
+
+  While CPix is not a thread-safe library, it provides asynchronous
+  API which is internally implemented using synchronous operations
+  running on multiple threads.
+
+  There are three obvious places for mutexes: IdxDbMgr, RotLogger and
+  FieldFilterPool, all three are singletons.
+
+  In addition to these easy cases, IdxDb, MultiIdxDb and LuceneHits
+  (cpixhits.h/cpp) also need mutexes. This is because these are the
+  objects that can be affected by multiple threads running, as all of
+  these objects indirectly are owned by the singleton IdxDbMgr, and
+  therefore are accessible by multiple threads. (There are other
+  classes that are owned by IdxDbMgr indirectly, like HitDocumentList,
+  but they are not supposed to be accessed by multiple threads due to
+  ASYNC engine. Of course, some things may have been missed.)
+
+
+
+  Mutex Lock Order Patterns
+  -------------------------
+
+  (1) IdxDbMgr::IdxDbInfo calls IIdxDb::close() and
+      IIdxDb::brutalClose() during its setPtr() and decRefCount()
+      operations.
+
+      IdxDbInfo structs are owned and operated within IdxDbMgr
+      functions. During those times, IdxDbMgr::mutex_ should be
+      locked.
+
+      Both IdxDb/MultiIdxDb::close/brutalClose operations should lock
+      their respective locks.
+
+      LOCK ORDER: IdxDbMgr::mutex_ -> IdxDb::mutex_
+      LOCK ORDER: IdxDbMgr::mutex_ -> MultiIdxDb::mutex_
+
+  (2) LuceneHits::document_() (when re-committing search) calls
+      IIdxDb::fetchRecommitting().
+
+      LOCK ORDER: MultiIdxDb::mutex_ -> IdxDb::mutex_
+
+  (3) IdxDbMgr::defineVolume() and undefineVolume() call
+      MultiIdxDb::suggestHndl() and MultiIdxDb::removeHndl(). Both
+      instances should lock their respective mutexes.
+
+      MultiIdxDb::suggestHndl() actually calls back to
+      IdxDbMgr::incIdxDbRefCount, which in theory should be locking,
+      but because MultiIdxDb::suggestHndl is ever used from
+      IdxDbMgr::defineVolume which already locks the IdxDbMgr::mutex_
+      it is not locking it again. These operations of IdxDbMgr and
+      MultiIdxDb are private operations, and they are mutual friend
+      classes.
+
+      LOCK ORDER: IdxDbMgr::mutex_ -> MultiIdxDb::mutex_
+
+  (4) MultiIdxDb::search(), MultiIdxDb::fetchRecommitting() and
+      MultiIdxDb::getTerms() operations lock all the IdxDb instances
+      they refer to when they ask for their readers
+      (IdxDb::getReader(), IdxDb::getVersion()).
+
+      This is to guarantee that a reader, when returned by an IdxDb,
+      is not destroyed by the indexer thread by the time it will be
+      used in the searcher thread.
+
+      These IdxDb instances are locked in the ascending order of their
+      handles (IdxDbHndl).
+
+      LOCK ORDER: MultiIdxDb::mutex_ -> IdxDb::mutex_
+      LOCK ORDER: IdxDb::mutex_ (lower handle) -> IdxDb::mutex_ (higher handle)
+
+  (5) MultiIdxDb::close releases all the handles it has
+
+      LOCK ORDER: MultiIdxDb::mutex_ -> IdxDbMgr::mutex_
+
+      invoked from : brutalClose() and ~MultiIdxDb() 
+
+      IdxDbMgr::releaseHndl (locking IdxDbMgr::mutex_) ->
+      IIdxDbInfo::decRefCount -> IIdxDb::close() and
+      ~IIdxDb::IIdxDb(), see (1).
+
+      This would be okay, because IdxDbMgr::mutex_ is recursive. But
+      in other places, the lock order is IdxDbMgr -> MultiIdxDb.
+
+      Also, it is not a deadlock, because volume definition /
+      undefinition, and instance destruction / release also happens on
+      the masterthread. So MultiIdxDb::close can't possibly be
+      concurrent with volume definition / undefinition. Currently.
+
+  (6) MultiIdxDb::ctor, MultiIdxDb::suggestHndl, first of all,
+      multiIdxDb instance is editing its originators_ handle + info
+      set (locking its mutex_), and during that operation, the
+      IIdxDb/IReaderInfo instances are resolved based on their
+      handles, which locks IdxDbMgr::mutex_ (again).
+
+      LOCK ORDER: IdxDbMgr::mutex_ -> MultiIdxdb::mutex_
+      LOCK ORDER: MultiIdxDb::mutex_ -> IdxDbMgr::mutex_.
+
+      Not a deadlock, because this sequence happens in one thread, and
+      IdxDbMgr::mutex_ is recursive.
+
+      Also, the second LOCK ORDER (MultiIdxDb::mutex ->
+      IdxDbMgr::mutex_) is not a deadlock, even if it's in the
+      opposite direction to everything else, because in this sequence,
+      the IdxDbMgr::mutex_ is already locked (recursively).
+
+
+  CHECK:
+
+  (1) Geo and maps search use sync APIs, even when operated from async
+      API search - review is necessary.

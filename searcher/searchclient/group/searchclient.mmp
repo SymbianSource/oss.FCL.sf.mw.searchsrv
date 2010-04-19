@@ -1,0 +1,45 @@
+/*
+* Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+
+TARGET            CPixSearchClient.dll
+TARGETTYPE        dll
+
+// TODO: Should the uid be this or from our own range??
+UID 0x1000008d 0x2001F6FE
+VENDORID          0
+
+SOURCEPATH        ../src
+
+SOURCE            CSearchDocument.cpp
+SOURCE            CDocumentField.cpp 
+SOURCE			  CCPixIndexer.cpp
+SOURCE			  CCPixSearcher.cpp
+SOURCE            RSearchServerSession.cpp 
+
+USERINCLUDE       ../inc
+USERINCLUDE       ../../../searchsrv_plat/cpix_utility_api/inc
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY         euser.lib
+LIBRARY         estor.lib
+
+LIBRARY         flogger.lib 
+
+CAPABILITY        CAP_GENERAL_DLL -DRM
+
+// End of File

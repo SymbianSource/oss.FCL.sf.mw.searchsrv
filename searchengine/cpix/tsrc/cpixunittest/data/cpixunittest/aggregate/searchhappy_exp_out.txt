@@ -1,0 +1,15 @@
+Number of hits: 2
+DOC (multifield) (!:\data\cpixunittestcorpus\stem\en\4.txt):
+ o dummy: happy words
+ o dummy2: christmas easter
+ o dummy3: rabid happening
+ o _excerpt: What is happening here?
+ o _appclass: root file usrdoc text
+ o _mimetype: text/plain
+DOC (multifield) (!:\data\cpixunittestcorpus\stem\en\1.txt):
+ o dummy: important happiness
+ o dummy2: vappu
+ o dummy3: christmas is an important and happy happening
+ o _excerpt: I am happy.
+ o _appclass: root file usrdoc text
+ o _mimetype: text/plain

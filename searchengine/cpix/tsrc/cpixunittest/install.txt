@@ -1,0 +1,23 @@
+To set up the cpixunittest for the emulator: 
+
+   (Step 0: Expectation files are exported automatically into
+            /epoc32/c/winscw/c/data/cpixunittest)
+
+   Step 1 Copy test corpuses into correct locations
+      * SmsTestCorpus
+         (trunk)/util/smstestcorpussis/data/SMS_corpus.txt
+         -> /epoc32/c/winscw/c/data/searched/SMS_plain\SMS_corpus.txt
+      * StemTestCorpus
+         (trunk)/util/stemtestcorpus/data/SMS_corpus.txt
+         -> /epoc32/c/winscw/c/data/searched/SMS_plain\SMS_corpus.txt
+      * JpgTestCorpus
+         /util/jpg
+         -> /epoc32/c/winscw/c/data/searched/
+      * MapsTestCorpus 
+         /uti
+         -> /epoc32/c/winscw/c/data/searched/
+      * MediaTestCorpus 
+         /uti
+         -> /epoc32/c/winscw/c/data/searched/
+   
+   

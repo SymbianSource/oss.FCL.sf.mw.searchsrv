@@ -1,0 +1,67 @@
+EXPORTS
+	_ZN13QCPixDocument10setExcerptE7QString @ 1 NONAME
+	_ZN13QCPixDocument11newInstanceEv @ 2 NONAME
+	_ZN13QCPixDocument11qt_metacallEN11QMetaObject4CallEiPPv @ 3 NONAME
+	_ZN13QCPixDocument11qt_metacastEPKc @ 4 NONAME
+	_ZN13QCPixDocument15setBaseAppClassE7QString @ 5 NONAME
+	_ZN13QCPixDocument16staticMetaObjectE @ 6 NONAME DATA 16
+	_ZN13QCPixDocument19getStaticMetaObjectEv @ 7 NONAME
+	_ZN13QCPixDocument8addFieldE7QStringS0_i @ 8 NONAME
+	_ZN13QCPixDocument8setDocIdE7QString @ 9 NONAME
+	_ZN13QCPixDocumentC1Ev @ 10 NONAME
+	_ZN13QCPixDocumentC2Ev @ 11 NONAME
+	_ZN13QCPixDocumentD0Ev @ 12 NONAME
+	_ZN13QCPixDocumentD1Ev @ 13 NONAME
+	_ZN13QCPixDocumentD2Ev @ 14 NONAME
+	_ZN13QCPixSearcher11getDocumentEi @ 15 NONAME
+	_ZN13QCPixSearcher11newInstanceE7QStringS0_ @ 16 NONAME
+	_ZN13QCPixSearcher11newInstanceEv @ 17 NONAME
+	_ZN13QCPixSearcher11qt_metacallEN11QMetaObject4CallEiPPv @ 18 NONAME
+	_ZN13QCPixSearcher11qt_metacastEPKc @ 19 NONAME
+	_ZN13QCPixSearcher11searchAsyncE7QStringS0_ @ 20 NONAME
+	_ZN13QCPixSearcher11setDatabaseE7QString @ 21 NONAME
+	_ZN13QCPixSearcher12cancelSearchEv @ 22 NONAME
+	_ZN13QCPixSearcher14handleDocumentEiP13QCPixDocument @ 23 NONAME
+	_ZN13QCPixSearcher16getDocumentAsyncEi @ 24 NONAME
+	_ZN13QCPixSearcher16setDatabaseAsyncE7QString @ 25 NONAME
+	_ZN13QCPixSearcher16staticMetaObjectE @ 26 NONAME DATA 16
+	_ZN13QCPixSearcher17handleDatabaseSetEi @ 27 NONAME
+	_ZN13QCPixSearcher19getStaticMetaObjectEv @ 28 NONAME
+	_ZN13QCPixSearcher19handleSearchResultsEii @ 29 NONAME
+	_ZN13QCPixSearcher6searchE7QStringS0_ @ 30 NONAME
+	_ZN13QCPixSearcherC1E7QString @ 31 NONAME
+	_ZN13QCPixSearcherC2E7QString @ 32 NONAME
+	_ZN13QCPixSearcherD0Ev @ 33 NONAME
+	_ZN13QCPixSearcherD1Ev @ 34 NONAME
+	_ZN13QCPixSearcherD2Ev @ 35 NONAME
+	_ZN18QCPixDocumentField11newInstanceE7QStringS0_i @ 36 NONAME
+	_ZN18QCPixDocumentField11qt_metacallEN11QMetaObject4CallEiPPv @ 37 NONAME
+	_ZN18QCPixDocumentField11qt_metacastEPKc @ 38 NONAME
+	_ZN18QCPixDocumentField16staticMetaObjectE @ 39 NONAME DATA 16
+	_ZN18QCPixDocumentField19getStaticMetaObjectEv @ 40 NONAME
+	_ZN18QCPixDocumentField7setNameE7QString @ 41 NONAME
+	_ZN18QCPixDocumentField8setValueE7QString @ 42 NONAME
+	_ZN18QCPixDocumentField9setConfigEi @ 43 NONAME
+	_ZN18QCPixDocumentFieldC1E7QStringS0_i @ 44 NONAME
+	_ZN18QCPixDocumentFieldC2E7QStringS0_i @ 45 NONAME
+	_ZN18QCPixDocumentFieldD0Ev @ 46 NONAME
+	_ZN18QCPixDocumentFieldD1Ev @ 47 NONAME
+	_ZN18QCPixDocumentFieldD2Ev @ 48 NONAME
+	_ZNK13QCPixDocument10fieldCountEv @ 49 NONAME
+	_ZNK13QCPixDocument10metaObjectEv @ 50 NONAME
+	_ZNK13QCPixDocument12baseAppClassEv @ 51 NONAME
+	_ZNK13QCPixDocument5docIdEv @ 52 NONAME
+	_ZNK13QCPixDocument5fieldEi @ 53 NONAME
+	_ZNK13QCPixDocument7excerptEv @ 54 NONAME
+	_ZNK13QCPixSearcher10metaObjectEv @ 55 NONAME
+	_ZNK18QCPixDocumentField10metaObjectEv @ 56 NONAME
+	_ZNK18QCPixDocumentField4nameEv @ 57 NONAME
+	_ZNK18QCPixDocumentField5valueEv @ 58 NONAME
+	_ZNK18QCPixDocumentField6configEv @ 59 NONAME
+	_ZTI13QCPixDocument @ 60 NONAME
+	_ZTI13QCPixSearcher @ 61 NONAME
+	_ZTI18QCPixDocumentField @ 62 NONAME
+	_ZTV13QCPixDocument @ 63 NONAME
+	_ZTV13QCPixSearcher @ 64 NONAME
+	_ZTV18QCPixDocumentField @ 65 NONAME
+

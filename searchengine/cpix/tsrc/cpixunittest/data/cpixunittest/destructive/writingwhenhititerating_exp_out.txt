@@ -1,0 +1,95 @@
+Testing writing to index, while hit object is continuosly read.
+
+Indexed SMS 0
+
+Indexed SMS 1
+
+Indexed SMS 2
+
+Indexed SMS 3
+
+Indexed SMS 4
+
+Indexed SMS 5
+
+Indexed SMS 6
+
+Indexed SMS 7
+
+Indexed SMS 8
+
+Indexed SMS 9
+
+Indexed SMS 10
+
+Indexed SMS 11
+
+Indexed SMS 12
+
+Indexed SMS 13
+
+Indexed SMS 14
+
+Indexed SMS 15
+
+Indexed SMS 16
+
+Indexed SMS 17
+
+Indexed SMS 18
+
+Indexed SMS 19
+
+Indexed SMS 20
+
+Indexed SMS 21
+
+Indexed SMS 22
+
+Indexed SMS 23
+
+Indexed SMS 24
+25 items indexed.
+Hits after indexing: 
+Number of hits: 3
+DOC (j, line 10): ok. Take care of yourself.
+DOC (fb, line 16): Ok, i cannot let my dear too bored..
+DOC (eb, line 15): Ok i'm still in sch... Then i'll go home 1st...
+
+Indexed SMS 25
+1 item indexed. 
+Hits after adding 1 item.
+Number of hits: 3
+DOC (j, line 10): ok. Take care of yourself.
+DOC (fb, line 16): Ok, i cannot let my dear too bored..
+DOC (eb, line 15): Ok i'm still in sch... Then i'll go home 1st...
+Line 16 deleted.
+Hits after deletion: 
+Number of hits: 3
+DOC (j, line 10): ok. Take care of yourself.
+DOC (fb, line 16): Ok, i cannot let my dear too bored..
+DOC (eb, line 15): Ok i'm still in sch... Then i'll go home 1st...
+Flushed.
+Hits after flush:
+Number of hits: 3
+DOC (j, line 10): ok. Take care of yourself.
+DOC (fb, line 16): Ok, i cannot let my dear too bored..
+DOC (eb, line 15): Ok i'm still in sch... Then i'll go home 1st...
+Line 15 deleted.
+Hits after deletion:
+Number of hits: 3
+DOC (j, line 10): ok. Take care of yourself.
+DOC (fb, line 16): Ok, i cannot let my dear too bored..
+DOC (eb, line 15): Ok i'm still in sch... Then i'll go home 1st...
+Line 10 deleted.
+Hits after deletion:
+Number of hits: 3
+DOC (j, line 10): ok. Take care of yourself.
+DOC (fb, line 16): Ok, i cannot let my dear too bored..
+DOC (eb, line 15): Ok i'm still in sch... Then i'll go home 1st...
+Flushed.
+Hits after flush:
+Number of hits: 3
+DOC (j, line 10): ok. Take care of yourself.
+DOC (fb, line 16): Ok, i cannot let my dear too bored..
+DOC (eb, line 15): Ok i'm still in sch... Then i'll go home 1st...

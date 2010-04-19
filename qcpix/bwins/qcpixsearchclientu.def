@@ -1,0 +1,73 @@
+EXPORTS
+	?setDocId@QCPixDocument@@QAEXVQString@@@Z @ 1 NONAME ; void QCPixDocument::setDocId(class QString)
+	?trUtf8@QCPixSearcher@@SA?AVQString@@PBD0H@Z @ 2 NONAME ; class QString QCPixSearcher::trUtf8(char const *, char const *, int)
+	?tr@QCPixDocument@@SA?AVQString@@PBD0H@Z @ 3 NONAME ; class QString QCPixDocument::tr(char const *, char const *, int)
+	?newInstance@QCPixDocument@@SAPAV1@XZ @ 4 NONAME ; class QCPixDocument * QCPixDocument::newInstance(void)
+	?tr@QCPixDocument@@SA?AVQString@@PBD0@Z @ 5 NONAME ; class QString QCPixDocument::tr(char const *, char const *)
+	?metaObject@QCPixDocumentField@@UBEPBUQMetaObject@@XZ @ 6 NONAME ; struct QMetaObject const * QCPixDocumentField::metaObject(void) const
+	?tr@QCPixDocumentField@@SA?AVQString@@PBD0H@Z @ 7 NONAME ; class QString QCPixDocumentField::tr(char const *, char const *, int)
+	?setExcerpt@QCPixDocument@@QAEXVQString@@@Z @ 8 NONAME ; void QCPixDocument::setExcerpt(class QString)
+	??_EQCPixDocumentField@@UAE@I@Z @ 9 NONAME ; QCPixDocumentField::~QCPixDocumentField(unsigned int)
+	?name@QCPixDocumentField@@QBE?AVQString@@XZ @ 10 NONAME ; class QString QCPixDocumentField::name(void) const
+	?setName@QCPixDocumentField@@QAEXVQString@@@Z @ 11 NONAME ; void QCPixDocumentField::setName(class QString)
+	?search@QCPixSearcher@@QAEHVQString@@0@Z @ 12 NONAME ; int QCPixSearcher::search(class QString, class QString)
+	?getDocument@QCPixSearcher@@QAEPAVQCPixDocument@@H@Z @ 13 NONAME ; class QCPixDocument * QCPixSearcher::getDocument(int)
+	?excerpt@QCPixDocument@@QBE?AVQString@@XZ @ 14 NONAME ; class QString QCPixDocument::excerpt(void) const
+	?d_func@QCPixDocument@@AAEPAVQCPixDocumentPrivate@@XZ @ 15 NONAME ; class QCPixDocumentPrivate * QCPixDocument::d_func(void)
+	?qt_metacast@QCPixSearcher@@UAEPAXPBD@Z @ 16 NONAME ; void * QCPixSearcher::qt_metacast(char const *)
+	?d_func@QCPixSearcher@@AAEPAVQCPixSearcherPrivate@@XZ @ 17 NONAME ; class QCPixSearcherPrivate * QCPixSearcher::d_func(void)
+	?setDatabaseAsync@QCPixSearcher@@QAEXVQString@@@Z @ 18 NONAME ; void QCPixSearcher::setDatabaseAsync(class QString)
+	?handleDocument@QCPixSearcher@@IAEXHPAVQCPixDocument@@@Z @ 19 NONAME ; void QCPixSearcher::handleDocument(int, class QCPixDocument *)
+	?newInstance@QCPixSearcher@@SAPAV1@XZ @ 20 NONAME ; class QCPixSearcher * QCPixSearcher::newInstance(void)
+	?qt_metacall@QCPixDocumentField@@UAEHW4Call@QMetaObject@@HPAPAX@Z @ 21 NONAME ; int QCPixDocumentField::qt_metacall(enum QMetaObject::Call, int, void * *)
+	?cancelSearch@QCPixSearcher@@QAEXXZ @ 22 NONAME ; void QCPixSearcher::cancelSearch(void)
+	?getStaticMetaObject@QCPixDocumentField@@SAABUQMetaObject@@XZ @ 23 NONAME ; struct QMetaObject const & QCPixDocumentField::getStaticMetaObject(void)
+	?field@QCPixDocument@@QBEABVQCPixDocumentField@@H@Z @ 24 NONAME ; class QCPixDocumentField const & QCPixDocument::field(int) const
+	?handleDatabaseSet@QCPixSearcher@@IAEXH@Z @ 25 NONAME ; void QCPixSearcher::handleDatabaseSet(int)
+	?trUtf8@QCPixSearcher@@SA?AVQString@@PBD0@Z @ 26 NONAME ; class QString QCPixSearcher::trUtf8(char const *, char const *)
+	?metaObject@QCPixSearcher@@UBEPBUQMetaObject@@XZ @ 27 NONAME ; struct QMetaObject const * QCPixSearcher::metaObject(void) const
+	?d_func@QCPixDocument@@ABEPBVQCPixDocumentPrivate@@XZ @ 28 NONAME ; class QCPixDocumentPrivate const * QCPixDocument::d_func(void) const
+	?d_func@QCPixSearcher@@ABEPBVQCPixSearcherPrivate@@XZ @ 29 NONAME ; class QCPixSearcherPrivate const * QCPixSearcher::d_func(void) const
+	?setDatabase@QCPixSearcher@@QAEXVQString@@@Z @ 30 NONAME ; void QCPixSearcher::setDatabase(class QString)
+	?setValue@QCPixDocumentField@@QAEXVQString@@@Z @ 31 NONAME ; void QCPixDocumentField::setValue(class QString)
+	?trUtf8@QCPixDocument@@SA?AVQString@@PBD0H@Z @ 32 NONAME ; class QString QCPixDocument::trUtf8(char const *, char const *, int)
+	?getStaticMetaObject@QCPixSearcher@@SAABUQMetaObject@@XZ @ 33 NONAME ; struct QMetaObject const & QCPixSearcher::getStaticMetaObject(void)
+	?value@QCPixDocumentField@@QBE?AVQString@@XZ @ 34 NONAME ; class QString QCPixDocumentField::value(void) const
+	?handleSearchResults@QCPixSearcher@@IAEXHH@Z @ 35 NONAME ; void QCPixSearcher::handleSearchResults(int, int)
+	?tr@QCPixSearcher@@SA?AVQString@@PBD0H@Z @ 36 NONAME ; class QString QCPixSearcher::tr(char const *, char const *, int)
+	?getDocumentAsync@QCPixSearcher@@QAEXH@Z @ 37 NONAME ; void QCPixSearcher::getDocumentAsync(int)
+	?config@QCPixDocumentField@@QBEHXZ @ 38 NONAME ; int QCPixDocumentField::config(void) const
+	??_EQCPixDocument@@UAE@I@Z @ 39 NONAME ; QCPixDocument::~QCPixDocument(unsigned int)
+	??_EQCPixSearcher@@UAE@I@Z @ 40 NONAME ; QCPixSearcher::~QCPixSearcher(unsigned int)
+	??0QCPixSearcher@@AAE@VQString@@@Z @ 41 NONAME ; QCPixSearcher::QCPixSearcher(class QString)
+	?staticMetaObject@QCPixDocument@@2UQMetaObject@@B @ 42 NONAME ; struct QMetaObject const QCPixDocument::staticMetaObject
+	?fieldCount@QCPixDocument@@QBEHXZ @ 43 NONAME ; int QCPixDocument::fieldCount(void) const
+	?trUtf8@QCPixDocument@@SA?AVQString@@PBD0@Z @ 44 NONAME ; class QString QCPixDocument::trUtf8(char const *, char const *)
+	?baseAppClass@QCPixDocument@@QBE?AVQString@@XZ @ 45 NONAME ; class QString QCPixDocument::baseAppClass(void) const
+	??1QCPixDocument@@UAE@XZ @ 46 NONAME ; QCPixDocument::~QCPixDocument(void)
+	?d_func@QCPixDocumentField@@AAEPAVQCPixDocumentFieldPrivate@@XZ @ 47 NONAME ; class QCPixDocumentFieldPrivate * QCPixDocumentField::d_func(void)
+	?tr@QCPixSearcher@@SA?AVQString@@PBD0@Z @ 48 NONAME ; class QString QCPixSearcher::tr(char const *, char const *)
+	?d_func@QCPixDocumentField@@ABEPBVQCPixDocumentFieldPrivate@@XZ @ 49 NONAME ; class QCPixDocumentFieldPrivate const * QCPixDocumentField::d_func(void) const
+	??0QCPixDocumentField@@AAE@VQString@@0H@Z @ 50 NONAME ; QCPixDocumentField::QCPixDocumentField(class QString, class QString, int)
+	?trUtf8@QCPixDocumentField@@SA?AVQString@@PBD0H@Z @ 51 NONAME ; class QString QCPixDocumentField::trUtf8(char const *, char const *, int)
+	?qt_metacast@QCPixDocument@@UAEPAXPBD@Z @ 52 NONAME ; void * QCPixDocument::qt_metacast(char const *)
+	?searchAsync@QCPixSearcher@@QAEXVQString@@0@Z @ 53 NONAME ; void QCPixSearcher::searchAsync(class QString, class QString)
+	?staticMetaObject@QCPixDocumentField@@2UQMetaObject@@B @ 54 NONAME ; struct QMetaObject const QCPixDocumentField::staticMetaObject
+	?setConfig@QCPixDocumentField@@QAEXH@Z @ 55 NONAME ; void QCPixDocumentField::setConfig(int)
+	?getStaticMetaObject@QCPixDocument@@SAABUQMetaObject@@XZ @ 56 NONAME ; struct QMetaObject const & QCPixDocument::getStaticMetaObject(void)
+	?tr@QCPixDocumentField@@SA?AVQString@@PBD0@Z @ 57 NONAME ; class QString QCPixDocumentField::tr(char const *, char const *)
+	?docId@QCPixDocument@@QBE?AVQString@@XZ @ 58 NONAME ; class QString QCPixDocument::docId(void) const
+	?metaObject@QCPixDocument@@UBEPBUQMetaObject@@XZ @ 59 NONAME ; struct QMetaObject const * QCPixDocument::metaObject(void) const
+	?newInstance@QCPixSearcher@@SAPAV1@VQString@@0@Z @ 60 NONAME ; class QCPixSearcher * QCPixSearcher::newInstance(class QString, class QString)
+	?qt_metacall@QCPixDocument@@UAEHW4Call@QMetaObject@@HPAPAX@Z @ 61 NONAME ; int QCPixDocument::qt_metacall(enum QMetaObject::Call, int, void * *)
+	?qt_metacall@QCPixSearcher@@UAEHW4Call@QMetaObject@@HPAPAX@Z @ 62 NONAME ; int QCPixSearcher::qt_metacall(enum QMetaObject::Call, int, void * *)
+	?qt_metacast@QCPixDocumentField@@UAEPAXPBD@Z @ 63 NONAME ; void * QCPixDocumentField::qt_metacast(char const *)
+	??0QCPixDocument@@AAE@XZ @ 64 NONAME ; QCPixDocument::QCPixDocument(void)
+	?newInstance@QCPixDocumentField@@SAPAV1@VQString@@0H@Z @ 65 NONAME ; class QCPixDocumentField * QCPixDocumentField::newInstance(class QString, class QString, int)
+	??1QCPixSearcher@@UAE@XZ @ 66 NONAME ; QCPixSearcher::~QCPixSearcher(void)
+	?staticMetaObject@QCPixSearcher@@2UQMetaObject@@B @ 67 NONAME ; struct QMetaObject const QCPixSearcher::staticMetaObject
+	?setBaseAppClass@QCPixDocument@@QAEXVQString@@@Z @ 68 NONAME ; void QCPixDocument::setBaseAppClass(class QString)
+	??1QCPixDocumentField@@UAE@XZ @ 69 NONAME ; QCPixDocumentField::~QCPixDocumentField(void)
+	?addField@QCPixDocument@@QAEXVQString@@0H@Z @ 70 NONAME ; void QCPixDocument::addField(class QString, class QString, int)
+	?trUtf8@QCPixDocumentField@@SA?AVQString@@PBD0@Z @ 71 NONAME ; class QString QCPixDocumentField::trUtf8(char const *, char const *)
+

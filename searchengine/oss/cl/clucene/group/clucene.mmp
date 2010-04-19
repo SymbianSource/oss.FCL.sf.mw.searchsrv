@@ -1,0 +1,177 @@
+/*------------------------------------------------------------------------------
+* Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies). 
+* 
+* Distributable under the terms of either the Apache License (Version 2.0) or 
+* the GNU Lesser General Public License, as specified in the COPYING file.
+------------------------------------------------------------------------------*/
+
+
+//#define MONOLITHIC
+
+OPTION CW -wchar_t on
+MACRO _WCHAR_T_DECLARED RVCT22_STATICS_WORKAROUND CPIX_ASYNC_MT DBG_MEM_USAGE
+
+
+TARGET		  libclucene.lib
+TARGETTYPE	  lib
+EPOCSTACKSIZE   0xa000
+//UID			 0x1000008d 0x073D7C4D
+
+USERINCLUDE  ../../../../../searchsrv_plat/cpix_utility_api/inc
+USERINCLUDE	 ../src
+USERINCLUDE	 ../../../../util/cpixtools/inc/public
+
+SYSTEMINCLUDE   /epoc32/include
+OS_LAYER_LIBC_SYSTEMINCLUDE
+OS_LAYER_STDCPP_SYSTEMINCLUDE
+SYSTEMINCLUDE   /epoc32/include/stdapis/stlportv5
+
+#ifdef MONOLITHIC
+SOURCEPATH	  ../src/CLucene
+SOURCE    	  CLMonolithic.cpp
+
+#else 
+// Main package
+SOURCEPATH	  ../src/CLucene
+SOURCE    	  StdHeader.cpp
+
+// analysis
+SOURCEPATH   ../src/CLucene/analysis
+SOURCE AnalysisHeader.cpp 
+SOURCE Analyzers.cpp 
+
+// analysis/standard
+SOURCEPATH ../src/CLucene/analysis/standard
+SOURCE StandardAnalyzer.cpp
+SOURCE StandardFilter.cpp
+SOURCE StandardTokenizer.cpp
+
+// config
+SOURCEPATH    ../src/CLucene/config
+SOURCE gunichartables.cpp
+SOURCE repl_lltot.cpp
+SOURCE repl_tcscasecmp.cpp
+SOURCE repl_tcslwr.cpp
+SOURCE repl_tcstod.cpp
+SOURCE repl_tprintf.cpp
+SOURCE threads.cpp
+SOURCE utf8.cpp
+
+// debug
+SOURCEPATH    ../src/CLucene/debug
+SOURCE condition.cpp
+SOURCE error.cpp
+SOURCE memtracking.cpp
+
+// document
+SOURCEPATH ../src/CLucene/document
+SOURCE DateField.cpp
+SOURCE Document.cpp 
+SOURCE Field.cpp
+
+// index 
+SOURCEPATH   ../src/CLucene/index
+SOURCE CompoundFile.cpp
+SOURCE DocumentWriter.cpp
+SOURCE FieldInfos.cpp
+SOURCE FieldsReader.cpp
+SOURCE FieldsWriter.cpp
+SOURCE IndexModifier.cpp
+SOURCE IndexReader.cpp
+SOURCE IndexWriter.cpp
+SOURCE MultiReader.cpp
+SOURCE SegmentInfos.cpp
+SOURCE SegmentMergeInfo.cpp
+SOURCE SegmentMergeQueue.cpp
+SOURCE SegmentMerger.cpp
+SOURCE SegmentReader.cpp
+SOURCE SegmentTermDocs.cpp
+SOURCE SegmentTermEnum.cpp
+SOURCE SegmentTermPositions.cpp 
+SOURCE SegmentTermVector.cpp
+SOURCE Term.cpp
+SOURCE TermInfo.cpp
+SOURCE TermInfosReader.cpp
+SOURCE TermInfosWriter.cpp
+SOURCE TermVectorReader.cpp
+SOURCE TermVectorWriter.cpp
+
+// queryParser
+SOURCEPATH ../src/CLucene/queryParser
+SOURCE Lexer.cpp
+SOURCE MultiFieldQueryParser.cpp
+SOURCE QueryParser.cpp
+SOURCE QueryParserBase.cpp
+SOURCE QueryToken.cpp
+SOURCE TokenList.cpp
+
+// search
+SOURCEPATH ../src/CLucene/search
+SOURCE BooleanQuery.cpp
+SOURCE BooleanScorer.cpp
+SOURCE CachingWrapperFilter.cpp
+SOURCE ChainedFilter.cpp
+SOURCE ConjunctionScorer.cpp
+SOURCE DateFilter.cpp
+SOURCE ExactPhraseScorer.cpp
+SOURCE Explanation.cpp
+SOURCE FieldCache.cpp
+SOURCE FieldCacheImpl.cpp
+SOURCE FieldDocSortedHitQueue.cpp
+SOURCE FieldSortedHitQueue.cpp
+SOURCE FilteredTermEnum.cpp
+SOURCE FuzzyQuery.cpp
+SOURCE HitQueue.cpp
+SOURCE Hits.cpp
+SOURCE IndexSearcher.cpp
+SOURCE MultiSearcher.cpp
+SOURCE MultiTermQuery.cpp
+SOURCE PhrasePositions.cpp
+SOURCE PhraseScorer.cpp
+SOURCE PhraseQuery.cpp
+SOURCE PrefixQuery.cpp
+SOURCE RangeFilter.cpp
+SOURCE RangeQuery.cpp
+SOURCE SearchHeader.cpp
+SOURCE Similarity.cpp
+SOURCE SloppyPhraseScorer.cpp
+SOURCE Sort.cpp
+SOURCE TermQuery.cpp
+SOURCE TermScorer.cpp
+SOURCE WildcardQuery.cpp
+SOURCE WildcardTermEnum.cpp
+
+// store
+SOURCEPATH   ../src/CLucene/store
+SOURCE FSDirectory.cpp
+SOURCE IndexInput.cpp
+SOURCE IndexOutput.cpp
+SOURCE Lock.cpp
+SOURCE MMapInput.cpp
+SOURCE RAMDirectory.cpp
+SOURCE TransactionalRAMDirectory.cpp
+
+// util
+SOURCEPATH	  ../src/CLucene/util
+SOURCE BitSet.cpp
+SOURCE dirent.cpp
+SOURCE Equators.cpp
+SOURCE FastCharStream.cpp
+SOURCE fileinputstream.cpp
+SOURCE MD5Digester.cpp
+SOURCE Misc.cpp
+SOURCE Reader.cpp
+SOURCE StringBuffer.cpp
+SOURCE StringIntern.cpp
+SOURCE ThreadLocal.cpp
+
+#endif // !MONOLITHIC
+
+//CAPABILITY 	  NONE
+SOURCEPATH ../src/CLucene/config
+SOURCE repl_tcstoll.cpp
+SOURCEPATH ../src/CLucene/search
+SOURCE QueryFilter.cpp
+
+SOURCEPATH ../src/CLucene/util
+SOURCE mkdirs.cpp

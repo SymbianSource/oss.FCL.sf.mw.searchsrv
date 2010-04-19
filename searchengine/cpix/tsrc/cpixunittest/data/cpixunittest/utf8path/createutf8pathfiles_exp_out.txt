@@ -1,0 +1,6 @@
+Creating files with utf8 paths and content
+Created file at : c:\Data\cpixunittest\_txt\english 1\great ideas.txt
+Created file at : c:\Data\cpixunittest\_txt\russian 2\Русский язык.txt
+Created file at : c:\Data\cpixunittest\_txt\chinese 3\中文.txt
+Created file at : c:\Data\cpixunittest\_txt\japanese 4\日本語.txt
+Created file at : c:\Data\cpixunittest\_txt\finnish 5\äÄöÖ.txt

@@ -1,0 +1,17 @@
+
+Indexed file: !:\data\cpixunittestcorpus\stem\fi\1.txt
+
+Indexed file: !:\data\cpixunittestcorpus\stem\fi\2.txt
+
+Indexed file: !:\data\cpixunittestcorpus\stem\fi\3.txt
+
+Indexed file: !:\data\cpixunittestcorpus\stem\fi\4.txt
+Number of hits: 1
+DOC (!:\data\cpixunittestcorpus\stem\fi\1.txt): Juon nyt teetä.
+Number of hits: 2
+DOC (!:\data\cpixunittestcorpus\stem\fi\2.txt): Tee näin!
+DOC (!:\data\cpixunittestcorpus\stem\fi\4.txt): Onko hyvä tehdä näin?
+Number of hits: 1
+DOC (!:\data\cpixunittestcorpus\stem\fi\4.txt): Onko hyvä tehdä näin?
+Number of hits: 1
+DOC (!:\data\cpixunittestcorpus\stem\fi\3.txt): Yötyössä tekemisen riemua.

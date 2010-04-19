@@ -1,0 +1,111 @@
+/*
+* Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+OPTION CW -wchar_t on
+OPTION GCCE -finput-charset=ISO-8859-1
+
+MACRO _WCHAR_T_DECLARED RVCT22_STATICS_WORKAROUND CPIX_ASYNC_MT
+
+TARGET          cpixunittest.exe
+TARGETTYPE      exe
+UID             0x100039CE 0x0C952893
+EPOCSTACKSIZE   0x10000         
+EPOCHEAPSIZE    0x50000 0xa00000 // From about 65KB to about 10 MB
+VENDORID        0
+
+START RESOURCE  ../data/cpixunittest_reg.rss
+#ifdef WINSCW
+TARGETPATH      /private/10003a3f/apps
+#else
+TARGETPATH      /private/10003a3f/import/apps
+#endif
+END //RESOURCE
+SOURCEPATH      ../src
+SOURCE          cpixunittest.cpp
+SOURCE          setupsentry.cpp
+SOURCE          randomtest.cpp
+SOURCE          testcorpus.cpp
+SOURCE          partialsmstests.cpp
+SOURCE          deletiontests.cpp
+SOURCE          testutils.cpp
+SOURCE          whiteboxtests.cpp 
+SOURCE          destructivetests.cpp
+SOURCE          prematureqrytests.cpp
+SOURCE          en_stemtests.cpp
+SOURCE          aggregatetests.cpp
+SOURCE          geotests.cpp
+SOURCE          multivolumetests.cpp
+SOURCE          domainselectiontests.cpp
+SOURCE          suggestion.cpp
+SOURCE          negativetests.cpp 
+SOURCE 		utf8.cpp
+SOURCE 		utf8path.cpp
+SOURCE          analysis.cpp 
+SOURCE          analysiswhitebox.cpp
+SOURCE          mapstests.cpp
+SOURCE          documenttest.cpp
+SOURCE          spi/exifunittest.cpp
+SOURCE 		spi/id3unittest.cpp
+SOURCE          flushtests.cpp
+SOURCE          heartbeattests.cpp
+SOURCE          terms.cpp
+SOURCE          asynctests.cpp 
+SOURCE          config.cpp
+SOURCE          clq/uxqry.cpp
+SOURCE          clq/clqry.cpp 
+SOURCE		pdftests.cpp
+
+USERINCLUDE     ../../../../../searchsrv_plat/cpix_utility_api/inc
+USERINCLUDE     ../inc
+USERINCLUDE     ../../../cpix/inc/public
+// for white box tests
+USERINCLUDE     ../../../cpix/inc/private
+USERINCLUDE     ../../../../util/tsrc/itk/inc/public
+USERINCLUDE     ../../../../util/cpixtools/inc/public
+USERINCLUDE     ../../../../oss/cl/CLucene/src
+
+MW_LAYER_SYSTEMINCLUDE
+OS_LAYER_LIBC_SYSTEMINCLUDE
+OS_LAYER_STDCPP_SYSTEMINCLUDE
+OS_LAYER_GLIB_SYSTEMINCLUDE
+
+// Using main() as entry point
+STATICLIBRARY   libcrt0.lib
+STATICLIBRARY   libcpix.lib
+STATICLIBRARY   libclucene.lib
+STATICLIBRARY   libstemmer.lib
+STATICLIBRARY   libitk.lib
+STATICLIBRARY   libcpixtools.lib
+
+// For SPI 
+LIBRARY   efsrv.lib
+LIBRARY   exiflib.lib
+LIBRARY   MetaDataUtility.lib
+LIBRARY   charconv.lib
+
+LIBRARY   		libpthread.lib
+
+// libc and euser are always needed when using main() entry point
+LIBRARY           libc.lib
+LIBRARY           libglib.lib
+LIBRARY           libstdcpp.lib
+LIBRARY           libm.lib
+LIBRARY           euser.lib
+LIBRARY           libz.lib
+
+
+// No capabilities needed by this application
+CAPABILITY      ReadUserData WriteUserData

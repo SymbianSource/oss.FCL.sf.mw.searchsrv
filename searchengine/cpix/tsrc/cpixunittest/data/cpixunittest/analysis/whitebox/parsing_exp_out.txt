@@ -1,0 +1,7 @@
+Invoke identifier: foobar
+5 parameters
+piping done.
+Tokenizer: stdtokens
+4 filters
+Invoke identifier: foobar
+6 parameters

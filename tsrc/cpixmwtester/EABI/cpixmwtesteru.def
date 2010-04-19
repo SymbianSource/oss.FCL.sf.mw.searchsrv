@@ -1,0 +1,7 @@
+EXPORTS
+	_Z9LibEntryLR13CTestModuleIf @ 1 NONAME
+	_ZTI12CBlacklistDb @ 2 NONAME
+	_ZTI13CBlacklistMgr @ 3 NONAME
+	_ZTV12CBlacklistDb @ 4 NONAME
+	_ZTV13CBlacklistMgr @ 5 NONAME
+

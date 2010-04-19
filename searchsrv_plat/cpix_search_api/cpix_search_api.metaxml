@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api id="f6ed95bbd2c81e927487606668c4d649" dataversion="2.0">
+  <name>cpix_search_api</name>
+  <description>These APIs provide search and harvesting functionalities for Qt applications</description>
+  <type>c++</type>
+  <collection>qt</collection>
+  <libs>
+    <lib name="qcpixsearchclient.lib"/>
+  </libs>
+  <release category="platform" sinceversion="10.1"/>
+  <attributes>
+    <htmldocprovided>no</htmldocprovided>
+    <adaptation>no</adaptation>
+  </attributes>
+</api>

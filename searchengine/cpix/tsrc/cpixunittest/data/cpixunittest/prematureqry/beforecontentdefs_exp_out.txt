@@ -1,0 +1,6 @@
+Defining volumes
+Defined volumes, but there are no indexes created yet
+Trying to search with cpix_IdxDb instance
+Number of hits: 0
+Trying to search with cpix_IdxSearcher instance
+Number of hits: 0

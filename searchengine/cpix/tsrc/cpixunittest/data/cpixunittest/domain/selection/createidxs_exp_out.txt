@@ -1,0 +1,1136 @@
+Creating volume @c:root file ...
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\1.txt
+... created volume @c:root file
+Creating volume @d:root file ...
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\2.txt
+... created volume @d:root file
+Creating volume @e:root file ...
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\3.txt
+... created volume @e:root file
+Creating volume @f:root file ...
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\4.txt
+... created volume @f:root file
+Indexing some SMS-es
+
+Indexed SMS 0
+
+Indexed SMS 1
+
+Indexed SMS 2
+
+Indexed SMS 3
+
+Indexed SMS 4
+
+Indexed SMS 5
+
+Indexed SMS 6
+
+Indexed SMS 7
+
+Indexed SMS 8
+
+Indexed SMS 9
+
+Indexed SMS 10
+
+Indexed SMS 11
+
+Indexed SMS 12
+
+Indexed SMS 13
+
+Indexed SMS 14
+
+Indexed SMS 15
+
+Indexed SMS 16
+
+Indexed SMS 17
+
+Indexed SMS 18
+
+Indexed SMS 19
+
+Indexed SMS 20
+
+Indexed SMS 21
+
+Indexed SMS 22
+
+Indexed SMS 23
+
+Indexed SMS 24
+
+Indexed SMS 25
+
+Indexed SMS 26
+
+Indexed SMS 27
+
+Indexed SMS 28
+
+Indexed SMS 29
+
+Indexed SMS 30
+
+Indexed SMS 31
+
+Indexed SMS 32
+
+Indexed SMS 33
+
+Indexed SMS 34
+
+Indexed SMS 35
+
+Indexed SMS 36
+
+Indexed SMS 37
+
+Indexed SMS 38
+
+Indexed SMS 39
+
+Indexed SMS 40
+
+Indexed SMS 41
+
+Indexed SMS 42
+
+Indexed SMS 43
+
+Indexed SMS 44
+
+Indexed SMS 45
+
+Indexed SMS 46
+
+Indexed SMS 47
+
+Indexed SMS 48
+
+Indexed SMS 49
+
+Indexed SMS 50
+
+Indexed SMS 51
+
+Indexed SMS 52
+
+Indexed SMS 53
+
+Indexed SMS 54
+
+Indexed SMS 55
+
+Indexed SMS 56
+
+Indexed SMS 57
+
+Indexed SMS 58
+
+Indexed SMS 59
+
+Indexed SMS 60
+
+Indexed SMS 61
+
+Indexed SMS 62
+
+Indexed SMS 63
+
+Indexed SMS 64
+
+Indexed SMS 65
+
+Indexed SMS 66
+
+Indexed SMS 67
+
+Indexed SMS 68
+
+Indexed SMS 69
+
+Indexed SMS 70
+
+Indexed SMS 71
+
+Indexed SMS 72
+
+Indexed SMS 73
+
+Indexed SMS 74
+
+Indexed SMS 75
+
+Indexed SMS 76
+
+Indexed SMS 77
+
+Indexed SMS 78
+
+Indexed SMS 79
+
+Indexed SMS 80
+
+Indexed SMS 81
+
+Indexed SMS 82
+
+Indexed SMS 83
+
+Indexed SMS 84
+
+Indexed SMS 85
+
+Indexed SMS 86
+
+Indexed SMS 87
+
+Indexed SMS 88
+
+Indexed SMS 89
+
+Indexed SMS 90
+
+Indexed SMS 91
+
+Indexed SMS 92
+
+Indexed SMS 93
+
+Indexed SMS 94
+
+Indexed SMS 95
+
+Indexed SMS 96
+
+Indexed SMS 97
+
+Indexed SMS 98
+
+Indexed SMS 99
+
+Indexed SMS 100
+
+Indexed SMS 101
+
+Indexed SMS 102
+
+Indexed SMS 103
+
+Indexed SMS 104
+
+Indexed SMS 105
+
+Indexed SMS 106
+
+Indexed SMS 107
+
+Indexed SMS 108
+
+Indexed SMS 109
+
+Indexed SMS 110
+
+Indexed SMS 111
+
+Indexed SMS 112
+
+Indexed SMS 113
+
+Indexed SMS 114
+
+Indexed SMS 115
+
+Indexed SMS 116
+
+Indexed SMS 117
+
+Indexed SMS 118
+
+Indexed SMS 119
+
+Indexed SMS 120
+
+Indexed SMS 121
+
+Indexed SMS 122
+
+Indexed SMS 123
+
+Indexed SMS 124
+
+Indexed SMS 125
+
+Indexed SMS 126
+
+Indexed SMS 127
+
+Indexed SMS 128
+
+Indexed SMS 129
+
+Indexed SMS 130
+
+Indexed SMS 131
+
+Indexed SMS 132
+
+Indexed SMS 133
+
+Indexed SMS 134
+
+Indexed SMS 135
+
+Indexed SMS 136
+
+Indexed SMS 137
+
+Indexed SMS 138
+
+Indexed SMS 139
+
+Indexed SMS 140
+
+Indexed SMS 141
+
+Indexed SMS 142
+
+Indexed SMS 143
+
+Indexed SMS 144
+
+Indexed SMS 145
+
+Indexed SMS 146
+
+Indexed SMS 147
+
+Indexed SMS 148
+
+Indexed SMS 149
+
+Indexed SMS 150
+
+Indexed SMS 151
+
+Indexed SMS 152
+
+Indexed SMS 153
+
+Indexed SMS 154
+
+Indexed SMS 155
+
+Indexed SMS 156
+
+Indexed SMS 157
+
+Indexed SMS 158
+
+Indexed SMS 159
+
+Indexed SMS 160
+
+Indexed SMS 161
+
+Indexed SMS 162
+
+Indexed SMS 163
+
+Indexed SMS 164
+
+Indexed SMS 165
+
+Indexed SMS 166
+
+Indexed SMS 167
+
+Indexed SMS 168
+
+Indexed SMS 169
+
+Indexed SMS 170
+
+Indexed SMS 171
+
+Indexed SMS 172
+
+Indexed SMS 173
+
+Indexed SMS 174
+
+Indexed SMS 175
+
+Indexed SMS 176
+
+Indexed SMS 177
+
+Indexed SMS 178
+
+Indexed SMS 179
+
+Indexed SMS 180
+
+Indexed SMS 181
+
+Indexed SMS 182
+
+Indexed SMS 183
+
+Indexed SMS 184
+
+Indexed SMS 185
+
+Indexed SMS 186
+
+Indexed SMS 187
+
+Indexed SMS 188
+
+Indexed SMS 189
+
+Indexed SMS 190
+
+Indexed SMS 191
+
+Indexed SMS 192
+
+Indexed SMS 193
+
+Indexed SMS 194
+
+Indexed SMS 195
+
+Indexed SMS 196
+
+Indexed SMS 197
+
+Indexed SMS 198
+
+Indexed SMS 199
+
+
+And now searching with all searchers
+Searching with domain selector 'root':
+Number of hits: 5
+DOC (dc): Happy birthday to ? ...... May all yr wishes come true. Work hard for yr A levels and never give up! Take care always...
+DOC (agb): Anyway i dun think i've really done a lot. As long as u r happy, things dat i can do for i'll do it for u..
+DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh happiness!
+DOC (!:\data\cpixunittestcorpus\stem\en\1.txt): I am happy.
+DOC (!:\data\cpixunittestcorpus\stem\en\4.txt): What is happening here?
+
+Searching with domain selector 'root msg':
+Number of hits: 2
+DOC (dc): Happy birthday to ? ...... May all yr wishes come true. Work hard for yr A levels and never give up! Take care always...
+DOC (agb): Anyway i dun think i've really done a lot. As long as u r happy, things dat i can do for i'll do it for u..
+
+Searching with domain selector '@d:root file,root msg phone sms':
+Number of hits: 3
+DOC (dc): Happy birthday to ? ...... May all yr wishes come true. Work hard for yr A levels and never give up! Take care always...
+DOC (agb): Anyway i dun think i've really done a lot. As long as u r happy, things dat i can do for i'll do it for u..
+DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh happiness!
+
+Searching with domain selector '@d:root file,@f:root file':
+Number of hits: 2
+DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh happiness!
+DOC (!:\data\cpixunittestcorpus\stem\en\4.txt): What is happening here?
+
+
+
+And now suggesting for 'ha*' with all searchers
+Searching with domain selector 'root':
+haha 15
+have 7
+having 4
+hair 3
+happy 3
+haiz 2
+hard 2
+haven 2
+had 1
+haf 1
+hafta 1
+hah 1
+hai 1
+hall 1
+hang 1
+happening 1
+happiness 1
+hate 1
+havent 1
+hawkes 1
+
+Searching with domain selector 'root msg':
+haha 15
+have 7
+having 4
+hair 3
+haiz 2
+happy 2
+hard 2
+haven 2
+had 1
+haf 1
+hafta 1
+hah 1
+hai 1
+hall 1
+hang 1
+hate 1
+havent 1
+hawkes 1
+
+Searching with domain selector '@d:root file,root msg phone sms':
+haha 15
+have 7
+having 4
+hair 3
+haiz 2
+happy 2
+hard 2
+haven 2
+had 1
+haf 1
+hafta 1
+hah 1
+hai 1
+hall 1
+hang 1
+happiness 1
+hate 1
+havent 1
+hawkes 1
+
+Searching with domain selector '@d:root file,@f:root file':
+happening 1
+happiness 1
+
+
+
+And now dumping with all searchers
+Searching with domain selector 'root':
+Number of hits: 204
+DOC (a): Bugis oso near wat... 
+DOC (b): Go until jurong point, crazy.. Available only in bugis n great world la e buffet... Cine there got amore wat...
+DOC (c): Oh...i asked for fun. Haha...take care. ?
+DOC (d): Nvm... I'm going to wear my sport shoes anyway... I'm going to be late leh.
+DOC (e): U reaching serangoon?
+DOC (f): is this yiyun?
+DOC (g): The jigsaw shop?
+DOC (h): i'm goin home now.. not goin back w u..
+DOC (i): Wow... ? muz be having a great time huh... Im quite relaxed recently. Now wondering wat to do tml cos im on leave...  ;)
+DOC (j): ok. Take care of yourself.
+DOC (ab): hw is ur day my fren?
+DOC (bb): ben say meeting change to next fri can or not ?
+DOC (cb): I thk they cut short hair nicer...
+DOC (db): xy:Tomw wat time u b in sch?Think me n shuhui meeting in sch ard 4. Then duno still can c movie or not cos duno if e rest wan meet 4 dinner. How?
+DOC (eb): Ok i'm still in sch... Then i'll go home 1st...
+DOC (fb): Ok, i cannot let my dear too bored..
+DOC (gb): Den u dun say... Funny, now say wat's e use...
+DOC (hb): Probably not next fri k? Jus rem i have photog coz hee cya!
+DOC (ib): Haha..Good things hafta come to an end..Most importantly..you must leave e place without any regrets..
+DOC (jb): Then when can i get it from u?
+DOC (ac): U will be at ard wat area?
+DOC (bc): Er... Dunno leh... I dun have e lecture notes. Sorry. But ? can check up e lecture notes if ?'re in e lab now...
+DOC (cc): Hey... Wana go pubbin on thurs nite?
+DOC (dc): Happy birthday to ? ...... May all yr wishes come true. Work hard for yr A levels and never give up! Take care always...
+DOC (ec): Nay, just stayed out at the beach to watch sunrise. Hehe.. you enjoy yourself. :)
+DOC (fc): Help me collect e clothes, goin to rain....
+DOC (gc): Yah still in office.. I thought how come u never reply me, make me so worried, den i thought u might be driving so didnt want to call u.
+DOC (hc): U got receive my msg?
+DOC (ic): 230
+DOC (jc): Hmmm, newsweek is ok loh... Maybe we chat some other time when ? free then...  rest early   :)
+DOC (ad): Kb at night leh... we must go book for the weekend too... You want to go maldives?
+DOC (bd): Huh, lien oso not goin, nvr give gen face. Gee, still got mich ma. I noe, i'm nt there u oso no mood to chiong rite,haha. I'm leavin on fri, dun miz me ah..
+DOC (cd): Okie... I'm inside oredi, in e middle,  2nd last row, right corner... Hurry up k, later got a lot of pple...
+DOC (dd): Yes can...U go atm machine can liao
+DOC (ed): Hehe... So how are you spending your sunday?
+DOC (fd): nope ... im jus thinking out loud ..
+DOC (gd): Dun have... I check liao... Whole tape all e kids...
+DOC (hd): How come so fast. Hee.. I'm sure my dear now look very pretty..
+DOC (id): CAN I PLEASE COME UP NOW IM IN TOWN.DONT MATTER IF UR GOIN OUT L8R,JUST REALLY NEED 2DO CD.PLEASE DONT PLEASE DONT IGNORE MY CALLS,U NO THE CD IS V.IMPORTANT TO ME 4 2MORO
+DOC (jd): wat time u going back tonight? den go back w u, catch free ride..
+DOC (ae): Kaiez... Haha, u very zhun, if not u'll have to wait till i get bk liao... Anyway, i'll post la, easier...
+DOC (be): Sure.  Meet at home first?
+DOC (ce): Hi Boez care to intro yourself
+DOC (de): Gelek...I heard u're back...Eh there's a soc summer camp...Ur jie jie going?
+DOC (ee): Hey everyone are u free to get together this sunday afternoon for coffee to catch up. Am working now so only free on weekends :( Better say yes! k Elaine
+DOC (fe): Why? For what? Hey i helped you tick your name on the tut list... haha
+DOC (ge): I hope is delay..If i can't upload by tml i will die..Thanx anyway..
+DOC (he): Go Geylang eat.
+DOC (ie): I dun noe leh, how abt e one at lor marzuki? Have u check e yellow pages?
+DOC (je): Aiya, ah mei dun wan watch movies...
+DOC (af): Oh... I can take a bus there! 103 right?
+DOC (bf): Den ?vm lo...We hang ard will do. My bf keep hitting my head...I feel v sad.
+DOC (cf): K can. I'm still in my room... Trying to understand bonds. Hai... Where ? wanna meet?
+DOC (df): How r u? Im slackg at home...Hows work so far?
+DOC (ef): Hey we meeting tis sat at wtc at 12 den go sentosa...can u help mi ask ur gang who's goin...pls reply asap....thx..
+DOC (ff): Hey roy...stil waitg for ur intro.
+DOC (gf): Got those tanks lor... Y leh, u wana change ah...
+DOC (hf): I'm not comin back 4 dinner... I msg daddy liao...
+DOC (if): saw u and ya sis with ya dog juz now...u cut hair ah? anyway, thur confirm liao. 7pm plaza sing cafe cartel
+DOC (jf): There is one gracious pet-boarding hotel (6484 4844) but i dun noe where is e place.
+DOC (ag): Nope at queensway. Hmm,got alot of ans in e bk. Hee- but i din double check-hopefully got no careless mistakes. But  advance hard rite-my collegeue fail 4x
+DOC (bg): Go and fetch mom, call mom now
+DOC (cg): Wat time e post office close? I wan to renew my pdl lor...
+DOC (dg): Den shall i join u oso... Help me look out 4 stripes a line skirt...
+DOC (eg): ? going class outing this sat? Eh west coast can rent roller blades not? Haha...
+DOC (fg): oh..tt guy who is much taller than me rite?hmm..this current one is slightly taller than me only.hmm..yest got someone msged me ? said he was li en ? tt tt was
+DOC (gg): I'll call u la... How wld i noe wat time...
+DOC (hg): Okie... Anyway thanx a lot...
+DOC (ig): I'm on e bus liao wat... Buy yoghurt v fast wat...
+DOC (jg): Hah? Why she not going?
+DOC (ah): Which one do u bring ur dog to?
+DOC (bh): Nopez...Nthing  at all =(
+DOC (ch): Izit.... But i dunno where's embargo... Ya, centro muz b 21 lor... Tmr go la, haven mt up 4 some time...
+DOC (dh): U can come n pick me up anytime now...
+DOC (eh): Hmm ok lor. But if tomw u can or not?  me going take photo w shuhui then c if she wan c also.
+DOC (fh): So early go back hotel? Never go out walk walk, enjoy e cooling weather.
+DOC (gh): Anyone wanna chat i veri lonely
+DOC (hh): What time? i can go myself. If u in the city.
+DOC (ih): Sms my hp, 0168596707
+DOC (jh): JADE ITS PAUL. Y DIDN'T U TXT ME? DO U REMEMBER ME FROM BARMED? I WANT 2 TALK 2 U! TXT ME
+DOC (ai): She like u said anything but she free till 9 plus only.
+DOC (bi): I checking for u rite now.
+DOC (ci): how u noe there's no better ans ..
+DOC (di): Oh ya... Forgot... Haha... Kaiez... Cya after lesson...
+DOC (ei): Red cross camp.. They dun haf enough ppl so i came back to help.. U all still tokking ah? I met ur fren jocelyn jus now n spoke to her hee
+DOC (fi): Why are u calling me?
+DOC (gi): Oh... Okie lor... I'll pay u on fri den...
+DOC (hi): Hmmm... Not too bad la.. Haha, only 2 sec of u... Thk i'll quit my job at e end of tis month... So sian of workin oredi.. U still workin?
+DOC (ii): K.have fun ere! Take lotsa fotos.?n we go ?r hse ? can show us.hee-
+DOC (ji): Haha i will be prob going home next sat lah
+DOC (aj): DO U WANT 2 MEET UP 2MORRO
+DOC (bj): Opps... Sorry... Comin comin...
+DOC (cj): I'm ard outside looking at other things. Call me when u all done.
+DOC (dj): So cute...Next time can i take a pic with your dog...Wats the name...
+DOC (ej): Maxwell ? the two storey chinatown mkt de hawkes oso close. I duno where is smith st.but those shop kind got open la.
+DOC (fj): keen on grabbing some ice cream?
+DOC (gj): Eh wanna go eat tonight?
+DOC (hj): Really she in wad course?
+DOC (ij): fantasia is absolutely awesome! And the judges are very well chosen, n balanced out.
+DOC (jj): Hey... U r at sakae rite.... My sis saw u ... Haha, i'm at bugis  too...
+DOC (aab): Oh, where are ? off to? And when will ? be coming back?
+DOC (bab): Huh. If wont finish today that means i will present on monday leh... So bad? If i didnt have to present i think i will pon too?
+DOC (cab): So ? wan to sign up a not...
+DOC (dab): I picking xyan at 5. So shld reach before 530.
+DOC (eab): He say dun tink they need part timer...How? U go crepes n cream ask la...Hereen 1...
+DOC (fab): Ask liao, he said jus plan 2 stay at e beach, nothing else planned yet. Then u think need 2 bring clothes 2 change?
+DOC (gab): Oh, i managed to get the off cos i did duty on sat some time ago.... So,you r going shopping wif yr frens?
+DOC (hab): y dun u wanna go? tired ah? or lazy? i tot today last day to reply rite? still havent make up ur mind ah?
+DOC (iab): Lea u there?
+DOC (jab): Tom u coming to school?
+DOC (abb): Nope... I'm in a lect... Just now this girl was promoting... Haha you free to go there to look later?
+DOC (bbb): my jobs less than one mth lei.unless got v.good pay.heh2- well,gota zzz.nitey my dear cya on mon! n.n
+DOC (cbb): I tink it comes wif it...Haha
+DOC (dbb): Ic...Haiz,nv ask me along?Hee,im so sian at hm.
+DOC (ebb): Hey are we going for the lo lesson or gym? 
+DOC (fbb): I having lunch with shuhui. Xyan shld be done at 4.
+DOC (gbb): My sis so bo liao u noe. She arguing w me abt sun's hair den accuse me of smethg i haven thgt of. Hate it when pple accuse me...
+DOC (hbb): hey ppl interested in e exhib at spore expo?
+DOC (ibb): U all outside ah? If wan dye must book now also is it? Then think book lor. If dont wan then jus cancel lor hee...
+DOC (jbb): malayu
+DOC (acb): I'm outside now... Looking at cars...
+DOC (bcb): Ok. Then who reach go buy tix first. Dinner, me anything. Depends u wan eat w ur parents or not lor.
+DOC (ccb): I tink nt enuff den buy...I got like 6 bottles liao...Haha
+DOC (dcb): Wah so far. dunno how ey pay.
+DOC (ecb): race 4-7 Ashgrove $100
+DOC (fcb): Okie... Really sorry...
+DOC (gcb): Just woke up lor.
+DOC (hcb): No table lei
+DOC (icb): Hi tina ...
+DOC (jcb): Hmmm... Thk i usually book on wkends... Depends la...
+DOC (adb): ask them got any sms messages to gif me lei...now me only got like 100 over not enuff...u all online rite...when u all taking a break then type and forward to me...but if u all busy wif work then nvm...
+DOC (bdb): We r near coca oredi...
+DOC (cdb): hall Eleven. Got lectures le mah.?n forget abt complex nos etc. En like got lotsa wk-self one la.
+DOC (ddb): I Bring for u. I can not promise u 100% to win. sometime i loss also.
+DOC (edb): So hv u ask e pet hotel? Anyway hv u ask shuhui whether she want to watch?
+DOC (fdb): I just came back. I go bath first den call u k.
+DOC (gdb): Hmm. How come ur dad suddenly feel like going turf club.. So u alone at home?
+DOC (hdb): Wah so early ah. So wat u had for lunch?
+DOC (idb): Wat time u wake up. Tdy i pig again sleep until 1+.
+DOC (jdb): U watching dvd ah? Bored den think of me lah.
+DOC (aeb): I watching tv lor. Later going out to buy something. U leh? U going out?
+DOC (beb): Ok. So where u all having dinner?
+DOC (ceb): Okay... We wait ah
+DOC (deb): I think not going lah, so sorry, dun b angry w me k.
+DOC (eeb): Yup,i broke e duck to get A- but also get D+, haiz..
+DOC (feb): Wasted lor.. If e 2 can do better den my cap will improve more..
+DOC (geb): Wah liao.. I got 2 D+ , 3B+ , 1A-... So sad.. Overall this time cap improve by 1.1
+DOC (heb): Then ok, i go pick u first. I'm at cte now.
+DOC (ieb): Why lah?
+DOC (jeb): In 30mins , i leaving soon..
+DOC (afb): U reach home den call me k.
+DOC (bfb): Den u go back first lah. I go find u.
+DOC (cfb): U call me after u finish ur dinner, den see where am i or i go ur house n pick u.
+DOC (dfb): Hey come online! Use msn... We are all there
+DOC (efb): I going to meet xyan for dinner, just pei her eat only k..
+DOC (ffb): Eaten lor.. How come tdy so late?
+DOC (gfb): Shuhui not free lah.. So where r u eating?
+DOC (hfb): Birthday girl... Now having ur dinner?
+DOC (ifb): Where to pick you? what time?
+DOC (jfb): What time are you ready
+DOC (agb): Anyway i dun think i've really done a lot. As long as u r happy, things dat i can do for i'll do it for u..
+DOC (bgb): Reach home liao..
+DOC (cgb): May be a bit late..
+DOC (dgb): Reach ur house ard 715 k..
+DOC (egb): Oh yah... We never cancel leh... Haha 
+DOC (fgb): Think tonite not many show. We watch tom. Den tonite we go elsewhere lor.
+DOC (ggb): Ok i coming now.
+DOC (hgb): Not going to town i think, shld hv not enough time.
+DOC (igb): Wat u wearing ah? I dun think i wearing jeans.
+DOC (jgb): Later see how lah. I go change now, call u before i leave.
+DOC (ahb): Den we go toa payoh walk lor.
+DOC (bhb): Den we go out walk walk lah. I go fetch u.
+DOC (chb): Finish e part dat i missed yest liao. U still want 2 go out?
+DOC (dhb): Wat u doing?
+DOC (ehb): Ok i leaving now.
+DOC (fhb): K. Did you call me just now ah? 
+DOC (ghb): Before 10? I let u now before i leave.
+DOC (hhb): Ok i almost done. U change already?
+DOC (ihb): I just reach home.. I go bathe first k, den i call u again.
+DOC (jhb): wat time u leavin? pick me at 9?
+DOC (aib): Thanx for e food. Didnt expect u give me so much. Ok enjoy ur dinner.
+DOC (bib): Yup. I pick u ard 830. Call u when i leave.
+DOC (cib): Wat u doing?
+DOC (dib): I coming now.
+DOC (eib): Call u when i leave.
+DOC (fib): Ok i come ard 9?
+DOC (gib): Okay lor... Wah... like that def they wont let us go... Haha... What did they say in the terms and conditions?
+DOC (hib): Den tmr see how lah.
+DOC (iib): Tmr i may be going to ikea, u want to go?
+DOC (jib): I got to rush my lab report. Tdy cannot call u k. Tmr u going to school? I meet u in school?
+DOC (ajb): Wat r u doing?
+DOC (bjb): Ok i reach in 20 mins.
+DOC (cjb): I was thinking going to popular to buy some folder.
+DOC (djb): U bath already ah. U still want to come out?
+DOC (ejb): Wat u doing?
+DOC (fjb): Cos i was thinking if u come look for me den like no where to go ard my area leh.
+DOC (gjb): Hee.. I duno u not at home yet. Maybe c wat time my sis back den i go look for u.
+DOC (hjb): Okay lor... Will they still let us go a not ah? Coz they will not know until later. We drop our cards into the box right?
+DOC (ijb): Lazing ard lor. E weather dun looks good to go east coast leh.
+DOC (jjb): Ok.. So sorry abt dat. I eat wif u on other day k.
+DOC (!:\data\cpixunittestcorpus\stem\en\1.txt): I am happy.
+DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh happiness!
+DOC (!:\data\cpixunittestcorpus\stem\en\3.txt): Nothing important in here. So don't even look. Because you
+DOC (!:\data\cpixunittestcorpus\stem\en\4.txt): What is happening here?
+
+Searching with domain selector 'root msg':
+Number of hits: 200
+DOC (a): Bugis oso near wat... 
+DOC (b): Go until jurong point, crazy.. Available only in bugis n great world la e buffet... Cine there got amore wat...
+DOC (c): Oh...i asked for fun. Haha...take care. ?
+DOC (d): Nvm... I'm going to wear my sport shoes anyway... I'm going to be late leh.
+DOC (e): U reaching serangoon?
+DOC (f): is this yiyun?
+DOC (g): The jigsaw shop?
+DOC (h): i'm goin home now.. not goin back w u..
+DOC (i): Wow... ? muz be having a great time huh... Im quite relaxed recently. Now wondering wat to do tml cos im on leave...  ;)
+DOC (j): ok. Take care of yourself.
+DOC (ab): hw is ur day my fren?
+DOC (bb): ben say meeting change to next fri can or not ?
+DOC (cb): I thk they cut short hair nicer...
+DOC (db): xy:Tomw wat time u b in sch?Think me n shuhui meeting in sch ard 4. Then duno still can c movie or not cos duno if e rest wan meet 4 dinner. How?
+DOC (eb): Ok i'm still in sch... Then i'll go home 1st...
+DOC (fb): Ok, i cannot let my dear too bored..
+DOC (gb): Den u dun say... Funny, now say wat's e use...
+DOC (hb): Probably not next fri k? Jus rem i have photog coz hee cya!
+DOC (ib): Haha..Good things hafta come to an end..Most importantly..you must leave e place without any regrets..
+DOC (jb): Then when can i get it from u?
+DOC (ac): U will be at ard wat area?
+DOC (bc): Er... Dunno leh... I dun have e lecture notes. Sorry. But ? can check up e lecture notes if ?'re in e lab now...
+DOC (cc): Hey... Wana go pubbin on thurs nite?
+DOC (dc): Happy birthday to ? ...... May all yr wishes come true. Work hard for yr A levels and never give up! Take care always...
+DOC (ec): Nay, just stayed out at the beach to watch sunrise. Hehe.. you enjoy yourself. :)
+DOC (fc): Help me collect e clothes, goin to rain....
+DOC (gc): Yah still in office.. I thought how come u never reply me, make me so worried, den i thought u might be driving so didnt want to call u.
+DOC (hc): U got receive my msg?
+DOC (ic): 230
+DOC (jc): Hmmm, newsweek is ok loh... Maybe we chat some other time when ? free then...  rest early   :)
+DOC (ad): Kb at night leh... we must go book for the weekend too... You want to go maldives?
+DOC (bd): Huh, lien oso not goin, nvr give gen face. Gee, still got mich ma. I noe, i'm nt there u oso no mood to chiong rite,haha. I'm leavin on fri, dun miz me ah..
+DOC (cd): Okie... I'm inside oredi, in e middle,  2nd last row, right corner... Hurry up k, later got a lot of pple...
+DOC (dd): Yes can...U go atm machine can liao
+DOC (ed): Hehe... So how are you spending your sunday?
+DOC (fd): nope ... im jus thinking out loud ..
+DOC (gd): Dun have... I check liao... Whole tape all e kids...
+DOC (hd): How come so fast. Hee.. I'm sure my dear now look very pretty..
+DOC (id): CAN I PLEASE COME UP NOW IM IN TOWN.DONT MATTER IF UR GOIN OUT L8R,JUST REALLY NEED 2DO CD.PLEASE DONT PLEASE DONT IGNORE MY CALLS,U NO THE CD IS V.IMPORTANT TO ME 4 2MORO
+DOC (jd): wat time u going back tonight? den go back w u, catch free ride..
+DOC (ae): Kaiez... Haha, u very zhun, if not u'll have to wait till i get bk liao... Anyway, i'll post la, easier...
+DOC (be): Sure.  Meet at home first?
+DOC (ce): Hi Boez care to intro yourself
+DOC (de): Gelek...I heard u're back...Eh there's a soc summer camp...Ur jie jie going?
+DOC (ee): Hey everyone are u free to get together this sunday afternoon for coffee to catch up. Am working now so only free on weekends :( Better say yes! k Elaine
+DOC (fe): Why? For what? Hey i helped you tick your name on the tut list... haha
+DOC (ge): I hope is delay..If i can't upload by tml i will die..Thanx anyway..
+DOC (he): Go Geylang eat.
+DOC (ie): I dun noe leh, how abt e one at lor marzuki? Have u check e yellow pages?
+DOC (je): Aiya, ah mei dun wan watch movies...
+DOC (af): Oh... I can take a bus there! 103 right?
+DOC (bf): Den ?vm lo...We hang ard will do. My bf keep hitting my head...I feel v sad.
+DOC (cf): K can. I'm still in my room... Trying to understand bonds. Hai... Where ? wanna meet?
+DOC (df): How r u? Im slackg at home...Hows work so far?
+DOC (ef): Hey we meeting tis sat at wtc at 12 den go sentosa...can u help mi ask ur gang who's goin...pls reply asap....thx..
+DOC (ff): Hey roy...stil waitg for ur intro.
+DOC (gf): Got those tanks lor... Y leh, u wana change ah...
+DOC (hf): I'm not comin back 4 dinner... I msg daddy liao...
+DOC (if): saw u and ya sis with ya dog juz now...u cut hair ah? anyway, thur confirm liao. 7pm plaza sing cafe cartel
+DOC (jf): There is one gracious pet-boarding hotel (6484 4844) but i dun noe where is e place.
+DOC (ag): Nope at queensway. Hmm,got alot of ans in e bk. Hee- but i din double check-hopefully got no careless mistakes. But  advance hard rite-my collegeue fail 4x
+DOC (bg): Go and fetch mom, call mom now
+DOC (cg): Wat time e post office close? I wan to renew my pdl lor...
+DOC (dg): Den shall i join u oso... Help me look out 4 stripes a line skirt...
+DOC (eg): ? going class outing this sat? Eh west coast can rent roller blades not? Haha...
+DOC (fg): oh..tt guy who is much taller than me rite?hmm..this current one is slightly taller than me only.hmm..yest got someone msged me ? said he was li en ? tt tt was
+DOC (gg): I'll call u la... How wld i noe wat time...
+DOC (hg): Okie... Anyway thanx a lot...
+DOC (ig): I'm on e bus liao wat... Buy yoghurt v fast wat...
+DOC (jg): Hah? Why she not going?
+DOC (ah): Which one do u bring ur dog to?
+DOC (bh): Nopez...Nthing  at all =(
+DOC (ch): Izit.... But i dunno where's embargo... Ya, centro muz b 21 lor... Tmr go la, haven mt up 4 some time...
+DOC (dh): U can come n pick me up anytime now...
+DOC (eh): Hmm ok lor. But if tomw u can or not?  me going take photo w shuhui then c if she wan c also.
+DOC (fh): So early go back hotel? Never go out walk walk, enjoy e cooling weather.
+DOC (gh): Anyone wanna chat i veri lonely
+DOC (hh): What time? i can go myself. If u in the city.
+DOC (ih): Sms my hp, 0168596707
+DOC (jh): JADE ITS PAUL. Y DIDN'T U TXT ME? DO U REMEMBER ME FROM BARMED? I WANT 2 TALK 2 U! TXT ME
+DOC (ai): She like u said anything but she free till 9 plus only.
+DOC (bi): I checking for u rite now.
+DOC (ci): how u noe there's no better ans ..
+DOC (di): Oh ya... Forgot... Haha... Kaiez... Cya after lesson...
+DOC (ei): Red cross camp.. They dun haf enough ppl so i came back to help.. U all still tokking ah? I met ur fren jocelyn jus now n spoke to her hee
+DOC (fi): Why are u calling me?
+DOC (gi): Oh... Okie lor... I'll pay u on fri den...
+DOC (hi): Hmmm... Not too bad la.. Haha, only 2 sec of u... Thk i'll quit my job at e end of tis month... So sian of workin oredi.. U still workin?
+DOC (ii): K.have fun ere! Take lotsa fotos.?n we go ?r hse ? can show us.hee-
+DOC (ji): Haha i will be prob going home next sat lah
+DOC (aj): DO U WANT 2 MEET UP 2MORRO
+DOC (bj): Opps... Sorry... Comin comin...
+DOC (cj): I'm ard outside looking at other things. Call me when u all done.
+DOC (dj): So cute...Next time can i take a pic with your dog...Wats the name...
+DOC (ej): Maxwell ? the two storey chinatown mkt de hawkes oso close. I duno where is smith st.but those shop kind got open la.
+DOC (fj): keen on grabbing some ice cream?
+DOC (gj): Eh wanna go eat tonight?
+DOC (hj): Really she in wad course?
+DOC (ij): fantasia is absolutely awesome! And the judges are very well chosen, n balanced out.
+DOC (jj): Hey... U r at sakae rite.... My sis saw u ... Haha, i'm at bugis  too...
+DOC (aab): Oh, where are ? off to? And when will ? be coming back?
+DOC (bab): Huh. If wont finish today that means i will present on monday leh... So bad? If i didnt have to present i think i will pon too?
+DOC (cab): So ? wan to sign up a not...
+DOC (dab): I picking xyan at 5. So shld reach before 530.
+DOC (eab): He say dun tink they need part timer...How? U go crepes n cream ask la...Hereen 1...
+DOC (fab): Ask liao, he said jus plan 2 stay at e beach, nothing else planned yet. Then u think need 2 bring clothes 2 change?
+DOC (gab): Oh, i managed to get the off cos i did duty on sat some time ago.... So,you r going shopping wif yr frens?
+DOC (hab): y dun u wanna go? tired ah? or lazy? i tot today last day to reply rite? still havent make up ur mind ah?
+DOC (iab): Lea u there?
+DOC (jab): Tom u coming to school?
+DOC (abb): Nope... I'm in a lect... Just now this girl was promoting... Haha you free to go there to look later?
+DOC (bbb): my jobs less than one mth lei.unless got v.good pay.heh2- well,gota zzz.nitey my dear cya on mon! n.n
+DOC (cbb): I tink it comes wif it...Haha
+DOC (dbb): Ic...Haiz,nv ask me along?Hee,im so sian at hm.
+DOC (ebb): Hey are we going for the lo lesson or gym? 
+DOC (fbb): I having lunch with shuhui. Xyan shld be done at 4.
+DOC (gbb): My sis so bo liao u noe. She arguing w me abt sun's hair den accuse me of smethg i haven thgt of. Hate it when pple accuse me...
+DOC (hbb): hey ppl interested in e exhib at spore expo?
+DOC (ibb): U all outside ah? If wan dye must book now also is it? Then think book lor. If dont wan then jus cancel lor hee...
+DOC (jbb): malayu
+DOC (acb): I'm outside now... Looking at cars...
+DOC (bcb): Ok. Then who reach go buy tix first. Dinner, me anything. Depends u wan eat w ur parents or not lor.
+DOC (ccb): I tink nt enuff den buy...I got like 6 bottles liao...Haha
+DOC (dcb): Wah so far. dunno how ey pay.
+DOC (ecb): race 4-7 Ashgrove $100
+DOC (fcb): Okie... Really sorry...
+DOC (gcb): Just woke up lor.
+DOC (hcb): No table lei
+DOC (icb): Hi tina ...
+DOC (jcb): Hmmm... Thk i usually book on wkends... Depends la...
+DOC (adb): ask them got any sms messages to gif me lei...now me only got like 100 over not enuff...u all online rite...when u all taking a break then type and forward to me...but if u all busy wif work then nvm...
+DOC (bdb): We r near coca oredi...
+DOC (cdb): hall Eleven. Got lectures le mah.?n forget abt complex nos etc. En like got lotsa wk-self one la.
+DOC (ddb): I Bring for u. I can not promise u 100% to win. sometime i loss also.
+DOC (edb): So hv u ask e pet hotel? Anyway hv u ask shuhui whether she want to watch?
+DOC (fdb): I just came back. I go bath first den call u k.
+DOC (gdb): Hmm. How come ur dad suddenly feel like going turf club.. So u alone at home?
+DOC (hdb): Wah so early ah. So wat u had for lunch?
+DOC (idb): Wat time u wake up. Tdy i pig again sleep until 1+.
+DOC (jdb): U watching dvd ah? Bored den think of me lah.
+DOC (aeb): I watching tv lor. Later going out to buy something. U leh? U going out?
+DOC (beb): Ok. So where u all having dinner?
+DOC (ceb): Okay... We wait ah
+DOC (deb): I think not going lah, so sorry, dun b angry w me k.
+DOC (eeb): Yup,i broke e duck to get A- but also get D+, haiz..
+DOC (feb): Wasted lor.. If e 2 can do better den my cap will improve more..
+DOC (geb): Wah liao.. I got 2 D+ , 3B+ , 1A-... So sad.. Overall this time cap improve by 1.1
+DOC (heb): Then ok, i go pick u first. I'm at cte now.
+DOC (ieb): Why lah?
+DOC (jeb): In 30mins , i leaving soon..
+DOC (afb): U reach home den call me k.
+DOC (bfb): Den u go back first lah. I go find u.
+DOC (cfb): U call me after u finish ur dinner, den see where am i or i go ur house n pick u.
+DOC (dfb): Hey come online! Use msn... We are all there
+DOC (efb): I going to meet xyan for dinner, just pei her eat only k..
+DOC (ffb): Eaten lor.. How come tdy so late?
+DOC (gfb): Shuhui not free lah.. So where r u eating?
+DOC (hfb): Birthday girl... Now having ur dinner?
+DOC (ifb): Where to pick you? what time?
+DOC (jfb): What time are you ready
+DOC (agb): Anyway i dun think i've really done a lot. As long as u r happy, things dat i can do for i'll do it for u..
+DOC (bgb): Reach home liao..
+DOC (cgb): May be a bit late..
+DOC (dgb): Reach ur house ard 715 k..
+DOC (egb): Oh yah... We never cancel leh... Haha 
+DOC (fgb): Think tonite not many show. We watch tom. Den tonite we go elsewhere lor.
+DOC (ggb): Ok i coming now.
+DOC (hgb): Not going to town i think, shld hv not enough time.
+DOC (igb): Wat u wearing ah? I dun think i wearing jeans.
+DOC (jgb): Later see how lah. I go change now, call u before i leave.
+DOC (ahb): Den we go toa payoh walk lor.
+DOC (bhb): Den we go out walk walk lah. I go fetch u.
+DOC (chb): Finish e part dat i missed yest liao. U still want 2 go out?
+DOC (dhb): Wat u doing?
+DOC (ehb): Ok i leaving now.
+DOC (fhb): K. Did you call me just now ah? 
+DOC (ghb): Before 10? I let u now before i leave.
+DOC (hhb): Ok i almost done. U change already?
+DOC (ihb): I just reach home.. I go bathe first k, den i call u again.
+DOC (jhb): wat time u leavin? pick me at 9?
+DOC (aib): Thanx for e food. Didnt expect u give me so much. Ok enjoy ur dinner.
+DOC (bib): Yup. I pick u ard 830. Call u when i leave.
+DOC (cib): Wat u doing?
+DOC (dib): I coming now.
+DOC (eib): Call u when i leave.
+DOC (fib): Ok i come ard 9?
+DOC (gib): Okay lor... Wah... like that def they wont let us go... Haha... What did they say in the terms and conditions?
+DOC (hib): Den tmr see how lah.
+DOC (iib): Tmr i may be going to ikea, u want to go?
+DOC (jib): I got to rush my lab report. Tdy cannot call u k. Tmr u going to school? I meet u in school?
+DOC (ajb): Wat r u doing?
+DOC (bjb): Ok i reach in 20 mins.
+DOC (cjb): I was thinking going to popular to buy some folder.
+DOC (djb): U bath already ah. U still want to come out?
+DOC (ejb): Wat u doing?
+DOC (fjb): Cos i was thinking if u come look for me den like no where to go ard my area leh.
+DOC (gjb): Hee.. I duno u not at home yet. Maybe c wat time my sis back den i go look for u.
+DOC (hjb): Okay lor... Will they still let us go a not ah? Coz they will not know until later. We drop our cards into the box right?
+DOC (ijb): Lazing ard lor. E weather dun looks good to go east coast leh.
+DOC (jjb): Ok.. So sorry abt dat. I eat wif u on other day k.
+
+Searching with domain selector '@d:root file,root msg phone sms':
+Number of hits: 201
+DOC (a): Bugis oso near wat... 
+DOC (b): Go until jurong point, crazy.. Available only in bugis n great world la e buffet... Cine there got amore wat...
+DOC (c): Oh...i asked for fun. Haha...take care. ?
+DOC (d): Nvm... I'm going to wear my sport shoes anyway... I'm going to be late leh.
+DOC (e): U reaching serangoon?
+DOC (f): is this yiyun?
+DOC (g): The jigsaw shop?
+DOC (h): i'm goin home now.. not goin back w u..
+DOC (i): Wow... ? muz be having a great time huh... Im quite relaxed recently. Now wondering wat to do tml cos im on leave...  ;)
+DOC (j): ok. Take care of yourself.
+DOC (ab): hw is ur day my fren?
+DOC (bb): ben say meeting change to next fri can or not ?
+DOC (cb): I thk they cut short hair nicer...
+DOC (db): xy:Tomw wat time u b in sch?Think me n shuhui meeting in sch ard 4. Then duno still can c movie or not cos duno if e rest wan meet 4 dinner. How?
+DOC (eb): Ok i'm still in sch... Then i'll go home 1st...
+DOC (fb): Ok, i cannot let my dear too bored..
+DOC (gb): Den u dun say... Funny, now say wat's e use...
+DOC (hb): Probably not next fri k? Jus rem i have photog coz hee cya!
+DOC (ib): Haha..Good things hafta come to an end..Most importantly..you must leave e place without any regrets..
+DOC (jb): Then when can i get it from u?
+DOC (ac): U will be at ard wat area?
+DOC (bc): Er... Dunno leh... I dun have e lecture notes. Sorry. But ? can check up e lecture notes if ?'re in e lab now...
+DOC (cc): Hey... Wana go pubbin on thurs nite?
+DOC (dc): Happy birthday to ? ...... May all yr wishes come true. Work hard for yr A levels and never give up! Take care always...
+DOC (ec): Nay, just stayed out at the beach to watch sunrise. Hehe.. you enjoy yourself. :)
+DOC (fc): Help me collect e clothes, goin to rain....
+DOC (gc): Yah still in office.. I thought how come u never reply me, make me so worried, den i thought u might be driving so didnt want to call u.
+DOC (hc): U got receive my msg?
+DOC (ic): 230
+DOC (jc): Hmmm, newsweek is ok loh... Maybe we chat some other time when ? free then...  rest early   :)
+DOC (ad): Kb at night leh... we must go book for the weekend too... You want to go maldives?
+DOC (bd): Huh, lien oso not goin, nvr give gen face. Gee, still got mich ma. I noe, i'm nt there u oso no mood to chiong rite,haha. I'm leavin on fri, dun miz me ah..
+DOC (cd): Okie... I'm inside oredi, in e middle,  2nd last row, right corner... Hurry up k, later got a lot of pple...
+DOC (dd): Yes can...U go atm machine can liao
+DOC (ed): Hehe... So how are you spending your sunday?
+DOC (fd): nope ... im jus thinking out loud ..
+DOC (gd): Dun have... I check liao... Whole tape all e kids...
+DOC (hd): How come so fast. Hee.. I'm sure my dear now look very pretty..
+DOC (id): CAN I PLEASE COME UP NOW IM IN TOWN.DONT MATTER IF UR GOIN OUT L8R,JUST REALLY NEED 2DO CD.PLEASE DONT PLEASE DONT IGNORE MY CALLS,U NO THE CD IS V.IMPORTANT TO ME 4 2MORO
+DOC (jd): wat time u going back tonight? den go back w u, catch free ride..
+DOC (ae): Kaiez... Haha, u very zhun, if not u'll have to wait till i get bk liao... Anyway, i'll post la, easier...
+DOC (be): Sure.  Meet at home first?
+DOC (ce): Hi Boez care to intro yourself
+DOC (de): Gelek...I heard u're back...Eh there's a soc summer camp...Ur jie jie going?
+DOC (ee): Hey everyone are u free to get together this sunday afternoon for coffee to catch up. Am working now so only free on weekends :( Better say yes! k Elaine
+DOC (fe): Why? For what? Hey i helped you tick your name on the tut list... haha
+DOC (ge): I hope is delay..If i can't upload by tml i will die..Thanx anyway..
+DOC (he): Go Geylang eat.
+DOC (ie): I dun noe leh, how abt e one at lor marzuki? Have u check e yellow pages?
+DOC (je): Aiya, ah mei dun wan watch movies...
+DOC (af): Oh... I can take a bus there! 103 right?
+DOC (bf): Den ?vm lo...We hang ard will do. My bf keep hitting my head...I feel v sad.
+DOC (cf): K can. I'm still in my room... Trying to understand bonds. Hai... Where ? wanna meet?
+DOC (df): How r u? Im slackg at home...Hows work so far?
+DOC (ef): Hey we meeting tis sat at wtc at 12 den go sentosa...can u help mi ask ur gang who's goin...pls reply asap....thx..
+DOC (ff): Hey roy...stil waitg for ur intro.
+DOC (gf): Got those tanks lor... Y leh, u wana change ah...
+DOC (hf): I'm not comin back 4 dinner... I msg daddy liao...
+DOC (if): saw u and ya sis with ya dog juz now...u cut hair ah? anyway, thur confirm liao. 7pm plaza sing cafe cartel
+DOC (jf): There is one gracious pet-boarding hotel (6484 4844) but i dun noe where is e place.
+DOC (ag): Nope at queensway. Hmm,got alot of ans in e bk. Hee- but i din double check-hopefully got no careless mistakes. But  advance hard rite-my collegeue fail 4x
+DOC (bg): Go and fetch mom, call mom now
+DOC (cg): Wat time e post office close? I wan to renew my pdl lor...
+DOC (dg): Den shall i join u oso... Help me look out 4 stripes a line skirt...
+DOC (eg): ? going class outing this sat? Eh west coast can rent roller blades not? Haha...
+DOC (fg): oh..tt guy who is much taller than me rite?hmm..this current one is slightly taller than me only.hmm..yest got someone msged me ? said he was li en ? tt tt was
+DOC (gg): I'll call u la... How wld i noe wat time...
+DOC (hg): Okie... Anyway thanx a lot...
+DOC (ig): I'm on e bus liao wat... Buy yoghurt v fast wat...
+DOC (jg): Hah? Why she not going?
+DOC (ah): Which one do u bring ur dog to?
+DOC (bh): Nopez...Nthing  at all =(
+DOC (ch): Izit.... But i dunno where's embargo... Ya, centro muz b 21 lor... Tmr go la, haven mt up 4 some time...
+DOC (dh): U can come n pick me up anytime now...
+DOC (eh): Hmm ok lor. But if tomw u can or not?  me going take photo w shuhui then c if she wan c also.
+DOC (fh): So early go back hotel? Never go out walk walk, enjoy e cooling weather.
+DOC (gh): Anyone wanna chat i veri lonely
+DOC (hh): What time? i can go myself. If u in the city.
+DOC (ih): Sms my hp, 0168596707
+DOC (jh): JADE ITS PAUL. Y DIDN'T U TXT ME? DO U REMEMBER ME FROM BARMED? I WANT 2 TALK 2 U! TXT ME
+DOC (ai): She like u said anything but she free till 9 plus only.
+DOC (bi): I checking for u rite now.
+DOC (ci): how u noe there's no better ans ..
+DOC (di): Oh ya... Forgot... Haha... Kaiez... Cya after lesson...
+DOC (ei): Red cross camp.. They dun haf enough ppl so i came back to help.. U all still tokking ah? I met ur fren jocelyn jus now n spoke to her hee
+DOC (fi): Why are u calling me?
+DOC (gi): Oh... Okie lor... I'll pay u on fri den...
+DOC (hi): Hmmm... Not too bad la.. Haha, only 2 sec of u... Thk i'll quit my job at e end of tis month... So sian of workin oredi.. U still workin?
+DOC (ii): K.have fun ere! Take lotsa fotos.?n we go ?r hse ? can show us.hee-
+DOC (ji): Haha i will be prob going home next sat lah
+DOC (aj): DO U WANT 2 MEET UP 2MORRO
+DOC (bj): Opps... Sorry... Comin comin...
+DOC (cj): I'm ard outside looking at other things. Call me when u all done.
+DOC (dj): So cute...Next time can i take a pic with your dog...Wats the name...
+DOC (ej): Maxwell ? the two storey chinatown mkt de hawkes oso close. I duno where is smith st.but those shop kind got open la.
+DOC (fj): keen on grabbing some ice cream?
+DOC (gj): Eh wanna go eat tonight?
+DOC (hj): Really she in wad course?
+DOC (ij): fantasia is absolutely awesome! And the judges are very well chosen, n balanced out.
+DOC (jj): Hey... U r at sakae rite.... My sis saw u ... Haha, i'm at bugis  too...
+DOC (aab): Oh, where are ? off to? And when will ? be coming back?
+DOC (bab): Huh. If wont finish today that means i will present on monday leh... So bad? If i didnt have to present i think i will pon too?
+DOC (cab): So ? wan to sign up a not...
+DOC (dab): I picking xyan at 5. So shld reach before 530.
+DOC (eab): He say dun tink they need part timer...How? U go crepes n cream ask la...Hereen 1...
+DOC (fab): Ask liao, he said jus plan 2 stay at e beach, nothing else planned yet. Then u think need 2 bring clothes 2 change?
+DOC (gab): Oh, i managed to get the off cos i did duty on sat some time ago.... So,you r going shopping wif yr frens?
+DOC (hab): y dun u wanna go? tired ah? or lazy? i tot today last day to reply rite? still havent make up ur mind ah?
+DOC (iab): Lea u there?
+DOC (jab): Tom u coming to school?
+DOC (abb): Nope... I'm in a lect... Just now this girl was promoting... Haha you free to go there to look later?
+DOC (bbb): my jobs less than one mth lei.unless got v.good pay.heh2- well,gota zzz.nitey my dear cya on mon! n.n
+DOC (cbb): I tink it comes wif it...Haha
+DOC (dbb): Ic...Haiz,nv ask me along?Hee,im so sian at hm.
+DOC (ebb): Hey are we going for the lo lesson or gym? 
+DOC (fbb): I having lunch with shuhui. Xyan shld be done at 4.
+DOC (gbb): My sis so bo liao u noe. She arguing w me abt sun's hair den accuse me of smethg i haven thgt of. Hate it when pple accuse me...
+DOC (hbb): hey ppl interested in e exhib at spore expo?
+DOC (ibb): U all outside ah? If wan dye must book now also is it? Then think book lor. If dont wan then jus cancel lor hee...
+DOC (jbb): malayu
+DOC (acb): I'm outside now... Looking at cars...
+DOC (bcb): Ok. Then who reach go buy tix first. Dinner, me anything. Depends u wan eat w ur parents or not lor.
+DOC (ccb): I tink nt enuff den buy...I got like 6 bottles liao...Haha
+DOC (dcb): Wah so far. dunno how ey pay.
+DOC (ecb): race 4-7 Ashgrove $100
+DOC (fcb): Okie... Really sorry...
+DOC (gcb): Just woke up lor.
+DOC (hcb): No table lei
+DOC (icb): Hi tina ...
+DOC (jcb): Hmmm... Thk i usually book on wkends... Depends la...
+DOC (adb): ask them got any sms messages to gif me lei...now me only got like 100 over not enuff...u all online rite...when u all taking a break then type and forward to me...but if u all busy wif work then nvm...
+DOC (bdb): We r near coca oredi...
+DOC (cdb): hall Eleven. Got lectures le mah.?n forget abt complex nos etc. En like got lotsa wk-self one la.
+DOC (ddb): I Bring for u. I can not promise u 100% to win. sometime i loss also.
+DOC (edb): So hv u ask e pet hotel? Anyway hv u ask shuhui whether she want to watch?
+DOC (fdb): I just came back. I go bath first den call u k.
+DOC (gdb): Hmm. How come ur dad suddenly feel like going turf club.. So u alone at home?
+DOC (hdb): Wah so early ah. So wat u had for lunch?
+DOC (idb): Wat time u wake up. Tdy i pig again sleep until 1+.
+DOC (jdb): U watching dvd ah? Bored den think of me lah.
+DOC (aeb): I watching tv lor. Later going out to buy something. U leh? U going out?
+DOC (beb): Ok. So where u all having dinner?
+DOC (ceb): Okay... We wait ah
+DOC (deb): I think not going lah, so sorry, dun b angry w me k.
+DOC (eeb): Yup,i broke e duck to get A- but also get D+, haiz..
+DOC (feb): Wasted lor.. If e 2 can do better den my cap will improve more..
+DOC (geb): Wah liao.. I got 2 D+ , 3B+ , 1A-... So sad.. Overall this time cap improve by 1.1
+DOC (heb): Then ok, i go pick u first. I'm at cte now.
+DOC (ieb): Why lah?
+DOC (jeb): In 30mins , i leaving soon..
+DOC (afb): U reach home den call me k.
+DOC (bfb): Den u go back first lah. I go find u.
+DOC (cfb): U call me after u finish ur dinner, den see where am i or i go ur house n pick u.
+DOC (dfb): Hey come online! Use msn... We are all there
+DOC (efb): I going to meet xyan for dinner, just pei her eat only k..
+DOC (ffb): Eaten lor.. How come tdy so late?
+DOC (gfb): Shuhui not free lah.. So where r u eating?
+DOC (hfb): Birthday girl... Now having ur dinner?
+DOC (ifb): Where to pick you? what time?
+DOC (jfb): What time are you ready
+DOC (agb): Anyway i dun think i've really done a lot. As long as u r happy, things dat i can do for i'll do it for u..
+DOC (bgb): Reach home liao..
+DOC (cgb): May be a bit late..
+DOC (dgb): Reach ur house ard 715 k..
+DOC (egb): Oh yah... We never cancel leh... Haha 
+DOC (fgb): Think tonite not many show. We watch tom. Den tonite we go elsewhere lor.
+DOC (ggb): Ok i coming now.
+DOC (hgb): Not going to town i think, shld hv not enough time.
+DOC (igb): Wat u wearing ah? I dun think i wearing jeans.
+DOC (jgb): Later see how lah. I go change now, call u before i leave.
+DOC (ahb): Den we go toa payoh walk lor.
+DOC (bhb): Den we go out walk walk lah. I go fetch u.
+DOC (chb): Finish e part dat i missed yest liao. U still want 2 go out?
+DOC (dhb): Wat u doing?
+DOC (ehb): Ok i leaving now.
+DOC (fhb): K. Did you call me just now ah? 
+DOC (ghb): Before 10? I let u now before i leave.
+DOC (hhb): Ok i almost done. U change already?
+DOC (ihb): I just reach home.. I go bathe first k, den i call u again.
+DOC (jhb): wat time u leavin? pick me at 9?
+DOC (aib): Thanx for e food. Didnt expect u give me so much. Ok enjoy ur dinner.
+DOC (bib): Yup. I pick u ard 830. Call u when i leave.
+DOC (cib): Wat u doing?
+DOC (dib): I coming now.
+DOC (eib): Call u when i leave.
+DOC (fib): Ok i come ard 9?
+DOC (gib): Okay lor... Wah... like that def they wont let us go... Haha... What did they say in the terms and conditions?
+DOC (hib): Den tmr see how lah.
+DOC (iib): Tmr i may be going to ikea, u want to go?
+DOC (jib): I got to rush my lab report. Tdy cannot call u k. Tmr u going to school? I meet u in school?
+DOC (ajb): Wat r u doing?
+DOC (bjb): Ok i reach in 20 mins.
+DOC (cjb): I was thinking going to popular to buy some folder.
+DOC (djb): U bath already ah. U still want to come out?
+DOC (ejb): Wat u doing?
+DOC (fjb): Cos i was thinking if u come look for me den like no where to go ard my area leh.
+DOC (gjb): Hee.. I duno u not at home yet. Maybe c wat time my sis back den i go look for u.
+DOC (hjb): Okay lor... Will they still let us go a not ah? Coz they will not know until later. We drop our cards into the box right?
+DOC (ijb): Lazing ard lor. E weather dun looks good to go east coast leh.
+DOC (jjb): Ok.. So sorry abt dat. I eat wif u on other day k.
+DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh happiness!
+
+Searching with domain selector '@d:root file,@f:root file':
+Number of hits: 2
+DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh happiness!
+DOC (!:\data\cpixunittestcorpus\stem\en\4.txt): What is happening here?
+
