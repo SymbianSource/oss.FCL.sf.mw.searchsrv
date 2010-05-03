@@ -47,11 +47,13 @@ QCPixSearcherPrivate::~QCPixSearcherPrivate()
 
 void QCPixSearcherPrivate::HandleSearchResultsL(TInt aError, TInt aEstimatedResultCount)
     {
+    PERF_TIME_NOW("Async search complete");
     emit iSearchParent->handleSearchResults( aError, aEstimatedResultCount );
     }
 
 void QCPixSearcherPrivate::HandleDocumentL(TInt aError, CSearchDocument* aDocument)
     {
+    PERF_TIME_NOW("Async get document complete")
     emit iSearchParent->handleDocument( aError, QCPixDocFromCPixDoc( aDocument ) );
     }
 

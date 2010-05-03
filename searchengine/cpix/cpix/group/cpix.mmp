@@ -53,6 +53,7 @@ SOURCE            common/cpixlog.cpp
 SOURCE            common/refcountedbase.cpp
 SOURCE            common/cloners.cpp
 SOURCE            ifieldfilter.cpp
+SOURCE 	          prefixopt.cpp
 SOURCE            filters/quadfilter.cpp
 SOURCE            fileparser/fileparser.cpp
 SOURCE            fileparser/textfileparser.cpp
@@ -65,6 +66,7 @@ SOURCE            qrytypes/addressqrytype.cpp
 SOURCE            qrytypes/termsqrytype.cpp
 SOURCE            qrytypes/dumpqrytype.cpp
 SOURCE            qrytypes/quadqrytype.cpp
+SOURCE            qrytypes/prefixqrytype.cpp
 SOURCE            spi/exif.cpp
 SOURCE            spi/s60/exifreader.cpp
 SOURCE            spi/id3.cpp

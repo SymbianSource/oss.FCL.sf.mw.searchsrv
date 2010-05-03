@@ -18,6 +18,35 @@
 #ifndef _QCPIXSEARCHER_H
 #define _QCPIXSEARCHER_H
 
+//Uncomment the following line to enable performance measurements
+//#define OST_TRACE_COMPILER_IN_USE
+
+#ifdef OST_TRACE_COMPILER_IN_USE
+
+#include <qdatetime.h>
+#include <qdebug.h>
+#define PERF_SEARCH_START_TIMER  searchTimer.start();
+#define PERF_SEARCH_RESTART_TIMER searchTimer.restart();
+#define PERF_SEARCH_ENDLOG qDebug() << "Search QT API took: " << searchTimer.elapsed() << "msec";
+
+#define PERF_GETDOC_START_TIMER  getDocumentTimer.start();
+#define PERF_GETDOC_RESTART_TIMER getDocumentTimer.restart();
+#define PERF_GETDOC_ENDLOG qDebug() << "Search QT API took: " << getDocumentTimer.elapsed() << "msec";
+
+#define PERF_TIME_NOW(message) qDebug() << "Search QT API: " << QString(message) << ": " << QTime::currentTime().toString("hh:mm:ss.zzz");
+
+#else 
+
+#define PERF_SEARCH_START_TIMER  
+#define PERF_SEARCH_RESTART_TIMER 
+#define PERF_SEARCH_ENDLOG 
+#define PERF_GETDOC_START_TIMER
+#define PERF_GETDOC_RESTART_TIMER
+#define PERF_GETDOC_ENDLOG
+#define PERF_TIME_NOW(message)
+
+#endif
+
 /**
  * @file
  * @ingroup Search Client API fpr Qt Clients
@@ -224,6 +253,11 @@ private:
     
     QCPixSearcherPrivate* const iPvtImpl;
     Q_DECLARE_PRIVATE_D( iPvtImpl, QCPixSearcher )
+    
+#ifdef OST_TRACE_COMPILER_IN_USE
+    QTime searchTimer; 
+    QTime getDocumentTimer;
+#endif
     };
 
 #endif //_QCPIXSEARCHER_H

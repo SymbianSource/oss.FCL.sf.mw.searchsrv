@@ -112,6 +112,12 @@
     */
 #define LCPIX_DEFAULT_FIELD   L"_aggregate"
 
+   /**
+    * The default field to search for prefixes (aggregate of the contents of
+    * prefixes of other fields).
+    */
+#define LCPIX_DEFAULT_PREFIX_FIELD   L"_aggregate_prefix"
+
 
    /**
     * Documents, as created by the client may undergo a further
@@ -207,6 +213,10 @@
 #define LAPPLICATION_MIMETYPE    L"application/application"
 #define NOTES_MIMETYPE               "application/notes"
 #define LNOTES_MIMETYPE               L"application/notes"
+#define FILE_MIMETYPE                 "type/file"
+#define LFILE_MIMETYPE                L"type/file"
+#define FOLDER_MIMETYPE               "type/folder"
+#define LFOLDER_MIMETYPE              L"type/folder"
 
 /* 
  * Analyzer definition related constants  
@@ -232,10 +242,13 @@
 #define CPIX_FILTER_STOP  		  	L"stop" 
 #define CPIX_FILTER_STEM 		  	L"stem"
 #define CPIX_FILTER_LENGTH			L"length"
+#define CPIX_FILTER_PREFIXES		L"prefixes"
 
 #define CPIX_WLANG_EN				L"en" 
 #define CPIX_WLANG_FI	    	  	L"fi"
 #define CPIX_WLANG_HU	          	L"hu" 
 #define CPIX_WLANG_RU	    	  	L"ru"
+
+#define MAX_EXCERPT_LENGTH          125   //maximum exceprt length 
 
 #endif /*__CPIXMAINDEFS_H__*/

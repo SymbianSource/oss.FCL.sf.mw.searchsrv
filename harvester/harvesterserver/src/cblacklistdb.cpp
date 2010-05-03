@@ -18,6 +18,11 @@
 
 #include "CBlacklistDb.h"
 #include <HarvesterServerLogger.h>
+#include "OstTraceDefinitions.h"
+#ifdef OST_TRACE_COMPILER_IN_USE
+#include "cblacklistdbTraces.h"
+#endif
+
 
 _LIT(KBlacklistFileName,"Blacklist.dat");
 
@@ -42,10 +47,12 @@ _LIT(KDriveC, "c:");
 //
 CBlacklistDb* CBlacklistDb::NewL()
     {
+    OstTraceFunctionEntry0( CBLACKLISTDB_NEWL_ENTRY );
     CPIXLOGSTRING("CBlacklistDb::NewL(): Entered");
     CBlacklistDb* instance = CBlacklistDb::NewLC();
     CleanupStack::Pop( instance );
     CPIXLOGSTRING("CBlacklistDb::NewL(): Exit");
+    OstTraceFunctionExit0( CBLACKLISTDB_NEWL_EXIT );
     return instance;
     }
 
@@ -87,6 +94,7 @@ CBlacklistDb::~CBlacklistDb()
 //
 void CBlacklistDb::ConstructL()
     {
+    OstTraceFunctionEntry0( CBLACKLISTDB_CONSTRUCTL_ENTRY );
     CPIXLOGSTRING("CBlacklistDb::ConstructL(): Entered");
     //Open the sql database.If doesn't exist,create the sql database and open it     
     User::LeaveIfError( iFs.Connect() );
@@ -116,6 +124,7 @@ void CBlacklistDb::ConstructL()
             if ( error == KErrNone )
                 {                
                 iOpened = ETrue;                
+                OstTrace0( TRACE_NORMAL, CBLACKLISTDB_CONSTRUCTL, "CBlacklistDb::ConstructL(): Database Opened" );
                 CPIXLOGSTRING("CBlacklistDb::ConstructL(): Database Opened");
                 }
             }
@@ -126,6 +135,7 @@ void CBlacklistDb::ConstructL()
         }
     
     CPIXLOGSTRING("CBlacklistDb::ConstructL(): Exit");
+    OstTraceFunctionExit0( CBLACKLISTDB_CONSTRUCTL_EXIT );
     return;
     }
 
@@ -135,7 +145,9 @@ void CBlacklistDb::ConstructL()
 //
 TInt CBlacklistDb::AddL( TInt32 aPluginUid , TInt aVersion )
     {
+    OstTraceFunctionEntry0( CBLACKLISTDB_ADDL_ENTRY );
     //Add the item record to database
+    OstTraceExt2( TRACE_NORMAL, CBLACKLISTDB_ADDL, "CBlacklistDb::AddL;Uid=%x;Version=%d", aPluginUid, aVersion );
     CPIXLOGSTRING3("CBlacklistDb::AddL(): Uid = %x and Version = %d" , aPluginUid , aVersion);
     
     if ( !iOpened )
@@ -166,6 +178,7 @@ TInt CBlacklistDb::AddL( TInt32 aPluginUid , TInt aVersion )
     CleanupStack::PopAndDestroy( &dbView ); // dbView/    
     User::LeaveIfError( iDatabase.Compact() );    
     CPIXLOGSTRING("CBlacklistDb::AddL(): Exit");
+    OstTraceFunctionExit0( CBLACKLISTDB_ADDL_EXIT );
     return err;
     }
 
@@ -175,6 +188,8 @@ TInt CBlacklistDb::AddL( TInt32 aPluginUid , TInt aVersion )
 //
 void CBlacklistDb::Remove( TInt32 aPluginUid )
     {
+    OstTraceFunctionEntry0( CBLACKLISTDB_REMOVE_ENTRY );
+    OstTrace1( TRACE_NORMAL, CBLACKLISTDB_REMOVE, "CBlacklistDb::Remove;Uid=%x", aPluginUid );
     CPIXLOGSTRING2("CBlacklistDb::RemoveL(): Uid = %x " , aPluginUid);
     
     if ( !iOpened )
@@ -189,13 +204,16 @@ void CBlacklistDb::Remove( TInt32 aPluginUid )
     TInt rowCount( iDatabase.Execute(sql) );
     if(rowCount > 0)
         {        
+        OstTrace0( TRACE_NORMAL, DUP1_CBLACKLISTDB_REMOVE, "CBlacklistDb::RemoveL(): Removed UID succesfully" );
         CPIXLOGSTRING("CBlacklistDb::RemoveL(): Removed UID succesfully");
         }
     else
         {
+        OstTrace0( TRACE_NORMAL, DUP2_CBLACKLISTDB_REMOVE, "CBlacklistDb::RemoveL(): UID not found" );
         CPIXLOGSTRING("CBlacklistDb::RemoveL(): UID not found");
         }
     CPIXLOGSTRING("CBlacklistDb::RemoveL(): Exit");
+    OstTraceFunctionExit0( CBLACKLISTDB_REMOVE_EXIT );
     return ;
     }
 
@@ -205,6 +223,7 @@ void CBlacklistDb::Remove( TInt32 aPluginUid )
 //
 TBool CBlacklistDb::FindWithVersionL( TInt32 aPluginUid , TInt aVersion )
     {
+    OstTraceExt2( TRACE_NORMAL, CBLACKLISTDB_FINDWITHVERSIONL, "CBlacklistDb::FindWithVersionL;Uid=%x;Version=%d", aPluginUid, aVersion );
     CPIXLOGSTRING3("CBlacklistDb::FindWithVersionL(): Uid = %x and Version = %d" , aPluginUid , aVersion);
     
     if ( !iOpened )
@@ -233,6 +252,7 @@ TBool CBlacklistDb::FindWithVersionL( TInt32 aPluginUid , TInt aVersion )
         TInt version = dbView.ColInt32( versioncolno );
         if ( version == aVersion)
             {
+            OstTrace0( TRACE_NORMAL, DUP1_CBLACKLISTDB_FINDWITHVERSIONL, "CBlacklistDb::FindWithVersionL(): UID found" );
             CPIXLOGSTRING("CBlacklistDb::FindWithVersionL(): UID found");
             found = ETrue;
             }        
@@ -247,7 +267,9 @@ TBool CBlacklistDb::FindWithVersionL( TInt32 aPluginUid , TInt aVersion )
 //
 TInt CBlacklistDb::UpdateL( TInt32 aPluginUid , TInt aVersion )
 	{
+	OstTraceFunctionEntry0( CBLACKLISTDB_UPDATEL_ENTRY );
 	//Add the item record to database
+    OstTraceExt2( TRACE_NORMAL, CBLACKLISTDB_UPDATEL, "CBlacklistDb::UpdateL;Uid=%x;Version=%d", aPluginUid, aVersion );
     CPIXLOGSTRING3("CBlacklistDb::UpdateL(): Uid = %x and Version = %d" , aPluginUid , aVersion);
     
     if ( !iOpened )
@@ -288,6 +310,7 @@ TInt CBlacklistDb::UpdateL( TInt32 aPluginUid , TInt aVersion )
     CleanupStack::PopAndDestroy( &dbView ); // dbView/    
     User::LeaveIfError( iDatabase.Compact() );    
     CPIXLOGSTRING("CBlacklistDb::UpdateL(): Exit");
+    OstTraceFunctionExit0( CBLACKLISTDB_UPDATEL_EXIT );
     return KErrNone;
 	}
 
@@ -297,6 +320,7 @@ TInt CBlacklistDb::UpdateL( TInt32 aPluginUid , TInt aVersion )
 //
 TBool CBlacklistDb::FindL(TInt32 aPluginUid)
 	{
+	OstTrace1( TRACE_NORMAL, CBLACKLISTDB_FINDL, "CBlacklistDb::FindL;Uid=%x", aPluginUid );
 	CPIXLOGSTRING2("CBlacklistDb::FindL(): Uid = %x " , aPluginUid );
 	
 	if ( !iOpened )
@@ -318,6 +342,7 @@ TBool CBlacklistDb::FindL(TInt32 aPluginUid)
     
     if ( isAtRow )
        {        
+		OstTrace0( TRACE_NORMAL, DUP1_CBLACKLISTDB_FINDL, "CBlacklistDb::FindL(): UID found" );
 		CPIXLOGSTRING("CBlacklistDb::FindL(): UID found");
 		found = ETrue;                 
        }    
@@ -330,6 +355,7 @@ TBool CBlacklistDb::FindL(TInt32 aPluginUid)
 //
 void CBlacklistDb::CreateDBL()
     {
+    OstTraceFunctionEntry0( CBLACKLISTDB_CREATEDBL_ENTRY );
     CPIXLOGSTRING("CBlacklistDb::CreateDBL(): Enter");
     
     iDatabase.Close();
@@ -350,6 +376,7 @@ void CBlacklistDb::CreateDBL()
     CleanupStack::PopAndDestroy( columns );
     
     CPIXLOGSTRING("CBlacklistDb::CreateDBL(): Exit");
+    OstTraceFunctionExit0( CBLACKLISTDB_CREATEDBL_EXIT );
     }
 
 // -----------------------------------------------------------------------------
@@ -358,6 +385,7 @@ void CBlacklistDb::CreateDBL()
 //
 CDbColSet* CBlacklistDb::CreateColumnSetLC()
     {
+    OstTraceFunctionEntry0( CBLACKLISTDB_CREATECOLUMNSETLC_ENTRY );
     CPIXLOGSTRING("CBlacklistDb::CreateColumnSetLC(): Enter");
     
     CDbColSet* columns = CDbColSet::NewLC();
@@ -375,5 +403,6 @@ CDbColSet* CBlacklistDb::CreateColumnSetLC()
     
     CPIXLOGSTRING("CBlacklistDb::CreateColumnSetLC(): Exit");
     
+    OstTraceFunctionExit0( CBLACKLISTDB_CREATECOLUMNSETLC_EXIT );
     return columns; // columns stays on CleanupStack
     }

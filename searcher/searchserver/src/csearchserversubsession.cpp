@@ -29,6 +29,11 @@
 #include "SearchServerLogger.h"
 #include "SearchServer.pan"
 #include "CLogPlayerRecorder.h"
+#include "OstTraceDefinitions.h"
+#ifdef OST_TRACE_COMPILER_IN_USE
+#include "csearchserversubsessionTraces.h"
+#endif
+
 
 // Contants
 //_LIT8( KFileBaseAppClass, "root file" );
@@ -50,6 +55,7 @@ CSearchServerSubSession* CSearchServerSubSession::NewL(CSearchServerSession* aSe
 
 CSearchServerSubSession::CSearchServerSubSession(CSearchServerSession* aSession) : iSession(aSession)
 {
+    OstTrace0( TRACE_NORMAL, CSEARCHSERVERSUBSESSION_CSEARCHSERVERSUBSESSION, "Creating search server subsession" );
     CPIXLOGSTRING("Creating search server subsession");
 	
     // Dont ask why but I seem to have a compulsion to set everything NULL in constructor - AL
@@ -60,6 +66,7 @@ CSearchServerSubSession::CSearchServerSubSession(CSearchServerSession* aSession)
 
 CSearchServerSubSession::~CSearchServerSubSession()
 {
+    OstTrace0( TRACE_NORMAL, DUP1_CSEARCHSERVERSUBSESSION_CSEARCHSERVERSUBSESSION, "Deleting search server subsession" );
     CPIXLOGSTRING("Deleting search server subsession");
 
 	delete iIndexDb;
@@ -151,12 +158,14 @@ void CSearchServerSubSession::SetAnalyzerL(const RMessage2& aMessage)
 
 void CSearchServerSubSession::SearchL(const RMessage2& aMessage)
 	{
+	OstTraceFunctionEntry0( CSEARCHSERVERSUBSESSION_SEARCHL_ENTRY );
 	PERFORMANCE_LOG_START("CSearchServerSubSession::SearchL");
 	
 	// Sanity check
 	if (!iSearchDb->IsOpen())
 		{
 		iSession->PanicClient(aMessage, EDatabaseNotOpen);
+		OstTraceFunctionExit0( CSEARCHSERVERSUBSESSION_SEARCHL_EXIT );
 		return;
 		}
 	
@@ -181,10 +190,12 @@ void CSearchServerSubSession::SearchL(const RMessage2& aMessage)
 	
 	// Cleanup search terms
 	CleanupStack::PopAndDestroy(searchTerms);
+	OstTraceFunctionExit0( DUP1_CSEARCHSERVERSUBSESSION_SEARCHL_EXIT );
 	}
 	
 void CSearchServerSubSession::SearchCompleteL(const RMessage2& aMessage)
 	{
+	OstTraceFunctionEntry0( CSEARCHSERVERSUBSESSION_SEARCHCOMPLETEL_ENTRY );
 	PERFORMANCE_LOG_START("CSearchServerSubSession::SearchCompleteL");
 	
 	// Complete search
@@ -194,18 +205,21 @@ void CSearchServerSubSession::SearchCompleteL(const RMessage2& aMessage)
 	TPckgBuf<TInt> resultCountPackage(resultCount);
 	aMessage.WriteL(1, resultCountPackage);
 	
+	OstTraceFunctionExit0( CSEARCHSERVERSUBSESSION_SEARCHCOMPLETEL_EXIT );
 	}
 
 // CSearchServerSession::GetDocumentL().
 // Client gets the next documents (result) when SearchL has completed
 void CSearchServerSubSession::GetDocumentL(const RMessage2& aMessage)
 	{
+	OstTraceFunctionEntry0( CSEARCHSERVERSUBSESSION_GETDOCUMENTL_ENTRY );
 	PERFORMANCE_LOG_START("CSearchServerSubSession::GetDocumentL");
 	
 	// Sanity check
 	if (!iSearchDb->IsOpen())
 		{
 		iSession->PanicClient(aMessage, EDatabaseNotOpen);
+		OstTraceFunctionExit0( CSEARCHSERVERSUBSESSION_GETDOCUMENTL_EXIT );
 		return;
 		}
 	
@@ -216,27 +230,32 @@ void CSearchServerSubSession::GetDocumentL(const RMessage2& aMessage)
 	iNextDocument = NULL;
 	LOG_PLAYER_RECORD( CLogPlayerRecorder::LogGetDocumentL( reinterpret_cast<TUint>( this ), index ) );
 	iSearchDb->GetDocumentL(index, this, aMessage);
+	OstTraceFunctionExit0( DUP1_CSEARCHSERVERSUBSESSION_GETDOCUMENTL_EXIT );
 	}
 	
 void CSearchServerSubSession::GetDocumentCompleteL(const RMessage2& aMessage)
 	{
+	OstTraceFunctionEntry0( CSEARCHSERVERSUBSESSION_GETDOCUMENTCOMPLETEL_ENTRY );
 	PERFORMANCE_LOG_START("CSearchServerSubSession::GetDocumentCompleteL");
 	
 	iNextDocument = iSearchDb->GetDocumentCompleteL();	
 	TPckgBuf<TInt> documentSizePackage(iNextDocument ? iNextDocument->Size() : 0);
 	aMessage.WriteL(1, documentSizePackage);
+	OstTraceFunctionExit0( CSEARCHSERVERSUBSESSION_GETDOCUMENTCOMPLETEL_EXIT );
 	}
 
 // CSearchServerSession::GetDocumentObjectL()
 // Client gets the object after GetDocumentL() has completed 
 void CSearchServerSubSession::GetDocumentObjectL(const RMessage2& aMessage)
 	{
+	OstTraceFunctionEntry0( CSEARCHSERVERSUBSESSION_GETDOCUMENTOBJECTL_ENTRY );
 	PERFORMANCE_LOG_START("CSearchServerSubSession::GetDocumentObjectL");
 	
 	// Sanity check
 	if (!iSearchDb->IsOpen())
 		{
 		iSession->PanicClient(aMessage, EDatabaseNotOpen);
+		OstTraceFunctionExit0( CSEARCHSERVERSUBSESSION_GETDOCUMENTOBJECTL_EXIT );
 		return;
 		}
 	
@@ -272,6 +291,7 @@ void CSearchServerSubSession::GetDocumentObjectL(const RMessage2& aMessage)
 	
 	// Complete the request
 	aMessage.Complete(KErrNone);		
+	OstTraceFunctionExit0( DUP1_CSEARCHSERVERSUBSESSION_GETDOCUMENTOBJECTL_EXIT );
 	}
 
 void CSearchServerSubSession::AddL(const RMessage2& aMessage)
@@ -304,11 +324,32 @@ void CSearchServerSubSession::AddL(const RMessage2& aMessage)
 		CLogPlayerRecorder::LogAddL( reinterpret_cast<TUint>(this), *document );
 	    }
 	);
+	//check if excerpt is more then maximum allowed
+	LimitExcerptToMaxLengthL(document);
 	iIndexDb->AddL(*document, this, aMessage);
 	
 	CleanupStack::PopAndDestroy(document);
 	CleanupStack::PopAndDestroy(serializedDocument);
 	}
+
+void CSearchServerSubSession::LimitExcerptToMaxLengthL(CSearchDocument* aSearchDocument)
+    {
+    //check if excerpt is more then maximum allowed
+    if(aSearchDocument->Excerpt().Length() > MAX_EXCERPT_LENGTH)
+        {
+        OstTraceExt1( TRACE_NORMAL, CSEARCHSERVERSUBSESSION_LIMITEXCERPTTOMAXLENGTHL, "CSearchServerSubSession::LimitExcerptToMaxLengthL;docuid=%S", (aSearchDocument->Id()) );
+        CPIXLOGSTRING2("CSearchServerSubSession::AddL docuid=%S", &(aSearchDocument->Id()));
+        OstTrace1( TRACE_NORMAL, DUP1_CSEARCHSERVERSUBSESSION_LIMITEXCERPTTOMAXLENGTHL, "CSearchServerSubSession::LimitExcerptToMaxLengthL;Excerpt Length=%d", aSearchDocument->Excerpt().Length() );
+        CPIXLOGSTRING2("CSearchServerSubSession::AddL Excerpt Length =%d", aSearchDocument->Excerpt().Length());
+        const TDesC& excerpt = aSearchDocument->Excerpt();
+        HBufC* bufExcerpt = HBufC::NewLC(MAX_EXCERPT_LENGTH);
+        TPtr ptrExcerpt = bufExcerpt->Des();
+        ptrExcerpt.Append(excerpt.Ptr(),MAX_EXCERPT_LENGTH - 1);
+        ptrExcerpt.Append(KNullDesC); //Append NULL
+        aSearchDocument->AddExcerptL(*bufExcerpt);
+        CleanupStack::PopAndDestroy(bufExcerpt);
+        }
+    }
 
 void CSearchServerSubSession::AddCompleteL(const RMessage2& /*aMessage*/)
 	{
@@ -341,6 +382,7 @@ void CSearchServerSubSession::UpdateL(const RMessage2& aMessage)
 	
 	// Index the thing
 	LOG_PLAYER_RECORD( CLogPlayerRecorder::LogUpdateL( reinterpret_cast<TUint>(this), *document ) );
+	LimitExcerptToMaxLengthL(document);
 	iIndexDb->UpdateL(*document, this, aMessage);
 	
 	CleanupStack::PopAndDestroy(document);

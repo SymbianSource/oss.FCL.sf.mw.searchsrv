@@ -25,6 +25,7 @@ TARGETPATH        /private/101f875a/import
 END
 
 USERINCLUDE	 ../inc
+USERINCLUDE	 ../traces
 
 MW_LAYER_SYSTEMINCLUDE
 

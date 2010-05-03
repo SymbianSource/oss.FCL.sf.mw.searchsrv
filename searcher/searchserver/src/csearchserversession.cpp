@@ -31,6 +31,12 @@
 #include "CLogPlayerRecorder.h"
 
 #include "indevicecfg.h"
+#include "OstTraceDefinitions.h"
+#ifdef OST_TRACE_COMPILER_IN_USE
+#include "csearchserversessionTraces.h"
+#endif
+
+
 
 // ========================= MEMBER FUNCTIONS ==================================
 
@@ -75,6 +81,7 @@ void CSearchServerSession::ConstructL()
 //
 CSearchServerSession::CSearchServerSession()
     {
+        OstTrace0( TRACE_NORMAL, CSEARCHSERVERSESSION_CSEARCHSERVERSESSION, "Creating search server session" );
         CPIXLOGSTRING("Creating search server session");
     }
 
@@ -85,6 +92,7 @@ CSearchServerSession::CSearchServerSession()
 //
 CSearchServerSession::~CSearchServerSession()
     {
+        OstTrace0( TRACE_NORMAL, DUP1_CSEARCHSERVERSESSION_CSEARCHSERVERSESSION, "Deleting search server session" );
         CPIXLOGSTRING("Deleting search server session");
     }
 

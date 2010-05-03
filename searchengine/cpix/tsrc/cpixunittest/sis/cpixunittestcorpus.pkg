@@ -98,6 +98,7 @@
 "..\data\cpixunittestcorpus\stem\en\2.txt"                         - "e:\data\cpixunittestcorpus\stem\en\2.txt"
 "..\data\cpixunittestcorpus\stem\en\3.txt"                         - "e:\data\cpixunittestcorpus\stem\en\3.txt"
 "..\data\cpixunittestcorpus\stem\en\4.txt"                         - "e:\data\cpixunittestcorpus\stem\en\4.txt"
+"..\data\cpixunittestcorpus\stem\en\Empty.txt"                         - "e:\data\cpixunittestcorpus\stem\en\Empty.txt"
 "..\data\cpixunittestcorpus\stem\en\longline.txt"                  - "e:\data\cpixunittestcorpus\stem\en\longline.txt"
 "..\data\cpixunittestcorpus\stem\fi\1.txt"                         - "e:\data\cpixunittestcorpus\stem\fi\1.txt"
 "..\data\cpixunittestcorpus\stem\fi\2.txt"                         - "e:\data\cpixunittestcorpus\stem\fi\2.txt"
@@ -107,3 +108,6 @@
 "..\data\cpixunittestcorpus\pdf\geology.pdf"                       - "e:\data\cpixunittestcorpus\pdf\geology.pdf"
 "..\data\cpixunittestcorpus\pdf\samplepdf.pdf"                     - "e:\data\cpixunittestcorpus\pdf\samplepdf.pdf"
 "..\data\cpixunittestcorpus\pdf\windjack.pdf"                      - "e:\data\cpixunittestcorpus\pdf\windjack.pdf"
+"..\data\cpixunittestcorpus\pdf\DCTDecode.pdf"                     - "e:\data\cpixunittestcorpus\pdf\DCTDecode.pdf"
+"..\data\cpixunittestcorpus\pdf\Empty.pdf"                 		   - "e:\data\cpixunittestcorpus\pdf\Empty.pdf"
+

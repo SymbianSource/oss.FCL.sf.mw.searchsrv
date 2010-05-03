@@ -153,6 +153,7 @@ protected:
 private:
 	void ConstructL();
 	CSearchServerSubSession(CSearchServerSession* aSession);	
+	void LimitExcerptToMaxLengthL(CSearchDocument* aSearchDocument);
 		
 private:
 	CCPixIdxDb* iIndexDb;

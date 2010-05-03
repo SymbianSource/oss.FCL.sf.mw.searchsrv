@@ -26,6 +26,8 @@
 
 #define FILEAPPCLASS         "root file"
 #define LFILEAPPCLASS       L"root file"
+#define CONTENTAPPCLASS     "root file content"
+#define LCONTENTAPPCLASS    L"root file content"
 #define TEXTAPPCLASS         "root file usrdoc text"
 #define LTEXTAPPCLASS       L"root file usrdoc text"
 #define PDFAPPCLASS         "root file usrdoc pdf"
@@ -42,8 +44,8 @@
 #define LBASENAME_FIELD     L"BaseName"
 #define EXTENSION_FIELD     "Extension"
 #define LEXTENSION_FIELD    L"Extension"
-#define FULLNAME_FIELD      "FullName"
-#define LFULLNAME_FIELD     L"FullName"
+#define FULLNAME_FIELD      "Name"
+#define LFULLNAME_FIELD     L"Name"
 
 
 #define CONTENTS_FIELD      L"Contents"

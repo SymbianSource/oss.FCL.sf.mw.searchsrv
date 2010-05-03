@@ -18,13 +18,14 @@ TEMPLATE = app
 TARGET = OrbitSearch 
 
 QT += core
-QT += gui 
+QT += gui
+QT += sql 
 CONFIG += qtestlib
 LIBS += -lqcpixsearchclient -lxqservice
 
-HEADERS   +=    searchHandler.h uicontrols.h searchhelper.h
+HEADERS   +=    uicontrols.h searchhelper.h testsearch.h testci.h
 SOURCES   +=    OrbitSearch_reg.rss \
-                main.cpp searchHandler.cpp searchhelper.cpp
+                main.cpp searchhelper.cpp testsearch.cpp testci.cpp
 
 symbian:TARGET.UID3 = 0xE11D1102
 symbian:TARGET.CAPABILITY = ALL -TCB -DRM

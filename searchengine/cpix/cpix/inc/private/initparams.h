@@ -313,7 +313,12 @@ namespace Cpix
              * of housekeep rounds. How many housekeep rounds later,
              * is defined by this enum here.
              */
-            DISCARD_SAFETY_PERIOD = 2
+            DISCARD_SAFETY_PERIOD = 2,
+			
+			/**
+			 * Up to this long prefixes will be optimized by default
+			 */
+			OPTIMIZED_PREFIX_MAX_LENGTH = 2
         };
 
 

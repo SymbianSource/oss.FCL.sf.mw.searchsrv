@@ -139,15 +139,28 @@ namespace Cpix
         doc->add(newField.get());
         newField.release();
         
-        wchar_t
-            excerpt[512];
-        getExcerptOfFile(excerpt,
+        /* determine file size. if the stream is not seekable, the size will be -1
+         * Here if the file is empty then we put the path name contained in 
+         * "_docuid" as excerpt
+         */
+        FILE* textFilePtr = fopen(path, "r");
+        fseek(textFilePtr, 0, SEEK_END);
+        long long size = ftell(textFilePtr);
+        fseek(textFilePtr, 0, SEEK_SET);
+        fclose(textFilePtr);
+        if (size > 0) {
+			wchar_t excerpt[512];
+        	getExcerptOfFile(excerpt,
                          path,
                          10, // max words
                          sizeof(excerpt) / sizeof(wchar_t));
-        
-        doc->setExcerpt(excerpt);
-        doc->setAppClass(TEXTAPPCLASS);
+			doc->setExcerpt(excerpt);
+		
+		} else {
+            //For empty file setting the path as excerpt 
+			doc->setExcerpt(doc->get(LCPIX_DOCUID_FIELD));
+		}
+        doc->setAppClass(CONTENTAPPCLASS);
         doc->setMimeType(LTEXTFILE_MIMETYPE);
         // Always perform generic file processing
         GenericFileProcessor(doc,path);

@@ -69,42 +69,42 @@ void CTestIndexer::setUp()
     iIndexer = CCPixIndexer::NewL(iSession);
     iIndexer->OpenDatabaseL(KFileBaseAppClassC);
     iIndexer->ResetL();
-    
-    iSearcher = CCPixSearcher::NewL(iSession);
-    iSearcher->OpenDatabaseL(KFileBaseAppClassC);
-    
-    iHandleResultLeaves = new (ELeave) CHandleIndexingResultLeaves;
-    
-    // iWait will cause waiting until some asynchronous event has happened
-    iWait = new (ELeave) CActiveSchedulerWait;
-    iMyAOClass = CAOTestClass::NewL(this);
-    
-    iCurrentIndex = 0;
     }
 
-void CTestIndexer::tearDown()
+void CTestIndexer::InitSearcher()
     {
-    iCurrentIndex = 0;
+    iSearcher = CCPixSearcher::NewL(iSession);
+    iSearcher->OpenDatabaseL(KFileBaseAppClassC);
+    }
 
-    iIndexer->ResetL();
-
+void CTestIndexer::ReleaseSearcher()
+    {
+    delete iSearcher;
+    iSearcher = NULL;
+    }
+void CTestIndexer::InitAsyncModules()
+    {
+    iHandleResultLeaves = new (ELeave) CHandleIndexingResultLeaves;
+    iIndexerWait = new (ELeave) CActiveSchedulerWait;
+    iMyAOClass = CAOTestClass::NewL(this);
+    }
+void CTestIndexer::ReleaseAsyncModules()
+    {
     if( iMyAOClass )
         {
         delete iMyAOClass;
         iMyAOClass = NULL;
         }
-    
-    delete iIndexer;
-    iIndexer = NULL;
-    
-    delete iSearcher;
-    iSearcher = NULL;
-
     delete iHandleResultLeaves;
     iHandleResultLeaves = NULL;
 
-    delete iWait;
-
+    delete iIndexerWait;
+    }
+void CTestIndexer::tearDown()
+    {
+    iIndexer->ResetL();    
+    delete iIndexer;
+    iIndexer = NULL;
     iSession.UnDefineVolume(KFileBaseAppClassC);
     iSession.Close();
     }
@@ -124,12 +124,12 @@ void CTestIndexer::CreateFileIndexItemL(const TDesC& aFilename)
     }
 
 
-TInt CTestIndexer::SearchForTextL(const TDesC& aQueryString, const TDesC& aDefaultField)
+TInt CTestIndexer::SearchForTextL(const TDesC& aQueryString, const TDesC& aDefaultField, TBool aFlush )
     {
     TInt estimatedDocumentCount(KErrNotFound);
     
     // Make sure CPix flush is done before searching
-    if (iIndexer)
+    if ( aFlush && iIndexer)
         {
         iIndexer->FlushL();
         }
@@ -172,19 +172,19 @@ TBool CTestIndexer::CheckBaseAppClassIsExpectedL(const TDesC& aExpectedAppClass,
 
 void CTestIndexer::HandleOpenDatabaseResultL( TInt /* aError */ )
     {
-    if (iWait && iWait->IsStarted())
+    if (iIndexerWait && iIndexerWait->IsStarted())
         {
         // All done, signal that can continue now.
-        iWait->AsyncStop();
+        iIndexerWait->AsyncStop();
         }
     }
 
 void CTestIndexer::HandleSetAnalyzerResultL(TInt /*aError*/)
     {
-    if (iWait && iWait->IsStarted())
+    if (iIndexerWait && iIndexerWait->IsStarted())
         {
         // All done, signal that can continue now.
-        iWait->AsyncStop();
+        iIndexerWait->AsyncStop();
         }
     }
 
@@ -192,19 +192,19 @@ void CTestIndexer::HandleIndexingResultL(TInt aError)
     {
     TS_ASSERT(aError == KErrNone);
     
-    // if the test case started iWait, then stop it
-    if (iWait && iWait->IsStarted())
+    // if the test case started iIndexerWait, then stop it
+    if (iIndexerWait && iIndexerWait->IsStarted())
         {
-        iWait->AsyncStop();
+        iIndexerWait->AsyncStop();
         }
     }
 
 // Timeout callback
 void CTestIndexer::CallCompleted( int /* i */ )
     {
-    if (iWait && iWait->IsStarted())
+    if (iIndexerWait && iIndexerWait->IsStarted())
         {
-        iWait->AsyncStop();
+        iIndexerWait->AsyncStop();
         }
     }
 
@@ -242,7 +242,7 @@ void CTestIndexer::testOpenIndexDb()
     // to be triggered.
     iMyAOClass->StartL(1000000*10); //Async call: Maximum TimeOut time 10 seconds
 
-    iWait->Start();
+    iIndexerWait->Start();
     TS_ASSERT(indexer->IsDatabaseOpen());
     CleanupStack::PopAndDestroy(indexer);
     }
@@ -314,24 +314,19 @@ void CTestIndexer::testAsyncAddL()
     TS_ASSERT(result == 0); 
 
     //Improve code coverage
-    CSearchDocument* index_item = CSearchDocument::NewL(KTestFileAct0, KNullDesC, _L("excerpt"), CSearchDocument::EFileParser);
+    CSearchDocument* index_item = CSearchDocument::NewL(KTestFileAct0, KNullDesC, _L("excerpt"), CSearchDocument::EFileParser);    
     CleanupStack::PushL(index_item);
-    //CSearchDocument* index_item = CSearchDocument::NewLC(KTestFileAct0, KNullDesC, KNullDesC, CSearchDocument::EFileParser);
-    
     iIndexer->AddL(*this, *index_item);
     CleanupStack::PopAndDestroy(index_item);
 
-    iWait->Start();
-
-    result = SearchForTextL(KUniqueSearchTermInAct0Txt, KNullDesC);
+    iIndexerWait->Start();
+    User::After( 30000000 );
+    result = SearchForTextL(KUniqueSearchTermInAct0Txt, KNullDesC, false);
     TS_ASSERT(result == 1);
     CSearchDocument* doc = iSearcher->GetDocumentL(0);
     TS_ASSERT(doc != NULL);
-    //TS_ASSERT(doc->Excerpt() != KNullDesC);//Should not be NULL
-    delete doc;
-    CDocumentField* docField = CDocumentField::NewL(_L("test"),_L("test"));
-    TS_ASSERT(docField != NULL);
-    delete docField;
+    TS_ASSERT(doc->Excerpt() != KNullDesC);//Should not be NULL
+    delete doc;    
     }
 
 void CTestIndexer::testCancelAddL()
@@ -392,7 +387,7 @@ void CTestIndexer::testAsyncUpdateL()
     iIndexer->UpdateL(*this, *index_item);
     CleanupStack::PopAndDestroy(index_item);
 
-    iWait->Start();
+    iIndexerWait->Start();
 
     // As the document has been updated the amount of search hits
     // must remain the same as before.
@@ -458,7 +453,7 @@ void CTestIndexer::testAsyncDeleteL()
         {
         iIndexer->DeleteL(*this, KTestFileAct0);
         }
-    iWait->Start();
+    iIndexerWait->Start();
 
     // Now that deleted act0.txt, the same search must yield zero results.
     result = SearchForTextL(KUniqueSearchTermInAct0Txt, KNullDesC);
@@ -530,14 +525,14 @@ void CTestIndexer::testAsyncFlushL()
     CleanupStack::PopAndDestroy(index_item);
     
     // No flush. Term should not be in the indexDb
-    result = SearchForTextL(KUniqueSearchTermInAct0Txt, KNullDesC);
+    result = SearchForTextL(KUniqueSearchTermInAct0Txt, KNullDesC, false);
     
     // TODO: Feature not yet in CPix. Change when flush is required.
     //TS_ASSERT(result == 0); 
-    TS_ASSERT(result == 1); 
+    TS_ASSERT(result == 0); 
 
     iIndexer->FlushL(*this);
-    iWait->Start();
+    iIndexerWait->Start();
 
     // After flush term should be in the indexDb
     result = SearchForTextL(KUniqueSearchTermInAct0Txt, KNullDesC);
@@ -558,7 +553,7 @@ void CTestIndexer::testAsyncResetL()
 
     iIndexer->ResetL(*this);
     
-    iWait->Start();
+    iIndexerWait->Start();
 
     result = SearchForTextL(KUniqueSearchTermInAct0Txt, KNullDesC);
     TS_ASSERT(result == 0);
@@ -593,7 +588,7 @@ void CTestIndexer::testSetAnalyzerAsync()
         const TDesC& db = iIndexer->GetBaseAppClass();//Increase Coverage
         }
     iIndexer->SetAnalyzerL(*this,_L( "" CPIX_ANALYZER_STANDARD ));
-    iWait->Start();//wait till it returns
+    iIndexerWait->Start();//wait till it returns
     TS_ASSERT(result == 0);
     }
 

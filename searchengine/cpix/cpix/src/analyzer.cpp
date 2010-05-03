@@ -38,6 +38,7 @@
 
 #include "indevicecfg.h" 
 
+#include "initparams.h"
 namespace
 {
     const char AGGR_NONFILEREADERPROXY_ERR[] 
@@ -50,6 +51,44 @@ namespace
 
 namespace Cpix {
 
+	PrefixGenerator::PrefixGenerator(
+		lucene::analysis::TokenStream* in, 
+		bool deleteTS, 
+		size_t maxPrefixLength) 
+	: 	TokenFilter(in, deleteTS),
+	  	token_(), 
+	  	prefixLength_(0),
+	  	maxPrefixLength_(maxPrefixLength) {}
+	
+	
+	PrefixGenerator::~PrefixGenerator() {
+	}
+
+	
+	bool PrefixGenerator::next(lucene::analysis::Token* token) {
+		token_.setPositionIncrement(0); 
+
+		while (prefixLength_ == 0) {
+			token_.setPositionIncrement(1); // default position increment
+			if (!input->next(&token_)) {
+				return false;
+			}
+			prefixLength_ = std::min(token_.termTextLength(), maxPrefixLength_);
+		}
+			
+		// Clip token
+		std::wstring clipped; 
+		clipped = token_.termText();
+		token_.setText(clipped.substr(0, prefixLength_).c_str());
+		
+		// Copy
+		token->set(token_.termText(), token_.startOffset(), token_.endOffset(), token_.type());
+		token->setPositionIncrement(token_.getPositionIncrement());
+		
+		// Reduce prefixLength_
+		prefixLength_--;
+		return true; 
+	}
 
     AggregateFieldTokenStream::AggregateFieldTokenStream(lucene::analysis::Analyzer& analyzer, 
                                                          DocumentFieldIterator* fields) 
@@ -136,6 +175,12 @@ namespace Cpix {
                                                                        lucene::util::Reader * reader) {
         if ( wcscmp( fieldName, LCPIX_DEFAULT_FIELD ) == 0 ) {
             return new AggregateFieldTokenStream( analyzer_, document_.fields()); 
+        } else if ( wcscmp( fieldName, LCPIX_DEFAULT_PREFIX_FIELD ) == 0 ) {
+            return
+				new PrefixGenerator(
+					new AggregateFieldTokenStream( analyzer_, document_.fields()),
+					true,
+					OPTIMIZED_PREFIX_MAX_LENGTH);
         } else {
             return analyzer_.tokenStream( fieldName, reader ); 
         }
@@ -428,6 +473,34 @@ namespace Cpix {
         int min_, max_;
         std::auto_ptr<TokenStreamFactory> factory_; 
     };
+    
+    /**
+     * Specialized PrefixGenerator factory is needed, because PrefixGenerator
+     * requires the max prefix size. 
+     */
+    template<>
+    class FilterFactory<PrefixGenerator> : public TokenStreamFactory 
+    {
+    public:
+        FilterFactory(const Invokation& invokation, 
+                      auto_ptr<TokenStreamFactory> factory) 
+            : factory_(factory) {
+            using namespace Cpt::Parser;
+            if (invokation.params().size() != 1 || 
+                !dynamic_cast<IntegerLit*>(invokation.params()[0])) {
+                THROW_CPIXEXC("Prefix generator takes exactly one integer parameter");
+            }
+            maxPrefixLength_ = dynamic_cast<IntegerLit*>(invokation.params()[0])->value();
+        }
+        virtual lucene::analysis::TokenStream* tokenStream(const TCHAR          * fieldName, 
+                                                           lucene::util::Reader * reader) {
+            return _CLNEW PrefixGenerator(factory_->tokenStream(fieldName, reader), true, maxPrefixLength_ ); 
+        }
+    private: 
+        int maxPrefixLength_;
+        std::auto_ptr<TokenStreamFactory> factory_; 
+    };
+
 
     typedef auto_ptr<TokenStreamFactory> (*TokenizerFactoryCreator)(const Invokation& invokation);
     typedef auto_ptr<TokenStreamFactory> (*FilterFactoryCreator)(const Invokation& invokation, 
@@ -507,6 +580,7 @@ namespace Cpix {
         {CPIX_FILTER_STOP, 		FilterFactoryCtor<lucene::analysis::StopFilter>::create},
         {CPIX_FILTER_STEM, 		FilterFactoryCtor<lucene::analysis::SnowballFilter>::create},
         {CPIX_FILTER_LENGTH, 	FilterFactoryCtor<lucene::analysis::LengthFilter>::create},
+        {CPIX_FILTER_PREFIXES, 	FilterFactoryCtor<PrefixGenerator>::create},
 
 // 		TODO: Add more Filters
 

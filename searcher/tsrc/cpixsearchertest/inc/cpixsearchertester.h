@@ -36,8 +36,15 @@ class CTestSearcher : //public CxxTest::TestSuite,
 {   
 public:
     CTestSearcher(){}
-    void setUp();
+    void initialsetUp();
+    void createandinitindexer();
+    void createsearcher();
+    void harvesttestcontent( TInt aCount );
+    void InitAsyncComponents();
     void tearDown();
+    void ReleaseIndexer();
+    void ReleaseSearcher();
+    void ReleaseAsyncComponents();
 private:    
 
     TInt SearchForTextL(const TDesC& aText, const TDesC& aDefaultField);
@@ -62,7 +69,7 @@ public:
      * Basic search tests - requires IndexDb with Shakespeare corpus data 
      * already indexed.
      */
-    TInt testKnownTermTestsL();
+    void testKnownTermTestsL();
     /*
      * Simple tests for wildcard searches
      */
@@ -107,6 +114,8 @@ public:
      *  search statemachine.
      */
     void testGetInvalidDocumentAsync();
+    
+    TInt testEcerptLenth();
 private:
     CCPixSearcher* iSearcher;
     RSearchServerSession iSession;

@@ -57,6 +57,7 @@ Itk::TesterBase * CreateMapsTests();
 Itk::TesterBase * CreateDocumentTests();
 Itk::TesterBase * CreateTermSearchTests();
 Itk::TesterBase * CreatePdfSearchTests();
+Itk::TesterBase * CreateQueryTests();
 
 Itk::TesterBase * CreateFlushTests();
 Itk::TesterBase * CreateHeartbeatTests();
@@ -67,6 +68,8 @@ Itk::TesterBase * CreateClQryHierarchy();
 
 Itk::TesterBase * CreateASyncTests();
 
+// Avoid media Testcases if MDS not present. 
+#ifdef MDS_PRESENT
 // Spi 
 Itk::TesterBase * CreateExifTests();
 Itk::TesterBase * CreateId3Tests();
@@ -84,7 +87,7 @@ Itk::TesterBase * CreateSpiHierarchy()
     
     return spi; 
 }
-
+#endif
 
 
 Itk::TesterBase * CreateTestHierarchy()
@@ -95,7 +98,7 @@ Itk::TesterBase * CreateTestHierarchy()
     SuiteTester
         * all = new SuiteTester("all");
     
-
+//
     all->add(CreateSuiteTesterRandom()); 
     all->add(CreateDestructiveTests());
     all->add(CreatePrematureQryTests());
@@ -104,28 +107,33 @@ Itk::TesterBase * CreateTestHierarchy()
     all->add(CreatePartialSmsTests()); 
     all->add(CreateDeletionTests());  
     all->add(CreateWhiteBoxTests()); 
-    all->add(CreateStemTests()); 
     all->add(CreateAggregateTests()); 
 	all->add(CreateNegativeTests());
-    all->add(CreateGeoTests());
+
     all->add(CreateMultiVolumeTests()); 	
     all->add(CreateDomainSelectionTests()); 
     all->add(CreateUtf8Tests());			
     all->add(CreateUtf8PathTests());
     all->add(CreateAnalysisTests());		
-    all->add(CreateMapsTests());			 
+		 
 
     all->add(CreateDocumentTests());		
     all->add(CreateFlushTests());			
     all->add(CreateHeartbeatTests());	    
     all->add(CreateTermSearchTests()); 		
-    //all->add(CreatePdfSearchTests());
+    all->add(CreatePdfSearchTests());
     
     // TODO enable later Itk::TesterBase * CreateClQryHierarchy();
 
     all->add(CreateASyncTests());			
 
-    all->add(CreateSpiHierarchy());
+#ifdef MDS_PRESENT
+    //all->add(CreateStemTests());    //Commented for STEMMER 
+    //all->add(CreateGeoTests());     //Comment for GEO
+    //all->add(CreateMapsTests());    //Comment for MAP	
+    // all->add(CreateSpiHierarchy());  // Commented for JPG/EXIF files checks
+#endif
+	all->add(CreateQueryTests()); 
 
     // add more top level test suites here
     // ...

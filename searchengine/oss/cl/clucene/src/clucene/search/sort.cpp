@@ -5,7 +5,7 @@
 * the GNU Lesser General Public License, as specified in the COPYING file.
 ------------------------------------------------------------------------------*/
 #include "clucene/stdheader.h"
-#include "Sort.h"
+#include "sort.h"
 #include "compare.h"
 
 CL_NS_USE(util)

@@ -36,6 +36,7 @@ SYSTEMINCLUDE     /epoc32/include/stdapis/stlportv5
 OS_LAYER_GLIB_SYSTEMINCLUDE
 
 USERINCLUDE       ../inc
+USERINCLUDE       ../traces
 USERINCLUDE       ../../../searchsrv_plat/cpix_utility_api/inc
 USERINCLUDE       ../../SearchClient/inc
 USERINCLUDE       ../../../searchengine/cpix/cpix/inc/public

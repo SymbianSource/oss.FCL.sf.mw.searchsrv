@@ -16,7 +16,13 @@
 */
 
 #include "CBlacklistMgr.h"
+#include "CBlacklistDb.h"
 #include <HarvesterServerLogger.h>
+#include "OstTraceDefinitions.h"
+#ifdef OST_TRACE_COMPILER_IN_USE
+#include "cblacklistmgrTraces.h"
+#endif
+
 
 // -----------------------------------------------------------------------------
 // CBlacklistMgr::NewL()
@@ -24,10 +30,12 @@
 //
 CBlacklistMgr* CBlacklistMgr::NewL()
     {
+    OstTraceFunctionEntry0( CBLACKLISTMGR_NEWL_ENTRY );
     CPIXLOGSTRING("CBlacklistMgr::NewL(): Entered");
     CBlacklistMgr* instance = CBlacklistMgr::NewLC();
     CleanupStack::Pop( instance );
     CPIXLOGSTRING("CBlacklistMgr::NewL(): Exit");
+    OstTraceFunctionExit0( CBLACKLISTMGR_NEWL_EXIT );
     return instance;
     }
 
@@ -67,9 +75,11 @@ CBlacklistMgr::~CBlacklistMgr()
 //
 void CBlacklistMgr::ConstructL()
     {
+    OstTraceFunctionEntry0( CBLACKLISTMGR_CONSTRUCTL_ENTRY );
     CPIXLOGSTRING("CBlacklistMgr::ConstructL(): Entered");    
     iBlacklistDb = CBlacklistDb::NewL();    
     CPIXLOGSTRING("CBlacklistMgr::ConstructL(): Exit");    
+    OstTraceFunctionExit0( CBLACKLISTMGR_CONSTRUCTL_EXIT );
     }
 
 // -----------------------------------------------------------------------------
@@ -78,7 +88,9 @@ void CBlacklistMgr::ConstructL()
 //
 TInt CBlacklistMgr::AddL( TUid aPluginUid , TInt aVersion )
     {
+    OstTraceFunctionEntry0( CBLACKLISTMGR_ADDL_ENTRY );
     //Add the item record to database
+    OstTraceExt2( TRACE_NORMAL, CBLACKLISTMGR_ADDL, "CBlacklistMgr::AddL;Uid=%x;Version=%d", aPluginUid.iUid, aVersion );
     CPIXLOGSTRING3("CBlacklistMgr::AddL(): Uid = %x and Version = %d" , aPluginUid.iUid , aVersion);
     //Check if the record with given plugin uid is already available in database or not
     //If available just update version number in the same record
@@ -96,6 +108,7 @@ TInt CBlacklistMgr::AddL( TUid aPluginUid , TInt aVersion )
         }
       
     CPIXLOGSTRING("CBlacklistMgr::AddL(): Exit");
+    OstTraceFunctionExit0( CBLACKLISTMGR_ADDL_EXIT );
     return err;
     }
 
@@ -105,11 +118,14 @@ TInt CBlacklistMgr::AddL( TUid aPluginUid , TInt aVersion )
 //
 void CBlacklistMgr::Remove( TUid aPluginUid )
     {
+    OstTraceFunctionEntry0( CBLACKLISTMGR_REMOVE_ENTRY );
+    OstTrace1( TRACE_NORMAL, CBLACKLISTMGR_REMOVE, "CBlacklistMgr::Remove;Uid=%x", aPluginUid.iUid );
     CPIXLOGSTRING2("CBlacklistMgr::RemoveL(): Uid = %x " , aPluginUid.iUid );
     //Remove the item record to database
     iBlacklistDb->Remove( aPluginUid.iUid );
     
     CPIXLOGSTRING("CBlacklistMgr::RemoveL(): Exit");    
+    OstTraceFunctionExit0( CBLACKLISTMGR_REMOVE_EXIT );
     }
 
 // -----------------------------------------------------------------------------
@@ -118,16 +134,19 @@ void CBlacklistMgr::Remove( TUid aPluginUid )
 //
 TBool CBlacklistMgr::FindL( TUid aPluginUid , TInt aVersion )
     {
+    OstTraceExt2( TRACE_NORMAL, CBLACKLISTMGR_FINDL, "CBlacklistMgr::FindL;Uid=%x;Version=%d", aPluginUid.iUid, aVersion );
     CPIXLOGSTRING3("CBlacklistMgr::FindL(): Uid = %x and Version = %d" , aPluginUid.iUid , aVersion);
     //Check if the item is available in database
     TBool found = iBlacklistDb->FindWithVersionL( aPluginUid.iUid , aVersion );
     
     if(found)
         {
+        OstTrace0( TRACE_NORMAL, DUP1_CBLACKLISTMGR_FINDL, "UID is Black listed" );
         CPIXLOGSTRING("UID is Black listed");
         }
     else
         {
+        OstTrace0( TRACE_NORMAL, DUP2_CBLACKLISTMGR_FINDL, "UID is not Black listed" );
         CPIXLOGSTRING("UID is not Black listed");
         }
     return found;

@@ -20,7 +20,8 @@
 #define CBLACKLISTMGR_H
 
 #include <e32base.h>
-#include "CBlacklistDb.h"
+
+class CBlacklistDb;
 
 class CBlacklistMgr : public CBase
     {

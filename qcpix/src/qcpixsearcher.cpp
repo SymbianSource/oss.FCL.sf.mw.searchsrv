@@ -31,6 +31,8 @@
 QCPixSearcher::QCPixSearcher( QString aDefaultSearchField )
     :iPvtImpl( new QCPixSearcherPrivate( this ) )
     {
+    PERF_SEARCH_START_TIMER
+    PERF_GETDOC_START_TIMER
     }
 
 QCPixSearcher::~QCPixSearcher()
@@ -81,6 +83,7 @@ void QCPixSearcher::setDatabaseAsync( QString aBaseAppClass )
 
 int QCPixSearcher::search( QString aSearchString, QString aDefaultSearchField )
     {
+    PERF_SEARCH_RESTART_TIMER
     TBuf<KMaxStringLength> searchString( aSearchString.utf16() );
     TBuf<KMaxStringLength> defaultSearchField( aDefaultSearchField.utf16() );
     //ideally would have had just the following single line:
@@ -88,11 +91,13 @@ int QCPixSearcher::search( QString aSearchString, QString aDefaultSearchField )
     //But the RCVT compiler throws up warnings. The following is just to suppress those warnings.
     int tmp = 0;
     QT_TRAP_THROWING( tmp = iPvtImpl->iSearcher->SearchL( searchString, defaultSearchField ) );
+    PERF_SEARCH_ENDLOG
     return tmp;
     }
 
 void QCPixSearcher::searchAsync( QString aSearchString, QString aDefaultSearchField )
     {
+    PERF_TIME_NOW("Async search start")
     TBuf<KMaxStringLength> searchString( aSearchString.utf16() );
     TBuf<KMaxStringLength> defaultSearchField( aDefaultSearchField.utf16() );
     QT_TRAP_THROWING( iPvtImpl->iSearcher->SearchL( *iPvtImpl, searchString, defaultSearchField ) );
@@ -100,13 +105,16 @@ void QCPixSearcher::searchAsync( QString aSearchString, QString aDefaultSearchFi
 
 QCPixDocument* QCPixSearcher::getDocument( int aIndex )
     {
+    PERF_GETDOC_RESTART_TIMER
     QCPixDocument* tmp = 0;
     QT_TRAP_THROWING( tmp = QCPixDocFromCPixDoc( iPvtImpl->iSearcher->GetDocumentL( aIndex ) ) );
+    PERF_GETDOC_ENDLOG
     return tmp;
     }
- 
+
 void QCPixSearcher::getDocumentAsync( int aIndex )
     {
+    PERF_TIME_NOW("Async get document start")
     QT_TRAP_THROWING( iPvtImpl->iSearcher->GetDocumentL( aIndex, *iPvtImpl ) );
     }
 

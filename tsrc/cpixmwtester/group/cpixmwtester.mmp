@@ -87,9 +87,12 @@ LIBRARY       efsrv.lib
 
 //------------------Added for Blacklist database --------------------------
 USERINCLUDE ../../../harvester/harvesterserver/inc
+USERINCLUDE ../../../harvester/harvesterserver/traces
 
 SOURCEPATH  ../../../harvester/harvesterserver/src
 SOURCE        CBlacklistDb.cpp  CBlacklistMgr.cpp
+SOURCE        ccontentinfo.cpp  ccontentinfodb.cpp   contentinfomgr.cpp
+LIBRARY           sqldb.lib
 //------------------End for Blacklist database ----------------------------
-
+EPOCALLOWDLLDATA
 // End of File

@@ -23,6 +23,11 @@
 #include "CCPixSearcher.h"
 #include "MCPixSearcherObserver.h"
 #include "SearchServerCommon.h"
+#include "OstTraceDefinitions.h"
+#ifdef OST_TRACE_COMPILER_IN_USE
+#include "ccpixsearcherTraces.h"
+#endif
+
 
 // CCPixSearcher::NewL()
 // Two-phased constructor.
@@ -179,6 +184,7 @@ HBufC* CCPixSearcher::FormQueryStringL(const TDesC& aQueryString, const TDesC& a
 // Issues a new search
 EXPORT_C TInt CCPixSearcher::SearchL(const TDesC& aQueryString, const TDesC& aDocumentField)
 	{
+	OstTraceFunctionEntry0( CCPIXSEARCHER_SEARCHL_ENTRY );
 	PERFORMANCE_LOG_START("CCPixSearcher::SearchL");
 	
 	if ( !iIsDatabaseOpen ) 	
@@ -200,6 +206,7 @@ EXPORT_C TInt CCPixSearcher::SearchL(const TDesC& aQueryString, const TDesC& aDo
 
 EXPORT_C void CCPixSearcher::SearchL(MCPixSearchRequestObserver& aObserver, const TDesC& aQueryString, const TDesC& aDocumentField)
 	{
+    OstTraceFunctionEntry0( DUP1_CCPIXSEARCHER_SEARCHL_ENTRY );
     PERFORMANCE_LOG_START("CCPixSearcher::SearchL");
 
 	if ( !iIsDatabaseOpen ) 	User::Leave( KErrNotReady );
@@ -215,12 +222,13 @@ EXPORT_C void CCPixSearcher::SearchL(MCPixSearchRequestObserver& aObserver, cons
 	iObserver.iSearch = &aObserver;
 	iState = EStateSearch;
 	iSubSession.Search( *iQueryString, iStatus );
-	SetActive();
-
+	OstTraceFunctionExit0( CCPIXSEARCHER_SEARCHL_EXIT );
+	SetActive();	
 	}
 
 EXPORT_C CSearchDocument* CCPixSearcher::GetDocumentL(TInt aIndex)
     {
+    OstTraceFunctionEntry0( CCPIXSEARCHER_GETDOCUMENTL_ENTRY );
     PERFORMANCE_LOG_START("CCPixSearcher::GetDocumentL");
     
 	if ( !iIsDatabaseOpen ) 	User::Leave( KErrNotReady );
@@ -234,6 +242,7 @@ EXPORT_C CSearchDocument* CCPixSearcher::GetDocumentL(TInt aIndex)
 
 EXPORT_C void CCPixSearcher::GetDocumentL(TInt aIndex, MCPixNextDocumentRequestObserver& aObserver)
     {
+    OstTraceFunctionEntry0( DUP1_CCPIXSEARCHER_GETDOCUMENTL_ENTRY );
     PERFORMANCE_LOG_START("CCPixSearcher::GetDocumentL");
     
     if ( !iIsDatabaseOpen ) 	User::Leave( KErrNotReady );
@@ -246,7 +255,8 @@ EXPORT_C void CCPixSearcher::GetDocumentL(TInt aIndex, MCPixNextDocumentRequestO
 	
 	iState = EStateGetDocument;
 	iSubSession.GetDocument(aIndex, iStatus);
-	SetActive(); 
+	OstTraceFunctionExit0( CCPIXSEARCHER_GETDOCUMENTL_EXIT );
+	SetActive();     
     }
 
 // CCPixSearcher::RunL()

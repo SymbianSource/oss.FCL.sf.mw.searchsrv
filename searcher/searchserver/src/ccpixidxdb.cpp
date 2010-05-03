@@ -25,12 +25,18 @@
 
 #include "SearchServerConfiguration.h"
 #include "SearchServerHelper.h"
+#include "OstTraceDefinitions.h"
+#ifdef OST_TRACE_COMPILER_IN_USE
+#include "ccpixidxdbTraces.h"
+#endif
+
 
 namespace {
 
 void DumpDocument(const CSearchDocument& aDocument)
 	{
 #ifdef CPIX_LOGGING_ENABLED
+	OstTraceExt1( TRACE_NORMAL, CPIXIDXDB_DUMPDOCUMENT, "::DumpDocument;Start_docuid=%S", (aDocument.Id()) );
 	CPIXLOGSTRING2("DumpDocument START _docuid=%S", &(aDocument.Id()));
 
 	_LIT(KDocUid, CPIX_DOCUID_FIELD);
@@ -43,8 +49,10 @@ void DumpDocument(const CSearchDocument& aDocument)
 			{
 			continue; // lets not print this information out twice.
 			}
+		OstTraceExt2( TRACE_NORMAL, DUP1_CPIXIDXDB_DUMPDOCUMENT, "::DumpDocument;Fieldname=%S;Value=%S", (field.Name()), (field.Value()) );
 		CPIXLOGSTRING3("DumpDocument FieldName=%S,Value=%S", &(field.Name()), &(field.Value()));
 		}
+	OstTraceExt1( TRACE_NORMAL, DUP2_CPIXIDXDB_DUMPDOCUMENT, "::DumpDocument;End_docuid=%S", (aDocument.Id()) );
 	CPIXLOGSTRING2("DumpDocument END _docuid=%S", &(aDocument.Id()));
 #endif // CPIX_LOGGING_ENABLED
 	}
@@ -280,6 +288,7 @@ void CCPixIdxDb::AddL(const CSearchDocument& aDocument, MCPixAsyncronizerObserve
     cpix_Document* document = NULL;
 	document = ConvertToCpixDocumentLC(aDocument);
 
+	OstTrace0( TRACE_NORMAL, CCPIXIDXDB_ADDL, "CCPixIdxDb::AddL" );
 	CPIXLOGSTRING("CCPixIdxDb::AddL");
 	DumpDocument(aDocument);
 	iPendingJobId = cpix_IdxDb_asyncAdd(iIdxDb, document, iAnalyzer, (void*)this, &CompletionCallback);
@@ -305,6 +314,7 @@ void CCPixIdxDb::UpdateL(const CSearchDocument& aDocument, MCPixAsyncronizerObse
 	cpix_Document* document = NULL;	
 	document = ConvertToCpixDocumentLC(aDocument);
 
+	OstTrace0( TRACE_NORMAL, CCPIXIDXDB_UPDATEL, "CCPixIdxDb::UpdateL" );
 	CPIXLOGSTRING("CCPixIdxDb::UpdateL");
 	DumpDocument(aDocument);
     iPendingJobId = cpix_IdxDb_asyncUpdate(iIdxDb, document, iAnalyzer, (void*)this, &CompletionCallback);
@@ -327,6 +337,7 @@ void CCPixIdxDb::DeleteDocumentsL(const TDesC& aDocUid, MCPixAsyncronizerObserve
     if (iIsPending)
         User::Leave(KErrInUse);
 	
+	OstTraceExt1( TRACE_NORMAL, CCPIXIDXDB_DELETEDOCUMENTSL, "CCPixIdxDb::DeleteDocumentsL;aDocUid=%S", aDocUid );
 	CPIXLOGSTRING2("CCPixIdxDb::DeleteDocumentsL aDocUid=%S", &aDocUid);
 
 	HBufC* docUid = HBufC::NewLC(aDocUid.Length() + 1);

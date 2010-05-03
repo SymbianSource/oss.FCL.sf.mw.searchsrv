@@ -37,20 +37,22 @@
 #include "testutils.h"
 #include "suggestion.h"
 
-const char * PdfDocsToIndex[5] = {
-	FILE_TEST_CORPUS_PATH "\\pdf\\ctutor.pdf",
-//	FILE_TEST_CORPUS_PATH "\\pdf\\geology.pdf",
-//	FILE_TEST_CORPUS_PATH "\\pdf\\samplepdf.pdf",
-//	FILE_TEST_CORPUS_PATH "\\pdf\\windjack.pdf",
+const char * PdfDocsToIndex[7] = {
+    "c:\\data\\cpixunittestcorpus\\pdf\\ctutor.pdf",
+	"c:\\data\\cpixunittestcorpus\\stem\\pdf\\geology.pdf",
+	"c:\\data\\cpixunittestcorpus\\stem\\pdf\\samplepdf.pdf",
+	"c:\\data\\cpixunittestcorpus\\stem\\pdf\\windjack.pdf",
+	"c:\\data\\cpixunittestcorpus\\stem\\pdf\\DCTDecode.pdf",
+	"c:\\data\\cpixunittestcorpus\\stem\\pdf\\Empty.pdf",
     NULL
 };
 
 
 const wchar_t * PdfSearchParameters[5] = {
 	L"inline",
-//	L"CALDEBA",
-//	L"sample",
-//	L"reset",
+	L"CALDEBA",
+	L"sample",
+	L"reset",
     NULL
 };
 
@@ -67,7 +69,7 @@ void pdfTestAppclassFilteredTermSearch(Itk::TestMgr * testMgr, const wchar_t* ap
 
     std::auto_ptr<FileIdxUtil> util( new FileIdxUtil ); 
     
-    util->init(); 
+    util->init(TRUE); 
     
     cpix_Analyzer* analyzer = cpix_CreateSimpleAnalyzer(&result); 
     
@@ -78,12 +80,7 @@ void pdfTestAppclassFilteredTermSearch(Itk::TestMgr * testMgr, const wchar_t* ap
         util->indexFile( PdfDocsToIndex[i], analyzer, testMgr ); 
     }
 
-    for (int i = 0; Mp3TestCorpus[i]; i++) 
-    {
-        util->indexFile( Mp3TestCorpus[i], analyzer, testMgr ); 
-    }
-
-        util->flush();
+    util->flush();
     
     for (int i = 0; PdfSearchParameters[i]; i++) 
     {
@@ -98,12 +95,7 @@ void pdfTestAppclassFilteredTermSearch(Itk::TestMgr * testMgr, const wchar_t* ap
             }
         
         std::wostringstream queryString;
-        if ( appclassPrefix ) {
-            queryString<<L"$terms<5,'"<<appclassPrefix<<L"'>("<<PdfSearchParameters[i]<<L")";
-        } else {
-            queryString<<L"$terms<5>("<<PdfSearchParameters[i]<<L")";
-        }
-    
+        queryString<<L"adobe";
         cpix_Query* query = cpix_QueryParser_parse(queryParser,
                                                    queryString.str().c_str());
         if (cpix_Failed(queryParser)
@@ -114,23 +106,23 @@ void pdfTestAppclassFilteredTermSearch(Itk::TestMgr * testMgr, const wchar_t* ap
                 cpix_QueryParser_destroy(queryParser);
                 ITK_PANIC("Could not parse query string");
             }
-        cpix_QueryParser_destroy(queryParser);
-
+       
         cpix_Hits
             * hits = cpix_IdxDb_search(util->idxDb(),
                                        query );
         
         int32_t hitsLength = cpix_Hits_length(hits);
-        cpix_Query_destroy( query ); 
-        
+                 
         wprintf(L"Results for %S:\n", PdfSearchParameters[i]);
         
         Suggestion::printSuggestions(hits,
-                                     testMgr);
-        
+                                     testMgr);        
         printf("\n"); 
-                
-        cpix_Hits_destroy( hits ); 
+        
+        cpix_Analyzer_destroy(analyzer);
+        cpix_Hits_destroy( hits );
+        cpix_Query_destroy( query );
+        cpix_QueryParser_destroy(queryParser);
     }
 
 }
@@ -151,5 +143,3 @@ Itk::TesterBase * CreatePdfSearchTests()
     
     return pdfTests;
 }
-
-

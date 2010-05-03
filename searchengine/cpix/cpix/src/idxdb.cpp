@@ -1044,6 +1044,13 @@ namespace Cpix
                 doc->native().add(* newField.get());
                 newField.release();
                 
+                newField.reset(new ld::Field(LCPIX_DEFAULT_PREFIX_FIELD,
+											 L"",
+											 ld::Field::STORE_NO | 
+											 ld::Field::INDEX_TOKENIZED));
+                
+                doc->native().add(* newField.get());
+                newField.release();
                 AggregateFieldAnalyzer 
                     aggrAnalyzer(*doc, *analyzer); 
 

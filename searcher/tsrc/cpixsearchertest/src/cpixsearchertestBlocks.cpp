@@ -21,10 +21,10 @@
 #include <StifTestInterface.h>
 #include "cpixsearchertest.h"
 
-#include "ccpixsearcher.h"
-#include "CSearchDocument.h"
-#include "CCPixIndexer.h"
-#include "common.h"
+#include <ccpixsearcher.h>
+#include <CSearchDocument.h>
+#include <CCPixIndexer.h>
+#include <common.h>
 #include "cpixsearchertester.h"
 #include "multithreadtester.h"
 #include "cpixboostertester.h"
@@ -162,7 +162,8 @@ TInt Ccpixsearchertest::RunMethodL(
         ENTRY( "TestOpenIndexDb", Ccpixsearchertest::TestOpenIndexDbL),
         ENTRY( "TestDeleteIndexDbWhileSearching", Ccpixsearchertest::TestDeleteIndexDbWhileSearchingL),
         ENTRY( "TestGetDocumentAsync", Ccpixsearchertest::TestGetDocumentAsyncL),
-        ENTRY( "TestGetInvalidDocumentAsync", Ccpixsearchertest::TestGetInvalidDocumentAsyncL),      
+        ENTRY( "TestGetInvalidDocumentAsync", Ccpixsearchertest::TestGetInvalidDocumentAsyncL),
+        ENTRY( "TestExerptLength", Ccpixsearchertest::TestExerptLengthL),
         
         //ADD NEW ENTRY HERE
         // [test cases entries] - Do not remove
@@ -200,11 +201,7 @@ TInt Ccpixsearchertest::TestOpenInvalidIndexdbL( CStifItemParser& /*aItem*/ )
     indexer = NULL;
     iSession.UnDefineVolume( KFileBaseAppClassC );
     iSession.Close();
-    doLog( iLog, error, KTestFormBaseAppClassNoError );
-    /*CTestSearcher* testsearcher = new CTestSearcher();
-    TInt error = KErrNone;
-    testsearcher->setUp();
-    testsearcher->tearDown();*/
+    doLog( iLog, error, KTestFormBaseAppClassNoError );   
     return error;
     }
 
@@ -237,7 +234,7 @@ TInt Ccpixsearchertest::TestOpenValidIndexdbL( CStifItemParser& /*aItem*/ )
 // -----------------------------------------------------------------------------
 //
 TInt Ccpixsearchertest::TestAddDocumentL( CStifItemParser& aItem )
-    {
+    {    
     RSearchServerSession iSession;
     TInt error = KErrNotFound;
     TPtrC fileName;
@@ -246,16 +243,8 @@ TInt Ccpixsearchertest::TestAddDocumentL( CStifItemParser& aItem )
     User::LeaveIfError(iSession.Connect());
     iSession.DefineVolume(KFileBaseAppClassC, KNullDesC);
     _LIT( KTestFormBaseAppClassNoError, "TestAddDocumentL: No Error" );
-    TInt result =  doSearch( KQueryString , KFileBaseAppClassC );
-    if ( result > 0 )
-        {
-        doLog( iLog, KErrUnknown, KTestFormBaseAppClassNoError );
-        iSession.UnDefineVolume( KFileBaseAppClassC );
-        iSession.Close();
-        return KErrUnknown;
-        }
     CCPixIndexer* indexer = CCPixIndexer::NewLC(iSession);
-    TRAPD(err, indexer->OpenDatabaseL( KFileBaseAppClassC ) );   
+    TRAPD(err, indexer->OpenDatabaseL( KFileBaseAppClassC ) );      
     // creating CSearchDocument object with unique ID for this application
     
     if( aItem.GetNextString ( fileName ) == KErrNone )
@@ -268,10 +257,9 @@ TInt Ccpixsearchertest::TestAddDocumentL( CStifItemParser& aItem )
             indexer->AddL(*index_item);
             }
         CleanupStack::PopAndDestroy(index_item);
-        }    
-    //@TODO add wait here to harvest
-    User::After((TTimeIntervalMicroSeconds32)16000000);
-    result =  doSearch( KQueryString , KFileBaseAppClassC );
+        }        
+    User::After((TTimeIntervalMicroSeconds32)30000000);
+    TInt result =  doSearch( searchstring , KFileBaseAppClassC );
     if ( result > 0 )
         error = KErrNone;
     indexer->ResetL();
@@ -295,17 +283,11 @@ TInt Ccpixsearchertest::TestAddCancelL( CStifItemParser& aItem )
     aItem.GetNextString ( searchstring );
     User::LeaveIfError(iSession.Connect());
     iSession.DefineVolume(KFileBaseAppClassC, KNullDesC);
-    _LIT( KTestFormBaseAppClassNoError, "TestAddCancelL: No Error" );
-    TInt result =  doSearch( searchstring , KFileBaseAppClassC );
-    if ( result > 0 )
-        {
-        doLog( iLog, KErrUnknown, KTestFormBaseAppClassNoError );
-        return KErrUnknown;
-        }
+    _LIT( KTestFormBaseAppClassNoError, "TestAddCancelL: No Error" );    
     CCPixIndexer* indexer = CCPixIndexer::NewLC(iSession);
     TRAPD(err, indexer->OpenDatabaseL( KFileBaseAppClassC ) );   
     // creating CSearchDocument object with unique ID for this application
-    
+    indexer->ResetL();
     if( aItem.GetNextString ( fileName ) == KErrNone )
         {
         CSearchDocument* index_item = CSearchDocument::NewLC(fileName, KNullDesC, KNullDesC, CSearchDocument::EFileParser);
@@ -321,7 +303,7 @@ TInt Ccpixsearchertest::TestAddCancelL( CStifItemParser& aItem )
     CleanupStack::PopAndDestroy(indexer);
     indexer = NULL;
     // Cancelled, but the document will still have been added to the IndexDB
-    result =  doSearch( searchstring , KFileBaseAppClassC );
+    TInt result =  doSearch( searchstring , KFileBaseAppClassC );
     if ( result > 0 )
         error = KErrNone;
     iSession.UnDefineVolume( KFileBaseAppClassC );
@@ -339,7 +321,11 @@ TInt Ccpixsearchertest::TestAsyncAddDocumentL( CStifItemParser& /*aItem*/ )
     
     CTestIndexer* testindexer = new CTestIndexer();
     testindexer->setUp();
-    TRAPD ( error , testindexer->testAsyncAddL() );
+    testindexer->InitSearcher();    
+    testindexer->InitAsyncModules();       
+    TRAPD ( error , testindexer->testAsyncAddL() );    
+    testindexer->ReleaseSearcher();
+    testindexer->ReleaseAsyncModules();
     testindexer->tearDown();
     delete testindexer;
     doLog( iLog, error, KTestFormBaseAppClassNoError );
@@ -362,7 +348,7 @@ TInt Ccpixsearchertest::TestUpdateDocumentL( CStifItemParser& aItem )
     CCPixIndexer* indexer = CCPixIndexer::NewLC(iSession);
     TRAPD(err, indexer->OpenDatabaseL( KFileBaseAppClassC ) );   
     // creating CSearchDocument object with unique ID for this application
-    
+    indexer->ResetL();
     if( aItem.GetNextString ( fileName ) == KErrNone )
         {
         CSearchDocument* index_item = CSearchDocument::NewLC(fileName, KNullDesC, KNullDesC, CSearchDocument::EFileParser);
@@ -373,7 +359,7 @@ TInt Ccpixsearchertest::TestUpdateDocumentL( CStifItemParser& aItem )
             indexer->AddL(*index_item);
             }
         CleanupStack::PopAndDestroy(index_item);
-        
+        User::After((TTimeIntervalMicroSeconds32)30000000);
         TInt result =  doSearch( searchstring , KFileBaseAppClassC );
         index_item = CSearchDocument::NewLC(fileName, KNullDesC, KNullDesC, CSearchDocument::EFileParser);
         // Send for indexing
@@ -382,7 +368,7 @@ TInt Ccpixsearchertest::TestUpdateDocumentL( CStifItemParser& aItem )
             indexer->UpdateL(*index_item);
             }
         CleanupStack::PopAndDestroy(index_item);
-        User::After((TTimeIntervalMicroSeconds32)16000000);
+        User::After((TTimeIntervalMicroSeconds32)30000000);
         TInt result1 = doSearch( searchstring , KFileBaseAppClassC );
         
         if ( result != result1)
@@ -404,7 +390,11 @@ TInt Ccpixsearchertest::TestAsyncUpdateL( CStifItemParser& /*aItem*/ )
     _LIT( KTestFormBaseAppClassNoError, "TestAsyncUpdateL: No Error" );        
     CTestIndexer* testindexer = new CTestIndexer();
     testindexer->setUp();
-    TRAPD ( error , testindexer->testAsyncUpdateL() );
+    testindexer->InitSearcher();    
+    testindexer->InitAsyncModules();   
+    TRAPD ( error , testindexer->testAsyncUpdateL() );    
+    testindexer->ReleaseSearcher();    
+    testindexer->ReleaseAsyncModules();
     testindexer->tearDown();
     delete testindexer;
     doLog( iLog, error, KTestFormBaseAppClassNoError );
@@ -438,7 +428,7 @@ TInt Ccpixsearchertest::TestDeleteDocumentL( CStifItemParser& aItem )
             indexer->AddL(*index_item);
             }
         CleanupStack::PopAndDestroy(index_item);
-        User::After((TTimeIntervalMicroSeconds32)16000000);
+        User::After((TTimeIntervalMicroSeconds32)30000000);
         TInt result =  doSearch( searchstring , KFileBaseAppClassC );
         
         // Send for indexing
@@ -446,12 +436,13 @@ TInt Ccpixsearchertest::TestDeleteDocumentL( CStifItemParser& aItem )
             {
             indexer->DeleteL(fileName);
             }
-        User::After((TTimeIntervalMicroSeconds32)16000000);
+        User::After((TTimeIntervalMicroSeconds32)30000000);
         TInt result1 = doSearch( searchstring , KFileBaseAppClassC );
         
         if ( (result-1) != result1)
             error = KErrUnknown;
         }
+    indexer->ResetL();
     CleanupStack::PopAndDestroy(indexer);
     indexer = NULL;    
     iSession.UnDefineVolume( KFileBaseAppClassC );
@@ -469,7 +460,11 @@ TInt Ccpixsearchertest::TestAsyncDeleteL( CStifItemParser& /*aItem*/ )
     _LIT( KTestFormBaseAppClassNoError, "TestAsyncDeleteL: No Error" );        
     CTestIndexer* testindexer = new CTestIndexer();
     testindexer->setUp();
-    TRAPD ( error , testindexer->testAsyncDeleteL() );
+    testindexer->InitSearcher();    
+    testindexer->InitAsyncModules(); 
+    TRAPD ( error , testindexer->testAsyncDeleteL() );    
+    testindexer->ReleaseSearcher();    
+    testindexer->ReleaseAsyncModules();
     testindexer->tearDown();
     delete testindexer;
     doLog( iLog, error, KTestFormBaseAppClassNoError );
@@ -503,7 +498,7 @@ TInt Ccpixsearchertest::TestResetL( CStifItemParser& aItem )
             indexer->AddL(*index_item);
             }
         CleanupStack::PopAndDestroy(index_item);
-        User::After((TTimeIntervalMicroSeconds32)16000000);
+        User::After((TTimeIntervalMicroSeconds32)30000000);
         TInt result =  doSearch( searchstring , KFileBaseAppClassC );
         
         if ( result )
@@ -535,7 +530,9 @@ TInt Ccpixsearchertest::TestFlushL( CStifItemParser& /*aItem*/ )
     _LIT( KTestFormBaseAppClassNoError, "TestFlushL: No Error" );        
     CTestIndexer* testindexer = new CTestIndexer();
     testindexer->setUp();
-    TRAPD ( error , testindexer->testFlushL() );
+    testindexer->InitSearcher();
+    TRAPD ( error , testindexer->testFlushL() );    
+    testindexer->ReleaseSearcher();
     testindexer->tearDown();
     delete testindexer;
     doLog( iLog, error, KTestFormBaseAppClassNoError );
@@ -550,7 +547,11 @@ TInt Ccpixsearchertest::TestAsyncFlushL( CStifItemParser& /*aItem*/ )
     _LIT( KTestFormBaseAppClassNoError, "TestAsyncFlushL: No Error" );        
     CTestIndexer* testindexer = new CTestIndexer();
     testindexer->setUp();
-    TRAPD ( error , testindexer->testAsyncFlushL() );
+    testindexer->InitSearcher();    
+    testindexer->InitAsyncModules();
+    TRAPD ( error , testindexer->testAsyncFlushL() );    
+    testindexer->ReleaseSearcher();    
+    testindexer->ReleaseAsyncModules();
     testindexer->tearDown();
     delete testindexer;
     doLog( iLog, error, KTestFormBaseAppClassNoError );
@@ -565,7 +566,11 @@ TInt Ccpixsearchertest::TestAsyncResetL( CStifItemParser& /*aItem*/ )
     _LIT( KTestFormBaseAppClassNoError, "TestAsyncResetL: No Error" );        
     CTestIndexer* testindexer = new CTestIndexer();
     testindexer->setUp();
-    TRAPD ( error , testindexer->testAsyncResetL() );
+    testindexer->InitSearcher();    
+    testindexer->InitAsyncModules();
+    TRAPD ( error , testindexer->testAsyncResetL() );    
+    testindexer->ReleaseSearcher();    
+    testindexer->ReleaseAsyncModules();
     testindexer->tearDown();
     delete testindexer;
     doLog( iLog, error, KTestFormBaseAppClassNoError );
@@ -581,7 +586,11 @@ TInt Ccpixsearchertest::TestHandleIndexingResultL( CStifItemParser& /*aItem*/ )
     _LIT( KTestFormBaseAppClassNoError, "TestHandleIndexingResultL: No Error" );        
     CTestIndexer* testindexer = new CTestIndexer();
     testindexer->setUp();
-    TRAPD ( error , testindexer->testHandleIndexingResultL_Leaves() );
+    testindexer->InitSearcher();    
+    testindexer->InitAsyncModules();
+    TRAPD ( error , testindexer->testHandleIndexingResultL_Leaves() );    
+    testindexer->ReleaseSearcher();    
+    testindexer->ReleaseAsyncModules();
     testindexer->tearDown();
     delete testindexer;
     doLog( iLog, error, KTestFormBaseAppClassNoError );
@@ -596,7 +605,9 @@ TInt Ccpixsearchertest::TestSetAnalyzerAsyncL( CStifItemParser& /*aItem*/ )
     _LIT( KTestFormBaseAppClassNoError, "TestSetAnalyzerAsyncL: No Error" );        
     CTestIndexer* testindexer = new CTestIndexer();
     testindexer->setUp();
-    TRAPD ( error , testindexer->testSetAnalyzerAsync() );
+    testindexer->InitAsyncModules();
+    TRAPD ( error , testindexer->testSetAnalyzerAsync() );    
+    testindexer->ReleaseAsyncModules();
     testindexer->tearDown();
     delete testindexer;
     doLog( iLog, error, KTestFormBaseAppClassNoError );
@@ -726,11 +737,15 @@ TInt Ccpixsearchertest::TestRemoveSnowballAnalyzerL( CStifItemParser& /*aItem*/ 
 //
 TInt Ccpixsearchertest::TestKnownTermL( CStifItemParser& /*aItem*/ )
     {
-    TInt err = KErrNone;
     _LIT( KTestFormBaseAppClassNoError, "TestKnownTermL: No Error" ); 
     CTestSearcher* testsearcher = new CTestSearcher();
-    testsearcher->setUp();
-    err = testsearcher->testKnownTermTestsL();
+    testsearcher->initialsetUp();
+    testsearcher->createandinitindexer();
+    testsearcher->createsearcher();
+    testsearcher->harvesttestcontent( 8 );
+    TRAPD ( err , testsearcher->testKnownTermTestsL() );    
+    testsearcher->ReleaseIndexer();
+    testsearcher->ReleaseSearcher();
     testsearcher->tearDown();
     delete testsearcher;
     doLog( iLog, err, KTestFormBaseAppClassNoError );
@@ -744,8 +759,13 @@ TInt Ccpixsearchertest::TestWildcardTermL( CStifItemParser& /*aItem*/ )
     {
     _LIT( KTestFormBaseAppClassNoError, "TestWildcardTermL: No Error" ); 
     CTestSearcher* testsearcher = new CTestSearcher();
-    testsearcher->setUp();
-    TRAPD ( err , testsearcher->testWildcardTermTests() );
+    testsearcher->initialsetUp();
+    testsearcher->createandinitindexer();
+    testsearcher->createsearcher();
+    testsearcher->harvesttestcontent( 8 );
+    TRAPD ( err , testsearcher->testWildcardTermTests() );    
+    testsearcher->ReleaseIndexer();
+    testsearcher->ReleaseSearcher();
     testsearcher->tearDown();
     delete testsearcher;
     doLog( iLog, err, KTestFormBaseAppClassNoError );
@@ -759,7 +779,7 @@ TInt Ccpixsearchertest::TestDefineVolumeWorksNonEmptyPathL( CStifItemParser& /*a
     {
     _LIT( KTestFormBaseAppClassNoError, "TestDefineVolumeWorksNonEmptyPathL: No Error" ); 
     CTestSearcher* testsearcher = new CTestSearcher();
-    testsearcher->setUp();
+    testsearcher->initialsetUp();
     TRAPD ( err , testsearcher->testDefineVolumeWorksNonEmptyPath() );
     testsearcher->tearDown();
     delete testsearcher;
@@ -774,7 +794,7 @@ TInt Ccpixsearchertest::TestDefineVolumeWorksWithEmptyPathL( CStifItemParser& /*
     {
     _LIT( KTestFormBaseAppClassNoError, "TestDefineVolumeWorksWithEmptyPathL: No Error" ); 
     CTestSearcher* testsearcher = new CTestSearcher();
-    testsearcher->setUp();
+    testsearcher->initialsetUp();
     TRAPD ( err , testsearcher->testDefineVolumeWorksWithEmptyPath() );
     testsearcher->tearDown();
     delete testsearcher;
@@ -789,7 +809,7 @@ TInt Ccpixsearchertest::TestDefineVolumeErrorScenariosL( CStifItemParser& /*aIte
     {
     _LIT( KTestFormBaseAppClassNoError, "TestDefineVolumeErrorScenariosL: No Error" ); 
     CTestSearcher* testsearcher = new CTestSearcher();
-    testsearcher->setUp();
+    testsearcher->initialsetUp();
     TRAPD ( err , testsearcher->testDefineVolumeErrorScenarios() );
     testsearcher->tearDown();
     delete testsearcher;
@@ -804,8 +824,15 @@ TInt Ccpixsearchertest::TestSearchCancellationL( CStifItemParser& /*aItem*/ )
     {
     _LIT( KTestFormBaseAppClassNoError, "TestSearchCancellationL: No Error" ); 
     CTestSearcher* testsearcher = new CTestSearcher();
-    testsearcher->setUp();
-    TRAPD ( err , testsearcher->testSearchCancellation() );
+    testsearcher->initialsetUp();
+    testsearcher->createandinitindexer();
+    testsearcher->createsearcher();
+    testsearcher->harvesttestcontent( 8 );
+    testsearcher->InitAsyncComponents();
+    TRAPD ( err , testsearcher->testSearchCancellation() );    
+    testsearcher->ReleaseIndexer();
+    testsearcher->ReleaseSearcher();
+    testsearcher->ReleaseAsyncComponents();
     testsearcher->tearDown();
     delete testsearcher;
     doLog( iLog, err, KTestFormBaseAppClassNoError );
@@ -819,8 +846,15 @@ TInt Ccpixsearchertest::TestSearchAsynchronousL( CStifItemParser& /*aItem*/ )
     {
     _LIT( KTestFormBaseAppClassNoError, "TestSearchAsynchronousL: No Error" ); 
     CTestSearcher* testsearcher = new CTestSearcher();
-    testsearcher->setUp();
-    TRAPD ( err , testsearcher->testSearchAsynchronous() );
+    testsearcher->initialsetUp();
+    testsearcher->createandinitindexer();
+    testsearcher->createsearcher();
+    testsearcher->harvesttestcontent( 4 );
+    testsearcher->InitAsyncComponents();
+    TRAPD ( err , testsearcher->testSearchAsynchronous() );    
+    testsearcher->ReleaseIndexer();
+    testsearcher->ReleaseSearcher();
+    testsearcher->ReleaseAsyncComponents();
     testsearcher->tearDown();
     delete testsearcher;
     doLog( iLog, err, KTestFormBaseAppClassNoError );
@@ -834,8 +868,15 @@ TInt Ccpixsearchertest::TestSearchLeavesIfNotCancelledL( CStifItemParser& /*aIte
     {
     _LIT( KTestFormBaseAppClassNoError, "TestSearchLeavesIfNotCancelledL: No Error" ); 
     CTestSearcher* testsearcher = new CTestSearcher();
-    testsearcher->setUp();
-    TRAPD ( err , testsearcher->testSearchLeavesIfNotCancelled() );
+    testsearcher->initialsetUp();
+    testsearcher->createandinitindexer();
+    testsearcher->createsearcher();
+    testsearcher->harvesttestcontent( 4 );
+    testsearcher->InitAsyncComponents();
+    TRAPD ( err , testsearcher->testSearchLeavesIfNotCancelled() );    
+    testsearcher->ReleaseIndexer();
+    testsearcher->ReleaseSearcher();
+    testsearcher->ReleaseAsyncComponents();
     testsearcher->tearDown();
     delete testsearcher;
     doLog( iLog, err, KTestFormBaseAppClassNoError );
@@ -849,8 +890,13 @@ TInt Ccpixsearchertest::TestOpenIndexDbL( CStifItemParser& /*aItem*/ )
     {
     _LIT( KTestFormBaseAppClassNoError, "TestOpenIndexDbL: No Error" ); 
     CTestSearcher* testsearcher = new CTestSearcher();
-    testsearcher->setUp();
-    TRAPD ( err , testsearcher->testOpenIndexDb() );
+    testsearcher->initialsetUp();
+    testsearcher->createandinitindexer();
+    testsearcher->harvesttestcontent( 4 );
+    testsearcher->InitAsyncComponents();
+    TRAPD ( err , testsearcher->testOpenIndexDb() );    
+    testsearcher->ReleaseIndexer();
+    testsearcher->ReleaseAsyncComponents();
     testsearcher->tearDown();
     delete testsearcher;
     doLog( iLog, err, KTestFormBaseAppClassNoError );
@@ -864,8 +910,10 @@ TInt Ccpixsearchertest::TestDeleteIndexDbWhileSearchingL( CStifItemParser& /*aIt
     {
     _LIT( KTestFormBaseAppClassNoError, "TestDeleteIndexDbWhileSearchingL: No Error" ); 
     CTestSearcher* testsearcher = new CTestSearcher();
-    testsearcher->setUp();
+    testsearcher->initialsetUp();    
+    testsearcher->InitAsyncComponents();
     TRAPD ( err , testsearcher->testDeleteIndexDbWhileSearching() );
+    testsearcher->ReleaseAsyncComponents();
     testsearcher->tearDown();
     delete testsearcher;
     doLog( iLog, err, KTestFormBaseAppClassNoError );
@@ -879,8 +927,15 @@ TInt Ccpixsearchertest::TestGetDocumentAsyncL( CStifItemParser& /*aItem*/ )
     {
     _LIT( KTestFormBaseAppClassNoError, "TestGetDocumentAsyncL: No Error" ); 
     CTestSearcher* testsearcher = new CTestSearcher();
-    testsearcher->setUp();
-    TRAPD ( err , testsearcher->testGetDocumentAsync() );
+    testsearcher->initialsetUp();
+    testsearcher->createandinitindexer();
+    testsearcher->createsearcher();
+    testsearcher->harvesttestcontent( 4 );
+    testsearcher->InitAsyncComponents();
+    TRAPD ( err , testsearcher->testGetDocumentAsync() );    
+    testsearcher->ReleaseIndexer();
+    testsearcher->ReleaseSearcher();
+    testsearcher->ReleaseAsyncComponents();
     testsearcher->tearDown();
     delete testsearcher;
     doLog( iLog, err, KTestFormBaseAppClassNoError );
@@ -894,12 +949,38 @@ TInt Ccpixsearchertest::TestGetInvalidDocumentAsyncL( CStifItemParser& /*aItem*/
     {
     _LIT( KTestFormBaseAppClassNoError, "TestGetInvalidDocumentAsyncL: No Error" ); 
     CTestSearcher* testsearcher = new CTestSearcher();
-    testsearcher->setUp();
-    TRAPD ( err , testsearcher->testGetInvalidDocumentAsync() );
+    testsearcher->initialsetUp();
+    testsearcher->createandinitindexer();
+    testsearcher->createsearcher();
+    testsearcher->harvesttestcontent( 4 );
+    testsearcher->InitAsyncComponents();
+    TRAPD ( err , testsearcher->testGetInvalidDocumentAsync() );    
+    testsearcher->ReleaseIndexer();
+    testsearcher->ReleaseSearcher();
+    testsearcher->ReleaseAsyncComponents();
     testsearcher->tearDown();
     delete testsearcher;
     doLog( iLog, err, KTestFormBaseAppClassNoError );
     return err;
+    }
+// -----------------------------------------------------------------------------
+// Ccpixsearchertest::TestExerptLengthL
+// -----------------------------------------------------------------------------
+//
+TInt Ccpixsearchertest::TestExerptLengthL( CStifItemParser& /*aItem*/ )
+    {
+    _LIT( KTestFormBaseAppClassNoError, "TestExerptLengthL: No Error" );
+    TInt err = KErrNone;
+    CTestSearcher* testsearcher = new CTestSearcher();
+    testsearcher->initialsetUp();
+    testsearcher->createandinitindexer();
+    testsearcher->createsearcher();
+    err = testsearcher->testEcerptLenth();
+    testsearcher->ReleaseSearcher();
+    testsearcher->ReleaseIndexer();
+    testsearcher->tearDown();
+    doLog( iLog, err, KTestFormBaseAppClassNoError );
+        return err;
     }
 // -----------------------------------------------------------------------------
 // Ccpixsearchertest::?member_function

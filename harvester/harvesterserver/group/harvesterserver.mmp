@@ -28,21 +28,28 @@ TARGETPATH        /private/101f875a/import
 END
 
 USERINCLUDE       ../inc
-USERINCLUDE       ../../../searchengine/cpix/cpix/inc/public //TODO: Needs to be changed
+USERINCLUDE       ../../../searchengine/cpix/cpix/inc/public
+USERINCLUDE       ../traces
 
 MW_LAYER_SYSTEMINCLUDE
 
 SOURCEPATH        ../src
 SOURCE            CHarvesterServer.cpp
 SOURCE            CHarvesterServerSession.cpp
-SOURCE			      CIndexingManager.cpp CBlacklistMgr.cpp CBlacklistDb.cpp 
+SOURCE			  CIndexingManager.cpp 
+SOURCE			  CBlacklistMgr.cpp 
+SOURCE			  CBlacklistDb.cpp 
+SOURCE			  ccontentinfodb.cpp 
+SOURCE			  contentinfomgr.cpp 
+SOURCE			  ccontentinfo.cpp 
 
 LIBRARY           euser.lib 
-LIBRARY			      estor.lib
-LIBRARY			      efsrv.lib
+LIBRARY			  estor.lib
+LIBRARY			  efsrv.lib
 LIBRARY           CPixSearchClient.lib
-LIBRARY			      CPixHarvesterPluginInterface.lib
+LIBRARY			  CPixHarvesterPluginInterface.lib
 LIBRARY           edbms.lib
+LIBRARY           sqldb.lib
 
 // Logging
 LIBRARY           flogger.lib 

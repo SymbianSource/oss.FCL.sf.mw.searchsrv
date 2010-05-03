@@ -32,6 +32,7 @@ SOURCE			  CCPixSearcher.cpp
 SOURCE            RSearchServerSession.cpp 
 
 USERINCLUDE       ../inc
+USERINCLUDE       ../traces
 USERINCLUDE       ../../../searchsrv_plat/cpix_utility_api/inc
 MW_LAYER_SYSTEMINCLUDE
 

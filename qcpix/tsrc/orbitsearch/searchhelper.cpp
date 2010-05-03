@@ -39,21 +39,42 @@ void SearchHelper::doSearch()
     int hits = 0;
     QString resultString("");
     resultsBox->setPlainText( resultString );
-    
     searchTime.restart();
-    hits = searcher->search( searchBox->text() + "*" );
+    QString searchString = searchBox->text();
+
+#if STAR_SEARCH
+    searchString += "*";
+#elif NO_STAR_SEARCH
+        ;//do nothing
+#elif ESCAPE_SPECIAL_CHARS
+    //C-style array query - so that we dont have to hard code the length.
+    //Escape '\' first so that it does not re-escape all the other escapes.
+    QString escapeTheseCharacters [] = {"\\", "+", "-", "&&", "||", "!", 
+                                        "(", ")", "{", "}", "[", "]", "^", 
+                                        "~", "*", "?", ":", "\0"};
+    for( int i=0; escapeTheseCharacters[i] != "\0"; i++ ){
+        QString escapedCharacter = "\\" + escapeTheseCharacters[i];
+        searchString.replace( escapeTheseCharacters[i], escapedCharacter );
+    }
+#endif
+    
+    hits = searcher->search( searchString );
+    
     resultString = "SearchTime: " + QString().setNum( searchTime.elapsed() ) + " ms \r\n";
     resultString += "Hits: " + QString().setNum( hits ) + "\r\n";
     resultsBox->setPlainText( resultString );
-    
+
+#if !DONT_SHOW_RESULTS
     if( hits > 0 )
         {
-        QCPixDocument* temp = QCPixDocument::newInstance();
+        QCPixDocument* temp = NULL;
         int docCount = 0;
         do{
           temp = searcher->getDocument( docCount++ );
           resultString += temp->baseAppClass() + " " + temp->docId() + " " + temp->excerpt() + "\r\n\r\n";
+          delete temp;
           }while( hits > docCount );
         }
     resultsBox->setPlainText( resultString );
+#endif //DONT_SHOW_RESULTS
     }

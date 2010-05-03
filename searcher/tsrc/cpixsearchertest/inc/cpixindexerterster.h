@@ -48,7 +48,7 @@ public:
 private:   
 
     void CreateFileIndexItemL(const TDesC& aFilename);
-    TInt SearchForTextL(const TDesC& aQueryString, const TDesC& aDefaultField);
+    TInt SearchForTextL(const TDesC& aQueryString, const TDesC& aDefaultField, TBool aFlush = ETrue);
     TBool CheckBaseAppClassIsExpectedL(const TDesC& aExpectedAppClass, 
                                        const TDesC& aDocUid);
     
@@ -67,7 +67,10 @@ public: // From MAOTestObserver
 public:
     void setUp();
     void tearDown();
-        
+    void InitSearcher();
+    void ReleaseSearcher();
+    void InitAsyncModules();
+    void ReleaseAsyncModules();
     void testOpenIndexDb();
     void testAddL();
     void testAsyncAddL();
@@ -88,9 +91,8 @@ private:
     CCPixIndexer* iIndexer;// CPix database 
     CCPixSearcher* iSearcher;
     RSearchServerSession iSession;
-    TInt iCurrentIndex;
     CHandleIndexingResultLeaves* iHandleResultLeaves;
-    CActiveSchedulerWait* iWait;
+    CActiveSchedulerWait* iIndexerWait;
     CAOTestClass* iMyAOClass;
 };
 

@@ -17,12 +17,15 @@
     |
     |
     +-- file
-    | [ BaseName  	]	{EStoreYes | EIndexTokenized}
-    | [ Extension 	]	{EStoreYes | EIndexTokenized}
-    | [ FullName  	]	{EStoreYes | EIndexTokenized} 
-    | [ Contents 	]	{EStoreYes | EIndexTokenized}
-    |     
-    |           
+    |     |
+    | 		|
+    |     +-- Content
+    |			|	[ Contents 	]	    {EStoreYes | EIndexTokenized}
+    |			|
+    |			+-- folder     
+    |       [ Name  		]     {EStoreYes | EIndexTokenized}
+    |			  [ Extension ]     {EStoreYes | EIndexUnTokenized}
+    |
     |      
     +-- media
     |     | 

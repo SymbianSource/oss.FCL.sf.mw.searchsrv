@@ -1,0 +1,17 @@
+// Created by TraceCompiler 2.1.2
+// DO NOT EDIT, CHANGES WILL BE LOST
+
+#ifndef __CSEARCHSERVERTRACES_H__
+#define __CSEARCHSERVERTRACES_H__
+
+#define KOstTraceComponentID 0x2001f6f7
+
+#define CSEARCHSERVER_CSEARCHSERVER 0x860008
+#define CSEARCHSERVER_CONSTRUCTL_ENTRY 0x8a000a
+#define CSEARCHSERVER_CONSTRUCTL_EXIT 0x8a000b
+
+
+#endif
+
+// End of file
+

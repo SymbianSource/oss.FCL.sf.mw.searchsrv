@@ -19,6 +19,11 @@
 #include "WatchDogCommon.h"
 #include "CWDTimer.h"
 #include <HarvesterServerLogger.h>
+#include "OstTraceDefinitions.h"
+#ifdef OST_TRACE_COMPILER_IN_USE
+#include "cwdmonitorTraces.h"
+#endif
+
 // -----------------------------------------------------------------------------
 // CWDMonitor::NewL
 // -----------------------------------------------------------------------------
@@ -73,6 +78,7 @@ void CWDMonitor::ConstructL()
 //
 void CWDMonitor::HandleWDTimerL()
     {
+    OstTrace0( TRACE_NORMAL, CWDMONITOR_HANDLEWDTIMERL, "CWDMonitor::HandleWDTimerL(): Check the servers" );
     CPIXLOGSTRING("CWDMonitor::HandleWDTimerL(): Check the servers");
     TFindServer harvesterServer(KHarvesterServer);
     TFindServer searchServer(KSearchServer);
@@ -81,6 +87,7 @@ void CWDMonitor::HandleWDTimerL()
     
     if ( harvesterServer.Next(name) != KErrNone)
         {
+        OstTrace0( TRACE_NORMAL, DUP1_CWDMONITOR_HANDLEWDTIMERL, "Harvester Server is down, Starting Harvester Server" );
         CPIXLOGSTRING("Harvester Server is down, Starting Harvester Server");
         //Harvester server is not running. 
         //Start Harvester server
@@ -88,6 +95,7 @@ void CWDMonitor::HandleWDTimerL()
         }
     else if ( searchServer.Next( name ) != KErrNone)
         {
+        OstTrace0( TRACE_NORMAL, DUP2_CWDMONITOR_HANDLEWDTIMERL, "Search Server is down, Starting Search Server" );
         CPIXLOGSTRING("Search Server is down, Starting Search Server");
         //Search server is not running.
         //Start search server
@@ -101,8 +109,10 @@ void CWDMonitor::HandleWDTimerL()
 //
 void CWDMonitor::StartMonitor()
     {
+    OstTraceFunctionEntry0( CWDMONITOR_STARTMONITOR_ENTRY );
     CPIXLOGSTRING("CWDMonitor::StartMonitor(): Entered");
     iWDTimer->StartWDTimer();
+    OstTraceFunctionExit0( CWDMONITOR_STARTMONITOR_EXIT );
     }
 
 // -----------------------------------------------------------------------------

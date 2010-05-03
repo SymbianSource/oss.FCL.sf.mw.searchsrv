@@ -22,6 +22,28 @@
 #include <hbpushbutton.h>
 #include <hbtextedit.h>
 
+//***********************************************************
+//Fine controls for custom builds.
+
+//Default search mode. Append "*" to the end of search string
+//NOTE: These macros are mutually exclusive and precedence
+//in the order below.
+//i.e., STAR_SEARCH over-rides NO_STAR_SEARCH which overrides 
+//ESCAPE_SPECIAL_CHARS.
+#define STAR_SEARCH 1
+
+//Vanilla search. Send search string to engine "as-is". 
+#define NO_STAR_SEARCH 0
+
+//Will escape the following characters:
+//+,-,&&,||,!,(,),{,},[,],^,",~,*,?,:and '\'
+#define ESCAPE_SPECIAL_CHARS 0
+
+//If you dont want to see results, define this flag.
+#define DONT_SHOW_RESULTS 0
+
+//************************************************************
+
 #define ORBIT_SEARCH_CONTROLS   \
     HbLineEdit* searchBox;      \
     HbPushButton* searchButton; \

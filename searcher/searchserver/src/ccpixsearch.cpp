@@ -21,6 +21,11 @@
 #include "SearchServerLogger.h"
 #include "CCPixAsyncronizer.h"
 #include "SearchServerHelper.h"
+#include "OstTraceDefinitions.h"
+#ifdef OST_TRACE_COMPILER_IN_USE
+#include "ccpixsearchTraces.h"
+#endif
+
 
 namespace {
 
@@ -117,6 +122,7 @@ void CCPixSearch::CancelAll(const RMessage2& aMessage)
 void CCPixSearch::LogCancelAction(cpix_CancelAction aCancelAction)
     {
 #ifdef CPIX_LOGGING_ENABLED
+    OstTrace1( TRACE_NORMAL, CCPIXSEARCH_LOGCANCELACTION, "CCPixSearch::LogCancelAction;Cancel action code=%d", aCancelAction );
     CPIXLOGSTRING2("Cancel action code %d", aCancelAction);
 #endif // CPIX_LOGGING_ENABLED
     }
@@ -137,6 +143,7 @@ void CCPixSearch::CompletionCallback(void *aCookie, cpix_JobId aJobId)
 
 TBool CCPixSearch::SearchL(const TDesC& aSearchTerms, MCPixAsyncronizerObserver* aObserver, const RMessage2& aMessage)
     {
+    OstTraceFunctionEntry0( CCPIXSEARCH_SEARCHL_ENTRY );
     PERFORMANCE_LOG_START("CCPixSearch::SearchL");
     
     if (iPendingTask != EPendingTaskNone)
@@ -170,15 +177,18 @@ TBool CCPixSearch::SearchL(const TDesC& aSearchTerms, MCPixAsyncronizerObserver*
     	iPendingTask = EPendingTaskSearch;
 	    iAsyncronizer->Start(ECPixTaskTypeSearch, aObserver, aMessage);
 	    
+        OstTraceFunctionExit0( CCPIXSEARCH_SEARCHL_EXIT );
         return ETrue;
         }
     
     // Search was not committed
+    OstTraceFunctionExit0( DUP1_CCPIXSEARCH_SEARCHL_EXIT );
     return EFalse;
     }
 
 TInt CCPixSearch::SearchCompleteL()
     {
+    OstTraceFunctionEntry0( CCPIXSEARCH_SEARCHCOMPLETEL_ENTRY );
     PERFORMANCE_LOG_START("CCPixSearch::SearchCompleteL");
     // Request is no more pending
     iPendingTask = EPendingTaskNone;
@@ -189,11 +199,13 @@ TInt CCPixSearch::SearchCompleteL()
 	iDocumentCount = cpix_Hits_length(iHits);
 	SearchServerHelper::CheckCpixErrorL(iHits, KErrDatabaseQueryFailed);
 	
+	OstTraceFunctionExit0( CCPIXSEARCH_SEARCHCOMPLETEL_EXIT );
 	return iDocumentCount; 
     }
        
 void CCPixSearch::GetDocumentL(TInt aIndex, MCPixAsyncronizerObserver* aObserver, const RMessage2& aMessage)
 	{
+	OstTraceFunctionEntry0( CCPIXSEARCH_GETDOCUMENTL_ENTRY );
 	PERFORMANCE_LOG_START("CCPixSearch::GetDocumentL");
 	
     if (iPendingTask != EPendingTaskNone)
@@ -213,10 +225,12 @@ void CCPixSearch::GetDocumentL(TInt aIndex, MCPixAsyncronizerObserver* aObserver
         User::Leave(KErrDocumentAccessFailed);
         }
     iAsyncronizer->Start(ECPixTaskTypeGetDocument, aObserver, aMessage);
+	OstTraceFunctionExit0( CCPIXSEARCH_GETDOCUMENTL_EXIT );
 	}
 
 CSearchDocument* CCPixSearch::GetDocumentCompleteL()
 	{
+	OstTraceFunctionEntry0( CCPIXSEARCH_GETDOCUMENTCOMPLETEL_ENTRY );
 	PERFORMANCE_LOG_START("CCPixSearch::GetDocumentCompleteL");
 	
     // Request is no more pending
@@ -284,6 +298,7 @@ CSearchDocument* CCPixSearch::GetDocumentCompleteL()
 	
 	CleanupStack::Pop(document);
 	
+	OstTraceFunctionExit0( CCPIXSEARCH_GETDOCUMENTCOMPLETEL_EXIT );
 	return document;
 	}
 

@@ -86,6 +86,9 @@ SOURCEPATH ../../../searchclient/src
 
 SOURCE rsearchserversession.cpp
 SOURCE ccpixindexer.cpp
+SOURCE ccpixsearcher.cpp
+SOURCE cdocumentfield.cpp
+SOURCE csearchdocument.cpp
 
 LIBRARY   cpixsearchclient.lib
 LIBRARY   FLOGGER.lib

@@ -21,8 +21,11 @@
 #include <e32svr.h>
 #include <StifParser.h>
 #include <Stiftestinterface.h>
-
+#include <cpixcontentinfocommon.h>
+#include <sqldb.h>
 #include "CBlacklistMgr.h"
+#include "contentinfomgr.h"
+#include "ccontentinfo.h"
 
 // EXTERNAL DATA STRUCTURES
 //extern  ?external_data;
@@ -40,7 +43,7 @@ const TUid KTestUid = { 0x101D6348 };
 //For Watchdog
 _LIT(KTestHarvesterServer,"CPixHarvesterServer");
 _LIT(aEXeFileName , "WatchDog.exe");
-
+_LIT(KDriveC, "c:");
 // MACROS
 //#define ?macro ?macro_def
 
@@ -64,6 +67,48 @@ void doLog( CStifLogger* logger, TInt error, const TDesC& errorString )
     {
     if( KErrNone == error ) logger->Log( KNoErrorString );
     else logger->Log( errorString );
+    }
+
+void getcontentstatus ( TPtrC aContent , TInt& aBLstatus ,TInt& aINstatus)
+    {
+    RSqlDatabase sqlDB;
+    RFs fssession;    
+    User::LeaveIfError( fssession.Connect() );
+    TFileName privatePath;
+    TFileName datafile;    
+    fssession.CreatePrivatePath(EDriveC);
+    fssession.PrivatePath(privatePath);//data caged path of loading process 
+    fssession.Close();
+    datafile.Copy(KDriveC);
+    datafile.Append(privatePath);    
+    datafile.Append( KContentInfoFileName );
+    TInt err = sqlDB.Open( datafile );
+    
+    if ( err  ==KErrNone )
+        {
+        TSqlScalarFullSelectQuery fullSelectQuery(sqlDB);
+
+        TBuf<100> sql;        
+        // Query with INS column 
+        _LIT(KgetINstatusSqlFormat, "SELECT INS FROM table1 WHERE NAME = '");
+        _LIT(Kendtag, "'");
+        sql.Copy( KgetINstatusSqlFormat);
+        sql.Append( aContent);
+        sql.Append( Kendtag );
+        //sql.Format( KgetINstatusSqlFormat , aContent );
+        // Read INS as integer.
+        aINstatus = fullSelectQuery.SelectIntL(sql);
+        
+        _LIT(KgetBLstatusSqlFormat, "SELECT BLS FROM table1 WHERE NAME = '");
+        sql.FillZ();
+        sql.Copy( KgetBLstatusSqlFormat);
+        sql.Append( aContent);
+        sql.Append( Kendtag );
+        //sql.Format( KgetBLstatusSqlFormat , aContent );
+        // Read BLS as integer.
+        aBLstatus = fullSelectQuery.SelectIntL(sql);
+        }
+    sqlDB.Close();
     }
 // -----------------------------------------------------------------------------
 // ?function_name ?description.
@@ -115,7 +160,13 @@ TInt CCPixMWTester::RunMethodL(
         // Second is the actual implementation member function.        
         ENTRY( "TestBlacklistPlugin", CCPixMWTester::TestBlacklistPluginL ),
         ENTRY( "TestBlacklistPluginVersion", CCPixMWTester::TestBlacklistPluginVersionL ),
-        ENTRY( "TestWatchdog",CCPixMWTester::TestWatchdogL ),  
+        ENTRY( "TestWatchdog",CCPixMWTester::TestWatchdogL ),
+        ENTRY( "TestDeleteContentInfoDB",CCPixMWTester::TestDeleteContentInfoDBL ),
+        ENTRY( "TestAddContent",CCPixMWTester::TestAddContentL ),
+        ENTRY( "TestRemoveContent",CCPixMWTester::TestRemoveContentL ),
+        ENTRY( "TestResetContent",CCPixMWTester::TestResetContentL ),
+        ENTRY( "TestUpdateBLStatus",CCPixMWTester::TestUpdateBLStatusL ),
+        ENTRY( "TestUpdateINStatus",CCPixMWTester::TestUpdateINStatusL ),
         //ADD NEW ENTRY HERE
         // [test cases entries] - Do not remove
 
@@ -192,7 +243,7 @@ TInt CCPixMWTester::TestBlacklistPluginVersionL( CStifItemParser& aItem )
 // CCPixMWTester::TestWatchdogL
 // -----------------------------------------------------------------------------
 //
-TInt CCPixMWTester::TestWatchdogL( CStifItemParser&)
+TInt CCPixMWTester::TestWatchdogL( CStifItemParser& /*aItem*/)
     {
     TInt err = KErrNone;
     //Start the watchdog exe 
@@ -211,6 +262,176 @@ TInt CCPixMWTester::TestWatchdogL( CStifItemParser&)
     TFullName name;
     err = harvesterServer.Next(name);
     p.Close();
+    doLog( iLog, err, KNoErrorString );
+    return err;
+    }
+// -----------------------------------------------------------------------------
+// CCPixMWTester::TestDeleteContentInfoDBL
+// -----------------------------------------------------------------------------
+//
+TInt CCPixMWTester::TestDeleteContentInfoDBL( CStifItemParser& /*aItem*/)
+    {
+    RFs fssession;
+    CContentInfoMgr* contentInfoMgr = NULL;
+    User::LeaveIfError( fssession.Connect() );
+    TFileName privatePath;
+    TFileName datafile;    
+    fssession.CreatePrivatePath(EDriveC);
+    fssession.PrivatePath(privatePath);//data caged path of loading process    
+    datafile.Copy(KDriveC);
+    datafile.Append(privatePath);    
+    datafile.Append( KContentInfoFileName );
+    //delete the database file
+    fssession.Delete( datafile );
+    TRAPD ( err , contentInfoMgr = CContentInfoMgr::NewL() );
+    delete contentInfoMgr;
+    doLog( iLog, err, KNoErrorString );
+    return err;
+    }
+// -----------------------------------------------------------------------------
+// CCPixMWTester::TestAddContentL
+// -----------------------------------------------------------------------------
+//
+TInt CCPixMWTester::TestAddContentL( CStifItemParser& aItem)
+    {
+    RFs fssession;
+    TPtrC content;
+    TInt err = KErrNone;
+    aItem.GetNextString( content );
+    CContentInfoMgr* contentInfoMgr = CContentInfoMgr::NewL();
+    CContentInfo* contentinfo = CContentInfo::NewL();
+    //Add the content with given content name and 0 as BL status and 1 as IN status
+    contentinfo->SetNameL( content );
+    contentinfo->SetBlacklistStatus( 0 );
+    contentinfo->SetIndexStatus( 1 );
+    contentInfoMgr->AddL( contentinfo );
+    delete contentinfo;
+    //TBuf<50> name;
+    //name.Copy( content.Ptr() );
+    //Find if the content exists
+    TBool found = contentInfoMgr->FindL( content );
+    delete contentInfoMgr;
+    if ( !found ) err = KErrNotFound;
+    doLog( iLog, err, KNoErrorString );
+    return err;
+    }
+// -----------------------------------------------------------------------------
+// CCPixMWTester::TestRemoveContentL
+// -----------------------------------------------------------------------------
+//
+TInt CCPixMWTester::TestRemoveContentL( CStifItemParser& aItem)
+    {
+    RFs fssession;
+    TPtrC content;
+    TInt err = KErrNotFound;
+    aItem.GetNextString( content );
+    CContentInfoMgr* contentInfoMgr = CContentInfoMgr::NewL();
+    contentInfoMgr->ResetL();
+    CContentInfo* contentinfo = CContentInfo::NewL();
+    //Add the content with given content name and 0 as BL status and 1 as IN status
+    contentinfo->SetNameL( content );
+    contentinfo->SetBlacklistStatus( 0 );
+    contentinfo->SetIndexStatus( 1 );
+    contentInfoMgr->AddL( contentinfo );
+    delete contentinfo;
+    //check if the added content exists
+    TBool found = contentInfoMgr->FindL( content );
+    if ( found )
+        {
+        //remove the content from DB and find it
+        contentInfoMgr->RemoveL( content );
+        found = contentInfoMgr->FindL( content );
+        if ( !found ) err = KErrNone;
+        }
+    delete contentInfoMgr;    
+    doLog( iLog, err, KNoErrorString );
+    return err;
+    }
+// -----------------------------------------------------------------------------
+// CCPixMWTester::TestResetContentL
+// -----------------------------------------------------------------------------
+//
+TInt CCPixMWTester::TestResetContentL( CStifItemParser& aItem)
+    {
+    RFs fssession;
+    TPtrC content;
+    TInt err = KErrNotFound;
+    aItem.GetNextString( content );
+    CContentInfoMgr* contentInfoMgr = CContentInfoMgr::NewL();
+    CContentInfo* contentinfo = CContentInfo::NewL();
+    //Add the content with given content name and 0 as BL status and 1 as IN status
+    contentinfo->SetNameL( content );
+    contentinfo->SetBlacklistStatus( 0 );
+    contentinfo->SetIndexStatus( 1 );
+    contentInfoMgr->AddL( contentinfo );
+    delete contentinfo;
+    //make sure there is some content exists in the database
+    TInt count = contentInfoMgr->GetContentCountL();
+    if ( count )
+        {
+        //reset the DB and get the count . the count should be 0
+        contentInfoMgr->ResetL();
+        count = contentInfoMgr->GetContentCountL( );
+        if ( !count ) err = KErrNone;
+        }
+    delete contentInfoMgr;    
+    doLog( iLog, err, KNoErrorString );
+    return err;
+    }
+// -----------------------------------------------------------------------------
+// CCPixMWTester::TestUpdateBLStatusL
+// -----------------------------------------------------------------------------
+//
+TInt CCPixMWTester::TestUpdateBLStatusL( CStifItemParser& aItem)
+    {
+    RFs fssession;
+    TPtrC content;
+    TInt err = KErrNotFound;
+    aItem.GetNextString( content );
+    CContentInfoMgr* contentInfoMgr = CContentInfoMgr::NewL();
+    contentInfoMgr->ResetL();
+    CContentInfo* contentinfo = CContentInfo::NewL();
+    //Add the content with given content name and 0 as BL status and 1 as IN status
+    contentinfo->SetNameL( content );
+    contentinfo->SetBlacklistStatus( 0 );
+    contentinfo->SetIndexStatus( 1 );
+    contentInfoMgr->AddL( contentinfo );
+    delete contentinfo;
+    //Update the blacklist status to 1
+    contentInfoMgr->UpdateBlacklistStatusL( content , 1);
+    TInt blstatus =0,instatus = 0;
+    getcontentstatus ( content , blstatus , instatus);    
+    if ( blstatus ) err = KErrNone;
+    delete contentInfoMgr;    
+    doLog( iLog, err, KNoErrorString );
+    return err;
+    }
+
+// -----------------------------------------------------------------------------
+// CCPixMWTester::TestUpdateINStatusL
+// -----------------------------------------------------------------------------
+//
+TInt CCPixMWTester::TestUpdateINStatusL( CStifItemParser& aItem)
+    {
+    RFs fssession;
+    TPtrC content;
+    TInt err = KErrNotFound;
+    aItem.GetNextString( content );
+    CContentInfoMgr* contentInfoMgr = CContentInfoMgr::NewL();
+    contentInfoMgr->ResetL();
+    CContentInfo* contentinfo = CContentInfo::NewL();
+    //Add the content with given content name and 0 as BL status and 1 as IN status
+    contentinfo->SetNameL( content );
+    contentinfo->SetBlacklistStatus( 0 );
+    contentinfo->SetIndexStatus( 1 );
+    contentInfoMgr->AddL( contentinfo );
+    delete contentinfo;
+    //Update the Indexing status to 0
+    contentInfoMgr->UpdatePluginIndexStatusL( content , 0);
+    TInt blstatus = 0,instatus = 1;
+    getcontentstatus ( content , blstatus , instatus);    
+    if ( !blstatus ) err = KErrNone;
+    delete contentInfoMgr;    
     doLog( iLog, err, KNoErrorString );
     return err;
     }

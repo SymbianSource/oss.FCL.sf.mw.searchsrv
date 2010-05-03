@@ -25,6 +25,7 @@
 const TInt KFilePluginBaseAppClassMaxLen = 64;
 //Forward Declaration
 class CBlacklistMgr;
+class CContentInfoMgr;
 
 class CIndexingManager : public CActive, public MIndexingService
 	{
@@ -199,6 +200,8 @@ private:
 	TTime iPreviousRun;
 	/* Database to maintain blacklisted plugins.Owned */
 	CBlacklistMgr* iBlacklistMgr;
+	/* Database to maintain the content info all the plugins.owned*/
+	CContentInfoMgr* iContentInfoMgr;
 	};
 
 #endif // CINDEXINGMANAGER_H

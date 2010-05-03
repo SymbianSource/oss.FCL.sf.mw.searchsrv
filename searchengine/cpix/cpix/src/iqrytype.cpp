@@ -198,6 +198,32 @@
  *
  * The same as above, but now it looks for the term pizza in the field
  * specified to the query parser as a default search field.
+ * 
+ * 
+ * 6 Prefix query
+ * ------------
+ *
+ * 
+ *
+ *   '$Prefix(QRY)'
+ *
+ * these two have the same meaning, namely, dump all documents that
+ * adhere the actual criteria given by QRY. In fact, these are
+ * resolved as plain, clucene queries. In other words, these for query
+ * syntaxes are equivalent:
+ *
+ *   '$Prefix(QRY)'
+ *
+ * The reason dump query is made special by delegating tasks to plain
+ * clucene query is that clients may have easier time to construct
+ * query strings. For instance, the first term might be a word the
+ * user entered or '*' if she entered nothing, and depending on
+ * whether there is some extra search criteria (like '_appclass:'root
+ * file media jpg') can be concatenated at will. That is, the two
+ * parts of a query string can be independently constructed based on
+ * two unrelated variables (1: whether the user has entered anything,
+ * 2: what context / extra criteria we have).
+ *
  */
 
 
@@ -217,6 +243,9 @@ namespace Cpix
 
     // from qrytype/quadqrytype.cpp
     IQryType * CreateQuadQryType();
+
+    // from qrytype/prefixqrytype.cpp
+    IQryType * CreatePrefixQryType();
 
 
     bool StartsWith(const wchar_t * qryStr,
@@ -271,6 +300,7 @@ namespace
             { L"address",               &Cpix::CreateAddressQryType },
             { L"terms",                 &Cpix::CreateTermsQryType   },
             { L"quad",                  &Cpix::CreateQuadQryType    },
+            { L"prefix",                &Cpix::CreatePrefixQryType  },
 
             // TODO more search plugins here
 

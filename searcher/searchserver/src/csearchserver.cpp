@@ -27,6 +27,11 @@
 #include "SearchServerTesting.h"
 #include "CHouseKeepingHandler.h"
 #include "SearchServerLogger.h"
+#include "OstTraceDefinitions.h"
+#ifdef OST_TRACE_COMPILER_IN_USE
+#include "csearchserverTraces.h"
+#endif
+
 
 // Server security policy
 
@@ -113,6 +118,7 @@ CSearchServer* CSearchServer::NewLC()
 //
 void CSearchServer::ConstructL()
 	{
+	OstTraceFunctionEntry0( CSEARCHSERVER_CONSTRUCTL_ENTRY );
 	
 	CPIXLOGSTRING("Creating search server");
 	
@@ -126,6 +132,7 @@ void CSearchServer::ConstructL()
 	// Initialize the OpenC search
 	CCPixIdxDb::InitializeL();
 	StartL(KSearchServerName);
+	OstTraceFunctionExit0( CSEARCHSERVER_CONSTRUCTL_EXIT );
 	}
 
 // -----------------------------------------------------------------------------
@@ -148,6 +155,7 @@ CSearchServer::CSearchServer(TInt aPriority) :
 //
 CSearchServer::~CSearchServer()
 	{
+	OstTrace0( TRACE_NORMAL, CSEARCHSERVER_CSEARCHSERVER, "Deleting search server" );
 	CPIXLOGSTRING("Deleting search server");
 	
 	// Delete the container index

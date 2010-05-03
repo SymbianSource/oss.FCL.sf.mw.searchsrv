@@ -5,7 +5,7 @@
 * the GNU Lesser General Public License, as specified in the COPYING file.
 ------------------------------------------------------------------------------*/
 #include "clucene/stdheader.h"
-#include "TermScorer.h"
+#include "termscorer.h"
 
 #include "clucene/index/terms.h"
 #include "termquery.h"

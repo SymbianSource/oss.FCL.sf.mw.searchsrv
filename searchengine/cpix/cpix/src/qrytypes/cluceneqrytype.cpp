@@ -31,7 +31,10 @@
 #include "cpixutil.h"
 #include "iqrytype.h"
 
-
+//Introduced for prefix optimization.
+#include "prefixopt.h"
+#include "cpixmaindefs.h"
+#include "iqrytype.h"
 
 namespace Cpix
 {
@@ -84,9 +87,16 @@ namespace Cpix
                 {
                     THROW_CPIXEXC(PL_ERROR "No arguments needed here");
                 }
-            
-            clQuery_ = clQueryParser_->parse(qryStr);
 
+            //Can we do get rid of this parse here?
+            clQuery_ = clQueryParser_->parse(qryStr);
+            PrefixOptQueryRewriter prefixOpt_(OPTIMIZED_PREFIX_MAX_LENGTH, 
+                                                    LCPIX_DEFAULT_FIELD, 
+                                                    LCPIX_DEFAULT_PREFIX_FIELD );
+            //Switch query ownership to stack and back
+            std::auto_ptr<lucene::search::Query> q( clQuery_ ); clQuery_ = NULL; 
+            clQuery_ = prefixOpt_.rewrite( q ).release();
+            
             if (clQuery_ == NULL)
                 {
                     THROW_CPIXEXC("Query reduced to empty query.");

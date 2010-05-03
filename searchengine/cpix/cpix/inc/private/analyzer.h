@@ -56,6 +56,39 @@ namespace Cpix
 // Class definitions
 namespace Cpix
 {
+
+	/**
+	 * This is a special filter that is used to generate prefixes
+	 * of the searched words.
+	 * 
+	 * For example token "chapter" will be split into tokens "ch" and "c"
+	 * if maxPrefixLength is set as 2. 
+	 */
+	class PrefixGenerator : public lucene::analysis::TokenFilter {
+	
+	public: 
+	
+		PrefixGenerator(lucene::analysis::TokenStream* in, 
+						bool deleteTS, 
+						size_t maxPrefixLength);
+
+		virtual ~PrefixGenerator();
+		
+		/**
+		 * Returns
+		 */
+		virtual bool next(lucene::analysis::Token* token);
+		
+	private: 
+		
+		lucene::analysis::Token token_; 
+		
+		size_t prefixLength_;
+	
+		size_t maxPrefixLength_; 
+	
+	};
+
     /**
      * Aggregates token streams from all fields marked from aggregation. 
      * Used to generate the contents of the _aggregate field. 

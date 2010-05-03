@@ -11,7 +11,7 @@
 # pragma once
 #endif
 
-#include "CLucene/search/phrasequeue.h"
+#include "clucene/search/phrasequeue.h"
 #include "clucene/search/phrasepositions.h"
 #include "clucene/search/scorer.h"
 #include "clucene/search/similarity.h"

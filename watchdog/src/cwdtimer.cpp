@@ -20,6 +20,11 @@
 #include "WatchDogCommon.h"
 #include "MWDTimerHandler.h"
 #include <HarvesterServerLogger.h>
+#include "OstTraceDefinitions.h"
+#ifdef OST_TRACE_COMPILER_IN_USE
+#include "cwdtimerTraces.h"
+#endif
+
 // -----------------------------------------------------------------------------
 // CWDTimer::NewL
 // -----------------------------------------------------------------------------
@@ -78,10 +83,12 @@ void CWDTimer::ConstructL( MWDTimerHandler* aWDTimerHandler )
 //
 void CWDTimer::StartWDTimer()
     {
+    OstTraceFunctionEntry0( CWDTIMER_STARTWDTIMER_ENTRY );
     CPIXLOGSTRING("CWDTimer::StartWDTimer(): Entered");    
     //start the timer
     iTimer.After( iStatus , MONITORING_DELAY ); // Wait 60 seconds before checking the servers
-    SetActive();
+    OstTraceFunctionExit0( CWDTIMER_STARTWDTIMER_EXIT );
+    SetActive();    
     }
 
 // -----------------------------------------------------------------------------

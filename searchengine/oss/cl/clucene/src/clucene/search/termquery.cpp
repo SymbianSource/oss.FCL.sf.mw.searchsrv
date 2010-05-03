@@ -10,7 +10,7 @@
 #include "searchheader.h"
 #include "scorer.h"
 #include "clucene/index/term.h"
-#include "TermScorer.h"
+#include "termscorer.h"
 #include "clucene/index/indexreader.h"
 #include "clucene/util/stringbuffer.h"
 #include "clucene/index/terms.h"

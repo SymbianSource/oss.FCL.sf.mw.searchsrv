@@ -46,6 +46,71 @@
 #include "cluceneext.h"
 #include "cpixstrtools.h"
 
+namespace
+{
+    const char EXTENSION[]       = ".txt";
+    const char EXTENSION_UPPER[] = ".TXT";
+
+    const char DEFAULT_ENCODING[] = "UTF-8";
+    
+    /**
+     * Returns 1 on success, 0 on eof. 
+     */
+    int clgetline(lucene::util::Reader& reader, std::wstring& line) 
+        {
+        line = L""; 
+        
+        // read line 
+        while (true) 
+            {
+                int c = reader.read(); 
+                switch (c) {
+                    case -1: // EOF
+                        return line.length() > 0; 
+                    case '\n': // line break
+                    case '\r': // line break
+                        return 1;
+                    default:
+                        line += static_cast<wchar_t>(c);
+                        if  (line.length() > 500)
+                            return 1;
+                }
+            }
+        }
+
+    void getExcerptOfFile(wchar_t       * dst,
+                          const char    * path,
+                          size_t          maxWords,
+                          size_t          bufSize)
+    {
+        using namespace std;
+        using namespace lucene::util;
+                
+        // Lucene reader can do UTF-8 magic, so let's use it
+        FileReader file( path, DEFAULT_ENCODING ); 
+        
+        if ( file.reader->getStatus() == jstreams::Ok ) 
+            {
+                cpix_EPIState
+                    epiState;
+                cpix_init_EPIState(&epiState);
+        
+                wstring
+                    line;
+        
+                while (bufSize > 0 && maxWords > 0 && clgetline(file, line))
+                    {
+                        dst = cpix_getExcerptOfWText(dst,
+                                                     line.c_str(),
+                                                     &maxWords,
+                                                     &bufSize,
+                                                     &epiState);
+                    }
+            }
+    }
+
+}
+
 using namespace std;
 using namespace Cpt;
 
@@ -633,6 +698,7 @@ namespace Cpix
         const char DEFAULT_ENCODING[] = "UTF-8";
         char tempFile[254];
         FILE *fp;
+		wchar_t* excerpt = new wchar_t[MAX_EXCERPT_LENGTH];
         
         convertPDFToText(path);
 
@@ -658,18 +724,30 @@ namespace Cpix
         
                 doc->add(newField.get());
                 newField.release();
+				        getExcerptOfFile(excerpt,
+                        tempFile,
+                        10, // max words
+                        sizeof(excerpt) / sizeof(wchar_t));
+						doc->setExcerpt(excerpt);
+						
             }
         else
            {
+               //For empty file setting the path as excerpt 
+               doc->setExcerpt(doc->get(LCPIX_DOCUID_FIELD));
+               
                getTempFileName(path,tempFile);
                strcat(tempFile,".txt");
                remove(tempFile);
            
            }
 
-        doc->setAppClass(PDFAPPCLASS);
+        doc->setAppClass(CONTENTAPPCLASS);
         doc->setMimeType(LPDFFILE_MIMETYPE);
+        delete excerpt;
         GenericFileProcessor(doc,path);
         }
 
     }
+
+

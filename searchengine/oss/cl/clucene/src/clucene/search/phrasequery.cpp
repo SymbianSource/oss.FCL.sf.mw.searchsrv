@@ -5,7 +5,7 @@
 * the GNU Lesser General Public License, as specified in the COPYING file.
 ------------------------------------------------------------------------------*/
 #include "clucene/stdheader.h"
-#include "PhraseQuery.h"
+#include "phrasequery.h"
 
 #include "searchheader.h"
 #include "scorer.h"

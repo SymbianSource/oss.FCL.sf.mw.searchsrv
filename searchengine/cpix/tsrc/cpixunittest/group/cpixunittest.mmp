@@ -44,21 +44,26 @@ SOURCE          testutils.cpp
 SOURCE          whiteboxtests.cpp 
 SOURCE          destructivetests.cpp
 SOURCE          prematureqrytests.cpp
+// Avoid media Testcases if MDS not present. 
+#ifdef MDS_PRESENT
 SOURCE          en_stemtests.cpp
-SOURCE          aggregatetests.cpp
 SOURCE          geotests.cpp
+SOURCE          spi/exifunittest.cpp
+SOURCE 		    spi/id3unittest.cpp
+#endif
+
+SOURCE          aggregatetests.cpp
 SOURCE          multivolumetests.cpp
 SOURCE          domainselectiontests.cpp
 SOURCE          suggestion.cpp
 SOURCE          negativetests.cpp 
-SOURCE 		utf8.cpp
-SOURCE 		utf8path.cpp
+SOURCE 			utf8.cpp
+SOURCE 			utf8path.cpp
 SOURCE          analysis.cpp 
 SOURCE          analysiswhitebox.cpp
 SOURCE          mapstests.cpp
 SOURCE          documenttest.cpp
-SOURCE          spi/exifunittest.cpp
-SOURCE 		spi/id3unittest.cpp
+
 SOURCE          flushtests.cpp
 SOURCE          heartbeattests.cpp
 SOURCE          terms.cpp
@@ -66,7 +71,7 @@ SOURCE          asynctests.cpp
 SOURCE          config.cpp
 SOURCE          clq/uxqry.cpp
 SOURCE          clq/clqry.cpp 
-SOURCE		pdftests.cpp
+SOURCE		pdftests.cpp querytest.cpp
 
 USERINCLUDE     ../../../../../searchsrv_plat/cpix_utility_api/inc
 USERINCLUDE     ../inc

@@ -26,7 +26,7 @@
 #include "common.h"
 
 #define TS_ASSERT(a) \
-    if ( !a ) return KErrNotFound 
+    if ( !a ) User::Leave(KErrNotFound) 
 
 _LIT(KQueryString, "act");
 
@@ -69,34 +69,70 @@ void CTestSearcher::AddFileToIndexL(const TDesC& aFileName)
     CleanupStack::PopAndDestroy(doc);
     }
 
-void CTestSearcher::setUp()
+void CTestSearcher::initialsetUp()
     {
-    iFs.Connect();
     User::LeaveIfError(iSession.Connect());
-
-    
     iSession.UnDefineVolume(KTestFileBaseAppClassC);
     // define a test volume
     iSession.DefineVolume(KTestFileBaseAppClassC, KNullDesC);
+    }
 
+void CTestSearcher::createandinitindexer()
+    {
     iIndexer = CCPixIndexer::NewL(iSession);
     iIndexer->OpenDatabaseL(KTestFileBaseAppClassC);
     iIndexer->ResetL();
-    
-    AddFileToIndexL(_L("c:\\Data\\cpixS60unittest\\act0.txt")); 
-    AddFileToIndexL(_L("c:\\Data\\cpixS60unittest\\act1.txt")); 
-    AddFileToIndexL(_L("c:\\Data\\cpixS60unittest\\act2.txt")); 
-    AddFileToIndexL(_L("c:\\Data\\cpixS60unittest\\act3.txt")); 
-    AddFileToIndexL(_L("c:\\Data\\cpixS60unittest\\act4.txt")); 
-    AddFileToIndexL(_L("c:\\Data\\cpixS60unittest\\act5.txt")); 
-    AddFileToIndexL(_L("c:\\Data\\cpixS60unittest\\act6.txt")); 
-    AddFileToIndexL(_L("c:\\Data\\cpixS60unittest\\complete.txt")); 
-    AddFileToIndexL(_L("c:\\Data\\cpixS60unittest\\index.txt"));    
-    AddFileToIndexL(_L("c:\\Data\\cpixS60unittest\\introduction.txt")); 
+    }
 
+void CTestSearcher::createsearcher()
+    {
     iSearcher = CCPixSearcher::NewL(iSession);
     iSearcher->OpenDatabaseL(KTestFileBaseAppClassC);
+    }
 
+void CTestSearcher::harvesttestcontent( TInt aCount )
+    {
+    for (int i = 0; i < aCount; i++)
+        {
+        switch (i)
+            {
+            case 0:
+                AddFileToIndexL(_L("c:\\Data\\cpixS60unittest\\act0.txt")); 
+                break;
+            case 1:
+                AddFileToIndexL(_L("c:\\Data\\cpixS60unittest\\act1.txt")); 
+                break;
+            case 2:
+                AddFileToIndexL(_L("c:\\Data\\cpixS60unittest\\act2.txt")); 
+                break;
+            case 3:
+                AddFileToIndexL(_L("c:\\Data\\cpixS60unittest\\act3.txt")); 
+                break;
+            case 4:
+                AddFileToIndexL(_L("c:\\Data\\cpixS60unittest\\act4.txt")); 
+                break;
+            case 5:
+                AddFileToIndexL(_L("c:\\Data\\cpixS60unittest\\act5.txt")); 
+                break;
+            case 6:
+                AddFileToIndexL(_L("c:\\Data\\cpixS60unittest\\act6.txt")); 
+                break;
+            case 7:
+                AddFileToIndexL(_L("c:\\Data\\cpixS60unittest\\complete.txt")); 
+                break;
+            case 8:
+                AddFileToIndexL(_L("c:\\Data\\cpixS60unittest\\index.txt"));    
+                break;
+            default:
+                AddFileToIndexL(_L("c:\\Data\\cpixS60unittest\\introduction.txt"));
+                break;
+            }
+        }
+    }
+
+void CTestSearcher::InitAsyncComponents()
+    {
+    
     // iWait will cause waiting until some asynchronous event has happened
     iWait = new (ELeave) CActiveSchedulerWait;
     iMyAOClass = CAOTestClass::NewL(this);
@@ -106,39 +142,43 @@ void CTestSearcher::setUp()
     iHandleSetAnalyzerCalled = EFalse;
     }
 
-void CTestSearcher::tearDown()
+void CTestSearcher::ReleaseIndexer()
     {
-    iDocumentCount = 0;
-
+    if (iIndexer)
+        {
+        iIndexer->ResetL();
+        }
+    delete iIndexer;
+    iIndexer = NULL;
+    }
+void CTestSearcher::ReleaseSearcher()
+    {
     delete iSearcher;
     iSearcher = NULL;
+    }
 
+void CTestSearcher::ReleaseAsyncComponents()
+    {
+    iDocumentCount = 0;
     if ( iDocument )
         {
         delete iDocument;
         iDocument = NULL;
         }
-
-    if (iIndexer)
-        {
-        iIndexer->ResetL();
-        }
-
     if( iWait )
         {
         delete iWait;
         iWait = NULL;
         }
-    
+        
     if( iMyAOClass )
         {
         delete iMyAOClass;
         iMyAOClass = NULL;
         }
-
-    delete iIndexer;
-    iIndexer = NULL;
-
+    }
+void CTestSearcher::tearDown()
+    {    
     // undefine a test volume
     iSession.UnDefineVolume(KTestFileBaseAppClassC);
 
@@ -204,7 +244,7 @@ void CTestSearcher::CallCompleted( int /* i */ )
         }
     }
 
-TInt CTestSearcher::testKnownTermTestsL()
+void CTestSearcher::testKnownTermTestsL()
     {
     // Shakespeare's corpus files have plenty of terms "act" in them EXPECTED RESULTS > 0
     TInt result = SearchForTextL(KQueryString, KNullDesC);
@@ -219,7 +259,7 @@ TInt CTestSearcher::testKnownTermTestsL()
         for (TInt i=0; i<result; i++)
             {
             CSearchDocument* document = iSearcher->GetDocumentL(i);     
-            //TS_ASSERT(document != NULL);
+            TS_ASSERT(document != NULL);
             delete document;
             }
         }
@@ -234,107 +274,106 @@ TInt CTestSearcher::testKnownTermTestsL()
     TS_ASSERT(result == 0);
 
     // can search for a known value in a different field
-    result = SearchForTextL(KRootFileUserTxt, KAppClassField);
+    result = SearchForTextL(_L("usrdoc"), KAppClassField);
     TS_ASSERT(result > 0);
 
     // can search for a known value in a different field
-//  result = SearchForTextL(KRootFileUserTxt, KNonExistentField);
-//  TS_ASSERT(result == 0); // TODO XXX TIM why does searching for an existing term in a non-existent field return a non-zero value
-    return KErrNone;
+    result = SearchForTextL(_L("usrdoc"), KNonExistentField);
+    TS_ASSERT(result == 0); // TODO XXX TIM why does searching for an existing term in a non-existent field return a non-zero value    
     }
 
 void CTestSearcher::testWildcardTermTests()
     {
     // Shakespeare's corpus files have plenty of terms "act" in them EXPECTED RESULTS > 0
     TInt result = SearchForTextL(_L("a*t"), KNullDesC);
-    //TS_ASSERT(result > 0);
+    TS_ASSERT(result > 0);
 
     // Shakespeare's corpus files have plenty of terms "act" in them EXPECTED RESULTS > 0
     result = SearchForTextL(_L("sc*ne"), KNullDesC);
-   // TS_ASSERT(result > 0);
+    TS_ASSERT(result > 0);
     }
 
 void CTestSearcher::testDefineVolumeWorksNonEmptyPath()
     {
     TBuf8<KMaxFileSize> cpixRegBuf;
-
+    iFs.Connect();
     // open up the cpixreg.txt file again and make sure 
     // that it IS NOT in there
     TInt err = iFile.Open(iFs, KCpixRegFile, EFileStreamText);
     iFile.Read(0, cpixRegBuf);
     err = cpixRegBuf.Find(KRootMapsGbr8());
-   // TS_ASSERT(KErrNotFound == err);
+    TS_ASSERT(KErrNotFound == err);
     err = cpixRegBuf.Find(KRootMapsGbrPath8());
-   // TS_ASSERT(KErrNotFound == err);
+    TS_ASSERT(KErrNotFound == err);
     iFile.Close();
 
     // define a new volume
     err = iSession.DefineVolume(KRootMapsGbr, KRootMapsGbrPath);
-   // TS_ASSERT(err == KErrNone);
+    TS_ASSERT(err == KErrNone);
 
     // open up the cpixreg.txt file and make sure that it IS in there
     err = iFile.Open(iFs, KCpixRegFile, EFileStreamText);
     iFile.Read(0, cpixRegBuf);
     err = cpixRegBuf.Find(KRootMapsGbr8());
-   // TS_ASSERT(KErrNotFound != err);
+    TS_ASSERT(KErrNotFound != err);
     err = cpixRegBuf.Find(KRootMapsGbrPath8());
-   // TS_ASSERT(KErrNotFound != err);
+    TS_ASSERT(KErrNotFound != err);
     iFile.Close();
 
     // now undefine the same volume
     err = iSession.UnDefineVolume(KRootMapsGbr);
-   // TS_ASSERT(err == KErrNone);
+    TS_ASSERT(err == KErrNone);
 
     // open up the cpixreg.txt file again and make sure 
     // that it IS NOT in there
     err = iFile.Open(iFs, KCpixRegFile, EFileStreamText);
     iFile.Read(0, cpixRegBuf);
     err = cpixRegBuf.Find(KRootMapsGbr8());
-   // TS_ASSERT(KErrNotFound == err);
+    TS_ASSERT(KErrNotFound == err);
     err = cpixRegBuf.Find(KRootMapsGbrPath8());
-   // TS_ASSERT(KErrNotFound == err);
+    TS_ASSERT(KErrNotFound == err);
     iFile.Close();
     }
 
 void CTestSearcher::testDefineVolumeWorksWithEmptyPath()
     {
     TBuf8<KMaxFileSize> cpixRegBuf;
-
+    iFs.Connect();
     // open up the cpixreg.txt file again and make sure 
     // that it IS NOT in there
     TInt err = iFile.Open(iFs, KCpixRegFile, EFileStreamText);
     iFile.Read(0, cpixRegBuf);
     err = cpixRegBuf.Find(KRootMapsGbr8());
-  //  TS_ASSERT(KErrNotFound == err);
+    TS_ASSERT(KErrNotFound == err);
     err = cpixRegBuf.Find(KRootMapsGbrPath8());
-  //  TS_ASSERT(KErrNotFound == err);
+    TS_ASSERT(KErrNotFound == err);
     iFile.Close();
 
     // define a new volume
     err = iSession.DefineVolume(KRootMapsGbr, KNullDesC);
-  //  TS_ASSERT(err == KErrNone);
+    TS_ASSERT(err == KErrNone);
 
     // open up the cpixreg.txt file and make sure that it IS in there
     err = iFile.Open(iFs, KCpixRegFile, EFileStreamText);
     iFile.Read(0, cpixRegBuf);
     err = cpixRegBuf.Find(KRootMapsGbr8());
-  //  TS_ASSERT(KErrNotFound != err);
+    TS_ASSERT(KErrNotFound != err);
     iFile.Close();
 
     // now try to redefine the same volume again
     err = iSession.DefineVolume(KRootMapsGbr, KNullDesC);
-  //  TS_ASSERT(err == KErrNone);
+    TS_ASSERT(err == KErrNone);
 
     // now undefine the same volume
     err = iSession.UnDefineVolume(KRootMapsGbr);
-  //  TS_ASSERT(err == KErrNone);
+    TS_ASSERT(err == KErrNone);
 
     // open up the cpixreg.txt file again and make sure 
     // that it IS NOT in there
     err = iFile.Open(iFs, KCpixRegFile, EFileStreamText);
     iFile.Read(0, cpixRegBuf);
     err = cpixRegBuf.Find(KRootMapsGbr8());
-  //  TS_ASSERT(KErrNotFound == err);
+    TS_ASSERT(KErrNotFound == err);
     iFile.Close();
     }
 
@@ -342,20 +381,20 @@ void CTestSearcher::testDefineVolumeErrorScenarios()
     {
     // Attempt to define a volume for a invalid qualified base app classes.
     TInt result = iSession.DefineVolume(KInvalidQualifiedBaseAppClass1, KNullDesC);
- //   TS_ASSERT(result == KErrCannotDefineVolume);
+    TS_ASSERT(result == KErrCannotDefineVolume);
 
     result = iSession.DefineVolume(KInvalidQualifiedBaseAppClass2, KNullDesC);
- //   TS_ASSERT(result == KErrCannotDefineVolume);
+    TS_ASSERT(result == KErrCannotDefineVolume);
 
     result = iSession.DefineVolume(KInvalidQualifiedBaseAppClass3, KNullDesC);
-  //  TS_ASSERT(result == KErrCannotDefineVolume);
+    TS_ASSERT(result == KErrCannotDefineVolume);
 
     result = iSession.DefineVolume(KInvalidQualifiedBaseAppClass4, KNullDesC);
-  //  TS_ASSERT(result == KErrCannotDefineVolume);
+    TS_ASSERT(result == KErrCannotDefineVolume);
 
     // Attempt to undefine a volume that was not defined.
     result = iSession.UnDefineVolume(KRootMapsGbr);
-  //  TS_ASSERT(result == KErrNone);
+    TS_ASSERT(result == KErrNone);
     }
 
 void CTestSearcher::testSearchCancellation()
@@ -371,14 +410,14 @@ void CTestSearcher::testSearchCancellation()
 
     // Wait until either HandleSearchResultsL or Timeout exceeded
     iWait->Start();
-   // TS_ASSERT(iDocumentCount == 0);
+    TS_ASSERT(iDocumentCount == 0);
 
     // Now make sure that subsequent searches work correctly
     iSearcher->SearchL(*this, KQueryString);
     // Wait until HandleSearchResultsL completes
     iWait->Start();
 
-   // TS_ASSERT(iDocumentCount > 0);
+    TS_ASSERT(iDocumentCount > 0);
     }
 
 void CTestSearcher::testSearchAsynchronous()
@@ -387,25 +426,25 @@ void CTestSearcher::testSearchAsynchronous()
     // Wait until HandleSearchResultsL completes
     iWait->Start();
 
-  //  TS_ASSERT(iDocumentCount > 0);
+    TS_ASSERT(iDocumentCount > 0);
     }
 
 void CTestSearcher::testSearchLeavesIfNotCancelled()
     {
     // Perform first search
     TRAPD(err, iSearcher->SearchL(*this, KQueryString) );
-   // TS_ASSERT(iDocumentCount == 0);
-   // TS_ASSERT(err == KErrNone);
+    TS_ASSERT(iDocumentCount == 0);
+    TS_ASSERT(err == KErrNone);
 
     // before ::HandleSearchResults has been called, 
     // initiate a second search. 
     TRAP(err, iSearcher->SearchL(*this, KQueryString));
-  //  TS_ASSERT(err == KErrInUse);
+    TS_ASSERT(err == KErrInUse);
 
     // Wait until HandleSearchResultsL completes
     iWait->Start();
 
-   // TS_ASSERT(iDocumentCount > 0);
+    TS_ASSERT(iDocumentCount > 0);
     }
 
 void CTestSearcher::testOpenIndexDb()
@@ -414,10 +453,10 @@ void CTestSearcher::testOpenIndexDb()
     _LIT(KInvalidQualifiedBaseAppClass, "@x:test invalid");
     CCPixSearcher* searcher = CCPixSearcher::NewLC(iSession);
     TRAPD(err, searcher->OpenDatabaseL(KInvalidQualifiedBaseAppClass) );
-   // TS_ASSERT(!searcher->IsDatabaseOpen());
-   // TS_ASSERT(err == KErrCannotOpenDatabase);
+    TS_ASSERT(!searcher->IsDatabaseOpen());
+    TS_ASSERT(err == KErrCannotOpenDatabase);
     TRAP(err, searcher->SearchL(KQueryString));
-   // TS_ASSERT(err == KErrNotReady);
+    TS_ASSERT(err == KErrNotReady);
     CleanupStack::PopAndDestroy(searcher);
 
     searcher = NULL; 
@@ -425,15 +464,15 @@ void CTestSearcher::testOpenIndexDb()
     // check that same searcher object can open a second indexDb
     searcher = CCPixSearcher::NewLC(iSession);
     TRAP(err, searcher->OpenDatabaseL(_L("root")));
-  //  TS_ASSERT(searcher->IsDatabaseOpen());
+    TS_ASSERT(searcher->IsDatabaseOpen());
     searcher->SearchL(KQueryString);
-  //  TS_ASSERT(err == KErrNone);
+    TS_ASSERT(err == KErrNone);
 
     TRAP(err, searcher->OpenDatabaseL(KTestFileBaseAppClassC));
-   // TS_ASSERT(err == KErrNone);
-   // TS_ASSERT(searcher->IsDatabaseOpen());
+    TS_ASSERT(err == KErrNone);
+    TS_ASSERT(searcher->IsDatabaseOpen());
     const TInt docCount = searcher->SearchL(KQueryString);
-  //  TS_ASSERT(docCount > 0);
+    TS_ASSERT(docCount > 0);
     CleanupStack::PopAndDestroy(searcher);
 
     searcher = NULL; 
@@ -448,7 +487,7 @@ void CTestSearcher::testOpenIndexDb()
     iMyAOClass->StartL(1000000*10); //Async call: Maximum TimeOut time 10 seconds
 
     iWait->Start();
-  //  TS_ASSERT(searcher->IsDatabaseOpen());
+    TS_ASSERT(searcher->IsDatabaseOpen());
     CleanupStack::PopAndDestroy(searcher);
     }
 
@@ -456,12 +495,13 @@ void CTestSearcher::testDeleteIndexDbWhileSearching()
     {
     CCPixSearcher* searcher = CCPixSearcher::NewLC(iSession);
     TRAPD(err, searcher->OpenDatabaseL(KTestFileBaseAppClassC) );
-   // TS_ASSERT(searcher->IsDatabaseOpen());
-  //  TS_ASSERT(searcher->GetBaseAppClass() != KNullDesC);
+    TS_ASSERT(searcher->IsDatabaseOpen());
+    //TS_ASSERT(searcher->GetBaseAppClass() != KNullDesC);
+    TS_ASSERT( (searcher->GetBaseAppClass().Compare( KNullDesC)) );
     //Set Standard Analyzer to improve code coverage of search
     searcher->SetAnalyzerL(*this,_L( "" CPIX_ANALYZER_STANDARD ));
     iWait->Start(); //Start Wait AO
-   // TS_ASSERT(iHandleSetAnalyzerCalled);
+    TS_ASSERT(iHandleSetAnalyzerCalled);
     TRAP(err, searcher->SearchL(*this, KQueryString));
     // don't wait for the search results.
     CleanupStack::PopAndDestroy(searcher);
@@ -472,7 +512,7 @@ void CTestSearcher::testDeleteIndexDbWhileSearching()
 void CTestSearcher::testGetDocumentAsync()
     {
     const TInt result = SearchForTextL(KQueryString, KNullDesC);
-  //  TS_ASSERT(result > 0);
+    TS_ASSERT(result > 0);
 
     TInt loopCount(0);
 
@@ -480,23 +520,23 @@ void CTestSearcher::testGetDocumentAsync()
         {
         iSearcher->GetDocumentL(loopCount, *this);
         iWait->Start();
-   //     TS_ASSERT(iDocument != NULL);
+        TS_ASSERT(iDocument != NULL);
         delete iDocument;
         iDocument = NULL;
         }
 
-  //  TS_ASSERT(loopCount == result);
+    TS_ASSERT(loopCount == result);
     }
 
 void CTestSearcher::testGetInvalidDocumentAsync()
     {
     const TInt result = SearchForTextL(KQueryString, KNullDesC);
-  //  TS_ASSERT(result > 0);
+    TS_ASSERT(result > 0);
 
     // request a document that does not exist. 
     TRAPD(err, iSearcher->GetDocumentL(result+1, *this));
     // above call is not exepected to leave
- //   TS_ASSERT(err == KErrNone);
+    TS_ASSERT(err == KErrNone);
 
    iMyAOClass->StartL(1000000*10); //Async call: Maximum TimeOut time 10 seconds
 
@@ -505,7 +545,29 @@ void CTestSearcher::testGetInvalidDocumentAsync()
     // Either the iMyAOClass Timeout executed or the the HandleDocumentL
     // function. If the HandleDocumentL function was executed, then
     // this assert will be true.
-  //  TS_ASSERT(iHandleDocumentLFunctionCalled);
+    TS_ASSERT(iHandleDocumentLFunctionCalled);
     // as requested an invalid document, this must be NULL
-  //  TS_ASSERT(iDocument == NULL);
+    TS_ASSERT(iDocument == NULL);
+    }
+
+TInt CTestSearcher::testEcerptLenth()
+    {
+    TInt length = 0;
+    _LIT(KExcerpt , "Transfer the binary output file (found under the traces on the same drive as your activation file, or on the system drive if the drive is a ROM drive) to the PC for viewing." );
+    _LIT ( KFileName , "c:\\Data\\cpixS60unittest\\act0.txt");
+    iIndexer->ResetL();
+    CSearchDocument* doc = CSearchDocument::NewLC( KFileName, KNullDesC, KNullDesC, CSearchDocument::EFileParser );
+    doc->AddExcerptL( KExcerpt );
+    iIndexer->AddL( *doc );
+    CleanupStack::PopAndDestroy( doc );
+    User::After((TTimeIntervalMicroSeconds32)30000000);
+    TInt result = SearchForTextL(KQueryString, KNullDesC);
+    if(result > 0)
+        {
+        CSearchDocument* document = iSearcher->GetDocumentL(0);     
+        TS_ASSERT(document != NULL);
+        length = document->Excerpt().Length();
+        delete document;           
+        }
+    return ( length > 125 )?KErrGeneral:KErrNone;
     }

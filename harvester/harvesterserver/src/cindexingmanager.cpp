@@ -20,6 +20,13 @@
 #include "CIndexingManager.h"
 #include "HarvesterServerLogger.h"
 #include "CBlacklistMgr.h"
+#include "contentinfomgr.h"
+#include "ccontentinfo.h"
+#include "OstTraceDefinitions.h"
+#ifdef OST_TRACE_COMPILER_IN_USE
+#include "cindexingmanagerTraces.h"
+#endif
+
 
 _LIT(KManagerFileName, "CPixConfig.bin");
 const TInt KManagerFileVersion = 1;
@@ -38,8 +45,9 @@ const TInt KMinTimeDifference = 0;
 // changed to future) update harvesters start and complete times. This value is
 // default difference in RunL calls with additional buffer.
 const TInt KMaxTimeDifference = 1 + KDefaultWaitTimeInMinutes;
-
-
+//constants for enable and disable status
+const TInt KEnable = 1;
+const TInt KDisable = 0;
 // -----------------------------------------------------------------------------
 // CHarvesterServer::NewL()
 // -----------------------------------------------------------------------------
@@ -91,6 +99,8 @@ CIndexingManager::~CIndexingManager()
 	iFs.Close();
 	
 	delete iBlacklistMgr;
+	
+	delete iContentInfoMgr;
 	}
 
 // -----------------------------------------------------------------------------
@@ -122,12 +132,16 @@ void CIndexingManager::ConstructL()
 	
 	//instantiate blacklist database
 	iBlacklistMgr = CBlacklistMgr::NewL();
+	//Instantiate Contentinfo manager
+	iContentInfoMgr = CContentInfoMgr::NewL();
 
 	// Load plugins
 	LoadPluginsL();
 	
 	//release the Blacklist manager as the blacklist functionality is done
 	delete iBlacklistMgr;
+	//release the content info manager as all the content details of all plugins are stored
+	delete iContentInfoMgr;
 
 	StartPlugins();
 	
@@ -159,6 +173,7 @@ void CIndexingManager::RunL()
 	{
 
 	// Take next harvester from the list to be run
+    OstTrace0( TRACE_NORMAL, CINDEXINGMANAGER_RUNL, "CIndexingManager::RunL" );
     CPIXLOGSTRING("CIndexingManager::RunL() ");
 
     // If system time is changed update harvester last complete and start time accordingly.
@@ -172,6 +187,7 @@ void CIndexingManager::RunL()
     if ( err == KErrNone && iPreviousRun.Int64() != 0 &&
          ( timeDifference.Int() < KMinTimeDifference || timeDifference.Int() > KMaxTimeDifference ) )
         {
+        OstTrace0( TRACE_NORMAL, DUP1_CINDEXINGMANAGER_RUNL, "CIndexingManager::RunL() time changed. Update harvester completion and start times" );
         CPIXLOGSTRING("CIndexingManager::RunL() time changed. Update harvester completion and start times");
         for (TInt i=0; i<iHarvesterArray.Count(); i++)
             {
@@ -186,6 +202,7 @@ void CIndexingManager::RunL()
     // Do nothing if already harvesting
     if (iState != EStateRunning)
     	{
+        OstTrace0( TRACE_NORMAL, DUP2_CINDEXINGMANAGER_RUNL, "CIndexingManager::RunL() the indexing manager is not running anymore" );
         CPIXLOGSTRING("CIndexingManager::RunL() the indexing manager is not running anymore ");
     	return;
     	}
@@ -197,12 +214,15 @@ void CIndexingManager::RunL()
 		switch (iHarvesterArray[i].iStatus)
 			{
 			case EHarvesterStatusWaiting:
+		        OstTraceExt1( TRACE_NORMAL, DUP3_CINDEXINGMANAGER_RUNL, "CIndexingManager::RunL;<%S>, waiting for scheduling..", iHarvesterArray[i].iQualifiedBaseAppClass );
 		        CPIXLOGSTRING2("CIndexingManager::RunL(): <%S>, waiting for scheduling...", &iHarvesterArray[i].iQualifiedBaseAppClass);
 				break;
 			case EHarvesterStatusHibernate:
+			    OstTraceExt1( TRACE_NORMAL, DUP4_CINDEXINGMANAGER_RUNL, "CIndexingManager::RunL;<%S>, hibernating..", iHarvesterArray[i].iQualifiedBaseAppClass );
 		        CPIXLOGSTRING2("CIndexingManager::RunL(): <%S>, hibernating.", &iHarvesterArray[i].iQualifiedBaseAppClass);
 				break;
 			case EHarvesterStatusRunning:
+			    OstTraceExt1( TRACE_NORMAL, DUP5_CINDEXINGMANAGER_RUNL, "CIndexingManager::RunL;<%S>, running...", iHarvesterArray[i].iQualifiedBaseAppClass );
 		        CPIXLOGSTRING2("CIndexingManager::RunL(): <%S>, running...", &iHarvesterArray[i].iQualifiedBaseAppClass);
 		        break;
 			}
@@ -210,6 +230,7 @@ void CIndexingManager::RunL()
 		TTimeIntervalMinutes mins_last_start;
 		timenow.MinutesFrom(iHarvesterArray[i].iLastComplete, mins_last_complete);
 		timenow.MinutesFrom(iHarvesterArray[i].iLastStart, mins_last_start);
+        OstTraceExt2( TRACE_NORMAL, DUP6_CINDEXINGMANAGER_RUNL, "CIndexingManager::RunL;^^^Previous start %d min ago;Previous complete %d min ago", mins_last_start.Int(), mins_last_complete.Int() );
         CPIXLOGSTRING3("CIndexingManager::RunL():  ^^^ previous start %d mins ago, previous complete %d mins ago.", mins_last_start.Int(), mins_last_complete.Int());
 
         if (iHarvesterArray[i].iStatus == EHarvesterStatusRunning)
@@ -237,12 +258,14 @@ void CIndexingManager::RunL()
 				// Consider handling the leave in ::RunError instead. 
 
 				// Run the harvester
+			    OstTraceExt1( TRACE_NORMAL, DUP7_CINDEXINGMANAGER_RUNL, "CIndexingManager::RunL;Starting harvesting <%S>.", iHarvesterArray[i].iQualifiedBaseAppClass );
 			    CPIXLOGSTRING2("CIndexingManager::RunL(): Starting harvesting <%S>.", &iHarvesterArray[i].iQualifiedBaseAppClass);
 				TRAPD(err, iHarvesterArray[i].iPlugin->StartHarvestingL(iHarvesterArray[i].iQualifiedBaseAppClass));
 
 				// No need to continue, if something was already started 
 				if (err == KErrNone)
 					{
+				    OstTrace0( TRACE_NORMAL, DUP8_CINDEXINGMANAGER_RUNL, "CIndexingManager::RunL(): Successfully started harvesting." );
 				    CPIXLOGSTRING("CIndexingManager::RunL(): Successfully started harvesting. ");
 					break;
 					}
@@ -252,6 +275,7 @@ void CIndexingManager::RunL()
 				iHarvesterArray[i].iError = err;
 				// Do not run it again, unless CIndexingMgr informed to do so
 				iHarvesterArray[i].iStatus = EHarvesterStatusHibernate;
+			    OstTrace1( TRACE_NORMAL, DUP9_CINDEXINGMANAGER_RUNL, "CIndexingManager::RunL;Error %d in starting harvesting", err );
 			    CPIXLOGSTRING2("CIndexingManager::RunL(): Error %d in starting harvesting. ", err);
 				}
 			}
@@ -287,6 +311,11 @@ void CIndexingManager::LoadPluginsL()
     //FFLOGSTRING2( "CFastFindHarvesterPluginControl:: PLUGINS COUNT %d", count );
     CIndexingPlugin* plugin = NULL;
     
+    TInt contentcount(iContentInfoMgr->GetContentCountL() );
+    // If the content count in the content info DB is not equal to the plugin count, reset the content info DB
+    if ( contentcount != count)
+        iContentInfoMgr->ResetL();
+    
     for ( TInt i = 0; i < count; i++ )
         {
         TUid uid = infoArray[i]->ImplementationUid();    // Create the plug-ins
@@ -295,12 +324,30 @@ void CIndexingManager::LoadPluginsL()
         plugin = NULL;
         TBool pluginblacklisted = EFalse;
         
-        pluginblacklisted = iBlacklistMgr->FindL( uid , version );        
+        pluginblacklisted = iBlacklistMgr->FindL( uid , version );
+        
+        TBool iscontentfound = iContentInfoMgr->FindL( infoArray[i]->DisplayName() );
+        
+        if( !iscontentfound )
+            {
+            //Add the content details to database
+            CContentInfo* contentinfo = CContentInfo::NewL();
+            contentinfo->SetNameL( infoArray[i]->DisplayName() );
+            contentinfo->SetBlacklistStatus( KEnable );
+            contentinfo->SetIndexStatus( KEnable );
+            iContentInfoMgr->AddL( contentinfo );
+            delete contentinfo;
+            }
+        else
+            {
+            iContentInfoMgr->UpdateBlacklistStatusL( infoArray[i]->DisplayName() , KEnable );
+            }
         
         if ( !pluginblacklisted )
             {
             // Plugin is not black listed. Add it to database and try to load the plugin
             iBlacklistMgr->AddL( uid , version );
+            OstTrace1( TRACE_NORMAL, CINDEXINGMANAGER_LOADPLUGINSL, "CIndexingManager::LoadPluginsL;Plugin with uid=%x is added to DB", uid.iUid );
             CPIXLOGSTRING2("CIndexingManager::LoadPluginsL(): Plugin with uid = %x is added to database", uid.iUid);
             TRAPD( err, plugin = CIndexingPlugin::NewL( uid ) );
             //FFLOGSTRING2( "CFastFindHarvesterPluginControl:: ERROR %d", err );
@@ -308,12 +355,15 @@ void CIndexingManager::LoadPluginsL()
                 {
                 // Plugin loaded succesfully. Remove it from the database
                 iBlacklistMgr->Remove(uid);
+                OstTrace1( TRACE_NORMAL, DUP1_CINDEXINGMANAGER_LOADPLUGINSL, "CIndexingManager::LoadPluginsL;Plugin with uid=%x is removed from DB", uid.iUid );
                 CPIXLOGSTRING2("CIndexingManager::LoadPluginsL(): Plugin with uid = %x is removed from database", uid.iUid);
+                iContentInfoMgr->UpdateBlacklistStatusL( infoArray[i]->DisplayName() , KDisable );
                 CleanupStack::PushL( plugin );
                 plugin->SetObserver( *this );
                 plugin->SetSearchSession( iSearchSession );
                 iPluginArray.AppendL( plugin ); // and add them to array
                 CleanupStack::Pop( plugin );
+                OstTrace1( TRACE_NORMAL, DUP2_CINDEXINGMANAGER_LOADPLUGINSL, "CIndexingManager::LoadPluginsL;Plugin with uid=%x is loaded successfully", uid.iUid );
                 CPIXLOGSTRING2("CIndexingManager::LoadPluginsL(): Plugin with uid = %x is loaded succesfully", uid.iUid);
                 }
             }
@@ -347,6 +397,7 @@ void CIndexingManager::AddHarvestingQueue(CIndexingPlugin* aPlugin,
 										  const TDesC& aQualifiedBaseAppClass,
 										  TBool aForceReharvest)
 	{
+    OstTraceExt1( TRACE_NORMAL, CINDEXINGMANAGER_ADDHARVESTINGQUEUE, "CIndexingManager::AddHarvestingQueue;Queuing requested for <%S>", aQualifiedBaseAppClass );
     CPIXLOGSTRING2("CIndexingManager::AddHarvestingQueue(): Queuing requested for <%S>.", &aQualifiedBaseAppClass);	
 	
 	// Find if this harvesting task already exists
@@ -363,6 +414,7 @@ void CIndexingManager::AddHarvestingQueue(CIndexingPlugin* aPlugin,
 				iHarvesterArray[i].iStatus = EHarvesterStatusWaiting;
 				if (aForceReharvest)
 					{
+					OstTrace0( TRACE_NORMAL, DUP1_CINDEXINGMANAGER_ADDHARVESTINGQUEUE, "CIndexingManager::AddHarvestingQueue(): Needs Reharvesting." );
 					CPIXLOGSTRING("CIndexingManager::AddHarvestingQueue(): Needs Reharvesting.");
 					// iLastCompete Time is reset so that will be reharvested as soon
 					// as possible
@@ -371,6 +423,7 @@ void CIndexingManager::AddHarvestingQueue(CIndexingPlugin* aPlugin,
 					iHarvesterArrayChanged = ETrue;
 					}
 				}
+		    OstTrace0( TRACE_NORMAL, DUP2_CINDEXINGMANAGER_ADDHARVESTINGQUEUE, "CIndexingManager::AddHarvestingQueue(): Harvester already in the queue." );
 		    CPIXLOGSTRING("CIndexingManager::AddHarvestingQueue(): Harvester already in the queue.");	
 			return;
 			}
@@ -384,6 +437,7 @@ void CIndexingManager::AddHarvestingQueue(CIndexingPlugin* aPlugin,
 	if (iState == EStateRunning)
 		iTimer.Cancel();
 
+    OstTrace0( TRACE_NORMAL, DUP3_CINDEXINGMANAGER_ADDHARVESTINGQUEUE, "CIndexingManager::AddHarvestingQueue(): Harvester added successfully to the queue." );
     CPIXLOGSTRING("CIndexingManager::AddHarvestingQueue(): Harvester added successfully to the queue.");	
 	}
 
@@ -393,6 +447,7 @@ void CIndexingManager::AddHarvestingQueue(CIndexingPlugin* aPlugin,
 //
 void CIndexingManager::RemoveHarvestingQueue(CIndexingPlugin* aPlugin, const TDesC& aQualifiedBaseAppClass)
 	{
+    OstTraceExt1( TRACE_NORMAL, CINDEXINGMANAGER_REMOVEHARVESTINGQUEUE, "CIndexingManager::RemoveHarvestingQueue;De-Queuing requested for <%S>", aQualifiedBaseAppClass );
     CPIXLOGSTRING2("CIndexingManager::RemoveHarvestingQueue(): De-queuing requested for <%S>.", &aQualifiedBaseAppClass);	
 
     // Find if this harvesting task exists
@@ -407,11 +462,13 @@ void CIndexingManager::RemoveHarvestingQueue(CIndexingPlugin* aPlugin, const TDe
 				// No need to set iHarvesterArrayChanged when changing the status only (which is not saved)
 				iHarvesterArray[i].iStatus = EHarvesterStatusHibernate;
 				}
+			OstTrace0( TRACE_NORMAL, DUP1_CINDEXINGMANAGER_REMOVEHARVESTINGQUEUE, "CIndexingManager::RemoveHarvestingQueue(): Harvester de-queued successfully." );
 			CPIXLOGSTRING("CIndexingManager::RemoveHarvestingQueue(): Harvester de-queued successfully.");	
 			return;
 			}
 		}
 
+	OstTrace0( TRACE_NORMAL, DUP2_CINDEXINGMANAGER_REMOVEHARVESTINGQUEUE, "CIndexingManager::RemoveHarvestingQueue(): Harvester in the queue." );
 	CPIXLOGSTRING("CIndexingManager::RemoveHarvestingQueue(): Harvester in the queue.");	
 	}
 
@@ -421,6 +478,7 @@ void CIndexingManager::RemoveHarvestingQueue(CIndexingPlugin* aPlugin, const TDe
 //
 void CIndexingManager::HarvestingCompleted(CIndexingPlugin* aPlugin, const TDesC& aQualifiedBaseAppClass, TInt aError)
 	{
+    OstTraceExt1( TRACE_NORMAL, CINDEXINGMANAGER_HARVESTINGCOMPLETED, "CIndexingManager::HarvestingCompleted;Harvesting completed for <%S>", aQualifiedBaseAppClass  );
     CPIXLOGSTRING2("CIndexingManager::HarvestingCompleted(): Harvesting completed reported for <%S>.", &aQualifiedBaseAppClass);	
 
     // Find this task 
@@ -439,10 +497,12 @@ void CIndexingManager::HarvestingCompleted(CIndexingPlugin* aPlugin, const TDesC
 			if (iState == EStateRunning)
 				iTimer.Cancel();
 
+			OstTrace0( TRACE_NORMAL, DUP1_CINDEXINGMANAGER_HARVESTINGCOMPLETED, "CIndexingManager::HarvestingCompleted(): Harvesting status changed successfully." );
 			CPIXLOGSTRING("CIndexingManager::HarvestingCompleted(): Harvesting status changed successfully.");
 			return;			
 			}
 		}
+	OstTrace0( TRACE_NORMAL, DUP2_CINDEXINGMANAGER_HARVESTINGCOMPLETED, "CIndexingManager::HarvestingCompleted(): Harvester not in the queue." );
 	CPIXLOGSTRING("CIndexingManager::HarvestingCompleted(): Harvester not in the queue.");
 	}
 

@@ -24,6 +24,11 @@
 #include "SearchServerCommon.h"
 #include "RSearchServerSession.h"
 #include "CSearchDocument.h"
+#include "OstTraceDefinitions.h"
+#ifdef OST_TRACE_COMPILER_IN_USE
+#include "rsearchserversessionTraces.h"
+#endif
+
 
 
 // FUNCTION PROTOTYPES
@@ -191,6 +196,7 @@ EXPORT_C void RSearchServerSubSession::SetAnalyzer(const TDesC& aAnalyzer, TRequ
 // RSearchServerSubSession::Search()
 EXPORT_C void RSearchServerSubSession::SearchL(const TDesC& aSearchTerms)
 	{
+	OstTraceFunctionEntry0( RSEARCHSERVERSUBSESSION_SEARCHL_ENTRY );
 	PERFORMANCE_LOG_START("RSearchServerSubSession::SearchL");
 	
 	iEstimatedResultsCount = 0;
@@ -203,10 +209,12 @@ EXPORT_C void RSearchServerSubSession::SearchL(const TDesC& aSearchTerms)
 	// descriptors as they will be out of scope by the time the server
 	// attempts to read or write
 	User::LeaveIfError( SendReceive(ESearchServerSearch, args) );
+	OstTraceFunctionExit0( RSEARCHSERVERSUBSESSION_SEARCHL_EXIT );
 	}
 
 EXPORT_C void RSearchServerSubSession::Search(const TDesC& aSearchTerms, TRequestStatus& aStatus)
 	{
+	OstTraceFunctionEntry0( RSEARCHSERVERSUBSESSION_SEARCH_ENTRY );
 	PERFORMANCE_LOG_START("RSearchServerSubSession::SearchL");
 	
 	iEstimatedResultsCount = 0;
@@ -219,6 +227,7 @@ EXPORT_C void RSearchServerSubSession::Search(const TDesC& aSearchTerms, TReques
 	// descriptors as they will be out of scope by the time the server
 	// attempts to read or write
 	SendReceive(ESearchServerSearch, args, aStatus);
+	OstTraceFunctionExit0( RSEARCHSERVERSUBSESSION_SEARCH_EXIT );
 	}
 
 // RSearchServerSubSession::GetEstimatedDocumentCount()
@@ -230,6 +239,7 @@ TInt RSearchServerSubSession::GetEstimatedDocumentCount()
 // RSearchServerSubSession::GetDocument()
 EXPORT_C CSearchDocument* RSearchServerSubSession::GetDocumentL(TInt aIndex)
 	{
+	OstTraceFunctionEntry0( RSEARCHSERVERSUBSESSION_GETDOCUMENTL_ENTRY );
 	PERFORMANCE_LOG_START("RSearchServerSubSession::GetDocumentL");
 	
 	iDocumentSize = 0;
@@ -244,6 +254,7 @@ EXPORT_C CSearchDocument* RSearchServerSubSession::GetDocumentL(TInt aIndex)
 
 EXPORT_C void RSearchServerSubSession::GetDocument(TInt aIndex, TRequestStatus& aStatus)
 	{
+	OstTraceFunctionEntry0( RSEARCHSERVERSUBSESSION_GETDOCUMENT_ENTRY );
 	PERFORMANCE_LOG_START("RSearchServerSubSession::GetDocument");
 
 	iDocumentSize = 0;
@@ -252,11 +263,13 @@ EXPORT_C void RSearchServerSubSession::GetDocument(TInt aIndex, TRequestStatus& 
 	TIpcArgs args(aIndex, &iDocumentSizePckg);
 
 	SendReceive(ESearchServerGetDocument, args, aStatus );	
+	OstTraceFunctionExit0( RSEARCHSERVERSUBSESSION_GETDOCUMENT_EXIT );
 	}
 
 
 EXPORT_C CSearchDocument* RSearchServerSubSession::GetDocumentObjectL()
 	{
+	OstTraceFunctionEntry0( RSEARCHSERVERSUBSESSION_GETDOCUMENTOBJECTL_ENTRY );
 	PERFORMANCE_LOG_START("CCPixSearcher::GetDocumentObjectL");
 	
 	CSearchDocument* document = NULL;
@@ -275,6 +288,7 @@ EXPORT_C CSearchDocument* RSearchServerSubSession::GetDocumentObjectL()
 		CleanupStack::PopAndDestroy(buf);
 		}
 	
+	OstTraceFunctionExit0( RSEARCHSERVERSUBSESSION_GETDOCUMENTOBJECTL_EXIT );
 	return document;
 	}
 
@@ -323,8 +337,10 @@ EXPORT_C void RSearchServerSubSession::AddL(const TDesC8& aSerializedDocument)
 EXPORT_C void RSearchServerSubSession::UpdateL(const TDesC8& aSerializedDocument)
 	{
 	TIpcArgs args(&aSerializedDocument);
+	OstTrace0( TRACE_NORMAL, RSEARCHSERVERSUBSESSION_UPDATEL, "RSearchServerSubSession::UpdateL(): sending the request to server" );
 	CPIXLOGSTRING( "RSearchServerSubSession::UpdateL(): sending the request to server" );
 	User::LeaveIfError( SendReceive(ESearchServerUpdate, args) );
+	OstTrace0( TRACE_NORMAL, DUP1_RSEARCHSERVERSUBSESSION_UPDATEL, "RSearchServerSubSession::UpdateL(): sent the request to server success" );
 	CPIXLOGSTRING( "RSearchServerSubSession::UpdateL(): sent the request to server success" );
 	}
 

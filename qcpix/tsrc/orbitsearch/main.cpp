@@ -20,33 +20,39 @@
 #include <hbapplication.h>
 #include <hbmainwindow.h>
 #include <hbwidget.h>
-
-#include "searchhelper.h"
+#include <hbpushbutton.h>
+#include <hbtextedit.h>
+#include "testsearch.h"
+#include "testci.h"
 
 int main(int argc, char *argv[])
 {
     HbApplication a(argc, argv);
     
-    //Declare controls
-    ORBIT_SEARCH_CONTROLS
-    
+    //Declare controls    
+    HbTextEdit* choiceBox;
+    HbPushButton* schButton;//button to start search test
+    HbPushButton* ciButton; //button to start content info test
     HbMainWindow mainWindow;
     HbWidget *w = new HbWidget;
     QGraphicsLinearLayout *layout = new QGraphicsLinearLayout;
     layout->setOrientation(Qt::Vertical);
-        
+    
     //Initialize controls
-    searchBox = new HbLineEdit;
-    layout->addItem( searchBox );
+    choiceBox = new HbTextEdit();
+    layout->addItem( choiceBox );
     
-    searchButton = new HbPushButton( "Search" );
-    layout->addItem( searchButton );
+    schButton = new HbPushButton( "Test Search" );
+    layout->addItem( schButton );
     
-    resultsBox = new HbTextEdit;
-    layout->addItem( resultsBox );
+    ciButton = new HbPushButton( "Test Content Info" );
+    layout->addItem( ciButton );    
+    choiceBox->setPlainText ("Select the Test : ");
+    TestSearch* ts = new TestSearch( );
+    QObject::connect( schButton, SIGNAL( clicked() ), ts, SLOT( doSearchTest() ) );
     
-    SearchHelper* sh = new SearchHelper(searchBox, searchButton, resultsBox);  
-    QObject::connect( searchButton, SIGNAL( clicked() ), sh, SLOT(doSearch()) );
+    TestCI* tc = new TestCI( );
+    QObject::connect( ciButton, SIGNAL( clicked() ), tc, SLOT( doCITest() ) );
     
     w->setLayout( layout );
     mainWindow.addView( w );

@@ -179,6 +179,7 @@ NONSHARABLE_CLASS(Ccpixsearchertest) : public CScriptBase
         virtual TInt TestDeleteIndexDbWhileSearchingL( CStifItemParser& aItem );
         virtual TInt TestGetDocumentAsyncL( CStifItemParser& aItem );
         virtual TInt TestGetInvalidDocumentAsyncL( CStifItemParser& aItem );
+        virtual TInt TestExerptLengthL( CStifItemParser& aItem );
         /**
          * Method used to log version of test class
          */
