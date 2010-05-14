@@ -213,7 +213,7 @@ int search(cpix_Analyzer ** analyzer_,
     cpix_Query * query_;
     cpix_Hits * hits_;
     cpix_Result result;
-    int32_t hits_len;
+    int32_t hits_len=0;
     
     queryParser_ = cpix_QueryParser_create(&result,
                     L"_aggregate",
@@ -366,7 +366,7 @@ void testCorruptedIndex(Itk::TestMgr * testMgr)
      
      testInit(&iCrptDb2_, cpix_IDX_OPEN, TEST_CORRUPTTEST2_QBASEAPPCLASS,
                  TEST_CORRUPTTEST2_INDEXDB_PATH);
-     int hit_search2;
+     int hit_search2=0;
      if(iCrptDb2_)
          hit_search2= search(&analyzer_,&iCrptDb2_, SEARCH_TERM);
      else

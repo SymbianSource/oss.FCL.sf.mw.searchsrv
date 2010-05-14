@@ -84,7 +84,34 @@ void setupPrefixQuery(Itk::TestMgr * testMgr)
         cpix_Analyzer_destroy(analyzer);
     }
 
-void testQuery(Itk::TestMgr * testMgr, const wchar_t *qryStr, int hitLen)
+void setupPrefixOptimiseQuery(Itk::TestMgr * testMgr)
+    {
+    cpix_Result
+            result;
+
+        cpix_IdxDb_dbgScrapAll(&result);
+        ITK_ASSERT(testMgr,
+                       cpix_Succeeded(&result),
+                       "Could not get rid of all test qbac-idx pairs");
+        std::auto_ptr<FileIdxUtil> util( new FileIdxUtil ); 
+        util->init(true); 
+        cpix_Analyzer* analyzer = cpix_Analyzer_create(&result, L"standard"); 
+        if ( cpix_Failed( &result) ) ITK_PANIC("Analyzer could not be created");
+       
+        util->indexFile( CORPUS_PATH "\\query\\query7.txt", analyzer, testMgr );
+               
+        util->flush();
+        util->indexFile( CORPUS_PATH "\\query\\query8.txt", analyzer, testMgr );
+               
+        util->flush();
+        util->indexFile( CORPUS_PATH "\\query\\query9.txt", analyzer, testMgr );
+               
+        util->flush();
+        cpix_Analyzer_destroy(analyzer);
+    
+    }
+
+void testQuery(Itk::TestMgr * testMgr, const wchar_t *qryStr, int hitLen, Efield_type ftype = LCPIX_DEFAULT)
 {
 cpix_Result
         result;
@@ -96,9 +123,16 @@ int32_t hitsLength  = 0;
     cpix_Analyzer* analyzer = cpix_Analyzer_create(&result, L"standard"); 
     if ( cpix_Failed( &result) ) ITK_PANIC("Analyzer could not be created");
         cpix_QueryParser
-            * queryParser = cpix_QueryParser_create(&result,
-                                                    LCPIX_DEFAULT_FIELD,
-                                                    analyzer );
+            * queryParser = NULL;
+        switch(ftype)
+        {
+            case LCPIX_DEFAULT_PREFIX:
+                queryParser = cpix_QueryParser_create(&result,LCPIX_DEFAULT_PREFIX_FIELD,analyzer );
+                break;
+            case LCPIX_DEFAULT:
+                queryParser = cpix_QueryParser_create(&result,LCPIX_DEFAULT_FIELD,analyzer );
+                break;
+        }
         if (queryParser == NULL)
             {
                 cpix_Analyzer_destroy( analyzer );
@@ -148,7 +182,6 @@ int32_t hitsLength  = 0;
 
 void CreatePlainQueryTest(Itk::TestMgr * testMgr) 
 {
-    bool val = true;
     setupPlainQuery(testMgr);
     testQuery(testMgr,L"Nokia", 2);
     testQuery(testMgr,L"iNdia", 1);
@@ -187,7 +220,6 @@ void CreatePlainQueryTest(Itk::TestMgr * testMgr)
 
 void CreatePrefixQueryTest(Itk::TestMgr * testMgr) 
 {
-    bool val = true;
     setupPrefixQuery(testMgr);
     testQuery(testMgr,L"$prefix(\"new-notes\")", 1);
     testQuery(testMgr,L"$prefix(\"notes\")", 1);
@@ -232,6 +264,31 @@ void CreatePrefixQueryTest(Itk::TestMgr * testMgr)
     
 }
 
+void CreatePrefixOptimiseQueryTest(Itk::TestMgr * testMgr)
+    {
+    setupPrefixOptimiseQuery(testMgr);
+    testQuery(testMgr,L"i*", 3,LCPIX_DEFAULT_PREFIX );
+    testQuery(testMgr,L"in*", 2,LCPIX_DEFAULT_PREFIX );
+    testQuery(testMgr,L"i?", 3,LCPIX_DEFAULT_PREFIX );
+    testQuery(testMgr,L"id*", 2,LCPIX_DEFAULT_PREFIX );
+    testQuery(testMgr,L"c*", 2,LCPIX_DEFAULT_PREFIX );
+    testQuery(testMgr,L"c?", 2,LCPIX_DEFAULT_PREFIX );
+    testQuery(testMgr,L"cu*", 2,LCPIX_DEFAULT_PREFIX );
+    testQuery(testMgr,L"co*", 2,LCPIX_DEFAULT_PREFIX );
+    testQuery(testMgr,L"d*", 3,LCPIX_DEFAULT_PREFIX );
+    testQuery(testMgr,L"d?", 3,LCPIX_DEFAULT_PREFIX );
+    testQuery(testMgr,L"de*", 2,LCPIX_DEFAULT_PREFIX );
+    testQuery(testMgr,L"do*", 1,LCPIX_DEFAULT_PREFIX );
+    testQuery(testMgr,L"l*", 3,LCPIX_DEFAULT_PREFIX );
+    testQuery(testMgr,L"lo*", 2,LCPIX_DEFAULT_PREFIX );
+    testQuery(testMgr,L"li*", 1,LCPIX_DEFAULT_PREFIX );
+    testQuery(testMgr,L"wo*", 1,LCPIX_DEFAULT_PREFIX );
+    testQuery(testMgr,L"pr*", 1,LCPIX_DEFAULT_PREFIX );
+    testQuery(testMgr,L"r*", 3,LCPIX_DEFAULT_PREFIX );
+    testQuery(testMgr,L"ru*", 2,LCPIX_DEFAULT_PREFIX );
+    testQuery(testMgr,L"ra*", 2,LCPIX_DEFAULT_PREFIX );
+    testQuery(testMgr,L"ri*", 2,LCPIX_DEFAULT_PREFIX );
+    }
 Itk::TesterBase * CreateQueryTests()
 {
     using namespace Itk;
@@ -241,6 +298,7 @@ Itk::TesterBase * CreateQueryTests()
 
     qryTests->add("PlainQueryTest", &CreatePlainQueryTest);
     qryTests->add("PrefixQueryTest", &CreatePrefixQueryTest);
+    qryTests->add("PrefixOptimiseQueryTest", &CreatePrefixOptimiseQueryTest);
     
     return qryTests;
 }

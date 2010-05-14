@@ -257,14 +257,14 @@ void indexSmsCorpus()
                                      L"Failed to create-db IdxDb: %S\n",
                                      report);
                             cpix_ClearError(&result);
-                        }
-                    cpix_Analyzer_destroy(analyzer);
+                        }                    
                 }
             else
                 {
                     printf("Could not define volume %s\n",
                            SMS_QBASEAPPCLASS);
                 }
+            cpix_Analyzer_destroy(analyzer);
         }
     else
         {

@@ -545,7 +545,7 @@ MultiTermEnum::MultiTermEnum(
 	
 	//Check if the queue has elements
 	if (t != NULL && queue->size() > 0) {
-		next();
+		(void)next();
 	}
 }
 

@@ -153,6 +153,7 @@ namespace
                     rv = visitFile(path);
                 }
 
+            if (startPath_) {
             if (rv
                 && strcmp(path, startPath_) == 0
                 && newerMarkerFile_.length() > 0)
@@ -162,6 +163,7 @@ namespace
                     removePath(newerMarkerFile_.c_str());
                     rv = success_ == 0;
                 }
+            }
 
             return rv;
         }

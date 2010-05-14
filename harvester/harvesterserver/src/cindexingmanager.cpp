@@ -445,7 +445,7 @@ void CIndexingManager::AddHarvestingQueue(CIndexingPlugin* aPlugin,
 // CIndexingManager::RemoveHarvestingQueue()
 // -----------------------------------------------------------------------------
 //
-void CIndexingManager::RemoveHarvestingQueue(CIndexingPlugin* aPlugin, const TDesC& aQualifiedBaseAppClass)
+void CIndexingManager::RemoveHarvestingQueue(CIndexingPlugin* aPlugin, const TDesC& aQualifiedBaseAppClass,TBool aRemovePersist)
 	{
     OstTraceExt1( TRACE_NORMAL, CINDEXINGMANAGER_REMOVEHARVESTINGQUEUE, "CIndexingManager::RemoveHarvestingQueue;De-Queuing requested for <%S>", aQualifiedBaseAppClass );
     CPIXLOGSTRING2("CIndexingManager::RemoveHarvestingQueue(): De-queuing requested for <%S>.", &aQualifiedBaseAppClass);	
@@ -461,6 +461,13 @@ void CIndexingManager::RemoveHarvestingQueue(CIndexingPlugin* aPlugin, const TDe
 				{
 				// No need to set iHarvesterArrayChanged when changing the status only (which is not saved)
 				iHarvesterArray[i].iStatus = EHarvesterStatusHibernate;
+				}
+			if(aRemovePersist) //Plugin want this to be removed from queue and saved to disk as well
+				{
+				CPIXLOGSTRING("CIndexingManager::RemoveHarvestingQueue(): aRemovePersist is true so removing");		
+				iHarvesterArray.Remove(i);
+				Externalize(); //Save to disk	
+				CPIXLOGSTRING("CIndexingManager::RemoveHarvestingQueue(): aRemovePersist Externalize successful");		
 				}
 			OstTrace0( TRACE_NORMAL, DUP1_CINDEXINGMANAGER_REMOVEHARVESTINGQUEUE, "CIndexingManager::RemoveHarvestingQueue(): Harvester de-queued successfully." );
 			CPIXLOGSTRING("CIndexingManager::RemoveHarvestingQueue(): Harvester de-queued successfully.");	

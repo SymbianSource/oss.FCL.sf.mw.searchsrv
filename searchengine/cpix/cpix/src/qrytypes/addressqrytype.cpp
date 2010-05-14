@@ -199,6 +199,7 @@ namespace Cpix
                             else
                                 {
                                     idxSearcher->err_ = result.err_;
+                                    cpix_Hits_destroy(sorted);
                                 }
                         }
                     catch (...)
@@ -329,19 +330,17 @@ namespace Cpix
                                 {
                                     moveErrorCode(idxSearcher_,
                                                   qp);
-                                }
-                        
-                            cpix_QueryParser_destroy(qp);
+                                }                        
+                            
                         }
                     else
                         {
                             moveErrorCode(idxSearcher_,
                                           &result);
                         }
-
-                    cpix_BoostMap_destroy(boosts);
+                    cpix_QueryParser_destroy(qp);                    
                 }
-
+            cpix_BoostMap_destroy(boosts);
             return rv;
         }
 
@@ -378,16 +377,14 @@ namespace Cpix
                         {
                             moveErrorCode(idxSearcher_,
                                           qp);
-                        }
-
-                    cpix_QueryParser_destroy(qp);
+                        }                    
                 }
             else
                 {
                     moveErrorCode(idxSearcher_,
                                   &result);
                 }
-
+            cpix_QueryParser_destroy(qp);
             return rv;
         }
 

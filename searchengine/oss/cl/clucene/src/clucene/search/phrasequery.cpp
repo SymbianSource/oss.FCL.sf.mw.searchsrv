@@ -428,7 +428,7 @@ CL_NS_DEF(search)
 
    
    Explanation* tfExpl = _CLNEW Explanation;
-   scorer(reader)->explain(doc, tfExpl);
+   (void)scorer(reader)->explain(doc, tfExpl);
    fieldExpl->addDetail(tfExpl);
    fieldExpl->addDetail(idfExpl);
 

@@ -731,19 +731,22 @@ namespace Cpix
                                            newHandle);
                 storeReg();
 
-                std::vector<IIdxDbInfo>::iterator
-                    i = multiIdxDbs_.begin(),
-                    end = multiIdxDbs_.end();
-                for (; i!= end; ++i)
-                    {
-                        if (i->ptr() != NULL)
-                            {
-                                MultiIdxDb
-                                    * m = dynamic_cast<MultiIdxDb*>(i->ptr());
-                                m->suggestHndl(newHandle,
-                                               qualBaseAppClass);
-                            }
-                    }
+                std::vector<IIdxDbInfo>::iterator i, end;
+                    if (!(multiIdxDbs_.empty())) {
+	                    i = multiIdxDbs_.begin();
+	                    end = multiIdxDbs_.end();
+		                for (; i!= end; ++i)
+		                    {
+		                        if (i->ptr() != NULL)
+		                            {
+		                                MultiIdxDb
+		                                    * m = dynamic_cast<MultiIdxDb*>(i->ptr());
+		                                if ( m )
+		                                m->suggestHndl(newHandle,
+		                                               qualBaseAppClass);
+		                            }
+		                    }
+					}
             }
     }
 
@@ -786,8 +789,9 @@ namespace Cpix
 
                     storeReg();
 
-                    vector<IIdxDbInfo>::iterator
-                        i = multiIdxDbs_.begin(),
+                    vector<IIdxDbInfo>::iterator i, end;
+                    if (!(multiIdxDbs_.empty())) {
+                        i = multiIdxDbs_.begin(); //coverty 121612 121611
                         end = multiIdxDbs_.end();
                     for (; i != end; ++i)
                         {
@@ -795,6 +799,7 @@ namespace Cpix
                                 {
                                     MultiIdxDb
                                         * m = dynamic_cast<MultiIdxDb*>(i->ptr());
+                                    if ( m ){
                                     bool
                                         used = m->removeHndl(hndl);
 
@@ -802,8 +807,10 @@ namespace Cpix
                                         {
                                             idxDbs_[hndl].decRefCount();
                                         }
+                                    }
                                 }
                         }
+                    }
 
                     // At this point, all multiidx-es have lost their
                     // reference to the index in question

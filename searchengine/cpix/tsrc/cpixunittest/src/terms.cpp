@@ -63,7 +63,7 @@ void TestAppclassFilteredTermSearch(Itk::TestMgr * testMgr, const wchar_t* appcl
 	cpix_Result
 		result;
 	
-	int32_t hits_len;
+	int32_t hits_len=0;
 
 	cpix_IdxDb_dbgScrapAll(&result);
 

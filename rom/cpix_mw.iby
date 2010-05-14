@@ -50,6 +50,9 @@ file=ABI_DIR\BUILD_DIR\cpixwatchdog.exe	SHARED_LIB_DIR\cpixwatchdog.exe
 // must be hardcoded 'c' drive for this file
 
 data=DATAZ_\PRIVATE\101f875a\import\20029ab8.rsc  private\101f875a\import\20029ab8.rsc
+
+data=ZSYSTEM\install\cpixsearch_stub.sis    System\Install\cpixsearch_stub.sis
+
 #endif //FF_SEARCH_SW
 
 #endif // __CPIXENGINE_IBY__

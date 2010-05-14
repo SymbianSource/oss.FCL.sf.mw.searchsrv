@@ -24,7 +24,6 @@
 #include "SearchServerCommon.h"
 #include "CSearchServerSession.h"
 #include "CCPixIdxDb.h"
-#include "SearchServerTesting.h"
 #include "CHouseKeepingHandler.h"
 #include "SearchServerLogger.h"
 #include "OstTraceDefinitions.h"
@@ -306,20 +305,9 @@ void CSearchServer::ThreadFunctionL()
 
 	// Install active scheduler
 	CActiveScheduler::Install(activeScheduler);
-	
-#ifdef PROVIDE_TESTING_UTILITY
-	CSearchServerTesting* testing = new ( ELeave ) CSearchServerTesting; \
-	CleanupStack::PushL( testing ); \
-	testing->ConstructL();
-	testing->StartL();
-#endif
 
 	// Construct server
 	CSearchServer* server = CSearchServer::NewLC();
-	
-#ifdef PROVIDE_TESTING_UTILITY
-	testing->SetServer( server ); 
-#endif 
 	
     // Rename the thread.
     User::RenameThread(KSearchServerName);        
@@ -352,11 +340,6 @@ void CSearchServer::ThreadFunctionL()
 	
 	// Cleanup
 	CleanupStack::PopAndDestroy( server );
-	
-#ifdef PROVIDE_TESTING_UTILITY
-	CleanupStack::PopAndDestroy( testing ); 
-#endif // PROVIDE_TESTING_UTILITY
-
 	CleanupStack::PopAndDestroy( activeScheduler );
 	}
 

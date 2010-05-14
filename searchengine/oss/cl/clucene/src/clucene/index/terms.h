@@ -101,7 +101,7 @@ public:
 	virtual Term* term(bool pointer){
 		Term* ret = term();
 		if ( !pointer )
-			ret->__cl_decref();
+			(void)ret->__cl_decref();
 		return ret;
 	}
 

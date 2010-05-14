@@ -255,9 +255,9 @@ CL_NS_DEF2(analysis,standard)
 				case '\'':
 					str.appendChar('\'');
 					return ReadApostrophe(&str,t);
-				case '@':
-					str.appendChar('@');
-					return ReadAt(&str,t);
+//				case '@':
+//					str.appendChar('@');
+//					return ReadAt(&str,t);
 				case '&':
 					str.appendChar('&');
 					return ReadCompany(&str,t);
@@ -304,6 +304,7 @@ CL_NS_DEF2(analysis,standard)
         ch = readChar();
         const bool dot = ch == '.';
         const bool dash = ch == '-';
+        //const bool at = ch == '@';
 
         if (!(ALNUM || UNDERSCORE || dot || dash)) {
           break;
@@ -322,8 +323,11 @@ CL_NS_DEF2(analysis,standard)
           }
           break;
         }
+        
 
         str.appendChar(ch);
+            
+    
 
         prevWasDot = dot;
         prevWasDash = dash;
@@ -379,17 +383,25 @@ CL_NS_DEF2(analysis,standard)
     }
     } /* End block-guard of strBuf */
 
-    if (!EOS) {
-      if (ch == '@' && str.len < LUCENE_MAX_WORD_LEN-1) {
-        str.appendChar('@');
-        return ReadAt(&str,t);
-      } else {
-        unReadChar();
-      }
-    }
 
-	return setToken(t,&str,CL_NS2(analysis,standard)::UNKNOWN
-			? forcedType : CL_NS2(analysis,standard)::HOST);
+
+//    if (!EOS) {
+//      if (ch == '@' && str.len < LUCENE_MAX_WORD_LEN-1) {
+//        str.appendChar('@');
+//        return ReadAt(&str,t);
+//      } else {
+//        unReadChar();
+//      } 
+    
+      if (!EOS) {
+            unReadChar();
+          }
+
+     
+    
+  return setToken(t,&str,CL_NS2(analysis,standard)::ALPHANUM);
+//	return setToken(t,&str,CL_NS2(analysis,standard)::UNKNOWN
+//			? forcedType : CL_NS2(analysis,standard)::HOST);
   }
 
   bool StandardTokenizer::ReadApostrophe(StringBuffer* _str, Token* t) {

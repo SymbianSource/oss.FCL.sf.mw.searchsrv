@@ -32,6 +32,7 @@ PRJ_PLATFORMS
 
 PRJ_EXPORTS
 ../rom/CPix_mw.iby	CORE_MW_LAYER_IBY_EXPORT_PATH(CPix_mw.iby)
+../sis/cpixsearch_stub.sis        /epoc32/data/z/system/install/cpixsearch_stub.sis
 
 PRJ_TESTMMPFILES
 

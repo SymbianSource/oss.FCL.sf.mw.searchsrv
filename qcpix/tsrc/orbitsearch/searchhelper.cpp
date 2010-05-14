@@ -40,27 +40,24 @@ void SearchHelper::doSearch()
     QString resultString("");
     resultsBox->setPlainText( resultString );
     searchTime.restart();
-    QString searchString = searchBox->text();
+    QString searchString;
+    
+#if PREFIX_SEARCH
+    searchString = "$prefix(\""; 
+    searchString += searchBox->text();
+    searchString += "\")";
 
-#if STAR_SEARCH
+#elif STAR_SEARCH
+    searchString += searchBox->text();
     searchString += "*";
 #elif NO_STAR_SEARCH
         ;//do nothing
-#elif ESCAPE_SPECIAL_CHARS
-    //C-style array query - so that we dont have to hard code the length.
-    //Escape '\' first so that it does not re-escape all the other escapes.
-    QString escapeTheseCharacters [] = {"\\", "+", "-", "&&", "||", "!", 
-                                        "(", ")", "{", "}", "[", "]", "^", 
-                                        "~", "*", "?", ":", "\0"};
-    for( int i=0; escapeTheseCharacters[i] != "\0"; i++ ){
-        QString escapedCharacter = "\\" + escapeTheseCharacters[i];
-        searchString.replace( escapeTheseCharacters[i], escapedCharacter );
-    }
 #endif
     
     hits = searcher->search( searchString );
-    
-    resultString = "SearchTime: " + QString().setNum( searchTime.elapsed() ) + " ms \r\n";
+
+    if (searchTime.elapsed() >= 0)
+        resultString = "SearchTime: " + QString().setNum( searchTime.elapsed() ) + " ms \r\n";
     resultString += "Hits: " + QString().setNum( hits ) + "\r\n";
     resultsBox->setPlainText( resultString );
 

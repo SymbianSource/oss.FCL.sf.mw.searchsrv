@@ -55,8 +55,9 @@ public:
 	 *
 	 * @param aPlugin the plugin object that calls this function 
 	 * @param aQualifiedBaseAppClass database to harvest
+	 * @param aRemovePersist if plugin wants to remove from harvesting queue as well as config to be saved
 	 */
-	virtual void RemoveHarvestingQueue(CIndexingPlugin* aPlugin, const TDesC& aQualifiedBaseAppClass) = 0;
+	virtual void RemoveHarvestingQueue(CIndexingPlugin* aPlugin, const TDesC& aQualifiedBaseAppClass,TBool aRemovePersist = EFalse) = 0;
 
 	/**
 	 * A pure virtual method which is called by the plug-in when it has ended harvesting

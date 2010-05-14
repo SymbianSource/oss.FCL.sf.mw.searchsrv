@@ -141,9 +141,9 @@ cpix_Analyzer * cpix_Analyzer_create(cpix_Result   * result,
 
             // the wrapper custom must be released in any case, as
             // it was just a first step in the construction
-            // sequence
-            cpix_Analyzer_destroy(custom);
+            // sequence            
         }
+    cpix_Analyzer_destroy(custom);
 
     return system;
 }

@@ -478,7 +478,6 @@ cpix_Document* CCPixIdxDb::ConvertToCpixDocumentLC(const CSearchDocument& aDocum
 	if (!doc)
 		{
 		SearchServerHelper::LogErrorL(*result.err_);
-		cpix_ClearError(doc);
 		User::Leave(KErrCannotCreateDocument);
 		}
 	// document created, push to cleanup stack.

@@ -19,11 +19,14 @@
     +-- file
     |     |
     | 		|
-    |     +-- Content
-    |			|	[ Contents 	]	    {EStoreYes | EIndexTokenized}
+    |     +-- content
+    |			|	[ Contents 	]			{EStoreYes | EIndexTokenized}
+    |			| [ Name      ]     {EStoreNo  | EIndexTokenized}
+    |			| [ BaseName  ]     {EStoreNo  | EIndexTokenized}
+    |     | [ Extension ]     {EStoreNo  | EIndexTokenized}
     |			|
-    |			+-- folder     
-    |       [ Name  		]     {EStoreYes | EIndexTokenized}
+    |			+-- folder
+    |			  [ Name  	  ]     {EStoreYes | EIndexTokenized}
     |			  [ Extension ]     {EStoreYes | EIndexUnTokenized}
     |
     |      

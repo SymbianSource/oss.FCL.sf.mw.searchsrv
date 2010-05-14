@@ -29,8 +29,8 @@ CL_NS_DEF(search)
 		fieldMatch(false),
 		_endEnum(false)
     {
-       
-		pre = stringDuplicate(term->text());
+        if ( term )
+            pre = stringDuplicate(term->text());
 
 		const TCHAR* sidx = _tcschr( pre, LUCENE_WILDCARDTERMENUM_WILDCARD_STRING );
 		const TCHAR* cidx = _tcschr( pre, LUCENE_WILDCARDTERMENUM_WILDCARD_CHAR );
@@ -42,7 +42,8 @@ CL_NS_DEF(search)
 		CND_PRECONDITION(tidx != NULL, "tidx==NULL");
 		int32_t idx = (int32_t)(tidx - pre);
 		preLen = idx;
-		CND_PRECONDITION(preLen<term->textLength(), "preLen >= term->textLength()");
+		if ( term )
+		    CND_PRECONDITION(preLen<term->textLength(), "preLen >= term->textLength()");
 		pre[preLen]=0; //trim end
 
 		Term* t = _CLNEW Term(__term, pre);

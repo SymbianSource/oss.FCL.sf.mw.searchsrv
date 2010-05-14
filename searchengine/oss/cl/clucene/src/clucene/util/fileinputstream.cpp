@@ -134,6 +134,7 @@ const int32_t FileInputStream::defaultBufferSize = 1048576;
             FileInputStream::~FileInputStream()
                 {
                 char tempFile[252];
+                char tempFile1[252];
                 
                 if (file)
                     {
@@ -149,15 +150,24 @@ const int32_t FileInputStream::defaultBufferSize = 1048576;
                     {
                         strcpy(tempFile,temp);
                         strcat(tempFile,"_lock");
-                        if(access(tempFile,F_OK) == 0)
+                        strcpy(tempFile1,tempFile);
+                        strcat(tempFile1,"_1");
+                        
+                        if((access(tempFile,F_OK) != 0) && (access(tempFile1,F_OK) != 0))
                             {
-                                remove(temp);
+                            FILE *fp = fopen(tempFile,"w");
+                            fclose(fp);
+                            }
+                        else if(access(tempFile,F_OK) == 0)
+                            {
                                 remove(tempFile);
+                                FILE *fp = fopen(tempFile1,"w");
+                                fclose(fp);
                             }
                         else
                             {
-                                FILE *fp = fopen(tempFile,"w");
-                                fclose(fp);
+                                remove(temp);
+                                remove(tempFile1);
                             }
                     }
 
@@ -189,9 +199,7 @@ const int32_t FileInputStream::defaultBufferSize = 1048576;
 
                 if (file == 0  )
                     {
-                        fclose(file);
-                        file = 0;
-                        return -1;
+                     return -1;
                     }
                 // read into the buffer
                 int32_t nwritten = fread(start, 1, space, file);

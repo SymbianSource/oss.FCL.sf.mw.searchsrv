@@ -356,7 +356,9 @@ PRJ_TESTEXPORTS
 "../data/cpixunittestcorpus/stem/fi/3.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/stem/fi/3.txt"
 "../data/cpixunittestcorpus/stem/fi/4.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/stem/fi/4.txt"
 
-
+"../data/cpixunittestcorpus/query/query7.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/query/query7.txt"
+"../data/cpixunittestcorpus/query/query8.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/query/query8.txt"
+"../data/cpixunittestcorpus/query/query9.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/query/query9.txt"
 
 PRJ_TESTMMPFILES
 cpixunittest.mmp

@@ -48,68 +48,42 @@
 
 namespace
 {
-    const char EXTENSION[]       = ".txt";
-    const char EXTENSION_UPPER[] = ".TXT";
-
-    const char DEFAULT_ENCODING[] = "UTF-8";
-    
     /**
      * Returns 1 on success, 0 on eof. 
      */
-    int clgetline(lucene::util::Reader& reader, std::wstring& line) 
+    int getPDFExcerpt(const char* filePath,std::wstring& line) 
         {
-        line = L""; 
+        line = L"";
+        int wordCount = 0;
         
         // read line 
+        FILE *fp = fopen(filePath,"rb");
         while (true) 
             {
-                int c = reader.read(); 
+                int c = fgetc(fp); 
                 switch (c) {
                     case -1: // EOF
+                        fclose(fp);
                         return line.length() > 0; 
                     case '\n': // line break
                     case '\r': // line break
+                        fclose(fp);
                         return 1;
                     default:
                         line += static_cast<wchar_t>(c);
-                        if  (line.length() > 500)
-                            return 1;
+                        if ( c == ' ')
+                            wordCount ++;
+                        
+                        if  ((line.length() > MAX_EXCERPT_LENGTH) ||  wordCount == 10 )
+                            {
+                                fclose(fp);
+                                return 1;
+                            }
                 }
             }
         }
 
-    void getExcerptOfFile(wchar_t       * dst,
-                          const char    * path,
-                          size_t          maxWords,
-                          size_t          bufSize)
-    {
-        using namespace std;
-        using namespace lucene::util;
-                
-        // Lucene reader can do UTF-8 magic, so let's use it
-        FileReader file( path, DEFAULT_ENCODING ); 
-        
-        if ( file.reader->getStatus() == jstreams::Ok ) 
-            {
-                cpix_EPIState
-                    epiState;
-                cpix_init_EPIState(&epiState);
-        
-                wstring
-                    line;
-        
-                while (bufSize > 0 && maxWords > 0 && clgetline(file, line))
-                    {
-                        dst = cpix_getExcerptOfWText(dst,
-                                                     line.c_str(),
-                                                     &maxWords,
-                                                     &bufSize,
-                                                     &epiState);
-                    }
-            }
     }
-
-}
 
 using namespace std;
 using namespace Cpt;
@@ -139,7 +113,7 @@ namespace Cpix
                             }
                         if (fnd) return buffer - buffer0;
                         buffer = buffer + 1;
-                        if (buffer - buffer0 + len >= buffersize) return -1;
+                        if (buffer - buffer0 + len > buffersize) return -1;
                         }
                     return -1;
                     }
@@ -441,6 +415,7 @@ namespace Cpix
         bool hasStreamData = true;
         bool hasStreamStarted = false;
 
+
         char* writePointer;
         int bytesToWrite = 0;
         FILE* pdfReaderI;
@@ -451,7 +426,7 @@ namespace Cpix
             free (buffer);
             return -1;
             }
-        
+
         getTempFileName(path,tempFile);
         strcat(tempFile,"_compressedbin.data");
 
@@ -468,7 +443,7 @@ namespace Cpix
                  * Chances are there half of the word "stream" may get read to the buffer.
                  * if it happens, that particular two stream wont get index.
                  * Didnt implement it as of now. Because the logic requires lot of file pointer movement
-				 * and character comparison.
+				 * and character comparison.0
                  */
 
               
@@ -489,7 +464,7 @@ namespace Cpix
 
                     {
                     if ((streamStart - streamEnd) == 3)
-                    streamStart = -1;
+                        streamStart = -1;
                     }
 
                 if ((streamStart> 0) && (hasStreamStarted == false ))
@@ -525,7 +500,9 @@ namespace Cpix
                         }
                     else
                     bytesToWrite = actualRead-streamStart;
-                    fwrite(writePointer, 1,bytesToWrite, pdfReaderI);
+                    
+                    if(bytesToWrite >  0)
+                        fwrite(writePointer, 1,bytesToWrite, pdfReaderI);
 
                     }
                 else if (hasStreamStarted)
@@ -543,14 +520,16 @@ namespace Cpix
                         }
                     else
                     bytesToWrite = actualRead;
-
-                    fwrite(buffer, 1,bytesToWrite, pdfReaderI);
+                    
+                    if(bytesToWrite >  0)
+                        fwrite(buffer, 1,bytesToWrite, pdfReaderI);
 
                     }
 
                 }
             }
-        fclose(pdfReaderI);
+        if (pdfReaderI)
+            fclose(pdfReaderI); // coverty 121614
 
         free (buffer);
         return 1;
@@ -584,8 +563,10 @@ namespace Cpix
         else
             retf = -1;
         
-        fclose(UncompressedFile);
-        fclose(CompressedFile);
+        if (UncompressedFile) // coverty 
+            fclose(UncompressedFile);
+        if  (CompressedFile)
+            fclose(CompressedFile); // coverty
         remove(tempFile);
         return retf;
 
@@ -611,8 +592,8 @@ namespace Cpix
                 // memset(start,0,space);
                  if (file == 0)
                      {
-                         fclose(file);
-                         file = 0;
+
+                         free(outBuf);
                          return -1;
                      }
                  
@@ -635,10 +616,12 @@ namespace Cpix
                          if(ret == -1)
                              {
                              fclose(file);
-                             fclose(unCompressedFp);
-                             fclose(fileO);
                              free(outBuf);
                              file = 0;
+                             if (unCompressedFp)
+                                 fclose( unCompressedFp );
+                             if(fileO)
+                                 fclose( fileO );
                              remove(tempFile);
                              getTempFileName(path,tempFile);
                              strcat(tempFile,"_compressedbin.data");
@@ -657,7 +640,8 @@ namespace Cpix
                                  }
                              }
                          retVal = 0;
-                         fclose(unCompressedFp);
+                         if(unCompressedFp)
+                             fclose(unCompressedFp);
                    }
                  fclose(fileO);
                  remove(tempFile);
@@ -698,8 +682,8 @@ namespace Cpix
         const char DEFAULT_ENCODING[] = "UTF-8";
         char tempFile[254];
         FILE *fp;
-		wchar_t* excerpt = new wchar_t[MAX_EXCERPT_LENGTH];
-        
+		//wchar_t excerpt [MAX_EXCERPT_LENGTH];
+        wstring excerpt;
         convertPDFToText(path);
 
         // remove these fields before creating new values for them.
@@ -724,12 +708,8 @@ namespace Cpix
         
                 doc->add(newField.get());
                 newField.release();
-				        getExcerptOfFile(excerpt,
-                        tempFile,
-                        10, // max words
-                        sizeof(excerpt) / sizeof(wchar_t));
-						doc->setExcerpt(excerpt);
-						
+                getPDFExcerpt(tempFile,excerpt);
+                doc->setExcerpt(excerpt.c_str());
             }
         else
            {
@@ -744,7 +724,6 @@ namespace Cpix
 
         doc->setAppClass(CONTENTAPPCLASS);
         doc->setMimeType(LPDFFILE_MIMETYPE);
-        delete excerpt;
         GenericFileProcessor(doc,path);
         }
 

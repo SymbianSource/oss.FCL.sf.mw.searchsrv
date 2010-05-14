@@ -30,14 +30,15 @@
 //in the order below.
 //i.e., STAR_SEARCH over-rides NO_STAR_SEARCH which overrides 
 //ESCAPE_SPECIAL_CHARS.
-#define STAR_SEARCH 1
+#define STAR_SEARCH 0
 
 //Vanilla search. Send search string to engine "as-is". 
 #define NO_STAR_SEARCH 0
 
-//Will escape the following characters:
-//+,-,&&,||,!,(,),{,},[,],^,",~,*,?,:and '\'
-#define ESCAPE_SPECIAL_CHARS 0
+//Enable the prefix_search macro to enable Prefix query feature. This will add $prefix to the query 
+//string.
+
+#define PREFIX_SEARCH 1
 
 //If you dont want to see results, define this flag.
 #define DONT_SHOW_RESULTS 0

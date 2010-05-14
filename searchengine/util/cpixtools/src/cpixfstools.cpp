@@ -205,7 +205,7 @@ namespace Cpt
 
         if (getparent(parent, sizeof(parent), path) >= 0) {
             // make the parent
-            mkdirs(parent, mod); 
+            (void)mkdirs(parent, mod); 
         } 
         
         return mkdir(path, mod);

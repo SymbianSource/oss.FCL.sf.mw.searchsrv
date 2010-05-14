@@ -48,7 +48,6 @@ SOURCE            CSearchServer.cpp
 SOURCE            CSearchServerSession.cpp
 SOURCE            CCPixIdxDb.cpp
 SOURCE            CCPixSearch.cpp
-SOURCE            SearchServerTesting.cpp
 SOURCE			  CSearchServerSubSession.cpp
 SOURCE			  CHeartBeatTimer.cpp
 SOURCE			  CCPixAsyncronizer.cpp

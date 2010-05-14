@@ -27,6 +27,26 @@
 #include "cpixidxdb.h"
 #include "itk.h"
 
+
+/** 
+ * 
+ *Enum for the Kind of Field to be feteched
+ */
+
+enum Efield_type{
+    LCPIX_DOCUID,
+    LCPIX_APPCLASS,
+    LCPIX_UNTOKENIZED_APPCLASS,
+    LCPIX_EXCERPT,
+    LCPIX_MIMETYPE,
+    LCPIX_DEFAULT,
+    LCPIX_DEFAULT_PREFIX,
+    LCPIX_FILTERID,
+    LCPIX_QUADFILTER,
+    LCPIX_FILEPARSER,
+    LTERM_TEXT,
+    LTERM_DOCFREQ
+};
 /**
 
  * To be able to search for docuids, we need to process them (from

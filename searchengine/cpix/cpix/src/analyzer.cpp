@@ -457,13 +457,15 @@ namespace Cpix {
                       auto_ptr<TokenStreamFactory> factory) 
             : factory_(factory) {
             using namespace Cpt::Parser;
-            if (invokation.params().size() != 2 || 
-                !dynamic_cast<IntegerLit*>(invokation.params()[0]) || 
-                !dynamic_cast<IntegerLit*>(invokation.params()[1])) {
-                THROW_CPIXEXC("Length filter takes exactly two integer parameters");
+            if (!(invokation.params().empty())) {
+                if (invokation.params().size() != 2 || 
+                        !dynamic_cast<IntegerLit*>(invokation.params()[0]) || 
+                        !dynamic_cast<IntegerLit*>(invokation.params()[1])) {
+                    THROW_CPIXEXC("Length filter takes exactly two integer parameters");
+                }
+                min_ = dynamic_cast<IntegerLit*>(invokation.params()[0])->value();
+                max_ = dynamic_cast<IntegerLit*>(invokation.params()[1])->value();
             }
-            min_ = dynamic_cast<IntegerLit*>(invokation.params()[0])->value();
-            max_ = dynamic_cast<IntegerLit*>(invokation.params()[1])->value();
         }
         virtual lucene::analysis::TokenStream* tokenStream(const TCHAR          * fieldName, 
                                                            lucene::util::Reader * reader) {
@@ -486,11 +488,13 @@ namespace Cpix {
                       auto_ptr<TokenStreamFactory> factory) 
             : factory_(factory) {
             using namespace Cpt::Parser;
-            if (invokation.params().size() != 1 || 
-                !dynamic_cast<IntegerLit*>(invokation.params()[0])) {
-                THROW_CPIXEXC("Prefix generator takes exactly one integer parameter");
+            if (invokation.params().empty()) {
+                if (invokation.params().size() != 1 || 
+                    !dynamic_cast<IntegerLit*>(invokation.params()[0])) {
+                    THROW_CPIXEXC("Prefix generator takes exactly one integer parameter");
+                }            
+                maxPrefixLength_ = dynamic_cast<IntegerLit*>(invokation.params()[0])->value();
             }
-            maxPrefixLength_ = dynamic_cast<IntegerLit*>(invokation.params()[0])->value();
         }
         virtual lucene::analysis::TokenStream* tokenStream(const TCHAR          * fieldName, 
                                                            lucene::util::Reader * reader) {

@@ -190,6 +190,7 @@ CL_NS_DEF(search)
 	  _CLDELETE(docs);
     }
 
+	if (hq) {
     int32_t hqlen = hq->size();
 	fieldDocs = _CL_NEWARRAY(FieldDoc*,hqlen);
 	for (j = hqlen - 1; j >= 0; j--)	  // put docs in array
@@ -200,6 +201,9 @@ CL_NS_DEF(search)
     _CLDELETE(hq);
 
     return _CLNEW TopFieldDocs (totalHits, fieldDocs, hqlen, hqFields);
+	} else  {
+	   return _CLNEW TopFieldDocs(0, NULL, 0, NULL );
+	}
   }
 
   Query* MultiSearcher::rewrite(Query* original) {

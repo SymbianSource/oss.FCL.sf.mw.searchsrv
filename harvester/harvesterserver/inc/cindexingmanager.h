@@ -58,8 +58,9 @@ protected:
 	 *
      * @param aQualifiedBaseAppClass database to harvest
 	 * @param aMedia the media to be harvested
+	 * @param aRemovePersist if plugin wants to remove from harvesting queue as well as config to be saved
 	 */
-	void RemoveHarvestingQueue(CIndexingPlugin* aPlugin, const TDesC& aQualifiedBaseAppClass);
+	void RemoveHarvestingQueue(CIndexingPlugin* aPlugin, const TDesC& aQualifiedBaseAppClass,TBool aRemovePersist = EFalse);
 
 	/**
 	 * derived from MIndexingService

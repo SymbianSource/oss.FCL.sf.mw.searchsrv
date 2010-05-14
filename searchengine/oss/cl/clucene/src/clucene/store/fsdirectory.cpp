@@ -87,7 +87,8 @@ DECL_STATVAR(DIRECTORIES_TYPE,DIRECTORIES,false,false)
 	  }
 
 	  //Store the file length
-	  handle->_length = fileSize(handle->fhandle);
+	  if ( handle->fhandle > 0 )
+	      handle->_length = fileSize(handle->fhandle);
 	  handle->_fpos = 0;
 	  this->_pos = 0;
   }
@@ -275,7 +276,8 @@ void FSDirectory::FSIndexInput::readInternal(uint8_t* b, const int32_t len) {
    useMMap(false)
   {
   	_realpath(path,directory);//set a realpath so that if we change directory, we can still function
-  	if ( !directory || !*directory ){
+  	//if ( !directory || !*directory ){
+  	if ( !*directory ){
   		strcpy(directory,path);	
   	}
     
@@ -287,8 +289,8 @@ void FSDirectory::FSIndexInput::readInternal(uint8_t* b, const int32_t len) {
     }
     
     // Ensure that lockDir exists and is a directory.
-		struct fileStat fstat;
-	  if ( fileStat(tmplockdir,&fstat) != 0 ) {
+		struct fileStat fstat = { 0 };
+	  if ( (tmplockdir) && (fileStat(tmplockdir,&fstat) != 0)  ) {
 			//todo: should construct directory using _mkdirs... have to write replacement
 			if ( _mkdir(lockDir) == -1 ){
 				_CLTHROWA(CL_ERR_IO,"Cannot create temp directory"); //todo: make richer error
@@ -401,8 +403,8 @@ void FSDirectory::FSIndexInput::readInternal(uint8_t* b, const int32_t len) {
 
     while ( fl != NULL ){
       strcpy(pathP,fl->d_name);
-      fileStat(path,&buf);
-      if ( !(buf.st_mode & S_IFDIR) ) {
+      //fileStat(path,&buf);
+      if ( (fileStat(path,&buf) == 0) && (!(buf.st_mode & S_IFDIR)) ) {
         names->push_back( fl->d_name );
       }
       fl = readdir(dir);
@@ -464,7 +466,7 @@ void FSDirectory::FSIndexInput::readInternal(uint8_t* b, const int32_t len) {
     struct fileStat buf;
     char buffer[CL_MAX_DIR];
 	_snprintf(buffer,CL_MAX_DIR,"%s%s%s",dir,PATH_DELIMITERA,name);
-    fileStat( buffer, &buf );
+    (void)fileStat( buffer, &buf );
     return buf.st_mtime;
   }
 
@@ -476,7 +478,7 @@ void FSDirectory::FSIndexInput::readInternal(uint8_t* b, const int32_t len) {
     int32_t r = _open(buffer, O_RDWR, _S_IWRITE);
 	if ( r < 0 )
 		_CLTHROWA(CL_ERR_IO,"IO Error while touching file");
-	_close(r);
+	(void)_close(r);
   }
 
   int64_t FSDirectory::fileLength(const char* name) const {
@@ -689,7 +691,7 @@ void FSDirectory::FSIndexInput::readInternal(uint8_t* b, const int32_t len) {
 	if ( r < 0 )
 	  return false;
 	else{
-	  _close(r);
+	  (void)_close(r);
 	  return true;
 	}
 
@@ -703,7 +705,7 @@ void FSDirectory::FSIndexInput::readInternal(uint8_t* b, const int32_t len) {
   void FSDirectory::FSLock::release() {
     if (disableLocks)
           return;
-    _unlink( lockFile );
+    (void)_unlink( lockFile );
   }
 
   TCHAR* FSDirectory::toString() const{

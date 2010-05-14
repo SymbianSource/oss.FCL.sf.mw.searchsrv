@@ -129,7 +129,7 @@ CL_NS_DEF(search)
             _CLDECDELETE(currentTerm);
             currentTerm = _CL_POINTER(term);
         }else{
-            next();
+            (void)next();
 		}
     }
 

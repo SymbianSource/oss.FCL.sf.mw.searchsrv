@@ -1,0 +1,21 @@
+/*
+============================================================================
+ Name        : cpixsample_reg.rss
+ Author      : Shankar
+ Copyright   : Your copyright notice
+ Description : This file contains all the resources for the cpixsample.
+============================================================================
+*/
+
+#include <appinfo.rh>
+
+UID2 KUidAppRegistrationResourceFile
+UID3 0xE46C866B
+
+RESOURCE APP_REGISTRATION_INFO
+    {
+    app_file = "cpixsample";
+    embeddability = KAppNotEmbeddable;
+    newfile = KAppDoesNotSupportNewFile;
+    }
+
