@@ -27,6 +27,8 @@
 #include "config.h"
 #include "testutils.h"
 
+#include "std_log_result.h"
+
 // For testing custom analyzer
 #include "CLucene.h"
 #include "CLucene\analysis\AnalysisHeader.h"
@@ -66,7 +68,9 @@ void PrintToken(Cpt::Lex::Token token) {
 
 void TestTokenization6(Itk::TestMgr * )
 {
-	Cpix::AnalyzerExp::Tokenizer tokenizer; 
+    char *xml_file = (char*)__FUNCTION__;
+        assert_failed = 0;
+    Cpix::AnalyzerExp::Tokenizer tokenizer; 
 	Tokens source(tokenizer, 
 		L"switch { "
 		  L"case '_docuid', '_mimetype': keywords;"
@@ -76,13 +80,15 @@ void TestTokenization6(Itk::TestMgr * )
     WhiteSpaceFilter 
         tokens(source); 
 
-    while (tokens) PrintToken(tokens++); 
+    while (tokens) PrintToken(tokens++);
+    testResultXml(xml_file);
 }
 
 void TestParsing(Itk::TestMgr* )
 { 
 	Cpix::AnalyzerExp::Tokenizer tokenizer; 
-	
+    char *xml_file = (char*)__FUNCTION__;
+        assert_failed = 0;
 	Tokens source(tokenizer, L"foobar(zap, foo, 'bar', 'a', raboof)");
 	WhiteSpaceFilter tokens(source);
 	Lexer lexer(tokens);
@@ -112,16 +118,20 @@ void TestParsing(Itk::TestMgr* )
 		printf("Invoke identifier: %S\n", (invoke->id()).c_str()); 
 		printf("%d parameters\n", invoke->params().size()); 
 	} catch (ParseException& e) {
+        assert_failed = 1;
 		printf("ParseException: %S\n", e.wWhat()); 
 	} catch (LexException& e) {
+        assert_failed = 1;	
 		printf("LexException: %S\n", e.wWhat()); 
 	}
+	testResultXml(xml_file);
 }
 
 void TestSwitch(Itk::TestMgr* )
 { 
 	Cpix::AnalyzerExp::Tokenizer tokenizer; 
-	
+    char *xml_file = (char*)__FUNCTION__;
+        assert_failed = 0;
 	const wchar_t* text; 
 	Tokens source(tokenizer, text = 
 		L"switch { "
@@ -150,17 +160,22 @@ void TestSwitch(Itk::TestMgr* )
 		}
 	} catch (ParseException& e) {
 		// OBS wcout<<L"ParseException: "<<e.describe(text)<<endl; 
+        assert_failed = 1;
 		e.setContext(text);
 		printf("ParseException: %S\n", e.wWhat()); 
 	} catch (LexException& e) {
 		// OBS wcout<<L"LexException: "<<e.describe(text)<<endl; 
+        assert_failed = 1;
 		e.setContext(text);
 		printf("LexException: %S\n", e.wWhat()); 
 	}
+	testResultXml(xml_file);
 }
 
 void TestParsingErrors(Itk::TestMgr* )
 {
+    char *xml_file = (char*)__FUNCTION__;
+            assert_failed = 0;
 	Cpix::AnalyzerExp::Tokenizer tokenizer; 
 	// eof
 	const wchar_t* text; 
@@ -211,7 +226,7 @@ void TestParsingErrors(Itk::TestMgr* )
 		e.setContext(text);
 		printf("ParseException: %S\n", e.wWhat()); 
 	} 
-
+	testResultXml(xml_file);
 }
 
 
@@ -265,6 +280,8 @@ void TestCustomAnalyzer(Itk::TestMgr * , const wchar_t* definition)
 
 void TestCustomAnalyzers(Itk::TestMgr * testMgr)
 {
+    char *xml_file = (char*)__FUNCTION__;
+        assert_failed = 0;
 	TestCustomAnalyzer(testMgr, L"stdtokens");
 	TestCustomAnalyzer(testMgr, L"whitespace");
 	TestCustomAnalyzer(testMgr, L"whitespace>lowercase");
@@ -277,6 +294,7 @@ void TestCustomAnalyzers(Itk::TestMgr * testMgr)
 	TestCustomAnalyzer(testMgr, L"letter>lowercase>accent>stop(en)"); 
 	TestCustomAnalyzer(testMgr, L"letter>lowercase>stop('i', 'oh', 'nyt', 'näin')"); 
 	TestCustomAnalyzer(testMgr, L"letter>length(2, 4)");
+	testResultXml(xml_file);
 }
 
 void TestAnalyzerWithField(Itk::TestMgr * , const wchar_t* definition, const wchar_t* field)
@@ -298,7 +316,9 @@ void TestAnalyzerWithField(Itk::TestMgr * , const wchar_t* definition, const wch
 
 void TestSwitchAnalyzers(Itk::TestMgr * testMgr)
 {
-	const wchar_t* sw = L"\n"
+    char *xml_file = (char*)__FUNCTION__;
+        assert_failed = 0;
+    const wchar_t* sw = L"\n"
 		L"switch {\n"
 		L"    case '_docuid':          keyword;\n"
 		L"    case '_appclass':        whitespace>lowercase;\n"
@@ -310,6 +330,7 @@ void TestSwitchAnalyzers(Itk::TestMgr * testMgr)
 	TestAnalyzerWithField(testMgr, sw, L"Title"); 
 	TestAnalyzerWithField(testMgr, sw, L"message"); 
 	TestAnalyzerWithField(testMgr, sw, L"field"); 
+	testResultXml(xml_file);
 }
 
 
@@ -318,14 +339,14 @@ Itk::TesterBase * CreateAnalysisWhiteBoxTests()
     using namespace Itk;
 
     SuiteTester
-        * analysisTests = new SuiteTester("whitebox");
+        * analysisTests = new SuiteTester("analysiswhitebox");
     
     analysisTests->add("analyzer",
 					   &TestCustomAnalyzers,
 					   "analyzer");
-    analysisTests->add("switchAnalyzer",
+    analysisTests->add("switchanalyzer",
 					   &TestSwitchAnalyzers,
-					   "switchAnalyzer");
+					   "switchanalyzer");
     analysisTests->add("tokenization",
     				   TestTokenization6,
     				   "tokenization");

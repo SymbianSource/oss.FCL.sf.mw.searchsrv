@@ -35,8 +35,10 @@ QCPixSearcherPrivate::QCPixSearcherPrivate( QObject* aParent )
 void QCPixSearcherPrivate::Construct( QString aDefaultSearchField )
     {
     qt_symbian_throwIfError( iSearchSession.Connect() );//throw exception on error.
+    QT_TRAP_THROWING(
     TBuf<KMaxStringLength> defaultSearchField( aDefaultSearchField.utf16() );
-    QT_TRAP_THROWING( iSearcher = CCPixSearcher::NewL( iSearchSession, defaultSearchField  ) );
+    iSearcher = CCPixSearcher::NewL( iSearchSession, defaultSearchField  ) 
+    ); //end of QT_TRAP_THROWING
     }
 
 QCPixSearcherPrivate::~QCPixSearcherPrivate()

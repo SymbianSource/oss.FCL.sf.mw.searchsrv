@@ -37,6 +37,8 @@
 #include "testutils.h"
 #include "suggestion.h"
 
+#include "std_log_result.h"
+
 const char * TermTestDocsToIndex[5] = {
 	FILE_TEST_CORPUS_PATH "\\en\\1.txt",
 	FILE_TEST_CORPUS_PATH "\\en\\2.txt",
@@ -70,7 +72,10 @@ void TestAppclassFilteredTermSearch(Itk::TestMgr * testMgr, const wchar_t* appcl
 	ITK_ASSERT(testMgr,
 			   cpix_Succeeded(&result),
 			   "Could not get rid of all test qbac-idx pairs");
-
+	if(!cpix_Succeeded(&result))
+	    {
+	assert_failed = 1;
+	    }
 	std::auto_ptr<FileIdxUtil> util( new FileIdxUtil ); 
 	
 	util->init(); 
@@ -78,6 +83,10 @@ void TestAppclassFilteredTermSearch(Itk::TestMgr * testMgr, const wchar_t* appcl
 	cpix_Analyzer* analyzer = cpix_CreateSimpleAnalyzer(&result); 
 	
 	if ( cpix_Failed( &result) ) ITK_PANIC("Analyzer could not be created");
+	   if(!cpix_Succeeded(&result))
+	        {
+	    assert_failed = 1;
+	        }
 	
 	for (int i = 0; TermTestDocsToIndex[i]; i++) 
 	{
@@ -100,7 +109,8 @@ void TestAppclassFilteredTermSearch(Itk::TestMgr * testMgr, const wchar_t* appcl
 		if (queryParser == NULL)
 			{
 				cpix_Analyzer_destroy( analyzer );
-				ITK_PANIC("Could not create query parser");
+			    assert_failed = 1;
+			    ITK_PANIC("Could not create query parser");
 			}
 		
 		std::wostringstream queryString;
@@ -115,6 +125,7 @@ void TestAppclassFilteredTermSearch(Itk::TestMgr * testMgr, const wchar_t* appcl
 		if (cpix_Failed(queryParser)
 			|| query == NULL)
 			{
+                assert_failed = 1;
 				cpix_Analyzer_destroy(analyzer);
 				cpix_ClearError(queryParser);
 				cpix_QueryParser_destroy(queryParser);
@@ -149,6 +160,7 @@ void TestAppclassFilteredTermSearch(Itk::TestMgr * testMgr, const wchar_t* appcl
 	    
     if (queryParser_ == NULL)
         {
+        assert_failed = 1;
         ITK_PANIC("Could not create query parser");
         }                
 
@@ -162,6 +174,7 @@ void TestAppclassFilteredTermSearch(Itk::TestMgr * testMgr, const wchar_t* appcl
     if (cpix_Failed(queryParser_)
                 || query == NULL)
         {
+            assert_failed = 1;
             cpix_Analyzer_destroy(analyzer);
             cpix_ClearError(queryParser_);
             cpix_QueryParser_destroy(queryParser_);
@@ -191,27 +204,35 @@ void TestAppclassFilteredTermSearch(Itk::TestMgr * testMgr, const wchar_t* appcl
 }
 
 void TestAllTermSearch(Itk::TestMgr * testMgr) 
-{
+{    
+    char *xml_file = (char*)__FUNCTION__;
+    assert_failed = 0;
 	TestAppclassFilteredTermSearch(testMgr, 0);
+	testResultXml(xml_file);
 }
 
 void TestMp3TermSearch(Itk::TestMgr * testMgr) 
 {
+    char *xml_file = (char*)__FUNCTION__;
+    assert_failed = 0;
 	TestAppclassFilteredTermSearch(testMgr, LMP3APPCLASS);
+	testResultXml(xml_file);
 }
 
 void TestTextTermSearch(Itk::TestMgr * testMgr) 
 {
+    char *xml_file = (char*)__FUNCTION__;
+    assert_failed = 0;
 	TestAppclassFilteredTermSearch(testMgr, LTEXTAPPCLASS);
+	testResultXml(xml_file);
 }
 
 Itk::TesterBase * CreateTermSearchTests()
 {
     using namespace Itk;
 
-    ContextTester
-        * whiteBox = new ContextTester("terms",
-                                       NULL); // default context
+    SuiteTester
+        * whiteBox = new SuiteTester("terms"); // default context
 
     whiteBox->add("allterms",
                   &TestAllTermSearch,

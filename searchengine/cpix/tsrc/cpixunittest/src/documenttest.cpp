@@ -35,6 +35,8 @@
 #include "testutils.h"
 #include "setupsentry.h"
 
+#include "std_log_result.h"
+
 #define TEST_DOCUMENT_QBASEAPPCLASS "@0:root test document"
 #define TEST_DOCUMENT_INDEXDB_PATH "c:\\Data\\indexing\\indexdb\\root\\test\\document"
 
@@ -294,7 +296,8 @@ public:
     void testNoBoostingFields(Itk::TestMgr * testMgr)
     {
         // Don't boost Field Alpha in doc1
-
+        char *xml_file = (char *)__FUNCTION__;
+        assert_failed = 0;
         addDocument(testMgr,
                     LDOCUID1,
                     DOC1CONTENT);
@@ -306,6 +309,10 @@ public:
         ITK_EXPECT(testMgr,
                    cpix_Succeeded(idxDb_),
                    "Flushing index has failed");
+        if(!cpix_Succeeded(idxDb_))
+            {
+            assert_failed = 1;
+            }
 
         executeSearch(testMgr);
         //  EXPECTED result is that doc2 first, doc1 second.
@@ -323,9 +330,14 @@ public:
             ITK_ASSERT(testMgr,
                 str.compare(LDOCUID2) == 0,
                 "wrong document");
+            if(str.compare(LDOCUID2) != 0)
+                {
+                assert_failed = 1;
+                }
         }
         else
         {
+            assert_failed = 1;
             ITK_PANIC("failed to get _docuid");
         }
 
@@ -342,17 +354,25 @@ public:
             ITK_ASSERT(testMgr,
                 str.compare(LDOCUID1) == 0,
                 "wrong document");
+            if(str.compare(LDOCUID1) != 0)
+                {
+                assert_failed = 1;
+                }
         }
         else
         {
+        assert_failed = 1;
             ITK_PANIC("failed to get _docuid");
         }
+        testResultXml(xml_file);
     }
 
 
 
     void testBoostField(Itk::TestMgr * testMgr)
     {
+        char *xml_file = (char *)__FUNCTION__;
+        assert_failed = 0;
         tearDown();
         setup();
 
@@ -369,6 +389,10 @@ public:
         ITK_EXPECT(testMgr,
                    cpix_Succeeded(idxDb_),
                    "Flushing index has failed");
+        if(!cpix_Succeeded(idxDb_))
+            {
+            assert_failed = 1;
+            }
 
         executeSearch(testMgr);
         //  EXPECTED result is that doc1 first, doc2 second.
@@ -386,10 +410,15 @@ public:
             ITK_ASSERT(testMgr,
                 str.compare(LDOCUID1) == 0,
                 "wrong document");
+            if(str.compare(LDOCUID1) != 0)
+                {
+                assert_failed = 1;
+                }
         }
         else
         {
             ITK_PANIC("failed to get _docuid");
+            assert_failed = 1;
         }
 
         cpix_Document
@@ -405,15 +434,23 @@ public:
             ITK_ASSERT(testMgr,
                 str.compare(LDOCUID2) == 0,
                 "wrong document");
+            if(str.compare(LDOCUID2) != 0)
+                {
+                assert_failed = 1;
+                }
         }
         else
         {
             ITK_PANIC("failed to get _docuid");
+            assert_failed = 1;
         }
+        testResultXml(xml_file);
     }
 
     void testBoostDocument(Itk::TestMgr * testMgr)
     {
+        char *xml_file = (char *)__FUNCTION__;
+        assert_failed = 0;
         tearDown();
         setup();
     
@@ -430,7 +467,10 @@ public:
         ITK_EXPECT(testMgr,
                    cpix_Succeeded(idxDb_),
                    "Flushing index has failed");
-
+        if(!cpix_Succeeded(idxDb_))
+            {
+            assert_failed = 1;
+            }
         executeSearch(testMgr);
         //  EXPECTED result is that doc1 first, doc2 second.
 
@@ -447,10 +487,15 @@ public:
             ITK_ASSERT(testMgr,
                 str.compare(LDOCUID1) == 0,
                 "wrong document");
+            if(str.compare(LDOCUID1) != 0)
+                {
+                assert_failed = 1;
+                }
         }
         else
         {
             ITK_PANIC("failed to get _docuid");
+            assert_failed = 1;
         }
 
         cpix_Document
@@ -466,16 +511,24 @@ public:
             ITK_ASSERT(testMgr,
                 str.compare(LDOCUID2) == 0,
                 "wrong document");
+            if(str.compare(LDOCUID2) != 0)
+                {
+                assert_failed = 1;
+                }
         }
         else
         {
             ITK_PANIC("failed to get _docuid");
+            assert_failed = 1;
         }
+        testResultXml(xml_file);
     }
 
 
     void testBoostQuery(Itk::TestMgr * testMgr)
     {
+        char *xml_file = (char *)__FUNCTION__;
+        assert_failed = 0;
         tearDown();
         setup();
 
@@ -490,7 +543,10 @@ public:
         ITK_EXPECT(testMgr,
                    cpix_Succeeded(idxDb_),
                    "Flushing index has failed");
-
+        if(!cpix_Succeeded(idxDb_))
+            {
+            assert_failed = 1;
+            }
         // doc1_ should be the first result given the following query boost.
         cpix_Query_destroy(query_);
 
@@ -505,6 +561,10 @@ public:
         ITK_ASSERT(testMgr,
                   hits_len == 2,
                   "wrong amount of documents returned in hits");
+        if(hits_len != 2)
+            {
+            assert_failed = 1;
+            }
 
         //  EXPECTED result is that doc2 first.
         cpix_Document
@@ -520,10 +580,15 @@ public:
             ITK_ASSERT(testMgr,
                 str.compare(LDOCUID1) == 0,
                 "wrong document");
+            if(str.compare(LDOCUID2) != 0)
+                {
+                assert_failed = 1;
+                }
         }
         else
         {
             ITK_PANIC("failed to get _docuid");
+            assert_failed = 1;
         }
 
         cpix_Document
@@ -539,11 +604,17 @@ public:
             ITK_ASSERT(testMgr,
                 str.compare(LDOCUID2) == 0,
                 "wrong document");
+            if(str.compare(LDOCUID2) != 0)
+                {
+                assert_failed = 1;
+                }
         }
         else
         {
             ITK_PANIC("failed to get _docuid");
+            assert_failed = 1;
         }
+        testResultXml(xml_file);
     }
 };
 

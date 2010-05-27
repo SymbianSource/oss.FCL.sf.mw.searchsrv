@@ -31,7 +31,8 @@
     QTest::newRow("Robert") << "Robert" << 53; \
     QTest::newRow("Leonar") << "Leonar" << 74; \
     QTest::newRow("Leas") << "Leas" << 8; \
-    QTest::newRow("Not Found") << "Not Found" << 0;
+    QTest::newRow("Not Found") << "Not Found" << 0; \
+    QTest::newRow("This is a very long string. Trying to make the search string more than 255 characters. Is it more than 255 yet? Not sure. Dont think so. Guess this should do. No It does not. How much more do I have to type to make the string 255 characters long...bored of typing...hope this would do...Yes, now about 300 chars!") << "Long String" << 0;
     
 #define TEST_SEARCH_DATA_FETCH \
     QFETCH( QString, searchString ); \

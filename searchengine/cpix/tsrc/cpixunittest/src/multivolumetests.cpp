@@ -32,6 +32,7 @@
 #include "testcorpus.h"
 #include "setupsentry.h"
 
+#include "std_log_result.h"
 
 class PlainMVContext : public Itk::ITestContext
 {

@@ -43,12 +43,12 @@
 #define FIELD_ALPHA L"Alpha"
 
 
-#define DOC1CONTENT L"mary had a little lamb its fleece was black as coal"
+#define DOC1CONTENT L"mary had little lamb issue its anirban fleece was black as coal"
 #define DOC2CONTENT L"sri rama jeyam shankar.rajendran@yahoo.co.in www.google.com U.S.A. file.txt"
 
 
 // The term that will be present in multiple documents.
-#define SEARCH_TERM L"$prefix(\"yahoo\")"
+#define SEARCH_TERM L"$prefix(\"a\")"
 
 
 int testInit(cpix_Analyzer **analyzer_, cpix_IdxDb **idxDb_)
@@ -220,16 +220,20 @@ int main(void)
 
         query_ = cpix_QueryParser_parse(queryParser_, SEARCH_TERM);
 
+        if ( query_ == NULL) { // sometimes the query parser returns NULL then we crash
+            return 0;
+        }
         if (cpix_Failed(queryParser_))
             {
             printf("Could not create query parser \n");
+            return 0;
             }
 
         hits_ = cpix_IdxDb_search(idxDb_, query_);
         printHits( hits_); 
 
 
-        int32_t hits_len = cpix_Hits_length(hits_); 
+        int32_t hits_len = cpix_Hits_length(hits_);
         
         cleanUp(&analyzer_, &queryParser_,&query_,&idxDb_,&hits_);
 

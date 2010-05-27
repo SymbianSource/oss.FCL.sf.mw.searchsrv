@@ -160,7 +160,7 @@ namespace Cpix
         auto_ptr<Field>
             newField(new Field(LFULLNAME_FIELD,
                                wFullName.c_str(),
-                               cpix_STORE_NO 
+                               cpix_STORE_YES
                              | cpix_INDEX_TOKENIZED
                              | cpix_AGGREGATE_YES));
 

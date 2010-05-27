@@ -19,6 +19,7 @@
 
 #include <sstream>
 #include <time.h>
+#include "std_log_result.h"
 
 using namespace std;
 using namespace Itk;
@@ -29,19 +30,28 @@ SuiteTester* CreateSuiteTesterRandom()
 	RandomTest * idxDbTest = new RandomTest;
 	ContextTester * random = new ContextTester("random", idxDbTest);
 	random->add( "AddingDeleting", idxDbTest,
-			    &RandomTest::testIndexAndDelete );
+			    &RandomTest::testIndexAndDelete,
+			    "AddingDeleting");
 
 	random->add( "AddingDeletingAll", idxDbTest,
-			    &RandomTest::testDeleteAll );
+			    &RandomTest::testDeleteAll,
+			    "AddingDeletingAll");
 
-	random->add( "AssertContent", idxDbTest, &RandomTest::testContent );
+	random->add( "AssertContent", idxDbTest,
+	            &RandomTest::testContent,
+	            "AssertContent");
 
 	random->add( "Persistence", idxDbTest,
-			     &RandomTest::testPersistence );
+			     &RandomTest::testPersistence,
+			     "Persistence");
 
-	random->add("Searches", idxDbTest, &RandomTest::testSearches );
+	random->add("Searches", idxDbTest, 
+	        &RandomTest::testSearches,
+	        "Searches");
 
-	random->add("CreatedIndex", idxDbTest, &RandomTest::testCreatedIndex );
+	random->add("CreatedIndex", idxDbTest,
+	        &RandomTest::testCreatedIndex,
+	        "CreatedIndex");
 
 	return random;
 	}
@@ -415,6 +425,10 @@ void RandomTest::assertState(Itk::TestMgr* testMgr, size_t item)
 				    valid,
 				    "Removed item found" );
 		}
+	if(!valid)
+	    {
+            assert_failed = 1;
+	    }
 	}
 
 void RandomTest::assertContent(Itk::TestMgr* testMgr, size_t item)
@@ -459,6 +473,7 @@ void RandomTest::assertContent(Itk::TestMgr* testMgr, size_t item)
                                 }
                             if ( !found )
                                 {
+                                    assert_failed = 1;
                                     ITK_MSG( testMgr, "Failed content %d", item );
                                 }
 
@@ -472,6 +487,7 @@ void RandomTest::assertContent(Itk::TestMgr* testMgr, size_t item)
                         }
                     else
                         {
+                           assert_failed = 1;
                             ITK_MSG( testMgr, "Content asserting is unreliable for item not in index" );
                         }
                     cpix_Hits_destroy( hits );
@@ -480,6 +496,7 @@ void RandomTest::assertContent(Itk::TestMgr* testMgr, size_t item)
         }
     else
         {
+            assert_failed = 1;
             ITK_MSG( testMgr, "Creating query failed for %S", queryText.str().c_str() );
         }
 }
@@ -565,6 +582,10 @@ void RandomTest::assertTracedTerms(Itk::TestMgr* testMgr)
 				tracedTerms_[i].c_str(),
 				matches,
 				tracedTermsFreq_[i] );
+		if(matches != tracedTermsFreq_[i])
+		    {
+                assert_failed = 1;
+		    }
 		}
 	}
 
@@ -592,7 +613,8 @@ void RandomTest::testIndexAndDelete(Itk::TestMgr* testMgr)
                "RandomSeed",
                "%d",
                randomSeed_);
-
+    char *xml_file = (char*)__FUNCTION__;
+    assert_failed = 0;
 	indexRandoms(testMgr, 50);
 	assertIndexedState(testMgr);
 
@@ -609,10 +631,12 @@ void RandomTest::testIndexAndDelete(Itk::TestMgr* testMgr)
                                                         item);
                             // OBS if ( !( valid &= validState( testMgr, item = indexRandom( testMgr ) ) ) )
                             if (!valid)
-				{
-				ITK_MSG( testMgr, "Indexing item %d had failed", item );
-				goto mainloop_exit; // double break
-				}
+                            {
+                            assert_failed = 1;
+                            ITK_MSG( testMgr, "Indexing item %d had failed", item );
+                            goto mainloop_exit;
+                            // double break
+                            }
 			}
 		for (int i = 0; i < 10; i++)
 			{
@@ -625,6 +649,7 @@ void RandomTest::testIndexAndDelete(Itk::TestMgr* testMgr)
                             // OBS if ( !( valid &= validState( testMgr, item = deleteRandom( testMgr ) ) ) )
                             if (!valid)
 				{
+                assert_failed = 1;
 				ITK_MSG( testMgr, "Deleting item %d had failed", item );
 				goto mainloop_exit; // double break
 				}
@@ -633,6 +658,7 @@ void RandomTest::testIndexAndDelete(Itk::TestMgr* testMgr)
 	deleteRandoms(testMgr, 50);
 
 	mainloop_exit:
+	testResultXml(xml_file);
 	ITK_ASSERT( testMgr, valid, "Operations were not succesful" );
 	}
 
@@ -640,6 +666,8 @@ void RandomTest::testDeleteAll(Itk::TestMgr* testMgr)
 	{
 	indexRandoms(testMgr, 50);
 	assertIndexedState(testMgr);
+	char *xml_file = (char*)__FUNCTION__;
+	assert_failed = 0;
 	vector<int> deleted;
 	for (int i = 0; i < 50; i++)
 		{
@@ -653,15 +681,19 @@ void RandomTest::testDeleteAll(Itk::TestMgr* testMgr)
 	valid = valid && validState( testMgr, deleted[i] );
                     if ( !( valid ) )
 			{
+                    assert_failed = 1;
 			ITK_MSG( testMgr, "Deleting item %d had failed", deleted[i] );
 			break;
 			}
 		}
+	testResultXml(xml_file);
 	ITK_ASSERT( testMgr, valid, "Deletes were not succesful" );
 	}
 
 void RandomTest::testContent(Itk::TestMgr* testMgr)
 	{
+    char *xml_file = (char*)__FUNCTION__;
+    assert_failed = 0;
 	for (int i = 0; i < 10; i++)
 		{
 		int item = indexRandom(testMgr);
@@ -672,13 +704,15 @@ void RandomTest::testContent(Itk::TestMgr* testMgr)
 	// clean  up 
 	deleteRandoms( testMgr, 10 );
         idxUtil_->flush();
+        testResultXml(xml_file);
 	}
 
 void RandomTest::testPersistence(Itk::TestMgr* testMgr)
 	{
 	indexRandoms(testMgr, 20);
 	assertIndexedState(testMgr);
-
+    char *xml_file = (char*)__FUNCTION__;
+    assert_failed = 0;
 	idxUtil_->reload();
 	
 	assertIndexedState(testMgr);
@@ -697,15 +731,19 @@ void RandomTest::testPersistence(Itk::TestMgr* testMgr)
                     valid = valid && validState( testMgr, deleted[i] );
                     if ( !( valid ) )
 			{
+                    assert_failed = 1;
 			ITK_MSG( testMgr, "Deleting item %d had failed", deleted[i] );
 			break;
 			}
 		}
 	ITK_ASSERT( testMgr, valid, "Deletes were not succesful" );
+	testResultXml(xml_file);
 	}
 
 void RandomTest::testSearches(Itk::TestMgr* testMgr)
 {
+    char *xml_file = (char*)__FUNCTION__;
+    assert_failed = 0;
 	traceTerm(testMgr, L"happy");
 	traceTerm(testMgr, L"people");
 	traceTerm(testMgr, L"come");
@@ -731,10 +769,12 @@ void RandomTest::testSearches(Itk::TestMgr* testMgr)
 	assertTracedTerms( testMgr );
 
 	untraceTerms(testMgr);
+	testResultXml(xml_file);
 }
 
 void RandomTest::testCreatedIndex(Itk::TestMgr* testMgr) {
-
+    char *xml_file = (char*)__FUNCTION__;
+    assert_failed = 0;
 	int item = indexRandom( testMgr ); 
         idxUtil_->flush();
 	assertState( testMgr, item ); 
@@ -764,6 +804,11 @@ void RandomTest::testCreatedIndex(Itk::TestMgr* testMgr) {
         ITK_EXPECT(testMgr,
                    deleted == 0,
                    "There should not have been an item to delete");
+        if(!cpix_Succeeded(idxUtil_->idxDb()) || deleted != 0)
+            {
+                assert_failed = 1;
+            }
+        testResultXml(xml_file);
 }
 
 

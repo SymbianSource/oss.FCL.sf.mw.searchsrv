@@ -38,6 +38,7 @@
 #include "testutils.h"
 #include "testcorpus.h"
 #include "setupsentry.h"
+#include "std_log_result.h"
 
 //
 // these constants are set so that a cpix_XXX entity should be
@@ -141,7 +142,8 @@ public:
     void testCreateFileIdxDb(Itk::TestMgr * testMgr)
     {
         using namespace std;
-
+        char *xml_file = (char *)__FUNCTION__;
+        assert_failed = 0;
         doCommonJobs(testMgr,
                      false);
 
@@ -150,12 +152,15 @@ public:
         fiu->init(true);
 
         fileIdxUtil_ = fiu.release();
+        testResultXml(xml_file);        
     }
 
 
     void testCreateSmsIdxDb(Itk::TestMgr * testMgr)
     {
         using namespace std;
+        char *xml_file = (char *)__FUNCTION__;
+        assert_failed = 0;
 
         doCommonJobs(testMgr);
 
@@ -164,11 +169,14 @@ public:
         siu->init(true);
         
         smsIdxUtil_ = siu.release();
+        testResultXml(xml_file);  
     }
     
 
     void testAddSomeSms(Itk::TestMgr * testMgr)
     {
+        char *xml_file = (char *)__FUNCTION__;
+        assert_failed = 0;
         using namespace std;
 
         doCommonJobs(testMgr);
@@ -187,6 +195,7 @@ public:
                                    ".");
                     }
             }
+        testResultXml(xml_file);  
     }
 
 
@@ -198,6 +207,8 @@ public:
 
     void testUseMultiSearcher(Itk::TestMgr * testMgr)
     {
+        char *xml_file = (char *)__FUNCTION__;
+        assert_failed = 0;
         doCommonJobs(testMgr);
 
         if (searcher_ == NULL)
@@ -222,6 +233,10 @@ public:
         ITK_EXPECT(testMgr,
                    cpix_Succeeded(query_),
                    "Could not search with multisearcher");
+        if( !cpix_Succeeded(query_))
+            {
+                assert_failed = 1;
+            }
         if (hits != NULL)
             {
                 PrintHits(hits,
@@ -229,21 +244,27 @@ public:
 
                 cpix_Hits_destroy(hits);
             }
+        testResultXml(xml_file);  
     }
 
     
     void testAddSomeFile(Itk::TestMgr * testMgr)
     {
+        char *xml_file = (char *)__FUNCTION__;
+        assert_failed = 0;
         doCommonJobs(testMgr);
 
         fileIdxUtil_->indexFile(FILE_TEST_CORPUS_PATH "\\en\\1.txt",
                                 analyzer_,
                                 testMgr);
+        testResultXml(xml_file); 
     }
 
     
     void testReleaseAll(Itk::TestMgr * testMgr)
     {
+        char *xml_file = (char *)__FUNCTION__;
+        assert_failed = 0;
         doCommonJobs(testMgr);
 
         delete fileIdxUtil_;
@@ -254,6 +275,7 @@ public:
 
         cpix_IdxSearcher_releaseDb(searcher_);
         searcher_ = NULL;
+        testResultXml(xml_file);
     }
     
 

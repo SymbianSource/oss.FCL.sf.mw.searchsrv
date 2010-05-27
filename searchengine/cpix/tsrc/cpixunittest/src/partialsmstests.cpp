@@ -33,6 +33,8 @@
 #include "testcorpus.h"
 #include "setupsentry.h"
 
+#include "std_log_result.h"
+
 /****
  * Simple test cases (one client)
  */
