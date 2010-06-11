@@ -37,17 +37,16 @@ void SearchHelper::doSearch()
     resultsBox->setPlainText("Search button clicked!");
     
     int hits = 0;
+    
     QString resultString("");
     resultsBox->setPlainText( resultString );
     searchTime.restart();
     QString searchString;
-    
-#if PREFIX_SEARCH
     searchString = "$prefix(\""; 
     searchString += searchBox->text();
     searchString += "\")";
 
-#elif STAR_SEARCH
+#if STAR_SEARCH
     searchString += searchBox->text();
     searchString += "*";
 #elif NO_STAR_SEARCH

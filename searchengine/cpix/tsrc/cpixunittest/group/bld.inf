@@ -360,5 +360,11 @@ PRJ_TESTEXPORTS
 "../data/cpixunittestcorpus/query/query8.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/query/query8.txt"
 "../data/cpixunittestcorpus/query/query9.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/query/query9.txt"
 
+"../data/cpixunittestcorpus/pdf/ctutor.pdf"                             "/epoc32/winscw/c/Data/cpixunittestcorpus/pdf/ctutor.pdf"
+"../data/cpixunittestcorpus/pdf/Empty.pdf"                              "/epoc32/winscw/c/Data/cpixunittestcorpus/pdf/Empty.pdf"
+"../data/cpixunittestcorpus/pdf/geology.pdf"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/pdf/geology.pdf"
+"../data/cpixunittestcorpus/pdf/samplepdf.pdf"                          "/epoc32/winscw/c/Data/cpixunittestcorpus/pdf/samplepdf.pdf"
+"../data/cpixunittestcorpus/pdf/windjack.pdf"                           "/epoc32/winscw/c/Data/cpixunittestcorpus/pdf/windjack.PDF"
+
 PRJ_TESTMMPFILES
 cpixunittest.mmp

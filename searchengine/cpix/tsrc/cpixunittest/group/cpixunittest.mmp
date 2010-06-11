@@ -71,7 +71,7 @@ SOURCE          asynctests.cpp
 SOURCE          config.cpp
 SOURCE          clq/uxqry.cpp
 SOURCE          clq/clqry.cpp 
-SOURCE		pdftests.cpp querytest.cpp std_log_result.cpp
+SOURCE		pdftests.cpp querytest.cpp std_log_result.cpp misc.cpp
 
 USERINCLUDE     ../../../../../searchsrv_plat/cpix_utility_api/inc
 USERINCLUDE     ../inc

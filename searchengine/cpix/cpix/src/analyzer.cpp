@@ -160,6 +160,14 @@ namespace Cpix {
                 {
                     _CLTHROWA(CL_ERR_IO, AGGR_STREAMREADER_ERR);
                 }
+            if(field->isFreeText())
+                {
+                    using namespace lucene::analysis;
+                    stream_ = _CLNEW standard::StandardTokenizer(reader_);
+                    stream_ = _CLNEW standard::StandardFilter(stream_,true);
+                    stream_ = _CLNEW LowerCaseFilter(stream_,true);
+                }
+            else
             stream_ = analyzer_.tokenStream( field->name(), reader_ ); 
         }
     }

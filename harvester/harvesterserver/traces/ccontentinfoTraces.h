@@ -1,4 +1,4 @@
-// Created by TraceCompiler 2.1.2
+// Created by TraceCompiler 2.2.2
 // DO NOT EDIT, CHANGES WILL BE LOST
 
 #ifndef __CCONTENTINFOTRACES_H__

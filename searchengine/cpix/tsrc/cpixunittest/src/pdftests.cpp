@@ -38,13 +38,14 @@
 #include "suggestion.h"
 #include "std_log_result.h"
 
-const char * PdfDocsToIndex[7] = {
+const char * PdfDocsToIndex[8] = {
     "c:\\data\\cpixunittestcorpus\\pdf\\ctutor.pdf",
-	"c:\\data\\cpixunittestcorpus\\stem\\pdf\\geology.pdf",
-	"c:\\data\\cpixunittestcorpus\\stem\\pdf\\samplepdf.pdf",
-	"c:\\data\\cpixunittestcorpus\\stem\\pdf\\windjack.pdf",
-	"c:\\data\\cpixunittestcorpus\\stem\\pdf\\DCTDecode.pdf",
-	"c:\\data\\cpixunittestcorpus\\stem\\pdf\\Empty.pdf",
+	"c:\\data\\cpixunittestcorpus\\pdf\\geology.pdf",
+	"c:\\data\\cpixunittestcorpus\\pdf\\samplepdf.pdf",
+	"c:\\data\\cpixunittestcorpus\\pdf\\windjack.pdf",
+	"c:\\data\\cpixunittestcorpus\\pdf\\DCTDecode.pdf",
+	"c:\\data\\cpixunittestcorpus\\pdf\\Empty.pdf",
+	"c:\\data\\cpixunittestcorpus\\pdf\\start_enter.pdf",
     NULL
 };
 

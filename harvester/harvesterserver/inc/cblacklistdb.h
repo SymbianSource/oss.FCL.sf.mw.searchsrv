@@ -96,7 +96,30 @@ public :
     * Leaves in case of errors.
     */
 	TBool FindL(TInt32 aPluginUid);
+	
+	/*
+     * @description Adds the given uid of a plugin to the unloadlist table.
+     * @param aPluginUid Uid of the plugin
+     * @return sysmbian error code
+     * Leaves in case of errors.
+     */  
+	TInt AddtoUnloadListL( TInt32 aPluginUid );
     
+	/*
+     * @description remove the given uid of a plugin to the unloadlist table.
+     * @param aPluginUid Uid of the plugin
+     * Leaves in case of errors.
+     */  
+    void RemoveFromUnloadListL( TInt32 aPluginUid );
+    
+    /*
+     * @description Find the given uid of a plugin to the unloadlist table.
+     * @param aPluginUid Uid of the plugin
+     * @return ETrue if exists else returns EFalse
+     * Leaves in case of errors.
+     */  
+    TBool FindFromUnloadListL( TInt32 aPluginUid );
+        
 private :
     /*
     * @description Creates the Blacklist database.
@@ -110,6 +133,13 @@ private :
     * Leaves in case of errors.
     */
     CDbColSet* CreateColumnSetLC();
+    
+    /*
+    * @description Creates Column set for unload table.
+    * @return CDbColSet database column set
+    * Leaves in case of errors.
+    */
+    CDbColSet* CreateUnloadColumnSetLC();
 private:    
     /*
      * A handle to a file server session.Owned

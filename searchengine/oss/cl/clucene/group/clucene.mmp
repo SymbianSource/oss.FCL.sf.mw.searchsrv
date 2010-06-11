@@ -165,6 +165,22 @@ SOURCE StringBuffer.cpp
 SOURCE StringIntern.cpp
 SOURCE ThreadLocal.cpp
 
+// highlighter
+SOURCEPATH	  ../src/CLucene/highlighter
+SOURCE Encoder.cpp 
+SOURCE Formatter.cpp
+SOURCE Fragmenter.cpp
+SOURCE Highlighter.cpp
+SOURCE QueryScorer.cpp
+SOURCE QueryTermExtractor.cpp
+SOURCE SimpleFragmenter.cpp
+SOURCE SimpleHTMLEncoder.cpp
+SOURCE SimpleHTMLFormatter.cpp
+SOURCE TextFragment.cpp
+SOURCE TokenSources.cpp
+SOURCE WeightedTerm.cpp
+SOURCE TokenGroup.cpp
+
 #endif // !MONOLITHIC
 
 //CAPABILITY 	  NONE

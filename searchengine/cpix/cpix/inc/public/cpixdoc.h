@@ -73,6 +73,10 @@ extern "C" {
             // index the value of the field without an analyzer and
             // disable storing of norms
             cpix_INDEX_UNTOKENIZED = 64,
+            
+            // index the value of the field without the stop word analyzer and
+            // store it in _aggregate
+            cpix_FREE_TEXT = 128
         };
 
     typedef enum cpix_Index_ cpix_Index;
@@ -89,6 +93,7 @@ extern "C" {
             // Expose the value to be searchable throught the
             // aggregate field
             cpix_AGGREGATE_YES = 1<<31
+
     	};
     
     typedef enum cpix_Aggregate_ cpix_Aggregate;   

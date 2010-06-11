@@ -50,6 +50,7 @@ LIBRARY           CPixSearchClient.lib
 LIBRARY			  CPixHarvesterPluginInterface.lib
 LIBRARY           edbms.lib
 LIBRARY           sqldb.lib
+LIBRARY           centralrepository.lib
 
 // Logging
 LIBRARY           flogger.lib 

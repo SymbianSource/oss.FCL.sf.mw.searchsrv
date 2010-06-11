@@ -74,7 +74,9 @@ namespace Cpix
 
         int isIndexed() const;
 
-        bool isAggregated()  const; 
+        bool isAggregated()  const;
+        
+        bool isFreeText()  const; 
 		
         float_t boost() const;
 
@@ -93,6 +95,8 @@ namespace Cpix
         lucene::document::Field* field_;
 		
         bool aggregate_;
+        
+        bool freeText_;
 	
     };
 	

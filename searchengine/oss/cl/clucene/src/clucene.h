@@ -35,5 +35,6 @@
 #include "CLucene/analysis/standard/StandardAnalyzer.h"
 #include "CLucene/analysis/Analyzers.h"
 #include "CLucene/util/Reader.h"
+#include "CLucene/highlighter/Highlighter.h"
 
 #endif

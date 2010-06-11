@@ -188,7 +188,7 @@ public:
 	class Object{
 	public:
 		static void doDelete(_kt* obj){
-			_CLLDELETE(obj);
+			_CLVDELETE(obj);
 		}
 	};
 	template<typename _kt>

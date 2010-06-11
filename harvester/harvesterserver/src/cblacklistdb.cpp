@@ -33,7 +33,7 @@ _LIT( Kuid , "uid" );
 //column name for version numbers of plugins in blacklist database
 _LIT( Kversion , "version" );
 // The max length for creating sql query for KBlistSqlFormatSeek format
-const TInt KBlistSqlStringMaxLength(40);
+const TInt KBlistSqlStringMaxLength(50);
 //SQL query to fetch the records with given uid
 _LIT(KBlistSqlFormatSeek , "SELECT * FROM table WHERE uid=%d");
 //SQL query to delete the records with given uid
@@ -41,6 +41,14 @@ _LIT(KBlistSqlDelete, "DELETE FROM table WHERE uid=%d");
 //SQL query to fetch all the records in database
 _LIT(KBlistSqlFormatAll , "SELECT * FROM table");
 _LIT(KDriveC, "c:");
+//Unload plugins Table name in blacklist database
+_LIT( KBLUnloadTableName , "unloadtable" );
+//SQL query to fetch all the records in unload table
+_LIT(KUnloadlistSqlFormatAll , "SELECT * FROM unloadtable");
+//SQL query to delete the records with given uid in unload table
+_LIT(KunloadlistSqlDelete, "DELETE FROM unloadtable WHERE uid=%d");
+//SQL query to fetch the records with given uid from unload table
+_LIT(KUnloadlistSqlFormatSeek , "SELECT * FROM unloadtable WHERE uid=%d");
 // -----------------------------------------------------------------------------
 // CBlacklistDb::NewL()
 // -----------------------------------------------------------------------------
@@ -372,8 +380,11 @@ void CBlacklistDb::CreateDBL()
     User::LeaveIfError( iDatabase.Create( iFs , datafile ) );
     CDbColSet* columns = CreateColumnSetLC();//creates the columns and push to cleanupstack
     User::LeaveIfError( iDatabase.CreateTable( KBlacklistTableName , *columns ) );
+    //Add table to store the unload plugins
+    CDbColSet* unloadcolumns = CreateUnloadColumnSetLC(); //creates the columns and push to cleanupstack
+    User::LeaveIfError( iDatabase.CreateTable( KBLUnloadTableName , *unloadcolumns ) );
     //clean up of variables (columns and dataFile)
-    CleanupStack::PopAndDestroy( columns );
+    CleanupStack::PopAndDestroy( 2 );
     
     CPIXLOGSTRING("CBlacklistDb::CreateDBL(): Exit");
     OstTraceFunctionExit0( CBLACKLISTDB_CREATEDBL_EXIT );
@@ -405,4 +416,128 @@ CDbColSet* CBlacklistDb::CreateColumnSetLC()
     
     OstTraceFunctionExit0( CBLACKLISTDB_CREATECOLUMNSETLC_EXIT );
     return columns; // columns stays on CleanupStack
+    }
+
+// -----------------------------------------------------------------------------
+// CBlacklistDb::CreateUnloadColumnSetLC
+// -----------------------------------------------------------------------------
+//
+CDbColSet* CBlacklistDb::CreateUnloadColumnSetLC()
+    {
+    OstTraceFunctionEntry0( CBLACKLISTDB_CREATEUNLOADCOLUMNSETLC_ENTRY );
+    CDbColSet* columns = CDbColSet::NewLC();
+        
+    //Add uid column
+    TDbCol col( Kuid , EDbColInt32 );
+    col.iAttributes = TDbCol::ENotNull ;
+    columns->AddL( col );        
+    
+    OstTraceFunctionExit0( CBLACKLISTDB_CREATEUNLOADCOLUMNSETLC_EXIT );
+    return columns; // columns stays on CleanupStack
+    }
+
+// -----------------------------------------------------------------------------
+// CBlacklistDb::AddtoUnloadListL
+// -----------------------------------------------------------------------------
+//
+TInt CBlacklistDb::AddtoUnloadListL( TInt32 aPluginUid )
+    {
+    OstTraceFunctionEntry0( CBLACKLISTDB_ADDTOUNLOADLISTL_ENTRY );
+    if ( !iOpened )
+            return KErrNotReady;
+        
+    TInt err; 
+    //Prepare the view
+    RDbView dbView;
+    CleanupClosePushL( dbView );
+
+    err = dbView.Prepare( iDatabase , TDbQuery( KUnloadlistSqlFormatAll ) ) ;
+        
+    if ( err == KErrNone )
+       {
+        TRAP( err , dbView.InsertL() );
+        CDbColSet* colSet = dbView.ColSetL();
+        TDbColNo uidcolno = colSet->ColNo( Kuid );        
+        dbView.SetColL( uidcolno , aPluginUid );
+        dbView.PutL();
+        //If addition failed, rollback
+        if(err != KErrNone)
+            {
+            iDatabase.Rollback();
+            }            
+       }
+    CleanupStack::PopAndDestroy( &dbView ); // dbView/    
+    User::LeaveIfError( iDatabase.Compact() );    
+    
+    OstTraceFunctionExit0( CBLACKLISTDB_ADDTOUNLOADLISTL_EXIT );
+    return err;
+    }
+// -----------------------------------------------------------------------------
+// CBlacklistDb::RemoveFromUnloadListL
+// -----------------------------------------------------------------------------
+//
+void CBlacklistDb::RemoveFromUnloadListL( TInt32 aPluginUid )
+    {
+    OstTraceFunctionEntry0( CBLACKLISTDB_REMOVEFROMUNLOADLISTL_ENTRY );
+    if ( !iOpened )
+           return ;
+        
+    //Remove the item record to database
+    // Create the sql statement.  KBlistSqlDelete
+    TBuf<KBlistSqlStringMaxLength> sql;
+    sql.Format( KunloadlistSqlDelete , aPluginUid );
+    
+    //delete the row.
+    TInt rowCount( iDatabase.Execute(sql) );
+    if(rowCount > 0)
+        {       
+        OstTrace0( TRACE_NORMAL, CBLACKLISTDB_REMOVEFROMUNLOADLISTL, "CBlacklistDb::RemoveFromUnloadListL :: removed UID succesfully" );
+        CPIXLOGSTRING("CBlacklistDb::RemoveFromUnloadListL(): Removed UID succesfully");
+        }
+    else
+        {        
+        OstTrace0( TRACE_NORMAL, DUP1_CBLACKLISTDB_REMOVEFROMUNLOADLISTL, "CBlacklistDb::RemoveFromUnloadListL:: UID not found" );
+        CPIXLOGSTRING("CBlacklistDb::RemoveFromUnloadListL(): UID not found");
+        }
+    CPIXLOGSTRING("CBlacklistDb::RemoveFromUnloadListL(): Exit");
+    
+    OstTraceFunctionExit0( CBLACKLISTDB_REMOVEFROMUNLOADLISTL_EXIT );
+    return ;
+    }
+
+// -----------------------------------------------------------------------------
+// CBlacklistDb::FindFromUnloadListL
+// -----------------------------------------------------------------------------
+//
+TBool CBlacklistDb::FindFromUnloadListL( TInt32 aPluginUid )
+    {
+    OstTraceFunctionEntry0( CBLACKLISTDB_FINDFROMUNLOADLISTL_ENTRY );
+    CPIXLOGSTRING2("CBlacklistDb::FindFromUnloadListL(): Uid = %x " , aPluginUid );
+        
+    if ( !iOpened )
+            return EFalse;
+    
+    //Check if the item is available in database
+    //Prepare the sql
+    TBuf<KBlistSqlStringMaxLength> sql;
+    sql.Format( KUnloadlistSqlFormatSeek , aPluginUid );
+    TBool found = EFalse;
+    //Prepare the view
+    RDbView dbView;
+    CleanupClosePushL( dbView );
+
+    User::LeaveIfError( dbView.Prepare( iDatabase , TDbQuery(sql) , RDbView::EReadOnly ) );
+    User::LeaveIfError( dbView.EvaluateAll() );
+
+    TInt isAtRow( dbView.FirstL() );
+    
+    if ( isAtRow )
+       {
+        OstTrace0( TRACE_NORMAL, CBLACKLISTDB_FINDFROMUNLOADLISTL, "CBlacklistDb::FindFromUnloadListL::UID found" );
+        CPIXLOGSTRING("CBlacklistDb::FindFromUnloadListL(): UID found");
+        found = ETrue;                 
+       }    
+    CleanupStack::PopAndDestroy( &dbView ); // dbView/
+    OstTraceFunctionExit0( CBLACKLISTDB_FINDFROMUNLOADLISTL_EXIT );
+    return found;
     }

@@ -100,6 +100,14 @@ private:
      * saving the state of the Plugins
      */
 	void SaveL();
+	/**
+     * Update content info Db with the plugin details
+     */
+	void UpdateContentInfoDbL( const TDesC& aPluginName);
+	/**
+     * Update the unload list in a separate table in blacklist database
+     */
+	void UpdateUnloadListL();
 	
 private:
 	CIndexingManager();

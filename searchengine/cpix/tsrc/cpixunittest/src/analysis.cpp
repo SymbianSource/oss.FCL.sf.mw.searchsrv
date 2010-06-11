@@ -31,6 +31,7 @@
 #include "cpixdoc.h"
 
 #include "std_log_result.h"
+
 const char * AnalysisTestDocsToIndex[5] = {
     FILE_TEST_CORPUS_PATH "\\en\\1.txt",
     FILE_TEST_CORPUS_PATH "\\en\\2.txt",
@@ -83,14 +84,14 @@ void TestAnalyzersParsing(Itk::TestMgr * testMgr)
 
 	// bad syntaxes
 	TestAnalyzerParsing(testMgr, L"letter><lowercase" ,0); 
-	TestAnalyzerParsing(testMgr, L"38j_d fad23 4?q ca'wRA", 0 ); 
+	TestAnalyzerParsing(testMgr, L"38j_d fad23 4?q ca'wRA", 0 );
+	TestAnalyzerParsing(testMgr, L"38.45_d fd23<ca'wRA", 0 ); 
 	// parsing failures
 	TestAnalyzerParsing(testMgr, L"letter>>lowercase", 0 ); 
 	TestAnalyzerParsing(testMgr, L">letter>>lowercase lowercase", 0 ); 
 	TestAnalyzerParsing(testMgr, L"letter lowercase", 0 );
 	testResultXml(xml_file);
 }
-
 void TestSwitchParsing(Itk::TestMgr * testMgr) 
 {
     char *xml_file = (char*)__FUNCTION__;
@@ -105,14 +106,13 @@ void TestSwitchParsing(Itk::TestMgr * testMgr)
 	TestAnalyzerParsing(testMgr, L"switch{ case '_qnr': whitespace; default: standard; }>lowercase");
 	TestAnalyzerParsing(testMgr, L"switch{ default: 	standard; }");
 	TestAnalyzerParsing(testMgr, L"switch{ case '_qnr': switch{ case '_docuid': keyword; default: whitespace; }; default: standard; }");
+	TestAnalyzerParsing(testMgr, L"switch{ case '_mimetype': standard; default: whitespace; }; default: standard; }");
 	testResultXml(xml_file);
 }
 
 void TestAnalyzerUsage(Itk::TestMgr * testMgr, const wchar_t* definition) 
 {
 	printf("Indexing and searching with %S\n", definition); 
-	char *xml_file = (char*)__FUNCTION__;
-	    assert_failed = 0;
 	cpix_Result
         result;
 
@@ -205,7 +205,7 @@ void TestAnalyzerUsage(Itk::TestMgr * testMgr, const wchar_t* definition)
 	}
 	cpix_QueryParser_destroy(queryParser);
 	cpix_Analyzer_destroy( analyzer ); 
-	testResultXml(xml_file);
+	
 }
 
 void TestAnalyzersUsage(Itk::TestMgr * testMgr) 
