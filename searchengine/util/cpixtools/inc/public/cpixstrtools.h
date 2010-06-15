@@ -447,7 +447,7 @@ namespace Cpt
                 throw ConversionExc("PANIC auto_array conversion constructor is used for non-char type %s",
                                     typeid(T).name());
 #else
-                compile_error(Template_type_T_is_not_a_character_type);
+                compile_error("Template_type_T_is_not_a_character_type");
 #endif
             }
         };
