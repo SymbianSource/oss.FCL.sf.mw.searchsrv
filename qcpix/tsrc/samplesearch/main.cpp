@@ -23,7 +23,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    SampleSearch w = SampleSearch();
+    SampleSearch w;
     w.show();
     int result =  a.exec();
     //delete w;
