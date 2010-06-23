@@ -1,0 +1,13 @@
+
+2001f6fb.cre file can be updated with the list of plugins to be avoided for Indexing
+only UID of the plugin has to be added
+
+Steps to update the 2001f6fb.cre
+=====================================
+1.Update the list of UID's in the 2001f6fb.txt file.
+2.copy the file to \epoc32\winscw\c  folder
+3.open command prompt to \epoc32\release\winscw\udeb  folder
+4.execute "centrepconv.exe 2001f6fb.txt" command. This command will create 2001f6fb.cre file in \epoc32\winscw\c folder
+  Before executing this command make sure the emulator is not running.This command will start the emulator and do the conversion and end the emulator.
+5.Copy the generated 2001f6fb.cre file to \searchsrv\cenrep  folder and build the searchsrv component
+6.Create the ROM image

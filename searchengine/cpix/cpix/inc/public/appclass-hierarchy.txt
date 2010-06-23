@@ -32,7 +32,7 @@ Indexed content types:
     |
     +-- file
     |     |
-    |         |
+    |     |
     |     +-- content
     |            | [ Contents  ]     {EStoreYes | EIndexTokenized}   {ExcerptYes}
     |            | [ Name      ]     {EStoreYes | EIndexTokenized}   {ExcerptNo}
@@ -87,44 +87,47 @@ Indexed content types:
 	/* The order of fields in excerpt is as below. The order in this case
 	 * is the order of fields shown when you 'Edit' the contact.
 	 */
-    | [ GivenName           ]    {EStoreYes | EIndexTokenized}   {ExcerptNo}
-    | [ FamilyName          ]    {EStoreYes | EIndexTokenized}   {ExcerptNo}
-    | [ PhoneNumber         ]    {EStoreYes | EIndexTokenized}   {ExcerptYes}
-	| [ EMail               ]    {EStoreYes | EIndexTokenized}   {ExcerptYes}
-	| [ SIPID               ]    {EStoreYes | EIndexTokenized}   {ExcerptYes}
-	| [ CompanyName         ]    {EStoreYes | EIndexTokenized}   {ExcerptYes}
-    | [ JobTitle            ]    {EStoreYes | EIndexTokenized}   {ExcerptYes}
-    | [ Note                ]    {EStoreYes | EIndexTokenized}   {ExcerptYes}
+    | [ GivenName           ]    {EStoreYes | EIndexTokenized | EIndexFreeText} {ExcerptNo}
+    | [ FamilyName          ]    {EStoreYes | EIndexTokenized | EIndexFreeText} {ExcerptNo}
+    | [ PhoneNumber         ]    {EStoreYes | EIndexTokenized}   				{ExcerptYes}
+	| [ EMail               ]    {EStoreYes | EIndexTokenized}   				{ExcerptYes}
+	| [ SIPID               ]    {EStoreYes | EIndexTokenized}   				{ExcerptYes}
+	| [ CompanyName         ]    {EStoreYes | EIndexTokenized | EIndexFreeText} {ExcerptYes}
+    | [ JobTitle            ]    {EStoreYes | EIndexTokenized | EIndexFreeText} {ExcerptYes}
+    | [ Note                ]    {EStoreYes | EIndexTokenized}   				{ExcerptYes}
 	/* The following fields are not displayed when 'Edit'-ing the contact.
 	 * The order here is arbitrary.
 	 */
-    | [ Address             ]    {EStoreYes | EIndexTokenized}   {ExcerptYes}
-    | [ SecondName          ]    {EStoreYes | EIndexTokenized}   {ExcerptYes}
-    | [ Suffix              ]    {EStoreYes | EIndexTokenized}   {ExcerptYes}
-    | [ URL                 ]    {EStoreYes | EIndexTokenized}   {ExcerptYes}
-    | [ PostOffice          ]    {EStoreYes | EIndexTokenized}   {ExcerptYes}
-    | [ ExtendedAddress     ]    {EStoreYes | EIndexTokenized}   {ExcerptYes}
-    | [ Locality            ]    {EStoreYes | EIndexTokenized}   {ExcerptYes}
-    | [ Region              ]    {EStoreYes | EIndexTokenized}   {ExcerptYes}
-    | [ PostCode            ]    {EStoreYes | EIndexTokenized}   {ExcerptYes}
-    | [ Country             ]    {EStoreYes | EIndexTokenized}   {ExcerptYes}
-    | [ Spouse              ]    {EStoreYes | EIndexTokenized}   {ExcerptYes}
-    | [ Children            ]    {EStoreYes | EIndexTokenized}   {ExcerptYes}
-    | [ Class               ]    {EStoreYes | EIndexTokenized}   {ExcerptYes}
-    | [ Prefix              ]    {EStoreYes | EIndexTokenized}   {ExcerptYes}
-    | [ AdditionalName      ]    {EStoreYes | EIndexTokenized}   {ExcerptYes}
-    | [ Fax                 ]    {EStoreYes | EIndexTokenized}   {ExcerptYes}
-    | [ GivenNamePronunciation      ]    {EStoreYes | EIndexTokenized}   {ExcerptYes}
-    | [ FamilyNamePronunciation     ]    {EStoreYes | EIndexTokenized}   {ExcerptYes}
-    | [ CompanyNamePronunciation    ]    {EStoreYes | EIndexTokenized}   {ExcerptYes}
+    | [ Address             ]    {EStoreYes | EIndexTokenized}   				{ExcerptYes}
+    | [ SecondName          ]    {EStoreYes | EIndexTokenized | EIndexFreeText} {ExcerptYes}
+    | [ Suffix              ]    {EStoreYes | EIndexTokenized}   				{ExcerptYes}
+    | [ URL                 ]    {EStoreYes | EIndexTokenized}   				{ExcerptYes}
+    | [ PostOffice          ]    {EStoreYes | EIndexTokenized}   				{ExcerptYes}
+    | [ ExtendedAddress     ]    {EStoreYes | EIndexTokenized}   				{ExcerptYes}
+    | [ Locality            ]    {EStoreYes | EIndexTokenized}   				{ExcerptYes}
+    | [ Region              ]    {EStoreYes | EIndexTokenized}   				{ExcerptYes}
+    | [ PostCode            ]    {EStoreYes | EIndexTokenized}   				{ExcerptYes}
+    | [ Country             ]    {EStoreYes | EIndexTokenized}   				{ExcerptYes}
+    | [ Spouse              ]    {EStoreYes | EIndexTokenized | EIndexFreeText} {ExcerptYes}
+    | [ Children            ]    {EStoreYes | EIndexTokenized | EIndexFreeText} {ExcerptYes}
+    | [ Class               ]    {EStoreYes | EIndexTokenized}   				{ExcerptYes}
+    | [ Prefix              ]    {EStoreYes | EIndexTokenized}   				{ExcerptYes}
+    | [ AdditionalName      ]    {EStoreYes | EIndexTokenized | EIndexFreeText} {ExcerptYes}
+    | [ Fax                 ]    {EStoreYes | EIndexTokenized}   				{ExcerptYes}
+    | [ Assistant  			]    {EStoreYes | EIndexTokenized | EIndexFreeText} {ExcerptYes}
+    | [ Department		    ]    {EStoreYes | EIndexTokenized | EIndexFreeText} {ExcerptYes}
+    | [ IMAddress    		]    {EStoreYes | EIndexTokenized}   				{ExcerptYes}
+    | [ ServiceProvider     ]	 {EStoreYes | EIndexTokenized}   				{ExcerptYes}
+    | [ Birthday			]    {EStoreYes | EIndexTokenized}   				{ExcerptNo}
+    | [ Anniversary			]    {EStoreYes | EIndexTokenized}   				{ExcerptNo} 
     |
     |
     +-- calendar
     | [ Summary         ]    {EStoreYes | EIndexTokenized}   {ExcerptNo}
     | [ Description     ]    {EStoreYes | EIndexTokenized}   {ExcerptYes}
     | [ Location        ]    {EStoreYes | EIndexTokenized}   {ExcerptYes}
-    | [ StartTime       ] (YYYYMMDDHHSS) (TimeZone UTC)    {EStoreYes | EIndexUnTokenized}   {ExcerptNA}
-    | [ EndTime         ] (YYYYMMDDHHSS) (TimeZone UTC)    {EStoreYes | EIndexUnTokenized}   {ExcerptNA}
+    | [ StartTime       ] (YYYY MM DD HHSS) (TimeZone UTC)   {EStoreYes | EIndexUnTokenized}   {ExcerptNA}
+    | [ EndTime         ] (YYYY MM DD HHSS) (TimeZone UTC)   {EStoreYes | EIndexUnTokenized}   {ExcerptNA}
     | 
     |    
     +-- bookmark
@@ -139,7 +142,7 @@ Indexed content types:
     |
     |
     +-- notes
-    | [ Date       ]  (YYYYMMDDHHSS)    {EStoreYes | EIndexUnTokenized}   {ExcerptNA}
+    | [ Date       ]  (YYYY MM DD HHSS) {EStoreYes | EIndexUnTokenized}   {ExcerptNA}
     | [ Memo       ]                    {EStoreYes | EIndexTokenized}     {ExcerptNo}
 
 
