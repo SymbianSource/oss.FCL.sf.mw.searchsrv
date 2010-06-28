@@ -54,6 +54,8 @@ file=ABI_DIR\BUILD_DIR\cpixwatchdog.exe	SHARED_LIB_DIR\cpixwatchdog.exe
 
 data=DATAZ_\PRIVATE\101f875a\import\20029ab8.rsc  private\101f875a\import\20029ab8.rsc
 
+data=DATAZ_\resource\cpix\analyzer.loc           \resource\cpix\analyzer.loc
+data=DATAZ_\resource\cpix\thaidict.sm            \resource\cpix\thaidict.sm
 data=ZSYSTEM\install\cpixsearch_stub.sis    System\Install\cpixsearch_stub.sis
 
 data=DATAZ_\private\10202be9\2001f6fb.cre       private\10202be9\2001f6fb.cre

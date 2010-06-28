@@ -98,27 +98,27 @@ public :
 	TBool FindL(TInt32 aPluginUid);
 	
 	/*
-     * @description Adds the given uid of a plugin to the unloadlist table.
+     * @description Adds the given uid of a plugin to the dontloadlist table.
      * @param aPluginUid Uid of the plugin
-     * @return sysmbian error code
+     * @return symbian error code
      * Leaves in case of errors.
      */  
-	TInt AddtoUnloadListL( TInt32 aPluginUid );
+	TInt AddtoDontloadListL( TInt32 aPluginUid );
     
 	/*
-     * @description remove the given uid of a plugin to the unloadlist table.
+     * @description remove the given uid of a plugin to the dontloadlist table.
      * @param aPluginUid Uid of the plugin
      * Leaves in case of errors.
      */  
-    void RemoveFromUnloadListL( TInt32 aPluginUid );
+    void RemoveFromDontloadListL( TInt32 aPluginUid );
     
     /*
-     * @description Find the given uid of a plugin to the unloadlist table.
+     * @description Find the given uid of a plugin to the dontloadlist table.
      * @param aPluginUid Uid of the plugin
      * @return ETrue if exists else returns EFalse
      * Leaves in case of errors.
      */  
-    TBool FindFromUnloadListL( TInt32 aPluginUid );
+    TBool FindInDontloadListL( TInt32 aPluginUid );
         
 private :
     /*
@@ -132,14 +132,14 @@ private :
 	* @return CDbColSet database column set
     * Leaves in case of errors.
     */
-    CDbColSet* CreateColumnSetLC();
+    CDbColSet* CreateBlacklistColumnSetLC();
     
     /*
-    * @description Creates Column set for unload table.
+    * @description Creates Column set for dontload table.
     * @return CDbColSet database column set
     * Leaves in case of errors.
     */
-    CDbColSet* CreateUnloadColumnSetLC();
+    CDbColSet* CreateDontloadColumnSetLC();
 private:    
     /*
      * A handle to a file server session.Owned

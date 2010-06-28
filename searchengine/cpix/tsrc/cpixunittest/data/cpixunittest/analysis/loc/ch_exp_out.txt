@@ -1,0 +1,55 @@
+using analyzer "natural(indexing)" for indexing
+
+using analyzer "natural(query)" for searching
+
+indexing:
+
+Indexed file: !:\data\cpixunittestcorpus\loc\ch_hk\1.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\ch_hk\2.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\ch_hk\3.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\ch_hk\4.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\ch_prc\1.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\ch_prc\2.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\ch_prc\3.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\ch_prc\4.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\ch_simple\1.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\ch_simple\2.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\ch_simple\3.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\ch_simple\4.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\ch_tw\1.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\ch_tw\2.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\ch_tw\3.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\ch_tw\4.txt
+
+Indexed empty item.
+
+searching:
+
+search "台湾":
+Number of hits: 2
+DOC (!:\data\cpixunittestcorpus\loc\ch_prc\3.txt): 内容涉及台湾、中美贸易以及环境问题等。
+DOC (!:\data\cpixunittestcorpus\loc\ch_simple\2.txt): 美国总统奥巴马星期一（11月16日）在上海与中国青年对话，他回答了现场听众和网民的提问，内容涉及台湾、中美贸易以及环境问题等。
+
+search "中国":
+Number of hits: 5
+DOC (!:\data\cpixunittestcorpus\loc\ch_simple\1.txt): 奥巴马在上海与中国青年人对话
+DOC (!:\data\cpixunittestcorpus\loc\ch_prc\1.txt): 美国总统奥巴马星期一（11月16日）在上海与中国青年对话，
+DOC (!:\data\cpixunittestcorpus\loc\ch_simple\4.txt): 这次对话由复旦大学校长杨玉良主持。美国驻中国大使洪博培致辞。
+DOC (!:\data\cpixunittestcorpus\loc\ch_simple\2.txt): 美国总统奥巴马星期一（11月16日）在上海与中国青年对话，他回答了现场听众和网民的提问，内容涉及台湾、中美贸易以及环境问题等。
+DOC (!:\data\cpixunittestcorpus\loc\ch_simple\3.txt): 奥巴马在上海科技馆面对500余名上海青年以及数以万计的中国互联网使用者进行了一场问答会。
+

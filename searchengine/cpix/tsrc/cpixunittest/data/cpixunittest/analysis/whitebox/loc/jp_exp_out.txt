@@ -1,0 +1,28 @@
+Analyzer "natural":
+File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
+ 'i' 'am' 'happy'
+File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
+ 'oh' 'happiness'
+File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
+ 'nothing' 'important' 'here' 'so' 'don' 'even' 'look' 'because' 'you' 'shall' 'find' 'nothing' 'whatsoever'
+File !:\data\cpixunittestcorpus\stem\en\4.txt tokenized:
+ 'what' 'happening' 'here'
+
+Analyzer "natural":
+File !:\data\cpixunittestcorpus\loc\jp\1.txt tokenized:
+ '国' '際' '交' '流' '基' '金' '（' 'ジャパンファウンデ' 'ション' '）' 'は' '主' 'に' '文' '化' '芸' '術' '交' '流' '海' '外' 'に' 'お' 'け' 'る' '日' '本' '語' '教' '育'
+File !:\data\cpixunittestcorpus\loc\jp\2.txt tokenized:
+ '日' '本' '研' '究' '知' '的' '交' '流' 'の' '3' 'つ' 'の' '分' '野' 'に' 'お' 'い' 'て' '事' '業' 'を' '実' '施' 'し' 'て' 'お' 'り'
+File !:\data\cpixunittestcorpus\loc\jp\3.txt tokenized:
+ 'そ' 'れ' 'ぞ' 'れ' 'の' '分' '野' 'で' '公' '募' 'プログラム' 'に' 'よ' 'り' '国' '際' '交' '流' '事' '業' 'を' '企' '画' 'す' 'る' '個' '人' 'や'
+File !:\data\cpixunittestcorpus\loc\jp\4.txt tokenized:
+ '団' '体' 'に' '対' 'し' 'て' '助' '成' '金' '研' '究' '奨' '学' '金' '等' 'を' '提' '供' 'し' 'て' 'い' 'ま' 'す'
+File !:\data\cpixunittestcorpus\loc\jp_old\1.txt tokenized:
+ '国' '際' '交' '流' '基' '金' '（' 'ジャパンファウンデ' 'ション' '）' 'は' '主' 'に' '文' '化' '芸' '術' '交' '流' '海' '外' 'に' 'お' 'け' 'る' '日' '本' '語' '教' '育'
+File !:\data\cpixunittestcorpus\loc\jp_old\2.txt tokenized:
+ '日' '本' '研' '究' '知' '的' '交' '流' 'の' '3' 'つ' 'の' '分' '野' 'に' 'お' 'い' 'て' '事' '業' 'を' '実' '施' 'し' 'て' 'お' 'り'
+File !:\data\cpixunittestcorpus\loc\jp_old\3.txt tokenized:
+ 'そ' 'れ' 'ぞ' 'れ' 'の' '分' '野' 'で' '公' '募' 'プログラム' 'に' 'よ' 'り' '国' '際' '交' '流' '事' '業' 'を' '企' '画' 'す' 'る' '個' '人' 'や'
+File !:\data\cpixunittestcorpus\loc\jp_old\4.txt tokenized:
+ '団' '体' 'に' '対' 'し' 'て' '助' '成' '金' '研' '究' '奨' '学' '金' '等' 'を' '提' '供' 'し' 'て' 'い' 'ま' 'す'
+

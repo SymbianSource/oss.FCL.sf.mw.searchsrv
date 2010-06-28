@@ -22,3 +22,10 @@ DEFAULT
 PRJ_MMPFILES
 cpix.mmp
 
+PRJ_EXPORTS
+ 
+../data/resource/analyzer.loc                        /epoc32/data/z/resource/cpix/analyzer.loc
+../data/resource/thaidict.sm                        /epoc32/data/z/resource/cpix/thaidict.sm
+../data/resource/analyzer.loc                        /epoc32/release/winscw/udeb/z/resource/cpix/analyzer.loc
+../data/resource/thaidict.sm                        /epoc32/release/winscw/udeb/z/resource/cpix/thaidict.sm
+

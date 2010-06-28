@@ -28,12 +28,12 @@
 #define FIELD_ALPHA1 L"Alpha1"
 
 
-#define DOC1CONTENT L"mary had little lamb issue its anirban fleece was black as coal"
-#define DOC2CONTENT L"sri rama jeyam and it  3gpp_70.jpg 170(kb).jpg is shankar.rajendran@yahoo.co.in then www.google.com U.S.A. file.txt"
+#define DOC1CONTENT L"mary had little lamb issue its 9740069217 9999ss ssss7 sad76asd 12222ds asdfa23sdf234sdf anirban fleece was black as coal"
+#define DOC2CONTENT L"sri rama jeyam and it  3gpp_70.jpg 170(kb).jpg is ss asd shankar.rajendran@yahoo.co.in then www.google.com U.S.A. file.txt"
 
 
 // The term that will be present in multiple documents.
-#define SEARCH_TERM L"$prefix(\"had\")"
+#define SEARCH_TERM L"$prefix(\"9999ss\")"
 
 
 int testInit(cpix_Analyzer **analyzer_, cpix_IdxDb **idxDb_)

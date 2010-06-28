@@ -40,8 +40,8 @@ USERINCLUDE       ../../../cpixtools/inc/public
 SYSTEMINCLUDE     /epoc32/include
 OS_LAYER_LIBC_SYSTEMINCLUDE
 OS_LAYER_STDCPP_SYSTEMINCLUDE
-SYSTEMINCLUDE     /epoc32/include/stdapis/stlportv5
 OS_LAYER_GLIB_SYSTEMINCLUDE
+SYSTEMINCLUDE     /epoc32/include/stdapis/stlportv5
 
 // libc and euser are always needed when using main() entry point
 LIBRARY           libc.lib
@@ -49,6 +49,7 @@ LIBRARY           libglib.lib
 LIBRARY           libstdcpp.lib
 LIBRARY           libm.lib
 LIBRARY           euser.lib
+LIBRARY           libz.lib
 
 // No capabilities needed by this application
 CAPABILITY        None

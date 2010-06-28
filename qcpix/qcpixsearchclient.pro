@@ -41,6 +41,8 @@ symbian{
     VERSION = 1.0.0
     LIBS += -leuser -lcpixsearchclient
     
+    INCLUDEPATH += $$APP_LAYER_SYSTEMINCLUDE
+    
     HEADERS +=  src/platform/s60/inc/qcpixdocumentprivate.h \
                 src/platform/s60/inc/qcpixdocumentfieldprivate.h \
                 src/platform/s60/inc/qcpixsearcherprivate.h \

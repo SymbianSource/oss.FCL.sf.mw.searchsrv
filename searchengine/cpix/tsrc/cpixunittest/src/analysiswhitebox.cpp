@@ -1,23 +1,5 @@
-/*
-* Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
-* All rights reserved.
-* This component and the accompanying materials are made available
-* under the terms of "Eclipse Public License v1.0"
-* which accompanies this distribution, and is available
-* at the URL "http://www.eclipse.org/legal/epl-v10.html".
-*
-* Initial Contributors:
-* Nokia Corporation - initial contribution.
-*
-* Contributors:
-*
-* Description: 
-*
-*/
-
 #include <wchar.h>
 #include <stddef.h>
-
 
 #include <iostream>
 
@@ -28,215 +10,202 @@
 #include "config.h"
 #include "testutils.h"
 
-#include "std_log_result.h"
-
 // For testing custom analyzer
 #include "CLucene.h"
 #include "CLucene\analysis\AnalysisHeader.h"
 #include "CLucene\util\stringreader.h"
-#include "analyzer.h"
 #include "analyzerexp.h"
+#include "customanalyzer.h"
+
+#include "localetestinfos.h"
+
+#include "spi/locale.h"
+#include "cpixstrtools.h"
 
 using namespace Cpt::Lex; 
 using namespace Cpt::Parser; 
 using namespace Cpix::AnalyzerExp; 
 
 void PrintToken(Cpt::Lex::Token token) {
-	switch (token.type()) {
-		case TOKEN_WS: printf("space"); break; 
-		case TOKEN_ID: printf("id"); break;
-		case TOKEN_LIT: printf("lit"); break;
-		case TOKEN_STRLIT: printf("str-lit"); break;
-		case TOKEN_REALLIT: printf("real-lit"); break;
-		case TOKEN_INTLIT: printf("int-lit"); break;
-		case TOKEN_LEFT_BRACKET: printf("lbr"); break;
-		case TOKEN_RIGHT_BRACKET: printf("rbr"); break;
-		case TOKEN_COMMA: printf("comma"); break;
-		case TOKEN_PIPE: printf("pipe"); break;
-		case TOKEN_SWITCH : printf("sw"); break;
-		case TOKEN_CASE : printf("case"); break;
-		case TOKEN_DEFAULT : printf("default"); break;
-		case TOKEN_LEFT_BRACE : printf("lbc"); break;
-		case TOKEN_RIGHT_BRACE : printf("rbc"); break;
-		case TOKEN_COLON : printf("cl"); break;
-		case TOKEN_TERMINATOR : printf("tr"); break;
-
-		default: printf("unknown"); break;
-	}
-	printf("('%S')", (token.text()).c_str());  
+	printf("%S('%S')", token.type(), token.text());  
 }
 
 
-void TestTokenization6(Itk::TestMgr * )
+void TestTokenization6(Itk::TestMgr * testMgr)
 {
-    char *xml_file = (char*)__FUNCTION__;
-        assert_failed = 0;
-    Cpix::AnalyzerExp::Tokenizer tokenizer; 
+	Cpix::AnalyzerExp::Tokenizer tokenizer; 
 	Tokens source(tokenizer, 
 		L"switch { "
 		  L"case '_docuid', '_mimetype': keywords;"
 		  L"case '_baseappclass':        whitespace>lowercase;"
 		  L"default: 					 natural(en); "
 		L"}");
-    WhiteSpaceFilter 
+    StdFilter 
         tokens(source); 
 
-    while (tokens) PrintToken(tokens++);
-    testResultXml(xml_file);
+    while (tokens) PrintToken(tokens++); 
 }
 
-void TestParsing(Itk::TestMgr* )
+void TestParsing(Itk::TestMgr* mgr)
 { 
 	Cpix::AnalyzerExp::Tokenizer tokenizer; 
-    char *xml_file = (char*)__FUNCTION__;
-        assert_failed = 0;
+	
 	Tokens source(tokenizer, L"foobar(zap, foo, 'bar', 'a', raboof)");
-	WhiteSpaceFilter tokens(source);
+	StdFilter tokens(source);
 	Lexer lexer(tokens);
-
-	Tokens source2(tokenizer, L" stdtokens >lowercase>stopwords(fin)>stopwords('a', 'an','the')>stem(fin)  ");
-	WhiteSpaceFilter tokens2(source2);
-	Lexer lexer2(tokens2);
+	
+	const wchar_t* text = L" stdtokens >lowercase>stopwords(fin)>stopwords('a', 'an','the')>stem(fin)  ";
 	
 	Tokens source3(tokenizer, L"foobar(zap, 0, 0.0045, 4, 'a', 9223.031)");
-	WhiteSpaceFilter tokens3(source3);
+	StdFilter tokens3(source3);
 	Lexer lexer3(tokens3);
 
 	try {
 		auto_ptr<Invokation> invoke = ParseInvokation(lexer); 
 		lexer.eatEof(); 
-		printf("Invoke identifier: %S\n", (invoke->id()).c_str()); 
+		printf("Invoke identifier: %S\n", invoke->id()); 
 		printf("%d parameters\n", invoke->params().size()); 
-		auto_ptr<Piping> piping = ParsePiping(lexer2); 
-		lexer2.eatEof(); 
+		auto_ptr<Piping> piping = ParsePiping(text); 
 		printf("piping done.\n"); 
 		if (dynamic_cast<const Invokation*>(&piping->tokenizer())) {
-			printf("Tokenizer: %S\n", dynamic_cast<const Invokation&>(piping->tokenizer()).id().c_str()); 
+			printf("Tokenizer: %S\n", dynamic_cast<const Invokation&>(piping->tokenizer()).id()); 
 		}
 		printf("%d filters\n", piping->filters().size()); 
 		invoke = ParseInvokation(lexer3);
 		lexer3.eatEof(); 
-		printf("Invoke identifier: %S\n", (invoke->id()).c_str()); 
+		printf("Invoke identifier: %S\n", invoke->id()); 
 		printf("%d parameters\n", invoke->params().size()); 
 	} catch (ParseException& e) {
-        assert_failed = 1;
 		printf("ParseException: %S\n", e.wWhat()); 
 	} catch (LexException& e) {
-        assert_failed = 1;	
 		printf("LexException: %S\n", e.wWhat()); 
 	}
-	testResultXml(xml_file);
 }
 
-void TestSwitch(Itk::TestMgr* )
+void TestSwitch(Itk::TestMgr* mgr)
 { 
 	Cpix::AnalyzerExp::Tokenizer tokenizer; 
-    char *xml_file = (char*)__FUNCTION__;
-        assert_failed = 0;
-	const wchar_t* text; 
-	Tokens source(tokenizer, text = 
+	
+	const wchar_t* text = 
 		L"switch { "
 		  L"case '_docuid', '_mimetype': keywords;"
 		  L"case '_baseappclass':        whitespace>lowercase;"
 		  L"default: 					 natural(en); "
-		L"}");
-	WhiteSpaceFilter tokens(source);
-	Lexer lexer(tokens);
+		L"}";
 
 	try {
-		auto_ptr<Piping> sw = ParsePiping(lexer); 
-		lexer.eatEof(); 
+		auto_ptr<Piping> sw = ParsePiping(text); 
 		if (dynamic_cast<const Switch*>(&sw->tokenizer())) {
 			const Switch* s = dynamic_cast<const Switch*>(&sw->tokenizer());
 			for (int i = 0; i < s->cases().size(); i++) {
 				const Case* c = s->cases()[i]; 
 				printf("case "); 
-				for (int j = 0; j < c->fields().size(); j++) {
-					printf("%S", (c->fields()[j]).c_str());
+				for (int j = 0; j < c->cases().size(); j++) {
+					printf("%S", c->cases()[j]);
 				}
 				printf(": ...\n"); 
-//				wcout<<L":"<<s->def().tokenizer().id();
+ //				wcout<<L":"<<s->def().tokenizer().id();
 			}
 			printf("default: ...\n");//<<s->def().tokenizer().id()<<"...;";
 		}
 	} catch (ParseException& e) {
 		// OBS wcout<<L"ParseException: "<<e.describe(text)<<endl; 
-        assert_failed = 1;
 		e.setContext(text);
 		printf("ParseException: %S\n", e.wWhat()); 
 	} catch (LexException& e) {
 		// OBS wcout<<L"LexException: "<<e.describe(text)<<endl; 
-        assert_failed = 1;
 		e.setContext(text);
 		printf("LexException: %S\n", e.wWhat()); 
 	}
-	testResultXml(xml_file);
 }
 
-void TestParsingErrors(Itk::TestMgr* )
-{
-    char *xml_file = (char*)__FUNCTION__;
-            assert_failed = 0;
+void TestConfigSwitch(Itk::TestMgr* mgr)
+{ 
 	Cpix::AnalyzerExp::Tokenizer tokenizer; 
-	// eof
-	const wchar_t* text; 
-	StdLexer eof(tokenizer, text = L"foobar(zap, foo, 'bar', 'raf', do, ");
+	
+	const wchar_t* text = 
+		L"config_switch { "
+		  L"case 'indexing': 	korean;"
+		  L"case 'query':       koreanquery;"
+		  L"case 'prefix':      letter;"
+		  L"default: 			korean;"
+		L"}";
+
 	try {
-		ParsePiping(eof); 
-		eof.eatEof(); 
+		auto_ptr<Piping> sw = ParsePiping(text); 
+		if (dynamic_cast<const ConfigSwitch*>(&sw->tokenizer())) {
+			const ConfigSwitch* s = dynamic_cast<const ConfigSwitch*>(&sw->tokenizer());
+			for (int i = 0; i < s->cases().size(); i++) {
+				const Case* c = s->cases()[i]; 
+				printf("case "); 
+				for (int j = 0; j < c->cases().size(); j++) {
+					printf("%S", c->cases()[j]);
+				}
+				printf(": ...\n"); 
+ //				wcout<<L":"<<s->def().tokenizer().id();
+			}
+			printf("default: ...\n");//<<s->def().tokenizer().id()<<"...;";
+		}
 	} catch (ParseException& e) {
 		// OBS wcout<<L"ParseException: "<<e.describe(text)<<endl; 
 		e.setContext(text);
 		printf("ParseException: %S\n", e.wWhat()); 
-	}
-
-	
-	// Unfinished literal
-	StdLexer lit(tokenizer, text = L"foobar(zap, foo, 'bar', 'a, raboof)");
-	try {
-		ParsePiping(lit); 
-		lit.eatEof(); 
-	} catch (LexException& e) { // syntax error
+	} catch (LexException& e) {
 		// OBS wcout<<L"LexException: "<<e.describe(text)<<endl; 
 		e.setContext(text);
 		printf("LexException: %S\n", e.wWhat()); 
+	}
+}
+
+
+void TestParsingErrors(Itk::TestMgr* mgr)
+{
+	Cpix::AnalyzerExp::Tokenizer tokenizer; 
+	// eof
+	const wchar_t* text;
+	try {
+		ParsePiping( text = L"foobar(zap, foo, 'bar', 'raf', do, " ); 
+	} catch (ParseException& e) {
+		printf("ParseException: %S\n", e.wWhat()); 
+	}
+	
+	// Unfinished literal
+	try {
+		ParsePiping(text = L"foobar(zap, foo, 'bar', 'a, raboof)"); 
+	} catch (LexException& e) { // syntax error
+		printf("LexException: %S\n", e.wWhat()); 
 	} catch (ParseException& e) { // syntax error
-		// OBS wcout<<L"ParseException: "<<e.describe(text)<<endl; 
-		e.setContext(text);
 		printf("ParseException: %S\n", e.wWhat()); 
 	} 
 
 	// Unknown token
-	StdLexer unknown(tokenizer, text = L"foobar(!zap, foo, 'bar', 'a', raboof)");
 	try {
-		ParsePiping(unknown); 
-		unknown.eatEof(); 
+		ParsePiping(text = L"foobar(!zap, foo, 'bar', 'a', raboof)"); 
 	} catch (LexException& e) { // syntax error
-		// OBS wcout<<L"LexException: "<<e.describe(text)<<endl; 
-		e.setContext(text);
 		printf("LexException: %S\n", e.wWhat()); 
 	} 
 	
 	// Missing comma
-	StdLexer comma(tokenizer, text = L"foobar(zap, foo, 'bar', 'a' raboof)");
 	try {
-		ParsePiping(comma); 
-		comma.eatEof(); 
+		ParsePiping(text = L"foobar(zap, foo, 'bar', 'a' raboof)"); 
 	} catch (ParseException& e) {
-		// OBS wcout<<L"ParseException: "<<e.describe(text)<<endl; 
-		e.setContext(text);
 		printf("ParseException: %S\n", e.wWhat()); 
 	} 
-	testResultXml(xml_file);
+
 }
 
 
 const char * CustomAnalyzerTestDocs[] = {
-    FILE_TEST_CORPUS_PATH "\\en\\1.txt",
-    FILE_TEST_CORPUS_PATH "\\en\\2.txt",
-    FILE_TEST_CORPUS_PATH "\\en\\3.txt",
-    FILE_TEST_CORPUS_PATH "\\fi\\1.txt",
-    FILE_TEST_CORPUS_PATH "\\fi\\2.txt",
+    STEM_TEST_CORPUS_PATH "\\en\\1.txt",
+    STEM_TEST_CORPUS_PATH "\\en\\2.txt",
+    STEM_TEST_CORPUS_PATH "\\en\\3.txt",
+    STEM_TEST_CORPUS_PATH "\\en\\4.txt",
+        
+    STEM_TEST_CORPUS_PATH "\\fi\\1.txt",
+    STEM_TEST_CORPUS_PATH "\\fi\\2.txt",
+    LOC_TEST_CORPUS_PATH "\\th\\1.txt",
+    LOC_TEST_CORPUS_PATH "\\th\\2.txt",
+    
     NULL
 };
 
@@ -258,7 +227,9 @@ void PrintTokenStream(lucene::analysis::TokenStream* stream)
 	printf("\n");
 }
 
-void TestCustomAnalyzer(Itk::TestMgr * , const wchar_t* definition)
+void TestCustomAnalyzer(Itk::TestMgr * testMgr, 
+					    const char** files, 
+					    const wchar_t* definition)
 {
 	using namespace lucene::analysis; 
 	using namespace lucene::util; 
@@ -267,22 +238,25 @@ void TestCustomAnalyzer(Itk::TestMgr * , const wchar_t* definition)
 	CustomAnalyzer analyzer(definition);
 	
 	printf("Analyzer \"%S\":\n", definition); 
-	for (int i = 0; CustomAnalyzerTestDocs[i]; i++) 
+	for (int i = 0; files[i]; i++) 
 	{
-		printf("File !%s tokenized:\n", (CustomAnalyzerTestDocs[i]+1));
-		FileReader file( CustomAnalyzerTestDocs[i], DEFAULT_ENCODING ); 
+		printf("File !%s tokenized:\n", (files[i]+1));
+		FileReader file( files[i], DEFAULT_ENCODING ); 
 		
 		TokenStream* stream = analyzer.tokenStream( L"field", &file ); 
 		PrintTokenStream( stream ); 
 		stream->close(); 
 		_CLDELETE( stream ); 
 	}
+	printf("\n");
+}
+
+void TestCustomAnalyzer(Itk::TestMgr * testMgr, const wchar_t* definition) {
+	TestCustomAnalyzer(testMgr, CustomAnalyzerTestDocs, definition);
 }
 
 void TestCustomAnalyzers(Itk::TestMgr * testMgr)
 {
-    char *xml_file = (char*)__FUNCTION__;
-        assert_failed = 0;
 	TestCustomAnalyzer(testMgr, L"stdtokens");
 	TestCustomAnalyzer(testMgr, L"whitespace");
 	TestCustomAnalyzer(testMgr, L"whitespace>lowercase");
@@ -291,14 +265,68 @@ void TestCustomAnalyzers(Itk::TestMgr * testMgr)
 	TestCustomAnalyzer(testMgr, L"letter>lowercase");
 	TestCustomAnalyzer(testMgr, L"keyword");
 	TestCustomAnalyzer(testMgr, L"keyword>lowercase");
-	TestCustomAnalyzer(testMgr, L"stdtokens>lowercase>accent>stem(en)"); 
-	TestCustomAnalyzer(testMgr, L"letter>lowercase>accent>stop(en)"); 
-	TestCustomAnalyzer(testMgr, L"letter>lowercase>stop('i', 'oh', 'nyt', 'näin')"); 
+//	TestCustomAnalyzer(testMgr, L"stdtokens>lowercase>stem(en)"); // Does not work with NON-ASCII
+	TestCustomAnalyzer(testMgr, L"letter>lowercase>stop(en)"); 
+	TestCustomAnalyzer(testMgr, L"letter>lowercase>stop('i', 'oh', 'nyt', 'nï¿½in')"); 
 	TestCustomAnalyzer(testMgr, L"letter>length(2, 4)");
-	testResultXml(xml_file);
+	TestCustomAnalyzer(testMgr, L"standard>prefixes(1)");
+	TestCustomAnalyzer(testMgr, L"standard>prefixes(2)");
+	TestCustomAnalyzer(testMgr, L"standard>prefixes(3)");
+	TestCustomAnalyzer(testMgr, L"stdtokens>stdfilter>lowercase>thai>stop(en)");
+	TestCustomAnalyzer(testMgr, L"cjk>stop(en)");
+    TestCustomAnalyzer(testMgr, L"ngram(1)>lowercase>stop(en)");
+    TestCustomAnalyzer(testMgr, L"ngram(2)>lowercase>stop(en)");
 }
 
-void TestAnalyzerWithField(Itk::TestMgr * , const wchar_t* definition, const wchar_t* field)
+void TestTokenizationWithLocales(Itk::TestMgr * testMgr) {
+	printf("locale=en\n"); 
+	cpix_Result result; 
+	cpix_SetLocale( &result, "en" ); 
+	TestCustomAnalyzer(testMgr, L"natural");
+	
+	printf("locale=th\n"); 
+	cpix_SetLocale( &result, "th" ); 
+	TestCustomAnalyzer(testMgr, L"natural");
+
+	printf("locale=ko\n");
+	cpix_SetLocale( &result, "ko" ); 
+	TestCustomAnalyzer(testMgr, L"natural");
+	
+	printf("locale=zh\n");
+	cpix_SetLocale( &result, "zh" );
+	TestCustomAnalyzer(testMgr, L"natural");
+	
+	printf("locale=jp\n");
+	cpix_SetLocale( &result, "jp" ); 
+	TestCustomAnalyzer(testMgr, L"natural");
+
+	cpix_SetLocale( &result, cpix_LOCALE_AUTO ); 
+}
+
+template<typename T> 
+void TestTokenizationWithLocale(Itk::TestMgr * testMgr) {
+	cpix_Result result; 
+	cpix_SetLocale( &result, T::LOCALE ); 
+    TestCustomAnalyzer(testMgr, EnglishLocale::FILES, L"natural");
+	TestCustomAnalyzer(testMgr, T::FILES, L"natural");
+	cpix_SetLocale( &result, cpix_LOCALE_AUTO ); 
+}
+
+
+template<typename T>
+void AddTokenizationWithLocaleTest(Itk::SuiteTester* suite) {
+    suite->add(T::LOCALE,
+               &TestTokenizationWithLocale<T>,
+               T::LOCALE);
+}
+
+void TestTokenizationWithCurrentLocale(Itk::TestMgr * testMgr) {
+	cpix_Result result; 
+	cpix_SetLocale( &result, cpix_LOCALE_AUTO ); 
+	TestCustomAnalyzer(testMgr, L"natural");
+}
+
+void TestAnalyzerWithField(Itk::TestMgr * testMgr, const wchar_t* definition, const wchar_t* field) 	
 {
 	using namespace lucene::analysis; 
 	using namespace lucene::util; 
@@ -317,9 +345,7 @@ void TestAnalyzerWithField(Itk::TestMgr * , const wchar_t* definition, const wch
 
 void TestSwitchAnalyzers(Itk::TestMgr * testMgr)
 {
-    char *xml_file = (char*)__FUNCTION__;
-        assert_failed = 0;
-    const wchar_t* sw = L"\n"
+	const wchar_t* sw = L"\n"
 		L"switch {\n"
 		L"    case '_docuid':          keyword;\n"
 		L"    case '_appclass':        whitespace>lowercase;\n"
@@ -331,23 +357,80 @@ void TestSwitchAnalyzers(Itk::TestMgr * testMgr)
 	TestAnalyzerWithField(testMgr, sw, L"Title"); 
 	TestAnalyzerWithField(testMgr, sw, L"message"); 
 	TestAnalyzerWithField(testMgr, sw, L"field"); 
-	testResultXml(xml_file);
 }
 
+void TestLocaleSwitchAnalyzers(Itk::TestMgr * testMgr)
+{
+	const wchar_t* sw = L"\n"
+		L"locale_switch {\n"
+		L"    case 'en':       stdtokens>stdfilter>lowercase>stop(en);\n"
+		L"    case 'th':       stdtokens>stdfilter>lowercase>thai>stop(en);\n"
+		L"    case 'ca':       stdtokens>stdfilter>lowercase>accent;\n"
+		L"    default:         stdtokens>stdfilter>lowercase;\n"
+		L"}";
+	cpix_Result result; 
+	printf("locale=en:\n");
+	cpix_SetLocale( &result, "en" ); 
+	TestCustomAnalyzer(testMgr, sw);
+	printf("\n");
+	printf("locale=th:\n");
+	cpix_SetLocale( &result, "th" ); 
+	TestCustomAnalyzer(testMgr, sw);
+	printf("\n");
+	printf("locale=ca:\n");
+	cpix_SetLocale( &result, "ca" ); 
+	TestCustomAnalyzer(testMgr, sw);
+	printf("\n");
+	printf("default locale:\n");
+	cpix_SetLocale( &result, "fail" ); 
+	TestCustomAnalyzer(testMgr, sw);
+	cpix_SetLocale( &result, cpix_LOCALE_AUTO ); 
+}
+
+
+Itk::TesterBase * CreateAnalysisWhiteBoxLocalizationTests() {
+    using namespace Itk;
+    
+	SuiteTester
+		* tests = new SuiteTester("loc");
+
+	std::string locale;
+	locale = "currentlocale_"; 
+    
+    Cpt::auto_array<char> name( Cpix::Spi::GetLanguageNames()[0].c_str() );
+    locale += name.get();
+    
+	tests->add(locale.c_str(),
+				  &TestTokenizationWithCurrentLocale,
+				  locale.c_str());
+	
+	AddTokenizationWithLocaleTest<EnglishLocale>(tests);
+	AddTokenizationWithLocaleTest<FrenchLocale>(tests);
+	AddTokenizationWithLocaleTest<HebrewLocale>(tests);
+	AddTokenizationWithLocaleTest<ThaiLocale>(tests);
+	AddTokenizationWithLocaleTest<KoreanLocale>(tests);
+	AddTokenizationWithLocaleTest<ChineseLocale>(tests);
+	AddTokenizationWithLocaleTest<JapaneseLocale>(tests);
+	    
+	return tests;
+}
 
 Itk::TesterBase * CreateAnalysisWhiteBoxTests()
 {
     using namespace Itk;
 
     SuiteTester
-        * analysisTests = new SuiteTester("analysiswhitebox");
+        * analysisTests = new SuiteTester("whitebox");
     
     analysisTests->add("analyzer",
 					   &TestCustomAnalyzers,
 					   "analyzer");
-    analysisTests->add("switchanalyzer",
+    analysisTests->add("switchAnalyzer",
 					   &TestSwitchAnalyzers,
-					   "switchanalyzer");
+					   "switchAnalyzer");
+    analysisTests->add("localeSwitchAnalyzer",
+					   &TestLocaleSwitchAnalyzers,
+					   "localeSwitchAnalyzer");
     analysisTests->add("tokenization",
     				   TestTokenization6,
     				   "tokenization");
@@ -357,10 +440,14 @@ Itk::TesterBase * CreateAnalysisWhiteBoxTests()
     analysisTests->add("parsing2",
                       TestSwitch,
                       "parsing2");
+    analysisTests->add("parsing3",
+                      TestConfigSwitch,
+                      "parsing3");
     analysisTests->add("parsingerrors",
                       TestParsingErrors,
                       "parsingerrors");
-    
+
+    analysisTests->add(CreateAnalysisWhiteBoxLocalizationTests());
     return analysisTests;
 }
 

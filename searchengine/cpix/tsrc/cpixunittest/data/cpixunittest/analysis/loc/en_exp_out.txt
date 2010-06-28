@@ -1,0 +1,30 @@
+using analyzer "natural(indexing)" for indexing
+
+using analyzer "natural(query)" for searching
+
+indexing:
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\1.txt
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\2.txt
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\3.txt
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\4.txt
+
+Indexed empty item.
+
+searching:
+
+search "happy":
+Number of hits: 1
+DOC (!:\data\cpixunittestcorpus\stem\en\1.txt): I am happy.
+
+search "happiness":
+Number of hits: 1
+DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh happiness!
+
+search "happening":
+Number of hits: 1
+DOC (!:\data\cpixunittestcorpus\stem\en\4.txt): What is happening here?
+

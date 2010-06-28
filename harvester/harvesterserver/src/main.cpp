@@ -14,9 +14,22 @@
 * Description: 
 *
 */
+#include <QtCore>
+#include <QCoreApplication>
+#include "charvesterserver.h"
+#include "qtmythread.h"
 
+int main(int argc, char *argv[])
+    {
+    QCoreApplication a( argc , argv);
+    HarvesterThread mythread;    
+    mythread.start();
+    return a.exec();
+    }
 
-PRJ_MMPFILES
-
-HarvesterServer.mmp
-
+void HarvesterThread::run()
+    {
+    //Trapping the error is handled inside the ThreadFunction
+    CHarvesterServer::ThreadFunction();
+    exec();
+    }

@@ -143,6 +143,9 @@ void CCPixIdxDb::CompletionCallback(void *aCookie, cpix_JobId aJobId)
 
 void CCPixIdxDb::InitializeL()
 	{
+    
+	const char* KCPixResourceDirectory = "z:\\resource\\cpix"; // FIXME
+	
 #ifdef CPIX_LOGGING_ENABLED
 	_LIT(KCPixLogDirectory, "c:\\logs\\CPix\\OpenC\\");
 	const char* CPIX_LOG_FILE = "c:\\logs\\CPix\\OpenC\\libcpix";
@@ -183,6 +186,11 @@ void CCPixIdxDb::InitializeL()
         
         cpix_InitParams_setCpixDir(initParams,
                                    reinterpret_cast<const char*>( registryPath.PtrZ() ));
+        SearchServerHelper::CheckCpixErrorL(initParams,
+                                            KErrCPixInitializationFailed);
+
+        cpix_InitParams_setResourceDir( initParams,
+									    KCPixResourceDirectory );
         SearchServerHelper::CheckCpixErrorL(initParams,
                                             KErrCPixInitializationFailed);
 
@@ -478,6 +486,7 @@ cpix_Document* CCPixIdxDb::ConvertToCpixDocumentLC(const CSearchDocument& aDocum
 	if (!doc)
 		{
 		SearchServerHelper::LogErrorL(*result.err_);
+		cpix_ClearError(doc);
 		User::Leave(KErrCannotCreateDocument);
 		}
 	// document created, push to cleanup stack.

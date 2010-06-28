@@ -64,5 +64,25 @@ class MCPixSetAnalyzerRequestObserver
      	virtual void HandleSetAnalyzerResultL( TInt aError ) = 0; 
     }; 
 
+/**
+ * @brief Observes completions of CPixIndexer's asynchronous requests 
+ * @ingroup ClientAPI
+ * 
+ * Mixin class.
+ * Observer to handle indexing operations completion codes.
+ *  
+ * Link against: CPixSearchClient.lib 
+ */
+class MCPixSetQueryParserRequestObserver
+    {
+    public:
+  
+        /**
+         * TODO
+         * @param aError Coompletion code of a asynchronous request. KErrNone if operation
+         * was succesful, otherwise system wide error code.
+         */
+     	virtual void HandleSetQueryParserResultL( TInt aError ) = 0; 
+    }; 
 
 #endif /* MCPIXDATABASEOBSERVER_H_ */

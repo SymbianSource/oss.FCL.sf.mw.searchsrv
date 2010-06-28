@@ -1,0 +1,20 @@
+Analyzer "natural":
+File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
+ 'i' 'am' 'happy'
+File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
+ 'oh' 'happiness'
+File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
+ 'nothing' 'important' 'here' 'so' 'don't' 'even' 'look' 'because' 'you' 'shall' 'find' 'nothing' 'whatsoever'
+File !:\data\cpixunittestcorpus\stem\en\4.txt tokenized:
+ 'what' 'happening' 'here'
+
+Analyzer "natural":
+File !:\data\cpixunittestcorpus\loc\th\1.txt tokenized:
+ 'ปรากฏการณ์' 'ฝน' 'ดาวตก' '7' '-18' 'พ' 'ยนี' '้' 'นาย' 'วรวิท' 'ย์' 'ตัน' 'วุฒิ' 'บัณฑิต' 'ปราชญ์' 'ภูมิปัญญา' 'ท้อง' 'ถิ่น' 'ด้าน' 'ดาราศาสตร์' 'ไทย' 'กล่าว' 'ว่า' '17' '-18' 'พฤศจิกายน' '2552'
+File !:\data\cpixunittestcorpus\loc\th\2.txt tokenized:
+ 'จะ' 'มี' 'ปรากฏการณ์' 'ดาราศาสตร์' 'ครั้ง' 'สำคัญ' 'ที่' 'ชาว' 'ไทย' 'เคย' 'ประทับ' 'ใจมา' 'แล้ว' 'เมื่อ' 'ปี' '2541' '-2544' 'คือ' 'ใน' 'คืน' 'วัน' 'ที่' '17' 'ต่อ' 'เนื่อง' 'วัน' 'ที่' '18' 'พฤศจิกายน' '2552'
+File !:\data\cpixunittestcorpus\loc\th\3.txt tokenized:
+ 'จะ' 'เกิด' 'ปรากฏการณ์' 'ฝน' 'ดาวตก' 'จาก' 'กลุ่ม' 'ดาว' 'สิงโต' 'หรือ' 'ฝน' 'ดาวตก' 'เลโอ' 'นิคส์' 'ที่' 'นัก' 'ดาราศาสตร์' 'ทั้ง' 'หลาย' 'คาด' 'ว่า' 'จะ' 'มี' 'ประมาณ' '100' '-150' 'ดวง' 'ต่อ' 'ชั่วโมง'
+File !:\data\cpixunittestcorpus\loc\th\4.txt tokenized:
+ 'เมื่อ' 'วัน' 'ที่' '8' 'มีนา' 'ที่' 'ผ่าน' 'มา' 'ผม' 'ได้' 'ไป' 'งาน' 'ที่' 'โรงเรียน' 'เหมือน' 'เช่น' 'ทุก' 'ปี' 'ตอน' 'กลับ' 'เดิน' 'มา' 'ตาม' 'ตึก' 'ยาว' 'เพื่อ' 'จะ' 'กลับ' 'มาท' 'า' 'งป' 'ระตู' 'ด้าน' 'เพาะ' 'ช่าง'
+

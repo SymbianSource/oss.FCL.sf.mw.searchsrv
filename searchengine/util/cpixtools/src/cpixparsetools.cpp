@@ -27,11 +27,67 @@
 #include <iostream>
 #include <sstream>
 #include <stdlib.h>
+#include "wctype.h"
+
+namespace {
+
+	std::wstring describeException(std::wstring what, const wchar_t* context, const wchar_t* where, const wchar_t* where2) {
+		std::wstring line;
+		int l = 0;
+		bool found = false; 
+		 
+		for (; ; context++) {
+			if (context == where) {
+				line += L"*here*";
+				found = true; 
+				if (!where2) break; 
+			}
+			if (context == where2) {
+				line += L"*here*";
+				break; 
+			}
+			if (!*context) {
+				line += L"*here*";
+				break;
+			} else if (*context == '\n' && !found) {
+				l++; 
+				line = L"";  
+			} else {
+				line += *context;
+			}
+		}
+		for (; *context && *context != '\n' && *context != '\r'; context++) {
+			line += *context; 
+		}
+		 
+		std::wostringstream tmp; 
+		tmp<<what; 
+		tmp<<L" at";
+		if ( l ) {
+			tmp<<L" line "<<(l+1);
+		}
+		tmp<<L": \n\"";
+		tmp<<line;
+		tmp<<L"\"";
+		return tmp.str();        	
+	}
+
+}
 
 namespace Cpt {
 
 
     namespace Lex {
+    
+		token_type_t TOKEN_UNKNOWN = L"unknown";
+		token_type_t TOKEN_EOF = L"eof";
+		token_type_t TOKEN_WS = L"whitespace"; 
+		token_type_t TOKEN_COMMENT = L"comment";  
+		token_type_t TOKEN_ID = L"identifier";	
+		token_type_t TOKEN_STRLIT = L"string";
+		token_type_t TOKEN_INTLIT = L"integer";
+		token_type_t TOKEN_REALLIT = L"real number";
+		token_type_t TOKEN_LIT = L"literal";
 	
         const wchar_t ESCAPE_SYMBOL = '\\';
 	
@@ -56,31 +112,12 @@ namespace Cpt {
         const wchar_t* LexException::wWhat() const throw() {
             return wWhat_.c_str();
         }
-
-        void LexException::setContext(const wchar_t * context)
-        {
-            // TODO legacy of implementation of obsoleted describe() -
-            // it can be optimized by doind direct substring - concat
-            // operations instead of looping through context
-            std::wstring tmp;
-            tmp += wWhat_; 
-            tmp += L" at: \""; 
-            for (; ; context++) {
-                if (context == where_) {
-                    tmp += L"*here*";
-                }
-                if (!*context) {
-                    break; 
-                }
-                tmp += *context;
-            }
-            tmp += L"\"";
-
-            wWhat_ = tmp;
+        
+        void LexException::setContext(const wchar_t * context) {
+			wWhat_ = describeException(wWhat_, context, where_, NULL); 
         }
 
-
-        Token::Token(int type, const wchar_t* begin, const wchar_t* end) 
+        Token::Token(const wchar_t* type, const wchar_t* begin, const wchar_t* end) 
             : type_(type), begin_(begin), end_(end) {
         }
 
@@ -88,7 +125,7 @@ namespace Cpt {
             : type_(0), begin_(0), end_(0) {
         }
 		
-        int Token::type() const { return type_; }; 
+        token_type_t Token::type() const { return type_; }; 
         const wchar_t* Token::begin() const { return begin_; };
         const wchar_t* Token::end() const { return end_; };
         int Token::length() const { return end_ - begin_; };
@@ -289,7 +326,7 @@ namespace Cpt {
             return TOKENIZER_HUNGRY; 
         }
 
-        SymbolTokenizer::SymbolTokenizer(int tokenType, const wchar_t* symbol) 
+        SymbolTokenizer::SymbolTokenizer(token_type_t tokenType, const wchar_t* symbol) 
             : tokenType_( tokenType ), 
               symbol_( symbol ) 
         {
@@ -315,6 +352,84 @@ namespace Cpt {
             } else {
                 return TOKENIZER_FAILED; 
             }
+        }
+        
+        LineCommentTokenizer::LineCommentTokenizer() : state_( READY ) {}
+        
+        void LineCommentTokenizer::reset() {
+        	state_ = READY; 
+        }
+        Token LineCommentTokenizer::get() {
+        	return Token( TOKEN_COMMENT, begin_, end_ ); 
+        }
+        
+        TokenizerState LineCommentTokenizer::consume(const wchar_t* cursor) {
+        	switch (state_) {
+        		case READY: 
+        			if (*cursor == '/') {
+						begin_ = cursor; 
+						state_ = SLASH_CONSUMED; 
+						return TOKENIZER_HUNGRY;
+        			}
+        			break;
+        		case SLASH_CONSUMED:
+					if (*cursor == '/') {
+						state_ = COMMENT;
+						return TOKENIZER_HUNGRY; 
+					}
+					break; 
+        		case COMMENT:
+        			if (*cursor == '\n' || *cursor == '\r' || *cursor == '\0') {
+						state_ = FINISHED; 
+						end_ = cursor; 
+						return TOKENIZER_FINISHED;
+        			}
+					return TOKENIZER_HUNGRY; 
+        	}
+        	return TOKENIZER_FAILED; 
+        }
+
+        SectionCommentTokenizer::SectionCommentTokenizer() : state_( READY ) {}
+           
+        void SectionCommentTokenizer::reset() {
+        	state_ = READY; 
+        }
+        Token SectionCommentTokenizer::get() {
+        	return Token( TOKEN_COMMENT, begin_, end_ );
+        }
+        TokenizerState SectionCommentTokenizer::consume(const wchar_t* cursor) {
+			if (*cursor == '\0') return TOKENIZER_FAILED;
+        	switch (state_) {
+        		case READY: 
+        			if (*cursor == '/') {
+						begin_ = cursor; 
+						state_ = SLASH_CONSUMED; 
+						return TOKENIZER_HUNGRY;
+        			}
+        			break;
+        		case SLASH_CONSUMED: 
+					if (*cursor == '*') {
+						state_ = COMMENT;
+						return TOKENIZER_HUNGRY; 
+					}
+					break; 
+        		case COMMENT:
+        			if (*cursor == '*') {
+						state_ = STAR_CONSUMED; 
+        			}
+					return TOKENIZER_HUNGRY; 
+        		case STAR_CONSUMED: 
+        			if (*cursor == '/') {
+						end_ = cursor+1; 
+						return TOKENIZER_FINISHED;
+        			} else {
+						if (*cursor != '*') {
+							state_ = COMMENT;
+	        			}
+						return TOKENIZER_HUNGRY;
+        			}
+        	}
+        	return TOKENIZER_FAILED; 
         }
 		
         MultiTokenizer::MultiTokenizer(Tokenizer** tokenizers, bool ownTokenizers) 
@@ -458,6 +573,28 @@ namespace Cpt {
         }
             
         TokenIterator::~TokenIterator() {}
+        
+        WhitespaceSplitter::WhitespaceSplitter(const wchar_t* text) 
+        : begin_( text ), end_( 0 ) {}
+        
+        WhitespaceSplitter::operator bool() {
+        	if ( !end_ && *begin_ ) {
+				// skip whitespace
+				while (iswspace(*begin_)) begin_++;
+				end_ = begin_;
+				// consume letters
+				while (*end_ && !iswspace(*end_)) end_++; 
+        	}
+        	return *begin_; 
+        }
+        
+        Token WhitespaceSplitter::operator++(int) {
+        	if (!*this) throw LexException(L"Out of tokens.", begin_);
+        	Token ret(TOKEN_UNKNOWN, begin_, end_); 
+        	begin_ = end_; 
+        	end_ = 0; 
+        	return ret; 
+        }
 
         Tokens::Tokens(Tokenizer& tokenizer, const wchar_t* text)
             :	cursor_(text),
@@ -504,16 +641,16 @@ namespace Cpt {
             }
         }
 
-        WhiteSpaceFilter::WhiteSpaceFilter(TokenIterator& tokens) 
+        StdFilter::StdFilter(TokenIterator& tokens) 
             :	tokens_(tokens), next_(), hasNext_(false) {}
 		
-        WhiteSpaceFilter::operator bool()
+        StdFilter::operator bool()
         {
             prepareNext();
             return hasNext_; 
         }
 		
-        Token WhiteSpaceFilter::operator++(int)
+        Token StdFilter::operator++(int)
         {
             prepareNext();
             if (!hasNext_) {
@@ -522,15 +659,17 @@ namespace Cpt {
             hasNext_ = false;
             return next_;
         }
-        void WhiteSpaceFilter::prepareNext()
+        void StdFilter::prepareNext()
         {
             while (!hasNext_ && tokens_) {
                 next_ = tokens_++;
-                if (next_.type() != TOKEN_WS) {
+                if (next_.type() != TOKEN_WS 
+                 && next_.type() != TOKEN_COMMENT) {
                     hasNext_ = true; 
                 }
             }
         }
+
 		
         TokenReader::TokenReader(TokenIterator& tokens) 
             :	tokens_(tokens), 
@@ -613,30 +752,7 @@ namespace Cpt {
 		
         void ParseException::setContext(const wchar_t * context)
         {
-            // TODO legacy of implementation of obsoleted describe() -
-            // it can be optimized by doind direct substring - concat
-            // operations instead of looping through context
-            std::wstring tmp;
-            tmp += wWhat_; 
-            tmp += L" at: \""; 
-            if (where_.type() == Lex::TOKEN_EOF) {
-                tmp += context; 
-                tmp += L"*here*";
-            } else {
-                for (; ; context++) {
-                    if (context == where_.begin()) {
-                        tmp += L"*here*";
-                    }
-                    if (context == where_.end()) {
-                        tmp += L"*here*";
-                    }
-                    if (!*context) break; 
-                    tmp += *context;
-                }
-            }
-            tmp += L"\"";
-
-            wWhat_ = tmp;
+			wWhat_ = describeException(wWhat_, context, where_.begin(), where_.end()); 
         }
 		
         namespace Lit {
@@ -706,11 +822,11 @@ namespace Cpt {
             throw ParseException(L"Unexpected EOF", Lex::Token(Lex::TOKEN_EOF, 0, 0));  
         }
 
-        Lex::Token Lexer::eat(int tokenType) {
+        Lex::Token Lexer::eat(Lex::token_type_t tokenType) {
             Lex::Token token = ((*this)++);
             if (token.type() != tokenType) {
                 std::wostringstream msg; 
-                msg<<"Expected token of type "<<tokenType<<" instead of token '"<<token.text()<<"' of type "<<token.type();  
+                msg<<"Expected "<<tokenType<<" instead of token '"<<token.text()<<"' of type "<<token.type();  
                 throw ParseException(msg.str().c_str(), token);  
             }
             return token; 
@@ -747,9 +863,9 @@ namespace Cpt {
         }
 
         StdLexer::StdLexer(Lex::Tokenizer& tokenizer, const wchar_t* text) 
-            : Lexer(ws_),
+            : Lexer(filter_),
               tokens_(tokenizer, text), 
-              ws_(tokens_)
+              filter_(tokens_)
               
         {}
 		

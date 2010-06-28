@@ -52,7 +52,7 @@ namespace Cpt
 	size_t
             i = len-1;
 
-	while (1)/*(i >= 0)*/ {
+	while (i > 0) {
             char c = child[i];
             if (c == '\\' ||
                 c == '/') {
@@ -63,9 +63,8 @@ namespace Cpt
 	}
         
 	if (i+1 >= FILENAME_MAX 
-            || i+1 >= bufSize)
-            //|| i < 0) 
-	{
+            || i+1 >= bufSize
+            || i == 0) {
             return -1;
 	}
 	
@@ -87,7 +86,10 @@ namespace Cpt
         Cpt_EINTR_RETRY_PTR(d, opendir(path));
 
 	if (d) {
-            Cpt_EINTR_RETRY_SP( closedir(d) );
+            int
+                result;
+            Cpt_EINTR_RETRY(result, closedir(d));
+            
             rv = true;
 	} 
     
@@ -205,7 +207,7 @@ namespace Cpt
 
         if (getparent(parent, sizeof(parent), path) >= 0) {
             // make the parent
-            (void)mkdirs(parent, mod); 
+            mkdirs(parent, mod); 
         } 
         
         return mkdir(path, mod);
@@ -225,8 +227,10 @@ namespace Cpt
                              mod));
         if (fd != -1)
             {
-
-                Cpt_EINTR_RETRY_SP( close(fd) );
+                int
+                    result;
+                Cpt_EINTR_RETRY(result,
+                                close(fd));
             }
 
         return fd == -1 ? -1 : 0;
@@ -246,7 +250,10 @@ namespace Cpt
         
         if (rv)
             {
-            Cpt_EINTR_RETRY_SP( close(fd) );
+                int
+                    result;
+                Cpt_EINTR_RETRY(result,
+                                close(fd));
             }
 
         return rv;
@@ -318,8 +325,56 @@ namespace Cpt
         
         return rv;
     }
+    
+    namespace 
+	{
+		class DirectorySizeCalculator : public IFileVisitor 
+		{
+		public: 
+		
+			DirectorySizeCalculator()
+			:	totalSize_(0)
+			{}
+		
+			virtual bool visitFile(const char * path) 
+			{
+				totalSize_ += filesize(path); 
+				return true; 
+			}
+	
+			virtual DirVisitResult visitDirPre(const char * path)
+			{
+			    //To avoid compiler warning. 
+			    std::string ret = path;
+			    
+			    return IFV_CONTINUE;
+			}
+			
+	        virtual bool visitDirPost(const char * path) 
+	        {
+                std::string ret = path; 
+                ret.empty();    
+	        	return true; 
+	        }
+			
+			long totalSize() 
+			{
+				return totalSize_; 
+			}
+			
+		private: 
+			
+			long totalSize_; 
+	
+		};
+	}
 
-
+    off_t dirsize(const char* path) 
+    {
+    	DirectorySizeCalculator sizeCalculator; 
+    	traverse(path, &sizeCalculator);
+    	return sizeCalculator.totalSize(); 
+    }
 
     time_t filemodified(const char * path)
     {
@@ -339,6 +394,17 @@ namespace Cpt
             }
         
         return rv;
+    }
+
+    std::string appendpath(const char* path, const char* item)
+    {
+    	std::string ret; 
+    	ret += path; 
+    	if (ret[ret.length()-1] != '\\' && ret[ret.length()-1] != '/') {
+			ret += DIR_SEPARATOR;
+    	}
+    	ret += item;
+    	return ret;
     }
 
     bool fgetline(FILE* file, std::string& line)
@@ -655,7 +721,10 @@ namespace Cpt
 
     DIRSentry::~DIRSentry()
     {
-        Cpt_EINTR_RETRY_SP( closedir(d_) );
+        int
+            result;
+
+        Cpt_EINTR_RETRY(result, closedir(d_));
     }
 
 
@@ -769,7 +838,11 @@ namespace Cpt
         if (fileDesc_ != NULL
             && *fileDesc_ != -1)
             {
-                Cpt_EINTR_RETRY_SP( close(*fileDesc_) );
+                int
+                    result;
+
+                Cpt_EINTR_RETRY(result,
+                                close(*fileDesc_));
             }
     }
     
@@ -790,7 +863,10 @@ namespace Cpt
 	{
 		if ( file_ != NULL )
 		{
-			Cpt_EINTR_RETRY_SP( fclose(file_) ); 
+			int result;
+			
+			Cpt_EINTR_RETRY(result, 
+							fclose(file_)); 
 		}
 	}
 

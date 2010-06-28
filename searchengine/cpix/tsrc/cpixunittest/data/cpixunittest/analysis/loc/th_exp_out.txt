@@ -1,0 +1,28 @@
+using analyzer "natural(indexing)" for indexing
+
+using analyzer "natural(query)" for searching
+
+indexing:
+
+Indexed file: !:\data\cpixunittestcorpus\loc\th\1.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\th\2.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\th\3.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\th\4.txt
+
+Indexed empty item.
+
+searching:
+
+search "ดาวตก":
+Number of hits: 2
+DOC (!:\data\cpixunittestcorpus\loc\th\3.txt): จะเกิดปรากฏการณ์ฝนดาวตกจากกลุ่มดาวสิงโตหรือฝนดาวตกเลโอนิคส์ที่นักดาราศาสตร์ทั้งหลายคาดว่าจะมีประมาณ 100-150 ดวงต่อชั่วโมง
+DOC (!:\data\cpixunittestcorpus\loc\th\1.txt): ปรากฏการณ์ฝนดาวตก17-18พ.ยนี้ นายวรวิทย์ ตันวุฒิบัณฑิต ปราชญ์ภูมิปัญญาท้องถิ่นด้านดาราศาสตร์ไทยกล่าวว่า 17-18 พฤศจิกายน 2552
+
+search "มี":
+Number of hits: 2
+DOC (!:\data\cpixunittestcorpus\loc\th\2.txt): จะมีปรากฏการณ์ดาราศาสตร์ครั้งสำคัญที่ชาวไทยเคยประทับใจมาแล้วเมื่อปี 2541-2544 คือในคืนวันที่ 17 ต่อเนื่องวันที่ 18 พฤศจิกายน 2552
+DOC (!:\data\cpixunittestcorpus\loc\th\3.txt): จะเกิดปรากฏการณ์ฝนดาวตกจากกลุ่มดาวสิงโตหรือฝนดาวตกเลโอนิคส์ที่นักดาราศาสตร์ทั้งหลายคาดว่าจะมีประมาณ 100-150 ดวงต่อชั่วโมง
+

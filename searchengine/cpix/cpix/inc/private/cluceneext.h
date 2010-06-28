@@ -91,6 +91,68 @@ namespace lucene
 {
     namespace util
     {
+        /**
+         * Frees one reference out of Clucene object without desctroying it
+         * Used to pass newly created Terms for queries. Queries are allowed
+         * to take full ownership of them. 
+         */
+        template <class T>
+        inline T* freeref(T* t) {
+            t->__cl_decref(); 
+            return t; 
+        }
+		template<class T>
+		class auto_ref {
+			
+			public: 
+				/**
+				 * NOTE: Constructing auto_ref does not increased referred
+				 * item's reference count.
+				 */
+				auto_ref(T* ref) : ref_( ref ) {}
+
+				auto_ref(auto_ptr<T> ref) : ref_( ref.release() ) {}
+				
+				
+				void reset(auto_ptr<T> ref) {
+					_CLDECDELETE( ref_ ); 
+					ref_ = ref.release(); 
+				}
+
+				void reset(T* ref) {
+					_CLDECDELETE( ref_ ); 
+					ref_ = ref; 
+				}
+				
+				operator auto_ptr<T> () {
+					return auto_ptr<T>(release()); 
+				}
+
+				T* release() {
+					T* ret = ref_; 
+					ref_ = 0; 
+					return ret; 
+				}
+
+				/**
+				 * Decreases referred item's reference count
+				 */
+				~auto_ref() {
+					_CLDECDELETE( ref_ );
+				}
+
+				T* get() {
+					return ref_;
+				}
+				
+				T* operator->() {
+					return ref_; 
+				}
+				
+			private: 
+				
+				T* ref_; 
+		};
 
         /**
          * This class is almost like clucene::util::FileReader,

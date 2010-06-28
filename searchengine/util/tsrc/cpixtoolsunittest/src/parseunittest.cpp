@@ -24,49 +24,28 @@ using namespace Cpt::Lex;
 using namespace Cpt::Parser; 
 using namespace std; 
 
-enum TokenType {
-	TOKEN_LEFT_BRACKET = Cpt::Lex::TOKEN_LAST_RESERVED,  // 8
-	TOKEN_RIGHT_BRACKET, 
-	TOKEN_COMMA, // 10
-	TOKEN_PIPE,
-	TOKEN_SWITCH,
-	TOKEN_CASE,
-	TOKEN_DEFAULT,
-	TOKEN_LEFT_BRACE, // 15
-	TOKEN_RIGHT_BRACE,
-	TOKEN_COLON,
-	TOKEN_TERMINATOR
-};
+const wchar_t* TOKEN_LEFT_BRACKET = L"left bracket";
+const wchar_t* TOKEN_RIGHT_BRACKET = L"right bracket"; 
+const wchar_t* TOKEN_COMMA = L"comma";
+const wchar_t* TOKEN_PIPE = L"pipe";
+const wchar_t* TOKEN_SWITCH = L"switch";
+const wchar_t* TOKEN_CASE = L"case";
+const wchar_t* TOKEN_DEFAULT = L"default";
+const wchar_t* TOKEN_LEFT_BRACE = L"left brace";
+const wchar_t* TOKEN_RIGHT_BRACE = L"right brace";
+const wchar_t* TOKEN_COLON = L"colon";
+const wchar_t* TOKEN_TERMINATOR = L"terminator";
 
 void PrintToken(Cpt::Lex::Token token) {
-	switch (token.type()) {
-		case TOKEN_WS: wcout<<L"space"; break; 
-		case TOKEN_ID: wcout<<"id"; break;
-		case TOKEN_LIT: wcout<<"lit"; break;
-		case TOKEN_STRLIT: wcout<<"str-lit"; break;
-		case TOKEN_REALLIT: wcout<<"real-lit"; break;
-		case TOKEN_INTLIT: wcout<<"int-lit"; break;
-		case TOKEN_LEFT_BRACKET: wcout<<"lbr"; break;
-		case TOKEN_RIGHT_BRACKET: wcout<<"rbr"; break;
-		case TOKEN_COMMA: wcout<<"comma"; break;
-		case TOKEN_PIPE: wcout<<"pipe"; break;
-		case TOKEN_SWITCH : wcout<<"sw"; break;
-		case TOKEN_CASE : wcout<<"case"; break;
-		case TOKEN_DEFAULT : wcout<<"default"; break;
-		case TOKEN_LEFT_BRACE : wcout<<"lbc"; break;
-		case TOKEN_RIGHT_BRACE : wcout<<"rbc"; break;
-		case TOKEN_COLON : wcout<<"cl"; break;
-		case TOKEN_TERMINATOR : wcout<<"tr"; break;
-
-		default: wcout<<"unknown"; break;
-	}
-	wcout<<L"('"<<token.text()<<L"')";  
+	wcout<<token.type()<<L"('"<<token.text()<<L"')";  
 }
 
-void TestTokenization(Itk::TestMgr  * ,
+void TestTokenization(Itk::TestMgr  * testMgr,
                       const wchar_t * inputStr)
 {
 	WhitespaceTokenizer ws; 
+	LineCommentTokenizer line; 
+	SectionCommentTokenizer section; 
 	IdTokenizer ids; 
         IntLitTokenizer ints;
         RealLitTokenizer reals;
@@ -84,14 +63,14 @@ void TestTokenization(Itk::TestMgr  * ,
         // and int-lit, real-lit will mean integer and real literals,
         // respectively.
 	Tokenizer* tokenizers[] = {
-		&ws, &lb, &rb, &cm, &pp, &ids, &ints, &reals, &lits, 0
+		&ws, &line, &section, &lb, &rb, &cm, &pp, &ids, &ints, &reals, &lits, 0
 	};
 	MultiTokenizer tokenizer(tokenizers);
 	
 	Tokens 
             source(tokenizer, 
                    inputStr);
-	WhiteSpaceFilter tokens(source); 
+	StdFilter tokens(source); 
 	
 	while (tokens) PrintToken(tokens++); 
 	cout<<endl;
@@ -107,7 +86,7 @@ void TestTokenization1(Itk::TestMgr * testMgr)
 void TestTokenization2(Itk::TestMgr * testMgr)
 {
     TestTokenization(testMgr,
-                     L"'foo' 0 1 -2 'bar' +234 -34");
+                     L"'foo' 0 1 -2 'bar' +234 -34 // side note");
 }
 
 
@@ -121,20 +100,20 @@ void TestTokenization3(Itk::TestMgr * testMgr)
 void TestTokenization4(Itk::TestMgr * testMgr)
 {
     TestTokenization(testMgr,
-                     L"'\\' ''\\\\' '\\a' '\\\n'");
+                     L"'\\' ''\\\\' '\\a' '\\\n' // comment\n /*foobar*/");
 }
 
 
-void TestTokenization5(Itk::TestMgr * )
+void TestTokenization5(Itk::TestMgr * testMgr)
 {
     WhitespaceTokenizer 
         ws; 
     IdTokenizer 
         ids; 
     SymbolTokenizer 
-        for_(0xf00, L"for"); 
+        for_(L"for", L"for"); 
     SymbolTokenizer 
-        if_(0xbeef, L"if"); 
+        if_(L"if", L"if"); 
     Tokenizer* tokenizers[] = {
         &ws, &for_, &if_, &ids, 0
     };
@@ -145,14 +124,76 @@ void TestTokenization5(Itk::TestMgr * )
     Tokens 
         source(tokenizer, 
                L"fo for fore forth ofor oforo i if ifdom ifer fif fifi forfi fifor"); // test escape in literals
-    WhiteSpaceFilter 
+    StdFilter 
         tokens(source); 
 
     while (tokens) PrintToken(tokens++); 
     cout<<endl;
 }
 
-void TestTokenizationErrors(Itk::TestMgr* ) 
+void TestTokenization6(Itk::TestMgr * testMgr)
+{
+    WhitespaceTokenizer 
+        ws; 
+    LineCommentTokenizer 
+        line; 
+    SectionCommentTokenizer 
+        section; 
+    IdTokenizer 
+        ids; 
+    IntLitTokenizer 
+        intLit; 
+    RealLitTokenizer 
+        realLit; 
+    SymbolTokenizer 
+        div(L"slash", L"/"); 
+    SymbolTokenizer 
+        mul(L"star", L"*");
+    SymbolTokenizer 
+        plus(L"plus", L"+");
+    SymbolTokenizer 
+        minus(L"minus", L"-");
+    SymbolTokenizer 
+        equal(L"equals", L"=");
+    
+    Tokenizer* tokenizers[] = {
+        &ws, &line, &section, &ids, &intLit, &realLit, &div, &mul, &plus, &minus, &equal, 0
+    };
+
+    MultiTokenizer 
+        tokenizer(tokenizers);
+    
+    const wchar_t* text = 
+    	L"4 + 6 = 2 * 5\n"
+        L"6 / 2 = 1*3 // true\n"
+		L"3 / x /*important thingie*/ = 2 * y\n"
+		L"6 / x * / * / /* non sense / * / */ // zap"
+		L"//\n"
+		L"//"; 
+
+    {
+		cout<<"With whitespaces & comments visible"<<endl;
+		Tokens 
+			tokens(tokenizer, text);
+	
+		while (tokens) PrintToken(tokens++); 
+		cout<<endl;
+    }
+
+    {
+		cout<<"With whitespaces & comments filtered"<<endl;
+		Tokens 
+			source(tokenizer, text);
+		
+		StdFilter tokens(source); 
+	
+		while (tokens) PrintToken(tokens++); 
+		cout<<endl;
+    }
+
+}
+
+void TestTokenizationErrors(Itk::TestMgr* mgr) 
 {
 	WhitespaceTokenizer ws; 
 	IdTokenizer ids; 
@@ -171,11 +212,8 @@ void TestTokenizationErrors(Itk::TestMgr* )
 		try {
 			while (tokens) PrintToken(tokens++); 
 		} catch (LexException& exc) {
-                    /* OBS
-			wcout<<endl<<L"LexException: "<<exc.describe(text)<<endl; 
-                    */
-                    exc.setContext(text);
-                    wcout<<endl<<L"LexException: "<<exc.wWhat()<<endl; 
+			exc.setContext(text);
+			wcout<<endl<<L"LexException: "<<exc.wWhat()<<endl; 
 		} catch (exception& exc) {
 			cout<<endl<<"Exception: "<<exc.what()<<endl; 
 		}
@@ -185,15 +223,46 @@ void TestTokenizationErrors(Itk::TestMgr* )
 		try {
 			while (tokens) PrintToken(tokens++); 
 		} catch (LexException& exc) {
-                    /* OBS
-			wcout<<endl<<L"LexException: "<<exc.describe(text)<<endl; 
-                    */
-                    exc.setContext(text);
-                    wcout<<endl<<L"LexException: "<<exc.wWhat()<<endl; 
+			exc.setContext(text);
+			wcout<<endl<<L"LexException: "<<exc.wWhat()<<endl; 
 		} catch (exception& exc) {
 			cout<<endl<<"Exception: "<<exc.what()<<endl; 
 		}
 	}
+}
+
+void TestWhitespaceSplitter(Itk::TestMgr* mgr) 
+{
+	{
+		WhitespaceSplitter tokens(L"foobar foo bar foo\tbar _*4 4bar foo*bar foo\nbar foo\rbar foo\0bar");
+		while (tokens) printf(" \"%S\"", tokens++.text().c_str());
+		printf("\n");
+	}
+	
+	{
+		WhitespaceSplitter tokens(L"foobar");
+		while (tokens) printf(" \"%S\"", tokens++.text().c_str());
+		printf("\n");
+	}
+
+	{
+		WhitespaceSplitter tokens(L"   foobar  \r\n");
+		while (tokens) printf(" \"%S\"", tokens++.text().c_str());
+		printf("\n");
+	}
+
+	{
+		WhitespaceSplitter tokens(L"   ");
+		while (tokens) printf(" \"%S\"", tokens++.text().c_str());
+		printf("\n");
+	}
+
+	{
+		WhitespaceSplitter tokens(L"");
+		while (tokens) printf(" \"%S\"", tokens++.text().c_str());
+		printf("\n");
+	}
+
 }
 
 Itk::TesterBase * CreateParsingTests()
@@ -203,7 +272,6 @@ Itk::TesterBase * CreateParsingTests()
     SuiteTester
         * parsingTests = new SuiteTester("parsing");
    
-
     parsingTests->add("tokenization1",
                       TestTokenization1,
                       "tokenization1");
@@ -223,11 +291,19 @@ Itk::TesterBase * CreateParsingTests()
     parsingTests->add("tokenization5",
                       TestTokenization5,
                       "tokenization5");
+    
+    parsingTests->add("tokenization6",
+                      TestTokenization6,
+                      "tokenization6");
 
     parsingTests->add("syntaxerrors",
                       TestTokenizationErrors,
                       "syntaxerrors");
-	    
+
+    parsingTests->add("whitespace",
+					  TestWhitespaceSplitter,
+                      "whitespace");
+
     return parsingTests;
 }
 

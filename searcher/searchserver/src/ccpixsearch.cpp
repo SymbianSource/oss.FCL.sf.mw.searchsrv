@@ -27,18 +27,7 @@
 #endif
 
 
-namespace {
 
-/**
- * cpix_DocFieldEnum destroyer for TCleanupItem
- * @param aCpixDocFieldEnum CPix document
- */
-void CpixDocFieldEnumDestroyer(TAny* aCpixDocFieldEnum)
-	{
-	cpix_DocFieldEnum_destroy( static_cast<cpix_DocFieldEnum*>( aCpixDocFieldEnum ) );
-	}
-
-} // namespace
 
 CCPixSearch* CCPixSearch::NewL()
 	{
@@ -56,7 +45,9 @@ CCPixSearch* CCPixSearch::NewLC()
 	}
 
 CCPixSearch::CCPixSearch()
-	: iPendingTask(EPendingTaskNone)
+	: iQueryParserType(EIncrementalQueryParser),
+	  iPendingTask(EPendingTaskNone)
+	  
 	{
 	}
 
@@ -238,7 +229,9 @@ CSearchDocument* CCPixSearch::GetDocumentCompleteL()
 	
 	cpix_Hits_asyncDocResults(iHits, iPendingJobId);
 	SearchServerHelper::CheckCpixErrorL(iHits, KErrDocumentAccessFailed);
-
+	
+	return ConvertDocumentL( &iCurrentCpixDocument );
+#if 0 // TODO XXX TIM
 	const wchar_t* documentId = cpix_Document_getFieldValue(&iCurrentCpixDocument, LCPIX_DOCUID_FIELD);
 	SearchServerHelper::CheckCpixErrorL(&iCurrentCpixDocument, KErrDatabaseQueryFailed);
 	
@@ -300,6 +293,7 @@ CSearchDocument* CCPixSearch::GetDocumentCompleteL()
 	
 	OstTraceFunctionExit0( CCPIXSEARCH_GETDOCUMENTCOMPLETEL_EXIT );
 	return document;
+#endif // 0
 	}
 
 void CCPixSearch::SetAnalyzerL(const TDesC& aAnalyzer)
@@ -321,14 +315,42 @@ void CCPixSearch::SetAnalyzerL(const TDesC& aAnalyzer)
 	iAnalyzer = cpix_Analyzer_create(&result, cAnalyzer);
 	SearchServerHelper::CheckCpixErrorL(&result, KErrCannotCreateAnalyzer);
 
-	CleanupStack::PopAndDestroy( analyzer ); 
+	CleanupStack::PopAndDestroy( analyzer );
+	
+	RefreshQueryParserL(); 
+	}
 
-	iQueryParser = 
-		cpix_QueryParser_create(&result,
-			reinterpret_cast<const wchar_t*>(iDefaultSearchFieldZ->Des().PtrZ()), 
-			iAnalyzer);
+void CCPixSearch::SetQueryParserL(TInt aQueryParser)
+	{
+	iQueryParserType = TQueryParser(aQueryParser); 
+	RefreshQueryParserL(); 
+	}
+
+void CCPixSearch::RefreshQueryParserL() 
+	{
+	cpix_QueryParser_destroy( iQueryParser );
+	iQueryParser = NULL; 
+	cpix_Result result; 
+	
+	if ( iQueryParserType == EDatabaseQueryParser ) 
+		{
+		iQueryParser = 
+			cpix_QueryParser_create( &result, 
+									  reinterpret_cast<const wchar_t*>(
+									      iDefaultSearchFieldZ->Des().PtrZ()), 
+									  iAnalyzer );
+		} 
+	else if ( iQueryParserType == EIncrementalQueryParser ) 
+		{
+		iQueryParser = 
+			cpix_CreatePrefixQueryParser( &result, 
+										  reinterpret_cast<const wchar_t*>(
+										      iDefaultSearchFieldZ->Des().PtrZ()) );
+		
+		}
 	SearchServerHelper::CheckCpixErrorL(&result, KErrCannotCreateQueryParser);
 	}
+
 
 void CCPixSearch::OpenDatabaseL(const TDesC& aBaseAppClass, const TDesC& aDefaultSearchField)
 	{

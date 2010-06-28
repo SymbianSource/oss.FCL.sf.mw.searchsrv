@@ -28,14 +28,7 @@
 // with EINTR which means that they just have to be retried. Now, even
 // if OpenC does not support this, the code here is supposed to be
 // platform independent and must work on a true *NIX (like linux).
-//_SP is for single parameter
-#define Cpt_EINTR_RETRY_SP(op)  while ((op == -1) && (errno == EINTR)) { ; /* NOP */ }
-
-// A lot of POSIX system calls (open, close, read, write) can fail
-// with EINTR which means that they just have to be retried. Now, even
-// if OpenC does not support this, the code here is supposed to be
-// platform independent and must work on a true *NIX (like linux).
-#define Cpt_EINTR_RETRY(res,op)  while (((res=op) == -1) && (errno == EINTR)) { ; /* NOP */ }
+#define Cpt_EINTR_RETRY(res,op)  while (((res=op) == -1) && (errno == EINTR)) { res ++; /* To avoid compiler warning: FIXME */ }
 
 
 // Same as Cpt_EINTR_RETRY, but for cases when the return value is not
@@ -167,11 +160,22 @@ namespace Cpt
     off_t filesize(int fileDesc);
 
 
+    /**
+     * Obtain the size of a directory
+     * 
+     * @param the path of the directory
+     */
+    off_t dirsize(const char * path); 
     
     /**
      * Returns when the file was last modified or 0 if some error occurred.
      */
     time_t filemodified(const char * path);
+    
+    /**
+     * Adds delimiter if needed
+     */
+    std::string appendpath(const char* path, const char* item);
 
     /**
      * Reads line to buffer 

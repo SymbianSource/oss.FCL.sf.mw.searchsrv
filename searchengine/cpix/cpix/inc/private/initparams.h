@@ -340,6 +340,8 @@ namespace Cpix
         // for cpixreg.txt and automatic index paths
         std::string                        cpixDir_;
 
+        // for localization information
+        std::string                        resourceDir_;
 
         // log related parameters
         std::string                        logFileBase_;
@@ -400,6 +402,10 @@ namespace Cpix
 
         const char * getCpixDir() const;
         void setCpixDir(const char * value);
+
+
+        const char * getResourceDir() const;
+        void setResourceDir(const char * value);
 
 
         const char * getLogFileBase() const;

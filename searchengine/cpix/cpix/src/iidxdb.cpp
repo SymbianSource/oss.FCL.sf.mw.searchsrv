@@ -25,6 +25,9 @@
 #include "iqrytype.h" // 'unnecessary' dependency for static instance releasing
 #include "ifieldfilter.h" // for static instance releasing
 
+#include "analyzer.h"
+#include "localization.h"
+
 namespace Cpix {
 
 
@@ -184,6 +187,9 @@ namespace Cpix
                 cleanupClLockDir();
 
                 // TODO init lucene (??? operation not provided)
+                
+                Localization::instance();
+                Analysis::init(*ip);
 
                 IdxDbMgr::init(*ip);
                 ShutdownSentry
@@ -275,6 +281,26 @@ namespace Cpix
                 logMsg(CPIX_LL_ERROR,
                    "Cpix shutdownAll: FAILED. IdxDbMgr::shutdownAll ########\n");
             }
+
+        try
+             {
+                 Analysis::shutdown();
+             }
+         catch (...)
+             {
+                 logMsg(CPIX_LL_ERROR,
+                    "Cpix shutdownAll: FAILED. Analysis::shutdown ########\n");
+             }
+
+         try
+              {
+                  Localization::shutdown();
+              }
+          catch (...)
+              {
+                  logMsg(CPIX_LL_ERROR,
+                     "Cpix shutdownAll: FAILED. Localization::shutdown ########\n");
+              }
 
         try
             {

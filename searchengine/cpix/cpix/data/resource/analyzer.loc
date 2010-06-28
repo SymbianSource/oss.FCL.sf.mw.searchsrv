@@ -1,0 +1,92 @@
+/**
+ * This file defines the default analyzer used for CPix. 
+ * The default analyzer should its behaviour depending of used 
+ * locale. 
+ * 
+ * The codes that are used in switch should follow ISO-892-1 standard
+ * or ISO-839-2 standard, when 2 letter codes are not available.
+ * 
+ * WARNING: It is not guaranteed that in Symbian platform the language
+ * codes are translated to ISO code. Also symbian platform codes of form 
+ * 's29' for Taiwan Chinese or 's1' for English are supported.  
+ * 
+ * Refer for CPiX documentation for this file's syntax. 
+ */
+
+config_switch {
+
+	/**
+	 * The prefiltering is done e.g, when searching "$cat", "$cat.cal" etc.   
+	 */ 
+	case 'prefix':
+		locale_switch {
+
+			// French
+			case 'fr': 				stdtokens>stdfilter>lowercase>elision(fr);
+
+			// Default
+			default:				stdtokens>stdfilter>lowercase;
+		};
+
+	/**
+	 * Analyzers used for queries and indexing
+	 */
+	default:
+			
+		locale_switch {
+
+			// French
+			case 'fr': 				stdtokens>stdfilter>lowercase>elision(fr)>stop(fr);
+			
+			// Hebrew
+			case 'he': 				
+				config_switch {
+					case 'query': // do not use prefix filter, when searchign 
+						stdtokens>stdfilter>lowercase>stop(en);
+					default: // use prefix filter only when indexing
+						stdtokens>stdfilter>lowercase>prefix(he)>stop(en);
+				};
+		
+			// English
+			case 'en':		    	stdtokens>stdfilter>lowercase>stop(en);
+			
+			// Thai
+			case 'th':				stdtokens>stdfilter>lowercase>thai>stop(en);
+			
+			/* 
+			 * Far east asian languages
+			 * 
+			 *   note: Hong and Taiwanese are not differentiated. 
+			 *         What are their language codes?
+			 *         
+			 *   note: Should we include also ISO-839-2 codes in here 
+			 *   
+			 *   note: Japan is no more supported. Let's used ngram for it anyway
+			 */
+			case 'jp', 'zh', 'ch':  
+									ngram(1)>lowercase>stop(en);
+
+			/**
+			 * Korean
+			 * 
+			 *    note: Because special optimizations, different analyzers
+			 *          are used for queries and indexing
+			 *          
+			 *          
+			 *    WARNING: Korean analyzer is not properly tested (!)
+			 */
+			case 'ko':
+				config_switch {
+					case 'query': 	koreanquery>lowercase>stop(en);
+					default:  	  	korean>lowercase>stop(en);
+				};
+				
+			/**
+			 * Default option; used for most languages and should work 'ok' 
+			 * for most alphabetic writing systems. 
+			 * 
+			 *    note: Should we include english stop word list? 
+			 */
+			default: 				stdtokens>stdfilter>lowercase; 
+		};
+}

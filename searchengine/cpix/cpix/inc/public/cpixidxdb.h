@@ -132,8 +132,21 @@ extern "C" {
      * Initializes an excerpt processor internal state instance.
      */
     void cpix_init_EPIState(cpix_EPIState * state);
-
-
+    
+    extern const char* cpix_LOCALE_AUTO;
+    
+    /**
+     * Sets the locale used by CPix. Locale is used in indexing and
+     * searching for text's lexical analysis. Text of different languages
+     * may be treated differently. At this point, the locale 
+     * should only hold languge code following ISO 639-1 two letter
+     * format or ISO 639-2 three letter format, if two letter format is
+     * not available. If cpix_LOCALE_AUTO is given, locale is left to 
+     * be determined automatically by cpix. 
+     * 
+     * @param locale the new locale. Should be a language code of ISO 639-1 standard 
+     */
+    void cpix_SetLocale(cpix_Result* result, const char* locale);
 
     /**
      * A simple utility function getting the first couple of words of

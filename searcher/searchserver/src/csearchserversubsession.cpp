@@ -83,7 +83,7 @@ void CSearchServerSubSession::ConstructL()
 // CSearchServerSession::CancelAll()
 void CSearchServerSubSession::CancelAll(const RMessage2& aMessage)
 	{
-	if (iSearchDb->IsOpen())
+	if (iSearchDb && iSearchDb->IsOpen())
 	    {
 	    // Cancel searching 
 	    iSearchDb->CancelAll(aMessage);
@@ -102,6 +102,15 @@ void CSearchServerSubSession::CancelAll(const RMessage2& aMessage)
 	TRAP_IGNORE( LOG_PLAYER_RECORD( CLogPlayerRecorder::LogCancelL( reinterpret_cast<TUint>( this ) ) ) );
 	}
 
+void CSearchServerSubSession::OpenSearcherL(const TDesC& aSearchableId, const TDesC& aDefaultField)
+	{
+	delete iSearchDb;
+	iSearchDb = NULL; 
+
+		iSearchDb = CCPixSearch::NewL();
+		iSearchDb->OpenDatabaseL( aSearchableId, aDefaultField );
+
+	}
 void CSearchServerSubSession::OpenDatabaseL(const RMessage2& aMessage)
 	{
 	HBufC* baseAppClass = HBufC::NewLC(aMessage.GetDesLength(0));
@@ -122,7 +131,7 @@ void CSearchServerSubSession::OpenDatabaseL(const RMessage2& aMessage)
 	}
 	else
 	{
-		iSearchDb->OpenDatabaseL(*baseAppClass, *defaultSearchField);
+		OpenSearcherL( *baseAppClass, *defaultSearchField );
 	}
 	
 	CleanupStack::PopAndDestroy(defaultSearchField);
@@ -134,7 +143,7 @@ void CSearchServerSubSession::OpenDatabaseL(const RMessage2& aMessage)
 
 void CSearchServerSubSession::SetAnalyzerL(const RMessage2& aMessage)
 	{
-	if (!iSearchDb->IsOpen() && !iIndexDb->IsOpen())
+	if (!(iSearchDb && iSearchDb->IsOpen()) && !iIndexDb->IsOpen())
 		{
 		iSession->PanicClient(aMessage, EDatabaseNotOpen);
 		return;
@@ -144,7 +153,7 @@ void CSearchServerSubSession::SetAnalyzerL(const RMessage2& aMessage)
 	TPtr analyzerPtr = analyzer->Des();
 	aMessage.ReadL(0, analyzerPtr);
 
-	if (iSearchDb->IsOpen()) {
+	if (iSearchDb && iSearchDb->IsOpen()) {
 		iSearchDb->SetAnalyzerL( *analyzer ); 
 	}
 	if (iIndexDb->IsOpen()) {
@@ -156,13 +165,30 @@ void CSearchServerSubSession::SetAnalyzerL(const RMessage2& aMessage)
 	aMessage.Complete(KErrNone);	
 	}
 
+void CSearchServerSubSession::SetQueryParserL(const RMessage2& aMessage)
+	{
+	if (!(iSearchDb && iSearchDb->IsOpen()))
+		{
+		iSession->PanicClient(aMessage, EDatabaseNotOpen);
+		return;
+		}
+	
+	TInt queryParser = aMessage.Int0();
+	
+	iSearchDb->SetQueryParserL( queryParser ); 
+	
+	// Complete the request
+	aMessage.Complete(KErrNone);	
+	}
+
+
 void CSearchServerSubSession::SearchL(const RMessage2& aMessage)
 	{
 	OstTraceFunctionEntry0( CSEARCHSERVERSUBSESSION_SEARCHL_ENTRY );
 	PERFORMANCE_LOG_START("CSearchServerSubSession::SearchL");
 	
 	// Sanity check
-	if (!iSearchDb->IsOpen())
+	if (!(iSearchDb && iSearchDb->IsOpen()))
 		{
 		iSession->PanicClient(aMessage, EDatabaseNotOpen);
 		OstTraceFunctionExit0( CSEARCHSERVERSUBSESSION_SEARCHL_EXIT );
@@ -252,7 +278,7 @@ void CSearchServerSubSession::GetDocumentObjectL(const RMessage2& aMessage)
 	PERFORMANCE_LOG_START("CSearchServerSubSession::GetDocumentObjectL");
 	
 	// Sanity check
-	if (!iSearchDb->IsOpen())
+	if ( !iSearchDb || !iSearchDb->IsOpen() )
 		{
 		iSession->PanicClient(aMessage, EDatabaseNotOpen);
 		OstTraceFunctionExit0( CSEARCHSERVERSUBSESSION_GETDOCUMENTOBJECTL_EXIT );

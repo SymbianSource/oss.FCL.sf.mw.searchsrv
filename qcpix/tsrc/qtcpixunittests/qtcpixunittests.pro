@@ -39,7 +39,9 @@ symbian{
                                  "data/segments    \epoc32\winscw\c\private\2001f6f7\indexing\indexdb\root\contact\_0\segments" \
                                  "data/cpixreg.txt \epoc32\winscw\c\private\2001f6f7\cpixreg.txt" \
                                  "data/config.ini  \epoc32\winscw\c\system\data\config.ini"
-
+	
+    INCLUDEPATH += $$APP_LAYER_SYSTEMINCLUDE
+	
     TARGET.CAPABILITY = ALL -TCB -DRM
     TARGET.UID3 = 0xE76C2AE7
     LIBS += -lqcpixsearchclient

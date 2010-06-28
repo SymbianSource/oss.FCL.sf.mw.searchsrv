@@ -15,7 +15,6 @@
 *
 */
 #include "../pluginfw/group/bld.inf"
-#include "../HarvesterServer/group/bld.inf"
 
 PRJ_TESTMMPFILES // Make ARMV5 UREL/UDEB SISX package
 //gnumakefile ../sis/makeSis.mk

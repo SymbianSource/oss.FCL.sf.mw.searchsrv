@@ -35,6 +35,7 @@
 // CPix impl details
 #include "cluceneext.h"
 #include "analyzer.h"
+#include "customanalyzer.h"
 #include "cpixsearch.h"
 #include "cpixidxdb.h"
 #include "idxdb.h"
@@ -141,9 +142,9 @@ cpix_Analyzer * cpix_Analyzer_create(cpix_Result   * result,
 
             // the wrapper custom must be released in any case, as
             // it was just a first step in the construction
-            // sequence            
+            // sequence
+            cpix_Analyzer_destroy(custom);
         }
-    cpix_Analyzer_destroy(custom);
 
     return system;
 }

@@ -40,6 +40,7 @@
 #define SUBJECT_FIELD     "Subject"
 #define FOLDER_FIELD      "Folder"
 #define BODY_FIELD        "Body"
+#define ATTACHMENT_FIELD  "Attachment"
 #define LTO_FIELD          L"To"
 #define LCC_FIELD          L"Cc"
 #define LBCC_FIELD         L"Bcc"
@@ -47,5 +48,6 @@
 #define LSUBJECT_FIELD     L"Subject"
 #define LFOLDER_FIELD      L"Folder"
 #define LBODY_FIELD        L"Body"
+#define LATTACHMENT_FIELD  L"Attachment"
 
 #endif /*__MESSAGEHARVESTERDEFS_H__*/

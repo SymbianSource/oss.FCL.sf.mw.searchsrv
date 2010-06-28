@@ -33,7 +33,7 @@ class MCPixOpenDatabaseRequestObserver;
 class MCPixSearchRequestObserver;
 class MCPixNextDocumentRequestObserver;
 class MCPixSetAnalyzerRequestObserver;
-
+class MCPixSetQueryParserRequestObserver;
 
 // CLASS DECLARATION
 /**
@@ -46,6 +46,32 @@ class MCPixSetAnalyzerRequestObserver;
  */
 class CCPixSearcher : public CActive
 	{
+	public: 
+		
+		enum TQueryParser {
+			/**
+			 * Database query parser provides advanced syntax support
+			 * for creating complex and powerful queries. This query parser
+			 * is intended for accessing the CPix databases. It is not
+			 * localized and it should not be used to form queries
+			 * directly from user input. It may simply fail with some
+			 * locales.  
+			 */
+			EDatabaseQueryParser = 0,
+					
+			/**
+			 * Query parser aimed for incremental queries provided directly
+			 * by user. This query parser is localized and should 
+			 * work properly for all locales. The language accepted
+			 * by this parser is always the language specified by 
+			 * the current locale. May behave internally somewhat 
+			 * differently depending of language, but as a rule it 
+			 * should always provides meaningful results for direct
+			 * user input.    
+			 */
+			EIncrementalQueryParser = 1
+		};
+
 	public: // Constructors and destructors
 		
 	    /**
@@ -122,7 +148,26 @@ class CCPixSearcher : public CActive
 	    /**
 	     * SetAnalyzer. Asynchronous version
 	     */
-		IMPORT_C void SetAnalyzerL( MCPixSetAnalyzerRequestObserver& aObserver, const TDesC& aAnalyzer ); 
+		IMPORT_C void SetAnalyzerL( MCPixSetAnalyzerRequestObserver& aObserver, const TDesC& aAnalyzer );
+		
+	    /**
+	     * SetAnalyzer. Synchronous version
+	     * 
+	     * The set QueryParser defines the query syntax used for searching. Two
+	     * different query parsers are supported for two main use cases, that 
+	     * are powerful accessing of the database for document and the other is
+	     *     
+	     * 
+	     * @note SetAnalyzerL MUST NOT be used, when searching using discovery services
+	     */
+		IMPORT_C void SetQueryParserL( TQueryParser aQueryParser ); 
+
+	    /**
+	     * SetQueryParser. Synchronous version
+	     * 
+	     * @note Query parser cannot be set for discovery service
+	     */
+		IMPORT_C void SetQueryParserL( MCPixSetQueryParserRequestObserver& aObserver, TQueryParser aQueryParser ); 
 
 	    /**
 	     * SearchL. Synchronous version. 
@@ -242,7 +287,8 @@ class CCPixSearcher : public CActive
 			EStateOpenDatabase, 
 			EStateSearch, 
 			EStateGetDocument,
-			EStateSetAnalyzer 
+			EStateSetAnalyzer,
+			EStateSetQueryParser
 			};
 		
 		union TObserver 
@@ -252,6 +298,7 @@ class CCPixSearcher : public CActive
 			MCPixSearchRequestObserver* iSearch; 
 			MCPixNextDocumentRequestObserver* iNextDocument; 
 			MCPixSetAnalyzerRequestObserver* iSetAnalyzer;
+			MCPixSetQueryParserRequestObserver* iSetQueryParser;
 			};
 		
 	private:

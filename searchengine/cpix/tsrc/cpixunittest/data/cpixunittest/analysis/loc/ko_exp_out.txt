@@ -1,0 +1,26 @@
+using analyzer "natural(indexing)" for indexing
+
+using analyzer "natural(query)" for searching
+
+indexing:
+
+Indexed file: !:\data\cpixunittestcorpus\loc\ko\1.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\ko\2.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\ko\3.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\ko\4.txt
+
+Indexed empty item.
+
+searching:
+
+search "스토리":
+Number of hits: 1
+DOC (!:\data\cpixunittestcorpus\loc\ko\1.txt): 제가 논스톱을 보는데요, 김지우가 스토리상으로 일본으로 간다구 하네요
+
+search "인물":
+Number of hits: 1
+DOC (!:\data\cpixunittestcorpus\loc\ko\4.txt): 그때 여승혁처럼 논스톱 극중 인물에서 빠트리는건가요?
+

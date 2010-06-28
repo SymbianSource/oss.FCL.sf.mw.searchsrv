@@ -32,8 +32,10 @@
 #include "cpixutil.h"
 #include "iqrytype.h"
 #include "analyzer.h"
+#include "customanalyzer.h"
 
 #include "cpixmaindefs.h"
+#include "queryparser.h"
 
 
 namespace Cpix
@@ -48,7 +50,7 @@ namespace Cpix
         //
         // private members
         //
-        lucene::queryParser::QueryParser * clQueryParser_;
+        IQueryParser * clQueryParser_;
         lucene::search::Query            * clQuery_;
 
     public:
@@ -82,7 +84,8 @@ namespace Cpix
             getAnalyzedString(qryStr, mQryStr );
             
             clQueryParser_ = Cast2Native<cpix_QueryParser>(queryParser);
-            clQuery_ = clQueryParser_->parse((const wchar_t *)mQryStr);
+            clQuery_ = clQueryParser_->parse((const wchar_t *)mQryStr).release();
+            
             
             free(mQryStr);
             

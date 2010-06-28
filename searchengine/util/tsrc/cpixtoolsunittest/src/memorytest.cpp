@@ -50,7 +50,7 @@ zoo_iterator ZooIterator() {
 	return zoo_iterator( new poly_zoo_iterator_() );
 }
 
-void TestAutoIterator(Itk::TestMgr * ) {
+void TestAutoIterator(Itk::TestMgr * testMgr) {
 	zoo_iterator i = ZooIterator(); 
 	while (i) {
 		std::cout<<"Animal: "<<i++<<std::endl;

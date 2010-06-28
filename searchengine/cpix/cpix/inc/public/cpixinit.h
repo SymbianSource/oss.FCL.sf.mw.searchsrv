@@ -102,7 +102,20 @@ extern "C" {
     void cpix_InitParams_setCpixDir(cpix_InitParams * thisIp,
                                     const char      * value);
 
-
+    /**
+     * Gets / sets property "resourceDir".
+     *
+     * ResourceDir is the path to the directory where cpix should look for:
+     *
+     *   (a) Localization data
+     *   
+     * Must not be NULL or empty string.
+     *
+     * Default value is cf DEFAULT_CPIX_DIR in cfg/indevicecfg.h.
+     */
+    const char * cpix_InitParams_getResourceDir(cpix_InitParams * thisIp);
+    void cpix_InitParams_setResourceDir(cpix_InitParams * thisIp,
+										const char      * value);
     
     /**
      * Gets / sets property "logFileBase".
