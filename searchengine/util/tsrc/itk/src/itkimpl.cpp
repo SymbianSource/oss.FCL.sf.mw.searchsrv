@@ -68,6 +68,8 @@ namespace Itk
             
             if (isreadable(inFilePath.c_str()))
                 {
+                    int
+                        res;
 
                     duplicatedStdInFD_ = dup(STDIN_FILENO);
                     if (duplicatedStdInFD_ == -1)
@@ -79,7 +81,7 @@ namespace Itk
                                     open(inFilePath.c_str(),O_RDONLY));
                     if (inFileFD_ == -1)
                         {
-                        Cpt_EINTR_RETRY_SP(close(duplicatedStdInFD_));
+                            Cpt_EINTR_RETRY(res,close(duplicatedStdInFD_));
                             throw IOCaptureExc(inFilePath.c_str());
                         }
                     int
@@ -87,8 +89,8 @@ namespace Itk
                                         STDIN_FILENO);
                     if (newStdIn == -1)
                         {
-                        Cpt_EINTR_RETRY_SP(close(inFileFD_));
-                        Cpt_EINTR_RETRY_SP(close(duplicatedStdInFD_));
+                            Cpt_EINTR_RETRY(res,close(inFileFD_));
+                            Cpt_EINTR_RETRY(res,close(duplicatedStdInFD_));
                             throw IOCaptureExc("Can't dup2(infile,stdin)");
                         }
                 }
@@ -106,8 +108,10 @@ namespace Itk
                     // failures here, but they must not go unnoticed
                     assert(fd != -1);
 
-                    Cpt_EINTR_RETRY_SP(close(inFileFD_));
-                    Cpt_EINTR_RETRY_SP(close(duplicatedStdInFD_));
+                    int
+                        res;
+                    Cpt_EINTR_RETRY(res,close(inFileFD_));
+                    Cpt_EINTR_RETRY(res,close(duplicatedStdInFD_));
                 }
         }
 
@@ -281,7 +285,7 @@ namespace Itk
                 }
 			Cpt::FileSentry resFsSentry( resFs ); 
 
-            ssize_t
+            size_t
                 firstDifferingLine = -1,
                 currentLine = 1;
             string

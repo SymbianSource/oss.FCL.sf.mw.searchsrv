@@ -1,4 +1,6 @@
-Indexing and searching with whitespace
+using analyzer "whitespace"
+
+indexing:
 
 Indexed file: !:\data\cpixunittestcorpus\stem\en\1.txt
 
@@ -8,12 +10,33 @@ Indexed file: !:\data\cpixunittestcorpus\stem\en\3.txt
 
 Indexed file: !:\data\cpixunittestcorpus\stem\en\4.txt
 
+Indexed file: !:\data\cpixunittestcorpus\loc\th\1.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\th\2.txt
+
 Indexed empty item.
+
+searching:
+
+search "happy":
 Number of hits: 0
+
+search "happiness":
 Number of hits: 0
+
+search "happening":
 Number of hits: 1
 DOC (!:\data\cpixunittestcorpus\stem\en\4.txt): What is happening here?
-Indexing and searching with letter>lowercase
+
+search "ดาวตก":
+Number of hits: 0
+
+search "มี":
+Number of hits: 0
+
+using analyzer "letter>lowercase"
+
+indexing:
 
 Indexed file: !:\data\cpixunittestcorpus\stem\en\1.txt
 
@@ -23,14 +46,36 @@ Indexed file: !:\data\cpixunittestcorpus\stem\en\3.txt
 
 Indexed file: !:\data\cpixunittestcorpus\stem\en\4.txt
 
+Indexed file: !:\data\cpixunittestcorpus\loc\th\1.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\th\2.txt
+
 Indexed empty item.
+
+searching:
+
+search "happy":
 Number of hits: 1
 DOC (!:\data\cpixunittestcorpus\stem\en\1.txt): I am happy.
+
+search "happiness":
 Number of hits: 1
 DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh happiness!
+
+search "happening":
 Number of hits: 1
 DOC (!:\data\cpixunittestcorpus\stem\en\4.txt): What is happening here?
-Indexing and searching with stdtokens>lowercase>stem(en)
+
+search "ดาวตก":
+Number of hits: 0
+
+search "มี":
+Number of hits: 1
+DOC (!:\data\cpixunittestcorpus\loc\th\1.txt): ปรากฏการณ์ฝนดาวตก17-18พ.ยนี้ นายวรวิทย์ ตันวุฒิบัณฑิต ปราชญ์ภูมิปัญญาท้องถิ่นด้านดาราศาสตร์ไทยกล่าวว่า 17-18 พฤศจิกายน 2552
+
+using analyzer "stdtokens>lowercase>accent"
+
+indexing:
 
 Indexed file: !:\data\cpixunittestcorpus\stem\en\1.txt
 
@@ -40,16 +85,35 @@ Indexed file: !:\data\cpixunittestcorpus\stem\en\3.txt
 
 Indexed file: !:\data\cpixunittestcorpus\stem\en\4.txt
 
+Indexed file: !:\data\cpixunittestcorpus\loc\th\1.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\th\2.txt
+
 Indexed empty item.
-Number of hits: 2
-DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh happiness!
+
+searching:
+
+search "happy":
+Number of hits: 1
 DOC (!:\data\cpixunittestcorpus\stem\en\1.txt): I am happy.
-Number of hits: 2
+
+search "happiness":
+Number of hits: 1
 DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh happiness!
-DOC (!:\data\cpixunittestcorpus\stem\en\1.txt): I am happy.
+
+search "happening":
 Number of hits: 1
 DOC (!:\data\cpixunittestcorpus\stem\en\4.txt): What is happening here?
-Indexing and searching with letter>lowercase>stop(en)
+
+search "ดาวตก":
+Number of hits: 0
+
+search "มี":
+Number of hits: 0
+
+using analyzer "letter>lowercase>stop(en)"
+
+indexing:
 
 Indexed file: !:\data\cpixunittestcorpus\stem\en\1.txt
 
@@ -59,14 +123,36 @@ Indexed file: !:\data\cpixunittestcorpus\stem\en\3.txt
 
 Indexed file: !:\data\cpixunittestcorpus\stem\en\4.txt
 
+Indexed file: !:\data\cpixunittestcorpus\loc\th\1.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\th\2.txt
+
 Indexed empty item.
+
+searching:
+
+search "happy":
 Number of hits: 1
 DOC (!:\data\cpixunittestcorpus\stem\en\1.txt): I am happy.
+
+search "happiness":
 Number of hits: 1
 DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh happiness!
+
+search "happening":
 Number of hits: 1
 DOC (!:\data\cpixunittestcorpus\stem\en\4.txt): What is happening here?
-Indexing and searching with letter>lowercase>stop('a', 'an', 'the')
+
+search "ดาวตก":
+Number of hits: 0
+
+search "มี":
+Number of hits: 1
+DOC (!:\data\cpixunittestcorpus\loc\th\1.txt): ปรากฏการณ์ฝนดาวตก17-18พ.ยนี้ นายวรวิทย์ ตันวุฒิบัณฑิต ปราชญ์ภูมิปัญญาท้องถิ่นด้านดาราศาสตร์ไทยกล่าวว่า 17-18 พฤศจิกายน 2552
+
+using analyzer "letter>lowercase>stop('a', 'an', 'the')"
+
+indexing:
 
 Indexed file: !:\data\cpixunittestcorpus\stem\en\1.txt
 
@@ -76,10 +162,30 @@ Indexed file: !:\data\cpixunittestcorpus\stem\en\3.txt
 
 Indexed file: !:\data\cpixunittestcorpus\stem\en\4.txt
 
+Indexed file: !:\data\cpixunittestcorpus\loc\th\1.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\th\2.txt
+
 Indexed empty item.
+
+searching:
+
+search "happy":
 Number of hits: 1
 DOC (!:\data\cpixunittestcorpus\stem\en\1.txt): I am happy.
+
+search "happiness":
 Number of hits: 1
 DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh happiness!
+
+search "happening":
 Number of hits: 1
 DOC (!:\data\cpixunittestcorpus\stem\en\4.txt): What is happening here?
+
+search "ดาวตก":
+Number of hits: 0
+
+search "มี":
+Number of hits: 1
+DOC (!:\data\cpixunittestcorpus\loc\th\1.txt): ปรากฏการณ์ฝนดาวตก17-18พ.ยนี้ นายวรวิทย์ ตันวุฒิบัณฑิต ปราชญ์ภูมิปัญญาท้องถิ่นด้านดาราศาสตร์ไทยกล่าวว่า 17-18 พฤศจิกายน 2552
+

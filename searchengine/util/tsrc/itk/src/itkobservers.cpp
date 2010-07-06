@@ -44,7 +44,7 @@ namespace Itk
     /*****************************************************************
      * TestRunConsole
      */
-    void TestRunConsole::beginRun(TestMgr    * ,
+    void TestRunConsole::beginRun(TestMgr    * testMgr,
                                   size_t       /* testCount */,
                                   const char * /* baseDirPath */)
     {
@@ -53,14 +53,14 @@ namespace Itk
     }
 
     
-    void TestRunConsole::endRun(TestMgr * ) throw ()
+    void TestRunConsole::endRun(TestMgr * testMgr) throw ()
     {
         using namespace std;
         os_ << endl << "TEST RUN COMPLETED." << endl;
     }
 
 
-    void TestRunConsole::beginTestCase(TestMgr     * ,
+    void TestRunConsole::beginTestCase(TestMgr     * testMgr,
                                        TesterBase  * testerBase)
     {
         ++indent_;
@@ -754,7 +754,9 @@ namespace Itk
 
     void ProgressFsDisplayer::deleteCurFile()
     {
-        Cpt_EINTR_RETRY_SP( remove(curFilePath_.c_str()) );
+        int
+            success;
+        Cpt_EINTR_RETRY(success,remove(curFilePath_.c_str()));
     }
 
 

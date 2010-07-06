@@ -54,8 +54,10 @@ USERINCLUDE     ../../../util/cpixtools/inc/public
 STATICLIBRARY   libcrt0.lib
 STATICLIBRARY   libcpix.lib
 STATICLIBRARY   libclucene.lib
-STATICLIBRARY   libcpixtools.lib
 STATICLIBRARY   libstemmer.lib
+//STATICLIBRARY   libitk.lib
+STATICLIBRARY   libcpixtools.lib
+STATICLIBRARY   libanalysis.lib
 
 // For SPI 
 LIBRARY   efsrv.lib

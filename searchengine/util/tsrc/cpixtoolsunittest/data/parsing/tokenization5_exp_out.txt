@@ -1,1 +1,1 @@
-id('fo')unknown('for')id('fore')id('forth')id('ofor')id('oforo')id('i')unknown('if')id('ifdom')id('ifer')id('fif')id('fifi')id('forfi')id('fifor')
+identifier('fo')for('for')identifier('fore')identifier('forth')identifier('ofor')identifier('oforo')identifier('i')if('if')identifier('ifdom')identifier('ifer')identifier('fif')identifier('fifi')identifier('forfi')identifier('fifor')

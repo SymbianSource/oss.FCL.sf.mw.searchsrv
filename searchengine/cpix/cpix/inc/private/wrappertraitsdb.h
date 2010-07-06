@@ -106,6 +106,7 @@ namespace lucene { namespace analysis {
 namespace Cpix {
 	class CustomAnalyzer; 
     class SystemAnalyzer;
+    class IQueryParser; 
 }
 
 
@@ -195,23 +196,11 @@ struct WrapperTraits<cpix_SystemAnalyzer>
     typedef Cpix::SystemAnalyzer NativeClass;
 };
 
-
-struct cpix_MultiFieldQueryParser : public cpix_QueryParser { };
-
-
 template<>
 struct WrapperTraits<cpix_QueryParser>
 {
-    typedef lucene::queryParser::QueryParser NativeClass;
+    typedef Cpix::IQueryParser NativeClass;
 };
-
-
-template<>
-struct WrapperTraits<cpix_MultiFieldQueryParser>
-{
-    typedef lucene::queryParser::MultiFieldQueryParser NativeClass;
-};
-
 
 template<>
 struct WrapperTraits<cpix_BoostMap>

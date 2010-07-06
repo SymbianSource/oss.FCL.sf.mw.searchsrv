@@ -192,6 +192,24 @@ EXPORT_C void RSearchServerSubSession::SetAnalyzer(const TDesC& aAnalyzer, TRequ
 	SendReceive(ESearchServerSetAnalyzer, args, aStatus);
 	}
 
+EXPORT_C void RSearchServerSubSession::SetQueryParserL(TInt aQueryParser)
+	{
+	TIpcArgs args(aQueryParser);
+
+	// This call completes immediately, however the server will not
+	// complete the request until later, so don't pass any local
+	// descriptors as they will be out of scope by the time the server
+	// attempts to read or write
+	User::LeaveIfError( SendReceive(ESearchServerSetQueryParser, args) );
+	}
+
+EXPORT_C void RSearchServerSubSession::SetQueryParser(TInt aQueryParser, TRequestStatus& aStatus)
+	{
+	TIpcArgs args(aQueryParser);
+	
+	SendReceive(ESearchServerSetQueryParser, args, aStatus);
+	}
+
 
 // RSearchServerSubSession::Search()
 EXPORT_C void RSearchServerSubSession::SearchL(const TDesC& aSearchTerms)

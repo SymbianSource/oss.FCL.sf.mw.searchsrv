@@ -50,6 +50,10 @@ namespace Cpix
 namespace
 {
 
+	const wchar_t STAR[] = L"*";
+    const wchar_t AND1[] = L"and1";
+    const wchar_t AND2[] = L"and2";
+
     /**
      * Parses the syntax "* ( ( AND | && ) QRY )?", setting the member
      * clQryStr_ (clucene query) to QRY, if any.
@@ -58,19 +62,12 @@ namespace
     {
     private:
         
-        enum TokenType
-            {
-                STAR = Cpt::Lex::TOKEN_LAST_RESERVED,
-                AND1,
-                AND2,
-            };
-
         Cpt::Lex::MultiTokenizer     * tokenizer_;
         
 
         // for the transition table definition, see comments for parse()
         typedef int State;
-        typedef int Symbol;
+        typedef Cpt::Lex::token_type_t Symbol;
         typedef std::pair<State, Symbol> StateSymbolPair;
         typedef std::map<StateSymbolPair, State> TransitionTable;
         TransitionTable                transitions_;
@@ -220,7 +217,7 @@ namespace
             Tokens
                 source(*tokenizer_,
                        qryStr);
-            WhiteSpaceFilter
+            StdFilter
                 tokens(source);
 
             State

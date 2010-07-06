@@ -1,1 +1,1 @@
-id('stdtokens')pipe('>')id('lowercase')pipe('>')id('stopwords')lbr('(')lit(''a'')comma(',')lit(''an'')comma(',')lit(''the'')rbr(')')pipe('>')id('stem')lbr('(')lit(''en'')rbr(')')
+identifier('stdtokens')pipe('>')identifier('lowercase')pipe('>')identifier('stopwords')left bracket('(')literal(''a'')comma(',')literal(''an'')comma(',')literal(''the'')right bracket(')')pipe('>')identifier('stem')left bracket('(')literal(''en'')right bracket(')')

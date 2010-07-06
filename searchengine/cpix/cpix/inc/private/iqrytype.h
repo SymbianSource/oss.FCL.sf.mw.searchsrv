@@ -23,7 +23,10 @@
 #include <list>
 #include <string>
 
+#include "cpixtools.h"
+#include "cpixexc.h"
 #include "common/refcountedbase.h"
+#include "cpixparsetools.h"
 
 namespace lucene
 {
@@ -267,16 +270,6 @@ namespace Cpix
     class QryCall
     {
     private:
-   
-        enum TokenType
-            {
-                DOLLAR = Cpt::Lex::TOKEN_LAST_RESERVED,
-                LESSTHAN,
-                GREATERTHAN,
-                COMMA,
-                LEFTPARENTHESIS,
-                RIGHTPARENTHESIS
-            };
 
         /**
          * This static member (tokenizer_) has const-usage
@@ -296,7 +289,7 @@ namespace Cpix
          * parse().
          */ 
         typedef int State;
-        typedef int Symbol;
+        typedef Cpt::Lex::token_type_t Symbol;
         typedef std::pair<State, Symbol> StateSymbolPair;
         typedef std::map<StateSymbolPair, State> TransitionTable;
         static TransitionTable  * transitions_;

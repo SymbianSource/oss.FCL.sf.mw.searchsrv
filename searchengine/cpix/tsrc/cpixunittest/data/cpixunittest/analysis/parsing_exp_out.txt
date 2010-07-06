@@ -7,12 +7,17 @@ Creating analyzer stdtokens>lowercase>stem(en)
 Creating analyzer letter>lowercase>stop(en)
 Creating analyzer letter>lowercase>stop('a', 'an', 'the')
 Creating analyzer letter><lowercase
-Analyzer creation failed with Unrecognized syntax: '<' at: "letter>*here*<lowercase"
+Analyzer creation failed with Unrecognized syntax: '<' at: 
+"letter>*here*<lowercase"
 Creating analyzer 38j_d fad23 4?q ca'wRA
-Analyzer creation failed with Expected identifier instead of token '38' of type 5 at: "*here*38*here*j_d fad23 4?q ca'wRA"
+Analyzer creation failed with Expected identifier instead of token '38' of type integer at: 
+"*here*38*here*j_d fad23 4?q ca'wRA"
 Creating analyzer letter>>lowercase
-Analyzer creation failed with Expected identifier instead of token '>' of type 11 at: "letter>*here*>*here*lowercase"
+Analyzer creation failed with Expected identifier instead of token '>' of type > at: 
+"letter>*here*>*here*lowercase"
 Creating analyzer >letter>>lowercase lowercase
-Analyzer creation failed with Expected identifier instead of token '>' of type 11 at: "*here*>*here*letter>>lowercase lowercase"
+Analyzer creation failed with Expected identifier instead of token '>' of type > at: 
+"*here*>*here*letter>>lowercase lowercase"
 Creating analyzer letter lowercase
-Analyzer creation failed with Expected EOF instead of 'lowercase' of type 3 at: "letter *here*lowercase*here*"
+Analyzer creation failed with Expected EOF instead of 'lowercase' of type identifier at: 
+"letter *here*lowercase*here*"

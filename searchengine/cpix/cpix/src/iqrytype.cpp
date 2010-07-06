@@ -309,6 +309,17 @@ namespace
 
 }
 
+namespace {
+
+	const wchar_t DOLLAR[] = L"$";
+	const wchar_t LESSTHAN[] = L"<";
+	const wchar_t GREATERTHAN[] = L">";
+	const wchar_t COMMA[] = L",";
+	const wchar_t LEFTPARENTHESIS[] = L"(";
+	const wchar_t RIGHTPARENTHESIS[] = L")";
+}
+
+
 
 namespace Cpix
 {
@@ -569,7 +580,7 @@ namespace Cpix
         Tokens
             source(tokenizer(),
                    qryStr);
-        WhiteSpaceFilter
+        StdFilter
             tokens(source);
 
         State
@@ -761,8 +772,7 @@ namespace Cpix
     IQryType * IQryType::parseQry(cpix_QueryParser * queryParser,
                                   const wchar_t    * qryStr)
     {
-        IQryType
-            * rv = NULL;
+        auto_ptr<IQryType> rv( NULL );
 
         QryCall
             qryCall(qryStr);
@@ -783,13 +793,13 @@ namespace Cpix
                               qryCall.qryTypeId_.c_str());
             }
 
-        rv = qti->factory_();
+        rv.reset( qti->factory_() ); 
 
         rv->setUp(queryParser,
                   qryCall.args_,
                   qryCall.innerQryStr_.c_str());
 
-        return rv;
+        return rv.release();
     }
     
 

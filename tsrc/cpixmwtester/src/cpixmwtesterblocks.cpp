@@ -442,19 +442,19 @@ TInt CCPixMWTester::TestUpdateINStatusL( CStifItemParser& aItem)
 // CCPixMWTester::TestAddUnloadlistL
 // -----------------------------------------------------------------------------
 //
-TInt CCPixMWTester::TestAddUnloadlistL( CStifItemParser& aItem)
+TInt CCPixMWTester::TestAddUnloadlistL( CStifItemParser& /*aItem*/)
     {
     TInt err = KErrNone;        
     CBlacklistMgr* blacklistmanager = CBlacklistMgr::NewL();
     CleanupStack::PushL( blacklistmanager );
     //Add an Uid to Blacklist DB
-    blacklistmanager->AddtoUnloadListL( KTestUid );
+    blacklistmanager->AddtoDontloadListL( KTestUid );
     //Check if the Uid is added to database or not
-    TBool found = blacklistmanager->FindfromUnloadListL(KTestUid );
+    TBool found = blacklistmanager->FindInDontloadListL(KTestUid );
     
     if(!found) err = KErrNotFound;
     //clear the UID from the database
-    blacklistmanager->RemoveFromUnloadListL(KTestUid);
+    blacklistmanager->RemoveFromDontloadListL(KTestUid);
     CleanupStack::PopAndDestroy( blacklistmanager ); 
     doLog( iLog, err, KNoErrorString );        
     return err;
@@ -464,21 +464,21 @@ TInt CCPixMWTester::TestAddUnloadlistL( CStifItemParser& aItem)
 // CCPixMWTester::TestRemovefromUnloadlistL
 // -----------------------------------------------------------------------------
 //
-TInt CCPixMWTester::TestRemovefromUnloadlistL( CStifItemParser& aItem)
+TInt CCPixMWTester::TestRemovefromUnloadlistL( CStifItemParser& /*aItem*/)
     {
     TInt err = KErrNotFound;        
     CBlacklistMgr* blacklistmanager = CBlacklistMgr::NewL();
     CleanupStack::PushL( blacklistmanager );
     //Add an Uid to Blacklist DB
-    blacklistmanager->AddtoUnloadListL( KTestUid );
+    blacklistmanager->AddtoDontloadListL( KTestUid );
     //Check if the Uid is added to database or not
-    TBool found = blacklistmanager->FindfromUnloadListL(KTestUid );
+    TBool found = blacklistmanager->FindInDontloadListL(KTestUid );
     
     if(found)
         {
          //clear the UID from the database
-        blacklistmanager->RemoveFromUnloadListL(KTestUid);
-        found = blacklistmanager->FindfromUnloadListL(KTestUid );
+        blacklistmanager->RemoveFromDontloadListL(KTestUid);
+        found = blacklistmanager->FindInDontloadListL(KTestUid );
         if ( !found )  err = KErrNone;
         }
     CleanupStack::PopAndDestroy( blacklistmanager ); 

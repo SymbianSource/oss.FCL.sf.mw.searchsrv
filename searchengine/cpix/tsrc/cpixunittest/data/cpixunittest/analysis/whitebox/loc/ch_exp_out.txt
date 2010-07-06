@@ -1,0 +1,44 @@
+Analyzer "natural":
+File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
+ 'i' 'am' 'happy'
+File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
+ 'oh' 'happiness'
+File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
+ 'nothing' 'important' 'here' 'so' 'don' 'even' 'look' 'because' 'you' 'shall' 'find' 'nothing' 'whatsoever'
+File !:\data\cpixunittestcorpus\stem\en\4.txt tokenized:
+ 'what' 'happening' 'here'
+
+Analyzer "natural":
+File !:\data\cpixunittestcorpus\loc\ch_hk\1.txt tokenized:
+ '陶' '傑' '（' '1958' '年' '8' '月' '17' '日' '）' '，'
+File !:\data\cpixunittestcorpus\loc\ch_hk\2.txt tokenized:
+ '原' '名' '係' '曹' '捷' '，' '香' '港' '專' '欄' '作' '家' '及' '傳' '媒' '工' '作' '者' '，'
+File !:\data\cpixunittestcorpus\loc\ch_hk\3.txt tokenized:
+ '有' '香' '江' '第' '一' '才' '子' '嘅' '稱' '號' '，'
+File !:\data\cpixunittestcorpus\loc\ch_hk\4.txt tokenized:
+ '以' '文' '筆' '辛' '辣' '立' '場' '親' '西' '方' '（' '尤' '其' '是' '英' '國' '）' '見' '稱'
+File !:\data\cpixunittestcorpus\loc\ch_prc\1.txt tokenized:
+ '美' '国' '总' '统' '奥' '巴' '马' '星' '期' '一' '（' '11' '月' '16' '日' '）' '在' '上' '海' '与' '中' '国' '青' '年' '对' '话' '，'
+File !:\data\cpixunittestcorpus\loc\ch_prc\2.txt tokenized:
+ '他' '回' '答' '了' '现' '场' '听' '众' '和' '网' '民' '的' '提' '问' '，'
+File !:\data\cpixunittestcorpus\loc\ch_prc\3.txt tokenized:
+ '内' '容' '涉' '及' '台' '湾' '中' '美' '贸' '易' '以' '及' '环' '境' '问' '题' '等'
+File !:\data\cpixunittestcorpus\loc\ch_prc\4.txt tokenized:
+ '奥' '巴' '马' '在' '上' '海' '科' '技' '馆' '面' '对' '500' '余' '名' '上' '海' '青' '年'
+File !:\data\cpixunittestcorpus\loc\ch_simple\1.txt tokenized:
+ '奥' '巴' '马' '在' '上' '海' '与' '中' '国' '青' '年' '人' '对' '话'
+File !:\data\cpixunittestcorpus\loc\ch_simple\2.txt tokenized:
+ '美' '国' '总' '统' '奥' '巴' '马' '星' '期' '一' '（' '11' '月' '16' '日' '）' '在' '上' '海' '与' '中' '国' '青' '年' '对' '话' '，' '他' '回' '答' '了' '现' '场' '听' '众' '和' '网' '民' '的' '提' '问' '，' '内' '容' '涉' '及' '台' '湾' '中' '美' '贸' '易' '以' '及' '环' '境' '问' '题' '等'
+File !:\data\cpixunittestcorpus\loc\ch_simple\3.txt tokenized:
+ '奥' '巴' '马' '在' '上' '海' '科' '技' '馆' '面' '对' '500' '余' '名' '上' '海' '青' '年' '以' '及' '数' '以' '万' '计' '的' '中' '国' '互' '联' '网' '使' '用' '者' '进' '行' '了' '一' '场' '问' '答' '会'
+File !:\data\cpixunittestcorpus\loc\ch_simple\4.txt tokenized:
+ '这' '次' '对' '话' '由' '复' '旦' '大' '学' '校' '长' '杨' '玉' '良' '主' '持' '美' '国' '驻' '中' '国' '大' '使' '洪' '博' '培' '致' '辞'
+File !:\data\cpixunittestcorpus\loc\ch_tw\1.txt tokenized:
+ '拈' '花' '惹' '草' '趣' '南' '投' '花' '卉' '嘉' '年' '華' '璀' '璨' '迎' '賓'
+File !:\data\cpixunittestcorpus\loc\ch_tw\2.txt tokenized:
+ '2009' '南' '投' '花' '卉' '嘉' '年' '華' '花' '現' '幸' '福' '暢' '遊' '南' '投'
+File !:\data\cpixunittestcorpus\loc\ch_tw\3.txt tokenized:
+ '於' '日' '前' '11' '15' '假' '南' '投' '縣' '埔' '里' '鎮' '埔' '里' '花' '卉' '物' '流' '中' '心' '隆' '重' '登' '場' '，'
+File !:\data\cpixunittestcorpus\loc\ch_tw\4.txt tokenized:
+ '在' '為' '期' '五' '十' '天' '的' '活' '動' '中' '，'
+

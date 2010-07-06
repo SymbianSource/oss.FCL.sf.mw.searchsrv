@@ -22,7 +22,10 @@ CL_NS_DEF2(analysis,standard)
     EMAIL,
     HOST,
     NUM,
-    CJK
+    CJK, 
+    // CHANGED Thai Support ->
+    Thai
+    // CHANGED
   };
   extern const TCHAR** tokenImage;
 

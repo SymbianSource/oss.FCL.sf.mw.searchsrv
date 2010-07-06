@@ -163,9 +163,9 @@ namespace
 
     void ItemsArrayDeleter(void * p)
     {
-        /*TestPoolItem
+        TestPoolItem
             ** items = reinterpret_cast<TestPoolItem**>(p);
-          */
+
         delete[] p;
     }
     
@@ -207,7 +207,7 @@ namespace
 
 
 
-void testSingleThreadedUse(Itk::TestMgr * )
+void testSingleThreadedUse(Itk::TestMgr * testMgr)
 {
     using namespace Cpt;
 

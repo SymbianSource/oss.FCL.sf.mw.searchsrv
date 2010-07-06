@@ -1,0 +1,18 @@
+Analyzer "natural":
+File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
+ 'i' 'am' 'happy'
+File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
+ 'oh' 'happiness'
+File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
+ 'nothing' 'important' 'here' 'so' 'don't' 'even' 'look' 'because' 'you' 'shall' 'find' 'nothing' 'whatsoever'
+File !:\data\cpixunittestcorpus\stem\en\4.txt tokenized:
+ 'what' 'happening' 'here'
+File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
+ 'juon' 'nyt' 'teetä'
+File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
+ 'tee' 'näin'
+File !:\data\cpixunittestcorpus\loc\th\1.txt tokenized:
+ 'ปรากฏการณ์ฝนดาวตก' '7' '-18' 'พ' 'ยนี้' 'นายวรวิทย์' 'ตันวุฒิบัณฑิต' 'ปราชญ์ภูมิปัญญาท้องถิ่นด้านดาราศาสตร์ไทยกล่าวว่า' '17' '-18' 'พฤศจิกายน' '2552'
+File !:\data\cpixunittestcorpus\loc\th\2.txt tokenized:
+ 'จะมีปรากฏการณ์ดาราศาสตร์ครั้งสำคัญที่ชาวไทยเคยประทับใจมาแล้วเมื่อปี' '2541' '-2544' 'คือในคืนวันที่' '17' 'ต่อเนื่องวันที่' '18' 'พฤศจิกายน' '2552'
+

@@ -207,6 +207,12 @@ void CSearchServerSession::ServiceL(const RMessage2& aMessage)
             RECORDED_EXECUTION_END("setAnalyzer")
             break;
 
+        case ESearchServerSetQueryParser:
+            RECORDED_EXECUTION_BEGIN
+            subsession->SetQueryParserL(aMessage);
+            RECORDED_EXECUTION_END("setQueryParser")
+            break;
+
         case ESearchServerSearch:
             RECORDED_EXECUTION_BEGIN
             subsession->SearchL(aMessage);

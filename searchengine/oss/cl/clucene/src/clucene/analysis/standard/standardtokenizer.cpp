@@ -42,6 +42,9 @@ CL_NS_DEF2(analysis,standard)
   						   (ch>=0xf900 && ch<=0xfaff) || \
   						   (ch>=0xac00 && ch<=0xd7af) ) //korean
 
+  // CHANGED Thai support ->
+  #define _THAI        ( ch >= 0x0E00 && ch <= 0x0Eff )
+  // CHANGED
   
   #define DASH          (ch == '-')
   #define NEGATIVE_SIGN_ DASH
@@ -69,6 +72,12 @@ CL_NS_DEF2(analysis,standard)
   */
   #define CONSUME_CJK                   _CONSUME_AS_LONG_AS(_CJK)
 
+  // CHANGED Thai support -> 
+  /**
+   * Consume Thai 
+   */
+  #define CONSUME_THAI 				    _CONSUME_AS_LONG_AS(_THAI) 
+  // CHANGED
 
   /* It is considered that "nothing of value" has been read if:
   ** a) The "read head" hasn't moved since specialCharPos was established.
@@ -121,6 +130,7 @@ CL_NS_DEF2(analysis,standard)
 	t->setType(tokenImage[tokenCode]);
 	sb->getBuffer(); //null terminates the buffer
 	t->resetTermTextLen();
+	t->setPositionIncrement(1);
 	return true;
   }
 
@@ -131,6 +141,11 @@ CL_NS_DEF2(analysis,standard)
 
 	  if ( ch == 0 || ch == -1 ){
 		continue;
+	  // CHANGED Thai Support -> 
+	  } else if ( _THAI ) {
+		  if ( ReadThai(ch,t) ) 
+			  return true; 
+	  // CHANGED
 	  } else if (SPACE) {
         continue;
       } else if (ALPHA || UNDERSCORE) {
@@ -225,6 +240,9 @@ CL_NS_DEF2(analysis,standard)
     SUCCESSFULLY_EXTRACTED_NUMBER:
     TCHAR rightmost = RIGHTMOST(str);
     /* Don't including a trailing decimal point. */
+    if(ALPHA){
+            return ReadAlphaNum(prev,t);  
+     }
     if (rightmost == '.') {
       SHAVE_RIGHTMOST(str);
       unReadChar();
@@ -280,6 +298,19 @@ CL_NS_DEF2(analysis,standard)
 	return setToken(t,&str,CL_NS2(analysis,standard)::CJK);
   }
   
+  // CHANGED Thai Support
+  bool StandardTokenizer::ReadThai(const TCHAR prev, Token* t) {
+    t->growBuffer(LUCENE_MAX_WORD_LEN+1);//make sure token can hold the next word
+    StringBuffer str(t->_termText,t->bufferLength(),true); //use stringbuffer to read data onto the termText
+	if ( str.len < LUCENE_MAX_WORD_LEN ){
+		str.appendChar(prev);
+		int ch = prev;
+
+		CONSUME_THAI;
+	}
+	return setToken(t,&str,CL_NS2(analysis,standard)::Thai);
+  }
+  // CHANGED
 
   bool StandardTokenizer::ReadDotted(StringBuffer* _str, TokenTypes forcedType, Token* t) {
     const int32_t specialCharPos = rdPos;
@@ -399,7 +430,7 @@ CL_NS_DEF2(analysis,standard)
 
      
     
-  return setToken(t,&str,CL_NS2(analysis,standard)::ALPHANUM);
+  return setToken(t,&str,forcedType);
 //	return setToken(t,&str,CL_NS2(analysis,standard)::UNKNOWN
 //			? forcedType : CL_NS2(analysis,standard)::HOST);
   }

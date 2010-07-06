@@ -90,4 +90,8 @@ EXPORTS
 	?ContinueHouseKeeping@RSearchServerSession@@QAEHXZ @ 89 NONAME ; int RSearchServerSession::ContinueHouseKeeping(void)
 	?ForceHouseKeeping@RSearchServerSession@@QAEHXZ @ 90 NONAME ; int RSearchServerSession::ForceHouseKeeping(void)
 	?StopHouseKeeping@RSearchServerSession@@QAEHXZ @ 91 NONAME ; int RSearchServerSession::StopHouseKeeping(void)
+	?SetQueryParserL@RSearchServerSubSession@@QAEXH@Z @ 92 NONAME ; void RSearchServerSubSession::SetQueryParserL(int)
+	?SetQueryParserL@CCPixSearcher@@QAEXW4TQueryParser@1@@Z @ 93 NONAME ; void CCPixSearcher::SetQueryParserL(enum CCPixSearcher::TQueryParser)
+	?SetQueryParserL@CCPixSearcher@@QAEXAAVMCPixSetQueryParserRequestObserver@@W4TQueryParser@1@@Z @ 94 NONAME ; void CCPixSearcher::SetQueryParserL(class MCPixSetQueryParserRequestObserver &, enum CCPixSearcher::TQueryParser)
+	?SetQueryParser@RSearchServerSubSession@@QAEXHAAVTRequestStatus@@@Z @ 95 NONAME ; void RSearchServerSubSession::SetQueryParser(int, class TRequestStatus &)
 

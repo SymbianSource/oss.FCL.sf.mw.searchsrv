@@ -60,6 +60,7 @@ STATICLIBRARY   libclucene.lib
 STATICLIBRARY   libstemmer.lib
 STATICLIBRARY   libitk.lib
 STATICLIBRARY   libcpixtools.lib
+STATICLIBRARY     libanalysis.lib
 
 // For SPI 
 LIBRARY   efsrv.lib

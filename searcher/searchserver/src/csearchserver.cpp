@@ -51,7 +51,7 @@ const TInt KServerPolicyRanges[KServerPolicyRangeCount] =
         ESearchServerAdd,               // Indexing related messages
         ESearchServerCancelAll,         // Cancellation
         ESearchServerDatabaseDefine,    // Database define
-        ESearchServerSetAnalyzer+1      // Unsupported messages 
+        ESearchServerSetQueryParser+1      // Unsupported messages 
 };
 
 // iElementsIndex of TPolicy

@@ -32,6 +32,8 @@
 #include "cpixutil.h"
 #include "iqrytype.h"
 
+#include "queryparser.h"
+
 
 namespace Cpix
 {
@@ -73,7 +75,7 @@ namespace Cpix
 					THROW_CPIXEXC("Too many arguments for terms search");
                 }
 
-            lucene::queryParser::QueryParser
+            IQueryParser
                 * qp = Cast2Native<cpix_QueryParser>(queryParser);
 
             fieldName_ = qp->getField();

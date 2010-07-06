@@ -1,4 +1,8 @@
-ParseException: Unexpected EOF at: "foobar(zap, foo, 'bar', 'raf', do, *here*"
-LexException: Unrecognized syntax: ''a, raboof)' at: "foobar(zap, foo, 'bar', *here*'a, raboof)"
-LexException: Unrecognized syntax: '!' at: "foobar(*here*!zap, foo, 'bar', 'a', raboof)"
-ParseException: Expected token of type 10 instead of token 'raboof' of type 3 at: "foobar(zap, foo, 'bar', 'a' *here*raboof*here*)"
+ParseException: Unexpected EOF at: 
+"foobar(zap, foo, 'bar', 'raf', do, *here*"
+LexException: Unrecognized syntax: ''a, raboof)' at: 
+"foobar(zap, foo, 'bar', *here*'a, raboof)"
+LexException: Unrecognized syntax: '!' at: 
+"foobar(*here*!zap, foo, 'bar', 'a', raboof)"
+ParseException: Expected comma instead of token 'raboof' of type identifier at: 
+"foobar(zap, foo, 'bar', 'a' *here*raboof*here*)"

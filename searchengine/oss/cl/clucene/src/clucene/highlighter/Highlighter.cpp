@@ -344,11 +344,21 @@ CL_NS_USE(util)
   	        }
 
 			_CLDELETE(tokenGroup);
+			if (tokenStream)
+                {
+                    try
+                    {
+                        tokenStream->close();
+                    }
+                    catch (...)
+                    {
+                    }
+                }
 			//_CLDELETE(newText);
 			return frags;
 
 		}
-		_CLFINALLY(
+		catch(...){
 			if (tokenStream)
 			{
 				try
@@ -359,7 +369,8 @@ CL_NS_USE(util)
 				{
 				}
 			}
-		)
+			return NULL;
+	    }
 	}
 
 

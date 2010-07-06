@@ -19,6 +19,8 @@
 #define CCPIXSEARCH_H_
 
 #include <e32base.h>
+#include "CCPixAbstractSearcher.h"
+
 #include <stdio.h>
 #include <wchar.h>
 #include <glib.h>
@@ -32,12 +34,11 @@ class CSearchDocument;
 class CCPixAsyncronizer;
 class MCPixAsyncronizerObserver;
 
-_LIT(KCpixDefaultSearchField, CPIX_DEFAULT_FIELD);
 
 /**
  * Symbian C++ wrapper for OpenC CPixSearch interface.
  */
-class CCPixSearch : public CBase
+class CCPixSearch : public CCPixAbstractSearcher
 	{
 public:
 
@@ -115,7 +116,11 @@ public:
 	 */
 	TBool IsOpen();
 		
-	void SetAnalyzerL(const TDesC& aAnalyzer); 
+	void SetAnalyzerL(const TDesC& aAnalyzer);
+	
+	void SetQueryParserL(TInt aQueryParser); 
+
+	void RefreshQueryParserL(); 
 	
 	static void InitializeL();
 
@@ -178,6 +183,7 @@ private:
 	/**
 	 * Query parser.
 	 */
+	TQueryParser iQueryParserType;
 	cpix_QueryParser* iQueryParser;
 	
 	/**

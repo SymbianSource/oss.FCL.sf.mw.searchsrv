@@ -15,8 +15,13 @@
 *
 */
 
+#ifndef TESTUTILS_H_
+#define TESTUTILS_H_
 
-PRJ_MMPFILES
+#include "CLucene.h"
 
-HarvesterServer.mmp
+bool readLine(lucene::util::Reader& reader, wchar_t* buf, int buflen); 
 
+void printTokens(lucene::analysis::Analyzer& analyzer, const wchar_t* text); 
+
+#endif /* TESTUTILS_H_ */

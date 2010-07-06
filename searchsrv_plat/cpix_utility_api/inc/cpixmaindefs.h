@@ -196,6 +196,7 @@
  */
 #define DEFAULT_CPIX_DIR "c:\\Data\\"
 #define DEFAULT_CLUCENE_LOCK_DIR "c:\\system\\temp"
+#define DEFAULT_RESOURCE_DIR "c:\\Data\\"
 
 
 
@@ -223,18 +224,40 @@
  *********************************************** 
  */
 
-#define CPIX_PIPE 	  		L">"
-#define CPIX_SWITCH 	  	L"switch"
-#define CPIX_CASE 	 		L"case"
-#define CPIX_DEFAULT  		L"default"
+#define CPIX_PIPE 	  				L">"
+#define CPIX_SWITCH 	  			L"switch"
+#define CPIX_LOCALE_SWITCH  		L"locale_switch"
+#define CPIX_CONFIG_SWITCH  		L"config_switch"
+#define CPIX_CASE 	 				L"case"
+#define CPIX_DEFAULT  				L"default"
+
+// These can be given as parameters for the 'natural' analyzer
+#define CPIX_ID_INDEXING 			L"indexing"  
+#define CPIX_ID_QUERY 				L"query"  
+#define CPIX_ID_PREFIX 				L"prefix"  
+
+#define CPIX_ANALYZER_DEFAULT   	L"natural"  
+
+// Default indexing analyzer
+//#define CPIX_ANALYZER_DEFAULT_QUERY L"natural(indexing)"
+
+// Default term query analyzer
+#define CPIX_ANALYZER_DEFAULT_QUERY L"natural(query)"
+
+// Default prefix analyzer
+#define CPIX_ANALYZER_DEFAULT_PREFIX L"natural(prefix)"  
 
 #define CPIX_ANALYZER_STANDARD  	L"standard" 
-#define CPIX_ANALYZER_DEFAULT   	L"standard"  
+//#define CPIX_ANALYZER_DEFAULT   	L"standard"  
 
 #define CPIX_TOKENIZER_STANDARD    	L"stdtokens" 
 #define CPIX_TOKENIZER_WHITESPACE  	L"whitespace"
 #define CPIX_TOKENIZER_LETTER  		L"letter"
 #define CPIX_TOKENIZER_KEYWORD  	L"keyword"
+#define CPIX_TOKENIZER_CJK  		L"cjk"
+#define CPIX_TOKENIZER_NGRAM        L"ngram"
+#define CPIX_TOKENIZER_KOREAN       L"korean"
+#define CPIX_TOKENIZER_KOREAN_QUERY L"koreanquery"
 
 #define CPIX_FILTER_STANDARD  	  	L"stdfilter"
 #define CPIX_FILTER_LOWERCASE  		L"lowercase"
@@ -243,11 +266,24 @@
 #define CPIX_FILTER_STEM 		  	L"stem"
 #define CPIX_FILTER_LENGTH			L"length"
 #define CPIX_FILTER_PREFIXES		L"prefixes"
+#define CPIX_FILTER_THAI			L"thai"
+#define CPIX_FILTER_PREFIX			L"prefix"
+#define CPIX_FILTER_ELISION			L"elision"
 
-#define CPIX_WLANG_EN				L"en" 
-#define CPIX_WLANG_FI	    	  	L"fi"
-#define CPIX_WLANG_HU	          	L"hu" 
-#define CPIX_WLANG_RU	    	  	L"ru"
+#define CPIX_WLANG_EN               L"en" // english
+#define CPIX_WLANG_FI               L"fi" // finnish
+#define CPIX_WLANG_HU               L"hu" // hungarian
+#define CPIX_WLANG_RU               L"ru" // russian
+#define CPIX_WLANG_AR               L"ar" // arabic
+#define CPIX_WLANG_CN               L"cn" // chinese
+#define CPIX_WLANG_CS               L"cs" // czech
+#define CPIX_WLANG_DE               L"de" // deutch - german
+#define CPIX_WLANG_EL               L"el" // greek
+#define CPIX_WLANG_FA               L"fa" // farsi  - persian
+#define CPIX_WLANG_FR               L"fr" // french
+#define CPIX_WLANG_HE               L"he" // hebrew
+#define CPIX_WLANG_NL               L"nl" // dutch
+#define CPIX_WLANG_BN               L"bn" // bangla - bengali
 
 #define MAX_EXCERPT_LENGTH          125   //maximum exceprt length 
 

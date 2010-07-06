@@ -1,1 +1,1 @@
-lit(''foo'')int-lit('0')int-lit('1')int-lit('-2')lit(''bar'')int-lit('+234')int-lit('-34')
+literal(''foo'')integer('0')integer('1')integer('-2')literal(''bar'')integer('+234')integer('-34')

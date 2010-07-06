@@ -1,2 +1,3 @@
 #include "../cl/group/bld.inf"
 #include "../sb/group/bld.inf"
+#include "../loc/group/bld.inf"

@@ -34,7 +34,8 @@
 //Introduced for prefix optimization.
 #include "prefixopt.h"
 #include "cpixmaindefs.h"
-#include "iqrytype.h"
+
+#include "queryparser.h"
 
 namespace Cpix
 {
@@ -48,7 +49,6 @@ namespace Cpix
         //
         // private members
         //
-        lucene::queryParser::QueryParser * clQueryParser_;
         lucene::search::Query            * clQuery_;
 
     public:
@@ -60,8 +60,7 @@ namespace Cpix
         // lifetime management
         //
         LuceneQryType()
-            : clQueryParser_(NULL),
-              clQuery_(NULL)
+            : clQuery_(NULL)
         {
             ;
         }
@@ -81,40 +80,34 @@ namespace Cpix
                            const std::list<std::wstring> & args,
                            const wchar_t                 * qryStr)
         {
-            clQueryParser_ = Cast2Native<cpix_QueryParser>(queryParser);
-
-            if (args.size() > 0)
+        	if (args.size() > 0)
                 {
                     THROW_CPIXEXC(PL_ERROR "No arguments needed here");
                 }
-
-            //Can we do get rid of this parse here?
-            clQuery_ = clQueryParser_->parse(qryStr);
-            PrefixOptQueryRewriter prefixOpt_(OPTIMIZED_PREFIX_MAX_LENGTH, 
-                                                    LCPIX_DEFAULT_FIELD, 
-                                                    LCPIX_DEFAULT_PREFIX_FIELD );
-            //Switch query ownership to stack and back
-            std::auto_ptr<lucene::search::Query> q( clQuery_ ); clQuery_ = NULL; 
-            clQuery_ = prefixOpt_.rewrite( q ).release();
             
-            if (clQuery_ == NULL)
-                {
+             IQueryParser* qp = Cast2Native<cpix_QueryParser>(queryParser);
+             clQuery_ = qp->parse(qryStr).release();
+
+             if (clQuery_ == NULL)
+            	 {
                     THROW_CPIXEXC("Query reduced to empty query.");
-                }
+            	 }
         }
 
 
         virtual cpix_Hits * search(cpix_IdxSearcher * idxSearcher)
         {
             return CLuceneSearchIdx(idxSearcher,
-                                    clQuery_);
+                                    clQuery_
+                                    );
         }
 
 
         virtual cpix_Hits * search(cpix_IdxDb * idxDb)
         {
             return CLuceneSearchIdx(idxDb,
-                                    clQuery_);
+                                    clQuery_
+                                    );
         }
 
     private:
