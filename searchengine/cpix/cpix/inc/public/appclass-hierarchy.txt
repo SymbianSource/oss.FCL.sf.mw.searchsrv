@@ -23,13 +23,27 @@ Indexed content types:
     | [ _mimetype (opt) ]     {EStoreYes | EIndexNo}
     |
     +-- msg
-    | [ To         ]    {EStoreYes | EIndexTokenized | EIndexFreeText} 	{ExcerptYes, if present}
-    | [ From       ]    {EStoreYes | EIndexTokenized | EIndexFreeText} 	{ExcerptYes, if present}
-    | [ Body       ]    {EStoreYes | EIndexTokenized } 								 	{ExcerptYes}
-    | [ Folder     ]    {EStoreYes | EIndexNo}        									{ExcerptNA}
-    | [ Subject    ]    {EStoreYes | EIndexTokenized} 									{ExcperptNo}
-    | [ Attachment ]	{EStoreYes | EIndexTokenized}										{ExcperptNo}
-    |
+    |    |
+    |    |
+    |    +--smsmms
+    |    | [ To         ]    {EStoreYes | EIndexTokenized | EIndexFreeText} 	{ExcerptYes, if present}
+    |    | [ From       ]    {EStoreYes | EIndexTokenized | EIndexFreeText} 	{ExcerptYes, if present}
+    |    | [ Body       ]    {EStoreYes | EIndexTokenized } 								{ExcerptYes}
+    |    | [ Folder     ]    {EStoreYes | EIndexNo}        									{ExcerptNA}
+    |    | [ Subject    ]    {EStoreYes | EIndexTokenized} 									{ExcperptNo}
+    |    | [ Attachment ]	 {EStoreYes | EIndexTokenized}									{ExcperptNo}
+    |    |
+    |    +--email
+    |    | [ Sender    ]     {EStoreYes | EIndexTokenized | EIndexFreeText}                 {ExcperptNo}
+    |    | [ Subject   ]     {EStoreYes | EIndexTokenized } 								{ExcerptYes}
+    |    | [ Recipients]     {EStoreYes | EIndexTokenized | EIndexFreeText}                 {ExcperptNo}
+    |    | [ Body      ]     {EStoreYes | EIndexTokenized } 								{ExcerptYes}
+    |    | [ MailBoxId ]     {EStoreYes | EIndexUnTokenized | EAggregateNo}                 {ExcerptNA}
+    |    | [ FolderId  ]     {EStoreYes | EIndexUnTokenized | EAggregateNo}                 {ExcerptNA}
+    |    | [ Attachment ]    {EStoreYes | EIndexTokenized , if present}                     {ExcperptNo}
+    |    | [ MailBoxName ]   {EStoreYes | EIndexTokenized | EIndexFreeText}                 {ExcperptNo}
+    |    | [ SentTime ]      {EStoreYes | EIndexTokenized }                                 {ExcperptNo}
+    |    |
     +-- file
     |     |
     |     |

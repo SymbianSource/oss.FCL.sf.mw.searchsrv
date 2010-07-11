@@ -22,5 +22,5 @@
 
 #include "../tsrc/RobustnessTest/group/bld.inf"
 #include "../tsrc/LogPlayer/group/bld.inf"
-#include "../tsrc/SymbianOsUnit/group/s60_3rd/bld.inf"
-//#include "../tsrc/cpixsearchertest/group/bld.inf"
+//#include "../tsrc/SymbianOsUnit/group/s60_3rd/bld.inf"
+#include "../tsrc/cpixsearchertest/group/bld.inf"

@@ -41,6 +41,6 @@ LIBRARY         estor.lib
 
 LIBRARY         flogger.lib 
 
-CAPABILITY        CAP_GENERAL_DLL -DRM
+CAPABILITY        CAP_GENERAL_DLL
 
 // End of File

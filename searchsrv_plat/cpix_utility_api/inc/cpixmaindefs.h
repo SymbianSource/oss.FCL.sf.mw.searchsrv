@@ -196,7 +196,7 @@
  */
 #define DEFAULT_CPIX_DIR "c:\\Data\\"
 #define DEFAULT_CLUCENE_LOCK_DIR "c:\\system\\temp"
-#define DEFAULT_RESOURCE_DIR "c:\\Data\\"
+#define DEFAULT_RESOURCE_DIR "z:\\resource\\cpix"
 
 
 
