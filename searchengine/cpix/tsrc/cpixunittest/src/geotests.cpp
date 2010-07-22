@@ -33,6 +33,7 @@
 #include "testutils.h"
 #include "setupsentry.h"
 
+#include "std_log_result.h"
 
 #define VATTUNIEMENRANTA_2_GPS L"60.154023,24.887724"
 
@@ -282,15 +283,20 @@ public:
 
     void testHarvestJpg(Itk::TestMgr * testMgr)
     {
+        char *xml_file = (char *)__FUNCTION__;
+        assert_failed = 0;
         testMgr_ = testMgr;
         Cpt::traverse(JPG_TEST_CORPUS_PATH,
                       this);
         util_->flush();
+        testResultXml(xml_file);
     }
 
 
     void testSearchJpg(Itk::TestMgr * testMgr)
     {
+        char *xml_file = (char *)__FUNCTION__;
+        assert_failed = 0;
         testMgr_ = testMgr;
 
         cpix_Hits
@@ -301,6 +307,7 @@ public:
                             10);
 
         cpix_Hits_destroy(hits);
+        testResultXml(xml_file);
     }
 
 private:
@@ -430,6 +437,10 @@ private:
                    cpix_Succeeded(queryParser_),
                    "Failed to parse: %S\n",
                    qryStr);
+        if(!cpix_Succeeded(queryParser_))
+            {
+                assert_failed = 1;
+            }
         
         cpix_Hits
             * hits = cpix_IdxDb_search(util_->idxDb(),
@@ -437,6 +448,10 @@ private:
         ITK_ASSERT(testMgr_,
                    cpix_Succeeded(util_->idxDb()),
                    "Failed to search (geo)");
+        if(!cpix_Succeeded(util_->idxDb()))
+            {
+                assert_failed = 1;
+            }
         
         int32_t
             hitCount = cpix_Hits_length(hits);

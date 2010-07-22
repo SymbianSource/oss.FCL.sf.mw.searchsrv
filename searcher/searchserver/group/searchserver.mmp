@@ -52,7 +52,7 @@ SOURCE			  CSearchServerSubSession.cpp
 SOURCE			  CHeartBeatTimer.cpp
 SOURCE			  CCPixAsyncronizer.cpp
 SOURCE 			  CHouseKeepingHandler.cpp
-SOURCE 			  CLogPlayerRecorder.cpp
+SOURCE 			  CLogPlayerRecorder.cpp CCPixAbstractSearcher.cpp
 
 LIBRARY           euser.lib 
 LIBRARY           efsrv.lib 
@@ -72,11 +72,13 @@ STATICLIBRARY     libcpixtools.lib
 STATICLIBRARY     libstemmer.lib
 STATICLIBRARY     libclucene.lib
 LIBRARY  	      libpthread.lib
+STATICLIBRARY     libanalysis.lib
 
 // For SPI 
 LIBRARY   exiflib.lib
 LIBRARY   MetaDataUtility.lib
 LIBRARY   charconv.lib
+LIBRARY   lbs.lib
 
 // Logging
 LIBRARY           flogger.lib 

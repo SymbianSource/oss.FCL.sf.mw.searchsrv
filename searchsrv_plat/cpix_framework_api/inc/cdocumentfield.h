@@ -60,7 +60,8 @@ public: // Data types and constants
 		{
 		EIndexNo = 16,
 		EIndexTokenized = 32,
-		EIndexUnTokenized = 64
+		EIndexUnTokenized = 64,
+		EIndexFreeText = 128
 		};
 
 	/**

@@ -36,7 +36,8 @@ namespace Cpix
 
 
     InitParams::InitParams()
-        : cpixDir_(DEFAULT_CPIX_DIR)
+        : cpixDir_(DEFAULT_CPIX_DIR),
+          resourceDir_(DEFAULT_RESOURCE_DIR)
     {
         setenv("LUCENE_LOCK_DIR_ENV_1",DEFAULT_CLUCENE_LOCK_DIR,1);
     }
@@ -56,6 +57,22 @@ namespace Cpix
             }
 
         cpixDir_ = value;
+    }
+
+    const char * InitParams::getResourceDir() const
+    {
+        return resourceDir_.c_str();
+    }
+
+    void InitParams::setResourceDir(const char * value)
+    {
+        if (value == NULL
+            || strlen(value) == 0)
+            {
+                THROW_CPIXEXC("Value for property resourceDir cannot be NULL or empty string");
+            }
+
+        resourceDir_ = value;
     }
 
     const char * InitParams::getCluceneLockDir() const

@@ -32,6 +32,7 @@ namespace Cpt {
 namespace lucene {
 	namespace analysis {
 		class TokenStream; 
+		class Analyzer;
 	}
 	namespace util {
 		class Reader;
@@ -40,9 +41,8 @@ namespace lucene {
 
 namespace Cpix
 {
-	namespace AnalyzerExp {
-		class Piping; 
-	}
+	class InitParams; 
+
 	struct TokenizerClassEntry;
 	struct FilterClassEntry;
 	
@@ -50,12 +50,79 @@ namespace Cpix
 	
 	class Document; 
 	class Field; 
-	class DocumentFieldIterator; 
+	class DocumentFieldIterator;
+	
+	class LocaleSwitchStreamFactory;
+	class CustomAnalyzer;
+	
+	namespace AnalyzerExp {
+		class LocaleSwitch;
+		class Piping; 
+	}
 }
 
 // Class definitions
 namespace Cpix
 {
+
+	class Analysis {
+		
+	public: 
+		
+		/**
+		 * Initializes the Analysis. Uses init paremeters' resource dir
+		 * to locate & load analysis & localization related resources.
+		 * 
+		 * NOTE: The init is made to work in a fault-tolerant fashion. 
+		 * If needed resource files are not found, a warning is logged 
+		 * (if logging is enabled) and some meaningful default is used instead.
+		 * If logging is not enabled, init _may fail silently_.   
+		 */
+		static void init(InitParams& ip); 
+		
+		/**
+		 * Releases all resources that are used by analysis.  
+		 */
+		static void shutdown();
+
+		/**
+		 * Returns the default analyzer. This analyzer is likely localized
+		 * and will analyze differently depending of what locale is currently 
+		 * active. 
+		 */
+		static lucene::analysis::Analyzer& getDefaultAnalyzer();
+
+		/**
+		 * Returns the query analyzer. This analyzer is likely localized
+		 * and will analyze differently depending of what locale is currently 
+		 * active. 
+		 */
+		static lucene::analysis::Analyzer& getQueryAnalyzer();
+
+		/**
+		 * Returns the query filter analyzer. This analyzer is likely localized
+		 * and will analyze differently depending of what locale is currently 
+		 * active. 
+		 */
+		static lucene::analysis::Analyzer& getPrefixAnalyzer(); 
+
+	private:
+		
+		Analysis(InitParams& ip); 
+		
+		std::auto_ptr<AnalyzerExp::Piping> parse(std::string path);
+		
+		static Analysis* theInstance_;
+		
+		std::auto_ptr<CustomAnalyzer> defaultAnalyzer_;
+		
+		std::auto_ptr<CustomAnalyzer> queryAnalyzer_;
+				
+		std::auto_ptr<CustomAnalyzer> prefixAnalyzer_;
+				
+	};
+
+
 
 	/**
 	 * This is a special filter that is used to generate prefixes
@@ -167,68 +234,7 @@ namespace Cpix
         lucene::analysis::Analyzer* analyzer_; 
     };
 
-
-
-    /**
-     * Forms a series of analyzers, tokenizers and filters based on textual 
-     * analyzer definition. 
-     */
-    class CustomAnalyzer : public lucene::analysis::Analyzer
-    {
-    public:
-			
-        /**
-         * Constructs a custom analyzer based on given definition string.
-         * See CPix documentation to see, how proper analyzer definition
-         * strings ought to be formed.  
-         * 
-         * Throws on failure, e.g. if definition parsing fails, if
-         * declared identifiers are not found and if parameters are wrong.  
-         */
-        CustomAnalyzer(const wchar_t* definition);
-			
-        /**
-         * For internal usage only. Constructs analyzer from a parsed
-         * definition string or from a fragment of a parsed definition
-         * string.
-         */
-        CustomAnalyzer(const Cpix::AnalyzerExp::Piping& definition);
-			
-        virtual ~CustomAnalyzer();
-			
-        /**
-         * Token stream is based on the analyzer definition string
-         */
-        lucene::analysis::TokenStream* 
-        tokenStream(const wchar_t        * fieldName, 
-                    lucene::util::Reader * reader);
-
-    private:
-			
-        /**
-         * Setups the TokenStream factory based on the analyzer
-         * definition stored in the piping
-         */
-        void setup(const Cpix::AnalyzerExp::Piping& definition); 
-
-        /**
-         * Return TokenizerClassEntry, which matches the given
-         * identifier.
-         */
-        static TokenizerClassEntry& 
-        CustomAnalyzer::getTokenizerEntry(std::wstring id);
-			
-        /**
-         * Return FilterClassEntry, which matches the given
-         * identifier.
-         */
-        static FilterClassEntry& 
-        CustomAnalyzer::getFilterEntry(std::wstring id);
-
-    private:
-			
-        std::auto_ptr<TokenStreamFactory> factory_;
-    };
+    std::auto_ptr<lucene::analysis::Analyzer> CreateDefaultAnalyzer();
 
 }
 

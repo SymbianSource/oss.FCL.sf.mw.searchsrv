@@ -32,6 +32,7 @@
 #include "testutils.h"
 #include "setupsentry.h"
 
+#include "std_log_result.h"
 
 const Volume Volumes[] = {
     { "@fin:root maps city",
@@ -211,6 +212,8 @@ public:
 
     void testLoadMaps(Itk::TestMgr * testMgr)
     {
+        char *xml_file = (char *)__FUNCTION__;
+        assert_failed = 0;
         cpix_Result
             result;
 
@@ -219,6 +222,10 @@ public:
         ITK_ASSERT(testMgr,
                    cpix_Succeeded(&result),
                    "Could not reset qbac-path registry");
+        if(!cpix_Succeeded(&result))
+            {
+        assert_failed = 1;    
+            }
 
         const Volume
             *p = Volumes;
@@ -233,6 +240,10 @@ public:
                            cpix_Succeeded(&result),
                            "Could not define volume '%s'",
                            p->qbac_);
+                if(!cpix_Succeeded(&result))
+                    {
+                    assert_failed = 1;    
+                    }
             }
 
         idxSearcher_ = cpix_IdxSearcher_openDb(&result,
@@ -241,13 +252,19 @@ public:
         ITK_ASSERT(testMgr,
                    cpix_Succeeded(&result),
                    "Could not create searcher for 'root maps'");
+        if(!cpix_Succeeded(&result))
+            {
+            assert_failed = 1;    
+            }
+        testResultXml(xml_file);
     }
 
 
     void testSearchMaps(Itk::TestMgr * testMgr)
     {
         printf("Testing searching maps index\n");
-
+        char *xml_file = (char *)__FUNCTION__;
+        assert_failed = 0;
         const wchar_t
             ** p = MapsSearchTerms;
         for (; *p != NULL; ++p)
@@ -290,10 +307,12 @@ public:
                         ITK_EXPECT(testMgr,
                                    false,
                                    "Failed to do address search");
+                        assert_failed = 1;
                     }
 
                 cpix_Query_destroy(query);
             }
+        testResultXml(xml_file);
     }
 
 

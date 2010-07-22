@@ -38,6 +38,7 @@
 #include "testcorpus.h"
 #include "setupsentry.h"
 
+#include "std_log_result.h"
 
 struct MatchTest
 {
@@ -227,6 +228,8 @@ public:
 
     void testCreateIdxs(Itk::TestMgr * testMgr)
     {
+        char *xml_file = (char *)__FUNCTION__;
+        assert_failed = 0;
         const MVFTest
             * mvfTest = filesAndVols_;
 
@@ -279,6 +282,7 @@ public:
         searchAll(testMgr);
         suggestAll(testMgr);
         dumpAll(testMgr);
+        testResultXml(xml_file);
     }
 
     
@@ -588,7 +592,7 @@ Itk::TesterBase * CreateDomainSelectionTests()
     // some blackbox tests doing idx manipulation & searches
     
     DomainSelectionContext
-        * domainSelectionContext = new DomainSelectionContext();
+        * domainSelectionContext = new DomainSelectionContext;
     ContextTester
         * contextTester = new ContextTester("selection",
                                             domainSelectionContext);

@@ -165,6 +165,10 @@ public:
 	IMPORT_C void SetAnalyzerL(const TDesC& aAnalyzer);
 	IMPORT_C void SetAnalyzer(const TDesC& aAnalyzer, TRequestStatus& aStatus);
 
+	
+	IMPORT_C void SetQueryParserL(TInt aQueryParser);
+	IMPORT_C void SetQueryParser(TInt aQueryParser, TRequestStatus& aStatus);
+
     /**
      * Search.
      * Issues a request for a search

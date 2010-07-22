@@ -160,9 +160,10 @@ namespace Cpix
         auto_ptr<Field>
             newField(new Field(LFULLNAME_FIELD,
                                wFullName.c_str(),
-                               cpix_STORE_NO 
+                               cpix_STORE_YES
                              | cpix_INDEX_TOKENIZED
-                             | cpix_AGGREGATE_YES));
+                             | cpix_AGGREGATE_YES
+                             | cpix_FREE_TEXT));
 
         doc->add(newField.get());
         newField.release();
@@ -172,7 +173,8 @@ namespace Cpix
                                  wBaseName.c_str(),
                                  cpix_STORE_NO 
                                | cpix_INDEX_TOKENIZED 
-                               | cpix_AGGREGATE_YES));
+                               | cpix_AGGREGATE_YES
+                               | cpix_FREE_TEXT));
         doc->add(newField.get());
         newField.release();
 
@@ -180,7 +182,8 @@ namespace Cpix
                                  wExtension.c_str(),
                                  cpix_STORE_NO 
                                | cpix_INDEX_TOKENIZED
-                               | cpix_AGGREGATE_YES));
+                               | cpix_AGGREGATE_YES
+                               | cpix_FREE_TEXT));
         doc->add(newField.get());
         newField.release();
     }

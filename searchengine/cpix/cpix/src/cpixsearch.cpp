@@ -39,6 +39,7 @@
 #include "iqrytype.h"
 #include "document.h"
 #include "analyzer.h"
+#include "queryparser.h"
 
 
 /***********************************************************
@@ -56,22 +57,76 @@ cpix_QueryParser_create(cpix_Result   * result,
                         const wchar_t * fieldName,
                         cpix_Analyzer * analyzer)
 {
-    using namespace lucene::analysis;
-
-    Cpix::SystemAnalyzer
+    lucene::analysis::Analyzer
         * a = Cast2Native<cpix_Analyzer>(analyzer);
 
     cpix_QueryParser
         * rv = NULL;
 
-    rv = Create(result,
-                CallCtor(rv,
-                         fieldName,
-                         static_cast<Analyzer*>(a)));
-
+    Cpix::IQueryParser* parser = 
+		XlateExc(
+			result, 
+			CallFreeFunc(
+				&Cpix::CreateCLuceneQueryParser,
+				fieldName, 
+				a));
+    
+    if ( cpix_Succeeded( result ) ) {
+		CreateWrapper(parser, result, rv); 
+    }
     return rv;
 }
 
+cpix_QueryParser * 
+    cpix_CreatePrefixQueryParser(cpix_Result   * result, 
+								 const wchar_t * fieldName)
+{
+    using namespace lucene::analysis;
+
+   cpix_QueryParser
+        * rv = NULL;
+
+    Cpix::IQueryParser* parser = 
+		XlateExc(
+			result, 
+			CallFreeFunc(
+				&Cpix::CreatePrefixQueryParser,
+				fieldName));
+    
+    if ( cpix_Succeeded( result ) ) {
+		CreateWrapper(parser, result, rv); 
+    }
+    return rv;
+}
+
+
+
+cpix_QueryParser *
+	cpix_CreateMultiFieldQueryParser(cpix_Result   * result,
+									 const wchar_t * fieldNames[],
+									 cpix_Analyzer * analyzer,
+									 cpix_BoostMap * boosts)
+{
+    cpix_QueryParser
+        * rv = NULL;
+    
+    lucene::analysis::Analyzer
+        * a = Cast2Native<cpix_Analyzer>(analyzer);
+
+    Cpix::IQueryParser* parser = 
+		XlateExc(
+			result, 
+			CallFreeFunc(
+				&Cpix::CreateCLuceneMultiFieldQueryParser,
+				fieldNames,
+				a, 
+				Cast2Native<cpix_BoostMap>(boosts)));
+    
+    if ( cpix_Succeeded( result ) ) {
+		CreateWrapper(parser, result, rv); 
+    }
+    return rv;
+}
 
 
 cpix_BoostMap *
@@ -121,38 +176,15 @@ void cpix_BoostMap_destroy(cpix_BoostMap * thisMap)
     DestroyWrapper(thisMap);
 }
 
-
-cpix_QueryParser *
-cpix_CreateMultiFieldQueryParser(cpix_Result   * result,
-                                 const wchar_t * fieldNames[],
-                                 cpix_Analyzer * analyzer,
-                                 cpix_BoostMap * boosts)
-{
-    cpix_MultiFieldQueryParser
-        * rv = NULL;
-    
-    rv = Create(result,
-                CallCtor(rv,
-                         fieldNames,
-                         Cast2Native<cpix_Analyzer>(analyzer),
-                         Cast2Native<cpix_BoostMap>(boosts)));
-
-    return rv;
-}
-
-
-void 
+void
 cpix_QueryParser_setDefaultOperator(cpix_QueryParser * thisQueryParser,
                                     cpix_QP_Operator   op)
 {
-    using namespace lucene::queryParser;
-
     XlateExc(thisQueryParser,
              Caller(thisQueryParser,
-                        &QueryParser::setDefaultOperator,
-                        static_cast<int>(op)));
+                    &Cpix::IQueryParser::setDefaultOperator,
+                    op));
 }
-
 
 cpix_Query * 
 cpix_QueryParser_parse(cpix_QueryParser * thisQueryParser,

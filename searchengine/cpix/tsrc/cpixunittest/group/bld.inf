@@ -17,6 +17,13 @@
 PRJ_TESTEXPORTS
 
 //
+// CPix Localization Resources
+//
+
+../../../cpix/data/resource/analyzer.loc     /epoc32/winscw/c/Data/cpixunittestcorpus/resource/analyzer.loc
+../../../cpix/data/resource/thaidict.sm      /epoc32/winscw/c/Data/cpixunittestcorpus/resource/thaidict.sm
+
+//
 // Test Definition Files (For ITK IOCapture testing)
 //
 
@@ -224,17 +231,31 @@ PRJ_TESTEXPORTS
 ../data/cpixunittest/whitebox/delta/wrn-complete/startStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wrn-complete/startStage_exp_out.txt
 ../data/cpixunittest/whitebox/delta/wrn-complete/recoveredStage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/whitebox/delta/wrn-complete/recoveredStage_exp_out.txt
 
-
-
 ../data/cpixunittest/analysis/parsing_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/analysis/parsing_exp_out.txt
 ../data/cpixunittest/analysis/switchParsing_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/analysis/switchParsing_exp_out.txt
 ../data/cpixunittest/analysis/usage_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/analysis/usage_exp_out.txt
+
+../data/cpixunittest/analysis/loc/currentLocale_C_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/analysis/loc/currentLocale_C_exp_out.txt
+../data/cpixunittest/analysis/loc/en_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/analysis/loc/en_exp_out.txt
+../data/cpixunittest/analysis/loc/th_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/analysis/loc/th_exp_out.txt
+../data/cpixunittest/analysis/loc/ch_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/analysis/loc/ch_exp_out.txt
+../data/cpixunittest/analysis/loc/ko_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/analysis/loc/ko_exp_out.txt
+../data/cpixunittest/analysis/loc/jp_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/analysis/loc/jp_exp_out.txt
+
 ../data/cpixunittest/analysis/whitebox/analyzer_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/analysis/whitebox/analyzer_exp_out.txt
-../data/cpixunittest/analysis/whitebox/parsing_exp_out.txt 		/epoc32/winscw/c/Data/cpixunittest/analysis/whitebox/parsing_exp_out.txt
-../data/cpixunittest/analysis/whitebox/parsing2_exp_out.txt 		/epoc32/winscw/c/Data/cpixunittest/analysis/whitebox/parsing2_exp_out.txt
+../data/cpixunittest/analysis/whitebox/parsing_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/analysis/whitebox/parsing_exp_out.txt
+../data/cpixunittest/analysis/whitebox/parsing2_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/analysis/whitebox/parsing2_exp_out.txt
 ../data/cpixunittest/analysis/whitebox/parsingerrors_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/analysis/whitebox/parsingerrors_exp_out.txt
 ../data/cpixunittest/analysis/whitebox/switchAnalyzer_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/analysis/whitebox/switchAnalyzer_exp_out.txt
+../data/cpixunittest/analysis/whitebox/localeSwitchAnalyzer_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/analysis/whitebox/localeSwitchAnalyzer_exp_out.txt
 ../data/cpixunittest/analysis/whitebox/tokenization_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/analysis/whitebox/tokenization_exp_out.txt
+
+../data/cpixunittest/analysis/whitebox/loc/currentLocale_C_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/analysis/whitebox/loc/currentLocale_C_exp_out.txt
+../data/cpixunittest/analysis/whitebox/loc/en_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/analysis/whitebox/loc/en_exp_out.txt
+../data/cpixunittest/analysis/whitebox/loc/th_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/analysis/whitebox/loc/th_exp_out.txt
+../data/cpixunittest/analysis/whitebox/loc/ch_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/analysis/whitebox/loc/ch_exp_out.txt
+../data/cpixunittest/analysis/whitebox/loc/ko_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/analysis/whitebox/loc/ko_exp_out.txt
+../data/cpixunittest/analysis/whitebox/loc/jp_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/analysis/whitebox/loc/jp_exp_out.txt
 
 ../data/cpixunittest/utf8/utf8_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/utf8/utf8_exp_out.txt
 
@@ -284,6 +305,12 @@ PRJ_TESTEXPORTS
 ../data/cpixunittest/utf8path/createUtf8PathFiles_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/utf8path/createUtf8PathFiles_exp_out.txt
 ../data/cpixunittest/utf8path/harvest_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/utf8path/harvest_exp_out.txt
 ../data/cpixunittest/utf8path/search_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/utf8path/search_exp_out.txt
+
+../data/cpixunittest/prefixopt/unoptimized_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/prefixopt/unoptimized_out.txt
+../data/cpixunittest/prefixopt/optimized_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/prefixopt/optimized_exp_out.txt
+
+
+
 
 
 // 
@@ -359,6 +386,46 @@ PRJ_TESTEXPORTS
 "../data/cpixunittestcorpus/query/query7.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/query/query7.txt"
 "../data/cpixunittestcorpus/query/query8.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/query/query8.txt"
 "../data/cpixunittestcorpus/query/query9.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/query/query9.txt"
+
+"../data/cpixunittestcorpus/loc/fr/1.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/fr/1.txt"
+"../data/cpixunittestcorpus/loc/fr/2.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/fr/2.txt"
+"../data/cpixunittestcorpus/loc/fr/3.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/fr/3.txt"
+"../data/cpixunittestcorpus/loc/fr/4.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/fr/4.txt"
+
+"../data/cpixunittestcorpus/loc/he/1.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/he/1.txt"
+"../data/cpixunittestcorpus/loc/he/2.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/he/2.txt"
+"../data/cpixunittestcorpus/loc/he/3.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/he/3.txt"
+"../data/cpixunittestcorpus/loc/he/4.txt" 
+
+"../data/cpixunittestcorpus/loc/th/1.txt"                             "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/th/1.txt"
+"../data/cpixunittestcorpus/loc/th/2.txt"                             "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/th/2.txt"
+"../data/cpixunittestcorpus/loc/th/3.txt"                             "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/th/3.txt"
+"../data/cpixunittestcorpus/loc/th/4.txt"                             "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/th/4.txt"
+
+"../data/cpixunittestcorpus/loc/ch_prc/1.txt"                         "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/ch_prc/1.txt"
+"../data/cpixunittestcorpus/loc/ch_prc/2.txt"                         "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/ch_prc/2.txt"
+"../data/cpixunittestcorpus/loc/ch_prc/3.txt"                         "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/ch_prc/3.txt"
+"../data/cpixunittestcorpus/loc/ch_prc/4.txt"                         "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/ch_prc/4.txt"
+
+"../data/cpixunittestcorpus/loc/ch_simple/1.txt"                         "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/ch_simple/1.txt"
+"../data/cpixunittestcorpus/loc/ch_simple/2.txt"                         "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/ch_simple/2.txt"
+"../data/cpixunittestcorpus/loc/ch_simple/3.txt"                         "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/ch_simple/3.txt"
+"../data/cpixunittestcorpus/loc/ch_simple/4.txt"                         "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/ch_simple/4.txt"
+
+"../data/cpixunittestcorpus/loc/ch_hk/1.txt"                         "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/ch_hk/1.txt"
+"../data/cpixunittestcorpus/loc/ch_hk/2.txt"                         "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/ch_hk/2.txt"
+"../data/cpixunittestcorpus/loc/ch_hk/3.txt"                         "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/ch_hk/3.txt"
+"../data/cpixunittestcorpus/loc/ch_hk/4.txt"                         "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/ch_hk/4.txt"
+
+"../data/cpixunittestcorpus/loc/ch_tw/1.txt"                         "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/ch_tw/1.txt"
+"../data/cpixunittestcorpus/loc/ch_tw/2.txt"                         "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/ch_tw/2.txt"
+"../data/cpixunittestcorpus/loc/ch_tw/3.txt"                         "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/ch_tw/3.txt"
+"../data/cpixunittestcorpus/loc/ch_tw/4.txt"                         "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/ch_tw/4.txt"
+
+"../data/cpixunittestcorpus/loc/jp/1.txt"                         "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/jp/1.txt"
+"../data/cpixunittestcorpus/loc/jp/2.txt"                         "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/jp/2.txt"
+"../data/cpixunittestcorpus/loc/jp/3.txt"                         "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/jp/3.txt"
+"../data/cpixunittestcorpus/loc/jp/4.txt"                         "/epoc32/winscw/c/Data/cpixunittestcorpus/loc/jp/4.txt"
 
 PRJ_TESTMMPFILES
 cpixunittest.mmp

@@ -17,6 +17,7 @@
 
 #include <f32file.h>
 #include <s32file.h>
+#include <centralrepository.h>
 #include "CIndexingManager.h"
 #include "HarvesterServerLogger.h"
 #include "CBlacklistMgr.h"
@@ -48,6 +49,11 @@ const TInt KMaxTimeDifference = 1 + KDefaultWaitTimeInMinutes;
 //constants for enable and disable status
 const TInt KEnable = 1;
 const TInt KDisable = 0;
+//Uid of Harvester server cetral repository database
+const TUid KCPIXHSrepoUidMenu = {0x2001f6fb};
+
+//Length of uid string in cenrep
+const TInt KCenrepUidLength = 8;
 // -----------------------------------------------------------------------------
 // CHarvesterServer::NewL()
 // -----------------------------------------------------------------------------
@@ -134,6 +140,8 @@ void CIndexingManager::ConstructL()
 	iBlacklistMgr = CBlacklistMgr::NewL();
 	//Instantiate Contentinfo manager
 	iContentInfoMgr = CContentInfoMgr::NewL();
+	
+	UpdateDontloadListL();
 
 	// Load plugins
 	LoadPluginsL();
@@ -300,6 +308,7 @@ void CIndexingManager::RunL()
 //
 void CIndexingManager::LoadPluginsL()
 	{
+    OstTraceFunctionEntry0( CINDEXINGMANAGER_LOADPLUGINSL_ENTRY );
     RImplInfoPtrArray infoArray;    
     TCleanupItem cleanupItem( CPixSearchECom::CleanupEComArray, &infoArray );
     CleanupStack::PushL( cleanupItem );
@@ -308,69 +317,30 @@ void CIndexingManager::LoadPluginsL()
     TInt count( 0 );
     count = infoArray.Count();
     
-    //FFLOGSTRING2( "CFastFindHarvesterPluginControl:: PLUGINS COUNT %d", count );
-    CIndexingPlugin* plugin = NULL;
-    
     TInt contentcount(iContentInfoMgr->GetContentCountL() );
     // If the content count in the content info DB is not equal to the plugin count, reset the content info DB
     if ( contentcount != count)
         iContentInfoMgr->ResetL();
     
+    CContentInfo* contentinfo = CContentInfo::NewL();
+    
     for ( TInt i = 0; i < count; i++ )
         {
         TUid uid = infoArray[i]->ImplementationUid();    // Create the plug-ins
         TInt version = infoArray[i]->Version();
-        //FFLOGSTRING2( "CFastFindHarvesterPluginControl:: PLUGINS UID %x", uid );
-        plugin = NULL;
-        TBool pluginblacklisted = EFalse;
+        //Update the details of the plugin in Contentinfo DB
+        UpdateContentInfoDbL( infoArray[i]->DisplayName(), contentinfo );
+        //Get the load status of the plugin.
+        TBool pluginloadstatus = GetPluginLoadStatusL ( uid, version, infoArray[i]->DisplayName() );        
         
-        pluginblacklisted = iBlacklistMgr->FindL( uid , version );
-        
-        TBool iscontentfound = iContentInfoMgr->FindL( infoArray[i]->DisplayName() );
-        
-        if( !iscontentfound )
+        if ( pluginloadstatus )
             {
-            //Add the content details to database
-            CContentInfo* contentinfo = CContentInfo::NewL();
-            contentinfo->SetNameL( infoArray[i]->DisplayName() );
-            contentinfo->SetBlacklistStatus( KEnable );
-            contentinfo->SetIndexStatus( KEnable );
-            iContentInfoMgr->AddL( contentinfo );
-            delete contentinfo;
+            LoadHarvesterpluginL (uid, version, infoArray[i]->DisplayName() );//Load the harvester plugin
             }
-        else
-            {
-            iContentInfoMgr->UpdateBlacklistStatusL( infoArray[i]->DisplayName() , KEnable );
-            }
-        
-        if ( !pluginblacklisted )
-            {
-            // Plugin is not black listed. Add it to database and try to load the plugin
-            iBlacklistMgr->AddL( uid , version );
-            OstTrace1( TRACE_NORMAL, CINDEXINGMANAGER_LOADPLUGINSL, "CIndexingManager::LoadPluginsL;Plugin with uid=%x is added to DB", uid.iUid );
-            CPIXLOGSTRING2("CIndexingManager::LoadPluginsL(): Plugin with uid = %x is added to database", uid.iUid);
-            TRAPD( err, plugin = CIndexingPlugin::NewL( uid ) );
-            //FFLOGSTRING2( "CFastFindHarvesterPluginControl:: ERROR %d", err );
-            if ( err == KErrNone )
-                {
-                // Plugin loaded succesfully. Remove it from the database
-                iBlacklistMgr->Remove(uid);
-                OstTrace1( TRACE_NORMAL, DUP1_CINDEXINGMANAGER_LOADPLUGINSL, "CIndexingManager::LoadPluginsL;Plugin with uid=%x is removed from DB", uid.iUid );
-                CPIXLOGSTRING2("CIndexingManager::LoadPluginsL(): Plugin with uid = %x is removed from database", uid.iUid);
-                iContentInfoMgr->UpdateBlacklistStatusL( infoArray[i]->DisplayName() , KDisable );
-                CleanupStack::PushL( plugin );
-                plugin->SetObserver( *this );
-                plugin->SetSearchSession( iSearchSession );
-                iPluginArray.AppendL( plugin ); // and add them to array
-                CleanupStack::Pop( plugin );
-                OstTrace1( TRACE_NORMAL, DUP2_CINDEXINGMANAGER_LOADPLUGINSL, "CIndexingManager::LoadPluginsL;Plugin with uid=%x is loaded successfully", uid.iUid );
-                CPIXLOGSTRING2("CIndexingManager::LoadPluginsL(): Plugin with uid = %x is loaded succesfully", uid.iUid);
-                }
-            }
-        }    
-    CleanupStack::PopAndDestroy( &infoArray ); // infoArray, results in a call to CleanupEComArray
-    //FFLOGSTRING( "CFastFindHarvesterPluginControl::LoadPluginsL() plugin!" );    
-    
+        }
+    delete contentinfo;
+    CleanupStack::PopAndDestroy( &infoArray ); // infoArray, results in a call to CleanupEComArray    
+	OstTraceFunctionExit0( CINDEXINGMANAGER_LOADPLUGINSL_EXIT );
 	}
 
 // -----------------------------------------------------------------------------
@@ -614,3 +584,127 @@ void CIndexingManager::SaveL()
 	CleanupStack::PopAndDestroy(2, &file);
 }
 
+// -----------------------------------------------------------------------------
+// CIndexingManager::UpdateContentInfoDbL()
+// -----------------------------------------------------------------------------
+//
+void CIndexingManager::UpdateContentInfoDbL( const TDesC& aPluginName, CContentInfo* aContentinfo)
+{
+    OstTraceFunctionEntry0( CINDEXINGMANAGER_UPDATECONTENTINFODBL_ENTRY );
+    TBool iscontentfound = iContentInfoMgr->FindL( aPluginName );
+            
+    if( !iscontentfound )
+        {
+        //Add the content details to database
+        aContentinfo->SetNameL( aPluginName );
+        aContentinfo->SetBlacklistStatus( KEnable );
+        aContentinfo->SetIndexStatus( KEnable );
+        iContentInfoMgr->AddL( aContentinfo );
+        
+        }
+    else
+        {
+        iContentInfoMgr->UpdateBlacklistStatusL( aPluginName , KEnable );
+        }
+    OstTraceFunctionExit0( CINDEXINGMANAGER_UPDATECONTENTINFODBL_EXIT );
+}
+
+// -----------------------------------------------------------------------------
+// CIndexingManager::UpdateDontloadListL()
+// -----------------------------------------------------------------------------
+//
+void CIndexingManager::UpdateDontloadListL()
+    {
+    OstTraceFunctionEntry0( CINDEXINGMANAGER_UPDATEDONTLOADLISTL_ENTRY );
+    CPIXLOGSTRING("CIndexingManager::UpdateDontloadList : Start");
+    //Read the list of Uid's from the cenrep and update blacklist database
+    //Open the unload list common repository
+    CRepository* unloadrepo = NULL;
+    TRAPD( cerror , unloadrepo = CRepository::NewL( KCPIXHSrepoUidMenu ));
+    if ( cerror != KErrNone)
+        return;
+    RArray<TUint32> uidlist;    
+    //Read all the key list
+    //Matches occur whenever (key & mask) == (partialKey & mask). 
+    //The partial key is guaranteed to be masked before use
+    // To fetch all the keys we have done masking with '0'
+    TInt error = unloadrepo->FindL( 0, 0, uidlist);
+    if ( error == KErrNone )
+        {
+        TBuf<KCenrepUidLength> temp;
+        //get the Uid of each and every plugin and add it to blacklist database
+        TInt count = uidlist.Count();
+        for (int i = 0; i < count; i++ )
+            {
+            TUid uid;
+            TInt64 value;
+            unloadrepo->Get( uidlist[i], temp );
+            TLex uidvalue(temp);
+            TInt xerr = uidvalue.Val( value,EHex );
+            uid.iUid = value;
+            (void)iBlacklistMgr->AddtoDontloadListL( uid );            
+            }
+        }
+    CPIXLOGSTRING("CIndexingManager::UpdateDontloadList : End");
+    OstTraceFunctionExit0( CINDEXINGMANAGER_UPDATEDONTLOADLISTL_EXIT );
+    }
+
+// -----------------------------------------------------------------------------
+// CIndexingManager::GetPluginLoadStatus()
+// -----------------------------------------------------------------------------
+//
+TBool CIndexingManager::GetPluginLoadStatusL (TUid aPluginUid, TInt aVersion, const TDesC& aPluginName)
+    {
+    OstTraceFunctionEntry0( DUP1_CINDEXINGMANAGER_GETPLUGINLOADSTATUSL_ENTRY );
+    //status of plugin in blacklist table
+    TBool pluginblacklisted = iBlacklistMgr->FindL( aPluginUid, aVersion);
+    //status of plugin in unload table
+    TBool loadstatus =  iBlacklistMgr->FindInDontloadListL( aPluginUid );  
+    //Check the Uid in both the tables of the blacklist db 
+//    if ( loadstatus || pluginblacklisted )
+//        loadplugin = EFalse;
+    
+    if ( loadstatus )
+        {
+        //Found in unload list.Update the indexing and blacklist status in contentinfo DB
+        iContentInfoMgr->UpdatePluginIndexStatusL( aPluginName , KDisable );
+        iContentInfoMgr->UpdateBlacklistStatusL( aPluginName , KDisable );
+        }
+    if ( pluginblacklisted )
+        //Update the blacklist status in content info db
+        iContentInfoMgr->UpdateBlacklistStatusL( aPluginName , KEnable );
+    
+    return (! (loadstatus | pluginblacklisted));
+    }
+
+// -----------------------------------------------------------------------------
+// CIndexingManager::GetPluginLoadStatus()
+// -----------------------------------------------------------------------------
+//
+void CIndexingManager::LoadHarvesterpluginL (TUid aPluginUid, TInt aVersion, const TDesC& aPluginName)
+    {
+    OstTraceFunctionEntry0( CINDEXINGMANAGER_LOADHARVESTERPLUGINL_ENTRY );
+    CIndexingPlugin* plugin = NULL;
+    // Plugin is not black listed. Add it to blacklist database
+    iBlacklistMgr->AddL( aPluginUid , aVersion );
+    OstTrace1( TRACE_NORMAL, DUP1_CINDEXINGMANAGER_LOADHARVESTERPLUGINL, "CIndexingManager::LoadPluginsL;Plugin with uid=%x is added to DB", aPluginUid.iUid );
+    CPIXLOGSTRING2("CIndexingManager::LoadHarvesterpluginL(): Plugin with uid = %x is added to database", aPluginUid.iUid);
+    //try to load the plugin
+    TRAPD( err, plugin = CIndexingPlugin::NewL( aPluginUid ) );
+    if ( err == KErrNone )
+        {
+        // Plugin loaded succesfully. Remove it from the blacklist database
+        iBlacklistMgr->Remove(aPluginUid);
+        OstTrace1( TRACE_NORMAL, CINDEXINGMANAGER_LOADHARVESTERPLUGINL, "CIndexingManager::LoadPluginsL;Plugin with uid=%x is removed from DB", aPluginUid.iUid );
+        CPIXLOGSTRING2("CIndexingManager::LoadHarvesterpluginL(): Plugin with uid = %x is removed from database", aPluginUid.iUid);
+        iContentInfoMgr->UpdateBlacklistStatusL( aPluginName , KDisable );
+        CleanupStack::PushL( plugin );
+        plugin->SetObserver( *this );
+        plugin->SetSearchSession( iSearchSession );
+        iPluginArray.AppendL( plugin ); // and add them to array
+        CleanupStack::Pop( plugin );
+        OstTrace1( TRACE_NORMAL, DUP2_CINDEXINGMANAGER_LOADHARVESTERPLUGINL, "CIndexingManager::LoadPluginsL;Plugin with uid=%x is loaded successfully", aPluginUid.iUid );
+        CPIXLOGSTRING2("CIndexingManager::LoadHarvesterpluginL(): Plugin with uid = %x is loaded succesfully", aPluginUid.iUid);
+        }
+    OstTraceFunctionExit0( CINDEXINGMANAGER_LOADHARVESTERPLUGINL_EXIT );
+    }

@@ -24,8 +24,28 @@ namespace Cpix {
 
 	namespace AnalyzerExp {
 	
+		const wchar_t TOKEN_LEFT_BRACKET[] = L"(";
+		const wchar_t TOKEN_RIGHT_BRACKET[] = L")"; 
+		const wchar_t TOKEN_COMMA[] = L"comma"; 
+		const wchar_t TOKEN_PIPE[] = L">";
+		const wchar_t TOKEN_SWITCH[] = L"switch";
+		const wchar_t TOKEN_LOCALE_SWITCH[] = L"locale_switch";
+		const wchar_t TOKEN_CONFIG_SWITCH[] = L"config_switch";
+		const wchar_t TOKEN_CASE[] = L"case";
+		const wchar_t TOKEN_DEFAULT[] = L"default";
+		const wchar_t TOKEN_LEFT_BRACE[] = L"{";
+		const wchar_t TOKEN_RIGHT_BRACE[] = L"}";
+		const wchar_t TOKEN_COLON[] = L";";
+		const wchar_t TOKEN_TERMINATOR[] = L";"; 
+
+	
+		std::auto_ptr<Piping> ParsePiping(Cpt::Parser::Lexer& lexer);  
+
+	
 		Tokenizer::Tokenizer()
 		:	ws_(),
+		 	lcomment_(), 
+		 	scomment_(), 
 			ids_(), 
 			strlits_('\''), 
 			intlits_(), 
@@ -35,6 +55,8 @@ namespace Cpix {
 			cm_(TOKEN_COMMA, L","),
 			pp_(TOKEN_PIPE, CPIX_PIPE),
 			sw_(TOKEN_SWITCH, CPIX_SWITCH),
+			lsw_(TOKEN_LOCALE_SWITCH, CPIX_LOCALE_SWITCH),  
+			csw_(TOKEN_CONFIG_SWITCH, CPIX_CONFIG_SWITCH),  
 			cs_(TOKEN_CASE, CPIX_CASE),
 			df_(TOKEN_DEFAULT, CPIX_DEFAULT),
 			lbc_(TOKEN_LEFT_BRACE, L"{"),
@@ -42,24 +64,29 @@ namespace Cpix {
 			cl_(TOKEN_COLON, L":"),
 			tr_(TOKEN_TERMINATOR, L";")
 		{
-			tokenizers_ = new Cpt::Lex::Tokenizer*[17];
-			tokenizers_[0] = &ws_;
-			tokenizers_[1] = &lb_;
-			tokenizers_[2] = &rb_;
-			tokenizers_[3] = &cm_;
-			tokenizers_[4] = &pp_;
-			tokenizers_[5] = &sw_;
-			tokenizers_[6] = &cs_;
-			tokenizers_[7] = &df_;
-			tokenizers_[8] = &lbc_;
-			tokenizers_[9] = &rbc_;
-			tokenizers_[10] = &cl_;
-			tokenizers_[11] = &tr_;
-			tokenizers_[12] = &ids_;
-			tokenizers_[13] = &strlits_;
-			tokenizers_[14] = &intlits_;
-			tokenizers_[15] = &reallits_;
-			tokenizers_[16] = 0; 
+			int i = 0; 
+			tokenizers_ = new Cpt::Lex::Tokenizer*[21];
+			tokenizers_[i++] = &ws_;
+			tokenizers_[i++] = &lcomment_;
+			tokenizers_[i++] = &scomment_;
+			tokenizers_[i++] = &lb_;
+			tokenizers_[i++] = &rb_;
+			tokenizers_[i++] = &cm_;
+			tokenizers_[i++] = &pp_;
+			tokenizers_[i++] = &sw_;
+			tokenizers_[i++] = &lsw_;
+			tokenizers_[i++] = &csw_;
+			tokenizers_[i++] = &cs_;
+			tokenizers_[i++] = &df_;
+			tokenizers_[i++] = &lbc_;
+			tokenizers_[i++] = &rbc_;
+			tokenizers_[i++] = &cl_;
+			tokenizers_[i++] = &tr_;
+			tokenizers_[i++] = &ids_;
+			tokenizers_[i++] = &strlits_;
+			tokenizers_[i++] = &intlits_;
+			tokenizers_[i++] = &reallits_;
+			tokenizers_[i++] = 0; 
 			tokenizer_.reset( new Cpt::Lex::MultiTokenizer(tokenizers_) );
 		}
 		
@@ -136,12 +163,11 @@ namespace Cpix {
 			return filters_;
 		}
 	
-		Case::Case(const std::vector<std::wstring>& fields, std::auto_ptr<Piping> piping) 
-		:	fields_(fields), piping_(piping) {
-		}
+		Case::Case(const std::vector<std::wstring>& cases, std::auto_ptr<Piping> piping) 
+		:	cases_(cases), piping_(piping) {}
 		Case::~Case() {}; 
-		const std::vector<std::wstring>& Case::fields() const   { return fields_; }
-		const Piping& Case::piping() const 						{ return *piping_; }
+		const std::vector<std::wstring>& Case::cases() const   { return cases_; }
+		const Piping& Case::piping() const 					   { return *piping_; }
 		
 		Switch::Switch(Cpt::auto_vector<Case>& cases, std::auto_ptr<Piping> def) 
 		: cases_(cases), def_(def) {
@@ -152,7 +178,67 @@ namespace Cpix {
 		
 		const std::vector<Case*>& Switch::cases() const { return cases_; }
 		const Piping& Switch::def() const { return *def_; }
-	
+
+		LocaleSwitch::LocaleSwitch(Cpt::auto_vector<Case>& cases, std::auto_ptr<Piping> def) 
+		: cases_(cases), def_(def) {
+		}
+		
+		LocaleSwitch::~LocaleSwitch() {
+		}
+		
+		const std::vector<Case*>& LocaleSwitch::cases() const { return cases_; }
+		const Piping& LocaleSwitch::def() const { return *def_; }
+
+		ConfigSwitch::ConfigSwitch(Cpt::auto_vector<Case>& cases, std::auto_ptr<Piping> def) 
+		: cases_(cases), def_(def) {
+		}
+		
+		ConfigSwitch::~ConfigSwitch() {
+		}
+		
+		const std::vector<Case*>& ConfigSwitch::cases() const { return cases_; }
+		const Piping& ConfigSwitch::def() const { return *def_; }
+
+		//
+		// Parsing methods   
+		// ---------------
+		//
+		
+		// 
+		// How the parsing is implemented? 
+		// --
+		//  
+		// Parsing uses the Lexer - object from Cpt::Parser package.
+		// The basic way how lexer operates is that the lexer  
+		// converts a source stream of characters lazily into 
+		// stream of tokens. If the lexer object fails at tokenizing 
+		// the character stream because syntax error, LexException 
+		// is thrown.
+		// 
+		// The produced stream of tokens can be iterated
+		// with 'eat' methods. Typically one moves forward in the 
+		// token stream by 'eating' specific tokens, e.g. by 
+		// command lexer.eat(TOKEN_LEFT_BRACKET). If the 'eaten'
+		// token is not of the specified type, parse exception is
+		// raised. In cases, where token can be of a number of types,
+		// use of lexer.peek() is adviced.
+		//
+		
+		// 
+		// Example code of using lexer for parsing syntax '(ID[, STRING])': 
+		//
+		//     lexer.eat(TOKEN_LEFT_BRACKET);
+		//     std::string id = lexer.parseId();
+		//     if (lexer.peek().type() == TOKEN_COMMA) {
+		//       lexer.eat(TOKEN_COMMA);
+		//       std::string str = lexer.parseString();
+		//     )
+		//     lexer.eat(TOKEN_RIGHT_BRACKET);
+		// 
+		
+		// Atomic expressions, e.g. "'foo'", "4", "4.5", "id" 
+		//
+		
 		std::auto_ptr<StringLit> ParseString(Cpt::Parser::Lexer& lexer)
 		{
 			return std::auto_ptr<StringLit>(new StringLit(lexer.eatString())); 
@@ -175,13 +261,12 @@ namespace Cpix {
 	
 		std::auto_ptr<Exp> ParseParameter(Cpt::Parser::Lexer& lexer)  
 		{
-			switch (lexer.peek().type()) {
-				case Cpt::Lex::TOKEN_ID: return std::auto_ptr<Exp>( ParseIdentifier(lexer).release() );
-				case Cpt::Lex::TOKEN_STRLIT: return std::auto_ptr<Exp>( ParseString(lexer).release() );
-				case Cpt::Lex::TOKEN_INTLIT: return std::auto_ptr<Exp>( ParseInteger(lexer).release() );
-				case Cpt::Lex::TOKEN_REALLIT: return std::auto_ptr<Exp>( ParseReal(lexer).release() );
-				default: throw Cpt::Parser::ParseException(L"Expected literal . ", lexer.peek()); 
-			}
+			Cpt::Lex::token_type_t type = lexer.peek().type(); 
+			if (type == Cpt::Lex::TOKEN_ID) 	return std::auto_ptr<Exp>( ParseIdentifier(lexer).release() );
+			if (type == Cpt::Lex::TOKEN_STRLIT) return std::auto_ptr<Exp>( ParseString(lexer).release() );
+			if (type == Cpt::Lex::TOKEN_INTLIT)	return std::auto_ptr<Exp>( ParseInteger(lexer).release() );
+			if (type == Cpt::Lex::TOKEN_REALLIT)return std::auto_ptr<Exp>( ParseReal(lexer).release() );
+			throw Cpt::Parser::ParseException(L"Expected literal. ", lexer.peek()); 
 		}
 	
 		std::auto_ptr<Parameters> ParseParameters(Cpt::Parser::Lexer& lexer) 
@@ -254,10 +339,47 @@ namespace Cpix {
 	
 			return std::auto_ptr<Switch>(new Switch(cases, def)); 
 		}
+
+		std::auto_ptr<LocaleSwitch> ParseLocaleSwitch(Cpt::Parser::Lexer& lexer)  
+		{
+			lexer.eat(TOKEN_LOCALE_SWITCH); 
+			lexer.eat(TOKEN_LEFT_BRACE);
+			Cpt::auto_vector<Case> cases;
+			while (lexer && lexer.peek().type() == TOKEN_CASE) {
+				cases.donate_back(ParseCase(lexer));
+			}
+			std::auto_ptr<Piping> def = ParseDefault(lexer); 
+			lexer.eat(TOKEN_RIGHT_BRACE); 
 	
+			return std::auto_ptr<LocaleSwitch>(new LocaleSwitch(cases, def)); 
+		}
+		
+		std::auto_ptr<ConfigSwitch> ParseConfigSwitch(Cpt::Parser::Lexer& lexer)  
+		{
+			lexer.eat(TOKEN_CONFIG_SWITCH); 
+			lexer.eat(TOKEN_LEFT_BRACE);
+			Cpt::auto_vector<Case> cases;
+			while (lexer && lexer.peek().type() == TOKEN_CASE) {
+				cases.donate_back(ParseCase(lexer));
+			}
+			std::auto_ptr<Piping> def = ParseDefault(lexer); 
+			lexer.eat(TOKEN_RIGHT_BRACE); 
+	
+			return std::auto_ptr<ConfigSwitch>(new ConfigSwitch(cases, def)); 
+		}
+
+
+		// Tokenizer can be either in Invocation form or switch-case 
+		// structure
+		//
+		
 		std::auto_ptr<Exp> ParseTokenizer(Cpt::Parser::Lexer& lexer)  {
 			if (lexer.peek().type() == TOKEN_SWITCH) {
 				return std::auto_ptr<Exp>(ParseSwitch(lexer).release()); 
+			} else if (lexer.peek().type() == TOKEN_LOCALE_SWITCH) {
+				return std::auto_ptr<Exp>(ParseLocaleSwitch(lexer).release()); 
+			} else if (lexer.peek().type() == TOKEN_CONFIG_SWITCH) {
+				return std::auto_ptr<Exp>(ParseConfigSwitch(lexer).release()); 
 			} else {
 				return std::auto_ptr<Exp>(ParseRelaxedInvokation(lexer).release());
 			}
@@ -273,6 +395,32 @@ namespace Cpix {
 				filters.donate_back(ParseRelaxedInvokation(lexer));
 			}
 			return std::auto_ptr<Piping>(new Piping(tokenizer, filters)); 
+		}
+		
+		std::auto_ptr<Piping> ParsePiping(const wchar_t* definition) {
+			using namespace Cpt::Lex;
+			using namespace Cpt::Parser;
+					
+			try {
+				// 1. Setup an tokenizer
+				Cpix::AnalyzerExp::Tokenizer 
+					tokenizer; 
+				StdLexer 
+					lexer(tokenizer, definition);
+				
+				// 2. Parse 
+				std::auto_ptr<Piping> 
+					def = ParsePiping(lexer); 
+				lexer.eatEof();
+				
+				return def; 
+			} catch (Cpt::ITxtCtxtExc & exc) {
+				// provide addition info for thrown exception
+				exc.setContext(definition);
+	
+				// throw it fwd
+				throw;
+			}
 		}
 
 	}

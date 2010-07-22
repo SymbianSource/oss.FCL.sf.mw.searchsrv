@@ -1,124 +1,172 @@
+Summary:
+This document summarizes the various content types and their fields that indexed by the CPiX engine.
 
+Note: 
+1. By default, all EIndexTokenized fields are aggregated, unless explicitly chosen to ENoAggregate.
+2. By default, the contents of all EIndexTokenized fields that are aggregated are meant to be added to the Excerpt field. 
+3. Any fields starting with an underscore (_) are designated as system fields and by default are neither aggregated nor added to excerpt field.
+4. The order of fields in the excerpt field is the order in which they appear below. The order has been chosen based on the 'Details/Edit' view of the corresponding application.
 
+Legend for excerpt field:
+ExcerptYes: the field has been chosen to be part of the excerpt field.
+ExcerptNo : the field has been explicity opted out of the excerpt field (even though it is EIndexTokenized).
+ExcerptNA : the field is not EIndexTokenized, and hence will not be applicable to be added to the excerpt field.
+
+Indexed content types:
+----------------------
   root
-    | [ _docuid      ]		{EStoreYes | EIndexUnTokenized}
-    | [ _appclass    ]		{EStoreYes | EIndexTokenized}	
-    | [ _appclass_ut ]		{EStoreNo  | EIndexUnTokenized}
-    | [ _aggregate   ]      {EStoreNo  | EIndexUnTokenized} 	
-    | [ _excerpt     ]		{EStoreYes | EIndexNo}
-    | [ _mimetype (opt) ]	{EStoreYes | EIndexNo}
+    | [ _docuid      ]        {EStoreYes | EIndexUnTokenized}
+    | [ _appclass    ]        {EStoreYes | EIndexTokenized}    
+    | [ _appclass_ut ]        {EStoreNo  | EIndexUnTokenized}
+    | [ _aggregate   ]        {EStoreNo  | EIndexUnTokenized}     
+    | [ _excerpt     ]        {EStoreYes | EIndexNo}
+    | [ _mimetype (opt) ]     {EStoreYes | EIndexNo}
     |
     +-- msg
-    | [ To     		]	{EStoreYes | EIndexTokenized}
-    | [ From   		]	{EStoreYes | EIndexTokenized}
-    | [ Body   		]	{EStoreYes | EIndexTokenized}
-    | [ Folder 		]	{EStoreYes | EIndexNo}
-    | [ Subject 	] 	{EStoreYes | EIndexTokenized}
-    |
+    | [ To         ]    {EStoreYes | EIndexTokenized | EIndexFreeText} 	{ExcerptYes, if present}
+    | [ From       ]    {EStoreYes | EIndexTokenized | EIndexFreeText} 	{ExcerptYes, if present}
+    | [ Body       ]    {EStoreYes | EIndexTokenized } 								 	{ExcerptYes}
+    | [ Folder     ]    {EStoreYes | EIndexNo}        									{ExcerptNA}
+    | [ Subject    ]    {EStoreYes | EIndexTokenized} 									{ExcperptNo}
+    | [ Attachment ]	{EStoreYes | EIndexTokenized}										{ExcperptNo}
     |
     +-- file
     |     |
-    | 		|
+    |     |
     |     +-- content
-    |			|	[ Contents 	]			{EStoreYes | EIndexTokenized}
-    |			| [ Name      ]     {EStoreNo  | EIndexTokenized}
-    |			| [ BaseName  ]     {EStoreNo  | EIndexTokenized}
-    |     | [ Extension ]     {EStoreNo  | EIndexTokenized}
-    |			|
-    |			+-- folder
-    |			  [ Name  	  ]     {EStoreYes | EIndexTokenized}
-    |			  [ Extension ]     {EStoreYes | EIndexUnTokenized}
+    |     | [ Contents  ]     {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    |     | [ Name      ]     {EStoreYes | EIndexTokenized | EIndexFreeText}  {ExcerptNo}
+    |     | [ BaseName  ]     {EStoreNo  | EIndexTokenized | EIndexFreeText}  {ExcerptNo}
+    |     | [ Extension ]     {EStoreNo  | EIndexTokenized | EIndexFreeText}  {ExcerptNo}
+    |     |
+    |     +-- folder
+    |     [ Name      	]     {EStoreYes | EIndexTokenized | EIndexFreeText} 	{ExcerptNo}
+    |     [ Extension 	]     {EStoreYes | EIndexTokenized | EIndexFreeText}	{ExcerptNo}
     |
     |      
     +-- media
     |     | 
     |     |
     |     +-- audio
-    |     | [ Name           ]	{EStoreYes | EIndexTokenized}
-    |     | [ MediaId        ]	{EStoreYes | EIndexUnTokenized}
-    |     | [ Title          ]  {EStoreYes | EIndexTokenized}
-    |     | [ ItemType       ]  {EStoreYes | EIndexUnTokenized}
-    |     | [ Extension      ]  {EStoreYes | EIndexTokenized}
-    |     | [ Album          ]  {EStoreYes | EIndexTokenized}
-    |	    | [ AlbumArtist    ]	{EStoreYes | EIndexTokenized}
-    |     | [ OriginalArtist ]	{EStoreYes | EIndexTokenized}
-    |     | [ Composer       ]	{EStoreYes | EIndexTokenized}
-    |     | [ Artist         ]	{EStoreYes | EIndexTokenized}
-    |     | 
+    |     | [ Name           ]    {EStoreYes | EIndexTokenized | EIndexFreeText} 	{ExcerptYes}
+    |     | [ MediaId        ]    {EStoreYes | EIndexUnTokenized} 								{ExcerptNo}
+    |     | [ Title          ]    {EStoreYes | EIndexTokenized | EIndexFreeText}  {ExcerptNo}
+    |     | [ ItemType       ]    {EStoreYes | EIndexUnTokenized} 								{ExcerptNo} 
+    |     | [ Extension      ]    {EStoreYes | EIndexTokenized}   								{ExcerptNo}
+    |     | [ Artist         ]    {EStoreYes | EIndexTokenized | EIndexFreeText}  {ExcerptYes}
+    |     | [ Album          ]    {EStoreYes | EIndexTokenized | EIndexFreeText}  {ExcerptYes}
+    |     | [ AlbumArtist    ]    {EStoreYes | EIndexTokenized | EIndexFreeText}  {ExcerptYes}
+    |     | [ OriginalArtist ]    {EStoreYes | EIndexTokenized | EIndexFreeText} 	{ExcerptYes}
+    |     | [ Composer       ]    {EStoreYes | EIndexTokenized | EIndexFreeText}  {ExcerptYes}
+    |     | [ Author         ]    {EStoreYes | EIndexTokenized | EIndexFreeText}  {ExcerptYes}
+    |     | [ Comment        ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    |	  | [ Description	 ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    |     | [ Copyright      ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    |	  | [ Genre			 ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    |     | [ Size			 ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    |     | [ Legal			 ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    |	  | [ Track          ]    {EStoreYes | EIndexTokenized}   								{ExcerptNo}
+    |     | [ CaptureDate	 ]    {EStoreYes | EIndexUnTokenized}   							{ExcerptYes}
+    |	  | [ LastModifiedDate ]  {EStoreYes | EIndexUnTokenized}   							{ExcerptYes}
+    |	  | [ Duration		 ]    {EStoreYes | EIndexTokenized}   								{ExcerptNo}
     |     |
     |     +-- image
-    |     | [ Name           ]	{EStoreYes | EIndexTokenized}
-    |     | [ MediaId        ]	{EStoreYes | EIndexUnTokenized}
-    |     | [ Title          ]  {EStoreYes | EIndexTokenized}
-    |     | [ ItemType       ]  {EStoreYes | EIndexUnTokenized}
-    |     | [ Extension      ]  {EStoreYes | EIndexTokenized}    
-    |     | [ Comment        ]  {EStoreYes | EIndexTokenized}
-    |     | [ DateTimeOrignal]	{EStoreYes | EIndexUnTokenized}
-    |     |
+    |     | [ Name           ]    {EStoreYes | EIndexTokenized | EIndexFreeText}  {ExcerptNo}
+    |     | [ MediaId        ]    {EStoreYes | EIndexUnTokenized} 								{ExcerptNo}
+    |     | [ Title          ]    {EStoreYes | EIndexTokenized | EIndexFreeText}  {ExcerptYes}
+    |     | [ ItemType       ]    {EStoreYes | EIndexUnTokenized} 								{ExcerptNA}
+    |     | [ Extension      ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    |     | [ Comment        ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    |     | [ Description	 ]	  {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    |	  | [ Copyright		 ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    |     | [ Genre			 ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    |     | [ Legal			 ]	  {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    |     | [ Size           ]	  {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    |     | [ DateTimeOrignal  ]  {EStoreYes | EIndexUnTokenized} 								{ExcerptYes}
+    |     | [ LastModifiedDate ]  {EStoreYes | EIndexUnTokenized}   							{ExcerptYes}
     |     |    
     |     +-- video
-    |	      [ Name           ]	{EStoreYes | EIndexTokenized}
-    |       [ MediaId        ]	{EStoreYes | EIndexUnTokenized}
-    |       [ Title          ]  {EStoreYes | EIndexTokenized}
-    |       [ ItemType       ]  {EStoreYes | EIndexUnTokenized}
-    |       [ Extension      ]  {EStoreYes | EIndexTokenized}
-    |	      [ Artist         ]  {EStoreYes | EIndexTokenized}
-    |       [ Author         ]	{EStoreYes | EIndexTokenized}
-    |       [ Copyright      ]  {EStoreYes | EIndexTokenized}
-    |       [ Description    ]	{EStoreYes | EIndexTokenized}
-    |	      [ Comment        ]	{EStoreYes | EIndexTokenized}  
-    |
+    |       [ Name           ]    {EStoreYes | EIndexTokenized | EIndexFreeText}  {ExcerptYes}
+    |       [ MediaId        ]    {EStoreYes | EIndexUnTokenized} 								{ExcerptNo}
+    |       [ Title          ]    {EStoreYes | EIndexTokenized | EIndexFreeText}  {ExcerptNo}
+    |       [ ItemType       ]    {EStoreYes | EIndexUnTokenized} 								{ExcerptYes}
+    |       [ Extension      ]    {EStoreYes | EIndexTokenized }   								{ExcerptYes}
+    |       [ Artist         ]    {EStoreYes | EIndexTokenized | EIndexFreeText}  {ExcerptYes}
+    |       [ Author         ]    {EStoreYes | EIndexTokenized | EIndexFreeText}  {ExcerptYes}
+    |       [ Comment    	 ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    |       [ Description    ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}    
+    |       [ Copyright      ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    | 		[ Genre			 ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    |		[ Size           ]	  {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    |       [ ResolutionUnit ]	  {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    |       [ Legal			 ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    |		[ Track          ]    {EStoreYes | EIndexTokenized}   								{ExcerptNo}
+    |       [ CaptureDate	 ]    {EStoreYes | EIndexUnTokenized}   							{ExcerptYes}
+    |		[ LastModifiedDate ]  {EStoreYes | EIndexUnTokenized}   							{ExcerptYes}
+    |		[ Duration		 ]    {EStoreYes | EIndexTokenized}   								{ExcerptNo}
     |
     +-- contact
-    | [ GivenName   		]	{EStoreYes | EIndexTokenized}
-    | [ FamilyName  		]	{EStoreYes | EIndexTokenized}	
-    | [ CompanyName 		]	{EStoreYes | EIndexTokenized}
-    | [ PhoneNumber 		]	{EStoreYes | EIndexTokenized}
-    | [ Address     		]	{EStoreYes | EIndexTokenized}
-    | [ Note        		]	{EStoreYes | EIndexTokenized}
-    | [ JobTitle    		]	{EStoreYes | EIndexTokenized}
-    | [ SecondName  		]	{EStoreYes | EIndexTokenized}
-    | [ Suffix      		]	{EStoreYes | EIndexTokenized}
-    | [ EMail       		]	{EStoreYes | EIndexTokenized}
-    | [ URL         		]	{EStoreYes | EIndexTokenized}
-    | [ PostOffice  		]	{EStoreYes | EIndexTokenized}
-    | [ ExtendedAddress  	]	{EStoreYes | EIndexTokenized}
-    | [ Locality  		]	{EStoreYes | EIndexTokenized}
-    | [ Region  		]	{EStoreYes | EIndexTokenized}
-    | [ PostCode  		]	{EStoreYes | EIndexTokenized}
-    | [ Country  		]	{EStoreYes | EIndexTokenized}
-    | [ SIPID  			]	{EStoreYes | EIndexTokenized}
-    | [ Spouse  		]	{EStoreYes | EIndexTokenized}
-    | [ Children  		]	{EStoreYes | EIndexTokenized}
-    | [ Class  			]	{EStoreYes | EIndexTokenized}	
-    | [ Prefix  		]	{EStoreYes | EIndexTokenized}
-    | [ AdditionalName  	]	{EStoreYes | EIndexTokenized}
-    | [ Fax  			]	{EStoreYes | EIndexTokenized}
-    | [ GivenNamePronunciation 	]	{EStoreYes | EIndexTokenized}
-    | [ FamilyNamePronunciation ]	{EStoreYes | EIndexTokenized}
-    | [ CompanyNamePronunciation]	{EStoreYes | EIndexTokenized}
+	/* The order of fields in excerpt is as below. The order in this case
+	 * is the order of fields shown when you 'Edit' the contact.
+	 */
+    | [ GivenName           ]    {EStoreYes | EIndexTokenized | EIndexFreeText} {ExcerptNo}
+    | [ FamilyName          ]    {EStoreYes | EIndexTokenized | EIndexFreeText} {ExcerptNo}
+    | [ PhoneNumber         ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+	| [ EMail               ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+	| [ SIPID               ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+	| [ CompanyName         ]    {EStoreYes | EIndexTokenized | EIndexFreeText} {ExcerptYes}
+    | [ JobTitle            ]    {EStoreYes | EIndexTokenized | EIndexFreeText} {ExcerptYes}
+    | [ Note                ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+	/* The following fields are not displayed when 'Edit'-ing the contact.
+	 * The order here is arbitrary.
+	 */
+    | [ Address             ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    | [ SecondName          ]    {EStoreYes | EIndexTokenized | EIndexFreeText} {ExcerptYes}
+    | [ Suffix              ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    | [ URL                 ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    | [ PostOffice          ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    | [ ExtendedAddress     ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    | [ Locality            ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    | [ Region              ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    | [ PostCode            ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    | [ Country             ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    | [ Spouse              ]    {EStoreYes | EIndexTokenized | EIndexFreeText} {ExcerptYes}
+    | [ Children            ]    {EStoreYes | EIndexTokenized | EIndexFreeText} {ExcerptYes}
+    | [ Class               ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    | [ Prefix              ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    | [ AdditionalName      ]    {EStoreYes | EIndexTokenized | EIndexFreeText} {ExcerptYes}
+    | [ Fax                 ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    | [ Assistant  			]    {EStoreYes | EIndexTokenized | EIndexFreeText} {ExcerptYes}
+    | [ Department		    ]    {EStoreYes | EIndexTokenized | EIndexFreeText} {ExcerptYes}
+    | [ IMAddress    		]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    | [ ServiceProvider     ]	 {EStoreYes | EIndexTokenized}   								{ExcerptYes}
+    | [ Birthday			]    {EStoreYes | EIndexTokenized}   								{ExcerptNo}
+    | [ Anniversary			]    {EStoreYes | EIndexTokenized}   								{ExcerptNo} 
     |
     |
     +-- calendar
-    | [ Summary     	]   	{EStoreYes | EIndexTokenized}
-    | [ Description 	]	{EStoreYes | EIndexTokenized}
-    | [ Location    	]	{EStoreYes | EIndexTokenized}
-    | [ StartTime   	] (YYYYMMDDHHSS) (TimeZone UTC)	{EStoreYes | EIndexUnTokenized}
-    | [ EndTime     	] (YYYYMMDDHHSS) (TimeZone UTC)	{EStoreYes | EIndexUnTokenized}
+    | [ Summary         ]    {EStoreYes | EIndexTokenized}   										{ExcerptNo}
+    | [ Description     ]    {EStoreYes | EIndexTokenized}   										{ExcerptYes}
+    | [ Location        ]    {EStoreYes | EIndexTokenized}   										{ExcerptYes}
+    | [ StartTime       ] 	 {EStoreYes | EIndexUnTokenized}   {ExcerptNA} (YYYY MM DD HH SS) (TimeZone UTC)   
+    | [ EndTime         ]    {EStoreYes | EIndexUnTokenized}   {ExcerptNA} (YYYY MM DD HH SS) (TimeZone UTC)
+    | [ Priority        ]    {EStoreYes | EIndexTokenized}   										{ExcerptNo}
     | 
     |    
     +-- bookmark
-    | [ Name       ] 		{EStoreYes | EIndexTokenized}
-    | [ Url 	   ] 		{EStoreYes | EIndexTokenized} 
+    | [ Name       ]    	 {EStoreYes | EIndexTokenized}   										{ExcerptNo}
+    | [ Url        ]    	 {EStoreYes | EIndexTokenized}   										{ExcerptYes}
+    |
     |
     +-- applications
-    | [ Name       ]       	{EStoreYes | EIndexTokenized}
-    | [ Uid        ]       	{EStoreYes | EIndexTokenized}
-    | [ Path       ]       	{EStoreYes | EIndexTokenized}
+    | [ Name       ]    	 {EStoreYes | EIndexTokenized | EIndexFreeText}     {ExcerptNo}
+    | [ Uid        ]    	 {EStoreYes | EIndexTokenized | ENoAggregate}      	{ExcerptNo}
+    | [ Path       ]         {EStoreYes | EIndexTokenized}                     	{ExcerptNo}
+    |
     |
     +-- notes
-    | [ Date       ]  (YYYYMMDDHHSS)  {EStoreYes | EIndexUnTokenized}
-    | [ Memo       ]       	{EStoreYes | EIndexTokenized}
+    | [ Date       ]  	     {EStoreYes | EIndexUnTokenized}   									{ExcerptNA}
+    | [ Memo       ]         {EStoreYes | EIndexTokenized}     									{ExcerptNo}
 
 
 For instance, a document for an email message should have the

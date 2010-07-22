@@ -93,8 +93,12 @@ namespace Cpix
                 THROW_CPIXEXC("Cannot dup() STDERR_FILENO");
             }
 
-        Cpt_EINTR_RETRY_SP( close(STDOUT_FILENO) );
-        Cpt_EINTR_RETRY_SP(  close(STDERR_FILENO) );
+        int
+            result;
+        Cpt_EINTR_RETRY(result,
+                        close(STDOUT_FILENO));
+        Cpt_EINTR_RETRY(result,
+                        close(STDERR_FILENO));
             
         redirectStdOutErr();
 

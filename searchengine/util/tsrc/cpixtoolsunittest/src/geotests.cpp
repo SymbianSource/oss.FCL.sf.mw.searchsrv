@@ -283,7 +283,7 @@ void testPlainGeo(Itk::TestMgr * testMgr)
 }
 
 
-void printQNrArea(Itk::TestMgr   * ,
+void printQNrArea(Itk::TestMgr   * testMgr,
                   const Cpt::QNr & qnr)
 {
     using namespace std;

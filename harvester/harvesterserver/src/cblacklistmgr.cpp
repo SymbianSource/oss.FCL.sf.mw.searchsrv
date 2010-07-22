@@ -129,7 +129,7 @@ void CBlacklistMgr::Remove( TUid aPluginUid )
     }
 
 // -----------------------------------------------------------------------------
-// CBlacklistMgr::iSAvailableL()
+// CBlacklistMgr::FindL()
 // -----------------------------------------------------------------------------
 //
 TBool CBlacklistMgr::FindL( TUid aPluginUid , TInt aVersion )
@@ -150,4 +150,55 @@ TBool CBlacklistMgr::FindL( TUid aPluginUid , TInt aVersion )
         CPIXLOGSTRING("UID is not Black listed");
         }
     return found;
+    }
+
+// -----------------------------------------------------------------------------
+// CBlacklistMgr::AddtoDontloadListL()
+// -----------------------------------------------------------------------------
+//
+TInt CBlacklistMgr::AddtoDontloadListL( TUid aPluginUid )
+    {
+    OstTraceFunctionEntry0( CBLACKLISTMGR_ADDTOUNLOADLISTL_ENTRY );
+    OstTrace1( TRACE_NORMAL, CBLACKLISTMGR_ADDTODONTLOADLISTL, "CBlacklistMgr::AddtoDontloadListL;Uid=%x", aPluginUid.iUid );
+    CPIXLOGSTRING2("CBlacklistMgr::AddtoDontloadListL(): Uid = %x " , aPluginUid.iUid );
+    //Check if the record with given plugin uid is already available in database or not
+    //If available just ignore the addition
+    //If there is no record found in database with given uid, add new record with given uid    
+    TInt err = KErrNone;
+    
+    if( !(iBlacklistDb->FindInDontloadListL( aPluginUid.iUid )) )    
+        {
+        err = iBlacklistDb->AddtoDontloadListL( aPluginUid.iUid );
+        }
+      
+    CPIXLOGSTRING("CBlacklistMgr::AddtoDontloadListL(): Exit");    
+    OstTraceFunctionExit0( CBLACKLISTMGR_ADDTODONTLOADLISTL_EXIT );
+    return err;
+    }
+
+// -----------------------------------------------------------------------------
+// CBlacklistMgr::RemoveFromDontloadListL()
+// -----------------------------------------------------------------------------
+//
+void CBlacklistMgr::RemoveFromDontloadListL( TUid aPluginUid )
+    {
+    OstTraceFunctionEntry0( CBLACKLISTMGR_REMOVEFROMUNLOADLISTL_ENTRY );
+    OstTrace1( TRACE_NORMAL, CBLACKLISTMGR_REMOVEFROMUNLOADLISTL, "CBlacklistMgr::RemoveFromDontloadListL;Uid=%x", aPluginUid.iUid );
+    CPIXLOGSTRING2("CBlacklistMgr::RemoveFromDontloadListL(): Uid = %x " , aPluginUid.iUid );
+    //Remove the item record to database
+    iBlacklistDb->RemoveFromDontloadListL( aPluginUid.iUid );
+    
+    CPIXLOGSTRING("CBlacklistMgr::RemoveFromDontloadListL(): Exit");  
+    OstTraceFunctionExit0( CBLACKLISTMGR_REMOVEFROMDONTLOADLISTL_EXIT );
+    }
+
+// -----------------------------------------------------------------------------
+// CBlacklistMgr::FindfromDontloadListL()
+// -----------------------------------------------------------------------------
+//
+TBool CBlacklistMgr::FindInDontloadListL(TUid aPluginUid )
+    {
+    CPIXLOGSTRING2("CBlacklistMgr::FindInDontloadListL(): Uid = %x " , aPluginUid.iUid );
+    OstTrace1( TRACE_NORMAL, CBLACKLISTMGR_FINDINDONTLOADLISTL, "CBlacklistMgr::FindInDontloadListL;Uid=%x", aPluginUid.iUid );
+    return ( iBlacklistDb->FindInDontloadListL( aPluginUid.iUid ) );    
     }

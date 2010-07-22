@@ -54,6 +54,7 @@ SOURCE            common/refcountedbase.cpp
 SOURCE            common/cloners.cpp
 SOURCE            ifieldfilter.cpp
 SOURCE 	          prefixopt.cpp
+SOURCE 		  localization.cpp
 SOURCE            filters/quadfilter.cpp
 SOURCE            fileparser/fileparser.cpp
 SOURCE            fileparser/textfileparser.cpp
@@ -73,12 +74,23 @@ SOURCE            spi/id3.cpp
 SOURCE            spi/s60/audiometadata.cpp
 
 USERINCLUDE       ../../../../searchsrv_plat/cpix_utility_api/inc
+SOURCEPATH ../src
+SOURCE customanalyzer.cpp
+SOURCE prefixqueryparser.cpp
+SOURCE queryparser.cpp
+SOURCEPATH ../src/spi/s60
+SOURCE s60locale.cpp
+SOURCEPATH ../src/spi
+SOURCE locale.cpp
+SOURCEPATH ../src/common
+
 USERINCLUDE       ../inc/public
 USERINCLUDE       ../inc/private
 USERINCLUDE       ../../../oss/cl/clucene/src
 USERINCLUDE       ../../../oss/sb/snowball/include
 USERINCLUDE       ../../../util/cpixtools/inc/public
 USERINCLUDE		  ../../../oss/cl/clucene/src/CLucene
+USERINCLUDE		  ../../../oss/loc/analysis/inc/public
 USERINCLUDE		  ../../../cpix/cpix/src
 
 MW_LAYER_SYSTEMINCLUDE
@@ -94,8 +106,9 @@ OS_LAYER_GLIB_SYSTEMINCLUDE
 //LIBRARY           libm.lib
 //LIBRARY           euser.lib
 
-//STATICLIBRARY     libclucene.lib
-//STATICLIBRARY     libstemmer.lib
+STATICLIBRARY     libclucene.lib
+STATICLIBRARY     libstemmer.lib
+STATICLIBRARY     libanalysis.lib
 
 // For SPI 
 //LIBRARY   efsrv.lib

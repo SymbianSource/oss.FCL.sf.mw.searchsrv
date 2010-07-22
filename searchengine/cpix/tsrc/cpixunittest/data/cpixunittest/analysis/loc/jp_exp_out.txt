@@ -1,0 +1,40 @@
+using analyzer "natural(indexing)" for indexing
+
+using analyzer "natural(query)" for searching
+
+indexing:
+
+Indexed file: !:\data\cpixunittestcorpus\loc\jp\1.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\jp\2.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\jp\3.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\jp\4.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\jp_old\1.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\jp_old\2.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\jp_old\3.txt
+
+Indexed file: !:\data\cpixunittestcorpus\loc\jp_old\4.txt
+
+Indexed empty item.
+
+searching:
+
+search "国際":
+Number of hits: 4
+DOC (!:\data\cpixunittestcorpus\loc\jp\3.txt): それぞれの分野で公募プログラムにより国際交流事業を企画する個人や
+DOC (!:\data\cpixunittestcorpus\loc\jp_old\3.txt): それぞれの分野で公募プログラムにより国際交流事業を企画する個人や
+DOC (!:\data\cpixunittestcorpus\loc\jp\1.txt): 国際交流基金（ジャパンファウンデーション）は、主に文化芸術交流、海外における日本語教育、
+DOC (!:\data\cpixunittestcorpus\loc\jp_old\1.txt): 国際交流基金（ジャパンファウンデーション）は、主に文化芸術交流、海外における日本語教育、
+
+search "日本":
+Number of hits: 4
+DOC (!:\data\cpixunittestcorpus\loc\jp\2.txt): 日本研究・知的交流の3つの分野において事業を実施しており、
+DOC (!:\data\cpixunittestcorpus\loc\jp_old\2.txt): 日本研究・知的交流の3つの分野において事業を実施しており、
+DOC (!:\data\cpixunittestcorpus\loc\jp\1.txt): 国際交流基金（ジャパンファウンデーション）は、主に文化芸術交流、海外における日本語教育、
+DOC (!:\data\cpixunittestcorpus\loc\jp_old\1.txt): 国際交流基金（ジャパンファウンデーション）は、主に文化芸術交流、海外における日本語教育、
+

@@ -157,6 +157,26 @@ EXPORT_C void CCPixSearcher::SetAnalyzerL( MCPixSetAnalyzerRequestObserver& aObs
 	iSubSession.SetAnalyzer( aAnalyzer, iStatus );
 	SetActive(); 
 	}
+	
+	EXPORT_C void CCPixSearcher::SetQueryParserL( TQueryParser aQueryParser ) 
+	{
+	if ( !iIsDatabaseOpen ) 	User::Leave(KErrNotReady);
+	if ( IsActive() ) 			User::Leave(KErrInUse);
+	
+	iSubSession.SetQueryParserL( aQueryParser ); 
+	}
+
+EXPORT_C void CCPixSearcher::SetQueryParserL( MCPixSetQueryParserRequestObserver& aObserver, TQueryParser aQueryParser ) 
+	{
+	if ( !iIsDatabaseOpen ) 	User::Leave(KErrNotReady);
+	if ( IsActive() ) 			User::Leave(KErrInUse);
+	
+	iObserver.iSetQueryParser = &aObserver;
+	iState = EStateSetQueryParser; 
+	iSubSession.SetQueryParser( aQueryParser, iStatus );
+	SetActive(); 
+	}
+
 
 // CCPixSearcher::FormQueryString()
 // Suport method for SearchL-methods
@@ -285,6 +305,12 @@ void CCPixSearcher::RunL()
 
 			if ( observer.iSetAnalyzer ) {
 				observer.iSetAnalyzer->HandleSetAnalyzerResultL( iStatus.Int() );
+			}
+			break;
+
+		case EStateSetQueryParser:
+			if ( observer.iSetQueryParser ) {
+				observer.iSetQueryParser->HandleSetQueryParserResultL( iStatus.Int() );
 			}
 			break;
 

@@ -71,26 +71,49 @@ QCPixSearcher* QCPixSearcher::newInstance( QString aBaseAppClass, QString aDefau
 
 void QCPixSearcher::setDatabase( QString aBaseAppClass )
     {
+    QT_TRAP_THROWING( 
     TBuf<KMaxStringLength> baseAppClass( aBaseAppClass.utf16() );
-    QT_TRAP_THROWING( iPvtImpl->iSearcher->OpenDatabaseL( baseAppClass ) );
+    iPvtImpl->iSearcher->OpenDatabaseL( baseAppClass ) 
+    ); //end of QT_TRAP_THROWING
     }
 
 void QCPixSearcher::setDatabaseAsync( QString aBaseAppClass )
     {
+    QT_TRAP_THROWING( 
     TBuf<KMaxStringLength> baseAppClass( aBaseAppClass.utf16() );
-    QT_TRAP_THROWING( iPvtImpl->iSearcher->OpenDatabaseL( *iPvtImpl, baseAppClass ) );
+    iPvtImpl->iSearcher->OpenDatabaseL( *iPvtImpl, baseAppClass ) 
+    ); //end of QT_TRAP_THROWING
     }
+
+//The following bit of code is common to two functions - this helps to avoid duplication.
+//However, macros make debugging difficult - so, if you need to debug, copy the code below
+//and replace the macro, fix the code and bring the fix back to the macro.
+#define CREATE_SEARCH_VARS \
+        HBufC* searchString = HBufC::NewL( aSearchString.length() + 1 );                    \
+        TPtrC searchStringPtr( reinterpret_cast<const TUint16*>( aSearchString.utf16() ) ); \
+        searchString->Des().Copy( searchStringPtr );                                        \
+                                                                                            \
+        HBufC* defaultSearchField = HBufC::NewL( aDefaultSearchField.length() + 1 );        \
+        TPtrC aDefaultSearchFieldPtr( reinterpret_cast<const TUint16*>( aDefaultSearchField.utf16() ) );\
+        defaultSearchField->Des().Copy( aDefaultSearchFieldPtr );                           
+
+#define DELETE_SEARCH_VARS  \
+        delete searchString;\
+        delete defaultSearchField;
 
 int QCPixSearcher::search( QString aSearchString, QString aDefaultSearchField )
     {
     PERF_SEARCH_RESTART_TIMER
-    TBuf<KMaxStringLength> searchString( aSearchString.utf16() );
-    TBuf<KMaxStringLength> defaultSearchField( aDefaultSearchField.utf16() );
-    //ideally would have had just the following single line:
-    //QT_TRAP_THROWING( return iPvtImpl->iSearcher->SearchL( searchString, defaultSearchField ) );
-    //But the RCVT compiler throws up warnings. The following is just to suppress those warnings.
     int tmp = 0;
-    QT_TRAP_THROWING( tmp = iPvtImpl->iSearcher->SearchL( searchString, defaultSearchField ) );
+    QT_TRAP_THROWING(
+        CREATE_SEARCH_VARS;
+        //ideally would have had just the following single line:
+        //QT_TRAP_THROWING( return iPvtImpl->iSearcher->SearchL( searchString, defaultSearchField ) );
+        //But the RCVT compiler throws up warnings. The following is just to suppress those warnings.
+        tmp = iPvtImpl->iSearcher->SearchL( *searchString, *defaultSearchField );
+        DELETE_SEARCH_VARS;
+    ); //QT_TRAP_THROWING
+    
     PERF_SEARCH_ENDLOG
     return tmp;
     }
@@ -98,9 +121,11 @@ int QCPixSearcher::search( QString aSearchString, QString aDefaultSearchField )
 void QCPixSearcher::searchAsync( QString aSearchString, QString aDefaultSearchField )
     {
     PERF_TIME_NOW("Async search start")
-    TBuf<KMaxStringLength> searchString( aSearchString.utf16() );
-    TBuf<KMaxStringLength> defaultSearchField( aDefaultSearchField.utf16() );
-    QT_TRAP_THROWING( iPvtImpl->iSearcher->SearchL( *iPvtImpl, searchString, defaultSearchField ) );
+    QT_TRAP_THROWING(
+        CREATE_SEARCH_VARS;
+        iPvtImpl->iSearcher->SearchL( *iPvtImpl, *searchString, *defaultSearchField );
+        DELETE_SEARCH_VARS;
+    ); //QT_TRAP_THROWING
     }
 
 QCPixDocument* QCPixSearcher::getDocument( int aIndex )

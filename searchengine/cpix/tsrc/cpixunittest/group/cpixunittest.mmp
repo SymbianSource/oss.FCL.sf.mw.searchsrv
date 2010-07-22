@@ -72,6 +72,7 @@ SOURCE          config.cpp
 SOURCE          clq/uxqry.cpp
 SOURCE          clq/clqry.cpp 
 SOURCE		pdftests.cpp querytest.cpp
+SOURCE        localetestinfos.cpp misc.cpp std_log_result.cpp 
 
 USERINCLUDE     ../../../../../searchsrv_plat/cpix_utility_api/inc
 USERINCLUDE     ../inc
@@ -94,6 +95,7 @@ STATICLIBRARY   libclucene.lib
 STATICLIBRARY   libstemmer.lib
 STATICLIBRARY   libitk.lib
 STATICLIBRARY   libcpixtools.lib
+STATICLIBRARY   libanalysis.lib
 
 // For SPI 
 LIBRARY   efsrv.lib

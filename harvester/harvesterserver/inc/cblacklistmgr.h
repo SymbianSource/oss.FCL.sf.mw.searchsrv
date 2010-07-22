@@ -87,6 +87,29 @@ public :
      */ 
     TBool FindL(TUid aPluginUid , TInt aVersion);
     
+    /*
+    * @description Adds the given uid of a plugin to the dontload list of Blacklist DB.    
+    * @param aPluginUid Uid of the plugin
+    * @return sysmbian error code
+    * Leaves in case of errors.
+    */    
+   TInt  AddtoDontloadListL( TUid aPluginUid );
+   
+   /*
+   * @description removes the given uid of a plugin from the dontload list of Blacklist DB.    
+   * @param aPluginUid Uid of the plugin
+   * Leaves in case of errors.
+   */    
+  void  RemoveFromDontloadListL( TUid aPluginUid );
+  
+  /*
+   * @description Checks wether the plugin uid is exists in the database dontload list or not.
+   * @param aPluginUid Uid of the plugin
+   * @return ETrue if uid exists else returns EFalse
+   * Leaves in case of errors.
+   */ 
+  TBool FindInDontloadListL(TUid aPluginUid );
+    
 private:    
     /*
      * Interface to Blacklist database.Owned

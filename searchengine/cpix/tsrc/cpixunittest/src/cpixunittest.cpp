@@ -68,6 +68,8 @@ Itk::TesterBase * CreateClQryHierarchy();
 
 Itk::TesterBase * CreateASyncTests();
 
+Itk::TesterBase * CreateMiscTests();
+
 // Avoid media Testcases if MDS not present. 
 #ifdef MDS_PRESENT
 // Spi 
@@ -98,7 +100,7 @@ Itk::TesterBase * CreateTestHierarchy()
     SuiteTester
         * all = new SuiteTester("all");
     
-//
+
     all->add(CreateSuiteTesterRandom()); 
     all->add(CreateDestructiveTests());
     all->add(CreatePrematureQryTests());
@@ -116,12 +118,12 @@ Itk::TesterBase * CreateTestHierarchy()
     all->add(CreateUtf8PathTests());
     all->add(CreateAnalysisTests());		
 		 
-
+    all->add(CreatePdfSearchTests());
     all->add(CreateDocumentTests());		
     all->add(CreateFlushTests());			
     all->add(CreateHeartbeatTests());	    
     all->add(CreateTermSearchTests()); 		
-    all->add(CreatePdfSearchTests());
+    
     
     // TODO enable later Itk::TesterBase * CreateClQryHierarchy();
 
@@ -134,6 +136,7 @@ Itk::TesterBase * CreateTestHierarchy()
     // all->add(CreateSpiHierarchy());  // Commented for JPG/EXIF files checks
 #endif
 	all->add(CreateQueryTests()); 
+	all->add(CreateMiscTests());
 
     // add more top level test suites here
     // ...
@@ -173,6 +176,39 @@ int main(int          argc,
                         printf("Failed to initialize Cpix\n");
                         return -1;
                     }
+//                /* Added for decision coverage Test case */
+                const char *cpix_Dir = cpix_InitParams_getCpixDir(initParams);
+                
+                const char *logFilebase = cpix_InitParams_getLogFileBase(initParams);
+                
+                size_t logSizeLimit = cpix_InitParams_getLogSizeLimit(initParams);
+                
+                size_t logSizeRecurrency = cpix_InitParams_getLogSizeCheckRecurrency(initParams);
+                
+                size_t maxIdleSec = cpix_InitParams_getMaxIdleSec(initParams);
+                
+                //size_t maxInsertBufferSize = cpix_InitParams_getMaxInsertBufSize(initParams);
+                //cpix_InitParams_setMaxInsertBufferSize(initParams, maxInsertBufferSize);
+                
+                size_t insertBufMaxDocs = cpix_InitParams_getInsertBufMaxDocs(initParams);
+                cpix_InitParams_setInsertBufMaxDocs(initParams, insertBufMaxDocs);
+                
+                size_t idxJobQueueSize = cpix_InitParams_getIdxJobQueueSize(initParams);
+                cpix_InitParams_setIdxJobQueueSize(initParams, idxJobQueueSize);
+                
+                size_t qryJobQueueSize = cpix_InitParams_getQryJobQueueSize(initParams);
+                cpix_InitParams_setQryJobQueueSize(initParams, qryJobQueueSize);
+                
+                int idxThreadPriorityDelta = cpix_InitParams_getIdxThreadPriorityDelta(initParams);
+                cpix_InitParams_setIdxThreadPriorityDelta(initParams, idxThreadPriorityDelta);
+                
+                int qryThreadPriorityDelta = cpix_InitParams_getQryThreadPriorityDelta(initParams);
+                size_t clHitsPageSize = cpix_InitParams_getClHitsPageSize(initParams);
+                
+                cpix_InitParams_setClHitsPageSize(initParams, clHitsPageSize);
+                
+                
+                
                 cpix_InitParams_setMaxIdleSec(initParams,
                                               MaxIdleSec);
                 if (cpix_Failed(initParams))

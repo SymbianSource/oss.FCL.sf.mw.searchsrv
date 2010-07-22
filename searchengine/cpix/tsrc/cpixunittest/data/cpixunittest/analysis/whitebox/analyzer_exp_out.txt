@@ -5,10 +5,17 @@ File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
  'Oh' 'happiness'
 File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
  'Nothing' 'important' 'in' 'here' 'So' 'don't' 'even' 'look' 'Because' 'you' 'shall' 'find' 'nothing' 'whatsoever'
+File !:\data\cpixunittestcorpus\stem\en\4.txt tokenized:
+ 'What' 'is' 'happening' 'here'
 File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
  'Juon' 'nyt' 'teetä'
 File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
  'Tee' 'näin'
+File !:\data\cpixunittestcorpus\loc\th\1.txt tokenized:
+ 'ปรากฏการณ์ฝนดาวตก' '7' '-18' 'พ' 'ยนี้' 'นายวรวิทย์' 'ตันวุฒิบัณฑิต' 'ปราชญ์ภูมิปัญญาท้องถิ่นด้านดาราศาสตร์ไทยกล่าวว่า' '17' '-18' 'พฤศจิกายน' '2552'
+File !:\data\cpixunittestcorpus\loc\th\2.txt tokenized:
+ 'จะมีปรากฏการณ์ดาราศาสตร์ครั้งสำคัญที่ชาวไทยเคยประทับใจมาแล้วเมื่อปี' '2541' '-2544' 'คือในคืนวันที่' '17' 'ต่อเนื่องวันที่' '18' 'พฤศจิกายน' '2552'
+
 Analyzer "whitespace":
 File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
  'I' 'am' 'happy.'
@@ -16,10 +23,17 @@ File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
  'Oh' 'happiness!'
 File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
  'Nothing' 'important' 'in' 'here.' 'So' 'don't' 'even' 'look.' 'Because' 'you' 'shall' 'find' 'nothing' 'whatsoever.'
+File !:\data\cpixunittestcorpus\stem\en\4.txt tokenized:
+ 'What' 'is' 'happening' 'here?'
 File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
  'Juon' 'nyt' 'teetä.'
 File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
  'Tee' 'näin!'
+File !:\data\cpixunittestcorpus\loc\th\1.txt tokenized:
+ 'ปรากฏการณ์ฝนดาวตก17-18พ.ยนี้' 'นายวรวิทย์' 'ตันวุฒิบัณฑิต' 'ปราชญ์ภูมิปัญญาท้องถิ่นด้านดาราศาสตร์ไทยกล่าวว่า' '17-18' 'พฤศจิกายน' '2552'
+File !:\data\cpixunittestcorpus\loc\th\2.txt tokenized:
+ 'จะมีปรากฏการณ์ดาราศาสตร์ครั้งสำคัญที่ชาวไทยเคยประทับใจมาแล้วเมื่อปี' '2541-2544' 'คือในคืนวันที่' '17' 'ต่อเนื่องวันที่' '18' 'พฤศจิกายน' '2552'
+
 Analyzer "whitespace>lowercase":
 File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
  'i' 'am' 'happy.'
@@ -27,10 +41,17 @@ File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
  'oh' 'happiness!'
 File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
  'nothing' 'important' 'in' 'here.' 'so' 'don't' 'even' 'look.' 'because' 'you' 'shall' 'find' 'nothing' 'whatsoever.'
+File !:\data\cpixunittestcorpus\stem\en\4.txt tokenized:
+ 'what' 'is' 'happening' 'here?'
 File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
  'juon' 'nyt' 'teetä.'
 File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
  'tee' 'näin!'
+File !:\data\cpixunittestcorpus\loc\th\1.txt tokenized:
+ 'ปรากฏการณ์ฝนดาวตก17-18พ.ยนี้' 'นายวรวิทย์' 'ตันวุฒิบัณฑิต' 'ปราชญ์ภูมิปัญญาท้องถิ่นด้านดาราศาสตร์ไทยกล่าวว่า' '17-18' 'พฤศจิกายน' '2552'
+File !:\data\cpixunittestcorpus\loc\th\2.txt tokenized:
+ 'จะมีปรากฏการณ์ดาราศาสตร์ครั้งสำคัญที่ชาวไทยเคยประทับใจมาแล้วเมื่อปี' '2541-2544' 'คือในคืนวันที่' '17' 'ต่อเนื่องวันที่' '18' 'พฤศจิกายน' '2552'
+
 Analyzer "whitespace>accent":
 File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
  'I' 'am' 'happy.'
@@ -38,10 +59,17 @@ File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
  'Oh' 'happiness!'
 File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
  'Nothing' 'important' 'in' 'here.' 'So' 'don't' 'even' 'look.' 'Because' 'you' 'shall' 'find' 'nothing' 'whatsoever.'
+File !:\data\cpixunittestcorpus\stem\en\4.txt tokenized:
+ 'What' 'is' 'happening' 'here?'
 File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
  'Juon' 'nyt' 'teeta.'
 File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
  'Tee' 'nain!'
+File !:\data\cpixunittestcorpus\loc\th\1.txt tokenized:
+ 'ปรากฏการณ์ฝนดาวตก17-18พ.ยนี้' 'นายวรวิทย์' 'ตันวุฒิบัณฑิต' 'ปราชญ์ภูมิปัญญาท้องถิ่นด้านดาราศาสตร์ไทยกล่าวว่า' '17-18' 'พฤศจิกายน' '2552'
+File !:\data\cpixunittestcorpus\loc\th\2.txt tokenized:
+ 'จะมีปรากฏการณ์ดาราศาสตร์ครั้งสำคัญที่ชาวไทยเคยประทับใจมาแล้วเมื่อปี' '2541-2544' 'คือในคืนวันที่' '17' 'ต่อเนื่องวันที่' '18' 'พฤศจิกายน' '2552'
+
 Analyzer "letter":
 File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
  'I' 'am' 'happy'
@@ -49,10 +77,17 @@ File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
  'Oh' 'happiness'
 File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
  'Nothing' 'important' 'in' 'here' 'So' 'don' 't' 'even' 'look' 'Because' 'you' 'shall' 'find' 'nothing' 'whatsoever'
+File !:\data\cpixunittestcorpus\stem\en\4.txt tokenized:
+ 'What' 'is' 'happening' 'here'
 File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
  'Juon' 'nyt' 'teetä'
 File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
  'Tee' 'näin'
+File !:\data\cpixunittestcorpus\loc\th\1.txt tokenized:
+ 'ปรากฏการณ' 'ฝนดาวตก' 'พ' 'ยน' 'นายวรว' 'ทย' 'ต' 'นว' 'ฒ' 'บ' 'ณฑ' 'ต' 'ปราชญ' 'ภ' 'ม' 'ป' 'ญญาท' 'องถ' 'นด' 'านดาราศาสตร' 'ไทยกล' 'าวว' 'า' 'พฤศจ' 'กายน'
+File !:\data\cpixunittestcorpus\loc\th\2.txt tokenized:
+ 'จะม' 'ปรากฏการณ' 'ดาราศาสตร' 'คร' 'งสำค' 'ญท' 'ชาวไทยเคยประท' 'บใจมาแล' 'วเม' 'อป' 'ค' 'อในค' 'นว' 'นท' 'ต' 'อเน' 'องว' 'นท' 'พฤศจ' 'กายน'
+
 Analyzer "letter>lowercase":
 File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
  'i' 'am' 'happy'
@@ -60,10 +95,17 @@ File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
  'oh' 'happiness'
 File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
  'nothing' 'important' 'in' 'here' 'so' 'don' 't' 'even' 'look' 'because' 'you' 'shall' 'find' 'nothing' 'whatsoever'
+File !:\data\cpixunittestcorpus\stem\en\4.txt tokenized:
+ 'what' 'is' 'happening' 'here'
 File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
  'juon' 'nyt' 'teetä'
 File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
  'tee' 'näin'
+File !:\data\cpixunittestcorpus\loc\th\1.txt tokenized:
+ 'ปรากฏการณ' 'ฝนดาวตก' 'พ' 'ยน' 'นายวรว' 'ทย' 'ต' 'นว' 'ฒ' 'บ' 'ณฑ' 'ต' 'ปราชญ' 'ภ' 'ม' 'ป' 'ญญาท' 'องถ' 'นด' 'านดาราศาสตร' 'ไทยกล' 'าวว' 'า' 'พฤศจ' 'กายน'
+File !:\data\cpixunittestcorpus\loc\th\2.txt tokenized:
+ 'จะม' 'ปรากฏการณ' 'ดาราศาสตร' 'คร' 'งสำค' 'ญท' 'ชาวไทยเคยประท' 'บใจมาแล' 'วเม' 'อป' 'ค' 'อในค' 'นว' 'นท' 'ต' 'อเน' 'องว' 'นท' 'พฤศจ' 'กายน'
+
 Analyzer "keyword":
 File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
  'I am happy.
@@ -83,10 +125,21 @@ So  don't     even look.  Because
 nothing
 whatsoever.
 '
+File !:\data\cpixunittestcorpus\stem\en\4.txt tokenized:
+ 'What is happening here?
+
+'
 File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
  'Juon nyt teetä.'
 File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
  'Tee näin! '
+File !:\data\cpixunittestcorpus\loc\th\1.txt tokenized:
+ 'ปรากฏการณ์ฝนดาวตก17-18พ.ยนี้ นายวรวิทย์ ตันวุฒิบัณฑิต ปราชญ์ภูมิปัญญาท้องถิ่นด้านดาราศาสตร์ไทยกล่าวว่า 17-18 พฤศจิกายน 2552
+'
+File !:\data\cpixunittestcorpus\loc\th\2.txt tokenized:
+ 'จะมีปรากฏการณ์ดาราศาสตร์ครั้งสำคัญที่ชาวไทยเคยประทับใจมาแล้วเมื่อปี 2541-2544 คือในคืนวันที่ 17 ต่อเนื่องวันที่ 18 พฤศจิกายน 2552
+'
+
 Analyzer "keyword>lowercase":
 File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
  'i am happy.
@@ -106,43 +159,57 @@ so  don't     even look.  because
 nothing
 whatsoever.
 '
+File !:\data\cpixunittestcorpus\stem\en\4.txt tokenized:
+ 'what is happening here?
+
+'
 File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
  'juon nyt teetä.'
 File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
  'tee näin! '
-Analyzer "stdtokens>lowercase>accent>stem(en)":
-File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
- 'i' 'am' 'happi'
-File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
- 'oh' 'happi'
-File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
- 'noth' 'import' 'in' 'here' 'so' 'don't' 'even' 'look' 'becaus' 'you' 'shall' 'find' 'noth' 'whatsoev'
-File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
- 'juon' 'nyt' 'teeta'
-File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
- 'tee' 'nain'
-Analyzer "letter>lowercase>accent>stop(en)":
+File !:\data\cpixunittestcorpus\loc\th\1.txt tokenized:
+ 'ปรากฏการณ์ฝนดาวตก17-18พ.ยนี้ นายวรวิทย์ ตันวุฒิบัณฑิต ปราชญ์ภูมิปัญญาท้องถิ่นด้านดาราศาสตร์ไทยกล่าวว่า 17-18 พฤศจิกายน 2552
+'
+File !:\data\cpixunittestcorpus\loc\th\2.txt tokenized:
+ 'จะมีปรากฏการณ์ดาราศาสตร์ครั้งสำคัญที่ชาวไทยเคยประทับใจมาแล้วเมื่อปี 2541-2544 คือในคืนวันที่ 17 ต่อเนื่องวันที่ 18 พฤศจิกายน 2552
+'
+
+Analyzer "letter>lowercase>stop(en)":
 File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
  'i' 'am' 'happy'
 File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
  'oh' 'happiness'
 File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
  'nothing' 'important' 'here' 'so' 'don' 'even' 'look' 'because' 'you' 'shall' 'find' 'nothing' 'whatsoever'
+File !:\data\cpixunittestcorpus\stem\en\4.txt tokenized:
+ 'what' 'happening' 'here'
 File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
- 'juon' 'nyt' 'teeta'
+ 'juon' 'nyt' 'teetä'
 File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
- 'tee' 'nain'
-Analyzer "letter>lowercase>stop('i', 'oh', 'nyt', 'näin')":
+ 'tee' 'näin'
+File !:\data\cpixunittestcorpus\loc\th\1.txt tokenized:
+ 'ปรากฏการณ' 'ฝนดาวตก' 'พ' 'ยน' 'นายวรว' 'ทย' 'ต' 'นว' 'ฒ' 'บ' 'ณฑ' 'ต' 'ปราชญ' 'ภ' 'ม' 'ป' 'ญญาท' 'องถ' 'นด' 'านดาราศาสตร' 'ไทยกล' 'าวว' 'า' 'พฤศจ' 'กายน'
+File !:\data\cpixunittestcorpus\loc\th\2.txt tokenized:
+ 'จะม' 'ปรากฏการณ' 'ดาราศาสตร' 'คร' 'งสำค' 'ญท' 'ชาวไทยเคยประท' 'บใจมาแล' 'วเม' 'อป' 'ค' 'อในค' 'นว' 'นท' 'ต' 'อเน' 'องว' 'นท' 'พฤศจ' 'กายน'
+
+Analyzer "letter>lowercase>stop('i', 'oh', 'nyt', 'nï¿½in')":
 File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
  'am' 'happy'
 File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
  'happiness'
 File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
  'nothing' 'important' 'in' 'here' 'so' 'don' 't' 'even' 'look' 'because' 'you' 'shall' 'find' 'nothing' 'whatsoever'
+File !:\data\cpixunittestcorpus\stem\en\4.txt tokenized:
+ 'what' 'is' 'happening' 'here'
 File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
  'juon' 'teetä'
 File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
- 'tee'
+ 'tee' 'näin'
+File !:\data\cpixunittestcorpus\loc\th\1.txt tokenized:
+ 'ปรากฏการณ' 'ฝนดาวตก' 'พ' 'ยน' 'นายวรว' 'ทย' 'ต' 'นว' 'ฒ' 'บ' 'ณฑ' 'ต' 'ปราชญ' 'ภ' 'ม' 'ป' 'ญญาท' 'องถ' 'นด' 'านดาราศาสตร' 'ไทยกล' 'าวว' 'า' 'พฤศจ' 'กายน'
+File !:\data\cpixunittestcorpus\loc\th\2.txt tokenized:
+ 'จะม' 'ปรากฏการณ' 'ดาราศาสตร' 'คร' 'งสำค' 'ญท' 'ชาวไทยเคยประท' 'บใจมาแล' 'วเม' 'อป' 'ค' 'อในค' 'นว' 'นท' 'ต' 'อเน' 'องว' 'นท' 'พฤศจ' 'กายน'
+
 Analyzer "letter>length(2, 4)":
 File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
  'am'
@@ -150,7 +217,140 @@ File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
  'Oh'
 File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
  'in' 'here' 'So' 'don' 'even' 'look' 'you' 'find'
+File !:\data\cpixunittestcorpus\stem\en\4.txt tokenized:
+ 'What' 'is' 'here'
 File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
  'Juon' 'nyt'
 File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
  'Tee' 'näin'
+File !:\data\cpixunittestcorpus\loc\th\1.txt tokenized:
+ 'ยน' 'ทย' 'นว' 'ณฑ' 'ญญาท' 'องถ' 'นด' 'าวว' 'พฤศจ' 'กายน'
+File !:\data\cpixunittestcorpus\loc\th\2.txt tokenized:
+ 'จะม' 'คร' 'งสำค' 'ญท' 'วเม' 'อป' 'อในค' 'นว' 'นท' 'อเน' 'องว' 'นท' 'พฤศจ' 'กายน'
+
+Analyzer "standard>prefixes(1)":
+File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
+ 'i' 'a' 'h'
+File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
+ 'o' 'h'
+File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
+ 'n' 'i' 'h' 's' 'd' 'e' 'l' 'b' 'y' 's' 'f' 'n' 'w'
+File !:\data\cpixunittestcorpus\stem\en\4.txt tokenized:
+ 'w' 'h' 'h'
+File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
+ 'j' 'n' 't'
+File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
+ 't' 'n'
+File !:\data\cpixunittestcorpus\loc\th\1.txt tokenized:
+ 'ป' '7' '-' 'พ' 'ย' 'น' 'ต' 'ป' '1' '-' 'พ' '2'
+File !:\data\cpixunittestcorpus\loc\th\2.txt tokenized:
+ 'จ' '2' '-' 'ค' '1' 'ต' '1' 'พ' '2'
+
+Analyzer "standard>prefixes(2)":
+File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
+ 'i' 'am'|'a' 'ha'|'h'
+File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
+ 'oh'|'o' 'ha'|'h'
+File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
+ 'no'|'n' 'im'|'i' 'he'|'h' 'so'|'s' 'do'|'d' 'ev'|'e' 'lo'|'l' 'be'|'b' 'yo'|'y' 'sh'|'s' 'fi'|'f' 'no'|'n' 'wh'|'w'
+File !:\data\cpixunittestcorpus\stem\en\4.txt tokenized:
+ 'wh'|'w' 'ha'|'h' 'he'|'h'
+File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
+ 'ju'|'j' 'ny'|'n' 'te'|'t'
+File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
+ 'te'|'t' 'nä'|'n'
+File !:\data\cpixunittestcorpus\loc\th\1.txt tokenized:
+ 'ปร'|'ป' '7' '-1'|'-' 'พ' 'ยน'|'ย' 'นา'|'น' 'ตั'|'ต' 'ปร'|'ป' '17'|'1' '-1'|'-' 'พฤ'|'พ' '25'|'2'
+File !:\data\cpixunittestcorpus\loc\th\2.txt tokenized:
+ 'จะ'|'จ' '25'|'2' '-2'|'-' 'คื'|'ค' '17'|'1' 'ต่'|'ต' '18'|'1' 'พฤ'|'พ' '25'|'2'
+
+Analyzer "standard>prefixes(3)":
+File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
+ 'i' 'am'|'a' 'hap'|'ha'|'h'
+File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
+ 'oh'|'o' 'hap'|'ha'|'h'
+File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
+ 'not'|'no'|'n' 'imp'|'im'|'i' 'her'|'he'|'h' 'so'|'s' 'don'|'do'|'d' 'eve'|'ev'|'e' 'loo'|'lo'|'l' 'bec'|'be'|'b' 'you'|'yo'|'y' 'sha'|'sh'|'s' 'fin'|'fi'|'f' 'not'|'no'|'n' 'wha'|'wh'|'w'
+File !:\data\cpixunittestcorpus\stem\en\4.txt tokenized:
+ 'wha'|'wh'|'w' 'hap'|'ha'|'h' 'her'|'he'|'h'
+File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
+ 'juo'|'ju'|'j' 'nyt'|'ny'|'n' 'tee'|'te'|'t'
+File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
+ 'tee'|'te'|'t' 'näi'|'nä'|'n'
+File !:\data\cpixunittestcorpus\loc\th\1.txt tokenized:
+ 'ปรา'|'ปร'|'ป' '7' '-18'|'-1'|'-' 'พ' 'ยนี'|'ยน'|'ย' 'นาย'|'นา'|'น' 'ตัน'|'ตั'|'ต' 'ปรา'|'ปร'|'ป' '17'|'1' '-18'|'-1'|'-' 'พฤศ'|'พฤ'|'พ' '255'|'25'|'2'
+File !:\data\cpixunittestcorpus\loc\th\2.txt tokenized:
+ 'จะม'|'จะ'|'จ' '254'|'25'|'2' '-25'|'-2'|'-' 'คือ'|'คื'|'ค' '17'|'1' 'ต่อ'|'ต่'|'ต' '18'|'1' 'พฤศ'|'พฤ'|'พ' '255'|'25'|'2'
+
+Analyzer "stdtokens>stdfilter>lowercase>thai>stop(en)":
+File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
+ 'i' 'am' 'happy'
+File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
+ 'oh' 'happiness'
+File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
+ 'nothing' 'important' 'here' 'so' 'don't' 'even' 'look' 'because' 'you' 'shall' 'find' 'nothing' 'whatsoever'
+File !:\data\cpixunittestcorpus\stem\en\4.txt tokenized:
+ 'what' 'happening' 'here'
+File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
+ 'juon' 'nyt' 'teetä'
+File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
+ 'tee' 'näin'
+File !:\data\cpixunittestcorpus\loc\th\1.txt tokenized:
+ 'ปรากฏการณ์' 'ฝน' 'ดาวตก' '7' '-18' 'พ' 'ยนี' '้' 'นาย' 'วรวิท' 'ย์' 'ตัน' 'วุฒิ' 'บัณฑิต' 'ปราชญ์' 'ภูมิปัญญา' 'ท้อง' 'ถิ่น' 'ด้าน' 'ดาราศาสตร์' 'ไทย' 'กล่าว' 'ว่า' '17' '-18' 'พฤศจิกายน' '2552'
+File !:\data\cpixunittestcorpus\loc\th\2.txt tokenized:
+ 'จะ' 'มี' 'ปรากฏการณ์' 'ดาราศาสตร์' 'ครั้ง' 'สำคัญ' 'ที่' 'ชาว' 'ไทย' 'เคย' 'ประทับ' 'ใจมา' 'แล้ว' 'เมื่อ' 'ปี' '2541' '-2544' 'คือ' 'ใน' 'คืน' 'วัน' 'ที่' '17' 'ต่อ' 'เนื่อง' 'วัน' 'ที่' '18' 'พฤศจิกายน' '2552'
+
+Analyzer "cjk>stop(en)":
+File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
+ 'i' 'am' 'happy'
+File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
+ 'oh' 'happiness'
+File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
+ 'nothing' 'important' 'here' 'so' 'don' 'even' 'look' 'because' 'you' 'shall' 'find' 'nothing' 'whatsoever'
+File !:\data\cpixunittestcorpus\stem\en\4.txt tokenized:
+ 'what' 'happening' 'here'
+File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
+ 'juon' 'nyt' 'teetä'
+File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
+ 'tee' 'näin'
+File !:\data\cpixunittestcorpus\loc\th\1.txt tokenized:
+ 'ปร' 'รา' 'าก' 'กฏ' 'ฏก' 'กา' 'าร' 'รณ' 'ฝน' 'นด' 'ดา' 'าว' 'วต' 'ตก' '17' '18' 'พ' 'ยน' 'นา' 'าย' 'ยว' 'วร' 'รว' 'ทย' 'ต' 'นว' 'ฒ' 'บ' 'ณฑ' 'ต' 'ปร' 'รา' 'าช' 'ชญ' 'ภ' 'ม' 'ป' 'ญญ' 'ญา' 'าท' 'อง' 'งถ' 'นด' 'าน' 'นด' 'ดา' 'าร' 'รา' 'าศ' 'ศา' 'าส' 'สต' 'ตร' 'ไท' 'ทย' 'ยก' 'กล' 'าว' 'วว' 'า' '17' '18' 'พฤ' 'ฤศ' 'ศจ' 'กา' 'าย' 'ยน' '2552'
+File !:\data\cpixunittestcorpus\loc\th\2.txt tokenized:
+ 'จะ' 'ะม' 'ปร' 'รา' 'าก' 'กฏ' 'ฏก' 'กา' 'าร' 'รณ' 'ดา' 'าร' 'รา' 'าศ' 'ศา' 'าส' 'สต' 'ตร' 'คร' 'งส' 'สำ' 'ำค' 'ญท' 'ชา' 'าว' 'วไ' 'ไท' 'ทย' 'ยเ' 'เค' 'คย' 'ยป' 'ปร' 'ระ' 'ะท' 'บใ' 'ใจ' 'จม' 'มา' 'าแ' 'แล' 'วเ' 'เม' 'อป' '2541' '2544' 'ค' 'อใ' 'ใน' 'นค' 'นว' 'นท' '17' 'ต' 'อเ' 'เน' 'อง' 'งว' 'นท' '18' 'พฤ' 'ฤศ' 'ศจ' 'กา' 'าย' 'ยน' '2552'
+
+Analyzer "ngram(1)>lowercase>stop(en)":
+File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
+ 'i' 'am' 'happy'
+File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
+ 'oh' 'happiness'
+File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
+ 'nothing' 'important' 'here' 'so' 'don' 'even' 'look' 'because' 'you' 'shall' 'find' 'nothing' 'whatsoever'
+File !:\data\cpixunittestcorpus\stem\en\4.txt tokenized:
+ 'what' 'happening' 'here'
+File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
+ 'juon' 'nyt' 'teetä'
+File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
+ 'tee' 'näin'
+File !:\data\cpixunittestcorpus\loc\th\1.txt tokenized:
+ 'ปรากฏการณ' 'ฝนดาวตก17' '18พ' 'ยน' 'นายวรว' 'ทย' 'ต' 'นว' 'ฒ' 'บ' 'ณฑ' 'ต' 'ปราชญ' 'ภ' 'ม' 'ป' 'ญญาท' 'องถ' 'นด' 'านดาราศาสตร' 'ไทยกล' 'าวว' 'า' '17' '18' 'พฤศจ' 'กายน' '2552'
+File !:\data\cpixunittestcorpus\loc\th\2.txt tokenized:
+ 'จะม' 'ปรากฏการณ' 'ดาราศาสตร' 'คร' 'งสำค' 'ญท' 'ชาวไทยเคยประท' 'บใจมาแล' 'วเม' 'อป' '2541' '2544' 'ค' 'อในค' 'นว' 'นท' '17' 'ต' 'อเน' 'องว' 'นท' '18' 'พฤศจ' 'กายน' '2552'
+
+Analyzer "ngram(2)>lowercase>stop(en)":
+File !:\data\cpixunittestcorpus\stem\en\1.txt tokenized:
+ 'i' 'am' 'happy'
+File !:\data\cpixunittestcorpus\stem\en\2.txt tokenized:
+ 'oh' 'happiness'
+File !:\data\cpixunittestcorpus\stem\en\3.txt tokenized:
+ 'nothing' 'important' 'here' 'so' 'don' 'even' 'look' 'because' 'you' 'shall' 'find' 'nothing' 'whatsoever'
+File !:\data\cpixunittestcorpus\stem\en\4.txt tokenized:
+ 'what' 'happening' 'here'
+File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
+ 'juon' 'nyt' 'teetä'
+File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
+ 'tee' 'näin'
+File !:\data\cpixunittestcorpus\loc\th\1.txt tokenized:
+ 'ปรากฏการณ' 'ฝนดาวตก17' '18พ' 'ยน' 'นายวรว' 'ทย' 'ต' 'นว' 'ฒ' 'บ' 'ณฑ' 'ต' 'ปราชญ' 'ภ' 'ม' 'ป' 'ญญาท' 'องถ' 'นด' 'านดาราศาสตร' 'ไทยกล' 'าวว' 'า' '17' '18' 'พฤศจ' 'กายน' '2552'
+File !:\data\cpixunittestcorpus\loc\th\2.txt tokenized:
+ 'จะม' 'ปรากฏการณ' 'ดาราศาสตร' 'คร' 'งสำค' 'ญท' 'ชาวไทยเคยประท' 'บใจมาแล' 'วเม' 'อป' '2541' '2544' 'ค' 'อในค' 'นว' 'นท' '17' 'ต' 'อเน' 'องว' 'นท' '18' 'พฤศจ' 'กายน' '2552'
+

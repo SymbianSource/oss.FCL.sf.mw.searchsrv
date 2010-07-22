@@ -1,21 +1,24 @@
 /*
-* Copyright (c) 2002 Nokia Corporation and/or its subsidiary(-ies).
-* All rights reserved.
-* This component and the accompanying materials are made available
-* under the terms of "Eclipse Public License v1.0"
-* which accompanies this distribution, and is available
-* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+* ============================================================================
+*  Name     : cpix.iby
+*  Part of  : S605.0, PF52.50, ivalo
 *
-* Initial Contributors:
-* Nokia Corporation - initial contribution.
-*
-* Contributors:
-*
-* Description:  Includes additional application IBYs for PF52.50/ivalo
+*  Description: Includes additional application IBYs for PF52.50/ivalo
 *       
+*  Version:
 *
+*  Copyright (C) 2002 Nokia Corporation.
+*  This material, including documentation and any related 
+*  computer programs, is protected by copyright controlled by 
+*  Nokia Corporation. All rights are reserved. Copying, 
+*  including reproducing, storing,  adapting or translating, any 
+*  or all of this material requires the prior written consent of 
+*  Nokia Corporation. This material also contains confidential 
+*  information which may not be disclosed to others without the 
+*  prior written consent of Nokia Corporation.
+*
+* ============================================================================
 */
-
 
 #ifndef __CPIXENGINE_IBY__
 #define __CPIXENGINE_IBY__
@@ -51,7 +54,11 @@ file=ABI_DIR\BUILD_DIR\cpixwatchdog.exe	SHARED_LIB_DIR\cpixwatchdog.exe
 
 data=DATAZ_\PRIVATE\101f875a\import\20029ab8.rsc  private\101f875a\import\20029ab8.rsc
 
+data=DATAZ_\resource\cpix\analyzer.loc           \resource\cpix\analyzer.loc
+data=DATAZ_\resource\cpix\thaidict.sm            \resource\cpix\thaidict.sm
 data=ZSYSTEM\install\cpixsearch_stub.sis    System\Install\cpixsearch_stub.sis
+
+data=DATAZ_\private\10202be9\2001f6fb.cre       private\10202be9\2001f6fb.cre
 
 #endif //FF_SEARCH_SW
 

@@ -148,7 +148,10 @@ extern "C" {
                             const wchar_t * fieldName,
                             cpix_Analyzer * analyzer);
     
-
+    
+    cpix_QueryParser * 
+    cpix_CreatePrefixQueryParser(cpix_Result   * result, 
+								 const wchar_t * fieldName); 
 
     /**
      * Constructs a special type of query parser, a multi-field query

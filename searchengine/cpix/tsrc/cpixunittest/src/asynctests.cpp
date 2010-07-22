@@ -37,6 +37,7 @@
 #include "testcorpus.h"
 #include "setupsentry.h"
 
+#include "std_log_result.h"
 
 // TODO PROPER, EXAMPLARY error clearing (cpix_ClearError())
 
@@ -1217,6 +1218,8 @@ public:
     
     void testSingleThreadIdx(Itk::TestMgr * testMgr)
     {
+        char *xml_file = (char*)__FUNCTION__;
+        assert_failed = 0;
         testMgr_ = testMgr;
 
         // cpix_setLogLevel(CPIX_LL_DEBUG);
@@ -1246,7 +1249,11 @@ public:
         ITK_EXPECT(testMgr,
                    result == 0,
                    "Could not join indexer thread");
-
+        if(result != 0) 
+            {
+            assert_failed = 1;
+            }
+        testResultXml(xml_file);
         // cpix_setLogLevel(CPIX_LL_TRACE);
 
         printStatistics();
@@ -1256,6 +1263,8 @@ public:
 
     void testSingleThreadQry(Itk::TestMgr * testMgr)
     {
+        char *xml_file = (char*)__FUNCTION__;
+        assert_failed = 0;
         testMgr_ = testMgr;
 
         // cpix_setLogLevel(CPIX_LL_DEBUG);
@@ -1285,7 +1294,11 @@ public:
         ITK_EXPECT(testMgr,
                    result == 0,
                    "Could not join searcher thread");
-
+        if(result != 0) 
+            {
+            assert_failed = 1;
+            }
+        testResultXml(xml_file);
         // cpix_setLogLevel(CPIX_LL_TRACE);
 
         printStatistics();
@@ -1295,6 +1308,8 @@ public:
 
     void testMultiThreads(Itk::TestMgr * testMgr)
     {
+        char *xml_file = (char*)__FUNCTION__;
+        assert_failed = 0;
         cleanup();
         setup();
 
@@ -1350,14 +1365,22 @@ public:
         ITK_EXPECT(testMgr,
                    result == 0,
                    "Could not join indexer thread");
-
+        if(result != 0) 
+            {
+            assert_failed = 1;
+            }
+        
         result = pthread_join(searcherThreadHndl,
                               &rv);
 
         ITK_EXPECT(testMgr,
                    result == 0,
                    "Could not join searcher thread");
-
+        if(result != 0) 
+            {
+            assert_failed = 1;
+            }
+        testResultXml(xml_file);
         // cpix_setLogLevel(CPIX_LL_TRACE);
 
         printStatistics();
@@ -1536,6 +1559,7 @@ private:
             }
         catch (...)
             {
+                assert_failed = 1;
                 ITK_EXPECT(testMgr_,
                            false,
                            "INDEXER: Failed indexing\n");
@@ -1610,6 +1634,7 @@ private:
             }
         catch (...)
             {
+                assert_failed = 1;
                 ITK_EXPECT(testMgr_,
                            false,
                            "SEARCHER: Failed searching\n");

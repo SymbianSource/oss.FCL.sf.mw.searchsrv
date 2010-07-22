@@ -69,6 +69,7 @@ LIBRARY         libstdcpp.lib
 LIBRARY   		libpthread.lib
 LIBRARY         libm.lib
 LIBRARY         euser.lib
+LIBRARY           libz.lib
 
 // No capabilities needed by this application
 CAPABILITY      ReadUserData WriteUserData

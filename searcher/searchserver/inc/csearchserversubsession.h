@@ -23,7 +23,7 @@
 // FORWARD DECLARATIONS
 class CSearchServerSession;
 class CCPixIdxDb;
-class CCPixSearch;
+class CCPixAbstractSearcher;
 class CSearchDocument;
 
 class CSearchServerSubSession : public CObject, public MCPixAsyncronizerObserver
@@ -34,6 +34,20 @@ public:
 	virtual ~CSearchServerSubSession();
 	
 public:	
+	/**
+	 * OpenSearchableL 
+	 * Opens CPixSearcher, if aSearchableId identifies search domain,
+	 * or CPixDiscoverer, if aSearchableId identifies discovery 
+	 * service.
+	 * 
+	 * @param aSearchableId either search domain or discovery service
+	 * @param aDefaultfield in case aSearchableId defines search domain, 
+	 *                      this field is used as searchers default id. 
+	 *                      In case discoverer is opened, this parameter is 
+	 *                      ignored   
+	 */
+	void OpenSearcherL(const TDesC& aSearchableId, const TDesC& aDefaultField); 
+
 	/**
 	 * OpenDatabaseL.
 	 * Opens database 
@@ -47,6 +61,12 @@ public:
 	 * @param aMessage Message from client.
 	 */
 	void SetAnalyzerL(const RMessage2& aMessage);
+	
+	/**
+	 * SetQueryParserL.
+	 * TODO
+	 */
+	void SetQueryParserL(const RMessage2& aMessage);
 		
 	/**
 	 * SearchL.
@@ -157,7 +177,7 @@ private:
 		
 private:
 	CCPixIdxDb* iIndexDb;
-	CCPixSearch* iSearchDb;
+	CCPixAbstractSearcher* iSearchDb;
 	CSearchDocument* iNextDocument;
 	CSearchServerSession* iSession;
 };

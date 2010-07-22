@@ -68,23 +68,19 @@ namespace Cpt {
      * (e.g. "file*.tx?") itself is not supported)
      */
     namespace Lex {
+    
+		typedef const wchar_t* token_type_t; 
 
 
-        /**
-         * Basic token types
-         */
-        enum TokenType {
-            TOKEN_UNKNOWN = 0,
-            TOKEN_EOF = 1, 
-            TOKEN_WS,  
-            TOKEN_ID, 
-            TOKEN_STRLIT,
-            TOKEN_INTLIT,
-            TOKEN_REALLIT,
-            TOKEN_LIT,
-			
-            TOKEN_LAST_RESERVED // 8
-        };
+		extern token_type_t TOKEN_UNKNOWN;
+		extern token_type_t TOKEN_EOF;
+		extern token_type_t TOKEN_WS; 
+		extern token_type_t TOKEN_COMMENT;  
+		extern token_type_t TOKEN_ID;	
+		extern token_type_t TOKEN_STRLIT;
+		extern token_type_t TOKEN_INTLIT;
+		extern token_type_t TOKEN_REALLIT;
+		extern token_type_t TOKEN_LIT;
 		
         class LexException : public ITxtCtxtExc {
         public: 
@@ -106,15 +102,15 @@ namespace Cpt {
          */
         class Token {
         public: 
-            Token(int type, const wchar_t* begin, const wchar_t* end);
+            Token(token_type_t type, const wchar_t* begin, const wchar_t* end);
             Token();
-            int type() const;
+            const wchar_t* type() const;
             const wchar_t* begin() const;
             const wchar_t* end() const;
             int length() const;
             std::wstring text() const; 
         private: 
-            int type_;
+            token_type_t type_;
             const wchar_t* begin_;
             const wchar_t* end_;
         };
@@ -221,17 +217,61 @@ namespace Cpt {
 	
         class SymbolTokenizer : public Tokenizer {
         public: 
-            SymbolTokenizer(int tokenType, const wchar_t* symbol);
+            SymbolTokenizer(const wchar_t* tokenType, const wchar_t* symbol);
             virtual void reset();
             virtual Token get();
             virtual TokenizerState consume(const wchar_t* cursor);
         private:
             const wchar_t* begin_;
             const wchar_t* end_; 
-            int tokenType_; 
+            token_type_t tokenType_; 
             const wchar_t* symbol_;
         };
-	
+ 
+        /**
+         * C style line comment, e.g. // comment
+         */
+        class LineCommentTokenizer : public Tokenizer {
+        public: 
+        	LineCommentTokenizer();
+            virtual void reset();
+            virtual Token get();
+            virtual TokenizerState consume(const wchar_t* cursor);
+        private:
+            enum State {
+				READY,
+				SLASH_CONSUMED, 
+				COMMENT,
+				FINISHED
+            };
+        	State state_;
+        	const wchar_t* begin_; 
+        	const wchar_t* end_;
+        };
+
+        /**
+         * C++ style section comments. Like the one's surrounding this comment
+         */
+        class SectionCommentTokenizer : public Tokenizer {
+        public: 
+        	SectionCommentTokenizer();
+            virtual void reset();
+            virtual Token get();
+            virtual TokenizerState consume(const wchar_t* cursor);
+        private:
+            enum State {
+				READY,
+				SLASH_CONSUMED, 
+				COMMENT, 
+				STAR_CONSUMED, 
+				FINISH
+            };
+        	State state_;
+        	const wchar_t* begin_; 
+        	const wchar_t* end_;
+        	
+        };
+
         /**
          * Tokenizes text by using given tokenizers. Text is consumed
          * until no tokenizer is in hungry state e.g., all tokenizers
@@ -303,6 +343,16 @@ namespace Cpt {
 				
             virtual ~TokenIterator(); 
         };
+        
+        class WhitespaceSplitter : public TokenIterator {
+        public:
+        	WhitespaceSplitter(const wchar_t* text);
+            virtual operator bool();
+            virtual Token operator++(int);
+        public: 
+            const wchar_t* begin_;
+            const wchar_t* end_;
+        };
 		
         /**
          * Uses tokenizer for converting given text into token stream
@@ -328,9 +378,9 @@ namespace Cpt {
         /**
          * Filters out all tokens of type TOKEN_WS
          */
-        class WhiteSpaceFilter : public TokenIterator {
+        class StdFilter : public TokenIterator {
         public:
-            WhiteSpaceFilter(TokenIterator& tokens);
+        	StdFilter(TokenIterator& tokens);
             virtual operator bool();
             virtual Token operator++(int);
         private:
@@ -425,7 +475,7 @@ namespace Cpt {
             Lexer(Lex::TokenIterator& tokens); 
             // throws ParseException instead of LexException on EOF. 
             virtual Lex::Token operator++(int);
-            Lex::Token eat(int tokenType);
+            Lex::Token eat(Lex::token_type_t tokenType);
             void eatEof();
             std::wstring eatId();
             std::wstring eatString();
@@ -441,7 +491,7 @@ namespace Cpt {
             StdLexer(Lex::Tokenizer& tokens, const wchar_t* text); 
         private: 
             Lex::Tokens tokens_; 
-            Lex::WhiteSpaceFilter ws_;
+            Lex::StdFilter filter_;
         };
 		
     } // Parser

@@ -107,4 +107,8 @@ EXPORTS
 	_ZN20RSearchServerSession16StopHouseKeepingEv @ 106 NONAME
 	_ZN20RSearchServerSession17ForceHouseKeepingEv @ 107 NONAME
 	_ZN20RSearchServerSession20ContinueHouseKeepingEv @ 108 NONAME
+	_ZN13CCPixSearcher15SetQueryParserLENS_12TQueryParserE @ 109 NONAME
+	_ZN13CCPixSearcher15SetQueryParserLER34MCPixSetQueryParserRequestObserverNS_12TQueryParserE @ 110 NONAME
+	_ZN23RSearchServerSubSession14SetQueryParserEiR14TRequestStatus @ 111 NONAME
+	_ZN23RSearchServerSubSession15SetQueryParserLEi @ 112 NONAME
 

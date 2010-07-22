@@ -82,6 +82,12 @@ CL_NS_DEF2(analysis,standard)
     
     // Reads CJK characters
     bool ReadCJK(const TCHAR prev, Token* t);
+
+    // CHANGED Thai support ->
+    // Reads CJK characters
+	bool ReadThai(const TCHAR prev, Token* t);
+	// CHANGED Thai support 
+	
   };
 
 CL_NS_END2

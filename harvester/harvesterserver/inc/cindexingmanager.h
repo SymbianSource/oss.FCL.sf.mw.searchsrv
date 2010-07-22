@@ -26,6 +26,7 @@ const TInt KFilePluginBaseAppClassMaxLen = 64;
 //Forward Declaration
 class CBlacklistMgr;
 class CContentInfoMgr;
+class CContentInfo;
 
 class CIndexingManager : public CActive, public MIndexingService
 	{
@@ -100,6 +101,29 @@ private:
      * saving the state of the Plugins
      */
 	void SaveL();
+	/**
+     * Add an entry to the content info Db with the plugin details.If an entry with the given 
+     * plugin name is already available in contentinfo db then the blacklist status of the plugin
+     * is updated with KEnable.
+     */
+	void UpdateContentInfoDbL( const TDesC& aPluginName, CContentInfo* aContentinfo);
+	/**
+     * Update the dontload list in a separate table in blacklist database.
+     * If any error occurs in reading Uid values from centrep, then the dontload list
+     * is ignored.
+     */
+	void UpdateDontloadListL();
+	/**
+     * Returns the load status of the plugin. This method will check both tables in 
+     * Blacklist database and return the status.
+     * returns ETrue if uid is found in any table of blacklist database else returns EFalse.
+     */
+	TBool GetPluginLoadStatusL (TUid aPluginUid, TInt aVersion, const TDesC& aPluginName);
+	
+	/**
+     * Loads the Harvesterplugin with given plugin uid
+     */
+	void LoadHarvesterpluginL (TUid aPluginUid, TInt aVersion, const TDesC& aPluginName);
 	
 private:
 	CIndexingManager();

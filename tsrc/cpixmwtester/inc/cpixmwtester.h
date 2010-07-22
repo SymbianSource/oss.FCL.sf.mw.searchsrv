@@ -176,6 +176,10 @@ NONSHARABLE_CLASS(CCPixMWTester) : public CScriptBase
         
         virtual TInt TestUpdateINStatusL( CStifItemParser& aItem );
         
+        virtual TInt TestAddUnloadlistL( CStifItemParser& aItem );
+        
+        virtual TInt TestRemovefromUnloadlistL( CStifItemParser& aItem );
+        
         /**
          * Method used to log version of test class
          */

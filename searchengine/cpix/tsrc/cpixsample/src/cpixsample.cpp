@@ -1,19 +1,3 @@
-/*
-* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
-* All rights reserved.
-* This component and the accompanying materials are made available
-* under the terms of "Eclipse Public License v1.0"
-* which accompanies this distribution, and is available
-* at the URL "http://www.eclipse.org/legal/epl-v10.html".
-*
-* Initial Contributors:
-* Nokia Corporation - initial contribution.
-*
-* Contributors:
-*
-* Description: 
-*
-*/
 
 // INCLUDE FILES
 #include <stdio.h>
@@ -41,14 +25,15 @@
 
 
 #define FIELD_ALPHA L"Alpha"
+#define FIELD_ALPHA1 L"Alpha1"
 
 
-#define DOC1CONTENT L"mary had a little lamb its fleece was black as coal"
-#define DOC2CONTENT L"sri rama jeyam shankar.rajendran@yahoo.co.in www.google.com U.S.A. file.txt"
+#define DOC1CONTENT L"mary had little lamb issue its 9740069217 9999ss ssss7 sad76asd 12222ds asdfa23sdf234sdf anirban fleece was black as coal"
+#define DOC2CONTENT L"sri rama jeyam and it  3gpp_70.jpg 170(kb).jpg is ss asd shankar.rajendran@yahoo.co.in then www.google.com U.S.A. file.txt"
 
 
 // The term that will be present in multiple documents.
-#define SEARCH_TERM L"$prefix(\"yahoo\")"
+#define SEARCH_TERM L"$prefix(\"9999ss\")"
 
 
 int testInit(cpix_Analyzer **analyzer_, cpix_IdxDb **idxDb_)
@@ -103,11 +88,15 @@ int createDocument(const wchar_t* docUid, const wchar_t* data,cpix_Analyzer **an
     {
     cpix_Document *doc;
     cpix_Field field;
+    cpix_Field field1;
+    cpix_Field field2;
+    cpix_Field field3;
     cpix_Result result;
     
     doc = cpix_Document_create(&result,docUid,NULL,      // app class
             NULL,      // excerpt
             NULL);     // mime type
+    
     if (cpix_Failed(&result))
         {
         printf("Failed to create a document\n");
@@ -117,7 +106,24 @@ int createDocument(const wchar_t* docUid, const wchar_t* data,cpix_Analyzer **an
     cpix_Field_initialize(&field,
             FIELD_ALPHA,
             data, 
-            cpix_STORE_YES |cpix_INDEX_TOKENIZED);
+            cpix_STORE_YES |cpix_INDEX_UNTOKENIZED | cpix_AGGREGATE_YES | cpix_FREE_TEXT );
+    
+    cpix_Field_initialize(&field1,
+                FIELD_ALPHA1,
+                data, 
+                cpix_STORE_YES |cpix_INDEX_UNTOKENIZED | cpix_AGGREGATE_YES);
+    
+    
+    cpix_Field_initialize(&field2,
+                L"ALPHA2",
+                L"This is shankar and I am working for nokia", 
+                cpix_STORE_YES |cpix_INDEX_TOKENIZED | cpix_AGGREGATE_YES | cpix_FREE_TEXT );
+    
+    
+    cpix_Field_initialize(&field3,
+                L"ALPHA3",
+                L"This is shankar and I am working for nokia", 
+                cpix_STORE_NO |cpix_INDEX_TOKENIZED | cpix_AGGREGATE_YES);
 
     if (cpix_Failed(&field))
         {
@@ -126,6 +132,9 @@ int createDocument(const wchar_t* docUid, const wchar_t* data,cpix_Analyzer **an
         return 0;
         }
     cpix_Document_add(doc,&field);
+    cpix_Document_add(doc,&field1);
+    cpix_Document_add(doc,&field2);
+    cpix_Document_add(doc,&field3);
     cpix_IdxDb_add(*idxDb_,doc,*analyzer_);
 
     cpix_Document_destroy(doc);
@@ -220,16 +229,20 @@ int main(void)
 
         query_ = cpix_QueryParser_parse(queryParser_, SEARCH_TERM);
 
+        if ( query_ == NULL) { // sometimes the query parser returns NULL then we crash
+            return 0;
+        }
         if (cpix_Failed(queryParser_))
             {
             printf("Could not create query parser \n");
+            return 0;
             }
 
         hits_ = cpix_IdxDb_search(idxDb_, query_);
         printHits( hits_); 
 
 
-        int32_t hits_len = cpix_Hits_length(hits_); 
+        int32_t hits_len = cpix_Hits_length(hits_);
         
         cleanUp(&analyzer_, &queryParser_,&query_,&idxDb_,&hits_);
 

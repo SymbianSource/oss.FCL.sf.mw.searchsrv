@@ -83,6 +83,27 @@ void cpix_InitParams_setCpixDir(cpix_InitParams * thisIp,
                         value));
 }
 
+const char * cpix_InitParams_getResourceDir(cpix_InitParams * thisIp)
+{
+    using namespace Cpix;
+
+    return XlateExc(thisIp,
+                    Caller(thisIp,
+                               &InitParams::getResourceDir));
+}
+
+
+void cpix_InitParams_setResourceDir(cpix_InitParams * thisIp,
+									const char      * value)
+{
+    using namespace Cpix;
+
+    XlateExc(thisIp,
+             Caller(thisIp,
+                        &InitParams::setResourceDir,
+                        value));
+}
+
 
 const char * cpix_InitParams_getLogFileBase(cpix_InitParams * thisIp)
 {

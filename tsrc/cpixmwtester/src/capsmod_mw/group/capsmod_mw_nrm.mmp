@@ -33,9 +33,6 @@ CAPABILITY        CAP_GENERAL_DLL DiskAdmin -AllFiles -DRM
 #ifdef SBSV2
 	#if defined(__S60_)
 	    OSEXT_LAYER_SYSTEMINCLUDE
-	#else // __S60_ not defined
-	    SYSTEMINCLUDE   /epoc32/include 
-	    SYSTEMINCLUDE   /epoc32/include/internal
 	#endif // __S60_
 
 	/* Source files */
@@ -43,9 +40,6 @@ CAPABILITY        CAP_GENERAL_DLL DiskAdmin -AllFiles -DRM
 #else // SBSV2 not defined
 	#if defined(__S60_)
 	    MW_LAYER_SYSTEMINCLUDE
-	#else // __S60_ not defined
-	    SYSTEMINCLUDE   /epoc32/include 
-	    SYSTEMINCLUDE   /epoc32/include/internal
 	#endif // __S60_
 
 	/* Source files */

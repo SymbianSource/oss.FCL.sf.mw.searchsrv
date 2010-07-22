@@ -31,7 +31,7 @@
 #include "setupsentry.h"
 #include "testcorpus.h"
 
-
+#include "std_log_result.h"
 
 class FlushContext : public Itk::ITestContext, public Cpt::IFileVisitor
 {
@@ -126,34 +126,47 @@ public:
 
     void testEmptyIndex(Itk::TestMgr * testMgr)
     {
+        char *xml_file = (char *)__FUNCTION__;
+        assert_failed = 0;
         checkIndexFiles(testMgr);
+        testResultXml(xml_file);
+        
     }
 
     
     void testAddingBy512B(Itk::TestMgr * testMgr)
     {
+        char *xml_file = (char *)__FUNCTION__;
+        assert_failed = 0;
         setMaxInsertBufferSize(testMgr,
                          512); // 512 B buffer
         addItems(testMgr,
                  10);
+        testResultXml(xml_file);
     }
 
 
     void testAddingBy10KB(Itk::TestMgr * testMgr)
     {
+        char *xml_file = (char *)__FUNCTION__;
+        assert_failed = 0;
         setMaxInsertBufferSize(testMgr,
                                10*1024); // 10 KB buffer
         addItems(testMgr,
                  40);
+        testResultXml(xml_file);
     }
 
 
     void testFlushing(Itk::TestMgr * testMgr)
     {
+        char *xml_file = (char *)__FUNCTION__;
+        assert_failed = 0;
         addItems(testMgr,
                  15);
         flush(testMgr);
         checkIndexFiles(testMgr);
+        testResultXml(xml_file);
     }
 
 
@@ -199,6 +212,10 @@ private:
                    cpix_Succeeded(util_->idxDb()),
                    "Could not set the maxInsertBufferSize to %d",
                    trunkated); 
+        if(!cpix_Succeeded(util_->idxDb()))
+            {
+                assert_failed = 1;
+            }
         printf("Set max insert buffer size to %d\n",
         	   trunkated);
     }
@@ -210,6 +227,10 @@ private:
         ITK_ASSERT(testMgr,
                    cpix_Succeeded(util_->idxDb()),
                    "Could not flush index database");
+        if(!cpix_Succeeded(util_->idxDb()))
+            {
+                assert_failed = 1;
+            }
         printf("Flushed index database\n");
     }
     

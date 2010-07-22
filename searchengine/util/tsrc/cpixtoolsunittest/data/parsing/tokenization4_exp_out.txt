@@ -1,2 +1,2 @@
-lit(''\' '')lit(''\\'')lit(''\a'')lit(''\
+literal(''\' '')literal(''\\'')literal(''\a'')literal(''\
 '')

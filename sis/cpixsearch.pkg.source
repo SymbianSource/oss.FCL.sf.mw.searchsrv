@@ -122,3 +122,12 @@
 "\epoc32\release\armv5\$(TARGET)\qcpixsearchclient.dll"    - "!:\sys\bin\qcpixsearchclient.dll"
 
 @"centrep.sisx", (0x10202BE9)
+;Email Plugin
+"\epoc32\data\z\resource\plugins\cpixemailplugin.rsc"
+-"c:\resource\plugins\cpixemailplugin.rsc"
+"\epoc32\release\armv5\$(TARGET)\cpixemailplugin.dll"
+-"c:\sys\bin\cpixemailplugin.dll"
+
+;Qt Email fetcher
+"\epoc32\release\armv5\$(TARGET)\qtemailfetcher.dll"
+-"c:\sys\bin\qtemailfetcher.dll"

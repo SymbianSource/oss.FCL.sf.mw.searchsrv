@@ -35,6 +35,7 @@ namespace Cpix
                  const wchar_t * value,
                  int             configs) 
         :	own_(true), field_(0) {
+        freeText_  = false;
         resolveConfig(configs); 
         field_ = _CLNEW lucene::document::Field(name, value, configs); 		 
     }
@@ -44,6 +45,7 @@ namespace Cpix
                  lucene::util::Reader* stream,
                  int             configs) 
 	:  own_(true), field_(0) {
+        freeText_  = false;
         resolveConfig(configs); 
         field_ = _CLNEW lucene::document::Field(name, stream, configs); 		 
     }
@@ -63,6 +65,11 @@ namespace Cpix
             // Aggregate indexed fields by default. 
             aggregate_ = !(configs & cpix_INDEX_NO);
         }
+        
+        if(configs & cpix_FREE_TEXT){
+            freeText_ = true;
+            configs &= (~cpix_FREE_TEXT);
+        }
     }
 				    
 
@@ -73,6 +80,7 @@ namespace Cpix
       field_( field ), 
 	  aggregate_( aggregate ) 
 	   {
+        freeText_  = false;
     }
 	
     Field::~Field() {
@@ -105,7 +113,11 @@ namespace Cpix
     int Field::isIndexed() const {
         return field_->isIndexed(); 
     }
-
+    
+    bool Field::isFreeText() const {
+        return freeText_;
+    }
+    
     bool Field::isAggregated() const {
         return aggregate_;
     }

@@ -43,20 +43,21 @@ namespace Cpix {
     namespace AnalyzerExp {
  
         /** Identifiers for the tokens. Extends the list present in the cpixparsetools.h */
-        enum TokenType {
-            TOKEN_LEFT_BRACKET = Cpt::Lex::TOKEN_LAST_RESERVED,  // 8
-            TOKEN_RIGHT_BRACKET, 
-            TOKEN_COMMA, // 10
-            TOKEN_PIPE,
-            TOKEN_SWITCH,
-            TOKEN_CASE,
-            TOKEN_DEFAULT,
-            TOKEN_LEFT_BRACE, // 15
-            TOKEN_RIGHT_BRACE,
-            TOKEN_COLON,
-            TOKEN_TERMINATOR
-        };
-
+    
+		extern const wchar_t TOKEN_LEFT_BRACKET[];
+		extern const wchar_t TOKEN_RIGHT_BRACKET[]; 
+		extern const wchar_t TOKEN_COMMA[]; 
+		extern const wchar_t TOKEN_PIPE[];
+		extern const wchar_t TOKEN_SWITCH[];
+		extern const wchar_t TOKEN_LOCALE_SWITCH[];
+		extern const wchar_t TOKEN_CONFIG_SWITCH[];
+		extern const wchar_t TOKEN_CASE[];
+		extern const wchar_t TOKEN_DEFAULT[];
+		extern const wchar_t TOKEN_LEFT_BRACE[];
+		extern const wchar_t TOKEN_RIGHT_BRACE[];
+		extern const wchar_t TOKEN_COLON[];
+		extern const wchar_t TOKEN_TERMINATOR[]; 
+        
         /**
          * Tokenizer used for analyzer definition strings' lexical analysis
          */
@@ -70,6 +71,8 @@ namespace Cpix {
             virtual Cpt::Lex::TokenizerState consume(const wchar_t* cursor);
         private: // data
             Cpt::Lex::WhitespaceTokenizer ws_;	 
+            Cpt::Lex::LineCommentTokenizer lcomment_;	 
+            Cpt::Lex::SectionCommentTokenizer scomment_;	 
             Cpt::Lex::IdTokenizer ids_; 
             Cpt::Lex::StrLitTokenizer strlits_;
             Cpt::Lex::IntLitTokenizer intlits_;
@@ -79,6 +82,8 @@ namespace Cpix {
             Cpt::Lex::SymbolTokenizer cm_;	// comma
             Cpt::Lex::SymbolTokenizer pp_;      // pipe symbol '>'
             Cpt::Lex::SymbolTokenizer sw_;      // switch
+            Cpt::Lex::SymbolTokenizer lsw_;      // locale switch
+            Cpt::Lex::SymbolTokenizer csw_;      // config switch
             Cpt::Lex::SymbolTokenizer cs_;	// case
             Cpt::Lex::SymbolTokenizer df_;	// default
             Cpt::Lex::SymbolTokenizer lbc_;	// left brace
@@ -198,18 +203,18 @@ namespace Cpix {
         };
 
         /**
-         * A case of switch statement. Of form: "case 'field':
+         * A case of switch statement. Of form: "case 'case':
          * tokenizer>filter>filter;"
          */
         class Case : public Exp {
         public: 
-            Case(const std::vector<std::wstring> & fields, 
+            Case(const std::vector<std::wstring> & cases, 
                  std::auto_ptr<Piping>             piping); 
             virtual ~Case();
-            const std::vector<std::wstring>& fields() const; 
+            const std::vector<std::wstring>& cases() const; 
             const Piping& piping() const; 
         private:
-            std::vector<std::wstring> fields_; 
+            std::vector<std::wstring> cases_; 
             std::auto_ptr<Piping> piping_;
         };
         
@@ -228,7 +233,38 @@ namespace Cpix {
             Cpt::auto_vector<Case> cases_; 
             std::auto_ptr<Piping> def_;
         };
-        std::auto_ptr<Piping> ParsePiping(Cpt::Parser::Lexer& lexer);
+        
+        /**
+         * LocaleSwitch expression
+         */
+        class LocaleSwitch : public Exp {
+        public: 
+        	LocaleSwitch(Cpt::auto_vector<Case> & cases, 
+                   std::auto_ptr<Piping>    def); 
+            virtual ~LocaleSwitch(); 
+            const std::vector<Case*>& cases() const; 
+            const Piping& def() const;
+        public: 
+            Cpt::auto_vector<Case> cases_; 
+            std::auto_ptr<Piping> def_;
+        };
+
+        /**
+         * ConfigSwitch expression
+         */
+        class ConfigSwitch : public Exp {
+        public: 
+        	ConfigSwitch(Cpt::auto_vector<Case> & cases, 
+                   std::auto_ptr<Piping>    def); 
+            virtual ~ConfigSwitch(); 
+            const std::vector<Case*>& cases() const; 
+            const Piping& def() const;
+        public: 
+            Cpt::auto_vector<Case> cases_; 
+            std::auto_ptr<Piping> def_;
+        };
+
+        std::auto_ptr<Piping> ParsePiping(const wchar_t* definition);
 
     }
 }

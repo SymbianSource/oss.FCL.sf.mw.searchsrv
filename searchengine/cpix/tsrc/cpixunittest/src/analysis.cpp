@@ -30,6 +30,8 @@
 
 #include "cpixdoc.h"
 
+#include "std_log_result.h"
+
 const char * AnalysisTestDocsToIndex[5] = {
     FILE_TEST_CORPUS_PATH "\\en\\1.txt",
     FILE_TEST_CORPUS_PATH "\\en\\2.txt",
@@ -46,7 +48,7 @@ const wchar_t * AnalyzerTestTermsToSearch[5] = {
 };
 
 
-void TestAnalyzerParsing(Itk::TestMgr * , const wchar_t* definition) 
+void TestAnalyzerParsing(Itk::TestMgr * , const wchar_t* definition, int expected = 1) 
 {
 	cpix_Result result; 
 	
@@ -55,6 +57,10 @@ void TestAnalyzerParsing(Itk::TestMgr * , const wchar_t* definition)
 	cpix_Analyzer* analyzer = cpix_Analyzer_create( &result, definition);
 
 	if ( cpix_Failed( &result) ) {
+        if(expected)
+            assert_failed = 1;
+        else
+            assert_failed = 0;            
 		printf("Analyzer creation failed with %S\n", result.err_->msg_);
 		return; 
 	}
@@ -63,6 +69,8 @@ void TestAnalyzerParsing(Itk::TestMgr * , const wchar_t* definition)
 
 void TestAnalyzersParsing(Itk::TestMgr * testMgr) 
 {
+    char *xml_file = (char*)__FUNCTION__;
+    assert_failed = 0;
 	TestAnalyzerParsing(testMgr, L"stdtokens>lowercase"); 
 	TestAnalyzerParsing(testMgr, L"whitespace>lowercase"); 
 	TestAnalyzerParsing(testMgr, L"letter>lowercase"); 
@@ -75,16 +83,19 @@ void TestAnalyzersParsing(Itk::TestMgr * testMgr)
 	TestAnalyzerParsing(testMgr, L"letter>lowercase>stop('a', 'an', 'the')");
 
 	// bad syntaxes
-	TestAnalyzerParsing(testMgr, L"letter><lowercase" ); 
-	TestAnalyzerParsing(testMgr, L"38j_d fad23 4?q ca'wRA" ); 
+	TestAnalyzerParsing(testMgr, L"letter><lowercase" ,0); 
+	TestAnalyzerParsing(testMgr, L"38j_d fad23 4?q ca'wRA", 0 );
+	TestAnalyzerParsing(testMgr, L"38.45_d fd23<ca'wRA", 0 ); 
 	// parsing failures
-	TestAnalyzerParsing(testMgr, L"letter>>lowercase" ); 
-	TestAnalyzerParsing(testMgr, L">letter>>lowercase lowercase" ); 
-	TestAnalyzerParsing(testMgr, L"letter lowercase" ); 
+	TestAnalyzerParsing(testMgr, L"letter>>lowercase", 0 ); 
+	TestAnalyzerParsing(testMgr, L">letter>>lowercase lowercase", 0 ); 
+	TestAnalyzerParsing(testMgr, L"letter lowercase", 0 );
+	testResultXml(xml_file);
 }
-
 void TestSwitchParsing(Itk::TestMgr * testMgr) 
 {
+    char *xml_file = (char*)__FUNCTION__;
+        assert_failed = 0;
 	// Per field query syntax
 	TestAnalyzerParsing(testMgr, L"switch {"
 									 L"case '_docuid':          keyword; "
@@ -95,12 +106,13 @@ void TestSwitchParsing(Itk::TestMgr * testMgr)
 	TestAnalyzerParsing(testMgr, L"switch{ case '_qnr': whitespace; default: standard; }>lowercase");
 	TestAnalyzerParsing(testMgr, L"switch{ default: 	standard; }");
 	TestAnalyzerParsing(testMgr, L"switch{ case '_qnr': switch{ case '_docuid': keyword; default: whitespace; }; default: standard; }");
+	TestAnalyzerParsing(testMgr, L"switch{ case '_mimetype': standard; default: whitespace; }; default: standard; }");
+	testResultXml(xml_file);
 }
 
 void TestAnalyzerUsage(Itk::TestMgr * testMgr, const wchar_t* definition) 
 {
 	printf("Indexing and searching with %S\n", definition); 
-	
 	cpix_Result
         result;
 
@@ -179,6 +191,7 @@ void TestAnalyzerUsage(Itk::TestMgr * testMgr, const wchar_t* definition)
 
 		if (cpix_Failed(util->idxDb())) 
 			{
+            assert_failed = 1;
 			cpix_Analyzer_destroy(analyzer);
 			cpix_ClearError(queryParser);
 			cpix_QueryParser_destroy(queryParser);
@@ -192,15 +205,19 @@ void TestAnalyzerUsage(Itk::TestMgr * testMgr, const wchar_t* definition)
 	}
 	cpix_QueryParser_destroy(queryParser);
 	cpix_Analyzer_destroy( analyzer ); 
+	
 }
 
 void TestAnalyzersUsage(Itk::TestMgr * testMgr) 
 	{
+    char *xml_file = (char*)__FUNCTION__;
+    assert_failed = 0;
 	TestAnalyzerUsage(testMgr, L"whitespace" ); 
 	TestAnalyzerUsage(testMgr, L"letter>lowercase" ); 
 	TestAnalyzerUsage(testMgr, L"stdtokens>lowercase>stem(en)"); 
 	TestAnalyzerUsage(testMgr, L"letter>lowercase>stop(en)"); 
-	TestAnalyzerUsage(testMgr, L"letter>lowercase>stop('a', 'an', 'the')"); 
+	TestAnalyzerUsage(testMgr, L"letter>lowercase>stop('a', 'an', 'the')");
+	testResultXml(xml_file);
 	}
 
 

@@ -167,6 +167,8 @@ TInt CCPixMWTester::RunMethodL(
         ENTRY( "TestResetContent",CCPixMWTester::TestResetContentL ),
         ENTRY( "TestUpdateBLStatus",CCPixMWTester::TestUpdateBLStatusL ),
         ENTRY( "TestUpdateINStatus",CCPixMWTester::TestUpdateINStatusL ),
+        ENTRY( "TestAddUnloadlist",CCPixMWTester::TestAddUnloadlistL ),
+        ENTRY( "TestRemovefromUnloadlist",CCPixMWTester::TestRemovefromUnloadlistL ),
         //ADD NEW ENTRY HERE
         // [test cases entries] - Do not remove
 
@@ -433,6 +435,54 @@ TInt CCPixMWTester::TestUpdateINStatusL( CStifItemParser& aItem)
     if ( !blstatus ) err = KErrNone;
     delete contentInfoMgr;    
     doLog( iLog, err, KNoErrorString );
+    return err;
+    }
+
+// -----------------------------------------------------------------------------
+// CCPixMWTester::TestAddUnloadlistL
+// -----------------------------------------------------------------------------
+//
+TInt CCPixMWTester::TestAddUnloadlistL( CStifItemParser& /*aItem*/)
+    {
+    TInt err = KErrNone;        
+    CBlacklistMgr* blacklistmanager = CBlacklistMgr::NewL();
+    CleanupStack::PushL( blacklistmanager );
+    //Add an Uid to Blacklist DB
+    blacklistmanager->AddtoDontloadListL( KTestUid );
+    //Check if the Uid is added to database or not
+    TBool found = blacklistmanager->FindInDontloadListL(KTestUid );
+    
+    if(!found) err = KErrNotFound;
+    //clear the UID from the database
+    blacklistmanager->RemoveFromDontloadListL(KTestUid);
+    CleanupStack::PopAndDestroy( blacklistmanager ); 
+    doLog( iLog, err, KNoErrorString );        
+    return err;
+    }
+
+// -----------------------------------------------------------------------------
+// CCPixMWTester::TestRemovefromUnloadlistL
+// -----------------------------------------------------------------------------
+//
+TInt CCPixMWTester::TestRemovefromUnloadlistL( CStifItemParser& /*aItem*/)
+    {
+    TInt err = KErrNotFound;        
+    CBlacklistMgr* blacklistmanager = CBlacklistMgr::NewL();
+    CleanupStack::PushL( blacklistmanager );
+    //Add an Uid to Blacklist DB
+    blacklistmanager->AddtoDontloadListL( KTestUid );
+    //Check if the Uid is added to database or not
+    TBool found = blacklistmanager->FindInDontloadListL(KTestUid );
+    
+    if(found)
+        {
+         //clear the UID from the database
+        blacklistmanager->RemoveFromDontloadListL(KTestUid);
+        found = blacklistmanager->FindInDontloadListL(KTestUid );
+        if ( !found )  err = KErrNone;
+        }
+    CleanupStack::PopAndDestroy( blacklistmanager ); 
+    doLog( iLog, err, KNoErrorString );        
     return err;
     }
 // -----------------------------------------------------------------------------

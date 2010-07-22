@@ -23,6 +23,8 @@
 
 #include "cpixstrtools.h"
 
+#include "cluceneext.h"
+
 namespace Cpix {
 
 	using namespace lucene::search;
@@ -60,7 +62,7 @@ namespace Cpix {
 					// rewrite term
 					std::wstring text( term->text() ); 
 					text = text.substr(0, length); 
-					term = new Term(prefixField_.c_str(), text.c_str(), true);
+					term = lucene::util::freeref( _CLNEW Term(prefixField_.c_str(), text.c_str()) );
 				
 					// rewrite query
 					std::auto_ptr<Query> ret( new TermQuery( term ) );
@@ -75,7 +77,9 @@ namespace Cpix {
 		if ( boolq ) 
 		{
 			// Just modify the query
-			Cpt::auto_array<BooleanClause*> clauses( boolq->getClauses() );
+			Cpt::auto_array<BooleanClause*> clauses( new BooleanClause*[boolq->getClauseCount() + 1]);  
+			
+			boolq->getClauses( clauses.get() );
 			
 			for ( int i = 0; i < boolq->getClauseCount(); i++ ) 
 			{

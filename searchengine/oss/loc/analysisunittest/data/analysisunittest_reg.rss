@@ -1,0 +1,21 @@
+/*
+============================================================================
+ Name        : clucene_unittests_reg.rss
+ Author      : 
+ Copyright   : Copyrights with original developers of CLucene and Nokia. License is LPGL 2.1? or Apache 2. 
+ Description : This file contains all the resources for the clucene_unittests.
+============================================================================
+*/
+
+#include <appinfo.rh>
+
+UID2 KUidAppRegistrationResourceFile
+UID3 0x0EEE9A79
+
+RESOURCE APP_REGISTRATION_INFO
+    {
+    app_file = "analysisunittest";
+    embeddability = KAppNotEmbeddable;
+    newfile = KAppDoesNotSupportNewFile;
+    }
+

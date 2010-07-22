@@ -1,4 +1,6 @@
-id('stdtokens')pipe('>')id('lowercase')pipe('>')id('stopwords')lbr('(')lit(''a'')comma(',')space(' ')lit(''an'')comma(',')lit(''the)>stem('')id('en')
-LexException: Unrecognized syntax: '')' at: "stdtokens>lowercase>stopwords('a', 'an','the)>stem('en*here*')"
-id('fas')lit('-324')id('we')
-LexException: Unrecognized syntax: '?' at: "fas-324we*here*?`213ff3*21(+"
+identifier('stdtokens')pipe('>')identifier('lowercase')pipe('>')identifier('stopwords')left bracket('(')literal(''a'')comma(',')whitespace(' ')literal(''an'')comma(',')literal(''the)>stem('')identifier('en')
+LexException: Unrecognized syntax: '')' at: 
+"stdtokens>lowercase>stopwords('a', 'an','the)>stem('en*here*')"
+identifier('fas')literal('-324')identifier('we')
+LexException: Unrecognized syntax: '?' at: 
+"fas-324we*here*?`213ff3*21(+"

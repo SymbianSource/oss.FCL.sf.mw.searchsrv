@@ -80,7 +80,8 @@ enum TSearchServerRequest
 
     // Set analyzer. This must be latest message. Following messages
     // are not supported by server
-    ESearchServerSetAnalyzer    
+    ESearchServerSetAnalyzer,
+    ESearchServerSetQueryParser
 };
 
 /** 

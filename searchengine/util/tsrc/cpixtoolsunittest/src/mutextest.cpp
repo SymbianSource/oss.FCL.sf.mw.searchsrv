@@ -24,7 +24,7 @@
 #include "cpixsynctools.h"
 
 
-void testMutex(Itk::TestMgr * )
+void testMutex(Itk::TestMgr * mgr)
 {
     using namespace Cpt;
 
@@ -36,7 +36,7 @@ void testMutex(Itk::TestMgr * )
 }
 
 
-void testRecursiveMutex(Itk::TestMgr * )
+void testRecursiveMutex(Itk::TestMgr * mgr)
 {
     using namespace Cpt;
 
@@ -51,7 +51,7 @@ void testRecursiveMutex(Itk::TestMgr * )
 }
 
 
-void testMultiSyncRegion(Itk::TestMgr * )
+void testMultiSyncRegion(Itk::TestMgr * mgr)
 {
     using namespace Cpt;
 

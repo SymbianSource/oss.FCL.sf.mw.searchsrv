@@ -26,6 +26,8 @@
 #include "config.h"
 #include "testutils.h"
 
+#include "std_log_result.h"
+
 const char * Utf8DocsToIndex[5] = {
     FILE_TEST_CORPUS_PATH "\\fi\\1.txt",
     FILE_TEST_CORPUS_PATH "\\fi\\2.txt",
@@ -44,6 +46,8 @@ const wchar_t * UcsTermsToSearch[5] = {
 
 void TestUtf8(Itk::TestMgr * testMgr)
 {
+    char *xml_file = (char*)__FUNCTION__;
+    assert_failed = 0;
         cpix_Result
             result;
 
@@ -59,7 +63,11 @@ void TestUtf8(Itk::TestMgr * testMgr)
 	
 	cpix_Analyzer* analyzer = cpix_CreateSimpleAnalyzer(&result); 
 	
-	if ( cpix_Failed( &result) ) ITK_PANIC("Analyzer could not be created");
+	if ( cpix_Failed( &result) ) 
+	    {
+        assert_failed = 1;
+        ITK_PANIC("Analyzer could not be created");
+	    }
 	
 	for (int i = 0; Utf8DocsToIndex[i]; i++) 
 	{
@@ -76,6 +84,7 @@ void TestUtf8(Itk::TestMgr * testMgr)
 													analyzer );
 		if (queryParser == NULL)
 			{
+                assert_failed = 1;
 				cpix_Analyzer_destroy( analyzer );
 				ITK_PANIC("Could not create query parser");
 			}
@@ -85,6 +94,7 @@ void TestUtf8(Itk::TestMgr * testMgr)
 		if (cpix_Failed(queryParser)
 			|| query == NULL)
 			{
+                assert_failed = 1;
 				cpix_Analyzer_destroy(analyzer);
 				cpix_ClearError(queryParser);
 				cpix_QueryParser_destroy(queryParser);
@@ -104,15 +114,15 @@ void TestUtf8(Itk::TestMgr * testMgr)
 	}
 	
 	cpix_Analyzer_destroy( analyzer ); 
+	testResultXml(xml_file);
 }
 
 Itk::TesterBase * CreateUtf8Tests()
 {
     using namespace Itk;
 
-    ContextTester
-        * whiteBox = new ContextTester("utf8",
-                                       NULL); // default context
+    SuiteTester
+        * whiteBox = new SuiteTester("utf8"); // default context
 
     whiteBox->add("utf8",
                   &TestUtf8,

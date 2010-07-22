@@ -1,0 +1,52 @@
+PRJ_TESTEXPORTS
+..\data\analysisunittest\evaluation\thai_exp_out.txt     \epoc32\winscw\c\data\analysisunittest\evaluation\thai_exp_out.txt
+..\data\analysisunittest\evaluation\galician_exp_out.txt \epoc32\winscw\c\data\analysisunittest\evaluation\galician_exp_out.txt
+..\data\analysisunittest\evaluation\korean_exp_out.txt  \epoc32\winscw\c\data\analysisunittest\evaluation\korean_exp_out.txt
+..\data\analysisunittest\evaluation\korean_1gram_exp_out.txt  \epoc32\winscw\c\data\analysisunittest\evaluation\korean_1gram_exp_out.txt
+..\data\analysisunittest\evaluation\korean_2gram_exp_out.txt  \epoc32\winscw\c\data\analysisunittest\evaluation\korean_2gram_exp_out.txt
+..\data\analysisunittest\evaluation\chinese_1gram_exp_out.txt  \epoc32\winscw\c\data\analysisunittest\evaluation\chinese_1gram_exp_out.txt
+..\data\analysisunittest\evaluation\chinese_2gram_exp_out.txt  \epoc32\winscw\c\data\analysisunittest\evaluation\chinese_2gram_exp_out.txt
+
+..\data\analysisunittest\thai\analyzer_exp_out.txt      \epoc32\winscw\c\data\analysisunittest\thai\analyzer_exp_out.txt
+..\data\analysisunittest\thai\breaks_exp_out.txt       	\epoc32\winscw\c\data\analysisunittest\thai\breaks_exp_out.txt
+
+..\data\analysisunittest\cjk\korean_exp_out.txt 		\epoc32\winscw\c\data\analysisunittest\cjk\korean_exp_out.txt
+
+..\data\analysisunittest\ngram\chinese_prc_1gram_exp_out.txt 		\epoc32\winscw\c\data\analysisunittest\ngram\chinese_prc_1gram_exp_out.txt
+..\data\analysisunittest\ngram\chinese_prc_2gram_exp_out.txt 		\epoc32\winscw\c\data\analysisunittest\ngram\chinese_prc_2gram_exp_out.txt
+..\data\analysisunittest\ngram\korean_1gram_exp_out.txt 		\epoc32\winscw\c\data\analysisunittest\ngram\korean_1gram_exp_out.txt
+..\data\analysisunittest\ngram\korean_2gram_exp_out.txt 		\epoc32\winscw\c\data\analysisunittest\ngram\korean_2gram_exp_out.txt
+
+..\data\analysisunittest\tiny\cn_exp_out.txt 		\epoc32\winscw\c\data\analysisunittest\tiny\cn_exp_out.txt
+..\data\analysisunittest\tiny\reader_exp_out.txt 		\epoc32\winscw\c\data\analysisunittest\tiny\reader_exp_out.txt
+..\data\analysisunittest\tiny\utf16_exp_out.txt 		\epoc32\winscw\c\data\analysisunittest\tiny\utf16_exp_out.txt
+..\data\analysisunittest\tiny\wchar_exp_out.txt 		\epoc32\winscw\c\data\analysisunittest\tiny\wchar_exp_out.txt
+
+..\data\analysisunittestcorpus\thai\corpus.txt     		\epoc32\winscw\c\data\analysisunittestcorpus\thai\corpus.txt
+..\data\analysisunittestcorpus\thai\eval.txt       		\epoc32\winscw\c\data\analysisunittestcorpus\thai\eval.txt
+..\data\analysisunittestcorpus\thai\thaidict.sm       	\epoc32\winscw\c\data\analysisunittestcorpus\thai\thaidict.sm
+
+..\data\analysisunittestcorpus\galician\corpus.txt     		\epoc32\winscw\c\data\analysisunittestcorpus\galician\corpus.txt
+..\data\analysisunittestcorpus\galician\eval.txt       		\epoc32\winscw\c\data\analysisunittestcorpus\galician\eval.txt
+
+..\data\analysisunittestcorpus\korean\corpus.txt     		\epoc32\winscw\c\data\analysisunittestcorpus\korean\corpus.txt
+..\data\analysisunittestcorpus\korean\eval.txt       		\epoc32\winscw\c\data\analysisunittestcorpus\korean\eval.txt
+
+..\data\analysisunittestcorpus\chinese_prc\corpus.txt     		\epoc32\winscw\c\data\analysisunittestcorpus\chinese_prc\corpus.txt
+..\data\analysisunittestcorpus\chinese_prc\eval.txt       		\epoc32\winscw\c\data\analysisunittestcorpus\chinese_prc\eval.txt
+
+..\data\analysisunittestcorpus\chinese_hk\corpus.txt     		\epoc32\winscw\c\data\analysisunittestcorpus\chinese_hk\corpus.txt
+..\data\analysisunittestcorpus\chinese_hk\eval.txt       		\epoc32\winscw\c\data\analysisunittestcorpus\chinese_hk\eval.txt
+
+..\data\analysisunittestcorpus\chinese_tw\corpus.txt     		\epoc32\winscw\c\data\analysisunittestcorpus\chinese_tw\corpus.txt
+..\data\analysisunittestcorpus\chinese_tw\eval.txt       		\epoc32\winscw\c\data\analysisunittestcorpus\chinese_tw\eval.txt
+
+..\data\analysisunittestcorpus\hebrew\corpus.txt     			\epoc32\winscw\c\data\analysisunittestcorpus\hebrew\corpus.txt
+..\data\analysisunittestcorpus\hebrew\eval.txt       		\epoc32\winscw\c\data\analysisunittestcorpus\hebrew\eval.txt
+
+..\data\analysisunittestcorpus\french\corpus.txt     		\epoc32\winscw\c\data\analysisunittestcorpus\french\corpus.txt
+..\data\analysisunittestcorpus\french\eval.txt       		\epoc32\winscw\c\data\analysisunittestcorpus\french\eval.txt
+
+PRJ_TESTMMPFILES
+analysisunittest.mmp
+

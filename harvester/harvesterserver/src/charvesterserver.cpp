@@ -129,12 +129,15 @@ void CHarvesterServer::PanicServer(THarvesterServerPanic aPanic)
 //
 void CHarvesterServer::ThreadFunctionL()
 	{
+    //QCoreApplication installs one ActiveScheduler.  So removing the Active scheduler install
+    //from ThreadFunctionL
+    
 	// Construct active scheduler
-	CActiveScheduler* activeScheduler = new ( ELeave ) CActiveScheduler;
-	CleanupStack::PushL(activeScheduler);
+	//CActiveScheduler* activeScheduler = new ( ELeave ) CActiveScheduler;
+	//CleanupStack::PushL(activeScheduler);
 
 	// Install active scheduler
-	CActiveScheduler::Install(activeScheduler);	
+	//CActiveScheduler::Install(activeScheduler);	
 		
 	// Construct server
 	CHarvesterServer* server = CHarvesterServer::NewLC();
@@ -173,7 +176,7 @@ void CHarvesterServer::ThreadFunctionL()
 
 	// Cleanup
 	CleanupStack::PopAndDestroy( server );
-	CleanupStack::PopAndDestroy( activeScheduler );
+	//CleanupStack::PopAndDestroy( activeScheduler );
 	}
 
 // -----------------------------------------------------------------------------
@@ -207,10 +210,10 @@ void CHarvesterServer::ThreadFunction()
 // Returns the address of the function to be called.
 // -----------------------------------------------------------------------------
 //
-TInt E32Main()
-	{
-	CHarvesterServer::ThreadFunction();
-	return KErrNone;
-	}
+//TInt E32Main()
+//	{
+//	CHarvesterServer::ThreadFunction();
+//	return KErrNone;
+//	}
 
 // End of File
