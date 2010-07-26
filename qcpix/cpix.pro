@@ -16,7 +16,7 @@
 
 TEMPLATE = subdirs
 CONFIG += ordered
-SUBDIRS +=  qcpixsearchclient.pro \
+SUBDIRS +=  cpixsearch.pro \
             tsrc/SampleSearch/SampleSearch.pro \
             tsrc/orbitsearch/orbitsearch.pro \
             tsrc/qtcpixunittests/qtcpixunittests.pro

@@ -50,11 +50,9 @@ STATICLIBRARY   libcrt0.lib
 STATICLIBRARY   libcpix.lib
 STATICLIBRARY   libclucene.lib
 STATICLIBRARY   libstemmer.lib
-//STATICLIBRARY   libitk.lib
 STATICLIBRARY   libcpixtools.lib
-//STATICLIBRARY   libcpixxf.lib
-//STATICLIBRARY   libexif.lib
-//STATICLIBRARY   libid3.lib
+STATICLIBRARY   libanalysis.lib
+
 
 LIBRARY   		libpthread.lib
 LIBRARY         libz.lib // for libid3

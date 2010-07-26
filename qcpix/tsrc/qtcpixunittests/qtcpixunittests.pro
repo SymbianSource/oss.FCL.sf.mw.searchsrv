@@ -33,6 +33,8 @@ SOURCES   += src/ut_qtcpixsearcher.cpp \
              ../qttestutil/SimpleChecker.cpp \
              qtcpixunittests_reg.rss
 
+LIBS += -lcpixsearch
+
 symbian{
     BLD_INF_RULES.prj_exports += "data/_0.cfs      \epoc32\winscw\c\private\2001f6f7\indexing\indexdb\root\contact\_0\_0.cfs" \
                                  "data/deletable   \epoc32\winscw\c\private\2001f6f7\indexing\indexdb\root\contact\_0\deletable" \
@@ -44,5 +46,4 @@ symbian{
 	
     TARGET.CAPABILITY = ALL -TCB -DRM
     TARGET.UID3 = 0xE76C2AE7
-    LIBS += -lqcpixsearchclient
 }

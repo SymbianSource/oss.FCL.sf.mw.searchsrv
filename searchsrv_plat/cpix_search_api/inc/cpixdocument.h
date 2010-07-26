@@ -15,8 +15,8 @@
 *
 */
 
-#ifndef _QCPIXDOCUMENT_H
-#define _QCPIXDOCUMENT_H
+#ifndef _CPIXDOCUMENT_H
+#define _CPIXDOCUMENT_H
 
 #ifdef BUILD_DLL
 #define DLL_EXPORT Q_DECL_EXPORT
@@ -27,22 +27,23 @@
 /**
  * @file
  * @ingroup Qt Search ClientAPI
- * @brief Contains CCPixDocument APIs
+ * @brief Contains CpixDocument APIs
  */
 
 #include <QObject>
+#include <cpixcommon.h>
 
 //Forward  Declaration
-class QCPixDocumentPrivate;
-class QCPixDocumentField;
+class CpixDocumentPrivate;
+class CpixDocumentField;
 
 /**
  * @brief Represents the document returned as a result of a search query.
  * @ingroup ClientAPI
  * 
- * Link against: QCPixSearchClient.lib 
+ * Link against: cpixsearch.lib 
  */
-class DLL_EXPORT QCPixDocument: public QObject
+class DLL_EXPORT CpixDocument: public QObject
     {
     Q_OBJECT
 public:
@@ -52,21 +53,21 @@ public:
      * TStored defines wheter the value is stored to database.
      * If value is stored to database, it can be retrieved from search result. 
      */
-    enum TStored
+    enum Stored
         {
-        EStoreYes = 1,
-        EStoreNo = 2
+        StoreYes = 1,
+        StoreNo = 2
         };
 
     /**
      * TIndexed defines how the value of the field is indexed. 
      * If value is indexed, it can be searched. 
      */
-    enum TIndexed
+    enum Indexed
         {
-        EIndexNo = 16,
-        EIndexTokenized = 32,
-        EIndexUnTokenized = 64
+        IndexNo = 16,
+        IndexTokenized = 32,
+        IndexUnTokenized = 64
         };
 
     /**
@@ -75,31 +76,31 @@ public:
      * If aggregation is not specified, all indexed field are aggeregated by
      * default. Note: that also non-indexed fields can be aggregated.
      */
-    enum TAggregated
+    enum Aggregated
         {
-        EAggregateNo = 1<<30,
-        EAggregateYes = 1<<31,
-        EAggregateDefault = 0
+        AggregateNo = 1<<30,
+        AggregateYes = 1<<31,
+        AggregateDefault = 0
         };
     /**
      * By default, field value is stored to database and it's indexed as tokenized strings.
      */
-    static const TInt KDefaultConfig = EStoreYes | EIndexTokenized | EAggregateDefault;
+    static const int DefaultConfig = StoreYes | IndexTokenized | AggregateDefault;
 
-    static const TReal32 KDefaultBoost; 
+    static const float KDefaultBoost; 
 
 public:
     /**
        * Constructor.
-       * Creates a QCPixDocument object and return a pointer to the created object.
-       * @return A pointer to the created instance of CCPixDocument.
+       * Creates a CpixDocument object and return a pointer to the created object.
+       * @return A pointer to the created instance of CpixDocument.
        */
-    static QCPixDocument* newInstance();
+    static CpixDocument* newInstance();
 
     /**
      * Destructor
      */
-    virtual ~QCPixDocument();
+    virtual ~CpixDocument();
     
     /**
      * Getter: Gets the document identifier.
@@ -122,9 +123,9 @@ public:
     /**
      * Getter: Gets the field at aIndex in the document.
      * @param aIndex index of the field that is to be retrieved.
-     * @return QCPixDocumentField that was at aIndex.
+     * @return CpixDocumentField that was at aIndex.
      */
-    const QCPixDocumentField& field( const int aIndex ) const;
+    const CpixDocumentField& field( const int aIndex ) const THROWS_EXCEPTION;
     
     /**
      * Getter: Gets the field count.
@@ -155,19 +156,19 @@ public:
      * @param aName The name of the field
      * @param aValue The value of the field
      * @param aConfig The config of the field
-     * @return the QCPixDocumentField that was added to the document.
+     * @return the CpixDocumentField that was added to the document.
      */
-    void addField(const QString aName, const QString aValue, const int aConfig = QCPixDocument::KDefaultConfig);
+    void addField(const QString aName, const QString aValue, const int aConfig = CpixDocument::DefaultConfig);
 
 private:
     /**
      * Default constructor
      */
-    QCPixDocument();
+    CpixDocument();
 
 private:
-    QCPixDocumentPrivate* const iPvtImpl;
-	Q_DECLARE_PRIVATE_D( iPvtImpl, QCPixDocument )
+    CpixDocumentPrivate* const iPvtImpl;
+	Q_DECLARE_PRIVATE_D( iPvtImpl, CpixDocument )
     };
 
-#endif //_QCPIXDOCUMENT_H
+#endif //_CPIXDOCUMENT_H

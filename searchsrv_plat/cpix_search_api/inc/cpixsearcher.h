@@ -15,8 +15,8 @@
 *
 */
 
-#ifndef _QCPIXSEARCHER_H
-#define _QCPIXSEARCHER_H
+#ifndef _CPIXSEARCHER_H
+#define _CPIXSEARCHER_H
 
 //Uncomment the following line to enable performance measurements
 //#define OST_TRACE_COMPILER_IN_USE
@@ -60,48 +60,48 @@
 #endif
 
 #include <QObject>
-#include <qcpixcommon.h>
+#include <cpixcommon.h>
 
 //forward declarations
-class QCPixDocument;
-class QCPixSearcherPrivate;
+class CpixDocument;
+class CpixSearcherPrivate;
 
 // CLASS DECLARATION
 /**
  * @brief Used for searching.
  * @ingroup Qt Search Client API
- * Link against: qcpixsearchclient.lib 
+ * Link against: cpixsearch.lib 
  * 
- * An instance of QCPixSearcher is used to commit search operations.
+ * An instance of CpixSearcher is used to commit search operations.
  * 
  * Example code:
  * 
  * Usecase 1: Sync calls. 
  * \code
- * QCPixSearcher* searcher = QCPixSearcher::newInstance("root");
+ * CpixSearcher* searcher = CpixSearcher::newInstance("root");
  * if(searcher){
- *		int hitCount = searcher->Search("search for me");
- *		for(int i=0; i<hitCount; i++) {
- *		QCPixDocument* doc = GetDocument(0);
- *		// do something with doc.
- *		delete doc;
- *		}
- *	}
+ *      int hitCount = searcher->search("search for me");
+ *      for(int i=0; i<hitCount; i++) {
+ *      CpixDocument* doc = document(0);
+ *      // do something with doc.
+ *      delete doc;
+ *      }
+ *  }
  * \endcode
  * 
  * Usecase 2: Sync calls with explicit SetDatabase().
  * \code
- * QCPixSearcher* searcher = QCPixSearcher::newInstance();
+ * CpixSearcher* searcher = CpixSearcher::newInstance();
  * searcher->SetDatabase("root");
- * int hitCount = searcher->Search("search for me");
+ * int hitCount = searcher->search("search for me");
  * for(int i=0; i<hitCount; i++) {
- *		try{
- *			QCPixDocument* doc = GetDocument(i);
- *			// do something with doc.
- *			delete doc;
- *		catch(...){
+ *      try{
+ *          CpixDocument* doc = document(i);
+ *          // do something with doc.
+ *          delete doc;
+ *      catch(...){
  *      //Do Cleanup
- *		}
+ *      }
  * }
  * \endcode
  * 
@@ -110,35 +110,35 @@ class QCPixSearcherPrivate;
  * 
  * iCurrentDocumentCount = 0;
  * 
- * QCPixSearcher* searcher = QCPixSearcher::newInstance("root");
+ * CpixSearcher* searcher = CpixSearcher::newInstance("root");
  * connect(searcher, SIGNAL(handleSearchResults(int,int)), this, SLOT(ClientHandleSearchCompleteSlot(int,int)) );
- * connect(searcher, SIGNAL(handleDocument(int,QCPixDocument*)), this, SLOT(ClientHandleGetDocumentCompleteSlot(int,QCPixDocument*)) );
- * int hitCount = searcher->Search("search for me");
+ * connect(searcher, SIGNAL(handleDocument(int,CpixDocument*)), this, SLOT(ClientHandleGetDocumentCompleteSlot(int,CpixDocument*)) );
+ * int hitCount = searcher->search("search for me");
  * GetDocumentAsync( iCurrentDocumentCount++ );
  * 
- * ClientClass::ClientHandleGetDocumentCompleteSlot(int aError, QCPixDocument* aDocument){
+ * ClientClass::ClientHandleGetDocumentCompleteSlot(int aError, CpixDocument* aDocument){
  *  if( KErrNone != aError ){
  *  //do something with aDocument
  *  }
- *  GetDocumentAsync( iCurrentDocumentCount++ ); //Now get the next document.
+ *  documentAsync( iCurrentDocumentCount++ ); //Now get the next document.
  * }
  * 
  * \endcode
  * 
  */
-class DLL_EXPORT QCPixSearcher: public QObject
+class DLL_EXPORT CpixSearcher: public QObject
     {
     Q_OBJECT
 public:
     /**
        * Constructor.
-       * Creates a QCPixSearcher object and return a pointer to the created object.
+       * Creates a CpixSearcher object and return a pointer to the created object.
        * @return A pointer to the created instance of CCPixSearcher.
        * 
        * @note After using this constructor, the client has to mandatorily call 
        * SetDatabase() before invoking any search.
        */
-    static QCPixSearcher* newInstance();
+    static CpixSearcher* newInstance();
     
     /**
      * Overloaded constructor
@@ -149,12 +149,12 @@ public:
      * @param aDefaultSearchField Default field where the keywords are searched from.
      * @return A pointer to the created instance of CCPixSearcher.
      */
-    static QCPixSearcher* newInstance( QString aBaseAppClass, QString aDefaultSearchField=NULL );
+    static CpixSearcher* newInstance( QString aBaseAppClass, QString aDefaultSearchField=NULL );
 
     /**
      * Destructor. 
      */
-    ~QCPixSearcher();
+    ~CpixSearcher();
     
     /**
      * Synchronously set (or change the database, if already set) on which to invoke subsequent searches.
@@ -191,22 +191,22 @@ public:
     /**
      * Synchronously get the document with index aIndex.
      * @param aIndex Index of document to be retrieved
-     * @return A pointer to QCPixDocument that has been retrieved. Null on error.
+     * @return A pointer to CpixDocument that has been retrieved. Null on error.
      *
      * @note This should be called only after the synchronous search call has returned
-     * 		and aIndex should be between 0 and estimated count returned by Search().
-     */		
-    QCPixDocument* getDocument(int aIndex) THROWS_EXCEPTION;
+     *      and aIndex should be between 0 and estimated count returned by Search().
+     */     
+    CpixDocument* document(int aIndex) THROWS_EXCEPTION;
 
     /**
      * Asynchronously get the document with index aIndex.
      * @param aIndex Index of document to be retrieved
-     * @return A pointer to QCPixDocument that has been retrieved. Null on error.
+     * @return A pointer to CpixDocument that has been retrieved. Null on error.
      *
      * @note This should be called only after the synchronous search call has returned
-     * 		and aIndex should be between 0 and estimated count returned by Search().
-     */		
-    void getDocumentAsync(int aIndex) THROWS_EXCEPTION;
+     *      and aIndex should be between 0 and estimated count returned by Search().
+     */     
+    void documentAsync(int aIndex) THROWS_EXCEPTION;
     
     /**
      * Cancels any outstanding searches.
@@ -224,35 +224,26 @@ signals:
      * Notify completion of SearchAsyc
      * @param aError Completion (error) code of SearchAsyc
      * @param aEstimatedResultCount Estimated number of documents found after SearchAsync
-     */		
+     */     
     void handleSearchResults(int aError, int aEstimatedResultCount);
 
     /**
      * Notify completion of GetDatabaseAsyc
      * @param aError Completion (error) code of GetDatabaseAsyc
      * @param aDocument The requested document.
-     */		
-    void handleDocument(int aError, QCPixDocument* aDocument);
+     */     
+    void handleDocument(int aError, CpixDocument* aDocument);
 
 private:
     /**
-     * Default Constructor.
-     */
-    QCPixSearcher();
-    
-    /**
-       * Constructor.
-       * Creates a QCPixSearcher object and return a pointer to the created object.
-       * @param aDefaultSearchField Default field where the keywords are searched from.
+       * Defaul constructor.
+       * Creates a CpixSearcher object and return a pointer to the created object.
        * @return A pointer to the created instance of CCPixSearcher.
-       * 
-       * @note After using this constructor, the client has to mandatorily call 
-       * SetDatabase() before invoking any search.
        */
-    QCPixSearcher( QString aDefaultSearchField=NULL );
+    CpixSearcher();
     
-    QCPixSearcherPrivate* const iPvtImpl;
-    Q_DECLARE_PRIVATE_D( iPvtImpl, QCPixSearcher )
+    CpixSearcherPrivate* const iPvtImpl;
+    Q_DECLARE_PRIVATE_D( iPvtImpl, CpixSearcher )
     
 #ifdef OST_TRACE_COMPILER_IN_USE
     QTime searchTimer; 
@@ -260,4 +251,4 @@ private:
 #endif
     };
 
-#endif //_QCPIXSEARCHER_H
+#endif //_CPIXSEARCHER_H

@@ -15,36 +15,36 @@
 *
 */
 
-#include <qcpixsearcher.h>
-#include <qcpixcommon.h>
+#include <cpixsearcher.h>
+#include <cpixcommon.h>
 #include <CCPixSearcher.h>
 #include <CSearchDocument.h>
 
-#include "qcpixsearcherprivate.h"
-#include "qcpixutils.h"
+#include "cpixsearcherprivate.h"
+#include "cpixutils.h"
 
 /**
  * Note: Code in this file should never throw OR leak symbian exceptions.
  * Convert all leaves to C++ exceptions.
  */
 
-QCPixSearcher::QCPixSearcher( QString aDefaultSearchField )
-    :iPvtImpl( new QCPixSearcherPrivate( this ) )
+CpixSearcher::CpixSearcher()
+    :iPvtImpl( new CpixSearcherPrivate( this ) )
     {
     PERF_SEARCH_START_TIMER
     PERF_GETDOC_START_TIMER
     }
 
-QCPixSearcher::~QCPixSearcher()
+CpixSearcher::~CpixSearcher()
     {
     delete iPvtImpl;
     }
 
-QCPixSearcher* QCPixSearcher::newInstance()
+CpixSearcher* CpixSearcher::newInstance()
     {
-    QCPixSearcher* searcher = NULL;
+    CpixSearcher* searcher = NULL;
     try{
-        searcher = new QCPixSearcher( QString() );
+        searcher = new CpixSearcher();
         searcher->iPvtImpl->Construct( QString() );
     }
     catch(...){
@@ -54,11 +54,11 @@ QCPixSearcher* QCPixSearcher::newInstance()
     return searcher;
     }
 
-QCPixSearcher* QCPixSearcher::newInstance( QString aBaseAppClass, QString aDefaultSearchField )
+CpixSearcher* CpixSearcher::newInstance( QString aBaseAppClass, QString aDefaultSearchField )
     {
-    QCPixSearcher* searcher = NULL;
+    CpixSearcher* searcher = NULL;
     try{
-        searcher = new QCPixSearcher( aDefaultSearchField );
+        searcher = new CpixSearcher();
         searcher->iPvtImpl->Construct( aDefaultSearchField );
         searcher->setDatabase( aBaseAppClass );
     }
@@ -69,15 +69,15 @@ QCPixSearcher* QCPixSearcher::newInstance( QString aBaseAppClass, QString aDefau
     return searcher;
     }
 
-void QCPixSearcher::setDatabase( QString aBaseAppClass )
+void CpixSearcher::setDatabase( QString aBaseAppClass )
     {
     QT_TRAP_THROWING( 
     TBuf<KMaxStringLength> baseAppClass( aBaseAppClass.utf16() );
-    iPvtImpl->iSearcher->OpenDatabaseL( baseAppClass ) 
+    iPvtImpl->iSearcher->OpenDatabaseL( baseAppClass ) ;
     ); //end of QT_TRAP_THROWING
     }
 
-void QCPixSearcher::setDatabaseAsync( QString aBaseAppClass )
+void CpixSearcher::setDatabaseAsync( QString aBaseAppClass )
     {
     QT_TRAP_THROWING( 
     TBuf<KMaxStringLength> baseAppClass( aBaseAppClass.utf16() );
@@ -101,7 +101,7 @@ void QCPixSearcher::setDatabaseAsync( QString aBaseAppClass )
         delete searchString;\
         delete defaultSearchField;
 
-int QCPixSearcher::search( QString aSearchString, QString aDefaultSearchField )
+int CpixSearcher::search( QString aSearchString, QString aDefaultSearchField )
     {
     PERF_SEARCH_RESTART_TIMER
     int tmp = 0;
@@ -118,7 +118,7 @@ int QCPixSearcher::search( QString aSearchString, QString aDefaultSearchField )
     return tmp;
     }
 
-void QCPixSearcher::searchAsync( QString aSearchString, QString aDefaultSearchField )
+void CpixSearcher::searchAsync( QString aSearchString, QString aDefaultSearchField )
     {
     PERF_TIME_NOW("Async search start")
     QT_TRAP_THROWING(
@@ -128,22 +128,22 @@ void QCPixSearcher::searchAsync( QString aSearchString, QString aDefaultSearchFi
     ); //QT_TRAP_THROWING
     }
 
-QCPixDocument* QCPixSearcher::getDocument( int aIndex )
+CpixDocument* CpixSearcher::document( int aIndex )
     {
     PERF_GETDOC_RESTART_TIMER
-    QCPixDocument* tmp = 0;
-    QT_TRAP_THROWING( tmp = QCPixDocFromCPixDoc( iPvtImpl->iSearcher->GetDocumentL( aIndex ) ) );
+    CpixDocument* tmp = 0;
+    QT_TRAP_THROWING( tmp = CpixDocFromCSearchDocument( iPvtImpl->iSearcher->GetDocumentL( aIndex ) ) );
     PERF_GETDOC_ENDLOG
     return tmp;
     }
 
-void QCPixSearcher::getDocumentAsync( int aIndex )
+void CpixSearcher::documentAsync( int aIndex )
     {
     PERF_TIME_NOW("Async get document start")
     QT_TRAP_THROWING( iPvtImpl->iSearcher->GetDocumentL( aIndex, *iPvtImpl ) );
     }
 
-void QCPixSearcher::cancelSearch()
+void CpixSearcher::cancelSearch()
     {
     iPvtImpl->iSearcher->Cancel();
     }

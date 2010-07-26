@@ -15,8 +15,8 @@
 *
 */
 
-#ifndef QCPIXUTILS_H_
-#define QCPIXUTILS_H_
+#ifndef CPIXUTILS_H_
+#define CPIXUTILS_H_
 
 /**
  * Helper to convert symbian descriptor to QString.
@@ -30,6 +30,6 @@ QString QStringFromDescriptor( const TDesC& aDesc );
  * @param aDoc CSearchDocument to be converted to QCPixDocument. Takes ownership of aDoc.
  * @return QCPixDocument representation of aDoc. Ownership transferred to caller.
  */
-QCPixDocument* QCPixDocFromCPixDoc( CSearchDocument* aDoc );
+CpixDocument* CpixDocFromCSearchDocument( CSearchDocument* aDoc );
 
 #endif /* QCPIXUTILS_H_ */

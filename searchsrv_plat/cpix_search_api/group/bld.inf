@@ -22,7 +22,7 @@ DEFAULT
 
 PRJ_EXPORTS
 
-../inc/qcpixcommon.h	         MW_LAYER_PLATFORM_EXPORT_PATH(qcpixcommon.h)
-../inc/qcpixdocument.h	     	 MW_LAYER_PLATFORM_EXPORT_PATH(qcpixdocument.h)
-../inc/qcpixdocumentfield.h    MW_LAYER_PLATFORM_EXPORT_PATH(qcpixdocumentfield.h)
-../inc/qcpixsearcher.h  		   MW_LAYER_PLATFORM_EXPORT_PATH(qcpixsearcher.h)
+../inc/cpixcommon.h	     MW_LAYER_PLATFORM_EXPORT_PATH(cpixcommon.h)
+../inc/cpixdocument.h	     MW_LAYER_PLATFORM_EXPORT_PATH(cpixdocument.h)
+../inc/cpixdocumentfield.h   MW_LAYER_PLATFORM_EXPORT_PATH(cpixdocumentfield.h)
+../inc/cpixsearcher.h  	     MW_LAYER_PLATFORM_EXPORT_PATH(cpixsearcher.h)

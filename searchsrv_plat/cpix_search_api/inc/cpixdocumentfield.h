@@ -15,8 +15,8 @@
 *
 */
 
-#ifndef _QCPIXDOCUMENTFIELD_H
-#define _QCPIXDOCUMENTFIELD_H
+#ifndef _CPIXDOCUMENTFIELD_H
+#define _CPIXDOCUMENTFIELD_H
 
 #ifdef BUILD_DLL
 #define DLL_EXPORT Q_DECL_EXPORT
@@ -33,35 +33,35 @@
 #include <QObject>
 
 //Forward decelaration
-class QCPixDocumentFieldPrivate;
+class CpixDocumentFieldPrivate;
 
 /**
  * @brief Represents the fields of documents returned as a result of a search query.
  * @ingroup ClientAPI
  * 
- * Link against: QCPixSearchClient.lib 
+ * Link against: cpixsearch.lib 
  */
-class DLL_EXPORT QCPixDocumentField: public QObject
+class DLL_EXPORT CpixDocumentField: public QObject
     {
     Q_OBJECT
 public:
     /**
      * Constructor.
-     * Creates a QCPixDocumentField object and return a pointer to the created object.
+     * Creates a CpixDocumentField object and return a pointer to the created object.
      * @param aName Name of the field
      * @param aValue Value of the field
      * @param aConfig Config for the field
-     * @return A pointer to the created instance of QCPixDocumentField.
+     * @return A pointer to the created instance of CpixDocumentField.
      * 
      * @note After using this constructor, the client has to mandatorily call 
      * SetDatabase() before invoking any search.
      */
-    static QCPixDocumentField* newInstance( const QString aName, const QString aValue, const int aConfig );
+    static CpixDocumentField* newInstance( const QString aName, const QString aValue, const int aConfig );
 
     /**
      * Destructor.
      */
-    virtual ~QCPixDocumentField();
+    virtual ~CpixDocumentField();
 
     /**
      * Getter: Gets the name of the field.
@@ -102,17 +102,17 @@ public:
 private:
 	/**
      * Constructor.
-     * Creates a QCPixDocumentField object and return a pointer to the created object.
+     * Creates a CpixDocumentField object and return a pointer to the created object.
      * @param aName Name of the field
      * @param aValue Value of the field
      * @param aConfig Config for the field
-     * @return A pointer to the created instance of QCPixDocumentField.
+     * @return A pointer to the created instance of CpixDocumentField.
      */
-    QCPixDocumentField(const QString aName, const QString aValue, const int aConfig);
+    CpixDocumentField(const QString aName, const QString aValue, const int aConfig);
 
 private:
-    QCPixDocumentFieldPrivate* const iPvtImpl;
-	Q_DECLARE_PRIVATE_D( iPvtImpl, QCPixDocumentField )
+    CpixDocumentFieldPrivate* const iPvtImpl;
+	Q_DECLARE_PRIVATE_D( iPvtImpl, CpixDocumentField )
     };		
 
-#endif //_QCPIXDOCUMENTFIELD_H
+#endif //_CPIXDOCUMENTFIELD_H

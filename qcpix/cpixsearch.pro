@@ -15,26 +15,26 @@
 #
 
 TEMPLATE = lib
-TARGET = qcpixsearchclient 
+TARGET = cpixsearch 
 QT        += core
 QT        -= gui 
 
 INCLUDEPATH += ../s60/searchclient/inc
 INCLUDEPATH += ../cfg
 
-HEADERS   += ../searchsrv_plat/cpix_search_api/inc/qcpixcommon.h \
-             ../searchsrv_plat/cpix_search_api/inc/qcpixdocument.h \
-             ../searchsrv_plat/cpix_search_api/inc/qcpixdocumentfield.h \
-             ../searchsrv_plat/cpix_search_api/inc/qcpixsearcher.h 
+HEADERS   += ../searchsrv_plat/cpix_search_api/inc/cpixcommon.h \
+             ../searchsrv_plat/cpix_search_api/inc/cpixdocument.h \
+             ../searchsrv_plat/cpix_search_api/inc/cpixdocumentfield.h \
+             ../searchsrv_plat/cpix_search_api/inc/cpixsearcher.h 
 
-SOURCES   += src/qcpixdocument.cpp \ 
-             src/qcpixdocumentfield.cpp \
-             src/qcpixsearcher.cpp
+SOURCES   += src/cpixdocument.cpp \ 
+             src/cpixdocumentfield.cpp \
+             src/cpixsearcher.cpp
 
 DEFINES += BUILD_DLL
 
 symbian{
-    TARGET.CAPABILITY = CAP_GENERAL_DLL
+    TARGET.CAPABILITY = CAP_GENERAL_DLL -DRM
     TARGET.EPOCALLOWDLLDATA = 1
     TARGET.UID3 = 0xE3B89364
     TARGET.VID = VID_DEFAULT
@@ -43,18 +43,18 @@ symbian{
     
     INCLUDEPATH += $$APP_LAYER_SYSTEMINCLUDE
     
-    HEADERS +=  src/platform/s60/inc/qcpixdocumentprivate.h \
-                src/platform/s60/inc/qcpixdocumentfieldprivate.h \
-                src/platform/s60/inc/qcpixsearcherprivate.h \
-                src/platform/s60/inc/qcpixutils.h 
+    HEADERS +=  src/platform/s60/inc/cpixdocumentprivate.h \
+                src/platform/s60/inc/cpixdocumentfieldprivate.h \
+                src/platform/s60/inc/cpixsearcherprivate.h \
+                src/platform/s60/inc/cpixutils.h 
         
-    SOURCES +=  src/platform/s60/src/qcpixdocumentfieldprivate.cpp \
-                src/platform/s60/src/qcpixsearcherprivate.cpp \
-                src/platform/s60/src/qcpixutils.cpp
+    SOURCES +=  src/platform/s60/src/cpixdocumentfieldprivate.cpp \
+                src/platform/s60/src/cpixsearcherprivate.cpp \
+                src/platform/s60/src/cpixutils.cpp
     
-    qcpixsearchclient.sources += /epoc32/release/armv5/urel/qcpixsearchclient.dll
+    qcpixsearchclient.sources += /epoc32/release/armv5/urel/cpixsearch.dll
     qcpixsearchclient.path = /sys/bin
-    DEPLOYMENT += qcpixsearchclient
+    DEPLOYMENT += cpixsearch
     
     defFileBlock =                    \
     "$${LITERAL_HASH}if defined(WINSCW)"    \

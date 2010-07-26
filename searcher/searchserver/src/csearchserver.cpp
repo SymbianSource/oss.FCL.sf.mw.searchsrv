@@ -104,7 +104,7 @@ CSearchServer* CSearchServer::NewL()
 //
 CSearchServer* CSearchServer::NewLC()
 	{
-	CSearchServer* searchServer = new ( ELeave ) CSearchServer( EPriorityNormal );
+	CSearchServer* searchServer = new ( ELeave ) CSearchServer( CActive::EPriorityStandard );
 	CleanupStack::PushL(searchServer);
 	searchServer->ConstructL();
 	return searchServer;
@@ -120,7 +120,9 @@ void CSearchServer::ConstructL()
 	OstTraceFunctionEntry0( CSEARCHSERVER_CONSTRUCTL_ENTRY );
 	
 	CPIXLOGSTRING("Creating search server");
-	
+	RProcess process;
+    process.SetPriority( EPriorityBackground );
+    process.Close();
 	// Create new container index
 	iContainerIndex = CObjectConIx::NewL();
 	

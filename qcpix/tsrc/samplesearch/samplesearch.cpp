@@ -17,7 +17,7 @@
 
 #include "SampleSearch.h"
 #include "searchhandler.h"
-#include <QCPixDocument.h>
+#include <cpixdocument.h>
 #include <xqservicerequest.h>
 
 SampleSearch::SampleSearch(QWidget */*parent*/)
@@ -98,7 +98,7 @@ SampleSearch::SampleSearch(QWidget */*parent*/)
     connect(btnSearchAsync, SIGNAL(clicked()),this, SLOT(doSearchAsync()));
     connect(iSearchHandler, SIGNAL(handleSearchResult(int,int)),this, SLOT(onSearchComplete(int,int)));
     connect(iSearchHandler, SIGNAL(handleAsyncSearchResult(int,int)),this, SLOT(onAsyncSearchComplete(int,int)));
-    connect(iSearchHandler, SIGNAL(handleDocument(int,QCPixDocument*)),this, SLOT(onGetDocumentComplete(int,QCPixDocument*)));
+    connect(iSearchHandler, SIGNAL(handleDocument(int,CpixDocument*)),this, SLOT(onGetDocumentComplete(int,CpixDocument*)));
 }
 
 SampleSearch::~SampleSearch()
@@ -142,7 +142,7 @@ void SampleSearch::onAsyncSearchComplete(int aError, int aResultCount)
     iSearchHandler->getDocumentAsyncAtIndex( nextDocumentIndex++ );
     }
 
-void SampleSearch::onGetDocumentComplete(int aError, QCPixDocument* aDoc)
+void SampleSearch::onGetDocumentComplete(int aError, CpixDocument* aDoc)
     {
     if( aDoc == NULL ) return;
     addDocumentToResultsPage( aDoc, currentRow++ );
@@ -293,7 +293,7 @@ void SampleSearch::createSearchResultTableAndAddContents()
         {
         if(rowCount<noOfItemsPerPage)
             {
-            QCPixDocument* aSearchDoc = iSearchHandler->getDocumentAtIndex(i);
+            CpixDocument* aSearchDoc = iSearchHandler->getDocumentAtIndex(i);
             addDocumentToResultsPage( aSearchDoc, rowCount );
             rowCount++;
             }
@@ -312,7 +312,7 @@ public:
     QString docId;
 };
 
-void SampleSearch::addDocumentToResultsPage( QCPixDocument* aSearchDoc, int rowCount )
+void SampleSearch::addDocumentToResultsPage( CpixDocument* aSearchDoc, int rowCount )
     {
     QTableWidgetItem *appClassCol = new QTableWidgetItem("Col1");
     appClassCol->setFlags(Qt::ItemIsEnabled);

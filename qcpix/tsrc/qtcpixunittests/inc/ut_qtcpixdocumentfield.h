@@ -20,8 +20,8 @@
 
 #include <QtTest/QtTest>
 
-class QCPixDocumentField;
-class QCPixDocumentFieldTester: public QObject
+class CpixDocumentField;
+class CpixDocumentFieldTester: public QObject
     {
     Q_OBJECT
 private slots:
@@ -38,7 +38,7 @@ private slots:
     void cleanup();
     
 private:
-    QCPixDocumentField* iField;
+    CpixDocumentField* iField;
     };
 
 

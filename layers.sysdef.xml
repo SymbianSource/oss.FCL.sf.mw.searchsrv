@@ -8,7 +8,7 @@
     	<module name="searchsrv">
 					<unit unitID="orgdo.searchsrv.bldinf" mrp="" bldFile="&layer_real_source_path;/group" name="searchsrv_bldinf"/>
 					<unit unitID="orgdo.searchsrv_harvestersrv.pro" mrp="" bldFile="&layer_real_source_path;/harvester/harvesterserver" name="harvestersrv_pro" proFile="harvester.pro"/>
-					<unit unitID="orgdo.searchsrv_qcpix.pro" mrp="" bldFile="&layer_real_source_path;/qcpix" name="searchsrv_pro" proFile="qcpix.pro"/>
+					<unit unitID="orgdo.searchsrv_qcpix.pro" mrp="" bldFile="&layer_real_source_path;/qcpix" name="searchsrv_pro" proFile="cpix.pro"/>
 		  </module>
     </layer>
   </systemModel>

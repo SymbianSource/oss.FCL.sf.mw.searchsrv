@@ -180,7 +180,7 @@ namespace Cpix
 
         newField.reset(new Field(LEXTENSION_FIELD,
                                  wExtension.c_str(),
-                                 cpix_STORE_NO 
+                                 cpix_STORE_YES 
                                | cpix_INDEX_TOKENIZED
                                | cpix_AGGREGATE_YES
                                | cpix_FREE_TEXT));

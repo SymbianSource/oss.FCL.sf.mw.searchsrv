@@ -15,19 +15,15 @@
 *
 */
 
-#ifndef _QCPIXDOCUMENTFIELDPVTIMPL_H
-#define _QCPIXDOCUMENTFIELDPVTIMPL_H
+#include "cpixdocumentfieldprivate.h"
 
-#include <QObject>
+CpixDocumentFieldPrivate::CpixDocumentFieldPrivate(const QString aName,const QString aValue,const int aConfig)
+    {
+    iName = aName;
+    iValue = aValue;
+    iConfig = aConfig;
+    }
 
-class QCPixDocumentFieldPrivate: public QObject
-{
-public:
-    QCPixDocumentFieldPrivate(const QString aName,const QString aValue,const int aConfig);
-    ~QCPixDocumentFieldPrivate();
-    QString iName;
-    QString iValue;
-    int iConfig;
-};
-
-#endif // _QCPIXDOCUMENTFIELDPVTIMPL_H
+CpixDocumentFieldPrivate::~CpixDocumentFieldPrivate()
+    {
+    }

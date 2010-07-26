@@ -15,21 +15,21 @@
 *
 */
 
-#include <qcpixdocument.h>
+#include <cpixdocument.h>
 #include <CSearchDocument.h>
 #include <CDocumentField.h>
-#include "qcpixutils.h"
+#include "cpixutils.h"
 
 QString QStringFromDescriptor( const TDesC& aDesc )
     {
     return QString::fromUtf16( aDesc.Ptr(), aDesc.Length() );
     }
 
-QCPixDocument* QCPixDocFromCPixDoc( CSearchDocument* aDoc )
+CpixDocument* CpixDocFromCSearchDocument( CSearchDocument* aDoc )
     {
     if( aDoc == NULL ) return NULL;
 
-    QCPixDocument* cpixDoc = QCPixDocument::newInstance();
+    CpixDocument* cpixDoc = CpixDocument::newInstance();
     cpixDoc->setBaseAppClass( QStringFromDescriptor( aDoc->AppClass() ) );
     cpixDoc->setDocId( QStringFromDescriptor( aDoc->Id() ) );
     cpixDoc->setExcerpt( QStringFromDescriptor( aDoc->Excerpt() ) );

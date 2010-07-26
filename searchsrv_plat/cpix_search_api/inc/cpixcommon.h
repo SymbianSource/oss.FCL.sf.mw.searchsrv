@@ -16,8 +16,8 @@
 */
 
 
-#ifndef QCPIXCOMMON_H_
-#define QCPIXCOMMON_H_
+#ifndef CPIXCOMMON_H_
+#define CPIXCOMMON_H_
 
 #ifndef THROWS_EXCEPTION
 #define THROWS_EXCEPTION
@@ -29,4 +29,4 @@
 //@TODO:sai: Is this a sane value?
 const int KMaxStringLength = 256;
 
-#endif /* QCPIXCOMMON_H_ */
+#endif /* CPIXCOMMON_H_ */

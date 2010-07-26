@@ -20,8 +20,8 @@
 
 #include <QtTest/QtTest>
 
-class QCPixDocument;
-class QCPixDocumentTester: public QObject
+class CpixDocument;
+class CpixDocumentTester: public QObject
     {
     Q_OBJECT
 private slots:
@@ -40,7 +40,7 @@ private slots:
     void cleanup();
     
 private:
-    QCPixDocument* iDoc;
+    CpixDocument* iDoc;
     };
 
 #endif /* UT_QTCPIXDOCUMENT_H_ */

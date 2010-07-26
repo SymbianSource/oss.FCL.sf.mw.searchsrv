@@ -15,24 +15,24 @@
 *
 */
 
-#include <qcpixdocumentfield.h>
-#include "qcpixdocumentfieldprivate.h"
+#include <cpixdocumentfield.h>
+#include "cpixdocumentfieldprivate.h"
 
 /**
  * Note: Code in this file should never throw OR leak symbian exceptions.
  * Convert all leaves to C++ exceptions.
  */
 
-QCPixDocumentField::QCPixDocumentField( const QString aName, const QString aValue, const int aConfig )
-    :iPvtImpl( new QCPixDocumentFieldPrivate(aName,aValue,aConfig) )
+CpixDocumentField::CpixDocumentField( const QString aName, const QString aValue, const int aConfig )
+    :iPvtImpl( new CpixDocumentFieldPrivate(aName,aValue,aConfig) )
     {
     }
 
-QCPixDocumentField* QCPixDocumentField::newInstance( const QString aName, const QString aValue, const int aConfig )
+CpixDocumentField* CpixDocumentField::newInstance( const QString aName, const QString aValue, const int aConfig )
     {
-    QCPixDocumentField* field = NULL;
+    CpixDocumentField* field = NULL;
     try{
-        field = new QCPixDocumentField( aName, aValue, aConfig );
+        field = new CpixDocumentField( aName, aValue, aConfig );
     }
     catch(...){
         delete field;
@@ -41,37 +41,37 @@ QCPixDocumentField* QCPixDocumentField::newInstance( const QString aName, const 
     return field;
     }
 
-QCPixDocumentField::~QCPixDocumentField()
+CpixDocumentField::~CpixDocumentField()
     {
     delete iPvtImpl;
     }
 
-QString QCPixDocumentField::name() const
+QString CpixDocumentField::name() const
     {
     return iPvtImpl->iName;
     }
 
-QString QCPixDocumentField::value() const
+QString CpixDocumentField::value() const
     {
     return iPvtImpl->iValue;
     }
 
-int QCPixDocumentField::config() const
+int CpixDocumentField::config() const
     {
     return iPvtImpl->iConfig;
     }
     
-void QCPixDocumentField::setName(const QString aName)
+void CpixDocumentField::setName(const QString aName)
     {
     iPvtImpl->iName = aName;
     }
 
-void QCPixDocumentField::setValue(const QString aValue)
+void CpixDocumentField::setValue(const QString aValue)
     {
     iPvtImpl->iValue = aValue;
     }
 
-void QCPixDocumentField::setConfig(const int aConfig)
+void CpixDocumentField::setConfig(const int aConfig)
     {
     iPvtImpl->iConfig = aConfig;
     }

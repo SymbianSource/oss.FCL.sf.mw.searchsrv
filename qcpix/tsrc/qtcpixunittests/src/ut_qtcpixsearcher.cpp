@@ -19,8 +19,8 @@
 
 #include <QtCore>
 #include <QCoreApplication>
-#include <qcpixsearcher.h>
-#include <qcpixdocument.h>
+#include <cpixsearcher.h>
+#include <cpixdocument.h>
 #include <QtTest/QtTest>
 #include "../../QtTestUtil/QtTestUtil.h"
 
@@ -46,50 +46,51 @@
 #define TEST_GET_DATA_FETCH \
     QFETCH(QString, baseAppClass);
 
-void TestQCPixSearcher::testNewInstance()
+void TestCpixSearcher::testNewInstance()
     {
-    QCPixSearcher* searcher = QCPixSearcher::newInstance();
+    CpixSearcher* searcher = CpixSearcher::newInstance();
     QVERIFY( searcher != NULL );
     delete searcher;
     }
 
-void TestQCPixSearcher::init()
+void TestCpixSearcher::init()
     {
-    iSearcher = QCPixSearcher::newInstance("root", "_aggregate");//default to root searcher.
+    iSearcher = CpixSearcher::newInstance("root", "_aggregate");//default to root searcher.
     QVERIFY( iSearcher!=NULL );
     }
 
-void TestQCPixSearcher::cleanup()
+void TestCpixSearcher::cleanup()
     {
     delete iSearcher;
     }
 
-void TestQCPixSearcher::testSetDatabase_data()
+void TestCpixSearcher::testSetDatabase_data()
     {
     TEST_GET_DATA;
     }
 
-void TestQCPixSearcher::testSetDatabase()
+void TestCpixSearcher::testSetDatabase()
     {
     TEST_GET_DATA_FETCH;
+    Q_ASSERT( iSearcher );
     iSearcher->setDatabase( baseAppClass );//no way to verify this :(
     }
 
-void TestQCPixSearcher::HandleDatabaseSet(int aError)
+void TestCpixSearcher::HandleDatabaseSet(int aError)
     {
     iHandleSetDatabaseComplete = true;
     iError = aError;
     }
 
-void TestQCPixSearcher::testSetDatabaseAsync_data()
+void TestCpixSearcher::testSetDatabaseAsync_data()
     {
     TEST_GET_DATA;
     }
 
-void TestQCPixSearcher::testSetDatabaseAsync()
+void TestCpixSearcher::testSetDatabaseAsync()
     {
     TEST_GET_DATA_FETCH;
-    
+    Q_ASSERT( iSearcher );
     iHandleSetDatabaseComplete = false;
     iError = -2 /*General: Something non-specific*/;
     connect( iSearcher, SIGNAL(handleDatabaseSet(int)), this, SLOT(HandleDatabaseSet(int)) );
@@ -98,32 +99,33 @@ void TestQCPixSearcher::testSetDatabaseAsync()
     QVERIFY( iError == 0/*No error*/ );
     }
 
-void TestQCPixSearcher::testSearch_data()
+void TestCpixSearcher::testSearch_data()
     {
     TEST_SEARCH_DATA;
     }
 
-void TestQCPixSearcher::testSearch()
+void TestCpixSearcher::testSearch()
     {
     TEST_SEARCH_DATA_FETCH;
+    Q_ASSERT( iSearcher );
     QVERIFY(  iSearcher->search( searchString ) == estimatedResultCount );
     }
 
-void TestQCPixSearcher::HandleSearchResults(int aError, int aEstimatedCount)
+void TestCpixSearcher::HandleSearchResults(int aError, int aEstimatedCount)
     {
     if( aError == 0/*None*/ ) iHandleSearchResultsComplete = aEstimatedCount;
     else iHandleSearchResultsComplete = 0;
     }
 
-void TestQCPixSearcher::testSearchAsync_data()
+void TestCpixSearcher::testSearchAsync_data()
     {
     TEST_SEARCH_DATA;
     }
 
-void TestQCPixSearcher::testSearchAsync()
+void TestCpixSearcher::testSearchAsync()
     {
     TEST_SEARCH_DATA_FETCH;
-    
+    Q_ASSERT( iSearcher );
     iHandleSearchResultsComplete = -1;
     
     //Do Search
@@ -136,39 +138,41 @@ void TestQCPixSearcher::testSearchAsync()
     QVERIFY( iHandleSearchResultsComplete == estimatedResultCount );
     }
 
-void TestQCPixSearcher::testGetDocument_data()
+void TestCpixSearcher::testGetDocument_data()
     {
     TEST_SEARCH_DATA;
     }
 
-void TestQCPixSearcher::testGetDocument()
+void TestCpixSearcher::testGetDocument()
     {
     TEST_SEARCH_DATA_FETCH;
+    Q_ASSERT( iSearcher );
     QVERIFY( iSearcher->search( searchString ) == estimatedResultCount );
 
     //Check only baseAppClass for now. Not sure about the order of docs returned.
     //Hence check that we are getting "Robert" from contacts.
     if( estimatedResultCount>0 ){
-        QCPixDocument* doc = iSearcher->getDocument( 0 );
+        CpixDocument* doc = iSearcher->document( 0 );
         QVERIFY( doc->baseAppClass() == "root contact" );
     }
     else return;
     }
 
-void TestQCPixSearcher::HandleDocument(int /*aError*/, QCPixDocument* aDoc)
+void TestCpixSearcher::HandleDocument(int /*aError*/, CpixDocument* aDoc)
     {
     iHandleGetDocumentComplete = true;
     iDoc = aDoc;
     }
 
-void TestQCPixSearcher::testGetDocumentAsync_data()
+void TestCpixSearcher::testGetDocumentAsync_data()
     {
     TEST_SEARCH_DATA;
     }
 
-void TestQCPixSearcher::testGetDocumentAsync()
+void TestCpixSearcher::testGetDocumentAsync()
     {
     TEST_SEARCH_DATA_FETCH;
+    Q_ASSERT( iSearcher );
     iHandleGetDocumentComplete = false;
     iHandleSearchResultsComplete = -1;
     
@@ -179,9 +183,9 @@ void TestQCPixSearcher::testGetDocumentAsync()
     QVERIFY( iHandleSearchResultsComplete == estimatedResultCount );
     
     //Get Document
-    connect( iSearcher, SIGNAL(handleDocument(int,QCPixDocument*)), this, SLOT(HandleDocument(int,QCPixDocument*)) );
+    connect( iSearcher, SIGNAL(handleDocument(int,CpixDocument*)), this, SLOT(HandleDocument(int,CpixDocument*)) );
     if( iHandleSearchResultsComplete>0 ) 
-        iSearcher->getDocumentAsync( 0 );
+        iSearcher->documentAsync( 0 );
     else 
         return;
     
@@ -190,4 +194,4 @@ void TestQCPixSearcher::testGetDocumentAsync()
     QVERIFY( iDoc->baseAppClass() == "root contact" );
     }
 
-QTTESTUTIL_REGISTER_TEST( TestQCPixSearcher );
+QTTESTUTIL_REGISTER_TEST( TestCpixSearcher );

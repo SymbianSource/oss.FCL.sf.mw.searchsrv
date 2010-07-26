@@ -20,8 +20,8 @@
 #include <QDebug>
 #include <QTest>
 
-class QCPixSearcher;
-class QCPixDocument;
+class CpixSearcher;
+class CpixDocument;
 
 class CSearchHandler: public QObject
     {
@@ -32,15 +32,15 @@ public:
 signals:
     void handleSearchResult(int, int);
     void handleAsyncSearchResult(int, int);
-    void handleDocument(int aError, QCPixDocument* aDoc);
+    void handleDocument(int aError, CpixDocument* aDoc);
 
 private slots:
     void __handleSearchResult(int aError, int estimatedResultCount);
-    void __getDocumentAsync(int aError, QCPixDocument* aDocument );
+    void __getDocumentAsync(int aError, CpixDocument* aDocument );
 
 public:
     ~CSearchHandler();
-    QCPixDocument* getDocumentAtIndex(int aIndex);
+    CpixDocument* getDocumentAtIndex(int aIndex);
     void getDocumentAsyncAtIndex(int aIndex);
     void search(QString aSearchString);
     void searchAsync(QString aSearchString);
@@ -48,7 +48,7 @@ public:
     int getSearchResultCount();
 
 private:
-    QCPixSearcher *iSearchInterface;
+    CpixSearcher *iSearchInterface;
     QList<QVariantMap> searchResults;
     int iSearchresultCount;
     };

@@ -44,7 +44,7 @@ CHarvesterServer* CHarvesterServer::NewL()
 //
 CHarvesterServer* CHarvesterServer::NewLC()
 	{
-	CHarvesterServer* HarvesterServer = new ( ELeave ) CHarvesterServer( EPriorityNormal );
+	CHarvesterServer* HarvesterServer = new ( ELeave ) CHarvesterServer( CActive::EPriorityStandard );
 	CleanupStack::PushL(HarvesterServer);
 	HarvesterServer->ConstructL();
 	return HarvesterServer;
@@ -57,6 +57,9 @@ CHarvesterServer* CHarvesterServer::NewLC()
 //
 void CHarvesterServer::ConstructL()
 	{
+    RProcess process;
+    process.SetPriority( EPriorityBackground );
+    process.Close();
 	iIndexingManager = CIndexingManager::NewL();
 	StartL(KHarvesterServerName);
 	}
@@ -143,7 +146,7 @@ void CHarvesterServer::ThreadFunctionL()
 	CHarvesterServer* server = CHarvesterServer::NewLC();
 	
 	// Set thread priority
-	RProcess().SetPriority(EPriorityBackground);
+	//RProcess().SetPriority(EPriorityBackground);
 	
     // Rename the thread.
     User::RenameThread(KHarvesterServerName);        

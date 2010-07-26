@@ -19,83 +19,83 @@
 
 #include <QtCore>
 #include <QCoreApplication>
-#include <qcpixdocument.h>
-#include <qcpixdocumentfield.h>
+#include <cpixdocument.h>
+#include <cpixdocumentfield.h>
 #include <QtTest/QtTest>
 #include "../../QtTestUtil/QtTestUtil.h"
 
-void QCPixDocumentTester::testNewInstance()
+void CpixDocumentTester::testNewInstance()
     {
-    QCPixDocument* doc = QCPixDocument::newInstance();
+    CpixDocument* doc = CpixDocument::newInstance();
     QVERIFY( doc != NULL );
     delete doc;
     }
 
-void QCPixDocumentTester::testGetSetName_data()
+void CpixDocumentTester::testGetSetName_data()
     {
     QTest::addColumn<QString>( "baseAppClass" );
     QTest::newRow("root") << "root";
     QTest::newRow("root contact") << "root contact";
     }
 
-void QCPixDocumentTester::testGetSetName()
+void CpixDocumentTester::testGetSetName()
     {
     QFETCH( QString, baseAppClass );
     iDoc->setBaseAppClass( baseAppClass );
     QVERIFY( iDoc->baseAppClass() == baseAppClass );
     }
 
-void QCPixDocumentTester::testGetSetDocId_data()
+void CpixDocumentTester::testGetSetDocId_data()
     {
     QTest::addColumn<QString>( "docId" );
     QTest::newRow("C:\\some\\doc\\id") << "C:\\some\\doc\\id";
     }
 
-void QCPixDocumentTester::testGetSetDocId()
+void CpixDocumentTester::testGetSetDocId()
     {
     QFETCH( QString, docId );
     iDoc->setDocId( docId );
     QVERIFY( iDoc->docId() == docId );
     }
 
-void QCPixDocumentTester::testGetSetExcerpt_data()
+void CpixDocumentTester::testGetSetExcerpt_data()
     {
     QTest::addColumn< QString >( "excerpt" );
     QTest::newRow("this is a sample excerpt") << "this is a sample excerpt";
     }
 
-void QCPixDocumentTester::testGetSetExcerpt()
+void CpixDocumentTester::testGetSetExcerpt()
     {
     QFETCH( QString, excerpt );
     iDoc->setExcerpt( excerpt );
     QVERIFY( iDoc->excerpt() == excerpt );
     }
 
-void QCPixDocumentTester::testGetFieldCount()
+void CpixDocumentTester::testGetFieldCount()
     {
     iDoc->addField("testName", "testValue", 10);
     iDoc->addField("testName2", "testValue2", 12);
     QVERIFY( iDoc->fieldCount() == 2 );
     }
 
-void QCPixDocumentTester::testAddGetField()
+void CpixDocumentTester::testAddGetField()
     {
     iDoc->addField("testName", "testValue", 10);
     iDoc->addField("testName2", "testValue2", 12);
-    const QCPixDocumentField& field1 = iDoc->field( 0 );
+    const CpixDocumentField& field1 = iDoc->field( 0 );
     QVERIFY( field1.name() == "testName" && field1.value() == "testValue" && field1.config() == 10 );
-    const QCPixDocumentField& field2 = iDoc->field( 1 );
+    const CpixDocumentField& field2 = iDoc->field( 1 );
     QVERIFY( field2.name() == "testName2" && field2.value() == "testValue2" && field2.config() == 12 );
     }
 
-void QCPixDocumentTester::init()
+void CpixDocumentTester::init()
     {
-    iDoc = QCPixDocument::newInstance();
+    iDoc = CpixDocument::newInstance();
     }
 
-void QCPixDocumentTester::cleanup()
+void CpixDocumentTester::cleanup()
     {
     delete iDoc;
     }
 
-QTTESTUTIL_REGISTER_TEST( QCPixDocumentTester );
+QTTESTUTIL_REGISTER_TEST( CpixDocumentTester );

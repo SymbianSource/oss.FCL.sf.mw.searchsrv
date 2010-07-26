@@ -44,7 +44,7 @@ file=ABI_DIR\BUILD_DIR\CPixSearchServer.exe	   SHARED_LIB_DIR\CPixSearchServer.e
 //data=DATAZ_\RESOURCE_FILES_DIR\plugins\npCPixPlugin.rsc RESOURCE_FILES_DIR\plugins\npCPixPlugin.rsc
 
 //CPIX QT
-file=ABI_DIR\BUILD_DIR\qcpixsearchclient.dll	SHARED_LIB_DIR\qcpixsearchclient.dll 
+file=ABI_DIR\BUILD_DIR\cpixsearch.dll	SHARED_LIB_DIR\cpixsearch.dll 
 
 //CPiX Watchdog
 file=ABI_DIR\BUILD_DIR\cpixwatchdog.exe	SHARED_LIB_DIR\cpixwatchdog.exe

@@ -20,7 +20,7 @@ TARGET = SampleSearch
 QT += core
 QT += gui 
 CONFIG += qtestlib
-LIBS += -lqcpixsearchclient
+LIBS += -lcpixsearch
 
 HEADERS   +=    SampleSearch.h \
                 searchHandler.h

@@ -15,24 +15,24 @@
 *
 */
 
-#include "qcpixsearcherprivate.h"
-#include <qcpixsearcher.h>
+#include "cpixsearcherprivate.h"
+#include <cpixsearcher.h>
 #include <CCPixSearcher.h>
-#include <qcpixcommon.h>
+#include <cpixcommon.h>
 
-#include "qcpixutils.h"
+#include "cpixutils.h"
 
 /**
  * Note: Code in this file should never throw OR leak symbian exceptions.
  * Convert all leaves to C++ exceptions.
  */
 
-QCPixSearcherPrivate::QCPixSearcherPrivate( QObject* aParent )
+CpixSearcherPrivate::CpixSearcherPrivate( QObject* aParent )
     {
-    iSearchParent = reinterpret_cast<QCPixSearcher*>( aParent );
+    iSearchParent = reinterpret_cast<CpixSearcher*>( aParent );
     }
 
-void QCPixSearcherPrivate::Construct( QString aDefaultSearchField )
+void CpixSearcherPrivate::Construct( QString aDefaultSearchField )
     {
     qt_symbian_throwIfError( iSearchSession.Connect() );//throw exception on error.
     QT_TRAP_THROWING(
@@ -41,30 +41,30 @@ void QCPixSearcherPrivate::Construct( QString aDefaultSearchField )
     ); //end of QT_TRAP_THROWING
     }
 
-QCPixSearcherPrivate::~QCPixSearcherPrivate()
+CpixSearcherPrivate::~CpixSearcherPrivate()
     {
     delete iSearcher;
     //iSearchSession.Close();
     }
 
-void QCPixSearcherPrivate::HandleSearchResultsL(TInt aError, TInt aEstimatedResultCount)
+void CpixSearcherPrivate::HandleSearchResultsL(TInt aError, TInt aEstimatedResultCount)
     {
     PERF_TIME_NOW("Async search complete");
     emit iSearchParent->handleSearchResults( aError, aEstimatedResultCount );
     }
 
-void QCPixSearcherPrivate::HandleDocumentL(TInt aError, CSearchDocument* aDocument)
+void CpixSearcherPrivate::HandleDocumentL(TInt aError, CSearchDocument* aDocument)
     {
     PERF_TIME_NOW("Async get document complete")
-    emit iSearchParent->handleDocument( aError, QCPixDocFromCPixDoc( aDocument ) );
+    emit iSearchParent->handleDocument( aError, CpixDocFromCSearchDocument( aDocument ) );
     }
 
-void QCPixSearcherPrivate::HandleOpenDatabaseResultL( TInt aError )
+void CpixSearcherPrivate::HandleOpenDatabaseResultL( TInt aError )
     {
     emit iSearchParent->handleDatabaseSet( aError );
     }
 
-void QCPixSearcherPrivate::HandleSetAnalyzerResultL( TInt /*aError*/ )
+void CpixSearcherPrivate::HandleSetAnalyzerResultL( TInt /*aError*/ )
     {
     //what is to be done here?
     }

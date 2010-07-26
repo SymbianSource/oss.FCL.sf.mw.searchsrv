@@ -15,25 +15,25 @@
 *
 */
 
-#include <qcpixdocument.h>
-#include <qcpixdocumentfield.h>
-#include "qcpixdocumentprivate.h"
+#include <cpixdocument.h>
+#include <cpixdocumentfield.h>
+#include "cpixdocumentprivate.h"
 
 /**
  * Note: Code in this file should never throw OR leak symbian exceptions.
  * Convert all leaves to C++ exceptions.
  */
 
-QCPixDocument::QCPixDocument()
-    :iPvtImpl( new QCPixDocumentPrivate() )
+CpixDocument::CpixDocument()
+    :iPvtImpl( new CpixDocumentPrivate() )
     {
     }
 
-QCPixDocument* QCPixDocument::newInstance()
+CpixDocument* CpixDocument::newInstance()
     {
-    QCPixDocument* doc = NULL;
+    CpixDocument* doc = NULL;
     try{
-    doc = new QCPixDocument();
+    doc = new CpixDocument();
     }
     catch(...){
         delete doc;
@@ -42,54 +42,54 @@ QCPixDocument* QCPixDocument::newInstance()
     return doc;
     }
 
-QCPixDocument::~QCPixDocument()
+CpixDocument::~CpixDocument()
     {
     delete iPvtImpl;
     }
 
-QString QCPixDocument::docId() const
+QString CpixDocument::docId() const
    {
    return iPvtImpl->iDocId;
    }
 
-QString QCPixDocument::excerpt() const
+QString CpixDocument::excerpt() const
     {
     return iPvtImpl->iExcerpt;
     }
 
-QString QCPixDocument::baseAppClass() const
+QString CpixDocument::baseAppClass() const
     {
     return iPvtImpl->iBaseAppClass;
     }
 
-const QCPixDocumentField& QCPixDocument::field( const int aIndex ) const
+const CpixDocumentField& CpixDocument::field( const int aIndex ) const
     {
     return *(iPvtImpl->iFields.at(aIndex));
     }
 
-int QCPixDocument::fieldCount() const
+int CpixDocument::fieldCount() const
     {
     return  iPvtImpl->iFields.count();
     }
 
-void QCPixDocument::setDocId(const QString aDocId)
+void CpixDocument::setDocId(const QString aDocId)
     {
     iPvtImpl->iDocId = aDocId;
     }
 
-void QCPixDocument::setExcerpt(const QString aExcerpt)
+void CpixDocument::setExcerpt(const QString aExcerpt)
     {
     iPvtImpl->iExcerpt = aExcerpt;
     }
 
-void QCPixDocument::setBaseAppClass(const QString aBaseAppClass)
+void CpixDocument::setBaseAppClass(const QString aBaseAppClass)
     {
     iPvtImpl->iBaseAppClass = aBaseAppClass;
     }
 
-void QCPixDocument::addField(const QString aName, const QString aValue, const int aConfig)
+void CpixDocument::addField(const QString aName, const QString aValue, const int aConfig)
     {
-    iPvtImpl->iFields.append( QCPixDocumentField::newInstance( aName, aValue, aConfig ) );
+    iPvtImpl->iFields.append( CpixDocumentField::newInstance( aName, aValue, aConfig ) );
     }
 
 //End of File

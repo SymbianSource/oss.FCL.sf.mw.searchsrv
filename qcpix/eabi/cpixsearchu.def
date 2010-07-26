@@ -1,0 +1,67 @@
+EXPORTS
+	_ZN12CpixDocument10setExcerptE7QString @ 1 NONAME
+	_ZN12CpixDocument11newInstanceEv @ 2 NONAME
+	_ZN12CpixDocument11qt_metacallEN11QMetaObject4CallEiPPv @ 3 NONAME
+	_ZN12CpixDocument11qt_metacastEPKc @ 4 NONAME
+	_ZN12CpixDocument15setBaseAppClassE7QString @ 5 NONAME
+	_ZN12CpixDocument16staticMetaObjectE @ 6 NONAME DATA 16
+	_ZN12CpixDocument19getStaticMetaObjectEv @ 7 NONAME
+	_ZN12CpixDocument8addFieldE7QStringS0_i @ 8 NONAME
+	_ZN12CpixDocument8setDocIdE7QString @ 9 NONAME
+	_ZN12CpixDocumentC1Ev @ 10 NONAME
+	_ZN12CpixDocumentC2Ev @ 11 NONAME
+	_ZN12CpixDocumentD0Ev @ 12 NONAME
+	_ZN12CpixDocumentD1Ev @ 13 NONAME
+	_ZN12CpixDocumentD2Ev @ 14 NONAME
+	_ZN12CpixSearcher11newInstanceE7QStringS0_ @ 15 NONAME
+	_ZN12CpixSearcher11newInstanceEv @ 16 NONAME
+	_ZN12CpixSearcher11qt_metacallEN11QMetaObject4CallEiPPv @ 17 NONAME
+	_ZN12CpixSearcher11qt_metacastEPKc @ 18 NONAME
+	_ZN12CpixSearcher11searchAsyncE7QStringS0_ @ 19 NONAME
+	_ZN12CpixSearcher11setDatabaseE7QString @ 20 NONAME
+	_ZN12CpixSearcher12cancelSearchEv @ 21 NONAME
+	_ZN12CpixSearcher13documentAsyncEi @ 22 NONAME
+	_ZN12CpixSearcher14handleDocumentEiP12CpixDocument @ 23 NONAME
+	_ZN12CpixSearcher16setDatabaseAsyncE7QString @ 24 NONAME
+	_ZN12CpixSearcher16staticMetaObjectE @ 25 NONAME DATA 16
+	_ZN12CpixSearcher17handleDatabaseSetEi @ 26 NONAME
+	_ZN12CpixSearcher19getStaticMetaObjectEv @ 27 NONAME
+	_ZN12CpixSearcher19handleSearchResultsEii @ 28 NONAME
+	_ZN12CpixSearcher6searchE7QStringS0_ @ 29 NONAME
+	_ZN12CpixSearcher8documentEi @ 30 NONAME
+	_ZN12CpixSearcherC1Ev @ 31 NONAME
+	_ZN12CpixSearcherC2Ev @ 32 NONAME
+	_ZN12CpixSearcherD0Ev @ 33 NONAME
+	_ZN12CpixSearcherD1Ev @ 34 NONAME
+	_ZN12CpixSearcherD2Ev @ 35 NONAME
+	_ZN17CpixDocumentField11newInstanceE7QStringS0_i @ 36 NONAME
+	_ZN17CpixDocumentField11qt_metacallEN11QMetaObject4CallEiPPv @ 37 NONAME
+	_ZN17CpixDocumentField11qt_metacastEPKc @ 38 NONAME
+	_ZN17CpixDocumentField16staticMetaObjectE @ 39 NONAME DATA 16
+	_ZN17CpixDocumentField19getStaticMetaObjectEv @ 40 NONAME
+	_ZN17CpixDocumentField7setNameE7QString @ 41 NONAME
+	_ZN17CpixDocumentField8setValueE7QString @ 42 NONAME
+	_ZN17CpixDocumentField9setConfigEi @ 43 NONAME
+	_ZN17CpixDocumentFieldC1E7QStringS0_i @ 44 NONAME
+	_ZN17CpixDocumentFieldC2E7QStringS0_i @ 45 NONAME
+	_ZN17CpixDocumentFieldD0Ev @ 46 NONAME
+	_ZN17CpixDocumentFieldD1Ev @ 47 NONAME
+	_ZN17CpixDocumentFieldD2Ev @ 48 NONAME
+	_ZNK12CpixDocument10fieldCountEv @ 49 NONAME
+	_ZNK12CpixDocument10metaObjectEv @ 50 NONAME
+	_ZNK12CpixDocument12baseAppClassEv @ 51 NONAME
+	_ZNK12CpixDocument5docIdEv @ 52 NONAME
+	_ZNK12CpixDocument5fieldEi @ 53 NONAME
+	_ZNK12CpixDocument7excerptEv @ 54 NONAME
+	_ZNK12CpixSearcher10metaObjectEv @ 55 NONAME
+	_ZNK17CpixDocumentField10metaObjectEv @ 56 NONAME
+	_ZNK17CpixDocumentField4nameEv @ 57 NONAME
+	_ZNK17CpixDocumentField5valueEv @ 58 NONAME
+	_ZNK17CpixDocumentField6configEv @ 59 NONAME
+	_ZTI12CpixDocument @ 60 NONAME
+	_ZTI12CpixSearcher @ 61 NONAME
+	_ZTI17CpixDocumentField @ 62 NONAME
+	_ZTV12CpixDocument @ 63 NONAME
+	_ZTV12CpixSearcher @ 64 NONAME
+	_ZTV17CpixDocumentField @ 65 NONAME
+

@@ -16,14 +16,14 @@
 */
 
 #include "searchhandler.h"
-#include <qcpixsearcher.h>
-#include <qcpixdocument.h>
+#include <cpixsearcher.h>
+#include <cpixdocument.h>
 
 CSearchHandler::CSearchHandler()
     {  
-    iSearchInterface = QCPixSearcher::newInstance("root","_aggregate");
+    iSearchInterface = CpixSearcher::newInstance("root","_aggregate");
     iSearchInterface->connect(iSearchInterface, SIGNAL(handleSearchResults(int,int)), this, SLOT(__handleSearchResult(int,int)));
-    iSearchInterface->connect(iSearchInterface, SIGNAL(handleDocument(int,QCPixDocument*)), this, SLOT(__getDocumentAsync(int,QCPixDocument*)));
+    iSearchInterface->connect(iSearchInterface, SIGNAL(handleDocument(int,CpixDocument*)), this, SLOT(__getDocumentAsync(int,CpixDocument*)));
     }
 
 void CSearchHandler::__handleSearchResult(int aError, int estimatedResultCount)
@@ -33,14 +33,14 @@ void CSearchHandler::__handleSearchResult(int aError, int estimatedResultCount)
     emit handleAsyncSearchResult(aError, estimatedResultCount);
     }
 
-void CSearchHandler::__getDocumentAsync(int aError, QCPixDocument* aDocument )
+void CSearchHandler::__getDocumentAsync(int aError, CpixDocument* aDocument )
     {
     emit handleDocument( aError, aDocument );
     }
 
-QCPixDocument* CSearchHandler::getDocumentAtIndex(int aIndex)
+CpixDocument* CSearchHandler::getDocumentAtIndex(int aIndex)
     {
-    return iSearchInterface->getDocument( aIndex );
+    return iSearchInterface->document( aIndex );
     }
 
 void CSearchHandler::search(QString aSearchString)
@@ -63,7 +63,7 @@ int CSearchHandler::getSearchResultCount()
 
 void CSearchHandler::getDocumentAsyncAtIndex( int aIndex )
     {
-    iSearchInterface->getDocumentAsync( aIndex );
+    iSearchInterface->documentAsync( aIndex );
     }
 
 void CSearchHandler::searchAsync(QString aSearchString)

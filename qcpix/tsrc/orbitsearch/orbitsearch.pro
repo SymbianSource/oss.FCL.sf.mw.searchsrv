@@ -21,7 +21,7 @@ QT += core
 QT += gui
 QT += sql 
 CONFIG += qtestlib
-LIBS += -lqcpixsearchclient -lxqservice
+LIBS += -lcpixsearch -lxqservice
 
 HEADERS   +=    uicontrols.h searchhelper.h testsearch.h testci.h
 SOURCES   +=    OrbitSearch_reg.rss \

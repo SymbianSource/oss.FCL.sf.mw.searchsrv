@@ -32,7 +32,7 @@
 #include <QVector>
 
 class CSearchHandler;
-class QCPixDocument;
+class CpixDocument;
 class DocLaunchInfo;
 
 class SampleSearch : public QWidget
@@ -75,7 +75,7 @@ private:
     void createSearchResultTableAndAddContents();
     void searchCompleteHelper(int aError, int aResultCount);
     void setSearchResultsHeader();
-    void addDocumentToResultsPage( QCPixDocument* aSearchDoc, int rowCount );
+    void addDocumentToResultsPage( CpixDocument* aSearchDoc, int rowCount );
     void openMessaging( int aMessagingId );
     void doLaunchDoc(DocLaunchInfo& info);
     
@@ -85,7 +85,7 @@ private slots:
     void doSearchAsync();
     void onSearchComplete(int aError, int aResultCount);
     void onAsyncSearchComplete(int aError, int aResultCount);
-    void onGetDocumentComplete(int aError, QCPixDocument* aDoc);
+    void onGetDocumentComplete(int aError, CpixDocument* aDoc);
     void displayNextPage();
     void displayPrevPage();   
 };

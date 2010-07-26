@@ -20,7 +20,7 @@
 
 #include <QObject>
 #include "uicontrols.h"
-#include <qcpixsearcher.h>
+#include <cpixsearcher.h>
 #include <QTime>
 
 class SearchHelper: public QObject
@@ -35,7 +35,7 @@ public slots:
     
 private:
     ORBIT_SEARCH_CONTROLS //Not owned.
-    QCPixSearcher* searcher;//Owned
+    CpixSearcher* searcher;//Owned
     QTime searchTime;
     };
 

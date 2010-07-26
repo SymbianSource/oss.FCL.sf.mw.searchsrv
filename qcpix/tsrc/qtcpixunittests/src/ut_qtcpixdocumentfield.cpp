@@ -18,15 +18,15 @@
 #include "ut_qtcpixdocumentfield.h"
 #include "../../QtTestUtil/QtTestUtil.h"
 
-#include <qcpixdocumentfield.h>
+#include <cpixdocumentfield.h>
 
-void QCPixDocumentFieldTester::testNewInstance()
+void CpixDocumentFieldTester::testNewInstance()
     {
-    QCPixDocumentField* field = QCPixDocumentField::newInstance( QString(), QString(), 0 );
+    CpixDocumentField* field = CpixDocumentField::newInstance( QString(), QString(), 0 );
     QVERIFY( field != NULL );
     }
 
-void QCPixDocumentFieldTester::testGetSetName_data()
+void CpixDocumentFieldTester::testGetSetName_data()
     {
     QTest::addColumn< QString >( "name" );
     
@@ -34,14 +34,14 @@ void QCPixDocumentFieldTester::testGetSetName_data()
     QTest::newRow("testName2") << "testName2" ;
     }
 
-void QCPixDocumentFieldTester::testGetSetName()
+void CpixDocumentFieldTester::testGetSetName()
     {
     QFETCH( QString, name );
     iField->setName( name );
     QVERIFY( iField->name() == name );
     }
 
-void QCPixDocumentFieldTester::testGetSetValue_data()
+void CpixDocumentFieldTester::testGetSetValue_data()
     {
     QTest::addColumn< QString >( "value" );
     
@@ -49,14 +49,14 @@ void QCPixDocumentFieldTester::testGetSetValue_data()
     QTest::newRow("testVlaue2") << "testValue2" ;
     }
 
-void QCPixDocumentFieldTester::testGetSetValue()
+void CpixDocumentFieldTester::testGetSetValue()
     {
     QFETCH( QString, value );
     iField->setValue( value );
     QVERIFY( iField->value() == value );
     }
 
-void QCPixDocumentFieldTester::testGetSetConfig_data()
+void CpixDocumentFieldTester::testGetSetConfig_data()
     {
     QTest::addColumn< int >( "config" );
     
@@ -64,22 +64,22 @@ void QCPixDocumentFieldTester::testGetSetConfig_data()
     QTest::newRow("20") << 20 ;
     }
 
-void QCPixDocumentFieldTester::testGetSetConfig()
+void CpixDocumentFieldTester::testGetSetConfig()
     {
     QFETCH( int, config );
     iField->setConfig( config );
     QVERIFY( iField->config() == config );
     }
 
-void QCPixDocumentFieldTester::init()
+void CpixDocumentFieldTester::init()
     {
-    iField = QCPixDocumentField::newInstance( "testName", "testValue", 100 );
+    iField = CpixDocumentField::newInstance( "testName", "testValue", 100 );
     QVERIFY( iField!=NULL && iField->name()=="testName" && iField->value()=="testValue" && iField->config()==100 );
     }
 
-void QCPixDocumentFieldTester::cleanup()
+void CpixDocumentFieldTester::cleanup()
     {
     delete iField;
     }
 
-QTTESTUTIL_REGISTER_TEST( QCPixDocumentFieldTester );
+QTTESTUTIL_REGISTER_TEST( CpixDocumentFieldTester );

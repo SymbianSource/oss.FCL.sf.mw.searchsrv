@@ -20,16 +20,16 @@
 
 #include <QtTest/QtTest>
 
-class QCPixSearcher;
-class QCPixDocument;
+class CpixSearcher;
+class CpixDocument;
 
-class TestQCPixSearcher: public QObject
+class TestCpixSearcher: public QObject
     {
     Q_OBJECT
 public slots:
     void HandleDatabaseSet(int aError);
     void HandleSearchResults(int aError, int aEstimatedCount);
-    void HandleDocument(int aError, QCPixDocument* aDoc);
+    void HandleDocument(int aError, CpixDocument* aDoc);
 
 private slots:
     void testNewInstance();
@@ -51,8 +51,8 @@ private slots:
     void cleanup();
    
 private:
-    QCPixSearcher* iSearcher;
-    QCPixDocument* iDoc;
+    CpixSearcher* iSearcher;
+    CpixDocument* iDoc;
     bool iHandleSetDatabaseComplete;
     int iHandleSearchResultsComplete;
     bool iHandleGetDocumentComplete;

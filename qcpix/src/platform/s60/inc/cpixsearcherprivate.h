@@ -15,8 +15,8 @@
 *
 */
 
-#ifndef _QCPIXSEARCHER_PVTIMPL_H
-#define _QCPIXSEARCHER_PVTIMPL_H
+#ifndef _CPIXSEARCHER_PVTIMPL_H
+#define _CPIXSEARCHER_PVTIMPL_H
 
 #include <e32base.h>
 #include <QObject>
@@ -28,18 +28,18 @@
 class CCPixSearcher;
 class CDocument;
 class RSearchServerSession;
-class QCPixSearcher;
+class CpixSearcher;
 
-class QCPixSearcherPrivate : public CBase, //can this be made QObject?
+class CpixSearcherPrivate :  public CBase, //can this be made QObject?
 							 public MCPixSearchRequestObserver ,
 							 public MCPixNextDocumentRequestObserver,
 							 public MCPixOpenDatabaseRequestObserver,
 							 public MCPixSetAnalyzerRequestObserver
 {
 public:
-    QCPixSearcherPrivate(QObject* aParent);
+    CpixSearcherPrivate(QObject* aParent);
     void Construct( QString aDefaultSearchField );
-    ~QCPixSearcherPrivate();
+    ~CpixSearcherPrivate();
 
 public :
     void HandleSearchResultsL(TInt aError, TInt aEstimatedResultCount); //from MCPixSearchRequestObserver
@@ -50,7 +50,7 @@ public :
 public: //Keep these to avoid wrapper functions.
     RSearchServerSession iSearchSession; //owned
     CCPixSearcher* iSearcher; //owned
-    QCPixSearcher* iSearchParent; //not owned.
+    CpixSearcher* iSearchParent; //not owned.
 };
 
-#endif //_QCPIXSEARCHER_PVTIMPL_H
+#endif //_CPIXSEARCHER_PVTIMPL_H

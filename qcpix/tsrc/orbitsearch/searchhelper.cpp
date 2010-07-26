@@ -16,12 +16,12 @@
 */
 
 #include "searchhelper.h"
-#include <qcpixdocument.h>
+#include <cpixdocument.h>
 
 SearchHelper::SearchHelper(HbLineEdit* searchBx, HbPushButton* searchBtn, HbTextEdit* searchRslt)
     :searchBox( searchBx ), searchButton( searchBtn ), resultsBox( searchRslt )
     {
-    searcher = QCPixSearcher::newInstance("root","_aggregate");
+    searcher = CpixSearcher::newInstance("root","_aggregate");
     resultsBox->setReadOnly( true );
     resultsBox->setPlainText("Initialized");
     searchTime.start();
@@ -37,16 +37,17 @@ void SearchHelper::doSearch()
     resultsBox->setPlainText("Search button clicked!");
     
     int hits = 0;
-    
     QString resultString("");
     resultsBox->setPlainText( resultString );
     searchTime.restart();
     QString searchString;
+    
+#if PREFIX_SEARCH
     searchString = "$prefix(\""; 
     searchString += searchBox->text();
     searchString += "\")";
 
-#if STAR_SEARCH
+#elif STAR_SEARCH
     searchString += searchBox->text();
     searchString += "*";
 #elif NO_STAR_SEARCH
@@ -63,10 +64,10 @@ void SearchHelper::doSearch()
 #if !DONT_SHOW_RESULTS
     if( hits > 0 )
         {
-        QCPixDocument* temp = NULL;
+        CpixDocument* temp = NULL;
         int docCount = 0;
         do{
-          temp = searcher->getDocument( docCount++ );
+          temp = searcher->document( docCount++ );
           resultString += temp->baseAppClass() + " " + temp->docId() + " " + temp->excerpt() + "\r\n\r\n";
           delete temp;
           }while( hits > docCount );

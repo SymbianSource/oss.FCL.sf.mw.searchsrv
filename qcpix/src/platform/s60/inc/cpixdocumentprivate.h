@@ -15,23 +15,23 @@
 *
 */
 
-#ifndef _QCPIXDOCUMENTPVTIMPL_H
-#define _QCPIXDOCUMENTPVTIMPL_H
+#ifndef _CPIXDOCUMENTPVTIMPL_H
+#define _CPIXDOCUMENTPVTIMPL_H
 
 #include <QString>
 #include <QList>
-#include "qcpixdocumentfield.h"
+#include "cpixdocumentfield.h"
 
 //Forward Declarations
-class QCPixDocumentField;
+class CpixDocumentField;
 
-class QCPixDocumentPrivate: public QObject
+class CpixDocumentPrivate: public QObject
 {
 public:
     QString iDocId;
     QString iExcerpt;
     QString iBaseAppClass;
-    QList< QCPixDocumentField* > iFields;
+    QList< CpixDocumentField* > iFields;
 };
 
-#endif //_QCPIXDOCUMENTPVTIMPL_H
+#endif //_CPIXDOCUMENTPVTIMPL_H
