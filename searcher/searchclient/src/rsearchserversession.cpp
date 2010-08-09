@@ -153,6 +153,11 @@ TInt RSearchServerSubSession::Open(RSearchServerSession& aSession)
 
 void RSearchServerSubSession::Close()
 	{
+	if (iSizeList)
+       {
+       delete iSizeList;
+       iSizeList = NULL;
+       }
 	RSubSessionBase::CloseSubSession(ESearchServerCloseSubSession);
 	}
 
@@ -310,6 +315,94 @@ EXPORT_C CSearchDocument* RSearchServerSubSession::GetDocumentObjectL()
 	return document;
 	}
 
+	// RSearchServerSubSession::GetBatchDocumentL()
+EXPORT_C CSearchDocument** RSearchServerSubSession::GetBatchDocumentL(TInt aIndex, TInt& aReturnDoc, TInt aCount)
+	{
+	PERFORMANCE_LOG_START("RSearchServerSubSession::GetBatchDocumentL");
+	
+	if (!aCount) return NULL;
+	
+	iDocumentSize = 0;
+	iReqCount = aCount;
+	
+	if (iSizeList)
+	    {
+	    delete iSizeList;
+	    iSizeList = NULL;
+	    }
+	iSizeList = STATIC_CAST(TInt *, User::AllocZL(iReqCount * sizeof(TInt)));
+    TPtr8 blob((TUint8*)iSizeList, iReqCount * sizeof(TInt));
+	// Message arguments for the server
+	TIpcArgs args(aIndex, iReqCount, &blob);
+	iDocSizeArray.Reset();
+	User::LeaveIfError( SendReceive(ESearchServerGetBatchDocument, args ) );	
+	
+	return GetBatchDocumentObjectL( aReturnDoc ); 
+	}
+	
+EXPORT_C void RSearchServerSubSession::GetBatchDocument(TInt aIndex, TRequestStatus& aStatus, TInt aCount)
+	{
+	PERFORMANCE_LOG_START("RSearchServerSubSession::GetBatchDocument");
+
+	iDocumentSize = 0;
+	iReqCount = aCount;
+	    
+    if (iSizeList)
+        {
+        delete iSizeList;
+        iSizeList = NULL;
+        }
+    iSizeList = STATIC_CAST(TInt *, User::AllocZL(iReqCount * sizeof(TInt)));
+    //iDocSizeArray
+    TPtr8 blob((TUint8*)iSizeList, iReqCount * sizeof(TInt));
+	    
+    // Message arguments for the server
+    TIpcArgs args(aIndex, aCount, &blob);
+    
+	SendReceive(ESearchServerGetBatchDocument, args, aStatus );
+	}
+	
+EXPORT_C CSearchDocument** RSearchServerSubSession::GetBatchDocumentObjectL( TInt& aRetCount )
+	{
+	PERFORMANCE_LOG_START("CCPixSearcher::GetBatchDocumentObjectL");
+	CSearchDocument** document = NULL;
+	TInt i ,totalsize = 0;
+	for ( i = 0; i< iReqCount; i++ )
+        {
+        if( *(iSizeList+i) )
+            {
+            totalsize += *(iSizeList+i);
+            }
+        else break;
+        }   
+	aRetCount = i;
+	
+	if ( aRetCount> 0 && totalsize )
+	    {	    
+	    //document = (CSearchDocument**)malloc ( sizeof(CSearchDocument*) * (i-1));
+	    document = STATIC_CAST(CSearchDocument**, User::AllocL( aRetCount * sizeof(CSearchDocument*)));
+	    HBufC8* buf = HBufC8::NewLC(totalsize +2 );
+        TPtr8 ptr = buf->Des();
+        User::LeaveIfError(SendReceive(ESearchServerGetBatchDocumentObject, TIpcArgs(&ptr)));	    
+	    TInt startpos = 0;
+	    TInt endpos = 0;
+	    for ( TInt arrCount= 0; arrCount < aRetCount ; arrCount++)
+                {
+                endpos = *(iSizeList + arrCount) -4;
+                //endpos = startpos + iDocSizeArray[arrCount];
+                TPtrC8 tempptr = ptr.Mid( startpos , endpos );
+                startpos += endpos;	        
+                RDesReadStream stream;
+                stream.Open(tempptr);
+                stream.PushL();
+                document[arrCount] = CSearchDocument::NewL(stream);
+                CleanupStack::PopAndDestroy(&stream);
+                }
+        CleanupStack::PopAndDestroy(buf);	    
+	    }		
+	return document;
+	}
+	
 // RSearchServerSubSession::CancelSearch()
 // Cancels outstanding search from server
 EXPORT_C void RSearchServerSubSession::CancelAll() const

@@ -514,13 +514,15 @@ private:
         for (int32_t hitDocIdx = from; hitDocIdx < to; ++hitDocIdx)
             {
                 cpix_Document
-                    doc;
+                    **doc;
+                ALLOC_DOC(doc, 1);
 
                 cpix_Hits_doc(hits,
                               hitDocIdx,
-                              &doc);
+                              doc,
+                              1);
 
-                if (cpix_Failed(hits))
+                if (cpix_Failed(hits) || (doc_Fetch_Failed(doc[0])))
                     {
                         wchar_t
                             buf[92];
@@ -534,8 +536,9 @@ private:
                         break;
                     }
 
-                util_->printHit(&doc,
+                util_->printHit(doc[0],
                                 mgr);
+                FREE_DOC(doc, 1);
             }
     }
 

@@ -18,8 +18,8 @@
 #include "searchhelper.h"
 #include <cpixdocument.h>
 
-SearchHelper::SearchHelper(HbLineEdit* searchBx, HbPushButton* searchBtn, HbTextEdit* searchRslt)
-    :searchBox( searchBx ), searchButton( searchBtn ), resultsBox( searchRslt )
+SearchHelper::SearchHelper(HbLineEdit* searchBx, HbPushButton* searchBtn, HbTextEdit* searchRslt, HbLineEdit* indexBox, HbLineEdit* countBox, HbPushButton* getdocbutton)
+    :searchBox( searchBx ), searchButton( searchBtn ), resultsBox( searchRslt ), indexBox(indexBox), countBox(countBox), getdocbutton(getdocbutton)
     {
     searcher = CpixSearcher::newInstance("root","_aggregate");
     resultsBox->setReadOnly( true );
@@ -35,9 +35,7 @@ SearchHelper::~SearchHelper()
 void SearchHelper::doSearch()
     {
     resultsBox->setPlainText("Search button clicked!");
-    
-    int hits = 0;
-    QString resultString("");
+    resultString = "";
     resultsBox->setPlainText( resultString );
     searchTime.restart();
     QString searchString;
@@ -51,27 +49,70 @@ void SearchHelper::doSearch()
     searchString += searchBox->text();
     searchString += "*";
 #elif NO_STAR_SEARCH
+    searchString = searchBox->text();
         ;//do nothing
 #endif
-    
-    hits = searcher->search( searchString );
+    iHits = 0;
+    iHits = searcher->search( searchString );
 
     if (searchTime.elapsed() >= 0)
         resultString = "SearchTime: " + QString().setNum( searchTime.elapsed() ) + " ms \r\n";
-    resultString += "Hits: " + QString().setNum( hits ) + "\r\n";
+    resultString += "Hits: " + QString().setNum( iHits ) + "\r\n";
     resultsBox->setPlainText( resultString );
 
 #if !DONT_SHOW_RESULTS
-    if( hits > 0 )
+    if( iHits > 0 )
         {
-        CpixDocument* temp = NULL;
-        int docCount = 0;
-        do{
-          temp = searcher->document( docCount++ );
-          resultString += temp->baseAppClass() + " " + temp->docId() + " " + temp->excerpt() + "\r\n\r\n";
-          delete temp;
-          }while( hits > docCount );
+        resultString += "Enter Index,count values and press GetDocs button to get the results";
+        resultString +="\r\n";
+        resultsBox->setPlainText( resultString );
         }
-    resultsBox->setPlainText( resultString );
 #endif //DONT_SHOW_RESULTS
+    }
+
+void SearchHelper::showdocs()
+    {
+    QString indexstring = indexBox->text();
+    bool ok = false;
+    int index = indexstring.toInt(&ok);
+    if (ok)
+        {
+        QString countstring = countBox->text();
+        int count = countstring.toInt(&ok);
+        if (ok)
+            {
+            if ( index <= iHits )
+                {
+                if ( count == 1)
+                    {
+                    //call the normal get doc API
+                    CpixDocument* temp = NULL;
+                    do{
+                      temp = searcher->document( index++ );
+                      resultString += temp->baseAppClass() + " " + temp->docId() + " " + temp->excerpt() + "\r\n\r\n";
+                      delete temp;
+                      }while( iHits > index );
+                    }
+                else
+                    {
+                    //call batch doc API
+                    CpixDocument** temp = NULL;
+                    do{
+                       int retdoccount = 0;
+                       temp = searcher->batchdocument(index,retdoccount,count);
+                       for (int i=0; i< retdoccount; i++)
+                           {
+                           resultString += temp[i]->baseAppClass() + " " + temp[i]->docId() + " " + temp[i]->excerpt() + "\r\n\r\n";
+                           delete temp[i];
+                           }
+                        delete temp;
+                        temp = NULL;
+                        index += retdoccount;
+                    }while (iHits > index);
+                    }
+                }
+            else resultString += " Requested document is out of range";
+            resultsBox->setPlainText( resultString );
+            }
+        }
     }

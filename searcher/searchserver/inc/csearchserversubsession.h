@@ -100,6 +100,26 @@ public:
 	 * @param aMessage Message from client.
 	 */
 	void GetDocumentObjectL(const RMessage2& aMessage);
+	
+	/**
+     * GetBatchDocumentL.
+     * Client gets the list of documents (result) when SearchL has completed
+     * @param aMessage Message from client.
+     */
+	void GetBatchDocumentL(const RMessage2& aMessage);
+	
+	/**
+     * GetBatchDocumentCompleteL.
+     * Completes an previous call to GetBatchDocumentL 
+     */
+	void GetBatchDocumentCompleteL(const RMessage2& aMessage);
+	
+	/**
+     * GetBatchDocumentObjectL.
+     * Client gets the object after GetBatchDocumentL() has completed 
+     * @param aMessage Message from client.
+     */
+	void GetBatchDocumentObjectL(const RMessage2& aMessage);
 
 	/**
 	 * AddL.
@@ -176,10 +196,12 @@ private:
 	void LimitExcerptToMaxLengthL(CSearchDocument* aSearchDocument);
 		
 private:
+    TInt count;
 	CCPixIdxDb* iIndexDb;
 	CCPixAbstractSearcher* iSearchDb;
 	CSearchDocument* iNextDocument;
 	CSearchServerSession* iSession;
+	RPointerArray<CSearchDocument> idocList;
 };
 
 #endif /* CSEARCHSERVERSUBSESSION_H_ */

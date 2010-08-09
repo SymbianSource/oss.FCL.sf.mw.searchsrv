@@ -180,6 +180,8 @@ NONSHARABLE_CLASS(Ccpixsearchertest) : public CScriptBase
         virtual TInt TestGetDocumentAsyncL( CStifItemParser& aItem );
         virtual TInt TestGetInvalidDocumentAsyncL( CStifItemParser& aItem );
         virtual TInt TestExerptLengthL( CStifItemParser& aItem );
+        virtual TInt TestGetBatchdocL( CStifItemParser& aItem );
+        virtual TInt TestAsyncGetBatchdocL( CStifItemParser& aItem );
         /**
          * Method used to log version of test class
          */

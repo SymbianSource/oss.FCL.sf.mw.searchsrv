@@ -486,9 +486,10 @@ extern "C" {
      */
     cpix_JobId cpix_Hits_asyncDoc(cpix_Hits          * thisHits,
                                   int32_t              index,
-                                  cpix_Document      * target,
+                                  cpix_Document      ** target,
                                   void               * cookie,
-                                  cpix_AsyncCallback * callback);
+                                  cpix_AsyncCallback * callback,
+                                  int32_t              count);
 
 
     /**

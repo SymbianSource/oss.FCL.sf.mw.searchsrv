@@ -234,6 +234,21 @@ void CTestSearcher::HandleDocumentL(TInt /* aError */, CSearchDocument* aDocumen
         iWait->AsyncStop();
         }
     }
+void CTestSearcher::HandleBatchDocumentL(TInt /*aError*/, TInt aReturnCount, CSearchDocument** aDocument)
+    {
+    iHandleDocumentLFunctionCalled = ETrue;
+    
+    if (iWait && iWait->IsStarted())
+            {
+            for (int i=0; i<aReturnCount; i++)
+                delete aDocument[i];
+            delete aDocument;
+            
+            TS_ASSERT(aReturnCount == iretcount);
+            
+            iWait->AsyncStop();
+            }
+    }
 
 // Timeout callback
 void CTestSearcher::CallCompleted( int /* i */ )
@@ -570,4 +585,70 @@ TInt CTestSearcher::testEcerptLenth()
         delete document;           
         }
     return ( length > 125 )?KErrGeneral:KErrNone;
+    }
+
+void CTestSearcher::testgetbatchdoc()
+    {
+    //Make sure Hit count is 7 
+    TInt hitcount = iSearcher->SearchL(KQueryString);
+    CSearchDocument** doc = NULL;
+    if ( hitcount )
+        {
+        TInt retcount=0,count=3;
+        doc = iSearcher->GetBatchDocumentL(0,retcount,count);
+        for (int i=0; i<retcount; i++)
+            delete doc[i];
+        delete doc;
+        doc = NULL;
+        TS_ASSERT(retcount == 3);
+        //check the extreme conditions
+        retcount = 0;
+        doc = iSearcher->GetBatchDocumentL(3,retcount,count);
+        for (int i=0; i<retcount; i++)
+            delete doc[i];
+        delete doc;
+        doc = NULL;
+        TS_ASSERT(retcount == 3);
+        
+        retcount = 0;
+        doc = iSearcher->GetBatchDocumentL(4,retcount,count);
+        for (int i=0; i<retcount; i++)
+            delete doc[i];
+        delete doc;
+        doc = NULL;
+        TS_ASSERT(retcount == 2);
+        
+        retcount = 0;
+        TRAPD(err, doc = iSearcher->GetBatchDocumentL(11,retcount,count));
+        TS_ASSERT(err == KErrDocumentAccessFailed);
+        TS_ASSERT(retcount == 0);
+        }
+    return;
+    }
+
+void CTestSearcher::testasyncgetbatchdoc()
+    {
+    //Make sure Hit count is 7 
+    TInt hitcount = iSearcher->SearchL(KQueryString);
+    if (hitcount)
+        {
+        TInt count =3;
+        iretcount = 3;
+        iSearcher->GetBatchDocumentL(0,*this,count);
+        iWait->Start();
+        
+        iretcount = 3;
+        iSearcher->GetBatchDocumentL(3,*this,count);
+        iWait->Start();
+        
+        iretcount = 2;
+        iSearcher->GetBatchDocumentL(4,*this,count);
+        iWait->Start();
+        
+        iretcount = 0;
+        iSearcher->GetBatchDocumentL(11,*this,count);
+        iWait->Start();
+                
+        }
+    return;
     }

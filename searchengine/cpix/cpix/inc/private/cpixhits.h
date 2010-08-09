@@ -70,6 +70,8 @@ namespace Cpix
          * having the worst match.
          */
         virtual Document * getDocument(int32_t index) = 0;
+        
+        virtual int resetDocumentCache(int32_t index, int32_t count) = 0;
 	
         /**
          * Returns the amount of hits
@@ -110,7 +112,7 @@ namespace Cpix
         typedef std::map<int32_t, Document*> WrapperMap;
         WrapperMap                           wrappers_;
 
-        void destroyWrappers();
+        void destroyWrappers(int32_t index);
 
         
         /**
@@ -134,6 +136,8 @@ namespace Cpix
 
 
         Document * getDocument(int32_t index);
+        
+        int resetDocumentCache(int32_t index, int32_t count);
 
 
         /**

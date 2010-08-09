@@ -216,47 +216,59 @@ public: // Test cases
 
         printf("Accessing hits after closing... \n");
         cpix_Document
-            doc;
-
+            **doc;                    
+        ALLOC_DOC(doc, 1);        
+        
         printf("doc #0: ");
         cpix_Hits_doc(hits,
                       0,
-                      &doc);
+                      doc,
+                      1);
+        if (doc[0]->ptr_ != NULL) {
         ITK_EXPECT( testMgr, 
-                    cpix_Succeeded( hits ), 
-                    "Accessing hit(0) should succeeded for closed database (hits still holds a reference to its originator)." ); 
+                cpix_Succeeded( hits ), 
+                "Accessing hit(0) should succeeded for closed database (hits still holds a reference to its originator)." ); 
 
         if (cpix_Failed(hits))
             {
-                wchar_t
-                    buf[256];
-                cpix_Error_report(hits->err_,
-                                  buf,
-                                  sizeof(buf) / sizeof(wchar_t));
-                printf("%S\n", buf);
-                cpix_ClearError(hits);
-                
-            }
+        wchar_t
+        buf[256];
+        cpix_Error_report(hits->err_,
+                buf,
+                sizeof(buf) / sizeof(wchar_t));
+        printf("%S\n", buf);
+        cpix_ClearError(hits);
 
+            }
+        }
+        FREE_DOC(doc, 1);    
+                    
+
+        ALLOC_DOC(doc, 1)
         printf("\ndoc #20: ");
         cpix_Hits_doc(hits,
                       20,
-                      &doc);
+                      doc,
+                      1);
+        if (doc[0]->ptr_ != NULL) {
         ITK_EXPECT( testMgr, 
-                    cpix_Failed( hits ), 
-                    "Accessing hit(20) should NOT succeeded for closed database (hits still holds a reference to its originator)." ); 
+                cpix_Failed( hits ), 
+                "Accessing hit(20) should NOT succeeded for closed database (hits still holds a reference to its originator)." ); 
 
         if (cpix_Failed(hits))
             {
-                wchar_t
-                    buf[256];
-                cpix_Error_report(hits->err_,
-                                  buf,
-                                  sizeof(buf) / sizeof(wchar_t));
-                printf("%S\n", buf);
-                cpix_ClearError(hits);
-                assert_failed = 1;
+        wchar_t
+        buf[256];
+        cpix_Error_report(hits->err_,
+                buf,
+                sizeof(buf) / sizeof(wchar_t));
+        printf("%S\n", buf);
+        cpix_ClearError(hits);
+        assert_failed = 1;
             }
+        }
+        
+        FREE_DOC(doc, 1)
         testResultXml(xml_file);
         cpix_Hits_destroy( hits );
         cpix_Query_destroy( query );

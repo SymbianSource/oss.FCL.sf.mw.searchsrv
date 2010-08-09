@@ -48,11 +48,30 @@ void TestSearch::doSearchTest()
     searchButton = new HbPushButton( "Search" );
     layout->addItem( searchButton );
     
+    QGraphicsLinearLayout *getdoclayout = new QGraphicsLinearLayout;
+    getdoclayout->setOrientation(Qt::Horizontal);
+    
+    indexBox = new HbLineEdit;
+    indexBox->setInputMethodHints(Qt::ImhPreferNumbers);
+    
+    countBox = new HbLineEdit;
+    countBox->setInputMethodHints(Qt::ImhPreferNumbers);    
+    
+    getdocbutton = new HbPushButton("GetDocs");
+    
+#if !DONT_SHOW_RESULTS
+    getdoclayout->addItem(indexBox);
+    getdoclayout->addItem(countBox);
+    getdoclayout->addItem(getdocbutton);
+    layout->addItem(getdoclayout);
+#endif //!DONT_SHOW_RESULTS
+    
     resultsBox = new HbTextEdit;
     layout->addItem( resultsBox );
     
-    SearchHelper* sh = new SearchHelper(searchBox, searchButton, resultsBox);  
+    SearchHelper* sh = new SearchHelper(searchBox, searchButton, resultsBox, indexBox, countBox,getdocbutton);  
     QObject::connect( searchButton, SIGNAL( clicked() ), sh, SLOT(doSearch()) );
+    QObject::connect( getdocbutton, SIGNAL( clicked() ), sh, SLOT(showdocs()) );
     
     w->setLayout( layout );
     BigScreen->addView ( w );

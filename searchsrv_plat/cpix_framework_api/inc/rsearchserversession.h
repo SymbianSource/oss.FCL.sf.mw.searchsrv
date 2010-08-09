@@ -203,6 +203,28 @@ public:
 	 * @return The document object. Ownership is transferred to the caller 
 	 */
 	IMPORT_C CSearchDocument* GetDocumentObjectL();
+	
+	/**
+     * GetBatchDocument. Synchronous version.
+     * Gets a list of document from the search results. 
+     */
+    IMPORT_C CSearchDocument** GetBatchDocumentL(TInt aIndex, TInt& aReturnDoc, TInt aCount);
+    
+    /**
+      * GetBatchDocument. Asynchronous version.
+      * Prepares a list of document from the search results. After this request
+      * complets, document can be read by using GetBatchDocumentObjectL. 
+      * @param aStatus The TRequestStatus object to be used for async comms.
+      */
+    IMPORT_C void GetBatchDocument(TInt aIndex, TRequestStatus& aStatus, TInt aCount);
+    
+    /**
+	 * GetBatchDocumentObjectL.
+	 * Get the actual Batch document object prepared by the asynchronous GetDocument request.
+	 * @return The document object. Ownership is transferred to the caller 
+	 * Note: aRetCount will have the count of the documents returned
+	 */
+	IMPORT_C CSearchDocument** GetBatchDocumentObjectL( TInt& aRetCount);
 
     /**
 	 * AddL. Synchronous version
@@ -286,11 +308,19 @@ private:
     * iDocumentSize, bytes needed for the next document
     */
     TInt iDocumentSize;
+    /**
+    * iDocSizeArray, array of docs sizes
+    */
+    RArray<TInt> iDocSizeArray;
     
     /**
      * Package for document size.
      */
     TPckg<TInt> iDocumentSizePckg;
+    
+    TInt* iSizeList;
+    
+    TInt iReqCount;
 
 };
 

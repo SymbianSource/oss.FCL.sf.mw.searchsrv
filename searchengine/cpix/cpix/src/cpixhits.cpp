@@ -36,18 +36,27 @@ namespace Cpix
     }
 
 
-    void HitsBase::destroyWrappers()
+    void HitsBase::destroyWrappers(int32_t index)
     {
         WrapperMap::iterator
-            i = wrappers_.begin(),
-            end = wrappers_.end();
+            i = wrappers_.begin();
 
-        for (; i != end; ++i)
+        if  (index == -1) {
+            for (; i != wrappers_.end(); ++i)
             {
                 delete i->second;
+                wrappers_.clear();
             }
+        } else {
+            for (; i != wrappers_.find(index); ++i)
+            {
+                delete i->second;
+                
+            }
+            wrappers_.erase(wrappers_.begin(),wrappers_.find(index));
+        }
 
-        wrappers_.clear();
+        
     }
 
 
@@ -61,16 +70,26 @@ namespace Cpix
     void HitsBase::wrapDocument(int32_t                      index,
                                 lucene::document::Document * doc)
     {
-        if (wrappers_.find(index) != wrappers_.end())
+//        if (wrappers_.find(index) != wrappers_.end())
+//            {
+//                delete wrappers_[index];
+//                wrappers_[index] = NULL;
+//            }
+//
+//        Cpix::Document
+//            * cpixDoc = new Cpix::Document(doc,
+//                                           docsOwnedByClucene_);
+//        wrappers_[index] = cpixDoc;
+        
+        if (wrappers_.find(index) == wrappers_.end())
             {
-                delete wrappers_[index];
-                wrappers_[index] = NULL;
+                Cpix::Document
+                    * cpixDoc = new Cpix::Document(doc,
+                                                   docsOwnedByClucene_);
+                wrappers_[index] = cpixDoc;
             }
 
-        Cpix::Document
-            * cpixDoc = new Cpix::Document(doc,
-                                           docsOwnedByClucene_);
-        wrappers_[index] = cpixDoc;
+
     }
 
 
@@ -89,7 +108,19 @@ namespace Cpix
         return rv;
     }
 
-
+    int HitsBase::resetDocumentCache(int32_t index, int32_t count)
+    {
+        int32_t reqCount = index + count;
+        int rv = 0;
+        int i = (wrappers_.begin()->first)+ (int32_t) wrappers_.size();
+        if ((i < reqCount) || (index < wrappers_.begin()->first))
+            {
+                getDocument_(index);
+               
+            }
+        rv = (int32_t) wrappers_.size();
+        return rv;
+    }
 
     /**
      * Class ClhDocumentConsumer
@@ -144,7 +175,8 @@ namespace Cpix
                               clHits_.length());
             }
 
-        beginIndex_ = index - (index % pageSize_);
+        //beginIndex_ = index - (index % pageSize_);
+        beginIndex_ = index;
         endIndex_ = beginIndex_ + pageSize_;
 
         endIndex_ = std::min(clHits_.length(),
@@ -234,7 +266,7 @@ namespace Cpix
         delete hits_; 
         hits_ = 0; 
         
-        destroyWrappers();
+        destroyWrappers(0);
 
         delete docConsumer_;
 
@@ -245,7 +277,7 @@ namespace Cpix
     void LuceneHits::getDocument_(int32_t index) 
     {
         // check if we have tried to fetch it before and failed
-        docConsumer_->throwIfFailedDocIndex(index);
+        //docConsumer_->throwIfFailedDocIndex(index);
 
         // common usage pattern is to enumerate hits, never to access
         // them at true random manner. That means that we never need
@@ -253,7 +285,7 @@ namespace Cpix
         // fetch the next page we can discard all other wrapped
         // documents. Merely an memory consumption optimization
         // measure, can be commented out.
-        destroyWrappers();
+        destroyWrappers(index);
 
         // if we get here, then it means we don't have the page of hit
         // docs we need, but it may still throw if the hits is an
@@ -304,12 +336,12 @@ namespace Cpix
 	
     HitDocumentList::~HitDocumentList()
     {
-        destroyWrappers();
+        destroyWrappers(0);
         for (std::vector<lucene::document::Document*>::iterator i = documents_.begin(); 
              i != documents_.end(); 
              i++) 
             {
-                _CLDELETE(*i); 
+                _CLDELETE(*i);
             }
     }
     

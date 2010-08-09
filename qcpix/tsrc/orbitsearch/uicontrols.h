@@ -33,12 +33,12 @@
 #define STAR_SEARCH 0
 
 //Vanilla search. Send search string to engine "as-is". 
-#define NO_STAR_SEARCH 0
+#define NO_STAR_SEARCH 1
 
 //Enable the prefix_search macro to enable Prefix query feature. This will add $prefix to the query 
 //string.
 
-#define PREFIX_SEARCH 1
+#define PREFIX_SEARCH 0
 
 //If you dont want to see results, define this flag.
 #define DONT_SHOW_RESULTS 0
@@ -48,6 +48,9 @@
 #define ORBIT_SEARCH_CONTROLS   \
     HbLineEdit* searchBox;      \
     HbPushButton* searchButton; \
+    HbLineEdit* indexBox;      \
+    HbLineEdit* countBox;      \
+    HbPushButton* getdocbutton;      \
     HbTextEdit* resultsBox;
 
 #endif /* UICONTROLS_H_ */

@@ -230,6 +230,18 @@ void CSearchServerSession::ServiceL(const RMessage2& aMessage)
             subsession->GetDocumentObjectL(aMessage);
             RECORDED_EXECUTION_END("getDocumentObject")
             break;
+            
+        case ESearchServerGetBatchDocument:
+            RECORDED_EXECUTION_BEGIN
+            subsession->GetBatchDocumentL(aMessage);
+            RECORDED_EXECUTION_END("getDocument")
+            break;
+
+        case ESearchServerGetBatchDocumentObject:
+            RECORDED_EXECUTION_BEGIN
+            subsession->GetBatchDocumentObjectL(aMessage);
+            RECORDED_EXECUTION_END("getDocumentObject")
+            break;
 
         case ESearchServerCancelAll:
             RECORDED_EXECUTION_BEGIN

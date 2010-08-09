@@ -22,16 +22,17 @@
 
 #include "suggestion.h"
 #include "config.h"
+#include "testutils.h"
 
 
 
-Suggestion::Suggestion(cpix_Document & doc,
+Suggestion::Suggestion(cpix_Document * doc,
                        Itk::TestMgr  * testMgr)
 {
     const wchar_t
-        * value = cpix_Document_getFieldValue(&doc,
+        * value = cpix_Document_getFieldValue(doc,
                                               LTERM_TEXT_FIELD);
-    if (cpix_Failed(&doc))
+    if (cpix_Failed(doc))
         {
             ITK_EXPECT(testMgr,
                        false,
@@ -43,9 +44,9 @@ Suggestion::Suggestion(cpix_Document & doc,
             term_ = value;
         }
     
-    value = cpix_Document_getFieldValue(&doc,
+    value = cpix_Document_getFieldValue(doc,
                                         LTERM_DOCFREQ_FIELD);
-    if (cpix_Failed(&doc))
+    if (cpix_Failed(doc))
         {
             ITK_EXPECT(testMgr,
                        false,
@@ -128,23 +129,28 @@ void Suggestion::printSuggestions(cpix_Hits    * hits,
     for (int32_t i = 0; i < hitCount; ++i)
         {
             cpix_Document
-                doc;
+                **doc;
+            ALLOC_DOC(doc, 1);
             cpix_Hits_doc(hits,
                           i,
-                          &doc);
+                          doc,
+                          1);
+            if (doc[0]->ptr_ != NULL) {
             if (cpix_Failed(hits))
                 {
-                    ITK_EXPECT(testMgr,
-                               false,
-                               "Failed to get doc %d",
-                               i);
-                    cpix_ClearError(hits);
-                    goOn = false;
-                    break;
+            ITK_EXPECT(testMgr,
+                    false,
+                    "Failed to get doc %d",
+                    i);
+            cpix_ClearError(hits);
+            goOn = false;
+            break;
                 }
 
-            suggestions.push_back(Suggestion(doc,
-                                             testMgr));
+            suggestions.push_back(Suggestion(doc[0],
+                    testMgr));
+            }
+            FREE_DOC(doc, 1);
         }
 
     if (goOn)

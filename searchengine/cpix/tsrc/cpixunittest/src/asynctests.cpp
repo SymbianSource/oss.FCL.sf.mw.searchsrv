@@ -36,7 +36,7 @@
 #include "testutils.h"
 #include "testcorpus.h"
 #include "setupsentry.h"
-
+#include "testutils.h"
 #include "std_log_result.h"
 
 // TODO PROPER, EXAMPLARY error clearing (cpix_ClearError())
@@ -587,7 +587,7 @@ public:
 
     bool call(cpix_Hits     * hits,
               int32_t         index,
-              cpix_Document * target,
+              cpix_Document ** target,
               Itk::TestMgr  * testMgr,
               bool            cancel)
     {
@@ -605,7 +605,8 @@ public:
                                        index,
                                        target,
                                        this,
-                                       &callback);
+                                       &callback,
+                                       1);
         }
         
         ITK_ASSERT(testMgr,
@@ -725,7 +726,7 @@ class SyncedSearch
 
     SyncedDoc                     syncedDoc_;
 
-    cpix_Document                 targetDoc_;
+    cpix_Document                 **targetDoc_;
 
     Cpt::Mutex                  & cpixMutex_;
 
@@ -736,9 +737,13 @@ public:
           syncedDoc_(cpixMutex),
           cpixMutex_(cpixMutex)
     {
-        ;
+        ALLOC_DOC(targetDoc_, 1);
     }
-
+    
+    ~SyncedSearch() {
+        FREE_DOC(targetDoc_, 1);
+    }
+    
     void call(cpix_IdxSearcher  * searcher,
               cpix_Query        * query,
               Itk::TestMgr      * testMgr,
@@ -905,7 +910,7 @@ private:
                 bool
                     succeeded = syncedDoc_.call(hits,
                                                 i,
-                                                &targetDoc_,
+                                                targetDoc_,
                                                 testMgr,
                                                 (i%4) == 1); // cancel or not
 
@@ -914,7 +919,7 @@ private:
                         Cpt::SyncRegion
                             sr(cpixMutex_);
 
-                        PrintHit(&targetDoc_,
+                        PrintHit(targetDoc_[0],
                                  testMgr);
                     }
             }

@@ -230,6 +230,9 @@ void CSearchingWorker::HandleSearchResultsL(TInt /*aError*/, TInt /*aEstimatedRe
 void CSearchingWorker::HandleDocumentL(TInt /*aError*/, CSearchDocument* /*aDocument*/)
 	{
 	}
+void CSearchingWorker::HandleBatchDocumentL(TInt aError, TInt aReturnCount, CSearchDocument** aDocument)
+    {
+    }
 
 TInt CSearchingWorker::ConsumeSearches() 
 	{

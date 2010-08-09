@@ -16,7 +16,8 @@
 
 TEMPLATE = subdirs
 CONFIG += ordered
-SUBDIRS +=  cpixsearch.pro \
-            tsrc/SampleSearch/SampleSearch.pro \
-            tsrc/orbitsearch/orbitsearch.pro \
-            tsrc/qtcpixunittests/qtcpixunittests.pro
+SUBDIRS +=  cpixsearch.pro
+            #Removing test components            
+	    			#tsrc/SampleSearch/SampleSearch.pro \
+            #tsrc/orbitsearch/orbitsearch.pro \
+            #tsrc/qtcpixunittests/qtcpixunittests.pro

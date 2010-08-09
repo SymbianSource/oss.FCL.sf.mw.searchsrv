@@ -235,6 +235,36 @@ class CCPixSearcher : public CActive
          * @return Next available document or NULL, if no more documents can be found
 		 */
 		IMPORT_C void GetDocumentL(TInt aIndex, MCPixNextDocumentRequestObserver& aObserver);
+		
+		/**
+	     * GetBatchDocumentL
+	     * Iterates throught the search result's document list (hits), that is stored in the 
+	     * server side. The accessed list is ranked and the best matching document is heading 
+	     * the result list. First call of this method, return best matching, then second best 
+	     * matching and so forth until all documents have been found. Method returns NULL, 
+	     * when no more documents can be found.
+	     *
+	     * Leaves with KErrInUse, if asynchronous request is pending and 
+	     * KErrNotReady, if no database has been succefullly opened.
+         *
+         * @todo Having also GetDocumentLC would be nice
+         * @return Next available document or NULL, if no more documents can be found. Ownership is transferred
+	     */
+		IMPORT_C CSearchDocument** GetBatchDocumentL(TInt aIndex, TInt& aReturnDoc, TInt aCount = 1);
+		
+		/**
+	     * GetBatchDocumentL
+		 * Iterates throught the search result's document list (hits), that is stored in the 
+	     * server side. The accessed list is ranked and the best matching document isheading 
+	     * the result lest. When the request has been completed a callback to 
+	     * MSearchObserver::HandleDocumentL is issued. 
+	     *
+	     * Leaves with KErrInUse, if asynchronous request is pending and 
+	     * KErrNotReady, if no database has been succefullly opened.
+	     *
+         * @return Next available document or NULL, if no more documents can be found
+		 */
+		IMPORT_C void GetBatchDocumentL(TInt aIndex, MCPixNextDocumentRequestObserver& aObserver, TInt aCount = 1);
 				
 	protected: // Functions from base classes
 	
@@ -287,6 +317,7 @@ class CCPixSearcher : public CActive
 			EStateOpenDatabase, 
 			EStateSearch, 
 			EStateGetDocument,
+			EStateGetBatchDocument,
 			EStateSetAnalyzer,
 			EStateSetQueryParser
 			};

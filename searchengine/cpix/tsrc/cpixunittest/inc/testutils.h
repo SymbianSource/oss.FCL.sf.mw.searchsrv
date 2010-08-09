@@ -210,5 +210,11 @@ struct Volume
 
 extern const Volume Volumes[];
 
+#define ALLOC_DOC(DOC, COUNT)   DOC = (cpix_Document**)malloc (sizeof(cpix_Document*)* COUNT); \
+        for  (int i = 0; i < COUNT; i++) { \
+            (DOC[i]) = (cpix_Document*)malloc (sizeof(cpix_Document)); \
+            DOC[i]->ptr_ = NULL; \
+        }
+#define FREE_DOC(DOC, COUNT)  for (int i=0; i< COUNT; i++) free(DOC[i]); free (DOC);
 
 #endif // CPIXUNITTEST_TESTUTILS_H_

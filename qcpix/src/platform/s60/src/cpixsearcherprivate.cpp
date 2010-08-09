@@ -58,6 +58,12 @@ void CpixSearcherPrivate::HandleDocumentL(TInt aError, CSearchDocument* aDocumen
     PERF_TIME_NOW("Async get document complete")
     emit iSearchParent->handleDocument( aError, CpixDocFromCSearchDocument( aDocument ) );
     }
+	
+void CpixSearcherPrivate::HandleBatchDocumentL(TInt aError,TInt aRetCount, CSearchDocument** aDocument)
+    {
+    PERF_TIME_NOW("Async get batch document complete")
+    emit iSearchParent->handleBatchDocuments( aError, aRetCount,CpixBatchDocFromCSearchDocument( aRetCount, aDocument) );
+    }
 
 void CpixSearcherPrivate::HandleOpenDatabaseResultL( TInt aError )
     {

@@ -296,7 +296,8 @@ extern "C" {
      */
     void cpix_Hits_doc(cpix_Hits     * thisHits,
                        int32_t         index,
-                       cpix_Document * target);
+                       cpix_Document ** target,
+                       int32_t         count);
 
 
 

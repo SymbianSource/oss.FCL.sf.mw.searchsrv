@@ -32,4 +32,12 @@ QString QStringFromDescriptor( const TDesC& aDesc );
  */
 CpixDocument* CpixDocFromCSearchDocument( CSearchDocument* aDoc );
 
+/**
+ * Gets array of QCPixDocuments from batch of CSearchDocuments
+ * @param aDoc batch of CSearchDocuments to be converted to QCPixDocuments. Takes ownership of aDoc.
+ * @param aReturnDoc number of CSearchDocuments in the aDoc
+ * @return QCPixDocument representation of aDoc. Ownership transferred to caller.
+ */
+CpixDocument** CpixBatchDocFromCSearchDocument(TInt aReturnDoc,  CSearchDocument** aDoc );
+
 #endif /* QCPIXUTILS_H_ */

@@ -20,6 +20,7 @@
 #include <sstream>
 #include <time.h>
 #include "std_log_result.h"
+#include "testutils.h"
 
 using namespace std;
 using namespace Itk;
@@ -456,10 +457,11 @@ void RandomTest::assertContent(Itk::TestMgr* testMgr, size_t item)
                             bool found = false;
                             for ( int i = 0; i < cpix_Hits_length( hits ); i++ )
                                 {
-                                    cpix_Document doc;
-                                    cpix_Hits_doc( hits, i, &doc );
-
-                                    const wchar_t* id = cpix_Document_getFieldValue( &doc, LCPIX_DOCUID_FIELD );
+                                    cpix_Document **doc;
+                                    ALLOC_DOC (doc, 1);
+                                    cpix_Hits_doc( hits, i, doc, 1 );
+                                    if (doc[0]->ptr_ != NULL) {
+                                        const wchar_t* id = cpix_Document_getFieldValue( doc[0], LCPIX_DOCUID_FIELD );
 
                                     if ( id )
                                         {
@@ -470,6 +472,8 @@ void RandomTest::assertContent(Itk::TestMgr* testMgr, size_t item)
                                                     break;
                                                 }
                                         }
+                                    }
+                                    FREE_DOC(doc, 1);
                                 }
                             if ( !found )
                                 {
@@ -538,27 +542,33 @@ size_t RandomTest::termMatchCount(Itk::TestMgr* testMgr, wstring& term)
 
 		if ( hits )
 			{
-			for ( int i = 0; i < cpix_Hits_length( hits ); i++ )
-				{
-				cpix_Document doc;
-				cpix_Hits_doc( hits, i, &doc );
+			for ( int i = 0; i < cpix_Hits_length( hits ); i++ ) {
+			
+				cpix_Document **doc;
+				ALLOC_DOC(doc, 1);
+				cpix_Hits_doc( hits, i, doc, 1 );
 
-				const wchar_t* id = cpix_Document_getFieldValue( &doc, LCPIX_DOCUID_FIELD );
+				if (doc[0]->ptr_ != NULL) {
+				    
+                    const wchar_t* id = cpix_Document_getFieldValue(doc[0],
+                            LCPIX_DOCUID_FIELD);
 
-				if ( id )
-					{
-					wstring str( id );
-					size_t index = GetItemIndex( str.c_str() );
-					wstring content( testCorpus_.item( index ) );
+                    if (id)
+                        {
+                        wstring str(id);
+                        size_t index = GetItemIndex(str.c_str());
+                        wstring content(testCorpus_.item(index));
 
-                                        // TODO expect instead of
-                                        // assert otherwise cpix_Hits
-                                        // instance leaks
-					ITK_ASSERT( testMgr,
-								containsTerm( content, term ),
-								"False positive? Term %S not found in %S", term.c_str(), content.c_str() );
-					matches++;
-					}
+                        // TODO expect instead of
+                        // assert otherwise cpix_Hits
+                        // instance leaks
+                        ITK_ASSERT( testMgr,
+                                containsTerm( content, term ),
+                                "False positive? Term %S not found in %S", term.c_str(), content.c_str() );
+                        matches++;
+                        }
+                    }
+                FREE_DOC(doc, 1);
 				}
 			cpix_Hits_destroy( hits );
 			}

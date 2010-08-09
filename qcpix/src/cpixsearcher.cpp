@@ -136,11 +136,26 @@ CpixDocument* CpixSearcher::document( int aIndex )
     PERF_GETDOC_ENDLOG
     return tmp;
     }
+	
+CpixDocument** CpixSearcher::batchdocument( int aIndex,int& aReturnDoc, int aCount )
+    {
+    PERF_GETDOC_RESTART_TIMER
+    CpixDocument** tmp = 0;
+    QT_TRAP_THROWING( tmp = CpixBatchDocFromCSearchDocument( aReturnDoc, iPvtImpl->iSearcher->GetBatchDocumentL( aIndex, aReturnDoc, aCount )) );
+    PERF_GETDOC_ENDLOG
+    return tmp;
+    }
 
 void CpixSearcher::documentAsync( int aIndex )
     {
     PERF_TIME_NOW("Async get document start")
     QT_TRAP_THROWING( iPvtImpl->iSearcher->GetDocumentL( aIndex, *iPvtImpl ) );
+    }
+	
+void CpixSearcher::batchdocumentAsync( int aIndex, int aCount )
+    {
+    PERF_TIME_NOW("Async batch get document start")
+    QT_TRAP_THROWING( iPvtImpl->iSearcher->GetBatchDocumentL( aIndex, *iPvtImpl, aCount ) );
     }
 
 void CpixSearcher::cancelSearch()

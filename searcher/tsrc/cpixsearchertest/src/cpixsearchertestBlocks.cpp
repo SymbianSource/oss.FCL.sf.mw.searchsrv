@@ -164,6 +164,8 @@ TInt Ccpixsearchertest::RunMethodL(
         ENTRY( "TestGetDocumentAsync", Ccpixsearchertest::TestGetDocumentAsyncL),
         ENTRY( "TestGetInvalidDocumentAsync", Ccpixsearchertest::TestGetInvalidDocumentAsyncL),
         ENTRY( "TestExerptLength", Ccpixsearchertest::TestExerptLengthL),
+        ENTRY( "TestGetBatchdoc", Ccpixsearchertest::TestGetBatchdocL),
+        ENTRY( "TestAsyncGetBatchdoc", Ccpixsearchertest::TestAsyncGetBatchdocL),
         
         //ADD NEW ENTRY HERE
         // [test cases entries] - Do not remove
@@ -981,6 +983,49 @@ TInt Ccpixsearchertest::TestExerptLengthL( CStifItemParser& /*aItem*/ )
     testsearcher->tearDown();
     doLog( iLog, err, KTestFormBaseAppClassNoError );
         return err;
+    }
+
+// -----------------------------------------------------------------------------
+// Ccpixsearchertest::TestGetBatchdocL
+// -----------------------------------------------------------------------------
+//
+TInt Ccpixsearchertest::TestGetBatchdocL( CStifItemParser& /*aItem*/ )
+    {
+    _LIT( KTestFormBaseAppClassNoError, "TestGetBatchdocL: No Error" ); 
+    CTestSearcher* testsearcher = new CTestSearcher();
+    testsearcher->initialsetUp();
+    testsearcher->createandinitindexer();
+    testsearcher->createsearcher();
+    testsearcher->harvesttestcontent( 10 );
+    TRAPD ( err , testsearcher->testgetbatchdoc() );    
+    testsearcher->ReleaseIndexer();
+    testsearcher->ReleaseSearcher();
+    testsearcher->tearDown();
+    delete testsearcher;
+    doLog( iLog, err, KTestFormBaseAppClassNoError );
+    return err;
+    }
+// -----------------------------------------------------------------------------
+// Ccpixsearchertest::TestAsyncGetBatchdocL
+// -----------------------------------------------------------------------------
+//
+TInt Ccpixsearchertest::TestAsyncGetBatchdocL( CStifItemParser& /*aItem*/ )
+    {
+    _LIT( KTestFormBaseAppClassNoError, "TestAsyncGetBatchdocL: No Error" ); 
+     CTestSearcher* testsearcher = new CTestSearcher();
+     testsearcher->initialsetUp();
+     testsearcher->createandinitindexer();
+     testsearcher->createsearcher();
+     testsearcher->harvesttestcontent( 10 );
+     testsearcher->InitAsyncComponents();
+     TRAPD ( err , testsearcher->testasyncgetbatchdoc() );    
+     testsearcher->ReleaseIndexer();
+     testsearcher->ReleaseSearcher();
+     testsearcher->ReleaseAsyncComponents();
+     testsearcher->tearDown();
+     delete testsearcher;
+     doLog( iLog, err, KTestFormBaseAppClassNoError );
+     return err;
     }
 // -----------------------------------------------------------------------------
 // Ccpixsearchertest::?member_function

@@ -1107,7 +1107,8 @@ namespace
         //
         cpix_Hits      * hits_;
         int32_t          index_;
-        cpix_Document  * target_;
+        cpix_Document  ** target_;
+        int32_t          count_;
 
 
     public:
@@ -1116,16 +1117,18 @@ namespace
         //
         static cpix_JobId CreateJob(cpix_Hits          * hits,
                                     int32_t              index,
-                                    cpix_Document      * target,
+                                    cpix_Document      ** target,
                                     void               * cookie,
-                                    cpix_AsyncCallback * callback)
+                                    cpix_AsyncCallback * callback,
+                                    int32_t              count)
         {
             std::auto_ptr<AsyncJob>
                 job(new AsyncHitsDocJob(hits,
                                         index,
                                         target,
                                         cookie,
-                                        callback));
+                                        callback,
+                                        count ));
 
             cpix_JobId
                 rv = job->id();
@@ -1167,15 +1170,17 @@ namespace
         //
         AsyncHitsDocJob(cpix_Hits          * hits,
                         int32_t              index,
-                        cpix_Document      * target,
+                        cpix_Document      ** target,
                         void               * cookie,
-                        cpix_AsyncCallback * callback)
+                        cpix_AsyncCallback * callback,
+                        int32_t              count)
             : AsyncJob(IdxDbHndl(), // default value for handlers
                        cookie,
                        callback),
               hits_(NULL),
               index_(index),
-              target_(target)
+              target_(target),
+              count_(count)
         {
             // We must make sure that these native objects live even
             // if the client calls cancel in the middle of operation
@@ -1217,7 +1222,8 @@ namespace
 
             cpix_Hits_doc(&hits,
                           index_,
-                          target_);
+                          target_,
+                          count_);
 
             return hits.err_;
         }
@@ -1841,9 +1847,10 @@ cpix_IdxSearcher_cancelSearch(cpix_IdxSearcher * thisIdxSearcher,
 
 cpix_JobId cpix_Hits_asyncDoc(cpix_Hits          * thisHits,
                               int32_t              index,
-                              cpix_Document      * target,
+                              cpix_Document      ** target,
                               void               * cookie,
-                              cpix_AsyncCallback * callback)
+                              cpix_AsyncCallback * callback,
+                              int32_t              count)
 {
     return XlateExc(thisHits,
                     CallFreeFunc(&AsyncHitsDocJob::CreateJob,
@@ -1851,7 +1858,8 @@ cpix_JobId cpix_Hits_asyncDoc(cpix_Hits          * thisHits,
                                  index,
                                  target,
                                  cookie,
-                                 callback));
+                                 callback,
+                                 count));
 }
 
 

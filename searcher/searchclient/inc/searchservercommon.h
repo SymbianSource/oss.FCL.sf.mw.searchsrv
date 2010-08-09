@@ -62,6 +62,8 @@ enum TSearchServerRequest
     ESearchServerSearch,
     ESearchServerGetDocument,
     ESearchServerGetDocumentObject,
+    ESearchServerGetBatchDocument,
+    ESearchServerGetBatchDocumentObject,
     ESearchServerAdd,
     ESearchServerUpdate,
     ESearchServerDelete,

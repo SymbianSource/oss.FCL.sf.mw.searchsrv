@@ -75,7 +75,7 @@ int testInit(cpix_Analyzer **analyzer_, cpix_IdxDb **idxDb_)
 
     *idxDb_ = cpix_IdxDb_openDb(&result,
             TEST_DOCUMENT_QBASEAPPCLASS,
-            cpix_IDX_CREATE);
+            cpix_IDX_OPEN);
     if (cpix_Failed(&result))
         {
         printf("Failed to open indexDb\n");
@@ -187,17 +187,42 @@ void printHits(cpix_Hits    * hits)
         }
 
     cout << "Number of hits: " << hitCount << endl;
-
-    cpix_Document
-        doc;
-
-    for (int32_t i = 0; i < hitCount; ++i)
+    while (1)
         {
+    int fromDoc;
+    int docCount;
+    printf("\nFrom: ");
+    scanf("%d",&fromDoc);
+    printf("\nHow many doc: ");
+    scanf("%d",&docCount);
+    
+    cpix_Document
+        **doc;
+    
+    doc = (cpix_Document **) malloc (sizeof(cpix_Document *) * docCount);
+    for(int j = 0 ; j < docCount; j++)
+        {
+            doc[j] = (cpix_Document *) malloc (sizeof(cpix_Document));
+            doc[j]->ptr_ = NULL;
+        }
+    
             cpix_Hits_doc(hits,
-                          i,
-                          &doc);
+                          fromDoc,
+                          doc,
+                          docCount);
+            
+     for(int j = 0 ; docCount>j && doc[j]->ptr_ != NULL; j++)
+         {
+            printf("%d \n", j);
+            printHit(doc[j]);
+         }
+     
+     for(int j = 0 ; j < docCount; j++)
+             free(doc[j]);
 
-            printHit(&doc);
+     
+      free(doc);
+       
         }
     logDbgMsg("Shankar Ha hahah");
 }
@@ -212,11 +237,14 @@ int main(void)
         cpix_IdxDb * idxDb_ = NULL;
         cpix_Hits * hits_;
 
-        printf("Press a character to exit!\n");
+      
 
-        testInit(&analyzer_,&idxDb_);    
+        testInit(&analyzer_,&idxDb_);   
+        for(int j = 0; j < 10; j++)
+            {
         createDocument(LDOCUID1,DOC1CONTENT, &analyzer_,&idxDb_);
         createDocument(LDOCUID2,DOC2CONTENT, &analyzer_,&idxDb_);
+            }
                 
                         
         queryParser_ = cpix_QueryParser_create(&result,

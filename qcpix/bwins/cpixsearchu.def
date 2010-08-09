@@ -16,58 +16,61 @@ EXPORTS
 	??_ECpixDocument@@UAE@I@Z @ 15 NONAME ; CpixDocument::~CpixDocument(unsigned int)
 	?newInstance@CpixDocumentField@@SAPAV1@VQString@@0H@Z @ 16 NONAME ; class CpixDocumentField * CpixDocumentField::newInstance(class QString, class QString, int)
 	??_ECpixSearcher@@UAE@I@Z @ 17 NONAME ; CpixSearcher::~CpixSearcher(unsigned int)
-	?d_func@CpixDocument@@ABEPBVCpixDocumentPrivate@@XZ @ 18 NONAME ; class CpixDocumentPrivate const * CpixDocument::d_func(void) const
-	?trUtf8@CpixDocumentField@@SA?AVQString@@PBD0H@Z @ 19 NONAME ; class QString CpixDocumentField::trUtf8(char const *, char const *, int)
-	?getStaticMetaObject@CpixDocumentField@@SAABUQMetaObject@@XZ @ 20 NONAME ; struct QMetaObject const & CpixDocumentField::getStaticMetaObject(void)
-	?staticMetaObject@CpixDocument@@2UQMetaObject@@B @ 21 NONAME ; struct QMetaObject const CpixDocument::staticMetaObject
-	??_ECpixDocumentField@@UAE@I@Z @ 22 NONAME ; CpixDocumentField::~CpixDocumentField(unsigned int)
-	?config@CpixDocumentField@@QBEHXZ @ 23 NONAME ; int CpixDocumentField::config(void) const
-	?tr@CpixSearcher@@SA?AVQString@@PBD0H@Z @ 24 NONAME ; class QString CpixSearcher::tr(char const *, char const *, int)
-	?d_func@CpixDocument@@AAEPAVCpixDocumentPrivate@@XZ @ 25 NONAME ; class CpixDocumentPrivate * CpixDocument::d_func(void)
-	?trUtf8@CpixDocument@@SA?AVQString@@PBD0H@Z @ 26 NONAME ; class QString CpixDocument::trUtf8(char const *, char const *, int)
-	?setValue@CpixDocumentField@@QAEXVQString@@@Z @ 27 NONAME ; void CpixDocumentField::setValue(class QString)
-	?qt_metacall@CpixSearcher@@UAEHW4Call@QMetaObject@@HPAPAX@Z @ 28 NONAME ; int CpixSearcher::qt_metacall(enum QMetaObject::Call, int, void * *)
-	?qt_metacall@CpixDocument@@UAEHW4Call@QMetaObject@@HPAPAX@Z @ 29 NONAME ; int CpixDocument::qt_metacall(enum QMetaObject::Call, int, void * *)
-	??1CpixDocument@@UAE@XZ @ 30 NONAME ; CpixDocument::~CpixDocument(void)
-	?handleDatabaseSet@CpixSearcher@@IAEXH@Z @ 31 NONAME ; void CpixSearcher::handleDatabaseSet(int)
-	??0CpixDocumentField@@AAE@VQString@@0H@Z @ 32 NONAME ; CpixDocumentField::CpixDocumentField(class QString, class QString, int)
-	?trUtf8@CpixSearcher@@SA?AVQString@@PBD0@Z @ 33 NONAME ; class QString CpixSearcher::trUtf8(char const *, char const *)
-	?newInstance@CpixDocument@@SAPAV1@XZ @ 34 NONAME ; class CpixDocument * CpixDocument::newInstance(void)
-	?setDatabaseAsync@CpixSearcher@@QAEXVQString@@@Z @ 35 NONAME ; void CpixSearcher::setDatabaseAsync(class QString)
-	?value@CpixDocumentField@@QBE?AVQString@@XZ @ 36 NONAME ; class QString CpixDocumentField::value(void) const
-	?name@CpixDocumentField@@QBE?AVQString@@XZ @ 37 NONAME ; class QString CpixDocumentField::name(void) const
-	?search@CpixSearcher@@QAEHVQString@@0@Z @ 38 NONAME ; int CpixSearcher::search(class QString, class QString)
-	?tr@CpixDocumentField@@SA?AVQString@@PBD0@Z @ 39 NONAME ; class QString CpixDocumentField::tr(char const *, char const *)
-	?staticMetaObject@CpixSearcher@@2UQMetaObject@@B @ 40 NONAME ; struct QMetaObject const CpixSearcher::staticMetaObject
-	??1CpixSearcher@@UAE@XZ @ 41 NONAME ; CpixSearcher::~CpixSearcher(void)
-	?excerpt@CpixDocument@@QBE?AVQString@@XZ @ 42 NONAME ; class QString CpixDocument::excerpt(void) const
-	?setName@CpixDocumentField@@QAEXVQString@@@Z @ 43 NONAME ; void CpixDocumentField::setName(class QString)
-	?setDocId@CpixDocument@@QAEXVQString@@@Z @ 44 NONAME ; void CpixDocument::setDocId(class QString)
-	?fieldCount@CpixDocument@@QBEHXZ @ 45 NONAME ; int CpixDocument::fieldCount(void) const
-	?baseAppClass@CpixDocument@@QBE?AVQString@@XZ @ 46 NONAME ; class QString CpixDocument::baseAppClass(void) const
-	?qt_metacast@CpixDocumentField@@UAEPAXPBD@Z @ 47 NONAME ; void * CpixDocumentField::qt_metacast(char const *)
-	?newInstance@CpixSearcher@@SAPAV1@XZ @ 48 NONAME ; class CpixSearcher * CpixSearcher::newInstance(void)
-	?field@CpixDocument@@QBEABVCpixDocumentField@@H@Z @ 49 NONAME ; class CpixDocumentField const & CpixDocument::field(int) const
-	?metaObject@CpixSearcher@@UBEPBUQMetaObject@@XZ @ 50 NONAME ; struct QMetaObject const * CpixSearcher::metaObject(void) const
-	?metaObject@CpixDocumentField@@UBEPBUQMetaObject@@XZ @ 51 NONAME ; struct QMetaObject const * CpixDocumentField::metaObject(void) const
-	?qt_metacast@CpixDocument@@UAEPAXPBD@Z @ 52 NONAME ; void * CpixDocument::qt_metacast(char const *)
-	?document@CpixSearcher@@QAEPAVCpixDocument@@H@Z @ 53 NONAME ; class CpixDocument * CpixSearcher::document(int)
-	?trUtf8@CpixDocument@@SA?AVQString@@PBD0@Z @ 54 NONAME ; class QString CpixDocument::trUtf8(char const *, char const *)
-	?setExcerpt@CpixDocument@@QAEXVQString@@@Z @ 55 NONAME ; void CpixDocument::setExcerpt(class QString)
-	?tr@CpixDocument@@SA?AVQString@@PBD0H@Z @ 56 NONAME ; class QString CpixDocument::tr(char const *, char const *, int)
-	?addField@CpixDocument@@QAEXVQString@@0H@Z @ 57 NONAME ; void CpixDocument::addField(class QString, class QString, int)
-	??0CpixDocument@@AAE@XZ @ 58 NONAME ; CpixDocument::CpixDocument(void)
-	?newInstance@CpixSearcher@@SAPAV1@VQString@@0@Z @ 59 NONAME ; class CpixSearcher * CpixSearcher::newInstance(class QString, class QString)
-	?setDatabase@CpixSearcher@@QAEXVQString@@@Z @ 60 NONAME ; void CpixSearcher::setDatabase(class QString)
-	?setBaseAppClass@CpixDocument@@QAEXVQString@@@Z @ 61 NONAME ; void CpixDocument::setBaseAppClass(class QString)
-	?trUtf8@CpixDocumentField@@SA?AVQString@@PBD0@Z @ 62 NONAME ; class QString CpixDocumentField::trUtf8(char const *, char const *)
-	?tr@CpixSearcher@@SA?AVQString@@PBD0@Z @ 63 NONAME ; class QString CpixSearcher::tr(char const *, char const *)
-	?getStaticMetaObject@CpixSearcher@@SAABUQMetaObject@@XZ @ 64 NONAME ; struct QMetaObject const & CpixSearcher::getStaticMetaObject(void)
-	?d_func@CpixDocumentField@@AAEPAVCpixDocumentFieldPrivate@@XZ @ 65 NONAME ; class CpixDocumentFieldPrivate * CpixDocumentField::d_func(void)
-	?d_func@CpixSearcher@@ABEPBVCpixSearcherPrivate@@XZ @ 66 NONAME ; class CpixSearcherPrivate const * CpixSearcher::d_func(void) const
-	?trUtf8@CpixSearcher@@SA?AVQString@@PBD0H@Z @ 67 NONAME ; class QString CpixSearcher::trUtf8(char const *, char const *, int)
-	??0CpixSearcher@@AAE@XZ @ 68 NONAME ; CpixSearcher::CpixSearcher(void)
-	?d_func@CpixSearcher@@AAEPAVCpixSearcherPrivate@@XZ @ 69 NONAME ; class CpixSearcherPrivate * CpixSearcher::d_func(void)
-	?setConfig@CpixDocumentField@@QAEXH@Z @ 70 NONAME ; void CpixDocumentField::setConfig(int)
-	?staticMetaObject@CpixDocumentField@@2UQMetaObject@@B @ 71 NONAME ; struct QMetaObject const CpixDocumentField::staticMetaObject
+	?batchdocumentAsync@CpixSearcher@@QAEXHH@Z @ 18 NONAME ; void CpixSearcher::batchdocumentAsync(int, int)
+	?d_func@CpixDocument@@ABEPBVCpixDocumentPrivate@@XZ @ 19 NONAME ; class CpixDocumentPrivate const * CpixDocument::d_func(void) const
+	?trUtf8@CpixDocumentField@@SA?AVQString@@PBD0H@Z @ 20 NONAME ; class QString CpixDocumentField::trUtf8(char const *, char const *, int)
+	?getStaticMetaObject@CpixDocumentField@@SAABUQMetaObject@@XZ @ 21 NONAME ; struct QMetaObject const & CpixDocumentField::getStaticMetaObject(void)
+	?staticMetaObject@CpixDocument@@2UQMetaObject@@B @ 22 NONAME ; struct QMetaObject const CpixDocument::staticMetaObject
+	??_ECpixDocumentField@@UAE@I@Z @ 23 NONAME ; CpixDocumentField::~CpixDocumentField(unsigned int)
+	?config@CpixDocumentField@@QBEHXZ @ 24 NONAME ; int CpixDocumentField::config(void) const
+	?tr@CpixSearcher@@SA?AVQString@@PBD0H@Z @ 25 NONAME ; class QString CpixSearcher::tr(char const *, char const *, int)
+	?d_func@CpixDocument@@AAEPAVCpixDocumentPrivate@@XZ @ 26 NONAME ; class CpixDocumentPrivate * CpixDocument::d_func(void)
+	?trUtf8@CpixDocument@@SA?AVQString@@PBD0H@Z @ 27 NONAME ; class QString CpixDocument::trUtf8(char const *, char const *, int)
+	?setValue@CpixDocumentField@@QAEXVQString@@@Z @ 28 NONAME ; void CpixDocumentField::setValue(class QString)
+	?qt_metacall@CpixSearcher@@UAEHW4Call@QMetaObject@@HPAPAX@Z @ 29 NONAME ; int CpixSearcher::qt_metacall(enum QMetaObject::Call, int, void * *)
+	?qt_metacall@CpixDocument@@UAEHW4Call@QMetaObject@@HPAPAX@Z @ 30 NONAME ; int CpixDocument::qt_metacall(enum QMetaObject::Call, int, void * *)
+	??1CpixDocument@@UAE@XZ @ 31 NONAME ; CpixDocument::~CpixDocument(void)
+	?handleDatabaseSet@CpixSearcher@@IAEXH@Z @ 32 NONAME ; void CpixSearcher::handleDatabaseSet(int)
+	??0CpixDocumentField@@AAE@VQString@@0H@Z @ 33 NONAME ; CpixDocumentField::CpixDocumentField(class QString, class QString, int)
+	?trUtf8@CpixSearcher@@SA?AVQString@@PBD0@Z @ 34 NONAME ; class QString CpixSearcher::trUtf8(char const *, char const *)
+	?newInstance@CpixDocument@@SAPAV1@XZ @ 35 NONAME ; class CpixDocument * CpixDocument::newInstance(void)
+	?setDatabaseAsync@CpixSearcher@@QAEXVQString@@@Z @ 36 NONAME ; void CpixSearcher::setDatabaseAsync(class QString)
+	?value@CpixDocumentField@@QBE?AVQString@@XZ @ 37 NONAME ; class QString CpixDocumentField::value(void) const
+	?batchdocument@CpixSearcher@@QAEPAPAVCpixDocument@@HAAHH@Z @ 38 NONAME ; class CpixDocument * * CpixSearcher::batchdocument(int, int &, int)
+	?name@CpixDocumentField@@QBE?AVQString@@XZ @ 39 NONAME ; class QString CpixDocumentField::name(void) const
+	?search@CpixSearcher@@QAEHVQString@@0@Z @ 40 NONAME ; int CpixSearcher::search(class QString, class QString)
+	?tr@CpixDocumentField@@SA?AVQString@@PBD0@Z @ 41 NONAME ; class QString CpixDocumentField::tr(char const *, char const *)
+	?staticMetaObject@CpixSearcher@@2UQMetaObject@@B @ 42 NONAME ; struct QMetaObject const CpixSearcher::staticMetaObject
+	??1CpixSearcher@@UAE@XZ @ 43 NONAME ; CpixSearcher::~CpixSearcher(void)
+	?excerpt@CpixDocument@@QBE?AVQString@@XZ @ 44 NONAME ; class QString CpixDocument::excerpt(void) const
+	?setName@CpixDocumentField@@QAEXVQString@@@Z @ 45 NONAME ; void CpixDocumentField::setName(class QString)
+	?setDocId@CpixDocument@@QAEXVQString@@@Z @ 46 NONAME ; void CpixDocument::setDocId(class QString)
+	?fieldCount@CpixDocument@@QBEHXZ @ 47 NONAME ; int CpixDocument::fieldCount(void) const
+	?baseAppClass@CpixDocument@@QBE?AVQString@@XZ @ 48 NONAME ; class QString CpixDocument::baseAppClass(void) const
+	?qt_metacast@CpixDocumentField@@UAEPAXPBD@Z @ 49 NONAME ; void * CpixDocumentField::qt_metacast(char const *)
+	?newInstance@CpixSearcher@@SAPAV1@XZ @ 50 NONAME ; class CpixSearcher * CpixSearcher::newInstance(void)
+	?field@CpixDocument@@QBEABVCpixDocumentField@@H@Z @ 51 NONAME ; class CpixDocumentField const & CpixDocument::field(int) const
+	?metaObject@CpixSearcher@@UBEPBUQMetaObject@@XZ @ 52 NONAME ; struct QMetaObject const * CpixSearcher::metaObject(void) const
+	?metaObject@CpixDocumentField@@UBEPBUQMetaObject@@XZ @ 53 NONAME ; struct QMetaObject const * CpixDocumentField::metaObject(void) const
+	?qt_metacast@CpixDocument@@UAEPAXPBD@Z @ 54 NONAME ; void * CpixDocument::qt_metacast(char const *)
+	?document@CpixSearcher@@QAEPAVCpixDocument@@H@Z @ 55 NONAME ; class CpixDocument * CpixSearcher::document(int)
+	?trUtf8@CpixDocument@@SA?AVQString@@PBD0@Z @ 56 NONAME ; class QString CpixDocument::trUtf8(char const *, char const *)
+	?setExcerpt@CpixDocument@@QAEXVQString@@@Z @ 57 NONAME ; void CpixDocument::setExcerpt(class QString)
+	?tr@CpixDocument@@SA?AVQString@@PBD0H@Z @ 58 NONAME ; class QString CpixDocument::tr(char const *, char const *, int)
+	?addField@CpixDocument@@QAEXVQString@@0H@Z @ 59 NONAME ; void CpixDocument::addField(class QString, class QString, int)
+	??0CpixDocument@@AAE@XZ @ 60 NONAME ; CpixDocument::CpixDocument(void)
+	?newInstance@CpixSearcher@@SAPAV1@VQString@@0@Z @ 61 NONAME ; class CpixSearcher * CpixSearcher::newInstance(class QString, class QString)
+	?setDatabase@CpixSearcher@@QAEXVQString@@@Z @ 62 NONAME ; void CpixSearcher::setDatabase(class QString)
+	?setBaseAppClass@CpixDocument@@QAEXVQString@@@Z @ 63 NONAME ; void CpixDocument::setBaseAppClass(class QString)
+	?trUtf8@CpixDocumentField@@SA?AVQString@@PBD0@Z @ 64 NONAME ; class QString CpixDocumentField::trUtf8(char const *, char const *)
+	?tr@CpixSearcher@@SA?AVQString@@PBD0@Z @ 65 NONAME ; class QString CpixSearcher::tr(char const *, char const *)
+	?getStaticMetaObject@CpixSearcher@@SAABUQMetaObject@@XZ @ 66 NONAME ; struct QMetaObject const & CpixSearcher::getStaticMetaObject(void)
+	?d_func@CpixDocumentField@@AAEPAVCpixDocumentFieldPrivate@@XZ @ 67 NONAME ; class CpixDocumentFieldPrivate * CpixDocumentField::d_func(void)
+	?d_func@CpixSearcher@@ABEPBVCpixSearcherPrivate@@XZ @ 68 NONAME ; class CpixSearcherPrivate const * CpixSearcher::d_func(void) const
+	?trUtf8@CpixSearcher@@SA?AVQString@@PBD0H@Z @ 69 NONAME ; class QString CpixSearcher::trUtf8(char const *, char const *, int)
+	??0CpixSearcher@@AAE@XZ @ 70 NONAME ; CpixSearcher::CpixSearcher(void)
+	?handleBatchDocuments@CpixSearcher@@IAEXHHPAPAVCpixDocument@@@Z @ 71 NONAME ; void CpixSearcher::handleBatchDocuments(int, int, class CpixDocument * *)
+	?d_func@CpixSearcher@@AAEPAVCpixSearcherPrivate@@XZ @ 72 NONAME ; class CpixSearcherPrivate * CpixSearcher::d_func(void)
+	?setConfig@CpixDocumentField@@QAEXH@Z @ 73 NONAME ; void CpixDocumentField::setConfig(int)
+	?staticMetaObject@CpixDocumentField@@2UQMetaObject@@B @ 74 NONAME ; struct QMetaObject const CpixDocumentField::staticMetaObject
 

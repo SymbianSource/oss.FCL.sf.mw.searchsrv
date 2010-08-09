@@ -68,6 +68,20 @@ public:
 	 * @return Document. Ownership is transferred to the caller of this function.
 	 */
 	virtual CSearchDocument* GetDocumentCompleteL() = 0;
+	
+	/**
+	 * Gets list of documents from the current search results.
+	 * @param aObserver Observing object for this asyncronous call
+	 * @param aMessage The requesting message 
+	 * @parma aIndex index of the requested document 
+	 */
+	virtual void GetBatchDocumentL(TInt aIndex, MCPixAsyncronizerObserver* aObserver, const RMessage2& aMessage,  TInt count) = 0;
+	
+	/**
+	 * Complete the previous GetBatchDocumentL
+	 * @return array of Documents. Ownership is transferred to the caller of this function.
+	 */
+	virtual RPointerArray<CSearchDocument> GetBatchDocumentCompleteL() = 0;
 
 	/**
 	 * Creates new database (and destroys existing) if path is given. Otherwise, opens existing database.
@@ -95,7 +109,11 @@ public:
 	
 public: 
 	
-	static CSearchDocument* ConvertDocumentL( cpix_Document* aDocument ); 
+	static CSearchDocument* ConvertDocumentL( cpix_Document* aDocument );
+	
+	static RPointerArray<CSearchDocument> ConvertBatchDocumentL( cpix_Document** aDocument, TInt count ); 
+	
+	static RArray<TInt> docSizeArray;
 
 	};
 

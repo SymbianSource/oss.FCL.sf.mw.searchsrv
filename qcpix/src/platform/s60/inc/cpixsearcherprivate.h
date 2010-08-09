@@ -44,6 +44,7 @@ public:
 public :
     void HandleSearchResultsL(TInt aError, TInt aEstimatedResultCount); //from MCPixSearchRequestObserver
     void HandleDocumentL(TInt aError, CSearchDocument* aDocument); // from MCPixNextDocumentRequestObserver
+	void HandleBatchDocumentL(TInt aError,TInt aRetCount, CSearchDocument** aDocument); // from MCPixNextDocumentRequestObserver
     void HandleOpenDatabaseResultL( TInt aError ); //MCPixOpenDatabaseRequestObserver
     void HandleSetAnalyzerResultL( TInt aError ); //MCPixSetAnalyzerRequestObserver
 

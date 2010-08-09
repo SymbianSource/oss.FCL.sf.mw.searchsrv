@@ -54,6 +54,7 @@ public: // From MCPixSearchRequestObserver
 public: // From MCPixNextDocumentRequestObserver
     
     virtual void HandleDocumentL(TInt /*aError*/, CSearchDocument* /*aDocument*/);
+    virtual void HandleBatchDocumentL(TInt aError, TInt aReturnCount, CSearchDocument** aDocument) ;
 
 public: // Statistics 
 	

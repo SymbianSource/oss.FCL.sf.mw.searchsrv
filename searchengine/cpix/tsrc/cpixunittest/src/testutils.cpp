@@ -151,15 +151,17 @@ void CustomPrintHits(cpix_Hits    * hits,
     cout << "Number of hits: " << hitCount << endl;
 
     cpix_Document
-        doc;
+        **doc;
+    ALLOC_DOC(doc, 1);
 
     for (int32_t i = 0; i < hitCount; ++i)
         {
             cpix_Hits_doc(hits,
                           i,
-                          &doc);
+                          doc,
+                          1);
 
-            if (cpix_Failed(hits))
+            if (cpix_Failed(hits) || (doc_Fetch_Failed(doc[0])))
                 {
                     ITK_EXPECT(testMgr,
                                false,
@@ -169,9 +171,11 @@ void CustomPrintHits(cpix_Hits    * hits,
                     break;
                 }
             // OBS PrintHit(&doc,
-            printHitFunc(&doc,
+            printHitFunc(doc[0],
                          testMgr);
         }
+        
+    FREE_DOC(doc, 1);
 }
 
 
@@ -329,15 +333,17 @@ void IdxUtil::printHits(cpix_Hits    * hits,
     cout << "Number of hits: " << hitCount << endl;
 
     cpix_Document
-        doc;
+        **doc;
+    ALLOC_DOC(doc, 1);
 
     for (int32_t i = 0; i < hitCount; ++i)
         {
             cpix_Hits_doc(hits,
                           i,
-                          &doc);
+                          doc,
+                          1);
 
-            if (cpix_Failed(hits))
+            if (cpix_Failed(hits) || (doc_Fetch_Failed(doc[0])))
                 {
                     if (allowFailure)
                         {
@@ -355,9 +361,10 @@ void IdxUtil::printHits(cpix_Hits    * hits,
                     cpix_ClearError(hits);
                     break;
                 }
-            printHit(&doc,
+            printHit(doc[0],
                         testMgr);
         }
+    FREE_DOC(doc, 1);
 }
 
 

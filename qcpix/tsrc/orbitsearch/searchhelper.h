@@ -27,16 +27,19 @@ class SearchHelper: public QObject
     {
 Q_OBJECT
 public:
-    SearchHelper(HbLineEdit*, HbPushButton*, HbTextEdit* );
+    SearchHelper(HbLineEdit*, HbPushButton*, HbTextEdit*, HbLineEdit*, HbLineEdit*, HbPushButton* );
     ~SearchHelper();
 
 public slots:
     void doSearch();
+    void showdocs();
     
 private:
     ORBIT_SEARCH_CONTROLS //Not owned.
     CpixSearcher* searcher;//Owned
     QTime searchTime;
+    QString resultString;
+    int iHits;
     };
 
 #endif /* HELPER_H_ */

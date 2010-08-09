@@ -279,6 +279,37 @@ EXPORT_C void CCPixSearcher::GetDocumentL(TInt aIndex, MCPixNextDocumentRequestO
 	SetActive();     
     }
 
+EXPORT_C CSearchDocument** CCPixSearcher::GetBatchDocumentL(TInt aIndex, TInt& aReturnDoc, TInt aCount)
+    {
+    PERFORMANCE_LOG_START("CCPixSearcher::GetBatchDocumentL");
+    
+	if ( !iIsDatabaseOpen ) 	User::Leave( KErrNotReady );
+	if ( IsActive() )
+		{
+		User::Leave(KErrInUse);
+		}
+
+	return iSubSession.GetBatchDocumentL(aIndex,aReturnDoc, aCount);
+    }
+
+EXPORT_C void CCPixSearcher::GetBatchDocumentL(TInt aIndex, MCPixNextDocumentRequestObserver& aObserver, TInt aCount)
+    {
+    PERFORMANCE_LOG_START("CCPixSearcher::GetBatchDocumentL");
+    
+    if ( !iIsDatabaseOpen ) 	User::Leave( KErrNotReady );
+	if ( IsActive() )
+		{
+		User::Leave(KErrInUse); // Need ::RunError to handle this
+		}
+	
+	iObserver.iNextDocument = &aObserver;
+	
+	iState = EStateGetBatchDocument;
+	iSubSession.GetBatchDocument(aIndex, iStatus, aCount);
+	SetActive();     
+    }
+	
+	
 // CCPixSearcher::RunL()
 // Invoked to handle responses from the server.
 void CCPixSearcher::RunL()
@@ -341,6 +372,27 @@ void CCPixSearcher::RunL()
 		        }
 		    }
 		    break;
+			
+		case EStateGetBatchDocument:
+		    {
+			// Fetch search results and call back at the observer
+		    CSearchDocument** document = 0;
+		    TInt retCount = 0;
+		    TRAPD( err, document = iSubSession.GetBatchDocumentObjectL( retCount ) );
+		    if ( observer.iNextDocument )
+		        {
+		        if ( err == KErrNone )
+		            {
+		            observer.iNextDocument->HandleBatchDocumentL(iStatus.Int(),retCount, document);
+		            }
+		        else
+		            {
+		            observer.iNextDocument->HandleBatchDocumentL(err, retCount, document);
+		            }
+		        }
+		    }
+			break;
+		
 
 		case EStateNone:
 		    // Do nothing, dont panic.

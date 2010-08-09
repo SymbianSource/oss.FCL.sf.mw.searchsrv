@@ -94,6 +94,7 @@ public: // From MCPixNextDocumentRequestObserver
     
     // Dummy implementation
     void HandleDocumentL(TInt /*aError*/, CSearchDocument* /*aDocument*/) {}
+    void HandleBatchDocumentL(TInt aError, TInt aReturnCount, CSearchDocument** aDocument) {}
 
 public: // New functions
     

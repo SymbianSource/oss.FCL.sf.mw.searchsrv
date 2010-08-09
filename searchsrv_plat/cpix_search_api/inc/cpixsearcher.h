@@ -201,12 +201,35 @@ public:
     /**
      * Asynchronously get the document with index aIndex.
      * @param aIndex Index of document to be retrieved
-     * @return A pointer to CpixDocument that has been retrieved. Null on error.
      *
      * @note This should be called only after the synchronous search call has returned
      *      and aIndex should be between 0 and estimated count returned by Search().
      */     
     void documentAsync(int aIndex) THROWS_EXCEPTION;
+	
+	/**
+     * Synchronously get the count,aCount of batch documens with index aIndex.
+     * @param aIndex starting Index of document to be retrieved
+	 * @param aCount number of documents requested
+	 * @param aReturnDoc number of documents returned
+     * @return A double pointer to CpixDocument that has been retrieved. Null on error.
+     *
+     * @note This should be called only after the synchronous search call has returned
+     *      and aIndex should be between 0 and estimated count returned by Search().
+	 *      It is the client duty to free the memory allocated for the returned CpixDocument**
+	 *      deallocation of the memory can be done based on the value returned in aReturnDoc
+     */     
+    CpixDocument** batchdocument(int aIndex,int& aReturnDoc, int aCount = 1) THROWS_EXCEPTION;
+
+    /**
+     * Asynchronously get the batch documents with index aIndex.
+     * @param aIndex Starting Index of documents to be retrieved
+	 * @param aCount number of documents requested
+     *
+     * @note This should be called only after the synchronous search call has returned
+     *      and aIndex should be between 0 and estimated count returned by Search().
+     */     
+    void batchdocumentAsync(int aIndex, int aCount = 1) THROWS_EXCEPTION;
     
     /**
      * Cancels any outstanding searches.
@@ -228,11 +251,18 @@ signals:
     void handleSearchResults(int aError, int aEstimatedResultCount);
 
     /**
-     * Notify completion of GetDatabaseAsyc
+     * Notify completion of documentAsyc
      * @param aError Completion (error) code of GetDatabaseAsyc
      * @param aDocument The requested document.
      */     
     void handleDocument(int aError, CpixDocument* aDocument);
+	
+	/**
+     * Notify completion of BatchdocumentAsyc
+     * @param aError Completion (error) code of GetDatabaseAsyc
+     * @param aDocument The requested document.
+     */     
+    void handleBatchDocuments(int aError,int aRetCount, CpixDocument** aDocument);
 
 private:
     /**

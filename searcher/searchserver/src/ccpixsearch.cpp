@@ -61,7 +61,7 @@ CCPixSearch::~CCPixSearch()
 
 	delete iBaseAppClass;
 	delete iDefaultSearchFieldZ;
-	
+	delete ibatchDocuments;
 	cpix_Query_destroy(iQuery);
 	cpix_QueryParser_destroy(iQueryParser);
 	cpix_Analyzer_destroy(iAnalyzer);
@@ -208,7 +208,10 @@ void CCPixSearch::GetDocumentL(TInt aIndex, MCPixAsyncronizerObserver* aObserver
 		}
 	
     iPendingTask = EPendingTaskDocument;
-    iPendingJobId = cpix_Hits_asyncDoc(iHits, aIndex, &iCurrentCpixDocument, (void*)this, &CompletionCallback);
+    
+    iCurrentCpixDocument = new cpix_Document;
+    iCurrentCpixDocument->ptr_ = NULL;
+    iPendingJobId = cpix_Hits_asyncDoc(iHits, aIndex, &iCurrentCpixDocument, (void*)this, &CompletionCallback,1);
     if ( cpix_Failed(iHits) )
         {
         SearchServerHelper::LogErrorL(*(iHits->err_));
@@ -217,6 +220,37 @@ void CCPixSearch::GetDocumentL(TInt aIndex, MCPixAsyncronizerObserver* aObserver
         }
     iAsyncronizer->Start(ECPixTaskTypeGetDocument, aObserver, aMessage);
 	OstTraceFunctionExit0( CCPIXSEARCH_GETDOCUMENTL_EXIT );
+	}
+	
+void CCPixSearch::GetBatchDocumentL(TInt aIndex, MCPixAsyncronizerObserver* aObserver, const RMessage2& aMessage, TInt aCount)
+	{	
+	PERFORMANCE_LOG_START("CCPixSearch::GetBatchDocumentL");
+	
+	if (iPendingTask != EPendingTaskNone)
+	     User::Leave(KErrInUse);
+	
+	if (aIndex<0 || aIndex >= iDocumentCount )
+        {
+        User::Leave(KErrDocumentAccessFailed);
+        }
+	
+	ibatchDocCount = aCount;	
+	ibatchDocuments = STATIC_CAST(cpix_Document**, User::AllocZL(aCount * sizeof(cpix_Document*)));
+	for (int i =0; i< aCount; i++)
+	    {
+            ibatchDocuments[i] = new cpix_Document;
+            ibatchDocuments[i]->ptr_ = NULL;
+	    }
+	
+    iPendingTask = EPendingTaskDocument;
+    iPendingJobId = cpix_Hits_asyncDoc(iHits, aIndex, ibatchDocuments, (void*)this, &CompletionCallback, aCount);
+    if ( cpix_Failed(iHits) )
+        {
+        SearchServerHelper::LogErrorL(*(iHits->err_));
+        cpix_ClearError(iHits);
+        User::Leave(KErrDocumentAccessFailed);
+        }
+    iAsyncronizer->Start(ECPixTaskTypeGetBatchDocument, aObserver, aMessage);
 	}
 
 CSearchDocument* CCPixSearch::GetDocumentCompleteL()
@@ -230,7 +264,7 @@ CSearchDocument* CCPixSearch::GetDocumentCompleteL()
 	cpix_Hits_asyncDocResults(iHits, iPendingJobId);
 	SearchServerHelper::CheckCpixErrorL(iHits, KErrDocumentAccessFailed);
 	
-	return ConvertDocumentL( &iCurrentCpixDocument );
+	return ConvertDocumentL( iCurrentCpixDocument );
 #if 0 // TODO XXX TIM
 	const wchar_t* documentId = cpix_Document_getFieldValue(&iCurrentCpixDocument, LCPIX_DOCUID_FIELD);
 	SearchServerHelper::CheckCpixErrorL(&iCurrentCpixDocument, KErrDatabaseQueryFailed);
@@ -294,6 +328,19 @@ CSearchDocument* CCPixSearch::GetDocumentCompleteL()
 	OstTraceFunctionExit0( CCPIXSEARCH_GETDOCUMENTCOMPLETEL_EXIT );
 	return document;
 #endif // 0
+	}
+	
+RPointerArray<CSearchDocument> CCPixSearch::GetBatchDocumentCompleteL()
+	{
+	PERFORMANCE_LOG_START("CCPixSearch::GetBatchDocumentCompleteL");
+	
+    // Request is no more pending
+    iPendingTask = EPendingTaskNone;
+	
+	cpix_Hits_asyncDocResults(iHits, iPendingJobId);
+	SearchServerHelper::CheckCpixErrorL(iHits, KErrDocumentAccessFailed);
+	
+	return ConvertBatchDocumentL( ibatchDocuments, ibatchDocCount );
 	}
 
 void CCPixSearch::SetAnalyzerL(const TDesC& aAnalyzer)
@@ -388,4 +435,4 @@ TBool CCPixSearch::IsOpen()
 	{
 	return (iIdxDb != NULL);
 	}
-
+// End of File

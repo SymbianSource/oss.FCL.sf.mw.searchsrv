@@ -22,6 +22,7 @@ enum TCPixTaskType
 	{
 	ECPixTaskTypeSearch = 0,
 	ECPixTaskTypeGetDocument,
+	ECPixTaskTypeGetBatchDocument,
 	ECPixTaskTypeAdd,
 	ECPixTaskTypeUpdate,	
 	ECPixTaskTypeDelete,

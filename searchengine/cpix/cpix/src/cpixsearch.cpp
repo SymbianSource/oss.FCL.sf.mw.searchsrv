@@ -235,25 +235,36 @@ int32_t cpix_Hits_length(cpix_Hits * thisHits)
 
 void cpix_Hits_doc(cpix_Hits     * thisHits,
                    int32_t         index,
-                   cpix_Document * target)
+                   cpix_Document ** target,
+                   int32_t         count ) 
 {
-    Cpix::Document
-        * pDoc = XlateExc(thisHits,
-                          Caller(thisHits,
-                                     &Cpix::IHits::getDocument,
-                                     index));
-    if (cpix_Succeeded(thisHits))
-    {
-    	target->ptr_ = pDoc;
-        target->err_ = NULL;
 
-        // TEMP (?) post-condition code
-        if (target->ptr_ == NULL)
-            {
-                thisHits->err_
-                    = CreateError(ET_CPIX_EXC,
-                                  L"PANIC PANIC PANIC - NULL doc returned without any error message!");
-            }
+    int result = XlateExc(thisHits,
+                          Caller(thisHits,
+                                     &Cpix::IHits::resetDocumentCache,
+                                     index,
+                                     count));
+    
+    for (int32_t i = 0; i < count && i < result ; i++) {
+        Cpix::Document
+            * pDoc = XlateExc(thisHits,
+                              Caller(thisHits,
+                                         &Cpix::IHits::getDocument,
+                                         index++));
+        if (cpix_Succeeded(thisHits))
+        {
+            target[i]->ptr_ = pDoc;
+            target[i]->err_ = NULL;
+    
+            // TEMP (?) post-condition code
+            if (target[i]->ptr_ == NULL)
+                {
+                    thisHits->err_
+                        = CreateError(ET_CPIX_EXC,
+                                      L"PANIC PANIC PANIC - NULL doc returned without any error message!");
+                }
+            //target ++;
+        }
     }
 }
 

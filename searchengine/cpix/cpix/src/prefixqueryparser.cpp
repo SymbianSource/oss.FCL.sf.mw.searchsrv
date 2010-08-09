@@ -65,8 +65,8 @@ namespace Cpix {
 						if ( q_.get() ) {
 							auto_ptr<BooleanQuery> bq( new BooleanQuery() );
 							bq_ = bq.get();
-							bq_->add( q_.release(), true, true, false ); 
-							bq_->add( q.release(), true, true, false ); 
+							bq_->add( q_.release(), true, false, false ); 
+							bq_->add( q.release(), true, false, false ); 
 							q_.reset( bq.release() ); 
 						} else {
 							q_ = q;  

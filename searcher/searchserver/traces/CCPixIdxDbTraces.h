@@ -1,4 +1,4 @@
-// Created by TraceCompiler 2.1.2
+// Created by TraceCompiler 2.2.3
 // DO NOT EDIT, CHANGES WILL BE LOST
 
 #ifndef __CCPIXIDXDBTRACES_H__
@@ -15,6 +15,9 @@
 
 
 #ifndef __KERNEL_MODE__
+#ifndef __OSTTRACEGEN1_TUINT32_CONST_TDESC16REF__
+#define __OSTTRACEGEN1_TUINT32_CONST_TDESC16REF__
+
 inline TBool OstTraceGen1( TUint32 aTraceID, const TDesC16& aParam1 )
     {
     TBool retval;
@@ -49,10 +52,16 @@ inline TBool OstTraceGen1( TUint32 aTraceID, const TDesC16& aParam1 )
         }
     return retval;
     }
+
+#endif // __OSTTRACEGEN1_TUINT32_CONST_TDESC16REF__
+
 #endif
 
 
 #ifndef __KERNEL_MODE__
+#ifndef __OSTTRACEGEN2_TUINT32_CONST_TDESC16REF_CONST_TDESC16REF__
+#define __OSTTRACEGEN2_TUINT32_CONST_TDESC16REF_CONST_TDESC16REF__
+
 inline TBool OstTraceGen2( TUint32 aTraceID, const TDesC16& aParam1, const TDesC16& aParam2 )
     {
     TBool retval = BTraceFiltered8( EXTRACT_GROUP_ID(aTraceID), EOstTraceActivationQuery, KOstTraceComponentID, aTraceID );
@@ -133,6 +142,9 @@ inline TBool OstTraceGen2( TUint32 aTraceID, const TDesC16& aParam1, const TDesC
         }
     return retval;
     }
+
+#endif // __OSTTRACEGEN2_TUINT32_CONST_TDESC16REF_CONST_TDESC16REF__
+
 #endif
 
 

@@ -60,6 +60,7 @@ public: // From MCPixOpenDatabaseRequestObserver
 
 public: // From MCPixNextDocumentRequestObserver
     void HandleDocumentL(TInt aError, CSearchDocument* aDocument);
+    void HandleBatchDocumentL(TInt aError, TInt aReturnCount, CSearchDocument** aDocument);
     
 public: // From MAOTestObserver
     void CallCompleted( int i );
@@ -116,6 +117,11 @@ public:
     void testGetInvalidDocumentAsync();
     
     TInt testEcerptLenth();
+    
+    void testgetbatchdoc();
+    
+    void testasyncgetbatchdoc();
+    
 private:
     CCPixSearcher* iSearcher;
     RSearchServerSession iSession;
@@ -128,6 +134,7 @@ private:
     CSearchDocument* iDocument;
     TBool iHandleDocumentLFunctionCalled; // ETrue if HandleDocumentL called
     TBool iHandleSetAnalyzerCalled; // ETrue if HandleSetAnalyzerResultL called
+    TInt iretcount;
     };
 
 #endif /* CPIXSEARCHERTESTER_H_ */

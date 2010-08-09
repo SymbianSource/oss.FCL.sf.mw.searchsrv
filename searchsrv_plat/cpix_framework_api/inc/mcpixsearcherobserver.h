@@ -72,6 +72,16 @@ class MCPixNextDocumentRequestObserver
 		* @aDocument The received document. Ownership of is transfered to the observer. NULL if no more documents.
 		*/
 		virtual void HandleDocumentL(TInt aError, CSearchDocument* aDocument) = 0;
+		
+			/**
+		* HandleBatchDocumentL.
+		* Handle list of documents received from the server. 
+		* @param aError Completion code of a asynchronous request. KErrNone if operation
+		* was succesful, otherwise system wide error code.
+		* @param aReturnCount count of the documents returned.
+		* @aDocument The received document. Ownership of is transfered to the observer. NULL if no more documents.
+		*/
+		virtual void HandleBatchDocumentL(TInt aError, TInt aReturnCount, CSearchDocument** aDocument) = 0;
 	};
 
 

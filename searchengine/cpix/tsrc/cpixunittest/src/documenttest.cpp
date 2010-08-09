@@ -375,53 +375,68 @@ public:
         //  EXPECTED result is that doc2 first, doc1 second.
 
         cpix_Document
-            returnedDoc1;
+            **returnedDoc1;
 
-        cpix_Hits_doc(hits_, 0, &returnedDoc1);
+        ALLOC_DOC(returnedDoc1, 1);
+        cpix_Hits_doc(hits_, 0, returnedDoc1, 1);
+        if (returnedDoc1[0]->ptr_ != NULL) {
 
-        const wchar_t* id = cpix_Document_getFieldValue(&returnedDoc1, 
-                                                        LCPIX_DOCUID_FIELD);
+        const wchar_t* id = cpix_Document_getFieldValue(returnedDoc1[0], 
+                LCPIX_DOCUID_FIELD);
         if (id)
-        {
-            std::wstring str(id);
-            ITK_ASSERT(testMgr,
+            {
+        std::wstring str(id);
+        ITK_ASSERT(testMgr,
                 str.compare(LDOCUID2) == 0,
                 "wrong document");
-            if(str.compare(LDOCUID2) != 0)
-                {
-                assert_failed = 1;
-                }
-        }
+        if(str.compare(LDOCUID2) != 0)
+            {
+        assert_failed = 1;
+            }
+            }
         else
-        {
+            {
+        assert_failed = 1;
+        ITK_PANIC("failed to get _docuid");
+            }
+        } else  {
+            ITK_PANIC("could not fetch requested doc");
             assert_failed = 1;
-            ITK_PANIC("failed to get _docuid");
         }
-
+        FREE_DOC(returnedDoc1, 1);
+        
         cpix_Document
-            returnedDoc2;
+            **returnedDoc2;
+        ALLOC_DOC(returnedDoc2, 1)
+                
+        cpix_Hits_doc(hits_, 1, returnedDoc2, 1);
+        if (returnedDoc2[0]->ptr_ != NULL) {
+        const wchar_t* id = NULL;
 
-        cpix_Hits_doc(hits_, 1, &returnedDoc2);
-        id = NULL;
-
-        id = cpix_Document_getFieldValue(&returnedDoc2, LCPIX_DOCUID_FIELD);
+        id = cpix_Document_getFieldValue(returnedDoc2[0], LCPIX_DOCUID_FIELD);
         if (id)
-        {
-            std::wstring str(id);
-            ITK_ASSERT(testMgr,
+            {
+        std::wstring str(id);
+        ITK_ASSERT(testMgr,
                 str.compare(LDOCUID1) == 0,
                 "wrong document");
-            if(str.compare(LDOCUID1) != 0)
-                {
-                assert_failed = 1;
-                }
-        }
-        else
-        {
+        if(str.compare(LDOCUID1) != 0)
+            {
         assert_failed = 1;
-            ITK_PANIC("failed to get _docuid");
+            }
+            }
+        else
+            {
+        assert_failed = 1;
+        ITK_PANIC("failed to get _docuid");
+            }
+        }  else  {
+            ITK_PANIC("could not fetch requested doc");
+            assert_failed = 1;
         }
+        FREE_DOC(returnedDoc2, 1);
         testResultXml(xml_file);
+        
     }
 
 
@@ -455,52 +470,66 @@ public:
         //  EXPECTED result is that doc1 first, doc2 second.
 
         cpix_Document
-            returnedDoc1;
+            **returnedDoc1;
+        ALLOC_DOC(returnedDoc1, 1)
         
-        cpix_Hits_doc(hits_, 0, &returnedDoc1);
+        cpix_Hits_doc(hits_, 0, returnedDoc1, 1);
+        if (returnedDoc1[0]->ptr_ != NULL) {
 
-        const wchar_t* id = cpix_Document_getFieldValue(&returnedDoc1, 
-                                                        LCPIX_DOCUID_FIELD);
+        const wchar_t* id = cpix_Document_getFieldValue(returnedDoc1[0], 
+                LCPIX_DOCUID_FIELD);
         if ( id )
-        {
-            std::wstring str( id );
-            ITK_ASSERT(testMgr,
+            {
+        std::wstring str( id );
+        ITK_ASSERT(testMgr,
                 str.compare(LDOCUID1) == 0,
                 "wrong document");
-            if(str.compare(LDOCUID1) != 0)
-                {
-                assert_failed = 1;
-                }
-        }
+        if(str.compare(LDOCUID1) != 0)
+            {
+        assert_failed = 1;
+            }
+            }
         else
-        {
-            ITK_PANIC("failed to get _docuid");
+            {
+        ITK_PANIC("failed to get _docuid");
+        assert_failed = 1;
+            }
+        }  else  {
+            ITK_PANIC("could not fetch requested doc");
             assert_failed = 1;
         }
+        FREE_DOC(returnedDoc1, 1);
 
         cpix_Document
-            returnedDoc2;
+            **returnedDoc2;
+        ALLOC_DOC(returnedDoc2, 1);
 
-        cpix_Hits_doc(hits_, 1, &returnedDoc2);
-        id = NULL;
+        cpix_Hits_doc(hits_, 1, returnedDoc2, 1);
+        if (returnedDoc2[0]->ptr_ != NULL) {
+        const wchar_t* id = NULL;
 
-        id = cpix_Document_getFieldValue(&returnedDoc2, LCPIX_DOCUID_FIELD );
+        id = cpix_Document_getFieldValue(returnedDoc2[0], LCPIX_DOCUID_FIELD );
         if ( id )
-        {
-            std::wstring str( id );
-            ITK_ASSERT(testMgr,
+            {
+        std::wstring str( id );
+        ITK_ASSERT(testMgr,
                 str.compare(LDOCUID2) == 0,
                 "wrong document");
-            if(str.compare(LDOCUID2) != 0)
-                {
-                assert_failed = 1;
-                }
-        }
+        if(str.compare(LDOCUID2) != 0)
+            {
+        assert_failed = 1;
+            }
+            }
         else
-        {
-            ITK_PANIC("failed to get _docuid");
+            {
+        ITK_PANIC("failed to get _docuid");
+        assert_failed = 1;
+            }
+        }  else  {
+            ITK_PANIC("could not fetch requested doc");
             assert_failed = 1;
         }
+        FREE_DOC(returnedDoc2, 1);
         testResultXml(xml_file);
     }
 
@@ -532,52 +561,66 @@ public:
         //  EXPECTED result is that doc1 first, doc2 second.
 
         cpix_Document
-            returnedDoc1;
+            **returnedDoc1;
+        ALLOC_DOC(returnedDoc1, 1);
         
-        cpix_Hits_doc(hits_, 0, &returnedDoc1);
+        cpix_Hits_doc(hits_, 0, returnedDoc1, 1);
+        if (returnedDoc1[0]->ptr_ != NULL) {
 
-        const wchar_t* id = cpix_Document_getFieldValue(&returnedDoc1, 
-                                                        LCPIX_DOCUID_FIELD);
+        const wchar_t* id = cpix_Document_getFieldValue(returnedDoc1[0], 
+                LCPIX_DOCUID_FIELD);
         if (id)
-        {
-            std::wstring str(id);
-            ITK_ASSERT(testMgr,
+            {
+        std::wstring str(id);
+        ITK_ASSERT(testMgr,
                 str.compare(LDOCUID1) == 0,
                 "wrong document");
-            if(str.compare(LDOCUID1) != 0)
-                {
-                assert_failed = 1;
-                }
-        }
+        if(str.compare(LDOCUID1) != 0)
+            {
+        assert_failed = 1;
+            }
+            }
         else
-        {
-            ITK_PANIC("failed to get _docuid");
+            {
+        ITK_PANIC("failed to get _docuid");
+        assert_failed = 1;
+            }
+        }  else  {
+            ITK_PANIC("could not fetch requested doc");
             assert_failed = 1;
         }
+        FREE_DOC(returnedDoc1, 1);
 
         cpix_Document
-            returnedDoc2;
+            **returnedDoc2;
+        ALLOC_DOC(returnedDoc2, 1);
 
-        cpix_Hits_doc(hits_, 1, &returnedDoc2);
-        id = NULL;
+        cpix_Hits_doc(hits_, 1, returnedDoc2, 1);
+        if (returnedDoc2[0]->ptr_ != NULL) {
+        const wchar_t* id = NULL;
 
-        id = cpix_Document_getFieldValue(&returnedDoc2, LCPIX_DOCUID_FIELD);
+        id = cpix_Document_getFieldValue(returnedDoc2[0], LCPIX_DOCUID_FIELD);
         if (id)
-        {
-            std::wstring str(id);
-            ITK_ASSERT(testMgr,
+            {
+        std::wstring str(id);
+        ITK_ASSERT(testMgr,
                 str.compare(LDOCUID2) == 0,
                 "wrong document");
-            if(str.compare(LDOCUID2) != 0)
-                {
-                assert_failed = 1;
-                }
-        }
+        if(str.compare(LDOCUID2) != 0)
+            {
+        assert_failed = 1;
+            }
+            }
         else
-        {
-            ITK_PANIC("failed to get _docuid");
+            {
+        ITK_PANIC("failed to get _docuid");
+        assert_failed = 1;
+            }
+        }  else  {
+            ITK_PANIC("could not fetch requested doc");
             assert_failed = 1;
         }
+        FREE_DOC(returnedDoc2, 1);
         testResultXml(xml_file);
     }
 
@@ -625,52 +668,66 @@ public:
 
         //  EXPECTED result is that doc2 first.
         cpix_Document
-            returnedDoc1;
+            **returnedDoc1;
+        ALLOC_DOC(returnedDoc1, 1);
         
-        cpix_Hits_doc(hits_, 0, &returnedDoc1);
+        cpix_Hits_doc(hits_, 0, returnedDoc1, 1);
+        if (returnedDoc1[0]->ptr_ != NULL) {
 
-        const wchar_t* id = cpix_Document_getFieldValue(&returnedDoc1, 
-                                                        LCPIX_DOCUID_FIELD);
+        const wchar_t* id = cpix_Document_getFieldValue(returnedDoc1[0], 
+                LCPIX_DOCUID_FIELD);
         if (id)
-        {
-            std::wstring str(id);
-            ITK_ASSERT(testMgr,
+            {
+        std::wstring str(id);
+        ITK_ASSERT(testMgr,
                 str.compare(LDOCUID1) == 0,
                 "wrong document");
-            if(str.compare(LDOCUID2) != 0)
-                {
-                assert_failed = 1;
-                }
-        }
+        if(str.compare(LDOCUID2) != 0)
+            {
+        assert_failed = 1;
+            }
+            }
         else
-        {
-            ITK_PANIC("failed to get _docuid");
+            {
+        ITK_PANIC("failed to get _docuid");
+        assert_failed = 1;
+            }
+        }  else  {
+            ITK_PANIC("could not fetch requested doc");
             assert_failed = 1;
         }
+        FREE_DOC(returnedDoc1, 1);
 
         cpix_Document
-            returnedDoc2;
+            **returnedDoc2;
+        ALLOC_DOC(returnedDoc2, 1);
 
-        cpix_Hits_doc(hits_, 1, &returnedDoc2);
-        id = NULL;
+        cpix_Hits_doc(hits_, 1, returnedDoc2, 1);
+        if (returnedDoc2[0]->ptr_ != NULL) {
+        const wchar_t* id = NULL;
 
-        id = cpix_Document_getFieldValue(&returnedDoc2, LCPIX_DOCUID_FIELD);
+        id = cpix_Document_getFieldValue(returnedDoc2[0], LCPIX_DOCUID_FIELD);
         if (id)
-        {
-            std::wstring str(id);
-            ITK_ASSERT(testMgr,
+            {
+        std::wstring str(id);
+        ITK_ASSERT(testMgr,
                 str.compare(LDOCUID2) == 0,
                 "wrong document");
-            if(str.compare(LDOCUID2) != 0)
-                {
-                assert_failed = 1;
-                }
-        }
+        if(str.compare(LDOCUID2) != 0)
+            {
+        assert_failed = 1;
+            }
+            }
         else
-        {
-            ITK_PANIC("failed to get _docuid");
+            {
+        ITK_PANIC("failed to get _docuid");
+        assert_failed = 1;
+            }
+        }  else  {
+            ITK_PANIC("could not fetch requested doc");
             assert_failed = 1;
         }
+        FREE_DOC(returnedDoc2, 1);
         testResultXml(xml_file);
     }
 };

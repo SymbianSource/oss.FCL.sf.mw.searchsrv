@@ -43,3 +43,29 @@ CpixDocument* CpixDocFromCSearchDocument( CSearchDocument* aDoc )
     delete aDoc;
     return cpixDoc;
     }
+	
+CpixDocument** CpixBatchDocFromCSearchDocument( TInt aReturnDoc, CSearchDocument** aDoc )
+    {
+    if( aDoc == NULL ) return NULL;
+    CpixDocument** cpixBatchDocs = NULL;
+    cpixBatchDocs = (CpixDocument**)malloc ( sizeof(CpixDocument*) * (aReturnDoc));
+    for (int count = 0; count < aReturnDoc; count++)
+        {        
+        CpixDocument* cpixDoc = CpixDocument::newInstance();
+        cpixDoc->setBaseAppClass( QStringFromDescriptor( aDoc[count]->AppClass() ) );
+        cpixDoc->setDocId( QStringFromDescriptor( aDoc[count]->Id() ) );
+        cpixDoc->setExcerpt( QStringFromDescriptor( aDoc[count]->Excerpt() ) );
+    
+        int fieldCount = aDoc[count]->FieldCount();
+        for( int i=0; i< fieldCount; i++ )
+            {
+            const CDocumentField& field = aDoc[count]->Field( i );
+            cpixDoc->addField( QStringFromDescriptor( field.Name() ), QStringFromDescriptor( field.Value() ), field.Config() );
+            }
+        cpixBatchDocs[count]= cpixDoc;
+        delete aDoc[count];
+        aDoc[count] = NULL;
+        }
+    delete aDoc;
+    return cpixBatchDocs;
+    }

@@ -422,19 +422,19 @@ namespace
 
         for (int32_t i = 0; i < count; ++i)
             {
-                cpix_Document
-                    cpixDoc;
+                cpix_Document* cpixDoc = new cpix_Document;
 
                 cpix_Hits_doc(unsortedHits,
                               i, 
-                              &cpixDoc);
+                              &cpixDoc,
+                              1);
                 
                 float
                     gpsLat,
                     gpsLong;
 
                 auto_ptr<lucene::document::Document>
-                    clone(cloneAndGetGps(&Cast2Native<cpix_Document>(&cpixDoc)->native(),
+                    clone(cloneAndGetGps(&Cast2Native<cpix_Document>(cpixDoc)->native(),
                                          &gpsLat,
                                          &gpsLong));
                 GpsDistance
@@ -447,6 +447,8 @@ namespace
                 clone.release();
 
                 locations.push_back(gdp);
+                
+                delete cpixDoc;
             }
     }
 }

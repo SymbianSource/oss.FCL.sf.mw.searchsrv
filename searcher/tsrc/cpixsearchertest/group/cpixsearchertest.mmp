@@ -82,6 +82,7 @@ END
 USERINCLUDE   ./../../../../searchsrv_plat/cpix_utility_api/inc
 
 USERINCLUDE  ../../../searchclient/inc
+USERINCLUDE  ../../../searchclient/traces
 SOURCEPATH ../../../searchclient/src
 
 SOURCE rsearchserversession.cpp
@@ -94,4 +95,6 @@ LIBRARY   cpixsearchclient.lib
 LIBRARY   FLOGGER.lib
 LIBRARY   estor.lib
 LIBRARY   efsrv.lib
+
+EPOCALLOWDLLDATA
 // End of File

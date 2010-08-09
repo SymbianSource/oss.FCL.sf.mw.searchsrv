@@ -101,6 +101,20 @@ public:
 	 * @return Document. Ownership is transferred to the caller of this function.
 	 */
 	CSearchDocument* GetDocumentCompleteL();
+	
+	/**
+	 * Gets list of documents from the current search results.
+	 * @param aObserver Observing object for this asyncronous call
+	 * @param aMessage The requesting message 
+	 * @parma aIndex index of the requested document 
+	 */
+	void GetBatchDocumentL(TInt aIndex, MCPixAsyncronizerObserver* aObserver, const RMessage2& aMessage, TInt aCount);
+	
+	/**
+	 * Complete the previous GetBatchDocumentL
+	 * @return array of Document. Ownership is transferred to the caller of this function.
+	 */
+	RPointerArray<CSearchDocument> GetBatchDocumentCompleteL();
 
 	/**
 	 * Creates new database (and destroys existing) if path is given. Otherwise, opens existing database.
@@ -207,11 +221,18 @@ private:
 	CCPixAsyncronizer* iAsyncronizer;
 	cpix_JobId iPendingJobId;
 	TPendingTask iPendingTask;
-	
+	/**
+	 * stores the requested batch document 
+	 */
+	cpix_Document** ibatchDocuments;
+	/**
+	 * Requested batch document count 
+	 */
+	TInt ibatchDocCount;
 	/**
 	 * Needed until the cpix is changed so that the docResults gives out the document 
 	 */
-	cpix_Document iCurrentCpixDocument;
+	cpix_Document* iCurrentCpixDocument;
 };
 
 

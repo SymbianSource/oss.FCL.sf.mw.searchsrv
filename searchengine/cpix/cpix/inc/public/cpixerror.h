@@ -106,9 +106,16 @@ extern "C" {
      * Clears the error state of cpixObj.
      */
 #define cpix_ClearError(cpixObj)  ((cpixObj)->err_ = cpix_Error_destroy((cpixObj)->err_))
-
-
-
+    /*
+     * Determines to what extent the cpix_hits_docs() is able to fetch available hits
+     * Previously a check on cpix_Failed/Suceeded(hits) suffices, but with the batch_get_doc
+     * implementation a request for N results may results in X fetches where (X <= N) To
+     * correctly determine how many actual results are fetched a check on _err is not enough
+     * and _ptr too have to cheked for NULL
+     */
+#define doc_Fetch_Succeeded(docObj) ((docObj)->ptr_ != NULL)
+#define doc_Fetch_Failed(docObj)    ((docObj)->ptr_ == NULL)
+    
     /**
      * Any "static" calls will give the result back via this
      * structure.

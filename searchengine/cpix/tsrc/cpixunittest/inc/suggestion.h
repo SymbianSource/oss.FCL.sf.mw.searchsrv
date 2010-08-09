@@ -34,7 +34,7 @@ private:
                           const Suggestion & right);
 
 public:
-    Suggestion(cpix_Document & doc,
+    Suggestion(cpix_Document * doc,
                Itk::TestMgr  * testMgr);
 
         

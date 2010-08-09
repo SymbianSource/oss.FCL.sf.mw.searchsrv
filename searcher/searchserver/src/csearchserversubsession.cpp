@@ -72,10 +72,13 @@ CSearchServerSubSession::~CSearchServerSubSession()
 	delete iIndexDb;
 	delete iSearchDb;	
 	delete iNextDocument;
+	idocList.ResetAndDestroy();
+	idocList.Close();
 }
 
 void CSearchServerSubSession::ConstructL()
 {
+    count = 0;
 	iIndexDb = CCPixIdxDb::NewL();
 	iSearchDb = CCPixSearch::NewL();
 }
@@ -259,6 +262,32 @@ void CSearchServerSubSession::GetDocumentL(const RMessage2& aMessage)
 	OstTraceFunctionExit0( DUP1_CSEARCHSERVERSUBSESSION_GETDOCUMENTL_EXIT );
 	}
 	
+void CSearchServerSubSession::GetBatchDocumentL(const RMessage2& aMessage)
+	{
+	PERFORMANCE_LOG_START("CSearchServerSubSession::GetBatchDocumentL");
+	
+	// Sanity check
+	if (!iSearchDb->IsOpen())
+		{
+		iSession->PanicClient(aMessage, EDatabaseNotOpen);
+		return;
+		}
+	
+	// buf for the search terms
+	TInt index = aMessage.Int0();
+	count = aMessage.Int1();
+	
+	for (int i =0; i < idocList.Count(); i++)
+	    {
+	    delete idocList[i];
+	    idocList[i] = NULL;
+	    }
+	idocList.Reset();
+	LOG_PLAYER_RECORD( CLogPlayerRecorder::LogGetDocumentL( reinterpret_cast<TUint>( this ), index ) );
+	
+	iSearchDb->GetBatchDocumentL(index, this, aMessage, count);
+	}
+	
 void CSearchServerSubSession::GetDocumentCompleteL(const RMessage2& aMessage)
 	{
 	OstTraceFunctionEntry0( CSEARCHSERVERSUBSESSION_GETDOCUMENTCOMPLETEL_ENTRY );
@@ -270,6 +299,14 @@ void CSearchServerSubSession::GetDocumentCompleteL(const RMessage2& aMessage)
 	OstTraceFunctionExit0( CSEARCHSERVERSUBSESSION_GETDOCUMENTCOMPLETEL_EXIT );
 	}
 
+void CSearchServerSubSession::GetBatchDocumentCompleteL(const RMessage2& aMessage)
+	{
+	PERFORMANCE_LOG_START("CSearchServerSubSession::GetBatchDocumentCompleteL");	
+	idocList = iSearchDb->GetBatchDocumentCompleteL();
+	const TPtrC8 ptr((const TUint8*)&(iSearchDb->docSizeArray[0]), sizeof(TInt) * iSearchDb->docSizeArray.Count());
+	aMessage.WriteL(2, ptr);
+	}
+	
 // CSearchServerSession::GetDocumentObjectL()
 // Client gets the object after GetDocumentL() has completed 
 void CSearchServerSubSession::GetDocumentObjectL(const RMessage2& aMessage)
@@ -319,6 +356,53 @@ void CSearchServerSubSession::GetDocumentObjectL(const RMessage2& aMessage)
 	aMessage.Complete(KErrNone);		
 	OstTraceFunctionExit0( DUP1_CSEARCHSERVERSUBSESSION_GETDOCUMENTOBJECTL_EXIT );
 	}
+	
+// CSearchServerSession::GetBatchDocumentObjectL()
+// Client gets the object after GetBatchDocumentL() has completed 
+void CSearchServerSubSession::GetBatchDocumentObjectL(const RMessage2& aMessage)
+	{
+	PERFORMANCE_LOG_START("CSearchServerSubSession::GetBatchDocumentObjectL");
+	
+	// Sanity check
+	if ( !iSearchDb || !iSearchDb->IsOpen() )
+		{
+		iSession->PanicClient(aMessage, EDatabaseNotOpen);
+		return;
+		}
+	TInt totalSize = 0;
+	for ( TInt i= 0; i < iSearchDb->docSizeArray.Count(); i++)
+	    totalSize += iSearchDb->docSizeArray[i];	
+	
+	// Create long enough descriptor for serialized hits
+	HBufC8* buf = HBufC8::NewLC(totalSize +1);
+	TPtr8 ptr = buf->Des();
+	// Initialize a new stream
+    RDesWriteStream stream;
+    stream.Open(ptr);
+    stream.PushL();
+	        
+	for(TInt i= 0; i < idocList.Count(); i++)
+        {
+        if ( idocList[i] )
+             {                
+             // Externalize hits to the stream//             
+             idocList[i]->ExternalizeL(stream);
+             }
+        }
+    // Commit and destroy the stream
+    stream.CommitL();
+    TInt len2 = ptr.Length();
+    CleanupStack::PopAndDestroy(&stream);
+
+    // write the serialized hits in to the message
+    aMessage.WriteL(0, ptr);
+
+    // Delete descriptor
+    CleanupStack::PopAndDestroy(buf);
+    
+	// Complete the request
+	aMessage.Complete(KErrNone);
+	}
 
 void CSearchServerSubSession::AddL(const RMessage2& aMessage)
 	{
@@ -360,7 +444,11 @@ void CSearchServerSubSession::AddL(const RMessage2& aMessage)
 
 void CSearchServerSubSession::LimitExcerptToMaxLengthL(CSearchDocument* aSearchDocument)
     {
+	//This is commented because HIGHLIGHTER uses full expcerpt field, 
+	//no need to limit excerpt
     //check if excerpt is more then maximum allowed
+#ifdef USE_HIGHLIGHTER
+#else
     if(aSearchDocument->Excerpt().Length() > MAX_EXCERPT_LENGTH)
         {
         OstTraceExt1( TRACE_NORMAL, CSEARCHSERVERSUBSESSION_LIMITEXCERPTTOMAXLENGTHL, "CSearchServerSubSession::LimitExcerptToMaxLengthL;docuid=%S", (aSearchDocument->Id()) );
@@ -375,6 +463,7 @@ void CSearchServerSubSession::LimitExcerptToMaxLengthL(CSearchDocument* aSearchD
         aSearchDocument->AddExcerptL(*bufExcerpt);
         CleanupStack::PopAndDestroy(bufExcerpt);
         }
+#endif
     }
 
 void CSearchServerSubSession::AddCompleteL(const RMessage2& /*aMessage*/)
@@ -498,6 +587,11 @@ void CSearchServerSubSession::HandleAsyncronizerComplete(TCPixTaskType aType, TI
 				TRAP(aError, GetDocumentCompleteL(aMessage));
 				break;
 				}
+			case ECPixTaskTypeGetBatchDocument:
+			    {
+			    TRAP(aError, GetBatchDocumentCompleteL(aMessage));
+			    break;
+			    }
 			case ECPixTaskTypeAdd:
 				{
 				TRAP(aError, AddCompleteL(aMessage));
