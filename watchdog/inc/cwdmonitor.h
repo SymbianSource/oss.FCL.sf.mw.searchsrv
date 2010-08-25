@@ -21,11 +21,13 @@
 
 #include <e32base.h>
 #include "MWDTimerHandler.h"
+#include "mcentrephandler.h"
 
 //Forward declaration
 class CWDTimer;
+class CentrepMonitor;
 
-class CWDMonitor : public CBase , public MWDTimerHandler
+class CWDMonitor : public CBase , public MWDTimerHandler, public MCentrepHandler
     {
 public:
     /*
@@ -51,6 +53,9 @@ public:
     
     // From MWDTimerHandler
     void HandleWDTimerL();
+    
+    //From MCentrepHandler
+    void HandlecentrepL( TUint32 aKey );
     
 private:
     /*
@@ -82,7 +87,16 @@ private:
 private:
     
     // Timer which is used to delay server monitoring
-    CWDTimer* iWDTimer; 
+    CWDTimer* iWDTimer;
+    TBool iAllowHS;
+    TBool iAllowSS;
+    TUid iHSUid;
+    TUid iSSUid;
+    HBufC* iHSName;
+    HBufC* iSSName;
+    
+    CentrepMonitor* aHSMonitor;
+    CentrepMonitor* aSSMonitor;
     };
 
 #endif /* CWDMONITOR_H */

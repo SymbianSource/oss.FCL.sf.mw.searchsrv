@@ -94,4 +94,8 @@ VENDORID          0
 
 CAPABILITY        CAP_SERVER AllFiles 
 
+//Used to enable highlighter 
+//MACRO USE_HIGHLIGHTER
+
+
 // End of File

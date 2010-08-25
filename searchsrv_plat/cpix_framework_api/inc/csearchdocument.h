@@ -181,6 +181,17 @@ public: // New functions
 	 * ranked higher in the search results. 
 	 */
 	IMPORT_C TReal32 Boost() const; 
+	
+//#ifdef USE_HIGHLIGHTER	
+//	/**
+//     * Adds the contents to field which will be 
+//     * shown in the first line of searchUI.
+//     * The fields included here in this field should 
+//     * not be included in excerpt field(second line in seachUI)
+//     * @param aExcerpt Excerpt text to add to the document.
+//     */ 
+//    IMPORT_C void AddHLDisplayFieldL(const TDesC& aField);
+//#endif
 
 private: // Constructors
 	

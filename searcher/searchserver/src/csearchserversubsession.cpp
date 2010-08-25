@@ -269,6 +269,7 @@ void CSearchServerSubSession::GetBatchDocumentL(const RMessage2& aMessage)
 	// Sanity check
 	if (!iSearchDb->IsOpen())
 		{
+		OstTrace0( TRACE_NORMAL, CSEARCHSERVERSUBSESSION_GETBATCHDOCUMENTL, "CSearchServerSubSession::GetBatchDocumentL: Panic as DB is not open" );
 		iSession->PanicClient(aMessage, EDatabaseNotOpen);
 		return;
 		}

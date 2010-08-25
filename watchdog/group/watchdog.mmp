@@ -30,9 +30,10 @@ USERINCLUDE	 ../traces
 MW_LAYER_SYSTEMINCLUDE
 
 SOURCEPATH	  ../src
-SOURCE		  WatchDog.cpp CWDMonitor.cpp CWDTimer.cpp
+SOURCE		  WatchDog.cpp CWDMonitor.cpp CWDTimer.cpp centrepmonitor.cpp
 
 LIBRARY		 euser.lib
+LIBRARY      centralrepository.lib
 
 // For logging
 LIBRARY 	  flogger.lib 

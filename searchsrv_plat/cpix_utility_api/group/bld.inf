@@ -29,3 +29,4 @@ PRJ_EXPORTS
 ../inc/messageharvesterdefs.h MW_LAYER_PLATFORM_EXPORT_PATH(messageharvesterdefs.h)
 ../inc/searchserverdefs.h     MW_LAYER_PLATFORM_EXPORT_PATH(searchserverdefs.h)
 ../inc/cpixcontentinfocommon.h    MW_LAYER_PLATFORM_EXPORT_PATH(cpixcontentinfocommon.h)
+../inc/cpixwatchdogcommon.h       MW_LAYER_PLATFORM_EXPORT_PATH(cpixwatchdogcommon.h)

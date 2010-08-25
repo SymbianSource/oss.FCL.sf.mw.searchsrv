@@ -266,9 +266,12 @@ TBool CContentInfoDb::FindL(const TDesC& aContentName)
     sql.Format( KCISqlFormatSeek, &aContentName );
     
     RSqlStatement stmt;
-    stmt.Prepare( iDatabase , sql );
-    
-    TBool isfound = ( KSqlAtRow == stmt.Next() )?ETrue:EFalse; 
+    TBool isfound = EFalse;
+    //Error check necessary to avoid sqldb 2 panic, 
+    //if sqlstatement preparation fails, call to Next() raises this panic
+    TInt err = stmt.Prepare( iDatabase , sql );
+    if ( err == KErrNone)
+        isfound = ( KSqlAtRow == stmt.Next() )?ETrue:EFalse; 
     OstTraceFunctionExit0( CCONTENTINFODB_FINDL_EXIT );
     return isfound;
     }
@@ -290,11 +293,14 @@ TInt CContentInfoDb::GetContentCountL()
     sql.Copy( KSelectAllRowsFormat );
     
     RSqlStatement stmt;
-    stmt.Prepare( iDatabase , sql );
-    
-    while ( KSqlAtEnd != stmt.Next() )
-        ++count;
-        
+    TInt err = stmt.Prepare( iDatabase , sql );
+    //Error check necessary to avoid sqldb 2 panic, 
+    //if sqlstatement preparation fails, call to Next() raises this panic     
+    if( err == KErrNone)
+        {
+        while ( KSqlAtEnd != stmt.Next() )
+            ++count;
+        }
     OstTraceFunctionExit0( CCONTENTINFODB_GETCONTENTCOUNTL_EXIT );
     return count;
     }

@@ -19,6 +19,9 @@
 #include "WatchDogCommon.h"
 #include "CWDTimer.h"
 #include <HarvesterServerLogger.h>
+#include <centralrepository.h>
+#include <cpixwatchdogcommon.h>
+#include "centrepmonitor.h"
 #include "OstTraceDefinitions.h"
 #ifdef OST_TRACE_COMPILER_IN_USE
 #include "cwdmonitorTraces.h"
@@ -52,6 +55,8 @@ CWDMonitor* CWDMonitor::NewLC( )
 //
 CWDMonitor::~CWDMonitor()
     {
+    delete iHSName;
+    delete iSSName;
     delete iWDTimer;
     }
 
@@ -68,8 +73,52 @@ CWDMonitor::CWDMonitor( )
 // -----------------------------------------------------------------------------
 //
 void CWDMonitor::ConstructL()
-    {
-    iWDTimer = CWDTimer::NewL( this );
+    {    
+    CRepository* wdrepo = CRepository::NewL( KWDrepoUidMenu );
+    wdrepo->Get( KHarvesterServerKey , iAllowHS );
+    wdrepo->Get( KSearchServerKey , iAllowSS );
+    
+    //get the UID's of the servers
+    TBuf<KCenrepUidLength> temp;
+    TInt64 value;
+    TLex uidvalue;
+    //Read Harvester server UId value
+    if ( KErrNone == wdrepo->Get( KHarvesterServerUIDKey, temp ) )
+        {
+        uidvalue.Assign(temp);        
+        if (KErrNone == uidvalue.Val( value,EHex ))
+            iHSUid.iUid = value;
+        }
+    //Read Search server Uid value
+    if ( KErrNone == wdrepo->Get( KSearchServerUIDKey, temp ))
+        {
+        uidvalue.Assign(temp);
+        if (KErrNone == uidvalue.Val( value,EHex ))
+          iSSUid.iUid = value;
+        }
+    
+    //Read Harvester server Name
+    if ( KErrNone == wdrepo->Get( KHarvesterServerNAMEKey, temp ))
+        {
+        iHSName = HBufC::NewL( temp.Length() );
+        TPtr hsname = iHSName->Des();
+        hsname.Copy( temp );
+        }
+    //Read Search server Name
+    if ( KErrNone == wdrepo->Get( KSearchServerNAMEKey, temp ))
+        {
+        iSSName = HBufC::NewL( temp.Length() );
+        TPtr ssname = iSSName->Des(); 
+        ssname.Copy( temp );
+        }
+    delete wdrepo;
+    if ( iAllowHS || iAllowSS )
+        iWDTimer = CWDTimer::NewL( this );
+    
+    aHSMonitor = CentrepMonitor::NewL( this, KHarvesterServerKey);
+    aHSMonitor->StartNotifier();
+    aSSMonitor = CentrepMonitor::NewL( this, KSearchServerKey);
+    aSSMonitor->StartNotifier();
     }
 
 // -----------------------------------------------------------------------------
@@ -80,26 +129,26 @@ void CWDMonitor::HandleWDTimerL()
     {
     OstTrace0( TRACE_NORMAL, CWDMONITOR_HANDLEWDTIMERL, "CWDMonitor::HandleWDTimerL(): Check the servers" );
     CPIXLOGSTRING("CWDMonitor::HandleWDTimerL(): Check the servers");
-    TFindServer harvesterServer(KHarvesterServer);
-    TFindServer searchServer(KSearchServer);
+    TFindServer harvesterServer(*iHSName);
+    TFindServer searchServer(*iSSName);
     
     TFullName name;
     
-    if ( harvesterServer.Next(name) != KErrNone)
+    if ( iAllowHS && (harvesterServer.Next(name) != KErrNone) )
         {
         OstTrace0( TRACE_NORMAL, DUP1_CWDMONITOR_HANDLEWDTIMERL, "Harvester Server is down, Starting Harvester Server" );
         CPIXLOGSTRING("Harvester Server is down, Starting Harvester Server");
         //Harvester server is not running. 
         //Start Harvester server
-        StartServer( KHarvesterServer , KHServerUid3 ,KHarvesterServerSemaphoreName);        
+        StartServer( *iHSName , iHSUid ,KHarvesterServerSemaphoreName);        
         }
-    else if ( searchServer.Next( name ) != KErrNone)
+    else if ( iAllowSS && (searchServer.Next( name ) != KErrNone) )
         {
         OstTrace0( TRACE_NORMAL, DUP2_CWDMONITOR_HANDLEWDTIMERL, "Search Server is down, Starting Search Server" );
         CPIXLOGSTRING("Search Server is down, Starting Search Server");
         //Search server is not running.
         //Start search server
-        StartServer( KSearchServer , KSServerUid3 ,KSearchServerSemaphoreName);
+        StartServer( *iSSName , iSSUid ,KSearchServerSemaphoreName);
         }
     return;
     }
@@ -163,4 +212,23 @@ TInt CWDMonitor::CreateServerProcess( const TDesC& aServerName , TUid aServerUid
     return KErrNone;
     }
 
+// -----------------------------------------------------------------------------
+// CWDMonitor::HandlecentrepL()
+// -----------------------------------------------------------------------------
+//
+void CWDMonitor::HandlecentrepL( TUint32 aKey )
+    {
+    CRepository* wdrepo = CRepository::NewL( KWDrepoUidMenu );        
+    if ( KHarvesterServerKey == aKey )
+        {
+        // get the harvester server status
+        wdrepo->Get( KHarvesterServerKey , iAllowHS );        
+        }
+    else if ( KSearchServerKey == aKey )
+        {
+        // get the Search server status
+        wdrepo->Get( KSearchServerKey , iAllowSS );        
+        }
+    delete wdrepo;
+    }
 //End of file

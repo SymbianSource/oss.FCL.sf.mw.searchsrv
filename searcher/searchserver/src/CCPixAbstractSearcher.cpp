@@ -103,7 +103,7 @@ CSearchDocument* CCPixAbstractSearcher::ConvertDocumentL( cpix_Document* aDocume
 	return document;
 	}
 	
-RPointerArray<CSearchDocument> CCPixAbstractSearcher::ConvertBatchDocumentL( cpix_Document** aDocument, TInt aCount )
+RPointerArray<CSearchDocument> CCPixAbstractSearcher::ConvertBatchDocumentL( cpix_Document**& aDocument, TInt aCount )
 	{
 	// Read first the system fields that are passed as constructor parameters 
 	//
@@ -182,11 +182,10 @@ RPointerArray<CSearchDocument> CCPixAbstractSearcher::ConvertBatchDocumentL( cpi
             CleanupStack::PopAndDestroy(docFieldEnum);	
             CleanupStack::Pop(document);
             docSizeArray.AppendL( document->Size());
-            docArray.AppendL( document );
-            delete nextDocument;
-            nextDocument = NULL;                      
+            docArray.AppendL( document );                                  
             }
-        else break;
+        delete nextDocument;
+        nextDocument = NULL;
         }
 	delete aDocument;
 	aDocument = NULL;

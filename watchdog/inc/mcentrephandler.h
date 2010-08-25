@@ -11,17 +11,22 @@
 *
 * Contributors:
 *
-* Description: This file provides the information required for building the
-*				whole of a WatchDog
+* Description:  This application is to monitor Harvester and Search Server
 *
 */
 
-PRJ_PLATFORMS
-WINSCW ARMV5 GCCE
+#ifndef MCENTREPHANDLER_H
+#define MCENTREPHANDLER_H
 
-PRJ_MMPFILES
-WatchDog.mmp
 
-PRJ_EXPORTS
-../cenrep/20029AB8.cre                         /epoc32/winscw/c/private/10202be9/20029AB8.cre
-../cenrep/20029AB8.cre                         /epoc32/data/z/private/10202be9/20029AB8.cre
+class MCentrepHandler
+    {
+public :
+    /*
+    * HandleWDTimerL signal when the watchdog timer expires 
+    */
+    virtual void HandlecentrepL( TUint32 aKey ) = 0;
+    };
+
+
+#endif /* MCENTREPHANDLER_H */

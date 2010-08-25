@@ -45,7 +45,7 @@ CCPixSearch* CCPixSearch::NewLC()
 	}
 
 CCPixSearch::CCPixSearch()
-	: iQueryParserType(EIncrementalQueryParser),
+	: iQueryParserType(EPrefixQueryParser),
 	  iPendingTask(EPendingTaskNone)
 	  
 	{
@@ -134,6 +134,8 @@ void CCPixSearch::CompletionCallback(void *aCookie, cpix_JobId aJobId)
 
 TBool CCPixSearch::SearchL(const TDesC& aSearchTerms, MCPixAsyncronizerObserver* aObserver, const RMessage2& aMessage)
     {
+    _LIT16(KPlain,"$plain");
+    _LIT16(KPrefix,"$prefix");
     OstTraceFunctionEntry0( CCPIXSEARCH_SEARCHL_ENTRY );
     PERFORMANCE_LOG_START("CCPixSearch::SearchL");
     
@@ -148,6 +150,15 @@ TBool CCPixSearch::SearchL(const TDesC& aSearchTerms, MCPixAsyncronizerObserver*
     HBufC* searchTerms = HBufC::NewLC(aSearchTerms.Length() + 1);
     TPtr searchTermsPtr = searchTerms->Des();
     searchTermsPtr.Copy(aSearchTerms);
+    
+    if(aSearchTerms.Find(KPlain) == 0 && iQueryParserType == EPrefixQueryParser )
+        {
+            SetQueryParserL(ECluceneQueryParser);
+        }
+    else if (aSearchTerms.Find(KPrefix) == 0 && iQueryParserType == ECluceneQueryParser )
+        {
+            SetQueryParserL(EPrefixQueryParser);
+        }
     
     // Destroy previous query
     cpix_Query_destroy( iQuery );
@@ -379,7 +390,7 @@ void CCPixSearch::RefreshQueryParserL()
 	iQueryParser = NULL; 
 	cpix_Result result; 
 	
-	if ( iQueryParserType == EDatabaseQueryParser ) 
+	if ( iQueryParserType == ECluceneQueryParser ) 
 		{
 		iQueryParser = 
 			cpix_QueryParser_create( &result, 
@@ -387,7 +398,7 @@ void CCPixSearch::RefreshQueryParserL()
 									      iDefaultSearchFieldZ->Des().PtrZ()), 
 									  iAnalyzer );
 		} 
-	else if ( iQueryParserType == EIncrementalQueryParser ) 
+	else if ( iQueryParserType == EPrefixQueryParser ) 
 		{
 		iQueryParser = 
 			cpix_CreatePrefixQueryParser( &result, 

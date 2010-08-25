@@ -232,6 +232,7 @@ EXPORT_C void RSearchServerSubSession::SearchL(const TDesC& aSearchTerms)
 	// descriptors as they will be out of scope by the time the server
 	// attempts to read or write
 	User::LeaveIfError( SendReceive(ESearchServerSearch, args) );
+	OstTrace1( TRACE_NORMAL, RSEARCHSERVERSUBSESSION_SEARCHL, "RSearchServerSubSession::SearchL::sync;iEstimatedResultsCount=%d", iEstimatedResultsCount );
 	OstTraceFunctionExit0( RSEARCHSERVERSUBSESSION_SEARCHL_EXIT );
 	}
 

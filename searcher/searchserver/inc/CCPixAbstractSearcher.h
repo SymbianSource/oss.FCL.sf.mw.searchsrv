@@ -25,8 +25,8 @@ class CCPixAbstractSearcher : public CBase
 public: 
 	
 	enum TQueryParser {
-		EDatabaseQueryParser = 0,
-		EIncrementalQueryParser = 1
+		ECluceneQueryParser = 0,
+		EPrefixQueryParser = 1
 	};
 	
 	
@@ -111,7 +111,7 @@ public:
 	
 	static CSearchDocument* ConvertDocumentL( cpix_Document* aDocument );
 	
-	static RPointerArray<CSearchDocument> ConvertBatchDocumentL( cpix_Document** aDocument, TInt count ); 
+	static RPointerArray<CSearchDocument> ConvertBatchDocumentL( cpix_Document**& aDocument, TInt count ); 
 	
 	static RArray<TInt> docSizeArray;
 

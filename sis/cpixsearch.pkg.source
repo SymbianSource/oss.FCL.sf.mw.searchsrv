@@ -13,10 +13,14 @@
 ;
 ; UID is the app's UID
 ;
-#{"CPix Search"},(0x2001F6FB),1,0,0, TYPE=SA;$(SVN)
+#{"CPix Search"},(0x2001F6FB),1,1,0, TYPE=SA, RU;$(SVN)
 
 ; Supports Series 60 v 3.0
-[0x101F7961], 0, 0, 0, {"S60ProductID"}
+[0x101F7961],0,0,0,{"S60ProductID"}
+[0x102032BE],0,0,0,{"S60ProductID"}
+[0x102752AE],0,0,0,{"S60ProductID"}
+[0x1028315F],0,0,0,{"S60ProductID"}
+[0x20022e6d],0,0,0,{"S60ProductID"}
 
 ; Vendor names
 %{"Nokia-EN"}
@@ -27,6 +31,11 @@
 
 ;@"cpix_cert_installer.sis", (0x101FB665)
 ;@"..\WidgetInstaller\sis\WidgetInstaller.sisx", (0x2001F709)
+
+; CPiX Harvester Server
+
+"$(EPOCROOT)epoc32\release\armv5\$(TARGET)\CPixHarvesterServer.exe"
+-"c:\sys\bin\CPixHarvesterServer.exe"
 
 ; CPiX Search Server
 
@@ -47,11 +56,6 @@
 ;QT CPIX Launcher dll
 ;"$(EPOCROOT)epoc32\release\armv5\$(TARGET)\qtcpixapplauncher.dll"
 ;-"c:\sys\bin\qtcpixapplauncher.dll"
-
-; CPiX Harvester Server
-
-"$(EPOCROOT)epoc32\release\armv5\$(TARGET)\CPixHarvesterServer.exe"
--"c:\sys\bin\CPixHarvesterServer.exe"
 
 ; HarvesterServer is started at boot time - copy resource file
 ; must be hardcoded 'c' drive for this file
@@ -131,3 +135,6 @@
 ;Qt Email fetcher
 "\epoc32\release\armv5\$(TARGET)\qtemailfetcher.dll"
 -"c:\sys\bin\qtemailfetcher.dll"
+
+@"..\watchdog\sis\WatchDog.sisx", (0x20029AB8)
+

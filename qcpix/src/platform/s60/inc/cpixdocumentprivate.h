@@ -32,6 +32,14 @@ public:
     QString iExcerpt;
     QString iBaseAppClass;
     QList< CpixDocumentField* > iFields;
+    
+    CpixDocumentPrivate::~CpixDocumentPrivate()
+        {
+        for (int i =0; i< iFields.count();i++)
+            {
+            delete iFields.at(i);
+            }
+        }
 };
 
 #endif //_CPIXDOCUMENTPVTIMPL_H

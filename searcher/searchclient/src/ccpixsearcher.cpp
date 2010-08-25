@@ -98,6 +98,7 @@ EXPORT_C const TDesC& CCPixSearcher::GetBaseAppClass() const
 //
 EXPORT_C void CCPixSearcher::OpenDatabaseL(const TDesC& aBaseAppClass)
 	{
+	OstTraceFunctionEntry0( CCPIXSEARCHER_OPENDATABASEL_ENTRY );
 	if ( IsActive() )
 		{
 		User::Leave(KErrInUse);
@@ -112,12 +113,14 @@ EXPORT_C void CCPixSearcher::OpenDatabaseL(const TDesC& aBaseAppClass)
 	iBaseAppClass = aBaseAppClass.AllocL();
 	iSubSession.OpenDatabaseL(ETrue, *iBaseAppClass, *iDefaultSearchField);
 	iIsDatabaseOpen = ETrue; 
+	OstTraceFunctionExit0( CCPIXSEARCHER_OPENDATABASEL_EXIT );
 	}
 
 //
 //
 EXPORT_C void CCPixSearcher::OpenDatabaseL(MCPixOpenDatabaseRequestObserver& aObserver, const TDesC& aBaseAppClass)
 	{
+	OstTraceFunctionEntry0( DUP1_CCPIXSEARCHER_OPENDATABASEL_ENTRY );
 	if ( IsActive() )
 		{
 		User::Leave( KErrInUse);
@@ -135,18 +138,22 @@ EXPORT_C void CCPixSearcher::OpenDatabaseL(MCPixOpenDatabaseRequestObserver& aOb
 	iBaseAppClass = aBaseAppClass.AllocL();
 	iSubSession.OpenDatabase(ETrue, *iBaseAppClass, *iDefaultSearchField, iStatus); // Create if not found
 	SetActive(); 
+	OstTraceFunctionExit0( DUP1_CCPIXSEARCHER_OPENDATABASEL_EXIT );
 	}
 
 EXPORT_C void CCPixSearcher::SetAnalyzerL( const TDesC& aAnalyzer )
 	{
+	OstTraceFunctionEntry0( CCPIXSEARCHER_SETANALYZERL_ENTRY );
 	if ( !iIsDatabaseOpen ) 	User::Leave(KErrNotReady);
 	if ( IsActive() ) 			User::Leave(KErrInUse);
 
 	iSubSession.SetAnalyzerL( aAnalyzer ); 
+	OstTraceFunctionExit0( CCPIXSEARCHER_SETANALYZERL_EXIT );
 	}
 
 EXPORT_C void CCPixSearcher::SetAnalyzerL( MCPixSetAnalyzerRequestObserver& aObserver, const TDesC& aAnalyzer )
 	{
+	OstTraceFunctionEntry0( DUP1_CCPIXSEARCHER_SETANALYZERL_ENTRY );
 	if ( !iIsDatabaseOpen ) 	User::Leave(KErrNotReady);
 	if ( IsActive() ) 			User::Leave(KErrInUse);
 	
@@ -156,6 +163,7 @@ EXPORT_C void CCPixSearcher::SetAnalyzerL( MCPixSetAnalyzerRequestObserver& aObs
 	iState = EStateSetAnalyzer; 
 	iSubSession.SetAnalyzer( aAnalyzer, iStatus );
 	SetActive(); 
+	OstTraceFunctionExit0( DUP1_CCPIXSEARCHER_SETANALYZERL_EXIT );
 	}
 	
 	EXPORT_C void CCPixSearcher::SetQueryParserL( TQueryParser aQueryParser ) 
@@ -206,7 +214,7 @@ EXPORT_C TInt CCPixSearcher::SearchL(const TDesC& aQueryString, const TDesC& aDo
 	{
 	OstTraceFunctionEntry0( CCPIXSEARCHER_SEARCHL_ENTRY );
 	PERFORMANCE_LOG_START("CCPixSearcher::SearchL");
-	
+	OstTraceExt2( TRACE_NORMAL, CCPIXSEARCHER_SEARCHL, "CCPixSearcher::SearchL::sync::;Search string =%S;field=%S", aQueryString, aDocumentField );
 	if ( !iIsDatabaseOpen ) 	
 		User::Leave( KErrNotReady );
 	if ( IsActive() )
@@ -229,6 +237,7 @@ EXPORT_C void CCPixSearcher::SearchL(MCPixSearchRequestObserver& aObserver, cons
     OstTraceFunctionEntry0( DUP1_CCPIXSEARCHER_SEARCHL_ENTRY );
     PERFORMANCE_LOG_START("CCPixSearcher::SearchL");
 
+	OstTraceExt2( TRACE_NORMAL, DUP1_CCPIXSEARCHER_SEARCHL, "CCPixSearcher::SearchL::Async::;Search string=%S;Field=%S", aQueryString, aDocumentField );
 	if ( !iIsDatabaseOpen ) 	User::Leave( KErrNotReady );
 	if ( IsActive() )
 		{
@@ -251,6 +260,7 @@ EXPORT_C CSearchDocument* CCPixSearcher::GetDocumentL(TInt aIndex)
     OstTraceFunctionEntry0( CCPIXSEARCHER_GETDOCUMENTL_ENTRY );
     PERFORMANCE_LOG_START("CCPixSearcher::GetDocumentL");
     
+	OstTrace1( TRACE_NORMAL, CCPIXSEARCHER_GETDOCUMENTL, "CCPixSearcher::GetDocumentL;aIndex=%d", aIndex );
 	if ( !iIsDatabaseOpen ) 	User::Leave( KErrNotReady );
 	if ( IsActive() )
 		{
@@ -265,6 +275,7 @@ EXPORT_C void CCPixSearcher::GetDocumentL(TInt aIndex, MCPixNextDocumentRequestO
     OstTraceFunctionEntry0( DUP1_CCPIXSEARCHER_GETDOCUMENTL_ENTRY );
     PERFORMANCE_LOG_START("CCPixSearcher::GetDocumentL");
     
+    OstTrace1( TRACE_NORMAL, DUP1_CCPIXSEARCHER_GETDOCUMENTL, "CCPixSearcher::GetDocumentL::Async::;aIndex=%d", aIndex );
     if ( !iIsDatabaseOpen ) 	User::Leave( KErrNotReady );
 	if ( IsActive() )
 		{
@@ -283,6 +294,7 @@ EXPORT_C CSearchDocument** CCPixSearcher::GetBatchDocumentL(TInt aIndex, TInt& a
     {
     PERFORMANCE_LOG_START("CCPixSearcher::GetBatchDocumentL");
     
+	OstTraceExt2( TRACE_NORMAL, CCPIXSEARCHER_GETBATCHDOCUMENTL, "CCPixSearcher::GetBatchDocumentL;aIndex=%d;aCount=%d", aIndex, aCount );
 	if ( !iIsDatabaseOpen ) 	User::Leave( KErrNotReady );
 	if ( IsActive() )
 		{
@@ -296,6 +308,7 @@ EXPORT_C void CCPixSearcher::GetBatchDocumentL(TInt aIndex, MCPixNextDocumentReq
     {
     PERFORMANCE_LOG_START("CCPixSearcher::GetBatchDocumentL");
     
+    OstTraceExt2( TRACE_NORMAL, DUP1_CCPIXSEARCHER_GETBATCHDOCUMENTL, "CCPixSearcher::GetBatchDocumentL::Async::;aIndex=%d;aCount=%d", aIndex, aCount );
     if ( !iIsDatabaseOpen ) 	User::Leave( KErrNotReady );
 	if ( IsActive() )
 		{
@@ -381,6 +394,7 @@ void CCPixSearcher::RunL()
 		    TRAPD( err, document = iSubSession.GetBatchDocumentObjectL( retCount ) );
 		    if ( observer.iNextDocument )
 		        {
+		        OstTraceExt2( TRACE_NORMAL, CCPIXSEARCHER_RUNL, "CCPixSearcher::RunL::BatchgetDoc::;err=%d;retcount=%d", err, retCount );
 		        if ( err == KErrNone )
 		            {
 		            observer.iNextDocument->HandleBatchDocumentL(iStatus.Int(),retCount, document);

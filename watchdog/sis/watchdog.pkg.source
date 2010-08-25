@@ -10,7 +10,7 @@
 &EN
 
 ; standard SIS file header
-#{"WatchDog"},(0x20029AB8),1,0,0, TYPE=SA;$(SVN)
+#{"WatchDog"},(0x20029AB8),1,0,0, TYPE=SA,RU;$(SVN)
 
 ;Localised Vendor name
 %{"Nokia-EN"}
@@ -25,7 +25,7 @@
 ;You should change the source paths to match that of your environment
 ;<source> <destination>
 
-"$(EPOCROOT)epoc32\release\armv5\$(TARGET)\cpixwatchdog.exe"   -"c:\sys\bin\cpixwatchdog.exe"
+"$(EPOCROOT)epoc32\release\armv5\$(TARGET)\cpixwatchdog.exe"   -"c:\sys\bin\cpixwatchdog.exe",FR,RI
 
 ; Watchdog is started at boot time - copy resource file
 ; must be hardcoded 'c' drive for this file

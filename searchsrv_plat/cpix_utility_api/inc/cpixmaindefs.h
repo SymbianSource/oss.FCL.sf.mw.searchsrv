@@ -100,6 +100,13 @@
     */
 #define LCPIX_EXCERPT_FIELD   L"_excerpt"
 
+/*
+ * The name of the optional field that will store the first line
+ * text shown in result of searchUI, used for highlighting
+ */
+
+#define LCPIX_HL_EXCERPT_FIELD  L"_hlexcerpt"
+
    /**
     * The name of the optional field that will store the application
     * ID of the document.

@@ -124,6 +124,7 @@ Indexed content types:
 	/* The order of fields in excerpt is as below. The order in this case
 	 * is the order of fields shown when you 'Edit' the contact.
 	 */
+    | [ IsGroup		    ]    {EStoreYes | EIndexNo}
     | [ GivenName           ]    {EStoreYes | EIndexTokenized | EIndexFreeText} {ExcerptNo}
     | [ FamilyName          ]    {EStoreYes | EIndexTokenized | EIndexFreeText} {ExcerptNo}
     | [ PhoneNumber         ]    {EStoreYes | EIndexTokenized}   								{ExcerptYes}

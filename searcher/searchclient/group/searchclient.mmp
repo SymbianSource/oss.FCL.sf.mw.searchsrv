@@ -43,4 +43,7 @@ LIBRARY         flogger.lib
 
 CAPABILITY        CAP_GENERAL_DLL
 
+//Used to enable highlighter 
+//MACRO USE_HIGHLIGHTER
+
 // End of File
