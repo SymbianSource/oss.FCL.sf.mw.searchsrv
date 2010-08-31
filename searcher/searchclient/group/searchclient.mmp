@@ -40,10 +40,10 @@ LIBRARY         euser.lib
 LIBRARY         estor.lib
 
 LIBRARY         flogger.lib 
+LIBRARY      centralrepository.lib
 
 CAPABILITY        CAP_GENERAL_DLL
 
-//Used to enable highlighter 
-//MACRO USE_HIGHLIGHTER
-
+//Useto enable highlighter 
+MACRO USE_HIGHLIGHTER
 // End of File

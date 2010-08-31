@@ -28,12 +28,13 @@
 #ifdef OST_TRACE_COMPILER_IN_USE
 #include "rsearchserversessionTraces.h"
 #endif
-
+#include "cpixwatchdogcommon.h"
+#include <centralrepository.h>
 
 
 // FUNCTION PROTOTYPES
-static TInt StartServer();
-static TInt CreateServerProcess();
+static TInt StartServer( const TDesC& aServerName , TUid aServerUid );
+static TInt CreateServerProcess( const TDesC& aServerName , TUid aServerUid );
 
 // RsearchServerSession::RsearchServerSession()
 // C++ default constructor can NOT contain any code, that might leave.
@@ -48,12 +49,45 @@ EXPORT_C RSearchServerSession::RSearchServerSession(): RSessionBase()
 // -----------------------------------------------------------------------------
 EXPORT_C TInt RSearchServerSession::Connect()
 	{
-	TInt err = StartServer();
-
-	if ( KErrNone == err )
-		{
-		err = CreateSession(KSearchServerName, Version(), KDefaultMessageSlots);
-		}
+    //read the name and Uid of the search server
+    TInt err = KErrNotReady;
+    // get the watchdog repro 
+    //TRAP_IGNORE is used to avoid the code scanner error
+    CRepository* wdrepo = NULL;
+    TRAP_IGNORE(wdrepo = CRepository::NewL( KWDrepoUidMenu ));
+    if ( wdrepo )
+        {
+        HBufC* servername = NULL;
+        TUid serveruid = {0};
+        TBuf<KCenrepUidLength> temp;
+        TInt64 value;
+        TLex uidvalue;
+        //read the searchserver UId
+        if ( KErrNone == wdrepo->Get( KSearchServerUIDKey, temp ))
+            {
+            uidvalue.Assign(temp);
+            if (KErrNone == uidvalue.Val( value,EHex ))
+                serveruid.iUid = value;
+            }
+        //read the search server name
+        if ( KErrNone == wdrepo->Get( KSearchServerNAMEKey, temp ))
+            {
+            //TRAP_IGNORE is used to avoid the code scanner error
+            TRAP_IGNORE(servername = HBufC::NewL( temp.Length() ));
+            TPtr ssname = servername->Des(); 
+            ssname.Copy( temp );
+            }
+        // make sure the server is started before creating connection
+        if ( servername )
+           err = StartServer( *servername , serveruid );
+    
+        if ( KErrNone == err )
+            {
+            err = CreateSession(*servername, Version(), KDefaultMessageSlots);
+            }
+        delete servername;
+        }
+    delete wdrepo;
 	return err;
 	}
 
@@ -353,7 +387,7 @@ EXPORT_C void RSearchServerSubSession::GetBatchDocument(TInt aIndex, TRequestSta
         delete iSizeList;
         iSizeList = NULL;
         }
-    iSizeList = STATIC_CAST(TInt *, User::AllocZL(iReqCount * sizeof(TInt)));
+    TRAP_IGNORE(iSizeList = STATIC_CAST(TInt *, User::AllocZL(iReqCount * sizeof(TInt))));
     //iDocSizeArray
     TPtr8 blob((TUint8*)iSizeList, iReqCount * sizeof(TInt));
 	    
@@ -484,11 +518,11 @@ EXPORT_C void RSearchServerSubSession::Flush(TRequestStatus& aStatus)
 
 // StartServer()
 // Starts the server if it is not already running
-static TInt StartServer()
+static TInt StartServer( const TDesC& aServerName , TUid aServerUid )
 	{
 	TInt result;
 
-	TFindServer findsearchServer(KSearchServerName);
+	TFindServer findsearchServer(aServerName);
 	TFullName name;
 
 	result = findsearchServer.Next(name);
@@ -505,7 +539,7 @@ static TInt StartServer()
 		return result;
 		}
 
-	result = CreateServerProcess();
+	result = CreateServerProcess( aServerName,aServerUid );
 	if (result != KErrNone)
 		{
 		return result;
@@ -519,15 +553,15 @@ static TInt StartServer()
 
 // CreateServerProcess()
 // Creates a server process
-static TInt CreateServerProcess()
+static TInt CreateServerProcess( const TDesC& aServerName , TUid aServerUid )
 	{
 	TInt result;
 
-	const TUidType serverUid( KNullUid, KNullUid, KServerUid3);
+	const TUidType serverUid( KNullUid, KNullUid, aServerUid);
 
 	RProcess server;
 
-	result = server.Create(KSearchServerFilename, KNullDesC, serverUid);
+	result = server.Create(aServerName, KNullDesC, serverUid);
 	if (result != KErrNone)
 		{
 		return result;

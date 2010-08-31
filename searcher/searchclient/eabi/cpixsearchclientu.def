@@ -116,4 +116,5 @@ EXPORTS
 	_ZTV13CCPixSearcher @ 115 NONAME
 	_ZTV14CDocumentField @ 116 NONAME
 	_ZTV15CSearchDocument @ 117 NONAME
+	_ZN15CSearchDocument18AddHLDisplayFieldLERK7TDesC16 @ 118 NONAME
 

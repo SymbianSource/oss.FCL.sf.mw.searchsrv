@@ -2,7 +2,7 @@
 &EN
 
 ; Header
-#{ "CenRep INI file"}, (0x10202BE9), 1, 2, 3, TYPE=SP
+#{ "CenRep INI file"}, (0x10202BE9), 1, 2, 3, TYPE=SP, RU;
 
 ; Localised Vendor name
 %{"Nokia"}

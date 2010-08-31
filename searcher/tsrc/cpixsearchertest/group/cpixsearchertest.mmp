@@ -95,6 +95,7 @@ LIBRARY   cpixsearchclient.lib
 LIBRARY   FLOGGER.lib
 LIBRARY   estor.lib
 LIBRARY   efsrv.lib
+LIBRARY      centralrepository.lib
 
 EPOCALLOWDLLDATA
 // End of File

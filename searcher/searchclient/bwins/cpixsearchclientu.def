@@ -99,4 +99,5 @@ EXPORTS
 	?UnDefineVolume@RSearchServerSession@@QAEHABVTDesC16@@@Z @ 98 NONAME ; int RSearchServerSession::UnDefineVolume(class TDesC16 const &)
 	?ExternalizeL@CDocumentField@@QBEXAAVRWriteStream@@@Z @ 99 NONAME ; void CDocumentField::ExternalizeL(class RWriteStream &) const
 	?AddL@RSearchServerSubSession@@QAEXABVTDesC8@@@Z @ 100 NONAME ; void RSearchServerSubSession::AddL(class TDesC8 const &)
+	?AddHLDisplayFieldL@CSearchDocument@@QAEXABVTDesC16@@@Z @ 101 NONAME ; void CSearchDocument::AddHLDisplayFieldL(class TDesC16 const &)
 
