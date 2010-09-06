@@ -76,7 +76,11 @@ extern "C" {
             
             // index the value of the field without the stop word analyzer and
             // store it in _aggregate
-            cpix_FREE_TEXT = 128
+            cpix_FREE_TEXT= 128,
+            
+            // index the value of the field using phonenumber analyser to split numbers
+            // and store it in _aggregate
+            cpix_PHONE_NUMBER = 256
         };
 
     typedef enum cpix_Index_ cpix_Index;

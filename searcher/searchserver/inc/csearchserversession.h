@@ -108,6 +108,11 @@ class CSearchServerSession : public CSession2
 	    void ContinueHouseKeeping(const RMessage2& aMessage);
 	    
 	    /**
+         * Continue housekeeping
+         */
+        void ContinueHouseKeeping();
+	    
+	    /**
 	     * Force housekeeping
 	     */
 	    void ForceHouseKeeping(const RMessage2& aMessage);

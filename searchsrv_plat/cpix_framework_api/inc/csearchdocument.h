@@ -182,7 +182,7 @@ public: // New functions
 	 */
 	IMPORT_C TReal32 Boost() const; 
 	
-#ifdef USE_HIGHLIGHTER	
+
 	/**
      * Adds the contents to field which will be 
      * shown in the first line of searchUI.
@@ -191,7 +191,7 @@ public: // New functions
      * @param aExcerpt Excerpt text to add to the document.
      */ 
     IMPORT_C void AddHLDisplayFieldL(const TDesC& aField);
-#endif
+
 
 private: // Constructors
 	

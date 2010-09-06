@@ -36,6 +36,7 @@ namespace Cpix
                  int             configs) 
         :	own_(true), field_(0) {
         freeText_  = false;
+        phoneNumber_ = false;
         resolveConfig(configs); 
         field_ = _CLNEW lucene::document::Field(name, value, configs); 		 
     }
@@ -46,6 +47,7 @@ namespace Cpix
                  int             configs) 
 	:  own_(true), field_(0) {
         freeText_  = false;
+        phoneNumber_ = false;
         resolveConfig(configs); 
         field_ = _CLNEW lucene::document::Field(name, stream, configs); 		 
     }
@@ -70,6 +72,11 @@ namespace Cpix
             freeText_ = true;
             configs &= (~cpix_FREE_TEXT);
         }
+        
+        if(configs & cpix_PHONE_NUMBER){
+            phoneNumber_ = true;
+            configs &= (~cpix_PHONE_NUMBER);
+        }
     }
 				    
 
@@ -81,6 +88,7 @@ namespace Cpix
 	  aggregate_( aggregate ) 
 	   {
         freeText_  = false;
+        phoneNumber_ = false;
     }
 	
     Field::~Field() {
@@ -116,6 +124,10 @@ namespace Cpix
     
     bool Field::isFreeText() const {
         return freeText_;
+    }
+    
+    bool Field::isPhoneNumber() const {
+        return phoneNumber_;
     }
     
     bool Field::isAggregated() const {

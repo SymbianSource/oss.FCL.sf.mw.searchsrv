@@ -76,7 +76,9 @@ namespace Cpix
 
         bool isAggregated()  const;
         
-        bool isFreeText()  const; 
+        bool isFreeText()  const;
+        
+        bool isPhoneNumber()  const; 
 		
         float_t boost() const;
 
@@ -97,6 +99,8 @@ namespace Cpix
         bool aggregate_;
         
         bool freeText_;
+        
+        bool phoneNumber_;
 	
     };
 	

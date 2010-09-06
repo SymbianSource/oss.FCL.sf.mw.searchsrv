@@ -252,30 +252,35 @@ void CSearchServerSession::ServiceL(const RMessage2& aMessage)
         case ESearchServerAdd:
             RECORDED_EXECUTION_BEGIN
             subsession->AddL(aMessage);
+            ContinueHouseKeeping();
             RECORDED_EXECUTION_END("add")
             break;
 
         case ESearchServerUpdate:
             RECORDED_EXECUTION_BEGIN
             subsession->UpdateL(aMessage);
+            ContinueHouseKeeping();
             RECORDED_EXECUTION_END("update")
             break;
 
         case ESearchServerDelete:
             RECORDED_EXECUTION_BEGIN
             subsession->DeleteL(aMessage);
+            ContinueHouseKeeping();
             RECORDED_EXECUTION_END("delete")
             break;
 
         case ESearchServerReset:
             RECORDED_EXECUTION_BEGIN
             subsession->ResetL(aMessage);
+            ContinueHouseKeeping();
             RECORDED_EXECUTION_END("reset")
             break;
 
         case ESearchServerFlush:
             RECORDED_EXECUTION_BEGIN
             subsession->FlushL(aMessage);
+            ContinueHouseKeeping();
             RECORDED_EXECUTION_END("flush")
             break;
 
@@ -455,6 +460,17 @@ void CSearchServerSession::ContinueHouseKeeping(const RMessage2& aMessage)
     
     // Complete the request
     aMessage.Complete(KErrNone);
+    }
+
+// -----------------------------------------------------------------------------
+// CSearchServerSession::ContinueHouseKeeping()
+// Continue housekeeping
+// -----------------------------------------------------------------------------
+//
+void CSearchServerSession::ContinueHouseKeeping()
+    {
+    CServer2* server = const_cast<CServer2*>( Server() );
+    static_cast<CSearchServer*>( server )->ContinueHouseKeeping();
     }
 
 // -----------------------------------------------------------------------------

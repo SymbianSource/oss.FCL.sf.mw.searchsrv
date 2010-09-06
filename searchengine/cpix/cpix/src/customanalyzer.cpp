@@ -652,6 +652,7 @@ namespace Cpix {
         {CPIX_TOKENIZER_KOREAN_QUERY,TokenizerFactoryCtor<analysis::KoreanQueryTokenizer>::create},
         
 		{CPIX_ANALYZER_STANDARD, 	AnalyzerWrapCtor<lucene::analysis::standard::StandardAnalyzer>::create},
+		{CPIX_ANALYZER_PHONENUMBER, AnalyzerWrapCtor<lucene::analysis::PhoneNumberAnalyzer>::create},
 		{CPIX_ANALYZER_DEFAULT, 	TokenStreamFactoryCtor<DefaultTokenStreamFactory>::create},
 	
 	// 	TODO: Add more Tokenizers/Analyzers

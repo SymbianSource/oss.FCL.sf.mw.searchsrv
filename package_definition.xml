@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SystemDefinition xmlns:qt="http://www.nokia.com/qt" schema="3.0.0">
+   <package id="searchsrv" name="Search Services" levels="services engine generic api">
+      <collection id="searchsrv_plat" name="Search Services Platform Interfaces" level="api">
+	    <component id="cpix_utility_api" name="CPIX Utility API" filter="s60" class="api" introduced="^4">
+			<meta rel="Api" href="searchsrv_plat/cpix_utility_api/cpix_utility_api.metaxml"/>
+			<unit bldFile="searchsrv_plat/cpix_utility_api/group"/>
+       </component>
+	    <component id="cpix_framework_api" name="CPIX Framework API" filter="s60" class="api" introduced="^4">
+			<meta rel="Api" href="searchsrv_plat/cpix_framework_api/cpix_framework_api.metaxml"/>
+			<unit bldFile="searchsrv_plat/cpix_framework_api/group"/>
+       </component>
+	    <component id="cpix_search_api" name="CPIX Search API" filter="s60" class="api" introduced="^4">
+			<meta rel="Api" href="searchsrv_plat/cpix_search_api/cpix_search_api.metaxml"/>
+			<unit bldFile="searchsrv_plat/cpix_search_api/group"/>
+       </component>
+    </collection>
+    <collection id="searchengine" name="Search Engine" level="engine">
+       <component id="searchengine_util" name="Search Engine Utils" filter="s60" introduced="^4">
+			<unit bldFile="searchengine/util/group"/>
+       </component>
+       <component id="searchengine_oss" name="Search Engine OSS" filter="s60" introduced="^4">
+			<unit bldFile="searchengine/oss/group"/>
+       </component>
+       <component id="cpix" name="Cross Platform Indexing Engine" filter="s60" introduced="^4">
+			<unit bldFile="searchengine/cpix/group"/>
+       </component>
+    </collection>
+    <collection id="searcher" name="Searcher" level="generic">
+       <component id="searchclient" name="Search Client" filter="s60" introduced="^4">
+			<unit bldFile="searcher/SearchClient/group"/>
+       </component>
+       <component id="searchserver" name="Search Server" filter="s60" introduced="^4">
+			<unit bldFile="searcher/SearchServer/group"/>
+       </component>
+       <component id="searcher_test" name="Searcher Tests" filter="s60" purpose="development" introduced="^4">
+			<unit bldFile="searcher/tsrc/group"/>
+       </component>
+    </collection>
+    <collection id="searchsrv_harvester" name="Search Services Harvester" level="services">
+       <component id="searchsrv_pluginfw" name="Search Server" filter="s60" introduced="^4">
+			<unit bldFile="harvester/pluginfw/group"/>
+       </component>
+       <component id="searchsrv_harvesterserver" name="Search Harvester Server" filter="s60" introduced="^4">
+			<unit bldFile="harvester/harvesterserver" qt:proFile="harvester.pro"/>
+       </component>
+    </collection>
+    <collection id="searchsrv_watchdog" name="Search Services Watch Dog" level="services">
+       <component id="searchsrv_watchdog_build" name="Search Services Watch Dog Build" filter="s60" introduced="^4">
+			<unit bldFile="WatchDog/group"/>
+       </component>
+    </collection>
+   <collection id="qcpix" name="Qt CPIX" level="engine">     
+    <component id="qcpix_build" name="Qt CPIX Build" introduced="^4" filter="s60">
+      <unit bldFile="qcpix" qt:proFile="cpix.pro"/>
+     </component>
+    </collection>
+    <collection id="searchsrv_info" name="Search Services Info">
+    <component id="searchsrv_rom" name="Search Services ROM" introduced="^4" filter="s60" class="config">
+      <unit bldFile="rom"/>
+     </component>
+    </collection>
+    <collection id="searchsrv_test" name="Search Services Test">
+    <component id="cpixmwtester" name="CPIX Middleware Tester" purpose="development" filter="s60,test" introduced="^4">
+      <unit bldFile="tsrc/CPixMWTester/group"/>
+     </component>
+    </collection>
+ </package>
+</SystemDefinition>

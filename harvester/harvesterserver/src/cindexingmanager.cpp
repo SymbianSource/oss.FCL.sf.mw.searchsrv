@@ -297,7 +297,9 @@ void CIndexingManager::RunL()
 		}
 
 	// Always issue new wait
-	iTimer.After(iStatus, KDefaultWaitTime);
+	timenow += TTimeIntervalDays(1);
+	//iTimer.After(iStatus, KDefaultWaitTime);
+	iTimer.At(iStatus, timenow);
 	SetActive();
 	
 	}

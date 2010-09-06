@@ -61,5 +61,5 @@ void CHeartBeatTimer::RunL()
 	{
 	if (iObserver)
 		iObserver->HandleHeartBeatL();
-	After(HEARTBEAT_PERIOD_USEC);
+	//After(HEARTBEAT_PERIOD_USEC);
 	}

@@ -19,7 +19,7 @@
 #define CPIXWATCHDOGCOMMON_H_
 
 //Length of uid string in cenrep
-const TInt KCenrepUidLength = 20;
+const TInt KCenrepUidLength = 256;
 //Uid of watchdog cetral repository database
 const TUid KWDrepoUidMenu = {0x20029ab8};
 const TUint32 KHarvesterServerKey = 0x1;

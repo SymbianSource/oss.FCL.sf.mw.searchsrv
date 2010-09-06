@@ -61,7 +61,8 @@ public: // Data types and constants
 		EIndexNo = 16,
 		EIndexTokenized = 32,
 		EIndexUnTokenized = 64,
-		EIndexFreeText = 128
+		EIndexFreeText = 128,
+		EIndexPhoneNumber = 256
 		};
 
 	/**

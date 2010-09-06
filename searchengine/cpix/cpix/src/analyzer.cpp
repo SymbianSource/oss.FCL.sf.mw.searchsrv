@@ -273,6 +273,15 @@ Analysis* Analysis::theInstance_ = NULL;
                     stream_ = _CLNEW standard::StandardFilter(stream_,true);
                     stream_ = _CLNEW LowerCaseFilter(stream_,true);
                 }
+			// if it is phonenumber, use phone number analyser
+            else if(field->isPhoneNumber())
+                {
+                    lucene::analysis::Analyzer *PhoneNumerAnalyzer_;
+                    
+                    PhoneNumerAnalyzer_  = _CLNEW lucene::analysis::PhoneNumberAnalyzer(); 
+                    stream_ = PhoneNumerAnalyzer_->tokenStream( field->name(), reader_ );
+                    _CLDELETE(PhoneNumerAnalyzer_); 
+                }
             else
             stream_ = analyzer_.tokenStream( field->name(), reader_ ); 
         }

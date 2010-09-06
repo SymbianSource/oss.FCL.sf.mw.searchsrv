@@ -254,7 +254,8 @@
 // Default prefix analyzer
 #define CPIX_ANALYZER_DEFAULT_PREFIX L"natural(prefix)"  
 
-#define CPIX_ANALYZER_STANDARD  	L"standard" 
+#define CPIX_ANALYZER_STANDARD  	L"standard"
+#define CPIX_ANALYZER_PHONENUMBER   L"PhoneNumberAnalyzer"
 //#define CPIX_ANALYZER_DEFAULT   	L"standard"  
 
 #define CPIX_TOKENIZER_STANDARD    	L"stdtokens" 
