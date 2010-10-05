@@ -42,7 +42,7 @@
 			<unit bldFile="harvester/pluginfw/group"/>
        </component>
        <component id="searchsrv_harvesterserver" name="Search Harvester Server" filter="s60" introduced="^4">
-			<unit bldFile="harvester/harvesterserver" qt:proFile="harvester.pro"/>
+			<unit bldFile="harvester" qt:proFile="harvester.pro"/>
        </component>
     </collection>
     <collection id="searchsrv_watchdog" name="Search Services Watch Dog" level="services">

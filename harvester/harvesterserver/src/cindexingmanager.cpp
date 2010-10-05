@@ -21,8 +21,7 @@
 #include "CIndexingManager.h"
 #include "HarvesterServerLogger.h"
 #include "CBlacklistMgr.h"
-#include "contentinfomgr.h"
-#include "ccontentinfo.h"
+#include "contentinfodbupdate.h"
 #include "OstTraceDefinitions.h"
 #ifdef OST_TRACE_COMPILER_IN_USE
 #include "cindexingmanagerTraces.h"
@@ -36,7 +35,7 @@ const TInt KManagerFileVersion = 1;
 const TUint KDefaultWaitTimeInMinutes = 1;
 
 // How often harvester states are checked (in microseconds)
-const TUint KDefaultWaitTime = KDefaultWaitTimeInMinutes*60*1000000; // 1 minute
+//const TUint KDefaultWaitTime = KDefaultWaitTimeInMinutes*60*1000000; // 1 minute
 
 // If time difference between RunL calls is less than this value (i.e system time
 // changed to past) update harvesters start and complete times.
@@ -106,7 +105,11 @@ CIndexingManager::~CIndexingManager()
 	
 	delete iBlacklistMgr;
 	
-	delete iContentInfoMgr;
+	delete iContentInfodb;
+	
+	delete iActivityManager;
+	
+	delete iGaurdTimer;
 	}
 
 // -----------------------------------------------------------------------------
@@ -138,8 +141,9 @@ void CIndexingManager::ConstructL()
 	
 	//instantiate blacklist database
 	iBlacklistMgr = CBlacklistMgr::NewL();
-	//Instantiate Contentinfo manager
-	iContentInfoMgr = CContentInfoMgr::NewL();
+	
+	//Instantiate ContentInfoDbUpdate
+	iContentInfodb = new ContentInfoDbUpdate();
 	
 	UpdateDontloadListL();
 
@@ -149,8 +153,14 @@ void CIndexingManager::ConstructL()
 	//release the Blacklist manager as the blacklist functionality is done
 	delete iBlacklistMgr;
 	//release the content info manager as all the content details of all plugins are stored
-	delete iContentInfoMgr;
-
+	delete iContentInfodb;
+	//Start the activity manager to monitor the user activity status
+	iActivityManager = CActivityManager::NewL( this );
+	if(iActivityManager)
+        {
+        iActivityManager->Start();
+        }
+	iGaurdTimer = CGaurdTimer::NewL( this );
 	StartPlugins();
 	
 	// Wait before running RunL
@@ -319,19 +329,29 @@ void CIndexingManager::LoadPluginsL()
     TInt count( 0 );
     count = infoArray.Count();
     
-    TInt contentcount(iContentInfoMgr->GetContentCountL() );
-    // If the content count in the content info DB is not equal to the plugin count, reset the content info DB
-    if ( contentcount != count)
-        iContentInfoMgr->ResetL();
-    
-    CContentInfo* contentinfo = CContentInfo::NewL();
-    
+    CImplementationInformation *info = NULL;
+    for(TInt i = 0; i < count; i++ )
+        {
+        TUid uid = infoArray[i]->ImplementationUid();
+        if( uid.iUid == 0x2001F703) // files
+            {
+            info = infoArray[i];
+            infoArray.Remove(i);
+            break;
+            }            
+        }    
+    // Now add file plugin at the end of the list
+    infoArray.AppendL(info);       
     for ( TInt i = 0; i < count; i++ )
         {
         TUid uid = infoArray[i]->ImplementationUid();    // Create the plug-ins
         TInt version = infoArray[i]->Version();
+        
         //Update the details of the plugin in Contentinfo DB
-        UpdateContentInfoDbL( infoArray[i]->DisplayName(), contentinfo );
+        TBuf<255> filepath;
+        filepath.Copy(infoArray[i]->OpaqueData());
+        UpdateContentInfoDbL(filepath);
+        
         //Get the load status of the plugin.
         TBool pluginloadstatus = GetPluginLoadStatusL ( uid, version, infoArray[i]->DisplayName() );        
         
@@ -340,7 +360,6 @@ void CIndexingManager::LoadPluginsL()
             LoadHarvesterpluginL (uid, version, infoArray[i]->DisplayName() );//Load the harvester plugin
             }
         }
-    delete contentinfo;
     CleanupStack::PopAndDestroy( &infoArray ); // infoArray, results in a call to CleanupEComArray    
 	OstTraceFunctionExit0( CINDEXINGMANAGER_LOADPLUGINSL_EXIT );
 	}
@@ -590,24 +609,13 @@ void CIndexingManager::SaveL()
 // CIndexingManager::UpdateContentInfoDbL()
 // -----------------------------------------------------------------------------
 //
-void CIndexingManager::UpdateContentInfoDbL( const TDesC& aPluginName, CContentInfo* aContentinfo)
+void CIndexingManager::UpdateContentInfoDbL( const TDesC& aXmlPath)
 {
     OstTraceFunctionEntry0( CINDEXINGMANAGER_UPDATECONTENTINFODBL_ENTRY );
-    TBool iscontentfound = iContentInfoMgr->FindL( aPluginName );
-            
-    if( !iscontentfound )
-        {
-        //Add the content details to database
-        aContentinfo->SetNameL( aPluginName );
-        aContentinfo->SetBlacklistStatus( KEnable );
-        aContentinfo->SetIndexStatus( KEnable );
-        iContentInfoMgr->AddL( aContentinfo );
-        
-        }
-    else
-        {
-        iContentInfoMgr->UpdateBlacklistStatusL( aPluginName , KEnable );
-        }
+    
+    if(iContentInfodb)
+        iContentInfodb->UpdateDb(QString::fromUtf16(aXmlPath.Ptr(),aXmlPath.Length()));
+    
     OstTraceFunctionExit0( CINDEXINGMANAGER_UPDATECONTENTINFODBL_EXIT );
 }
 
@@ -669,18 +677,18 @@ TBool CIndexingManager::GetPluginLoadStatusL (TUid aPluginUid, TInt aVersion, co
     if ( loadstatus )
         {
         //Found in unload list.Update the indexing and blacklist status in contentinfo DB
-        iContentInfoMgr->UpdatePluginIndexStatusL( aPluginName , KDisable );
-        iContentInfoMgr->UpdateBlacklistStatusL( aPluginName , KDisable );
+        iContentInfodb->UpdateIndexStatus( QString::fromUtf16(aPluginName.Ptr(), aPluginName.Length()) , KDisable );
+        iContentInfodb->UpdateBlacklisted( QString::fromUtf16(aPluginName.Ptr(), aPluginName.Length()), KDisable );
         }
     if ( pluginblacklisted )
         //Update the blacklist status in content info db
-        iContentInfoMgr->UpdateBlacklistStatusL( aPluginName , KEnable );
+        iContentInfodb->UpdateBlacklisted( QString::fromUtf16(aPluginName.Ptr(), aPluginName.Length()), KEnable );
     
     return (! (loadstatus | pluginblacklisted));
     }
 
 // -----------------------------------------------------------------------------
-// CIndexingManager::GetPluginLoadStatus()
+// CIndexingManager::LoadHarvesterpluginL()
 // -----------------------------------------------------------------------------
 //
 void CIndexingManager::LoadHarvesterpluginL (TUid aPluginUid, TInt aVersion, const TDesC& aPluginName)
@@ -699,7 +707,7 @@ void CIndexingManager::LoadHarvesterpluginL (TUid aPluginUid, TInt aVersion, con
         iBlacklistMgr->Remove(aPluginUid);
         OstTrace1( TRACE_NORMAL, CINDEXINGMANAGER_LOADHARVESTERPLUGINL, "CIndexingManager::LoadPluginsL;Plugin with uid=%x is removed from DB", aPluginUid.iUid );
         CPIXLOGSTRING2("CIndexingManager::LoadHarvesterpluginL(): Plugin with uid = %x is removed from database", aPluginUid.iUid);
-        iContentInfoMgr->UpdateBlacklistStatusL( aPluginName , KDisable );
+        iContentInfodb->UpdateBlacklisted( QString::fromUtf16(aPluginName.Ptr(), aPluginName.Length()) , KDisable );// new implementation
         CleanupStack::PushL( plugin );
         plugin->SetObserver( *this );
         plugin->SetSearchSession( iSearchSession );
@@ -709,4 +717,68 @@ void CIndexingManager::LoadHarvesterpluginL (TUid aPluginUid, TInt aVersion, con
         CPIXLOGSTRING2("CIndexingManager::LoadHarvesterpluginL(): Plugin with uid = %x is loaded succesfully", aPluginUid.iUid);
         }
     OstTraceFunctionExit0( CINDEXINGMANAGER_LOADHARVESTERPLUGINL_EXIT );
+    }
+
+// -----------------------------------------------------------------------------
+// CIndexingManager::ActivityChanged()
+// -----------------------------------------------------------------------------
+//
+void CIndexingManager::ActivityChanged(const TBool aActive)
+    {
+    //User is Inactive,so continue with harvesting
+    if(aActive)
+        {        
+        if( iGaurdTimer->IsActive())
+                iGaurdTimer->Cancel();
+        
+        for (TInt i = 0; i < iPluginArray.Count(); i++)
+            {
+            iPluginArray[i]->ResumePluginL();
+            OstTrace0( TRACE_NORMAL, CINDEXINGMANAGER_ACTIVITYCHANGED, "CIndexingManager::ResumePluginsL" );
+            
+            }
+        }
+        else
+        {
+        //call pause on all the plugins and restart the gaurd timer
+        for (TInt i = 0; i < iPluginArray.Count(); i++)
+            {
+            iPluginArray[i]->PausePluginL();
+            OstTrace0( TRACE_NORMAL, DUP1_CINDEXINGMANAGER_ACTIVITYCHANGED, "CIndexingManager::PausePluginsL" );
+            
+            }
+        iGaurdTimer->StartgaurdTimer();
+        }
+    
+    }
+
+// -----------------------------------------------------------------------------
+// CIndexingManager::HandleGaurdTimerL()
+// -----------------------------------------------------------------------------
+//
+void CIndexingManager::HandleGaurdTimerL()
+    {
+     OstTraceFunctionEntry0( CINDEXINGMANAGER_HANDLEGAURDTIMERL_ENTRY );
+     //On gaurd timer expiry, check for the current useractive state,
+     //and update the status accordingly    
+     TBool isActive = iActivityManager->IsActive();     
+     if ( isActive )
+         {
+         for (TInt i = 0; i < iPluginArray.Count(); i++)
+             {
+             TRAPD(err, iPluginArray[i]->ResumePluginL());
+             OstTrace0( TRACE_NORMAL, CINDEXINGMANAGER_HANDLEGAURDTIMERL, "CIndexingManager::ResumePluginsL" );
+             
+             if (err != KErrNone)
+                 {
+                 // Failed to start the plugin
+                 }
+             }                  
+         }
+     else
+         {
+         // Start timer
+         iGaurdTimer->StartgaurdTimer();
+         }
+    OstTraceFunctionExit0( CINDEXINGMANAGER_HANDLEGAURDTIMERL_EXIT );
     }

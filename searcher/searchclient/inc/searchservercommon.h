@@ -32,8 +32,6 @@
 
 
 // CONSTANTS
-_LIT( KSearchServerName,"CPixSearchServer" ); // Server name
-_LIT( KSearchServerSemaphoreName, "CPixSearchServerSemaphore" );
 
 // The server version. A version must be specified when
 // creating a session with the server.

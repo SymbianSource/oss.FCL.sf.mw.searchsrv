@@ -27,7 +27,8 @@ _LIT( KLogFile, 		"c:\\Data\\robustness\\log.txt" );
 _LIT( KRecordFile, 		"c:\\Data\\robustness\\record.csv" ); 
 _LIT( KTempRecordFile,	"c:\\Data\\robustness\\_record.csv" );
 //_LIT( KReportFile, 		"c:\\Data\\robustness\\report.txt" ); 
-_LIT( KConfigFile, 		"c:\\Data\\robustness\\config.txt" ); 
+_LIT( KConfigFile, 		"c:\\Data\\robustness\\config.txt" );
+_LIT( KSearchServerName,"CPixSearchServer" ); // Server name
 
 CRobustnessTest::CRobustnessTest( CConsoleBase& aConsole,
 								  MRobustnessTestObserver& aObserver )

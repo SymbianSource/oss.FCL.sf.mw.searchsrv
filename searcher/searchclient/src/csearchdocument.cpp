@@ -249,9 +249,7 @@ EXPORT_C TReal32 CSearchDocument::Boost() const
 
 EXPORT_C void CSearchDocument::AddHLDisplayFieldL(const TDesC& aField)
     {
-#ifdef USE_HIGHLIGHTER
     // Needs to be tokenised to rewrite the query, but should not be searchable so EAggregateNo.
     AddFieldL( _L( CPIX_HL_EXCERPT_FIELD ), aField, CDocumentField::EStoreYes | CDocumentField::EIndexTokenized | CDocumentField::EAggregateNo );
-#endif
     }
 

@@ -352,7 +352,7 @@ void SampleSearch::doLaunchDoc(DocLaunchInfo& info)
     //Instead of having these traps all over the place, we'll have it just here.
     QT_TRAP_THROWING(/* Call all the symbian APIs here */);
     if( info.type == "root calendar" ){
-        XQServiceRequest *snd = new XQServiceRequest("com.nokia.services.phonebookservices.Fetch", "open(int)",false);
+        XQServiceRequest *snd = new XQServiceRequest("com.nokia.symbian.IContactsFetch", "open(int)",false);
         *snd << info.docId.toInt();
         snd->send();
         }

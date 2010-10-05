@@ -60,7 +60,7 @@ namespace
     template<typename INTEGER>
     struct HighestBit
     {
-        enum { Value = (1 << (8*sizeof(INTEGER) - 1)) };
+        enum { Value = ((INTEGER)1 << (8*sizeof(INTEGER) - 1)) };
     };
     
 
@@ -328,6 +328,10 @@ namespace Cpix
         instance_ = NULL;
     }
 
+    const InitParams& IdxDbMgr::getInitParams() const
+    {
+		return initParams_;
+    }
 
     IdxDbHndl IdxDbMgr::create(const char   * qualBaseAppClass)
     {
@@ -532,7 +536,7 @@ namespace Cpix
     Version IdxDbMgr::getNextVersion()
     {
         Cpt::SyncRegion
-            sr(mutex_);
+            sr(versionMutex_);
 
         Version
             rv = version_;
@@ -894,6 +898,7 @@ namespace Cpix
           regFilePath_(ip.getCpixDir()),
           maxIdleSec_(ip.getMaxIdleSec()),
           mutex_(true), // recursive
+          versionMutex_(false), // not recursive 
           version_(0),
           initParams_(ip),
           housekeepCounter_(0)

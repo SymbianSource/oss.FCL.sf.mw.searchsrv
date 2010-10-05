@@ -31,6 +31,9 @@
 #include "csearchserverTraces.h"
 #endif
 
+// CONSTANTS
+_LIT( KSearchServerName,"CPixSearchServer" ); // Server name
+_LIT( KSearchServerSemaphoreName, "CPixSearchServerSemaphore" );
 
 // Server security policy
 
@@ -302,6 +305,7 @@ void CSearchServer::PanicServer(TSearchServerPanic aPanic)
 void CSearchServer::ThreadFunctionL()
 	{
 	// Construct active scheduler
+    User::RenameThread(KSearchServerName); 
 	CActiveScheduler* activeScheduler = new ( ELeave ) CActiveScheduler;
 	CleanupStack::PushL(activeScheduler);
 
@@ -312,7 +316,7 @@ void CSearchServer::ThreadFunctionL()
 	CSearchServer* server = CSearchServer::NewLC();
 	
     // Rename the thread.
-    User::RenameThread(KSearchServerName);        
+           
     RProcess::Rendezvous(KErrNone);           
 
 	// Signal client thread if started by such

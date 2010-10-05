@@ -21,6 +21,12 @@
 #include <e32def.h>
 
 /**
+ * @file
+ * @ingroup Common
+ * @brief Contains MCPixOpenDatabaseRequestObserver, MCPixSetAnalyzerRequestObserver, MCPixSetQueryParserRequestObserver
+ */
+ 
+/**
  * @brief Observes completions of CPixIndexer's asynchronous requests 
  * @ingroup ClientAPI
  * 

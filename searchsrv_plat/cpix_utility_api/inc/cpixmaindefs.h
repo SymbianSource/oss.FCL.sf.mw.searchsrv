@@ -18,6 +18,11 @@
 #ifndef __CPIXMAINDEFS_H__
 #define __CPIXMAINDEFS_H__
 
+/**
+ * @file
+ * @ingroup Common
+ * @brief Provides main definitions.
+ */
 
 //
 //    TODO LIST

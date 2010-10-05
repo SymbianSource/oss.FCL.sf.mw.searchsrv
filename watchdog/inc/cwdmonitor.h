@@ -26,6 +26,7 @@
 //Forward declaration
 class CWDTimer;
 class CentrepMonitor;
+class CServerMonitor;
 
 class CWDMonitor : public CBase , public MWDTimerHandler, public MCentrepHandler
     {
@@ -57,24 +58,7 @@ public:
     //From MCentrepHandler
     void HandlecentrepL( TUint32 aKey );
     
-private:
-    /*
-     * @description Starts the specified server.
-     * @param TDesC& aServerName Name of the server to start
-     * @param TUid aServerUid uid of the server to start
-     * @param TDesC& aSemaphoreName Name of the semaphore
-     * @return KErrNone on succesful operation.
-     */
-    TInt StartServer( const TDesC& aServerName , TUid aServerUid ,
-                      const TDesC& aSemaphoreName);
-    
-    /*
-     * @description creates the specified server process.
-     * @param TDesC& aServerName Name of the server to start
-     * @param TUid aServerUid uid of the server to start
-     * @return KErrNone on succesful operation.
-     */
-    TInt CreateServerProcess( const TDesC& aServerName , TUid aServerUid  );
+private:    
     /*
      * Constructor
      */
@@ -94,9 +78,22 @@ private:
     TUid iSSUid;
     HBufC* iHSName;
     HBufC* iSSName;
-    
-    CentrepMonitor* aHSMonitor;
-    CentrepMonitor* aSSMonitor;
+    /* Monitor to watch the centrep values of Harvester server status.owned*/
+    CentrepMonitor* aHSStatusMonitor;
+    /* Monitor to watch the centrep values of Search server status.owned*/
+    CentrepMonitor* aSSStatusMonitor;
+    /* Monitor to watch the centrep values of Harvester server Uid.owned*/
+    CentrepMonitor* aHSUidMonitor;
+    /* Monitor to watch the centrep values of Search server Uid.owned*/
+    CentrepMonitor* aSSUidMonitor;
+    /* Monitor to watch the centrep values of Harvester server Name.owned*/
+    CentrepMonitor* aHSNameMonitor;
+    /* Monitor to watch the centrep values of Search server Name.owned*/
+    CentrepMonitor* aSSNameMonitor;
+    /* Monitor to watch the existance of the Harvester server.owned*/
+    CServerMonitor* iHarvesterMonitor;
+    /* Monitor to watch the existance of the Search server.owned*/
+    CServerMonitor* iSearchMonitor;
     };
 
 #endif /* CWDMONITOR_H */

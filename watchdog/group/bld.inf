@@ -23,5 +23,5 @@ PRJ_MMPFILES
 WatchDog.mmp
 
 PRJ_EXPORTS
-../cenrep/20029AB8.cre                         /epoc32/winscw/c/private/10202be9/20029AB8.cre
-../cenrep/20029AB8.cre                         /epoc32/data/z/private/10202be9/20029AB8.cre
+../cenrep/20029AB8.txt                         /epoc32/winscw/c/private/10202be9/20029AB8.txt
+../cenrep/20029AB8.txt                         /epoc32/data/z/private/10202be9/20029AB8.txt

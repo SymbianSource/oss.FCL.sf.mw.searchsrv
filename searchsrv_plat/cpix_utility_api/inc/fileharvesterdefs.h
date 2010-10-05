@@ -18,6 +18,11 @@
 #ifndef __FILEHARVESTERDEFS_H__
 #define __FILEHARVESTERDEFS_H__
 
+/**
+ * @file
+ * @ingroup Common
+ * @brief File harvester definitions
+ */
 
 //***** FILE *****
 

@@ -79,7 +79,7 @@ public:
     enum Aggregated
         {
         AggregateNo = 1<<30,
-        AggregateYes = 1<<31,
+        AggregateYes = (unsigned int)1<<31,
         AggregateDefault = 0
         };
     /**

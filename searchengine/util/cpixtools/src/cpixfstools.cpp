@@ -413,6 +413,12 @@ namespace Cpt
     	while (!feof(file))
     	{
     		int c = fgetc(file);
+            if (c == '\r') {
+                c = fgetc(file); 
+                if (c != '\n'){
+                    buf<<'\r'; 
+                }
+            }
     		if (c == EOF || c == '\n') {
 				break;
     		}

@@ -141,7 +141,7 @@ void CHarvesterServer::ThreadFunctionL()
 
 	// Install active scheduler
 	//CActiveScheduler::Install(activeScheduler);	
-		
+    User::RenameThread(KHarvesterServerName);   
 	// Construct server
 	CHarvesterServer* server = CHarvesterServer::NewLC();
 	
@@ -149,7 +149,7 @@ void CHarvesterServer::ThreadFunctionL()
 	//RProcess().SetPriority(EPriorityBackground);
 	
     // Rename the thread.
-    User::RenameThread(KHarvesterServerName);        
+         
     RProcess::Rendezvous(KErrNone);           
 
 	// Signal client thread if started by such

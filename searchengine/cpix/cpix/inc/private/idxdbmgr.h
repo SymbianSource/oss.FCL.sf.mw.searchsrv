@@ -139,6 +139,8 @@ namespace Cpix
 
         Cpt::Mutex                                mutex_;
 
+        Cpt::Mutex                                versionMutex_;
+
         Version                                   version_;
 
         InitParams                                initParams_;
@@ -189,6 +191,7 @@ namespace Cpix
 
         static void shutdownAll();
 
+        const InitParams& getInitParams() const;
 
         /**
          * (Re-)defines an index on a qualified base app class. The

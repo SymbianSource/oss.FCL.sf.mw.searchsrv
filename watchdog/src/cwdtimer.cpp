@@ -17,7 +17,6 @@
 
 
 #include "CWDTimer.h"
-#include "WatchDogCommon.h"
 #include "MWDTimerHandler.h"
 #include <HarvesterServerLogger.h>
 #include "OstTraceDefinitions.h"
@@ -25,6 +24,7 @@
 #include "cwdtimerTraces.h"
 #endif
 
+#define MONITORING_DELAY 60000000 // Nano seconds to delay the monitored object
 // -----------------------------------------------------------------------------
 // CWDTimer::NewL
 // -----------------------------------------------------------------------------
@@ -101,14 +101,11 @@ void CWDTimer::RunL()
     if( iStatus.Int() == KErrNone )
         {
         TInt err = KErrNone;
-        TRAP ( err , iWDTimerHandler->HandleWDTimerL() );
-        if ( err == KErrNone)
-            {
-            //start the timer
-            iTimer.After( iStatus , MONITORING_DELAY ); // Wait 60 seconds before checking the servers
-            SetActive();
-            }
+        TRAP ( err , iWDTimerHandler->HandleWDTimerL() );        
         }
+    // clean the timer
+    Cancel();
+    iTimer.Close();
     }
 
 // -----------------------------------------------------------------------------

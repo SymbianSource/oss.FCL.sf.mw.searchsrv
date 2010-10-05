@@ -18,6 +18,13 @@
 #ifndef __INDEVICECFG_H__
 #define __INDEVICECFG_H__
 
+
+/**
+ * @file
+ * @ingroup Common
+ * @brief Common definition of necessary include files.
+ */
+
 #include "cpixmaindefs.h"
 #include "fileharvesterdefs.h"
 #include "messageharvesterdefs.h"

@@ -19,6 +19,12 @@
 #define __SEARCHSERVERDEFS_H__
 
 /**
+ * @file
+ * @ingroup Common
+ * @brief Provides Search server definitions
+ */
+
+/**
  * Does Search Server store log player data
  * Default location is C:\logs\CPix\LogPlayer\LogPlayer.txt
  */

@@ -123,6 +123,18 @@ public:
 	 */
 	IMPORT_C void Flush(CCPixIndexer& aIndexer);
 	
+	/**
+    * A pure virtual method which instructs plugin to pause harvesting.
+    * Data to be indexed has to be stored and later index when resume is called.    
+    */
+	virtual void PausePluginL() = 0;
+	
+	/**
+    * A pure virtual method which instructs plugin to resume harvesting.
+    * plugin should index the queued items if any.    
+    */
+	virtual void ResumePluginL() = 0;
+	
 private: // data members
 	// Identification on cleanup.
 	TUid iDtor_ID_Key;

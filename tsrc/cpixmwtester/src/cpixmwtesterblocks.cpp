@@ -24,8 +24,8 @@
 #include <cpixcontentinfocommon.h>
 #include <sqldb.h>
 #include "CBlacklistMgr.h"
-#include "contentinfomgr.h"
-#include "ccontentinfo.h"
+//#include "contentinfomgr.h"
+//#include "ccontentinfo.h"
 
 // EXTERNAL DATA STRUCTURES
 //extern  ?external_data;
@@ -273,7 +273,7 @@ TInt CCPixMWTester::TestWatchdogL( CStifItemParser& /*aItem*/)
 //
 TInt CCPixMWTester::TestDeleteContentInfoDBL( CStifItemParser& /*aItem*/)
     {
-    RFs fssession;
+    /*RFs fssession;
     CContentInfoMgr* contentInfoMgr = NULL;
     User::LeaveIfError( fssession.Connect() );
     TFileName privatePath;
@@ -288,7 +288,8 @@ TInt CCPixMWTester::TestDeleteContentInfoDBL( CStifItemParser& /*aItem*/)
     TRAPD ( err , contentInfoMgr = CContentInfoMgr::NewL() );
     delete contentInfoMgr;
     doLog( iLog, err, KNoErrorString );
-    return err;
+    return err;*/
+    return KErrNone;
     }
 // -----------------------------------------------------------------------------
 // CCPixMWTester::TestAddContentL
@@ -296,7 +297,7 @@ TInt CCPixMWTester::TestDeleteContentInfoDBL( CStifItemParser& /*aItem*/)
 //
 TInt CCPixMWTester::TestAddContentL( CStifItemParser& aItem)
     {
-    RFs fssession;
+    /*RFs fssession;
     TPtrC content;
     TInt err = KErrNone;
     aItem.GetNextString( content );
@@ -315,7 +316,8 @@ TInt CCPixMWTester::TestAddContentL( CStifItemParser& aItem)
     delete contentInfoMgr;
     if ( !found ) err = KErrNotFound;
     doLog( iLog, err, KNoErrorString );
-    return err;
+    return err;*/
+    return KErrNone;
     }
 // -----------------------------------------------------------------------------
 // CCPixMWTester::TestRemoveContentL
@@ -323,7 +325,7 @@ TInt CCPixMWTester::TestAddContentL( CStifItemParser& aItem)
 //
 TInt CCPixMWTester::TestRemoveContentL( CStifItemParser& aItem)
     {
-    RFs fssession;
+    /*RFs fssession;
     TPtrC content;
     TInt err = KErrNotFound;
     aItem.GetNextString( content );
@@ -347,7 +349,8 @@ TInt CCPixMWTester::TestRemoveContentL( CStifItemParser& aItem)
         }
     delete contentInfoMgr;    
     doLog( iLog, err, KNoErrorString );
-    return err;
+    return err;*/
+    return KErrNone;
     }
 // -----------------------------------------------------------------------------
 // CCPixMWTester::TestResetContentL
@@ -355,7 +358,7 @@ TInt CCPixMWTester::TestRemoveContentL( CStifItemParser& aItem)
 //
 TInt CCPixMWTester::TestResetContentL( CStifItemParser& aItem)
     {
-    RFs fssession;
+    /*RFs fssession;
     TPtrC content;
     TInt err = KErrNotFound;
     aItem.GetNextString( content );
@@ -378,7 +381,8 @@ TInt CCPixMWTester::TestResetContentL( CStifItemParser& aItem)
         }
     delete contentInfoMgr;    
     doLog( iLog, err, KNoErrorString );
-    return err;
+    return err;*/
+    return KErrNone;
     }
 // -----------------------------------------------------------------------------
 // CCPixMWTester::TestUpdateBLStatusL
@@ -386,7 +390,7 @@ TInt CCPixMWTester::TestResetContentL( CStifItemParser& aItem)
 //
 TInt CCPixMWTester::TestUpdateBLStatusL( CStifItemParser& aItem)
     {
-    RFs fssession;
+    /*RFs fssession;
     TPtrC content;
     TInt err = KErrNotFound;
     aItem.GetNextString( content );
@@ -406,7 +410,8 @@ TInt CCPixMWTester::TestUpdateBLStatusL( CStifItemParser& aItem)
     if ( blstatus ) err = KErrNone;
     delete contentInfoMgr;    
     doLog( iLog, err, KNoErrorString );
-    return err;
+    return err;*/
+    return KErrNone;
     }
 
 // -----------------------------------------------------------------------------
@@ -415,7 +420,7 @@ TInt CCPixMWTester::TestUpdateBLStatusL( CStifItemParser& aItem)
 //
 TInt CCPixMWTester::TestUpdateINStatusL( CStifItemParser& aItem)
     {
-    RFs fssession;
+    /*RFs fssession;
     TPtrC content;
     TInt err = KErrNotFound;
     aItem.GetNextString( content );
@@ -435,7 +440,8 @@ TInt CCPixMWTester::TestUpdateINStatusL( CStifItemParser& aItem)
     if ( !blstatus ) err = KErrNone;
     delete contentInfoMgr;    
     doLog( iLog, err, KNoErrorString );
-    return err;
+    return err;*/
+    return KErrNone;
     }
 
 // -----------------------------------------------------------------------------

@@ -18,6 +18,14 @@
 #ifndef __MESSAGEHARVESTERDEFS_H__
 #define __MESSAGEHARVESTERDEFS_H__
 
+
+/**
+ * @file
+ * @ingroup Common
+ * @brief Message harvester definitions
+ */
+
+
 // ***** MESSAGING ***** 
 
 #define SMS_QBASEAPPCLASS  "@0:root msg phone sms"

@@ -310,6 +310,7 @@ namespace Cpix
                     end = originators_.end();
                 for (; i != end; ++i)
                     {
+                    bool readerValid = true;
                         IReaderOwner
                             & ro(i->second.readerOwner());
 
@@ -318,15 +319,26 @@ namespace Cpix
 
                         // idx is locked now (lock information is in
                         // msr)
+                        lucene::index::IndexReader* idxReader = NULL;
+                        try
+                        {                                        
+                        idxReader = ro.getReader(&msr, &version);
+                        readerValid = idxReader->indexExists();
+                        }
+                        catch(...)
+                            {
+                            readerValid = false;
+                            }                     
 
-                        readers.push_back(ro.getReader(&msr,
-                                                       &version));
-
+                        if(true == readerValid)
+                        {
+                        readers.push_back(idxReader);
                         if (version != i->second.version())
                             {
-                                i->second.setVersion(version);
-                                hasAnyOriginatorChanged = true;
+                            i->second.setVersion(version);
+                            hasAnyOriginatorChanged = true;
                             }
+                        }
                     }
 
                 if (hasAnyOriginatorChanged)
@@ -611,6 +623,7 @@ namespace Cpix
                          Version               * version,
                          Cpt::MultiSyncRegion  * msr)
     {
+       
         cleanup();
 
         // TODO
@@ -632,21 +645,37 @@ namespace Cpix
 
         for (; i != end; ++i)
             {
+// Connection in MassStorage mode and formating MMC may invalidate the Reader.
+// Added Check for validation of the reader.			
+            bool readerValid = true;
                 IReaderOwner
                     & ro(i->second.readerOwner());
 
                 Version
                     idxDbVersion;
-
+                lucene::index::IndexReader* idxReader = NULL;
+                try
+                {                                
+                    idxReader = ro.getReader(msr,&idxDbVersion);
+                    readerValid = idxReader->indexExists();
                 // idx is locked now (lock information is in msr)
-                searchers_.push_back(new IndexSearcher(ro.getReader(msr,
-                                                                    &idxDbVersion)));
-
-                if (idxDbVersion != i->second.version())
+                }
+                catch(...)
+                {
+                    readerValid = false;                  
+                }
+                
+                if(readerValid == true)
                     {
-                        i->second.setVersion(idxDbVersion);
-                        hasAnyOriginatorChanged = true;
-                    }
+                        searchers_.push_back(new IndexSearcher(idxReader));
+                       
+                        if (idxDbVersion != i->second.version())
+                        {
+                            i->second.setVersion(idxDbVersion);
+                            hasAnyOriginatorChanged = true;
+                        }                      
+                   
+                    }               
             }
 
         if (hasAnyOriginatorChanged)

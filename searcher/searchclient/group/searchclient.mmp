@@ -44,6 +44,4 @@ LIBRARY      centralrepository.lib
 
 CAPABILITY        CAP_GENERAL_DLL
 
-//Useto enable highlighter 
-MACRO USE_HIGHLIGHTER
 // End of File

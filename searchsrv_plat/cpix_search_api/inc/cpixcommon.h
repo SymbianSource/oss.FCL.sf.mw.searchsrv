@@ -24,6 +24,12 @@
 #endif
 
 /**
+ * @file
+ * @ingroup Qt Search ClientAPI
+ * @brief Contains constants needed in the API
+ */
+
+/**
  * Maximum string length.
  * */ 
 //@TODO:sai: Is this a sane value?

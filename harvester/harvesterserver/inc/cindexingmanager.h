@@ -21,14 +21,18 @@
 #include <CIndexingPlugin.h>
 #include <MIndexingPluginObserver.h>
 #include <RSearchServerSession.h>
+#include <cactivitymanager.h>
+#include "cgaurdtimer.h"
 
 const TInt KFilePluginBaseAppClassMaxLen = 64;
 //Forward Declaration
 class CBlacklistMgr;
-class CContentInfoMgr;
-class CContentInfo;
+class ContentInfoDbUpdate;
 
-class CIndexingManager : public CActive, public MIndexingService
+class CIndexingManager : public CActive,
+                         public MIndexingService,
+                         public MActivityManagerObserver,
+                         public MGaurdTimerHandler
 	{
 public:	
 	static CIndexingManager* NewL();
@@ -72,7 +76,9 @@ protected:
 	 * @param aError KErrNone if harvesting completed successfully otherwise systemwide errorcodes
 	 */
 	void HarvestingCompleted(CIndexingPlugin* aPlugin, const TDesC& aQualifiedBaseAppClass, TInt aError);
-						
+	
+	// from MGaurdTimerHandler
+    void HandleGaurdTimerL();				
 private:
 
 	/**
@@ -102,11 +108,9 @@ private:
      */
 	void SaveL();
 	/**
-     * Add an entry to the content info Db with the plugin details.If an entry with the given 
-     * plugin name is already available in contentinfo db then the blacklist status of the plugin
-     * is updated with KEnable.
+     * Add an entry to the content info Db with the plugin details.
      */
-	void UpdateContentInfoDbL( const TDesC& aPluginName, CContentInfo* aContentinfo);
+	void UpdateContentInfoDbL( const TDesC& aXmlPath );
 	/**
      * Update the dontload list in a separate table in blacklist database.
      * If any error occurs in reading Uid values from centrep, then the dontload list
@@ -124,6 +128,9 @@ private:
      * Loads the Harvesterplugin with given plugin uid
      */
 	void LoadHarvesterpluginL (TUid aPluginUid, TInt aVersion, const TDesC& aPluginName);
+	
+	//From MActivityManagerObserver
+	void ActivityChanged(const TBool aActive);
 	
 private:
 	CIndexingManager();
@@ -226,7 +233,11 @@ private:
 	/* Database to maintain blacklisted plugins.Owned */
 	CBlacklistMgr* iBlacklistMgr;
 	/* Database to maintain the content info all the plugins.owned*/
-	CContentInfoMgr* iContentInfoMgr;
+	ContentInfoDbUpdate* iContentInfodb;
+	//monitors device activity
+	CActivityManager* iActivityManager;
+	
+	CGaurdTimer *iGaurdTimer;
 	};
 
 #endif // CINDEXINGMANAGER_H

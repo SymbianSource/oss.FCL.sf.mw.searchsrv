@@ -27,26 +27,24 @@ symbian{
     INCLUDEPATH += $$MW_LAYER_SYSTEMINCLUDE
     
     INCLUDEPATH +=   ../../searchengine/cpix/cpix/inc/public  
-      
+    
+    INCLUDEPATH +=   ../contentinfodb/inc  
 	HEADERS   +=   inc/CHarvesterServer.h
 	HEADERS   +=   inc/CHarvesterServerSession.h
 	HEADERS   +=   inc/CIndexingManager.h
 	HEADERS   +=   inc/CBlacklistMgr.h
 	HEADERS   +=   inc/CBlacklistDb.h
-	HEADERS   +=   inc/ccotentinfodb.h
-	HEADERS   +=   inc/contentinfomgr.h
-	HEADERS   +=   inc/ccontentinfo.h 
+    	HEADERS   +=   inc/cactivitymanager.h
 	HEADERS   +=   inc/harvesterserver.pan
 	HEADERS   +=   inc/harvesterservercommons.h
-    HEADERS   +=   inc/qtmythread.h
-	HEADERS   +=   traces/CBlacklistDbTraces.h 
+	HEADERS   +=   inc/qtmythread.h
+	HEADERS   +=   inc/cgaurdtimer.h
+	HEADERS   +=   traces/CBlacklistDbTraces.h
 	HEADERS   +=   traces/CBlacklistMgrTraces.h
-	HEADERS   +=   traces/ccontentinfodbTraces.h
-	HEADERS   +=   traces/ccontentinfoTraces.h
 	HEADERS   +=   traces/CIndexingManagerTraces.h
-	HEADERS   +=   traces/contentinfomgrTraces.h
 	HEADERS   +=   traces/OstTraceDefinitions.h
 	HEADERS   +=   traces/fixed_id.definitions
+	HEADERS   +=   traces/cactivitymanagerTraces.h
 	 
 	SOURCES   +=   src/main.cpp
 	SOURCES   +=   src/CHarvesterServer.cpp
@@ -54,9 +52,8 @@ symbian{
 	SOURCES   +=   src/CIndexingManager.cpp 
 	SOURCES   +=   src/CBlacklistMgr.cpp 
 	SOURCES   +=   src/CBlacklistDb.cpp 
-	SOURCES   +=   src/ccontentinfodb.cpp 
-	SOURCES   +=   src/contentinfomgr.cpp 
-	SOURCES   +=   src/ccontentinfo.cpp
+	SOURCES   +=   src/cactivitymanager.cpp
+	SOURCES   +=   src/cgaurdtimer.cpp
 	        
     resourceTargetBlock = 						\
     "SOURCEPATH        data" 				\
@@ -70,6 +67,6 @@ symbian{
     MMP_RULES += "EPOCHEAPSIZE      0x50000 0x300000" #From about 65KB to about 3 MB
 
     LIBS += -leuser -lestor -lCPixSearchClient -lCPixHarvesterPluginInterface -ledbms -lsqldb -lcentralrepository -lflogger
-    LIBS += -lefsrv 
+    LIBS += -lefsrv -lcpixcontentinfodb
     
 }

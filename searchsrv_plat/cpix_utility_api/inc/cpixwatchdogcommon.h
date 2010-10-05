@@ -14,6 +14,12 @@
 * Description: 
 *
 */
+/**
+ * @file
+ * @ingroup Common
+ * @brief Provides watchdog common definitions which mentions the keys used for configured harvester and search servers. 
+ * The central repository key for search UI application is also covered here. 
+ */
 
 #ifndef CPIXWATCHDOGCOMMON_H_
 #define CPIXWATCHDOGCOMMON_H_

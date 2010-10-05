@@ -37,6 +37,7 @@ file=ABI_DIR\BUILD_DIR\CPixHarvesterPluginInterface.dll	SHARED_LIB_DIR\CPixHarve
 file=ABI_DIR\BUILD_DIR\CPixSearchClient.dll	   SHARED_LIB_DIR\CPixSearchClient.dll
 file=ABI_DIR\BUILD_DIR\CPixSearchServer.exe	   SHARED_LIB_DIR\CPixSearchServer.exe 
 
+file=ABI_DIR\BUILD_DIR\cpixcontentinfodb.dll	SHARED_LIB_DIR\cpixcontentinfodb.dll
 // CPiX NP Plugin
 //ECOM_PLUGIN( npCPixPlugin.dll, npCPixPlugin.rsc)
 
@@ -59,7 +60,7 @@ data=DATAZ_\resource\cpix\thaidict.sm            \resource\cpix\thaidict.sm
 data=ZSYSTEM\install\cpixsearch_stub.sis    System\Install\cpixsearch_stub.sis
 
 data=DATAZ_\private\10202be9\2001f6fb.cre       private\10202be9\2001f6fb.cre
-data=DATAZ_\private\10202be9\20029AB8.cre       private\10202be9\20029AB8.cre
+data=DATAZ_\private\10202be9\20029AB8.txt       private\10202be9\20029AB8.txt
 
 #endif //FF_SEARCH_SW
 

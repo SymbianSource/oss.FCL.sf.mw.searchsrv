@@ -45,8 +45,8 @@ namespace Cpix
             for (; i != wrappers_.end(); ++i)
             {
                 delete i->second;
-                wrappers_.clear();
             }
+            wrappers_.erase(wrappers_.begin(),wrappers_.end());
         } else {
             for (; i != wrappers_.find(index); ++i)
             {
@@ -266,7 +266,7 @@ namespace Cpix
         delete hits_; 
         hits_ = 0; 
         
-        destroyWrappers(0);
+        destroyWrappers(-1);
 
         delete docConsumer_;
 
@@ -336,7 +336,7 @@ namespace Cpix
 	
     HitDocumentList::~HitDocumentList()
     {
-        destroyWrappers(0);
+        destroyWrappers(-1);
         for (std::vector<lucene::document::Document*>::iterator i = documents_.begin(); 
              i != documents_.end(); 
              i++) 

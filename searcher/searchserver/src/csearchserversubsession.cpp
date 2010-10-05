@@ -448,8 +448,7 @@ void CSearchServerSubSession::LimitExcerptToMaxLengthL(CSearchDocument* aSearchD
 	//This is commented because HIGHLIGHTER uses full expcerpt field, 
 	//no need to limit excerpt
     //check if excerpt is more then maximum allowed
-#ifdef USE_HIGHLIGHTER
-#else
+#if 0
     if(aSearchDocument->Excerpt().Length() > MAX_EXCERPT_LENGTH)
         {
         OstTraceExt1( TRACE_NORMAL, CSEARCHSERVERSUBSESSION_LIMITEXCERPTTOMAXLENGTHL, "CSearchServerSubSession::LimitExcerptToMaxLengthL;docuid=%S", (aSearchDocument->Id()) );

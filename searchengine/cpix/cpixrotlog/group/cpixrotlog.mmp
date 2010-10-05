@@ -21,7 +21,7 @@ MACRO _WCHAR_T_DECLARED
 
 TARGET          cpixrotlog.exe
 TARGETTYPE      exe
-UID             0x100039CE 0x01CDEE56
+UID             0x100039CE 0x20029B39
 EPOCSTACKSIZE   0x10000         
 EPOCHEAPSIZE    0x50000 0xa00000 // From about 65KB to about 10 MB
 VENDORID        0

@@ -18,7 +18,12 @@
 #ifndef HARVESTERSERVERLOGGER_H
 #define HARVESTERSERVERLOGGER_H
 
-
+/**
+ * @file
+ * @ingroup Common
+ * @brief Contains Logging Macros for debug purpose
+ */
+ 
 /**
 *
 * LOG SELECTION

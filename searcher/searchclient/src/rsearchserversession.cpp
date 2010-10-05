@@ -31,6 +31,7 @@
 #include "cpixwatchdogcommon.h"
 #include <centralrepository.h>
 
+_LIT( KSemaphore,"Semaphore");
 
 // FUNCTION PROTOTYPES
 static TInt StartServer( const TDesC& aServerName , TUid aServerUid );
@@ -533,7 +534,15 @@ static TInt StartServer( const TDesC& aServerName , TUid aServerUid )
 		}
 
 	RSemaphore semaphore;
-	result = semaphore.CreateGlobal(KSearchServerSemaphoreName, 0);
+	HBufC* semaphorename = HBufC16::NewL( aServerName.Length() + 10 );
+    TPtr semaphoreptr = semaphorename->Des();
+    semaphoreptr.Copy( aServerName );
+    semaphoreptr.Append( KSemaphore );
+    
+	result = semaphore.CreateGlobal(*semaphorename, 0);
+	
+	delete semaphorename;
+	
 	if (result != KErrNone)
 		{
 		return result;

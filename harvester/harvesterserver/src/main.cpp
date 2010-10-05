@@ -29,7 +29,8 @@ int main(int argc, char *argv[])
 
 void HarvesterThread::run()
     {
-    //Trapping the error is handled inside the ThreadFunction
+    User::SetCritical(User::EProcessCritical);
+    //Trapping the error is handled inside the ThreadFunction    
     CHarvesterServer::ThreadFunction();
     exec();
     }
