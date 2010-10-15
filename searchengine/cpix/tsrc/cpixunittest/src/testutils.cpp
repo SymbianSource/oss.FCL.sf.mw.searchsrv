@@ -226,10 +226,8 @@ void IdxUtil::init(bool create) throw (Itk::PanicExc)
                       idxDbPath(),
                       qualBaseAppClass(),
                       report);
-            assert_failed = 1;
-        }
-
-    schemaId_ = addSchema();
+}
+             schemaId_ = addSchema();
 }
 
 void IdxUtil::reload() throw (Itk::PanicExc)
@@ -290,7 +288,7 @@ void IdxUtil::flush() throw (Itk::PanicExc)
 	
     if ( cpix_Failed( idxDb_ ) )
     {
-        assert_failed = 1;
+
 		ITK_PANIC("Could not flush idx db '%s' for '%s'",
 				  idxDbPath(),
 				  qualBaseAppClass());
@@ -499,10 +497,7 @@ void SmsIdxUtil::deleteSms(size_t         id,
                     result,
                     docUid.c_str());
         }
-    else
-        {
-            assert_failed = 1;
-        }
+
 }
 
 
@@ -592,11 +587,10 @@ void SmsIdxUtil::indexSms(size_t          id,
                        failureStr,
                        id,
                        report);
-            assert_failed = 1;
+            
             cpix_ClearError(idxDb());
         }
 }
-
 
 std::wstring SmsIdxUtil::getIdStr(cpix_Document * doc,
                                   Itk::TestMgr  * testMgr)

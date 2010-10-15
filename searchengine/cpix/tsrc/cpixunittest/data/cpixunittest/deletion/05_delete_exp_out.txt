@@ -1,4 +1,4 @@
 
 Deleted 1 items by b
 Number of hits: 1
-DOC (c, line 3): This is another happy message
+DOC (c, line 3): This is another <U>happy</U> message

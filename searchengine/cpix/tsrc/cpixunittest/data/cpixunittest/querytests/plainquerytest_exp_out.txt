@@ -1,0 +1,172 @@
+
+Indexed file: !:\data\cpixunittestcorpus\query\query1.txt
+
+Indexed file: !:\data\cpixunittestcorpus\query\query2.txt
+
+Indexed file: !:\data\cpixunittestcorpus\query\query3.txt
+
+Indexed file: !:\data\cpixunittestcorpus\query\query4.txt
+
+Query Nokia, returned 2 hits. Passed 
+
+
+Query iNdia, returned 1 hits. Passed 
+
+
+Query "London Finland", returned 1 hits. Passed 
+
+
+Query Contents:Nokia, returned 2 hits. Passed 
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+
+Query Contents:Nokia AND country, returned 1 hits. Passed 
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+
+Query Contents:Nokia && country, returned 1 hits. Passed 
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+
+Query Nokia Selvaraj, returned 3 hits. Passed 
+
+
+Query Lo?don, returned 1 hits. Passed 
+
+
+Query countr?, returned 1 hits. Passed 
+
+
+Query country?, returned 0 hits. Passed 
+
+
+Query ?india, returned 0 hits. Passed 
+
+
+Query nok*, returned 2 hits. Passed 
+
+
+Query count?ry, returned 0 hits. Passed 
+
+
+Query roam~, returned 2 hits. Passed 
+
+
+Query ro~am, returned 0 hits. Passed 
+
+
+Query "london country"~10, returned 1 hits. Passed 
+
+
+Query "nokia country"~2, returned 0 hits. Passed 
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+
+Query nokia basker, returned 3 hits. Passed 
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+
+Query Nokia^5 basker, returned 3 hits. Passed 
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+
+Query Nokia basker^5, returned 3 hits. Passed 
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+
+Query Nokia || basker, returned 3 hits. Passed 
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+
+Query Nokia OR basker, returned 3 hits. Passed 
+
+
+Query Nokia AND basker, returned 0 hits. Passed 
+
+
+Query Nokia && basker, returned 0 hits. Passed 
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+
+Query +nokia country, returned 2 hits. Passed 
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+
+Query +nokia roam, returned 2 hits. Passed 
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+
+Query Nokia !country, returned 1 hits. Passed 
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+
+Query nokia NOT country, returned 1 hits. Passed 
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+
+Query nokia NOT basker, returned 2 hits. Passed 
+
+
+Query NOT India, returned 1 hits. Passed 
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+
+Query (india OR Mobile) AND Nokia, returned 2 hits. Passed 
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+
+Query (india OR Mobile) AND Country, returned 1 hits. Passed 
+

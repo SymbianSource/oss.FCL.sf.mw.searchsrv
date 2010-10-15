@@ -20,6 +20,8 @@ EPOCSTACKSIZE   0xa000
 USERINCLUDE  ../../../../../searchsrv_plat/cpix_utility_api/inc
 USERINCLUDE	 ../src
 USERINCLUDE	 ../../../../util/cpixtools/inc/public
+// Included path for NON English langauage for HIGHLIGHTER
+USERINCLUDE ../../../loc/analysis/inc/public
 
 SYSTEMINCLUDE   /epoc32/include
 OS_LAYER_LIBC_SYSTEMINCLUDE
@@ -165,6 +167,7 @@ SOURCE StringBuffer.cpp
 SOURCE StringIntern.cpp
 SOURCE ThreadLocal.cpp
 
+//MACRO USE_HIGHLIGHTER
 // highlighter
 SOURCEPATH	  ../src/CLucene/highlighter
 SOURCE Encoder.cpp 

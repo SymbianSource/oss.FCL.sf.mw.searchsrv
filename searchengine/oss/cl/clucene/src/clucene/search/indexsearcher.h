@@ -28,8 +28,7 @@ CL_NS_DEF(search)
 */
 class IndexSearcher:public Searcher{
 	CL_NS(index)::IndexReader* reader;
-	bool readerOwner;
-
+	bool readerOwner;	
 public:
 	/// Creates a searcher searching the index in the named directory.
 	IndexSearcher(const char* path);
@@ -62,6 +61,7 @@ public:
 	}
 
 	Query* rewrite(Query* original);
+	
 	void explain(Query* query, int32_t doc, Explanation* ret);
 };
 CL_NS_END

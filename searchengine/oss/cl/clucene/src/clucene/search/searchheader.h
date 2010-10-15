@@ -20,6 +20,17 @@
 #include "clucene/search/explanation.h"
 #include "clucene/search/similarity.h"
 
+//#ifdef USE_HIGHLIGHTER
+#include "CLucene/highlighter/SimpleFragmenter.h"
+#include "CLucene/highlighter/SimpleHTMLFormatter.h"
+#include "CLucene/analysis/standard/StandardAnalyzer.h"
+#define LCPIX_HL_EXCERPT_FIELD  L"_hlexcerpt"
+#define LCPIX_EXCERPT_FIELD   L"_excerpt"
+#if defined (__SYMBIAN32__)
+#include <e32std.h>
+#endif
+//#endif
+
 CL_NS_DEF(search)
 
 	//predefine classes
@@ -159,7 +170,14 @@ CL_NS_DEF(search)
 		HitDoc* last;				  // tail of LRU cache
 		int32_t numDocs;			  // number cached
 		int32_t maxDocs;			  // max to cache
-
+//#ifdef USE_HIGHLIGHTER		
+		CL_NS2(search,highlight)::SimpleHTMLFormatter hl_formatter;
+		
+		CL_NS2(search,highlight)::SimpleFragmenter hl_frag;
+#if defined (__SYMBIAN32__)        
+		TLanguage lang;
+#endif		
+//#endif		
     public:
 		Hits(Searcher* s, Query* q, Filter* f, const Sort* sort=NULL);
 		~Hits();
@@ -191,6 +209,13 @@ CL_NS_DEF(search)
 		void addToFront(HitDoc* hitDoc);
 	    
 		void remove(const HitDoc* hitDoc);
+		
+		/* Get the tokenstream for Highlighting.
+		 * @ text Text to be analyzed
+		 * @ result wchar double pointer to return highlighted text
+		 * @ firstline Flag for checking first line or Excerpt field.
+		 */			
+		void getHighlightedText(CL_NS(document)::Document* document);
 
   };
 
@@ -277,6 +302,7 @@ CL_NS_DEF(search)
       * Searcher#search(Query,Filter,Sort)} instead.
       */
 	  	virtual TopFieldDocs* _search(Query* query, Filter* filter, const int32_t n, const Sort* sort) = 0;
+	  	
    };
 
 

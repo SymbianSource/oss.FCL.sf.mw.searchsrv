@@ -13,8 +13,8 @@ SimpleHTMLFormatter::SimpleHTMLFormatter(const TCHAR* preTag, const TCHAR* postT
 
 SimpleHTMLFormatter::SimpleHTMLFormatter()
 {
-	_preTag = stringDuplicate(_T("<B>"));
-	_postTag = stringDuplicate(_T("</B>"));
+	_preTag = stringDuplicate(_T("<U>"));
+	_postTag = stringDuplicate(_T("</U>"));
 }
 
 SimpleHTMLFormatter::~SimpleHTMLFormatter() 

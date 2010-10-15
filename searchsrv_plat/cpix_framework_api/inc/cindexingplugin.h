@@ -135,6 +135,13 @@ public:
     */
 	virtual void ResumePluginL() = 0;
 	
+	/**
+    * A pure virtual method which instructs all plugins to store the records.
+    * if any during resume opreation to a temp storage. This function would be called 
+    * periodically with time interval of 5 mins.    
+    */
+	virtual void SaveL()= 0;
+	
 private: // data members
 	// Identification on cleanup.
 	TUid iDtor_ID_Key;

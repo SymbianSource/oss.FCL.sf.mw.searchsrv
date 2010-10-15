@@ -92,4 +92,15 @@ void CpixDocument::addField(const QString aName, const QString aValue, const int
     iPvtImpl->iFields.append( CpixDocumentField::newInstance( aName, aValue, aConfig ) );
     }
 
+const CpixDocumentField& CpixDocument::field( const QString aName ) const
+    {
+    int i, count = iPvtImpl->iFields.count();
+    for (i =0; i< count;i++)
+        {
+        if(iPvtImpl->iFields.at(i)->name() == aName)
+            break;
+        }
+        return *(iPvtImpl->iFields.at(i));
+    }
+
 //End of File

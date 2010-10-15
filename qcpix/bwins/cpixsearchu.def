@@ -73,4 +73,6 @@ EXPORTS
 	?d_func@CpixSearcher@@AAEPAVCpixSearcherPrivate@@XZ @ 72 NONAME ; class CpixSearcherPrivate * CpixSearcher::d_func(void)
 	?setConfig@CpixDocumentField@@QAEXH@Z @ 73 NONAME ; void CpixDocumentField::setConfig(int)
 	?staticMetaObject@CpixDocumentField@@2UQMetaObject@@B @ 74 NONAME ; struct QMetaObject const CpixDocumentField::staticMetaObject
+	?field@CpixDocument@@QBEABVCpixDocumentField@@VQString@@@Z @ 75 NONAME ; class CpixDocumentField const & CpixDocument::field(class QString) const
+	?values@CpixDocumentField@@QBE?AVQStringList@@XZ @ 76 NONAME ; class QStringList CpixDocumentField::values(void) const
 

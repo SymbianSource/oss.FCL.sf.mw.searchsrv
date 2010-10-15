@@ -1,4 +1,6 @@
 
+Indexed file: !:\data\cpixunittestcorpus\stem\en\longline.txt
+
 Indexed file: !:\data\cpixunittestcorpus\stem\en\4.txt
 
 Indexed file: !:\data\cpixunittestcorpus\stem\en\3.txt

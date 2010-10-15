@@ -1,4 +1,4 @@
 Number of hits: 3
-DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh happiness!
-DOC (!:\data\cpixunittestcorpus\stem\en\1.txt): I am happy.
-DOC (!:\data\cpixunittestcorpus\stem\en\4.txt): What is happening here?
+DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh <U>happiness</U>
+DOC (!:\data\cpixunittestcorpus\stem\en\1.txt): I am <U>happy</U>
+DOC (!:\data\cpixunittestcorpus\stem\en\4.txt): What is <U>happening</U> here

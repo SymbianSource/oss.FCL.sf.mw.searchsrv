@@ -73,6 +73,15 @@ void CpixDocumentFieldTester::testGetSetConfig()
 
 void CpixDocumentFieldTester::init()
     {
+    //test for getting value of a field in the form of list of strings.
+    iField = CpixDocumentField::newInstance( "testName", "one two three", 100 );
+    QStringList list = iField->values();
+    QString str[3] = {"one", "two", "three"};
+    QStringList::iterator i = list.begin();
+     for(int j = 0;i !=list.end(); ++i, j++)
+         QVERIFY( iField!=NULL && iField->name()=="testName" && *i==str[j] && iField->config()==100 );
+     
+     
     iField = CpixDocumentField::newInstance( "testName", "testValue", 100 );
     QVERIFY( iField!=NULL && iField->name()=="testName" && iField->value()=="testValue" && iField->config()==100 );
     }

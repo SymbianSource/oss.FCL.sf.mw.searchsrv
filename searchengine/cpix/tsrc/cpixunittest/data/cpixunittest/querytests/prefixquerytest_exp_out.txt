@@ -1,0 +1,142 @@
+
+Indexed file: !:\data\cpixunittestcorpus\query\query5.txt
+
+Indexed file: !:\data\cpixunittestcorpus\query\query6.txt
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+
+Query $prefix("new-notes"), returned 1 hits. Passed 
+
+
+Query $prefix("notes"), returned 1 hits. Passed 
+
+
+Query $prefix("new"), returned 1 hits. Passed 
+
+
+Query $prefix("-india"), returned 1 hits. Passed 
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+
+Query $prefix("tamil-nadu"), returned 1 hits. Passed 
+
+
+Query $prefix("testing"), returned 2 hits. Passed 
+
+
+Query $prefix("*shankar"), returned 2 hits. Passed 
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+
+Query $prefix("Ani*rban"), returned 1 hits. Passed 
+
+
+Query $prefix("kumar*"), returned 1 hits. Passed 
+
+
+Query $prefix("carrot^"), returned 1 hits. Passed 
+
+
+Query $prefix("carrot"), returned 1 hits. Passed 
+
+
+Query $prefix("ani"), returned 1 hits. Passed 
+
+
+Query $prefix("question"), returned 1 hits. Passed 
+
+
+Query $prefix("question?"), returned 1 hits. Passed 
+
+
+Query $prefix("|pipe"), returned 1 hits. Passed 
+
+
+Query $prefix("&&ambersend"), returned 1 hits. Passed 
+
+
+Query $prefix("!=Exclamation"), returned 1 hits. Passed 
+
+
+Query $prefix(":colon"), returned 1 hits. Passed 
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+
+Query $prefix("http:\www.nokia.com"), returned 1 hits. Passed 
+
+
+Query $prefix("%percentage"), returned 1 hits. Passed 
+
+
+Query $prefix("(testing)"), returned 2 hits. Passed 
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+
+Query $prefix("mail-id"), returned 1 hits. Passed 
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+
+Query $prefix("mail id"), returned 1 hits. Passed 
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+
+Query $prefix("shankar.rajendran@nokia.com"), returned 2 hits. Passed 
+
+
+Query $prefix("~tild"), returned 1 hits. Passed 
+
+
+Query $prefix("shankar"), returned 2 hits. Passed 
+
+
+Query $prefix("`singlequote"), returned 1 hits. Passed 
+
+
+Query $prefix("singlequote"), returned 1 hits. Passed 
+
+
+Query $prefix(""doublequote"), returned 1 hits. Passed 
+
+
+Query $prefix("doublequote"), returned 1 hits. Passed 
+
+
+Query $prefix(";semicolon"), returned 1 hits. Passed 
+
+
+Query $prefix("/slash"), returned 1 hits. Passed 
+
+
+Query $prefix("slash"), returned 1 hits. Passed 
+
+
+Query $prefix("\backslash"), returned 1 hits. Passed 
+
+
+Query $prefix("backslash"), returned 1 hits. Passed 
+
+
+Query $prefix("[squarebracket]"), returned 1 hits. Passed 
+
+
+Query $prefix("{flowerbracket}"), returned 1 hits. Passed 
+
+
+Query $prefix("<lessthan"), returned 1 hits. Passed 
+
+
+Query $prefix(">greaterthan"), returned 1 hits. Passed 
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+
+Query $prefix("worked for motorola ."), returned 1 hits. Passed 
+

@@ -192,8 +192,7 @@ public:
                     {
                         printf("Failed to delete\n");
                         cpix_ClearError(util_->idxDb());
-                        assert_failed = 1;
-                        break;
+                                break;
                     }
                 else
                     {
@@ -213,7 +212,7 @@ public:
                    expectedDelCount);
         if(result != expectedDelCount)
             {
-                assert_failed = 1;
+                
             }
 
         for (size_t i = 0; i < count; ++i)
@@ -277,22 +276,13 @@ public:
 
     void testAddFiles(Itk::TestMgr * testMgr)
     {
-        char *xml_file = (char *)__FUNCTION__;
-        assert_failed = 0;
         testMgr_ = testMgr;
         Cpt::traverse(FILE_TEST_CORPUS_PATH "\\en",
                       this);
         util_->flush();
-        testResultXml(xml_file);
-    }
-
-
-    
     void testSearchFiles(Itk::TestMgr * testMgr)
     {
         using namespace Itk;
-        char *xml_file = (char *)__FUNCTION__;
-        assert_failed = 0;
         cpix_Hits
             * hits = cpix_IdxDb_search(util_->idxDb(),
                                        query_);
@@ -303,7 +293,7 @@ public:
                            false,
                            "Failed to search index");
                 cpix_ClearError(util_->idxDb());
-                assert_failed = 1;
+                
             }
         else
             {
@@ -312,21 +302,19 @@ public:
 
                 cpix_Hits_destroy(hits);
             }
-        testResultXml(xml_file);
+       
 
     }
 
 
     void testDeleteFiles(Itk::TestMgr * testMgr)
     {
-        char *xml_file = (char *)__FUNCTION__;
-        assert_failed = 0;
         deleteFiles(testMgr,
                     EnglishDocsToDelete,
                     sizeof(EnglishDocsToDelete)/sizeof(wchar_t*),
                     2);
         util_->flush();
-        testResultXml(xml_file);
+       
     }
 
 

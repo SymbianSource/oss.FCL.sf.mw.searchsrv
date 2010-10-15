@@ -19,7 +19,8 @@
 #include "cgaurdtimer.h"
 #include "HarvesterServerLogger.h"
 
-#define MONITORING_DELAY 2147483647 // Max time that RTimer::After() can allow ie. 35Min.
+#define MONITORING_DELAY 5*60*1000000
+//#define MONITORING_DELAY 2147483647 // Max time that RTimer::After() can allow ie. 35Min.
 // -----------------------------------------------------------------------------
 // CGaurdTimer::NewL
 // -----------------------------------------------------------------------------

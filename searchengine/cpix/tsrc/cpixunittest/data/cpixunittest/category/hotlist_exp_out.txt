@@ -1,0 +1,19 @@
+Discover '' in hotlist:
+    DOC (1): Documents to Jane
+    DOC (New York.jpg): New York.jpg
+    DOC (1): John Smith
+
+Discover 'j' in hotlist:
+    DOC (1): Documents to Jane
+    DOC (New York.jpg): New York.jpg
+    DOC (1): John Smith
+
+Discover 'john' in hotlist:
+    DOC (1): John Smith
+
+Discover 'jpg' in hotlist:
+    DOC (New York.jpg): New York.jpg
+
+Discover 'jane' in hotlist:
+    DOC (1): Documents to Jane
+

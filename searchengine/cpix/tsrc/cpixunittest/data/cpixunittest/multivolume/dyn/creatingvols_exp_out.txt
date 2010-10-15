@@ -5,7 +5,7 @@ Indexed file: !:\data\cpixunittestcorpus\stem\en\1.txt
 
 And now searching all 'root file'!
 Number of hits: 1
-DOC (!:\data\cpixunittestcorpus\stem\en\1.txt): I am happy.
+DOC (!:\data\cpixunittestcorpus\stem\en\1.txt): I am <U>happy</U>
 Creating volume @d:root file ...
 
 Indexed file: !:\data\cpixunittestcorpus\stem\en\2.txt
@@ -13,8 +13,8 @@ Indexed file: !:\data\cpixunittestcorpus\stem\en\2.txt
 
 And now searching all 'root file'!
 Number of hits: 2
-DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh happiness!
-DOC (!:\data\cpixunittestcorpus\stem\en\1.txt): I am happy.
+DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh <U>happiness</U>
+DOC (!:\data\cpixunittestcorpus\stem\en\1.txt): I am <U>happy</U>
 Creating volume @e:root file ...
 
 Indexed file: !:\data\cpixunittestcorpus\stem\en\3.txt
@@ -22,8 +22,8 @@ Indexed file: !:\data\cpixunittestcorpus\stem\en\3.txt
 
 And now searching all 'root file'!
 Number of hits: 2
-DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh happiness!
-DOC (!:\data\cpixunittestcorpus\stem\en\1.txt): I am happy.
+DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh <U>happiness</U>
+DOC (!:\data\cpixunittestcorpus\stem\en\1.txt): I am <U>happy</U>
 Creating volume @f:root file ...
 
 Indexed file: !:\data\cpixunittestcorpus\stem\en\4.txt
@@ -31,6 +31,6 @@ Indexed file: !:\data\cpixunittestcorpus\stem\en\4.txt
 
 And now searching all 'root file'!
 Number of hits: 3
-DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh happiness!
-DOC (!:\data\cpixunittestcorpus\stem\en\1.txt): I am happy.
-DOC (!:\data\cpixunittestcorpus\stem\en\4.txt): What is happening here?
+DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh <U>happiness</U>
+DOC (!:\data\cpixunittestcorpus\stem\en\1.txt): I am <U>happy</U>
+DOC (!:\data\cpixunittestcorpus\stem\en\4.txt): What is <U>happening</U> here

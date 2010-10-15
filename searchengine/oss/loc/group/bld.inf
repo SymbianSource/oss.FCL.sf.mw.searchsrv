@@ -1,0 +1,2 @@
+#include "..\analysis\group\bld.inf"
+#include "..\analysisunittest\group\bld.inf"

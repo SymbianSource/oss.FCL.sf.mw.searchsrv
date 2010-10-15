@@ -138,13 +138,13 @@ void Suggestion::printSuggestions(cpix_Hits    * hits,
             if (doc[0]->ptr_ != NULL) {
             if (cpix_Failed(hits))
                 {
-            ITK_EXPECT(testMgr,
-                    false,
-                    "Failed to get doc %d",
-                    i);
-            cpix_ClearError(hits);
-            goOn = false;
-            break;
+                    ITK_EXPECT(testMgr,
+                            false,
+                            "Failed to get doc %d",
+                            i);
+                    cpix_ClearError(hits);
+                    goOn = false;
+                    break;
                 }
 
             suggestions.push_back(Suggestion(doc[0],

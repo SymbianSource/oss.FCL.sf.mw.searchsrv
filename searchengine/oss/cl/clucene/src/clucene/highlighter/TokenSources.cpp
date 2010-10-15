@@ -157,7 +157,6 @@ TokenStream* TokenSources::getTokenStream(IndexReader* reader,int32_t docId, TCH
 		TCHAR buf[250];
 		_sntprintf(buf,250,_T("%s in doc #%d does not have any term position data stored"),field,docId);
 		_CLTHROWT(CL_ERR_IllegalArgument,buf);
-		return NULL;
 	}
 
 	//todo:bad way of doing this...
@@ -190,7 +189,6 @@ TokenStream* TokenSources::getTokenStream(IndexReader* reader,int32_t docId, TCH
 		TCHAR buf[250];
 		_sntprintf(buf,250,_T("Field %s in document #%d is not stored and cannot be analyzed"),field,docId);
 		_CLTHROWT(CL_ERR_IllegalArgument,buf);
-		return NULL;
 	}
     return analyzer->tokenStream(field,_CLNEW StringReader(contents));
 }

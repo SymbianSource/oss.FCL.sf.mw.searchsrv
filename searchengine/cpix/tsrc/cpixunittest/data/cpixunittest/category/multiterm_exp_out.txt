@@ -1,0 +1,31 @@
+Discover 'he j' in cat.msg:
+    DOC (2): Hello Jane
+    DOC (1): Hello John
+
+Discover 'he ja' in cat.msg:
+    DOC (2): Hello Jane
+
+Discover 'me jo' in cat.msg:
+
+Discover 'm j' in cat.msg:
+
+Discover 'l j' in cat:
+  cat.image (1 hits)
+    DOC (08012009047.jpg): 08012009047.jpg
+  cat.contact (1 hits)
+    DOC (3): John London
+  cat.cal (1 hits)
+    DOC (6): London meeting with John
+
+Discover 'l j m' in cat:
+  cat.cal (1 hits)
+    DOC (6): London meeting with John
+
+Discover 'b j' in cat:
+  cat.image (1 hits)
+    DOC (New York.jpg): New York.jpg
+  cat.cal (1 hits)
+    DOC (4): Beer with John
+  cat.music (1 hits)
+    DOC (\data\vasco_supportedfiles\audio\02waves.mp3): 02waves.mp3 Coldplay Clocks [Japan EP] Berryman/Buckland/Champion/Martin 
+

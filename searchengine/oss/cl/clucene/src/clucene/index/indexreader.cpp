@@ -296,7 +296,14 @@ CL_NS_DEF(index)
   void IndexReader::setNorm(int32_t doc, const TCHAR* field, float_t value){
      setNorm(doc, field, CL_NS(search)::Similarity::encodeNorm(value));
   }
-
+  bool IndexReader::indexExists(){
+  //Func - Checks if an index exists in the directory
+  //Pre  - directory is a valid reference
+  //Post - Returns true if an index exists at the specified directory->
+  //       If the directory does not exist or if there is no index in it.
+  //       false is returned. Added for usecases like connecting device in mass storage mode 
+        return this->indexExists(this->directory);  
+      }
   bool IndexReader::indexExists(const Directory* directory){
   //Func - Static method
   //       Checks if an index exists in the directory

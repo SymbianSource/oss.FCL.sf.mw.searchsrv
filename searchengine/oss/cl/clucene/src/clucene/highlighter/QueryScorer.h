@@ -102,6 +102,11 @@ public:
 	 * top end of coloring scale.  
 		*/
 	float_t getMaxTermWeight();
+	/**
+	 *  Comapres @parameter text to Query text
+	 *
+	 */
+	int matchQuryText(const TCHAR* );
 
 private:
 	void initialize(WeightedTerm** weightedTerms);

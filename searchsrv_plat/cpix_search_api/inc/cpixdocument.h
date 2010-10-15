@@ -159,6 +159,13 @@ public:
      * @return the CpixDocumentField that was added to the document.
      */
     void addField(const QString aName, const QString aValue, const int aConfig = CpixDocument::DefaultConfig);
+    
+    /**
+     * Getter: Gets the field by name from the document.
+     * @param aName name of the field that is to be retrieved.
+     * @return CpixDocumentField .
+     */
+    const CpixDocumentField& field( const QString aName ) const THROWS_EXCEPTION;
 
 private:
     /**

@@ -348,13 +348,11 @@ public:
     void testAddFiles(Itk::TestMgr * testMgr)
     {
         testMgr_ = testMgr;
-        char *xml_file = (char*)__FUNCTION__;
-        assert_failed = 0;
         Cpt::traverse(FILE_TEST_CORPUS_PATH "\\en",
                       this);
 
         util_->flush();
-        testResultXml(xml_file);
+       
     }
 
 
@@ -362,11 +360,9 @@ public:
     {
         const wchar_t
             * word = L"happy";
-            char *xml_file = (char*)__FUNCTION__;
-            assert_failed = 0;
         testSearchFor(testMgr,
                       word);
-        testResultXml(xml_file);
+       
         
     }
 
@@ -374,44 +370,36 @@ public:
     {
         const wchar_t
             * word = L"important";
-        char *xml_file = (char*)__FUNCTION__;
-        assert_failed = 0;
         testSearchFor(testMgr,
                       word);
-        testResultXml(xml_file);
+       
     }
 
     void testSearchForHappening(Itk::TestMgr * testMgr)
     {
         const wchar_t
             * word = L"happening";
-        char *xml_file = (char*)__FUNCTION__;
-        assert_failed = 0;
         testSearchFor(testMgr,
                       word);
-        testResultXml(xml_file);
+       
     }
 
     void testSearchForLook(Itk::TestMgr * testMgr)
     {
         const wchar_t
             * word = L"look";
-        char *xml_file = (char*)__FUNCTION__;
-        assert_failed = 0;
         testSearchFor(testMgr,
                       word);
-        testResultXml(xml_file);
+       
     }
 
     void testSearchForChristmas(Itk::TestMgr * testMgr)
     {
         const wchar_t
             * word = L"christmas";
-        char *xml_file = (char*)__FUNCTION__;
-        assert_failed = 0;
         testSearchFor(testMgr,
                       word);
-        testResultXml(xml_file);
+       
     }
 
 
@@ -445,10 +433,7 @@ private:
                         cpix_Error_report(util_->idxDb()->err_,
                                           report,
                                           sizeof(report)/sizeof(wchar_t));
-                        if(expected)
-                            assert_failed = 1;
-                        else
-                            assert_failed = 0;  
+ 
                         ITK_EXPECT(testMgr,
                                    false,
                                    "Failed to search: %S",
@@ -463,10 +448,7 @@ private:
                 cpix_Error_report(query->err_,
                                   report,
                                   sizeof(report)/sizeof(wchar_t));
-                if(expected)
-                    assert_failed = 1;
-                else
-                    assert_failed = 0;  
+
                 ITK_EXPECT(testMgr,
                            false,
                            "Failed to parse '%S': %S",

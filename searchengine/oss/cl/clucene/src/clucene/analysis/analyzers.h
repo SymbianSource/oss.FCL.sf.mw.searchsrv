@@ -100,6 +100,20 @@ protected:
 	bool isTokenChar(const TCHAR c) const;
 };
 
+/** A PhoneNumberTokenizer is a tokenizer that strips a number to its subset.
+ * ex: A number 567 is tokenized as 567, 67 and 7. This is introduced to make
+ * number/word searchable from middle*/
+class PhoneNumberTokenizer: public Tokenizer {
+private:
+    const wchar_t *termText;
+    int32_t tokenLen;
+    int32_t termLen;
+public:
+    /** Construct a new PhoneNumberTokenizer. */ 
+    PhoneNumberTokenizer(CL_NS(util)::Reader* input);
+    ~PhoneNumberTokenizer(){}
+    bool next(Token* token);
+};
 
 /** An Analyzer that uses WhitespaceTokenizer. */
 class WhitespaceAnalyzer: public Analyzer {
@@ -285,6 +299,13 @@ public:
     virtual ~KeywordAnalyzer(){}
 };
 
+
+/** An Analyzer that uses PhoneNumberTokenizer. */
+class PhoneNumberAnalyzer: public Analyzer {
+public:
+    TokenStream* tokenStream(const TCHAR* fieldName, CL_NS(util)::Reader* reader);
+    virtual ~PhoneNumberAnalyzer(){}
+};
     
 /**
  * Removes words that are too long and too short from the stream.

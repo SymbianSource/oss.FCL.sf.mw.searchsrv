@@ -169,21 +169,17 @@ public:
     //
     void testBeforeVolDefs(Itk::TestMgr * mgr)
     {
-        char *xml_file = (char*)__FUNCTION__;
-        assert_failed = 0;
         printf("Before volume definitions\n");
 
         qry(mgr,
             false);
-        testResultXml(xml_file);
+       
     }
 
 
     void testBeforeContentDefs(Itk::TestMgr * mgr)
     {
         printf("Defining volumes\n");
-        char *xml_file = (char*)__FUNCTION__;
-        assert_failed = 0;
 
         cpix_Result
             result;
@@ -206,15 +202,13 @@ public:
 
         qry(mgr,
             true);
-        testResultXml(xml_file);
+       
     }
 
 
     void testReady(Itk::TestMgr * mgr)
     {
         printf("Defining contents\n");
-        char *xml_file = (char*)__FUNCTION__;
-        assert_failed = 0;
         const MVFTest
             * mvfTest = FilesAndVols;
 
@@ -242,7 +236,7 @@ public:
 
         qry(mgr,
             true);
-        testResultXml(xml_file);
+       
     }
 
 
@@ -313,7 +307,7 @@ private:
                    "Querying idx should %s have succeeded and it did %s",
                    shouldSucceed ? "" : "not",
                    succeeded ? "" : "not");
-        assert_failed = 1;
+
     }
 
 
@@ -363,7 +357,7 @@ private:
                    "Querying searcher should %s have succeeded and it did %s",
                    shouldSucceed ? "" : "not",
                    succeeded ? "" : "not");
-        assert_failed = 1;
+        
     }
 
 

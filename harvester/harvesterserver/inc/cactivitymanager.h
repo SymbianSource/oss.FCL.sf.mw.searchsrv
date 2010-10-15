@@ -24,7 +24,7 @@
 class MActivityManagerObserver
 {
 public :
-    virtual void ActivityChanged(const TBool aActive) = 0;
+    virtual void ActivityChangedL(const TBool aActive) = 0;
 };
 
 //#define MONITOR_LIGHTS

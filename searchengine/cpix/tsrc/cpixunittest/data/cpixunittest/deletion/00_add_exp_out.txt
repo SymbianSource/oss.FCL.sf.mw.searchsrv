@@ -1,4 +1,4 @@
 
 Indexed SMS 1
 Number of hits: 1
-DOC (b, line 2): This is a happy message
+DOC (b, line 2): This is a <U>happy</U> message

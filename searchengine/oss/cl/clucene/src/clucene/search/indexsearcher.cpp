@@ -16,7 +16,6 @@
 #include "clucene/index/term.h"
 #include "clucene/util/bitset.h"
 #include "fieldsortedhitqueue.h"
-
 CL_NS_USE(index)
 CL_NS_USE(util)
 CL_NS_USE(document)
@@ -112,6 +111,8 @@ CL_NS_DEF(search)
 
       reader = IndexReader::open(path);
       readerOwner = true;
+     
+     
   }
   
   IndexSearcher::IndexSearcher(CL_NS(store)::Directory* directory){
@@ -124,6 +125,8 @@ CL_NS_DEF(search)
 
       reader = IndexReader::open(directory);
       readerOwner = true;
+     
+      
   }
 
   IndexSearcher::IndexSearcher(IndexReader* r){
@@ -134,6 +137,7 @@ CL_NS_DEF(search)
 
       reader      = r;
       readerOwner = false;
+     
   }
 
   IndexSearcher::~IndexSearcher(){
@@ -200,9 +204,10 @@ CL_NS_DEF(search)
   //Func -
   //Pre  - reader != NULL
   //Post -
-
       CND_PRECONDITION(reader != NULL, "reader is NULL");
       CND_PRECONDITION(query != NULL, "query is NULL");
+      
+  
 
 	  Weight* weight = query->weight(this);
       Scorer* scorer = weight->scorer(reader);
@@ -247,9 +252,12 @@ CL_NS_DEF(search)
   // inherit javadoc
   TopFieldDocs* IndexSearcher::_search(Query* query, Filter* filter, const int32_t nDocs,
          const Sort* sort) {
-             
+
+
       CND_PRECONDITION(reader != NULL, "reader is NULL");
       CND_PRECONDITION(query != NULL, "query is NULL");
+      
+
 
     Weight* weight = query->weight(this);
     Scorer* scorer = weight->scorer(reader);
@@ -295,9 +303,12 @@ CL_NS_DEF(search)
   //       filter may or may not be NULL
   //       results is a valid reference to a HitCollector and used to store the results
   //Post - filter if non-NULL, a bitset used to eliminate some documents
-
+     
       CND_PRECONDITION(reader != NULL, "reader is NULL");
       CND_PRECONDITION(query != NULL, "query is NULL");
+     
+
+
 
       BitSet* bits = NULL;
       SimpleFilteredCollector* fc = NULL; 

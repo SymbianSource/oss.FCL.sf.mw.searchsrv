@@ -136,7 +136,7 @@ int32_t hitsLength  = 0;
         }
         if (queryParser == NULL)
             {
-                assert_failed = 1;
+                
                 cpix_Analyzer_destroy( analyzer );
                 ITK_PANIC("Could not create query parser");
             }
@@ -148,7 +148,7 @@ int32_t hitsLength  = 0;
         if (cpix_Failed(queryParser)
             || query == NULL)
             {
-                assert_failed = 1;
+                
                 cpix_Analyzer_destroy(analyzer);
                 cpix_ClearError(queryParser);
                 cpix_QueryParser_destroy(queryParser);
@@ -172,7 +172,7 @@ int32_t hitsLength  = 0;
                     }
                 else
                     {
-                    assert_failed = 1;
+                    
                     ITK_MSG(testMgr, "Query %S, didnt return expected hits. Expected is %d hits. Returned is %d. Failed \n",qryStr,hitLen,hitsLength);
                     }
                     
@@ -185,8 +185,6 @@ int32_t hitsLength  = 0;
 
 void CreatePlainQueryTest(Itk::TestMgr * testMgr) 
 {
-    char *xml_file = (char*)__FUNCTION__;
-    assert_failed = 0;
     setupPlainQuery(testMgr);
     testQuery(testMgr,L"Nokia", 2);
     testQuery(testMgr,L"iNdia", 1);
@@ -220,13 +218,11 @@ void CreatePlainQueryTest(Itk::TestMgr * testMgr)
     testQuery(testMgr,L"NOT India", 1);
     testQuery(testMgr,L"(india OR Mobile) AND Nokia", 2);
     testQuery(testMgr,L"(india OR Mobile) AND Country", 1);
-    testResultXml(xml_file);
+   
 }
 
 void CreatePrefixQueryTest(Itk::TestMgr * testMgr) 
 {
-    char *xml_file = (char*)__FUNCTION__;
-    assert_failed = 0;
     setupPrefixQuery(testMgr);
     testQuery(testMgr,L"$prefix(\"new-notes\")", 1);
     testQuery(testMgr,L"$prefix(\"notes\")", 1);
@@ -251,7 +247,7 @@ void CreatePrefixQueryTest(Itk::TestMgr * testMgr)
     testQuery(testMgr,L"$prefix(\"(testing)\")", 2);
     testQuery(testMgr,L"$prefix(\"mail-id\")", 1);
     testQuery(testMgr,L"$prefix(\"mail id\")", 1);
-    testQuery(testMgr,L"$prefix(\"shankar.rajendran@nokia.com\")", 1);
+    testQuery(testMgr,L"$prefix(\"shankar.rajendran@nokia.com\")", 2);
     testQuery(testMgr,L"$prefix(\"~tild\")", 1);
     testQuery(testMgr,L"$prefix(\"shankar\")", 2);
     testQuery(testMgr,L"$prefix(\"`singlequote\")", 1);
@@ -268,13 +264,11 @@ void CreatePrefixQueryTest(Itk::TestMgr * testMgr)
     testQuery(testMgr,L"$prefix(\"<lessthan\")", 1);
     testQuery(testMgr,L"$prefix(\">greaterthan\")", 1);
     testQuery(testMgr,L"$prefix(\"worked for motorola .\")", 1);
-    testResultXml(xml_file);
+   
 }
 
 void CreatePrefixOptimiseQueryTest(Itk::TestMgr * testMgr)
     {
-    char *xml_file = (char*)__FUNCTION__;
-    assert_failed = 0;
     setupPrefixOptimiseQuery(testMgr);
     testQuery(testMgr,L"i*", 3,LCPIX_DEFAULT_PREFIX );
     testQuery(testMgr,L"in*", 2,LCPIX_DEFAULT_PREFIX );
@@ -297,7 +291,7 @@ void CreatePrefixOptimiseQueryTest(Itk::TestMgr * testMgr)
     testQuery(testMgr,L"ru*", 2,LCPIX_DEFAULT_PREFIX );
     testQuery(testMgr,L"ra*", 2,LCPIX_DEFAULT_PREFIX );
     testQuery(testMgr,L"ri*", 2,LCPIX_DEFAULT_PREFIX );
-    testResultXml(xml_file);
+   
     }
 Itk::TesterBase * CreateQueryTests()
 {

@@ -33,6 +33,8 @@
 #include <iostream>
 #include <fstream>
 
+#include "std_log_result.h"
+
 #ifdef __GCCE__
 #include <staticlibinit_gcce.h>
 #endif
@@ -116,7 +118,7 @@ Itk::TesterBase * CreateTestHierarchy()
     all->add(CreateDomainSelectionTests()); 
     all->add(CreateUtf8Tests());			
     all->add(CreateUtf8PathTests());
-    all->add(CreateAnalysisTests());		
+   // all->add(CreateAnalysisTests());		
 		 
     all->add(CreatePdfSearchTests());
     all->add(CreateDocumentTests());		
@@ -224,6 +226,13 @@ int main(int          argc,
                         printf("Failed to increase thread priority\n");
                         return -1;
                     }
+		cpix_InitParams_setResourceDir(initParams,
+									   RESOURCE_PATH);
+		if (cpix_Failed(initParams))
+			{
+				printf("Failed to set resource dir\n");
+				return -1;
+			}
 
 		cpix_init(&result,
                           initParams);
@@ -236,6 +245,9 @@ int main(int          argc,
                                                   sizeof(buffer)/sizeof(wchar_t));
 				printf("Failed to initialize CPix: %S\n",
 					   buffer);
+				
+				std::wofstream out("c:\\data\\cpixunittest\\report.txt");
+				out<<"Failed to initialize CPix:\n"<<buffer<<std::flush;
 				return -1;
 			}
 
@@ -304,13 +316,17 @@ int main(int          argc,
 					{
 						testMgr.generateSummary(ofs);
 					}
+				
+		        bool
+		            verdict = (testMgr.getFailedExpects() + testMgr.getFailedAsserts()) == 0;
+		        
+		            testResultXml(focus, verdict);
+		        
+		        
 			}
 		
 	
 		cpix_shutdown();
-	
-		int
-			c = getchar();
 	}
 
 #ifdef __SYMBIAN32__

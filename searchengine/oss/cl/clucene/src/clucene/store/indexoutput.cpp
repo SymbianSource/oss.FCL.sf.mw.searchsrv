@@ -27,7 +27,13 @@ CL_NS_DEF(store)
 
   BufferedIndexOutput::~BufferedIndexOutput(){
   	if ( buffer != NULL )
-  		close();
+  	    {
+            _CLDELETE_ARRAY( buffer );
+    
+            bufferStart = 0;
+            bufferPosition = 0;
+  	    }
+
   }
 
   void BufferedIndexOutput::close(){

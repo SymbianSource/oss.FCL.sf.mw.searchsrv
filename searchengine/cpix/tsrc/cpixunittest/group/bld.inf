@@ -286,6 +286,11 @@ PRJ_TESTEXPORTS
 ../data/cpixunittest/heartbeat/12_releaseAll_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/heartbeat/12_releaseAll_exp_out.txt
 ../data/cpixunittest/heartbeat/13_idle_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/heartbeat/13_idle_exp_out.txt
 
+../data/cpixunittest/querytests/plainquerytest_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/querytests/plainquerytest_exp_out.txt
+../data/cpixunittest/querytests/prefixoptimisequerytest_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/querytests/prefixoptimisequerytest_exp_out.txt
+../data/cpixunittest/querytests/prefixquerytest_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/querytests/prefixquerytest_exp_out.txt
+
+
 ../data/cpixunittest/terms/allterms_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/terms/allterms_exp_out.txt
 ../data/cpixunittest/terms/mp3terms_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/terms/mp3terms_exp_out.txt
 ../data/cpixunittest/terms/textterms_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/terms/textterms_exp_out.txt
@@ -309,6 +314,24 @@ PRJ_TESTEXPORTS
 ../data/cpixunittest/prefixopt/unoptimized_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/prefixopt/unoptimized_out.txt
 ../data/cpixunittest/prefixopt/optimized_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/prefixopt/optimized_exp_out.txt
 
+../data/cpixunittest/pdftests/pdfsearch_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/pdf/pdfsearch_exp_out.txt
+../data/cpixunittest/misc/CpixExc_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/misc/CpixExc_exp_out.txt
+../data/cpixunittest/misc/doclist_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/misc/doclist_exp_out.txt
+../data/cpixunittest/misc/pdfparser_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/misc/pdfparser_exp_out.txt
+../data/cpixunittest/misc/SetError_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/misc/SetError_exp_out.txt
+../data/cpixunittest/misc/termCD_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/misc/termCD_exp_out.txt
+../data/cpixunittest/misc/testanalyzer_exp_out.txt /epoc32/winscw/c/Data/cpixunittest/misc/testanalyzer_exp_out.txt
+
+
+../data/cpixunittestcorpus/pdf/ctutor.pdf /epoc32/winscw/c/Data/cpixunittestcorpus/pdf/ctutor.pdf
+../data/cpixunittestcorpus/pdf/DCTDecode.pdf /epoc32/winscw/c/Data/cpixunittestcorpus/pdf/DCTDecode.pdf
+../data/cpixunittestcorpus/pdf/Empty.pdf /epoc32/winscw/c/Data/cpixunittestcorpus/pdf/Empty.pdf
+../data/cpixunittestcorpus/pdf/geology.pdf /epoc32/winscw/c/Data/cpixunittestcorpus/pdf/geology.pdf
+../data/cpixunittestcorpus/pdf/samplepdf.pdf /epoc32/winscw/c/Data/cpixunittestcorpus/pdf/samplepdf.pdf
+../data/cpixunittestcorpus/pdf/start_enter.pdf /epoc32/winscw/c/Data/cpixunittestcorpus/pdf/start_enter.pdf
+../data/cpixunittestcorpus/pdf/windjack.pdf /epoc32/winscw/c/Data/cpixunittestcorpus/pdf/windjack.pdf
+
+../data/cpixunittest/random/dummy.txt /epoc32/winscw/c/Data/cpixunittest/random/dummy.txt
 
 
 
@@ -383,6 +406,12 @@ PRJ_TESTEXPORTS
 "../data/cpixunittestcorpus/stem/fi/3.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/stem/fi/3.txt"
 "../data/cpixunittestcorpus/stem/fi/4.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/stem/fi/4.txt"
 
+"../data/cpixunittestcorpus/query/query1.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/query/query1.txt"
+"../data/cpixunittestcorpus/query/query2.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/query/query2.txt"
+"../data/cpixunittestcorpus/query/query3.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/query/query3.txt"
+"../data/cpixunittestcorpus/query/query4.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/query/query4.txt"
+"../data/cpixunittestcorpus/query/query5.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/query/query5.txt"
+"../data/cpixunittestcorpus/query/query6.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/query/query6.txt"
 "../data/cpixunittestcorpus/query/query7.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/query/query7.txt"
 "../data/cpixunittestcorpus/query/query8.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/query/query8.txt"
 "../data/cpixunittestcorpus/query/query9.txt"                            "/epoc32/winscw/c/Data/cpixunittestcorpus/query/query9.txt"

@@ -67,4 +67,6 @@ EXPORTS
 	_ZTV12CpixDocument @ 66 NONAME
 	_ZTV12CpixSearcher @ 67 NONAME
 	_ZTV17CpixDocumentField @ 68 NONAME
+	_ZNK12CpixDocument5fieldE7QString @ 69 NONAME
+	_ZNK17CpixDocumentField6valuesEv @ 70 NONAME
 

@@ -1,0 +1,13 @@
+Discover 'meeting' in cat.cal:
+    DOC (5): Sprint meeting
+    DOC (6): London meeting with John
+    DOC (1): Meeting
+
+Discover 'london' in cat.cal:
+    DOC (6): London meeting with John
+    DOC (2): London calling
+
+Discover 'john' in cat.cal:
+    DOC (6): London meeting with John
+    DOC (4): Beer with John
+

@@ -401,7 +401,8 @@ void cpix_Error_report(cpix_Error    * thisError,
         }
     else
         {
-            *target = 0;
+		if (target)
+            target = 0;
         }
 }
 

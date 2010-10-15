@@ -1,0 +1,49 @@
+Discover 'f' in cat.image:
+    DOC (08012009047.jpg): 08012009047.jpg
+
+Discover 'futurice' in cat.image:
+    DOC (08012009047.jpg): 08012009047.jpg
+
+Discover 'r' in cat.image:
+    DOC (08012009047.jpg): 08012009047.jpg
+    DOC (Verkkokauppa.jpg): Verkkokauppa.jpg
+
+Discover 'otan' in cat.image:
+    DOC (Otaniemi.jpg): Otaniemi.jpg
+
+@northpole
+
+Discover 'jpg' in cat.image:
+    DOC (Nowhere): Nowhere
+    DOC (Otaniemi.jpg): Otaniemi.jpg
+    DOC (New York.jpg): New York.jpg
+    DOC (08012009047.jpg): 08012009047.jpg
+    DOC (Verkkokauppa.jpg): Verkkokauppa.jpg
+
+@ruoholahti
+
+Discover 'jpg' in cat.image:
+    DOC (Nowhere): Nowhere
+    DOC (Otaniemi.jpg): Otaniemi.jpg
+    DOC (New York.jpg): New York.jpg
+    DOC (08012009047.jpg): 08012009047.jpg
+    DOC (Verkkokauppa.jpg): Verkkokauppa.jpg
+
+@newyork
+
+Discover 'jpg' in cat.image:
+    DOC (Nowhere): Nowhere
+    DOC (Otaniemi.jpg): Otaniemi.jpg
+    DOC (New York.jpg): New York.jpg
+    DOC (08012009047.jpg): 08012009047.jpg
+    DOC (Verkkokauppa.jpg): Verkkokauppa.jpg
+
+@otaniemi
+
+Discover 'jpg' in cat.image:
+    DOC (Nowhere): Nowhere
+    DOC (Otaniemi.jpg): Otaniemi.jpg
+    DOC (New York.jpg): New York.jpg
+    DOC (08012009047.jpg): 08012009047.jpg
+    DOC (Verkkokauppa.jpg): Verkkokauppa.jpg
+

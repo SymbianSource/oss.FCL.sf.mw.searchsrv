@@ -31,6 +31,7 @@
  */
 
 #include <QObject>
+#include <QStringList>
 
 //Forward decelaration
 class CpixDocumentFieldPrivate;
@@ -98,6 +99,12 @@ public:
      * @param aConfig The config of the field
      */
     void setConfig(const int aConfig);
+    
+    /**
+     * Getter: Gets the Value of the field.
+     * @return The value of the field in list
+     */
+    QStringList values() const;
 
 private:
 	/**

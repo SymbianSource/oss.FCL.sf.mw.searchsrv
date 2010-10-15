@@ -35,7 +35,7 @@
 #include "testutils.h"
 #include "setupsentry.h"
 
-#include "std_log_result.h"
+
 #include "..\..\..\cpix\src\qrytypes\prefixqrytype.cpp"
 #include "..\..\..\cpix\src\qrytypes\termsqrytype.cpp"
 
@@ -299,8 +299,7 @@ public:
 
     void TestPrefixQryType(Itk::TestMgr *testMgr )
         {
-        char *xml_file = (char *)__FUNCTION__;
-        assert_failed = 0;
+        
         tearDown();
         setup();
         cpix_Result  result;
@@ -317,7 +316,7 @@ public:
                    "Flushing index has failed");
         if(!cpix_Succeeded(idxDb_))
             {
-            assert_failed = 1;
+            
             }
         Cpix::PrefixQryType *qryType = new Cpix::PrefixQryType;
         std::list<std::wstring> list(3,L"");
@@ -333,13 +332,12 @@ public:
             }
         cpix_Hits *Hits1 = qryType->search(searcher);
         cpix_Hits *Hits2 = qryType->search(idxDb_);
-        testResultXml(xml_file);
+
         }
     
     void TestTermsQryType(Itk::TestMgr * )
         {
-        char *xml_file = (char *)__FUNCTION__;
-        assert_failed = 0;
+        
         Cpix::TermsQryType qrytype;
         tearDown();
         setup();
@@ -347,14 +345,13 @@ public:
         std::list<std::wstring> list1;
         qrytype.setUp(queryParser_, list, SEARCH_TERM);
         qrytype.setUp(queryParser_, list1, SEARCH_TERM);
-        testResultXml(xml_file);
+       
         }
     
     void testNoBoostingFields(Itk::TestMgr * testMgr)
     {
         // Don't boost Field Alpha in doc1
-        char *xml_file = (char *)__FUNCTION__;
-        assert_failed = 0;
+        
         addDocument(testMgr,
                     LDOCUID1,
                     DOC1CONTENT);
@@ -368,7 +365,7 @@ public:
                    "Flushing index has failed");
         if(!cpix_Succeeded(idxDb_))
             {
-            assert_failed = 1;
+            
             }
 
         executeSearch(testMgr);
@@ -391,17 +388,17 @@ public:
                 "wrong document");
         if(str.compare(LDOCUID2) != 0)
             {
-        assert_failed = 1;
+        
             }
             }
         else
             {
-        assert_failed = 1;
+        
         ITK_PANIC("failed to get _docuid");
             }
         } else  {
             ITK_PANIC("could not fetch requested doc");
-            assert_failed = 1;
+            
         }
         FREE_DOC(returnedDoc1, 1);
         
@@ -422,20 +419,20 @@ public:
                 "wrong document");
         if(str.compare(LDOCUID1) != 0)
             {
-        assert_failed = 1;
+        
             }
             }
         else
             {
-        assert_failed = 1;
+        
         ITK_PANIC("failed to get _docuid");
             }
         }  else  {
             ITK_PANIC("could not fetch requested doc");
-            assert_failed = 1;
+            
         }
         FREE_DOC(returnedDoc2, 1);
-        testResultXml(xml_file);
+       
         
     }
 
@@ -443,8 +440,7 @@ public:
 
     void testBoostField(Itk::TestMgr * testMgr)
     {
-        char *xml_file = (char *)__FUNCTION__;
-        assert_failed = 0;
+        
         tearDown();
         setup();
 
@@ -463,7 +459,7 @@ public:
                    "Flushing index has failed");
         if(!cpix_Succeeded(idxDb_))
             {
-            assert_failed = 1;
+            
             }
 
         executeSearch(testMgr);
@@ -486,17 +482,17 @@ public:
                 "wrong document");
         if(str.compare(LDOCUID1) != 0)
             {
-        assert_failed = 1;
+        
             }
             }
         else
             {
         ITK_PANIC("failed to get _docuid");
-        assert_failed = 1;
+        
             }
         }  else  {
             ITK_PANIC("could not fetch requested doc");
-            assert_failed = 1;
+            
         }
         FREE_DOC(returnedDoc1, 1);
 
@@ -517,26 +513,25 @@ public:
                 "wrong document");
         if(str.compare(LDOCUID2) != 0)
             {
-        assert_failed = 1;
+        
             }
             }
         else
             {
         ITK_PANIC("failed to get _docuid");
-        assert_failed = 1;
+        
             }
         }  else  {
             ITK_PANIC("could not fetch requested doc");
-            assert_failed = 1;
+            
         }
         FREE_DOC(returnedDoc2, 1);
-        testResultXml(xml_file);
+       
     }
 
     void testBoostDocument(Itk::TestMgr * testMgr)
     {
-        char *xml_file = (char *)__FUNCTION__;
-        assert_failed = 0;
+        
         tearDown();
         setup();
     
@@ -555,7 +550,7 @@ public:
                    "Flushing index has failed");
         if(!cpix_Succeeded(idxDb_))
             {
-            assert_failed = 1;
+            
             }
         executeSearch(testMgr);
         //  EXPECTED result is that doc1 first, doc2 second.
@@ -577,17 +572,17 @@ public:
                 "wrong document");
         if(str.compare(LDOCUID1) != 0)
             {
-        assert_failed = 1;
+        
             }
             }
         else
             {
         ITK_PANIC("failed to get _docuid");
-        assert_failed = 1;
+        
             }
         }  else  {
             ITK_PANIC("could not fetch requested doc");
-            assert_failed = 1;
+            
         }
         FREE_DOC(returnedDoc1, 1);
 
@@ -608,27 +603,26 @@ public:
                 "wrong document");
         if(str.compare(LDOCUID2) != 0)
             {
-        assert_failed = 1;
+        
             }
             }
         else
             {
         ITK_PANIC("failed to get _docuid");
-        assert_failed = 1;
+        
             }
         }  else  {
             ITK_PANIC("could not fetch requested doc");
-            assert_failed = 1;
+            
         }
         FREE_DOC(returnedDoc2, 1);
-        testResultXml(xml_file);
+       
     }
 
 
     void testBoostQuery(Itk::TestMgr * testMgr)
     {
-        char *xml_file = (char *)__FUNCTION__;
-        assert_failed = 0;
+        
         tearDown();
         setup();
 
@@ -643,10 +637,7 @@ public:
         ITK_EXPECT(testMgr,
                    cpix_Succeeded(idxDb_),
                    "Flushing index has failed");
-        if(!cpix_Succeeded(idxDb_))
-            {
-            assert_failed = 1;
-            }
+
         // doc1_ should be the first result given the following query boost.
         cpix_Query_destroy(query_);
 
@@ -661,10 +652,6 @@ public:
         ITK_ASSERT(testMgr,
                   hits_len == 2,
                   "wrong amount of documents returned in hits");
-        if(hits_len != 2)
-            {
-            assert_failed = 1;
-            }
 
         //  EXPECTED result is that doc2 first.
         cpix_Document
@@ -682,19 +669,16 @@ public:
         ITK_ASSERT(testMgr,
                 str.compare(LDOCUID1) == 0,
                 "wrong document");
-        if(str.compare(LDOCUID2) != 0)
-            {
-        assert_failed = 1;
-            }
+
             }
         else
             {
         ITK_PANIC("failed to get _docuid");
-        assert_failed = 1;
+        
             }
         }  else  {
             ITK_PANIC("could not fetch requested doc");
-            assert_failed = 1;
+
         }
         FREE_DOC(returnedDoc1, 1);
 
@@ -713,22 +697,19 @@ public:
         ITK_ASSERT(testMgr,
                 str.compare(LDOCUID2) == 0,
                 "wrong document");
-        if(str.compare(LDOCUID2) != 0)
-            {
-        assert_failed = 1;
-            }
+
             }
         else
             {
         ITK_PANIC("failed to get _docuid");
-        assert_failed = 1;
+
             }
         }  else  {
             ITK_PANIC("could not fetch requested doc");
-            assert_failed = 1;
+
         }
         FREE_DOC(returnedDoc2, 1);
-        testResultXml(xml_file);
+       
     }
 };
 

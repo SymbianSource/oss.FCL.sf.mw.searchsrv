@@ -32,7 +32,7 @@
 #include "cpixdoc.h"
 #include "cpixsearch.h"
 #include "cpixidxdb.h"
-#include "std_log_result.h"
+
 
 #define TEST_DOCUMENT_QBASEAPPCLASS "@0:root test document"
 #define TEST_SAMPLE_QBASEAPPCLASS "@:root test sample"
@@ -271,8 +271,6 @@ virtual void tearDown() throw()
 
 void testCreateDb(Itk::TestMgr* /*testMgr */)
 {
-    char *xml_file = (char *)__FUNCTION__;
-    assert_failed = 0;
     cpix_IdxDb   *itestDb_ = NULL, *inewDb_ = NULL;                
     cpix_Result  result;
     
@@ -289,7 +287,7 @@ void testCreateDb(Itk::TestMgr* /*testMgr */)
     if (cpix_Failed(&result))
         {
         ITK_PANIC("Failed to open indexDb");
-        assert_failed = 1;
+        
         }
      
      if ( itestDb_ ) 
@@ -304,13 +302,11 @@ void testCreateDb(Itk::TestMgr* /*testMgr */)
             inewDb_ = 0;
          }
      cpix_IdxDb_undefineVolume(TEST_SAMPLE_QBASEAPPCLASS);
-     testResultXml(xml_file);
 }
 
 void testOpenDb(Itk::TestMgr * testMgr)
 {
-        char *xml_file = (char *)__FUNCTION__;
-        assert_failed = 0;
+        
         cpix_Result  result;            
         cpix_IdxDb   *idxDb_ = NULL;
         
@@ -321,7 +317,7 @@ void testOpenDb(Itk::TestMgr * testMgr)
         if(idxDb_ == NULL )
             {
             ITK_MSG(testMgr, "Tried to open a database of undefined volume");
-            assert_failed = 1;
+            
             }
         
         if (idxDb_) 
@@ -329,13 +325,12 @@ void testOpenDb(Itk::TestMgr * testMgr)
                 cpix_IdxDb_releaseDb(idxDb_);
                 idxDb_ = 0; 
             }       
-        testResultXml(xml_file);
+       
 }
 
 void testCorruptedIndex(Itk::TestMgr * testMgr)
 {
-     char *xml_file = (char *)__FUNCTION__;
-     assert_failed = 0;
+     
      cpix_Analyzer * analyzer_ = NULL ;       
      cpix_IdxDb * iCrptDb1_ = NULL, *iCrptDb2_ = NULL;
      
@@ -383,7 +378,7 @@ void testCorruptedIndex(Itk::TestMgr * testMgr)
      else
          {
          ITK_MSG(testMgr, "Corrupted database, search not possible");
-         assert_failed = 0;
+         
          }
      
      cleanUp(&analyzer_,&iCrptDb1_);
@@ -396,7 +391,7 @@ void testCorruptedIndex(Itk::TestMgr * testMgr)
      
      cpix_IdxDb_undefineVolume(TEST_CORRUPTTEST1_QBASEAPPCLASS);
      cpix_IdxDb_undefineVolume(TEST_CORRUPTTEST2_QBASEAPPCLASS);
-     testResultXml(xml_file);
+    
  }
 
 };
@@ -408,7 +403,7 @@ Itk::TesterBase * CreateNegativeTests()
     NegativeTests
             *negativeTests = new NegativeTests;
     ContextTester
-            * contextTester = new ContextTester("Negative Tests",
+            * contextTester = new ContextTester("NegativeTests",
                                                 negativeTests);    
 #define TEST "CreateDb"
     contextTester->add(TEST,

@@ -299,7 +299,7 @@ void CActivityManager::NotifyObserver()
         iPreviousStatus = status; 
         if (iObserver)
             {
-            iObserver->ActivityChanged(status);
+            iObserver->ActivityChangedL(status);
             }
         }    
     OstTraceFunctionExit0( CACTIVITYMANAGER_NOTIFYOBSERVER_EXIT );

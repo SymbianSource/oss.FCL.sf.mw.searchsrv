@@ -11,6 +11,18 @@
 #include "clucene/index/indexreader.h"
 #include "filter.h"
 #include "clucene/search/searchheader.h"
+//#ifdef USE_HIGHLIGHTER 
+#include "CLucene/highlighter/QueryTermExtractor.h"
+#include "CLucene/highlighter/QueryScorer.h"
+#include "CLucene/highlighter/Highlighter.h"
+#include "CLucene/highlighter/SimpleHTMLFormatter.h"
+#include "CLucene/analysis/standard/StandardAnalyzer.h"
+#include "clucene/search/prefixquery.h"
+
+#include "prefixfilter.h"
+#include "koreananalyzer.h"
+
+//#endif
 
 CL_NS_USE(document)
 CL_NS_USE(util)
@@ -42,6 +54,12 @@ CL_NS_DEF(search)
 
 	Hits::Hits(Searcher* s, Query* q, Filter* f, const Sort* _sort):
 		query(q), searcher(s), filter(f), sort(_sort)
+//#ifdef USE_HIGHLIGHTER
+		, hl_frag(15)		
+#if defined (__SYMBIAN32__)		
+    ,lang(User::Language())
+#endif    
+//#endif		
 	{
 	//Func - Constructor
 	//Pre  - s contains a valid reference to a searcher s
@@ -65,7 +83,153 @@ CL_NS_DEF(search)
 	int32_t Hits::length() const {
 		return _length;
 	}
+	
+ void Hits::getHighlightedText(CL_NS(document)::Document* document)
+        {
+/* TODO :: Important consideration for getting locale
+ * Highlighting is based on the locale, the current implementation is 
+ * only for symbian devices, this dependency should be complete before 
+ * porting to any other OS. so all code is under symbian macro.
+ * 
+ */
+#if defined (__SYMBIAN32__)
+        TCHAR* result = NULL;
+        CL_NS2(search,highlight)::QueryScorer hl_scorer(query);
+        CL_NS2(search,highlight)::Highlighter highlighter(&hl_formatter, &hl_scorer);
+        highlighter.setTextFragmenter(&hl_frag);
 
+        const TCHAR* fieldtxt = document->get(LCPIX_HL_EXCERPT_FIELD);
+
+        if(fieldtxt)
+            {
+            StringReader strreader(fieldtxt);
+
+            switch(lang)
+                {
+                case ELangEnglish:
+                case ELangCanadianEnglish:
+                case ELangInternationalEnglish:
+                case ELangSouthAfricanEnglish:
+                    {
+                    CL_NS(analysis)::TokenStream* tokenstream = _CLNEW CL_NS2(analysis,standard)::StandardTokenizer(&strreader);
+                    tokenstream = _CLNEW CL_NS2(analysis,standard)::StandardFilter(tokenstream,true);
+                    tokenstream = _CLNEW CL_NS(analysis)::LowerCaseFilter(tokenstream,true);
+                    result = highlighter.getBestFragments(tokenstream, fieldtxt, 2, L"...");
+                    break;
+                    }
+                case ELangFrench:
+                case ELangSwissFrench:
+                case ELangBelgianFrench:
+                case ELangInternationalFrench:
+                case ELangCanadianFrench:
+                    {
+                    ::analysis::FrenchAnalyzer hl_analyzer;
+                    lucene::analysis::TokenStream * ts1 = hl_analyzer.tokenStream(LCPIX_HL_EXCERPT_FIELD, &strreader);
+                    result = highlighter.getBestFragments(ts1, fieldtxt, 2, L"...");
+                    break;
+                    }
+                case ELangHebrew:
+                    {
+                    ::analysis::HebrewAnalyzer hl_analyzer;
+                    lucene::analysis::TokenStream * ts1 = hl_analyzer.tokenStream(LCPIX_HL_EXCERPT_FIELD, &strreader);
+                    result = highlighter.getBestFragments(ts1, fieldtxt, 2, L"...");
+                    break;
+                    }
+                case ELangTaiwanChinese:
+                case ELangHongKongChinese:
+                case ELangPrcChinese:
+                case ELangJapanese:
+                case ELangKorean:
+                    {
+                    ::analysis::CjkNGramTokenizer hl_analyzer(&strreader,1);
+                    lucene::analysis::TokenStream * ts1 = &hl_analyzer;
+                    result = highlighter.getBestFragments(ts1, fieldtxt, 2, L"...");
+                    break;
+                    }
+                case ELangNone:
+                default:
+                    {
+                    CL_NS(analysis)::TokenStream* tokenstream = _CLNEW CL_NS2(analysis,standard)::StandardTokenizer(&strreader);
+                    tokenstream = _CLNEW CL_NS2(analysis,standard)::StandardFilter(tokenstream,true);
+                    tokenstream = _CLNEW CL_NS(analysis)::LowerCaseFilter(tokenstream,true);
+                    result = highlighter.getBestFragments(tokenstream, fieldtxt, 2, L"...");
+                    }
+                }
+
+            if (result != NULL && *((int*)result) != 0x00)
+                {
+                document->removeField( LCPIX_HL_EXCERPT_FIELD );
+                document->add(*_CLNEW Field(LCPIX_HL_EXCERPT_FIELD,
+                                result, lucene::document::Field::STORE_YES | lucene::document::Field::INDEX_NO));
+                result = NULL;
+                }
+            }
+
+        const TCHAR* fieldtxt2 = document->get(LCPIX_EXCERPT_FIELD);
+
+        if(fieldtxt2 )
+            {
+            StringReader strreader2(fieldtxt2);
+            switch(lang)
+                {
+                case ELangEnglish:
+                case ELangCanadianEnglish:
+                case ELangInternationalEnglish:
+                case ELangSouthAfricanEnglish:
+                    {
+                    CL_NS2(analysis,standard)::StandardAnalyzer hl_analyzer;
+                    lucene::analysis::TokenStream * ts1 = hl_analyzer.tokenStream(LCPIX_EXCERPT_FIELD, &strreader2);
+                    result = highlighter.getBestFragments(ts1, fieldtxt2, 2, L"...");
+                    break;
+                    }
+                case ELangFrench:
+                case ELangSwissFrench:
+                case ELangBelgianFrench:
+                case ELangInternationalFrench:
+                case ELangCanadianFrench:
+                    {
+                    ::analysis::FrenchAnalyzer hl_analyzer;
+                    lucene::analysis::TokenStream * ts1 = hl_analyzer.tokenStream(LCPIX_EXCERPT_FIELD, &strreader2);
+                    result = highlighter.getBestFragments(ts1, fieldtxt2, 2, L"...");
+                    break;
+                    }
+                case ELangHebrew:
+                    {
+                    ::analysis::HebrewAnalyzer hl_analyzer;
+                    lucene::analysis::TokenStream * ts1 = hl_analyzer.tokenStream(LCPIX_EXCERPT_FIELD, &strreader2);
+                    result = highlighter.getBestFragments(ts1, fieldtxt2, 2, L"...");
+                    break;
+                    }
+                case ELangTaiwanChinese:
+                case ELangHongKongChinese:
+                case ELangPrcChinese:
+                case ELangJapanese:
+                case ELangKorean:
+                    {
+                    ::analysis::CjkNGramTokenizer hl_analyzer(&strreader2,1);
+                    lucene::analysis::TokenStream * ts1 = &hl_analyzer;
+                    result = highlighter.getBestFragments(ts1, fieldtxt2, 2, L"...");
+                    break;
+                    }
+                case ELangNone:
+                default:
+                    {
+                    CL_NS2(analysis,standard)::StandardAnalyzer hl_analyzer;
+                    lucene::analysis::TokenStream * ts1 = hl_analyzer.tokenStream(LCPIX_EXCERPT_FIELD, &strreader2);
+                    result = highlighter.getBestFragments(ts1, fieldtxt2, 2, L"...");
+                    }
+                }
+            if (result != NULL && *((int*)result) != 0x00)
+                {
+                document->removeField( LCPIX_EXCERPT_FIELD );
+                document->add(*_CLNEW Field(LCPIX_EXCERPT_FIELD,
+                                result, lucene::document::Field::STORE_YES | lucene::document::Field::INDEX_NO));
+                }
+            }
+#endif
+
+        }
+	
 	Document& Hits::doc(const int32_t n){
 		HitDoc* hitDoc = getHitDoc(n);
 
@@ -83,6 +247,11 @@ CL_NS_DEF(search)
 		if (hitDoc->doc == NULL){
 			hitDoc->doc = _CLNEW Document;
 			searcher->doc(hitDoc->id, hitDoc->doc);	  // cache miss: read document
+//#ifdef USE_HIGHLIGHTER
+            CL_NS(document)::Document* document = hitDoc->doc;
+            getHighlightedText(document);
+//#endif
+         
 		}
 
 		return *hitDoc->doc;

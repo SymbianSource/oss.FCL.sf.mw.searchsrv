@@ -1,5 +1,5 @@
 
 Deleted 1 items by c
 Number of hits: 2
-DOC (e, line 5): This is the 4th happy message
-DOC (f, line 6): This is the 5th happy message
+DOC (e, line 5): This is the 4th <U>happy</U> message
+DOC (f, line 6): This is the 5th <U>happy</U> message

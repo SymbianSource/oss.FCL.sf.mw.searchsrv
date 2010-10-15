@@ -18,6 +18,7 @@
 #ifndef CCPIXSEARCH_H_
 #define CCPIXSEARCH_H_
 
+#include "cpixsynctools.h"
 #include <e32base.h>
 #include "CCPixAbstractSearcher.h"
 
@@ -57,6 +58,8 @@ public:
 	 * all resources until all handles to given database are closed.
 	 */
 	virtual ~CCPixSearch();
+	
+	static Cpt::Mutex hitMutex_;
 	
 public:
 	

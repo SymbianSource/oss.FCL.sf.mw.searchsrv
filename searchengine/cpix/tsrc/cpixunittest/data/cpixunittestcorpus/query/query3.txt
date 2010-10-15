@@ -1,0 +1,1 @@
+Roam is a word to test fuzzy query. if you search for roam, it will return foam also.

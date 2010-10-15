@@ -1,0 +1,111 @@
+
+; Copyright (c) 2010 Nokia Corporation and/or its subsidiary(-ies).
+; All rights reserved.
+; This component and the accompanying materials are made available
+; under the terms of "Eclipse Public License v1.0"
+; which accompanies this distribution, and is available
+; at the URL "http://www.eclipse.org/legal/epl-v10.html".
+;
+; Initial Contributors:
+; Nokia Corporation - initial contribution.
+;
+; Contributors:
+;
+; Description: 
+;
+
+
+
+; Installation file for test corpus
+;
+; This is an auto-generated PKG file by Carbide.
+; This file uses variables specific to Carbide builds that will not work
+; on command-line builds. If you want to use this generated PKG file from the
+; command-line tools you will need to modify the variables with the appropriate
+; values $(EPOCROOT), $(PLATFORM), $(TARGET)
+;
+;Languages
+&EN
+
+;
+; UID is the app's UID
+;
+#{"analysisunittest"},(0x0EEE9A79),1,0,0
+	
+;Localised Vendor name
+%{"Vendor-EN"}
+
+;Unique Vendor name
+:"Vendor"
+
+; Supports Series 60 v 3.0
+[0x101F7961], 0, 0, 0, {"S60ProductID"}
+
+; Symbols set up for the source location are Carbide.c++ specific symbols
+"$(EPOCROOT)epoc32\release\$(PLATFORM)\$(TARGET)\analysisunittest.exe"			-"c:\sys\bin\analysisunittest.exe"
+"$(EPOCROOT)epoc32\data\z\private\10003a3f\import\apps\analysisunittest_reg.rsc"   -"c:\private\10003a3f\import\apps\analysisunittest_reg.rsc"
+;"\epoc32\release\armv5\udeb\analysisunittest.exe"			-"c:\sys\bin\analysisunittest.exe"
+;"\epoc32\data\z\private\10003a3f\import\apps\analysisunittest_reg.rsc"   -"c:\private\10003a3f\import\apps\analysisunittest_reg.rsc"
+
+"..\data\analysisunittestcorpus\thai\corpus.txt"  - "c:\data\analysisunittestcorpus\thai\corpus.txt"
+"..\data\analysisunittestcorpus\thai\eval.txt"    - "c:\data\analysisunittestcorpus\thai\eval.txt"
+"..\data\analysisunittestcorpus\thai\thaidict.sm" - "c:\data\analysisunittestcorpus\thai\thaidict.sm"
+
+"..\data\analysisunittestcorpus\galician\corpus.txt" - "c:\data\analysisunittestcorpus\galician\corpus.txt"
+"..\data\analysisunittestcorpus\galician\eval.txt"   - "c:\data\analysisunittestcorpus\galician\eval.txt"
+
+"..\data\analysisunittestcorpus\chinese_hk\corpus.txt" - "c:\data\analysisunittestcorpus\chinese_hk\corpus.txt"
+"..\data\analysisunittestcorpus\chinese_hk\eval.txt"   - "c:\data\analysisunittestcorpus\chinese_hk\eval.txt"
+
+"..\data\analysisunittestcorpus\chinese_prc\corpus.txt" - "c:\data\analysisunittestcorpus\chinese_prc\corpus.txt"
+"..\data\analysisunittestcorpus\chinese_prc\eval.txt"   - "c:\data\analysisunittestcorpus\chinese_prc\eval.txt"
+
+"..\data\analysisunittestcorpus\chinese_tw\corpus.txt" - "c:\data\analysisunittestcorpus\chinese_tw\corpus.txt"
+"..\data\analysisunittestcorpus\chinese_tw\eval.txt"   - "c:\data\analysisunittestcorpus\chinese_tw\eval.txt"
+
+"..\data\analysisunittestcorpus\korean\corpus.txt" - "c:\data\analysisunittestcorpus\korean\corpus.txt"
+"..\data\analysisunittestcorpus\korean\eval.txt"   - "c:\data\analysisunittestcorpus\korean\eval.txt"
+
+"..\data\analysisunittestcorpus\hebrew\corpus.txt" - "c:\data\analysisunittestcorpus\hebrew\corpus.txt"
+"..\data\analysisunittestcorpus\hebrew\eval.txt"   - "c:\data\analysisunittestcorpus\hebrew\eval.txt"
+
+"..\data\analysisunittestcorpus\french\corpus.txt" - "c:\data\analysisunittestcorpus\french\corpus.txt"
+"..\data\analysisunittestcorpus\french\eval.txt"   - "c:\data\analysisunittestcorpus\french\eval.txt"
+
+"..\data\analysisunittest\evaluation\thai_exp_out.txt" - "c:\data\analysisunittest\evaluation\thai_exp_out.txt"
+"..\data\analysisunittest\evaluation\galician_exp_out.txt" - "c:\data\analysisunittest\evaluation\galician_exp_out.txt" 
+"..\data\analysisunittest\evaluation\korean_exp_out.txt" - "c:\data\analysisunittest\evaluation\korean_exp_out.txt" 
+"..\data\analysisunittest\evaluation\korean_cjk_exp_out.txt" - "c:\data\analysisunittest\evaluation\korean_cjk_exp_out.txt" 
+"..\data\analysisunittest\evaluation\korean_1gram_exp_out.txt" - "c:\data\analysisunittest\evaluation\korean_1gram_exp_out.txt"
+"..\data\analysisunittest\evaluation\korean_2gram_exp_out.txt" - "c:\data\analysisunittest\evaluation\korean_2gram_exp_out.txt"
+"..\data\analysisunittest\evaluation\chinese_1gram_exp_out.txt" - "c:\data\analysisunittest\evaluation\chinese_1gram_exp_out.txt"
+"..\data\analysisunittest\evaluation\chinese_2gram_exp_out.txt" - "c:\data\analysisunittest\evaluation\chinese_2gram_exp_out.txt"
+"..\data\analysisunittest\evaluation\french_exp_out.txt" - "c:\data\analysisunittest\evaluation\french_exp_out.txt"
+"..\data\analysisunittest\evaluation\hebrew_exp_out.txt" - "c:\data\analysisunittest\evaluation\hebrew_exp_out.txt"
+"..\data\analysisunittest\evaluation\jamu_1gram_exp_out.txt" - "c:\data\analysisunittest\evaluation\jamu_1gram_exp_out.txt"
+"..\data\analysisunittest\evaluation\jamu_2gram_exp_out.txt" - "c:\data\analysisunittest\evaluation\jamu_2gram_exp_out.txt"
+
+"..\data\analysisunittest\thai\analyzer_exp_out.txt" - "c:\data\analysisunittest\thai\analyzer_exp_out.txt"
+"..\data\analysisunittest\thai\breaks_exp_out.txt" - "c:\data\analysisunittest\thai\breaks_exp_out.txt"
+
+"..\data\analysisunittest\cjk\korean_exp_out.txt" - "c:\data\analysisunittest\cjk\korean_exp_out.txt"
+
+"..\data\analysisunittest\ngram\chinese_prc_1gram_exp_out.txt" 	- "c:\data\analysisunittest\ngram\chinese_prc_1gram_exp_out.txt"
+"..\data\analysisunittest\ngram\chinese_prc_2gram_exp_out.txt" 	- "c:\data\analysisunittest\ngram\chinese_prc_2gram_exp_out.txt"
+"..\data\analysisunittest\ngram\korean_1gram_exp_out.txt" 		- "c:\data\analysisunittest\ngram\korean_1gram_exp_out.txt"
+"..\data\analysisunittest\ngram\korean_2gram_exp_out.txt" 		- "c:\data\analysisunittest\ngram\korean_2gram_exp_out.txt"
+"..\data\analysisunittest\ngram\jamu_1gram_exp_out.txt" 		- "c:\data\analysisunittest\ngram\jamu_1gram_exp_out.txt"
+"..\data\analysisunittest\ngram\jamu_2gram_exp_out.txt" 		- "c:\data\analysisunittest\ngram\jamu_2gram_exp_out.txt"
+
+"..\data\analysisunittest\tiny\cn_exp_out.txt" 		- "c:\data\analysisunittest\tiny\cn_exp_out.txt"
+"..\data\analysisunittest\tiny\reader_exp_out.txt" 	- "c:\data\analysisunittest\tiny\reader_exp_out.txt"
+"..\data\analysisunittest\tiny\utf16_exp_out.txt" 	- "c:\data\analysisunittest\tiny\utf16_exp_out.txt"
+"..\data\analysisunittest\tiny\wchar_exp_out.txt" 	- "c:\data\analysisunittest\tiny\wchar_exp_out.txt"
+"..\data\analysisunittest\tiny\jamu_exp_out.txt" 	- "c:\data\analysisunittest\tiny\jamu_exp_out.txt"
+
+"..\data\analysisunittest\prefix\french_exp_out.txt" 	- "c:\data\analysisunittest\prefix\french_exp_out.txt"
+"..\data\analysisunittest\prefix\hebrew_exp_out.txt" 	- "c:\data\analysisunittest\prefix\hebrew_exp_out.txt"
+
+"..\data\analysisunittest\korean\korean_exp_out.txt" 	- "c:\data\analysisunittest\korean\korean_exp_out.txt"
+
+

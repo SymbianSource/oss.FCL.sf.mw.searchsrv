@@ -306,6 +306,15 @@ public:
 	* @throws IOException if there is a problem with accessing the index
 	*/
 	static bool indexExists(const CL_NS(store)::Directory* directory);
+	
+    /**
+    * Returns <code>true</code> if an index exists at the specified directory.
+    * If the directory does not exist or if there is no index in it.
+    * @param  directory the directory to check for an index
+    * @return <code>true</code> if an index exists; <code>false</code> otherwise
+    * @throws IOException if there is a problem with accessing the index
+    */
+    bool indexExists(void);
 
 	/** Returns the number of documents in this index. */
   	virtual int32_t numDocs() = 0;

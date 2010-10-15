@@ -1,0 +1,12 @@
+Discover 'd'énergie' in cat.file:
+    DOC (./cpixunittestcorpus/text/fr/2.txt): L'énergie est au cœur de nos vies. Nous dépendons d'elle
+
+Discover 'énergie' in cat.file:
+    DOC (./cpixunittestcorpus/text/fr/2.txt): L'énergie est au cœur de nos vies. Nous dépendons d'elle
+
+Discover 'approvisionnement' in cat.file:
+    DOC (./cpixunittestcorpus/text/fr/1.txt): Un approvisionnement sûr et durable
+
+Discover 'déplacer' in cat.file:
+    DOC (./cpixunittestcorpus/text/fr/3.txt): nous déplacer, pour chauffer nos maisons ou les rafraîchir,
+

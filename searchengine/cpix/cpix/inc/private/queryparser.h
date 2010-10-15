@@ -44,13 +44,13 @@ namespace Cpix {
 			virtual void setDefaultOperator(cpix_QP_Operator op) = 0;
 	};
 
-	class CLuceneQueryParser : public IQueryParser {
+	class LuceneQueryParser : public IQueryParser {
 		
 		public: 
 		
-			~CLuceneQueryParser();
+			~LuceneQueryParser();
 	
-			CLuceneQueryParser(const wchar_t* field, lucene::analysis::Analyzer& analyzer);
+			LuceneQueryParser(const wchar_t* field, lucene::analysis::Analyzer& analyzer);
 			
 			virtual std::auto_ptr<lucene::search::Query> parse(const wchar_t* query);
 
@@ -64,13 +64,13 @@ namespace Cpix {
 		
 	};
 	
-	class CLuceneMultiFieldQueryParser : public IQueryParser {
+	class LuceneMultiFieldQueryParser : public IQueryParser {
 		
 		public: 
 		
-			~CLuceneMultiFieldQueryParser();
+			~LuceneMultiFieldQueryParser();
 	
-			CLuceneMultiFieldQueryParser(const wchar_t** fields, 
+			LuceneMultiFieldQueryParser(const wchar_t** fields, 
 										 lucene::analysis::Analyzer& analyzer, 
 										 lucene::queryParser::BoostMap& boostMap);
 			

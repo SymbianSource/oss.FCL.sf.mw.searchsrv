@@ -12,7 +12,7 @@ File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
 File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
  'Tee' 'näin'
 File !:\data\cpixunittestcorpus\loc\th\1.txt tokenized:
- 'ปรากฏการณ์ฝนดาวตก' '7' '-18' 'พ' 'ยนี้' 'นายวรวิทย์' 'ตันวุฒิบัณฑิต' 'ปราชญ์ภูมิปัญญาท้องถิ่นด้านดาราศาสตร์ไทยกล่าวว่า' '17' '-18' 'พฤศจิกายน' '2552'
+ 'ปรากฏการณ์ฝนดาวตก' '7' '-18พ' 'ยนี้' 'นายวรวิทย์' 'ตันวุฒิบัณฑิต' 'ปราชญ์ภูมิปัญญาท้องถิ่นด้านดาราศาสตร์ไทยกล่าวว่า' '17' '-18' 'พฤศจิกายน' '2552'
 File !:\data\cpixunittestcorpus\loc\th\2.txt tokenized:
  'จะมีปรากฏการณ์ดาราศาสตร์ครั้งสำคัญที่ชาวไทยเคยประทับใจมาแล้วเมื่อปี' '2541' '-2544' 'คือในคืนวันที่' '17' 'ต่อเนื่องวันที่' '18' 'พฤศจิกายน' '2552'
 
@@ -242,7 +242,7 @@ File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
 File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
  't' 'n'
 File !:\data\cpixunittestcorpus\loc\th\1.txt tokenized:
- 'ป' '7' '-' 'พ' 'ย' 'น' 'ต' 'ป' '1' '-' 'พ' '2'
+ 'ป' '7' '-' 'ย' 'น' 'ต' 'ป' '1' '-' 'พ' '2'
 File !:\data\cpixunittestcorpus\loc\th\2.txt tokenized:
  'จ' '2' '-' 'ค' '1' 'ต' '1' 'พ' '2'
 
@@ -260,7 +260,7 @@ File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
 File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
  'te'|'t' 'nä'|'n'
 File !:\data\cpixunittestcorpus\loc\th\1.txt tokenized:
- 'ปร'|'ป' '7' '-1'|'-' 'พ' 'ยน'|'ย' 'นา'|'น' 'ตั'|'ต' 'ปร'|'ป' '17'|'1' '-1'|'-' 'พฤ'|'พ' '25'|'2'
+ 'ปร'|'ป' '7' '-1'|'-' 'ยน'|'ย' 'นา'|'น' 'ตั'|'ต' 'ปร'|'ป' '17'|'1' '-1'|'-' 'พฤ'|'พ' '25'|'2'
 File !:\data\cpixunittestcorpus\loc\th\2.txt tokenized:
  'จะ'|'จ' '25'|'2' '-2'|'-' 'คื'|'ค' '17'|'1' 'ต่'|'ต' '18'|'1' 'พฤ'|'พ' '25'|'2'
 
@@ -278,7 +278,7 @@ File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
 File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
  'tee'|'te'|'t' 'näi'|'nä'|'n'
 File !:\data\cpixunittestcorpus\loc\th\1.txt tokenized:
- 'ปรา'|'ปร'|'ป' '7' '-18'|'-1'|'-' 'พ' 'ยนี'|'ยน'|'ย' 'นาย'|'นา'|'น' 'ตัน'|'ตั'|'ต' 'ปรา'|'ปร'|'ป' '17'|'1' '-18'|'-1'|'-' 'พฤศ'|'พฤ'|'พ' '255'|'25'|'2'
+ 'ปรา'|'ปร'|'ป' '7' '-18'|'-1'|'-' 'ยนี'|'ยน'|'ย' 'นาย'|'นา'|'น' 'ตัน'|'ตั'|'ต' 'ปรา'|'ปร'|'ป' '17'|'1' '-18'|'-1'|'-' 'พฤศ'|'พฤ'|'พ' '255'|'25'|'2'
 File !:\data\cpixunittestcorpus\loc\th\2.txt tokenized:
  'จะม'|'จะ'|'จ' '254'|'25'|'2' '-25'|'-2'|'-' 'คือ'|'คื'|'ค' '17'|'1' 'ต่อ'|'ต่'|'ต' '18'|'1' 'พฤศ'|'พฤ'|'พ' '255'|'25'|'2'
 
@@ -296,7 +296,7 @@ File !:\data\cpixunittestcorpus\stem\fi\1.txt tokenized:
 File !:\data\cpixunittestcorpus\stem\fi\2.txt tokenized:
  'tee' 'näin'
 File !:\data\cpixunittestcorpus\loc\th\1.txt tokenized:
- 'ปรากฏการณ์' 'ฝน' 'ดาวตก' '7' '-18' 'พ' 'ยนี' '้' 'นาย' 'วรวิท' 'ย์' 'ตัน' 'วุฒิ' 'บัณฑิต' 'ปราชญ์' 'ภูมิปัญญา' 'ท้อง' 'ถิ่น' 'ด้าน' 'ดาราศาสตร์' 'ไทย' 'กล่าว' 'ว่า' '17' '-18' 'พฤศจิกายน' '2552'
+ 'ปรากฏการณ์' 'ฝน' 'ดาวตก' '7' '-18พ' 'ยนี' '้' 'นาย' 'วรวิท' 'ย์' 'ตัน' 'วุฒิ' 'บัณฑิต' 'ปราชญ์' 'ภูมิปัญญา' 'ท้อง' 'ถิ่น' 'ด้าน' 'ดาราศาสตร์' 'ไทย' 'กล่าว' 'ว่า' '17' '-18' 'พฤศจิกายน' '2552'
 File !:\data\cpixunittestcorpus\loc\th\2.txt tokenized:
  'จะ' 'มี' 'ปรากฏการณ์' 'ดาราศาสตร์' 'ครั้ง' 'สำคัญ' 'ที่' 'ชาว' 'ไทย' 'เคย' 'ประทับ' 'ใจมา' 'แล้ว' 'เมื่อ' 'ปี' '2541' '-2544' 'คือ' 'ใน' 'คืน' 'วัน' 'ที่' '17' 'ต่อ' 'เนื่อง' 'วัน' 'ที่' '18' 'พฤศจิกายน' '2552'
 

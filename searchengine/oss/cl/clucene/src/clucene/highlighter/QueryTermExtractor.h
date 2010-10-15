@@ -26,6 +26,7 @@
 #include "CLucene/search/BooleanQuery.h"
 #include "CLucene/search/PhraseQuery.h"
 #include "CLucene/search/TermQuery.h"
+#include "CLucene/search/PrefixQuery.h"
 #include "CLucene/highlighter/WeightedTerm.h"
 
 CL_NS_DEF2(search,highlight)
@@ -76,6 +77,7 @@ public:
 	static void getTermsFromBooleanQuery(const BooleanQuery * query, WeightedTermList* terms, bool prohibited);
 	static void getTermsFromPhraseQuery(const PhraseQuery * query, WeightedTermList* terms);
 	static void getTermsFromTermQuery(const TermQuery * query, WeightedTermList* terms);
+	static void getTermsFromPrefixQuery( PrefixQuery * query, WeightedTermList* terms);
 //	static void getTermsFromSpanNearQuery(SpanNearQuery* query, WeightedTermList* terms);
 };
 

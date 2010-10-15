@@ -86,6 +86,11 @@ void CpixDocumentTester::testAddGetField()
     QVERIFY( field1.name() == "testName" && field1.value() == "testValue" && field1.config() == 10 );
     const CpixDocumentField& field2 = iDoc->field( 1 );
     QVERIFY( field2.name() == "testName2" && field2.value() == "testValue2" && field2.config() == 12 );
+    //below two for retriving the field by its name.
+    const CpixDocumentField& field3 = iDoc->field("testName");
+    QVERIFY( field3.name() == "testName" && field3.value() == "testValue" && field3.config() == 10 );
+    const CpixDocumentField& field4 = iDoc->field("testName2");
+    QVERIFY( field4.name() == "testName2" && field4.value() == "testValue2" && field4.config() == 12 );
     }
 
 void CpixDocumentTester::init()

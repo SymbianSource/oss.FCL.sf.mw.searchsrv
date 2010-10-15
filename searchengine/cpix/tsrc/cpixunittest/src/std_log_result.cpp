@@ -3,12 +3,10 @@
 #define LOG_FILE "c:\\logs\\std_test_log.txt"
 #define LOG_DIR "c:\\logs\\"
 #define LOG_FILE_EXT "xml"
-int assert_failed = 0;
 #else
 #define LOG_DIR ""
 #define LOG_FILE_EXT "xml"
 #define LOG_FILE "std_test_log.txt"
-int assert_failed = 0;
 #endif
 FILE *fp;
 
@@ -48,7 +46,7 @@ void close_log_file()
 }
 
 // This function is used to generate the xml file used bt ATS
-void testResultXml(char *filename)
+void testResultXml(const char *filename, bool verdict)
 {
     char time_buf[50];
 
@@ -111,7 +109,7 @@ void testResultXml(char *filename)
     //strftime(time_buf,50,"%c",tm1);
     sprintf(time_buf,"%s","");
 
-    if(assert_failed )
+    if(!verdict)
         strcpy(result,"FAILED");
     else
         strcpy(result,"PASSED");

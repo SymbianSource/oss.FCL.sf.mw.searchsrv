@@ -62,6 +62,7 @@ CL_NS_DEF(search)
     int32_t i = subSearcher(n);			  // find searcher index
     return searchables[i]->doc(n - starts[i], d);	  // dispatch to searcher
   }
+   
 
   int32_t MultiSearcher::searcherIndex(int32_t n) const{
 	 return subSearcher(n);

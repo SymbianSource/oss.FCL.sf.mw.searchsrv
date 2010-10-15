@@ -57,10 +57,7 @@ void TestAnalyzerParsing(Itk::TestMgr * , const wchar_t* definition, int expecte
 	cpix_Analyzer* analyzer = cpix_Analyzer_create( &result, definition);
 
 	if ( cpix_Failed( &result) ) {
-        if(expected)
-            assert_failed = 1;
-        else
-            assert_failed = 0;            
+          
 		printf("Analyzer creation failed with %S\n", result.err_->msg_);
 		return; 
 	}
@@ -69,8 +66,6 @@ void TestAnalyzerParsing(Itk::TestMgr * , const wchar_t* definition, int expecte
 
 void TestAnalyzersParsing(Itk::TestMgr * testMgr) 
 {
-    char *xml_file = (char*)__FUNCTION__;
-    assert_failed = 0;
 	TestAnalyzerParsing(testMgr, L"stdtokens>lowercase"); 
 	TestAnalyzerParsing(testMgr, L"whitespace>lowercase"); 
 	TestAnalyzerParsing(testMgr, L"letter>lowercase"); 
@@ -90,12 +85,10 @@ void TestAnalyzersParsing(Itk::TestMgr * testMgr)
 	TestAnalyzerParsing(testMgr, L"letter>>lowercase", 0 ); 
 	TestAnalyzerParsing(testMgr, L">letter>>lowercase lowercase", 0 ); 
 	TestAnalyzerParsing(testMgr, L"letter lowercase", 0 );
-	testResultXml(xml_file);
+
 }
 void TestSwitchParsing(Itk::TestMgr * testMgr) 
 {
-    char *xml_file = (char*)__FUNCTION__;
-        assert_failed = 0;
 	// Per field query syntax
 	TestAnalyzerParsing(testMgr, L"switch {"
 									 L"case '_docuid':          keyword; "
@@ -107,7 +100,7 @@ void TestSwitchParsing(Itk::TestMgr * testMgr)
 	TestAnalyzerParsing(testMgr, L"switch{ default: 	standard; }");
 	TestAnalyzerParsing(testMgr, L"switch{ case '_qnr': switch{ case '_docuid': keyword; default: whitespace; }; default: standard; }");
 	TestAnalyzerParsing(testMgr, L"switch{ case '_mimetype': standard; default: whitespace; }; default: standard; }");
-	testResultXml(xml_file);
+
 }
 
 void TestAnalyzerUsage(Itk::TestMgr * testMgr, const wchar_t* definition) 
@@ -191,7 +184,7 @@ void TestAnalyzerUsage(Itk::TestMgr * testMgr, const wchar_t* definition)
 
 		if (cpix_Failed(util->idxDb())) 
 			{
-            assert_failed = 1;
+            
 			cpix_Analyzer_destroy(analyzer);
 			cpix_ClearError(queryParser);
 			cpix_QueryParser_destroy(queryParser);
@@ -210,14 +203,12 @@ void TestAnalyzerUsage(Itk::TestMgr * testMgr, const wchar_t* definition)
 
 void TestAnalyzersUsage(Itk::TestMgr * testMgr) 
 	{
-    char *xml_file = (char*)__FUNCTION__;
-    assert_failed = 0;
 	TestAnalyzerUsage(testMgr, L"whitespace" ); 
 	TestAnalyzerUsage(testMgr, L"letter>lowercase" ); 
 	TestAnalyzerUsage(testMgr, L"stdtokens>lowercase>stem(en)"); 
 	TestAnalyzerUsage(testMgr, L"letter>lowercase>stop(en)"); 
 	TestAnalyzerUsage(testMgr, L"letter>lowercase>stop('a', 'an', 'the')");
-	testResultXml(xml_file);
+
 	}
 
 

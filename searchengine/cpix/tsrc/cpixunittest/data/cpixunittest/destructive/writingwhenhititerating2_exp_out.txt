@@ -52,44 +52,44 @@ Indexed SMS 24
 25 items indexed.
 Hits after indexing: 
 Number of hits: 3
-DOC (j, line 10): ok. Take care of yourself.
-DOC (fb, line 16): Ok, i cannot let my dear too bored..
-DOC (eb, line 15): Ok i'm still in sch... Then i'll go home 1st...
+DOC (j, line 10): <U>ok</U>. Take care of yourself
+DOC (fb, line 16): <U>Ok</U>, i cannot let my dear too
+DOC (eb, line 15): <U>Ok</U> i'm still in sch
 
 Indexed SMS 25
 1 item indexed. 
 Hits after adding 1 item.
 Number of hits: 3
-DOC (j, line 10): ok. Take care of yourself.
-DOC (fb, line 16): Ok, i cannot let my dear too bored..
-DOC (eb, line 15): Ok i'm still in sch... Then i'll go home 1st...
+DOC (j, line 10): <U>ok</U>. Take care of yourself
+DOC (fb, line 16): <U>Ok</U>, i cannot let my dear too
+DOC (eb, line 15): <U>Ok</U> i'm still in sch
 Line 16 deleted.
 Hits after deletion: 
 Number of hits: 3
-DOC (j, line 10): ok. Take care of yourself.
-DOC (fb, line 16): Ok, i cannot let my dear too bored..
-DOC (eb, line 15): Ok i'm still in sch... Then i'll go home 1st...
+DOC (j, line 10): <U>ok</U>. Take care of yourself
+DOC (fb, line 16): <U>Ok</U>, i cannot let my dear too
+DOC (eb, line 15): <U>Ok</U> i'm still in sch
 Flushed.
 Hits after flush:
 Number of hits: 3
-DOC (j, line 10): ok. Take care of yourself.
-DOC (fb, line 16): Ok, i cannot let my dear too bored..
-DOC (eb, line 15): Ok i'm still in sch... Then i'll go home 1st...
+DOC (j, line 10): <U>ok</U>. Take care of yourself
+DOC (fb, line 16): <U>Ok</U>, i cannot let my dear too
+DOC (eb, line 15): <U>Ok</U> i'm still in sch
 Line 15 deleted.
 Hits after deletion:
 Number of hits: 3
-DOC (j, line 10): ok. Take care of yourself.
-DOC (fb, line 16): Ok, i cannot let my dear too bored..
-DOC (eb, line 15): Ok i'm still in sch... Then i'll go home 1st...
+DOC (j, line 10): <U>ok</U>. Take care of yourself
+DOC (fb, line 16): <U>Ok</U>, i cannot let my dear too
+DOC (eb, line 15): <U>Ok</U> i'm still in sch
 Line 10 deleted.
 Hits after deletion:
 Number of hits: 3
-DOC (j, line 10): ok. Take care of yourself.
-DOC (fb, line 16): Ok, i cannot let my dear too bored..
-DOC (eb, line 15): Ok i'm still in sch... Then i'll go home 1st...
+DOC (j, line 10): <U>ok</U>. Take care of yourself
+DOC (fb, line 16): <U>Ok</U>, i cannot let my dear too
+DOC (eb, line 15): <U>Ok</U> i'm still in sch
 Flushed.
 Hits after flush:
 Number of hits: 3
-DOC (j, line 10): ok. Take care of yourself.
-DOC (fb, line 16): Ok, i cannot let my dear too bored..
-DOC (eb, line 15): Ok i'm still in sch... Then i'll go home 1st...
+DOC (j, line 10): <U>ok</U>. Take care of yourself
+DOC (fb, line 16): <U>Ok</U>, i cannot let my dear too
+DOC (eb, line 15): <U>Ok</U> i'm still in sch

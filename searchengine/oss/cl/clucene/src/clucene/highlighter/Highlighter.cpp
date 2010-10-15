@@ -181,6 +181,7 @@ CL_NS_USE(util)
 			int32_t startOffset;
 			int32_t endOffset;
 			int32_t lastEndOffset = 0;
+			int32_t highlightedfrags = 0;
 			_textFragmenter->start(text);
 			TCHAR substringBuffer[LUCENE_MAX_WORD_LEN];
 
@@ -223,7 +224,9 @@ CL_NS_USE(util)
 					//check if current token marks the start of a new fragment
 					if (_textFragmenter->isNewFragment(&token))
 					{
-						currentFrag->setScore(_fragmentScorer->getFragmentScore());
+					    float_t score = _fragmentScorer->getFragmentScore();
+					    if(score > 0) highlightedfrags++;
+						currentFrag->setScore(score);
 						//record stats for a new fragment
 						currentFrag->setTextEndPos( writeTo->length() );
 						currentFrag =_CLNEW TextFragment(writeTo->length(), docFrags.size());
@@ -241,7 +244,7 @@ CL_NS_USE(util)
 
 				tokenGroup->addToken(&token,_fragmentScorer->getTokenScore(&token));
 
-				if(lastEndOffset>maxDocBytesToAnalyze)
+				if(lastEndOffset>maxDocBytesToAnalyze || highlightedfrags>MAX_FRAGMENTS_TO_HIGHLIGHT)
 				{
 					break;
 				}
@@ -344,11 +347,21 @@ CL_NS_USE(util)
   	        }
 
 			_CLDELETE(tokenGroup);
+			if (tokenStream)
+                {
+                    try
+                    {
+                        tokenStream->close();
+                    }
+                    catch (...)
+                    {
+                    }
+                }
 			//_CLDELETE(newText);
 			return frags;
 
 		}
-		_CLFINALLY(
+		catch(...){
 			if (tokenStream)
 			{
 				try
@@ -359,7 +372,8 @@ CL_NS_USE(util)
 				{
 				}
 			}
-		)
+			return NULL;
+	    }
 	}
 
 

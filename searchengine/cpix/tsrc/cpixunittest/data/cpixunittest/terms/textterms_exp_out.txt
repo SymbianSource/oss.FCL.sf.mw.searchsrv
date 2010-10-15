@@ -13,18 +13,14 @@ Indexed file: !:\data\cpixunittestcorpus\media\One Step For Man.mp3
 
 Indexed file: !:\data\cpixunittestcorpus\media\The Eagle Has Landed.mp3
 Results for a*:
-am 1
 
 Results for e*:
-even 1
 
 Results for h*:
-here 2
-happening 1
-happiness 1
-happy 1
 
 Results for w*:
-what 1
-whatsoever 1
 
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\longline.txt
+
+Search Term JDFFH found in longline text

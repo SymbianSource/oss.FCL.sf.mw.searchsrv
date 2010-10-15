@@ -1,0 +1,17 @@
+Discover 'john' in cat.contact:
+    DOC (3): John London
+    DOC (1): John Smith
+
+Discover 'jane' in cat.contact:
+    DOC (2): Jane Smith
+
+Discover 'smith' in cat.contact:
+    DOC (4):  Smith
+    DOC (2): Jane Smith
+    DOC (1): John Smith
+
+Discover 'j' in cat.contact:
+    DOC (3): John London
+    DOC (2): Jane Smith
+    DOC (1): John Smith
+

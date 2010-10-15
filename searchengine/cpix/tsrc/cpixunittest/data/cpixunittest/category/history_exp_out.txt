@@ -1,0 +1,112 @@
+Selected root contact:1 of cat.contact with query john
+Selected root media image:New York.jpg of cat.image with query jpg
+Selected root msg phone email:1 of cat.email with query jane
+Discover 'john' in cat.contact:
+    DOC (1): John Smith
+    DOC (3): John London
+
+Discover 'j' in cat.contact:
+    DOC (1): John Smith
+    DOC (3): John London
+    DOC (2): Jane Smith
+
+Discover 'jpg' in cat.image:
+    DOC (New York.jpg): New York.jpg
+    DOC (Nowhere): Nowhere
+    DOC (Otaniemi.jpg): Otaniemi.jpg
+    DOC (08012009047.jpg): 08012009047.jpg
+    DOC (Verkkokauppa.jpg): Verkkokauppa.jpg
+
+Discover 'j' in cat.image:
+    DOC (New York.jpg): New York.jpg
+    DOC (Nowhere): Nowhere
+    DOC (Otaniemi.jpg): Otaniemi.jpg
+    DOC (08012009047.jpg): 08012009047.jpg
+    DOC (Verkkokauppa.jpg): Verkkokauppa.jpg
+
+Discover 'jane' in cat.cal:
+    DOC (7): Talk to Jane
+
+Discover 'j' in cat.cal:
+    DOC (6): London meeting with John
+    DOC (7): Talk to Jane
+    DOC (4): Beer with John
+
+Discover 'john' in cat:
+  cat.contact (2 hits)
+    DOC (1): John Smith
+    DOC (3): John London
+  cat.msg (1 hits)
+    DOC (1): Hello John
+  cat.cal (2 hits)
+    DOC (6): London meeting with John
+    DOC (4): Beer with John
+
+Discover 'jpg' in cat:
+  cat.image (5 hits)
+    DOC (New York.jpg): New York.jpg
+    DOC (Nowhere): Nowhere
+    DOC (Otaniemi.jpg): Otaniemi.jpg
+
+Discover 'jane' in cat:
+  cat.email (2 hits)
+    DOC (1): Documents to Jane
+    DOC (2): Re:Documents to Jane
+  cat.contact (1 hits)
+    DOC (2): Jane Smith
+  cat.msg (1 hits)
+    DOC (2): Hello Jane
+  cat.cal (1 hits)
+    DOC (7): Talk to Jane
+
+Discover 'j' in cat:
+  cat.email (2 hits)
+    DOC (1): Documents to Jane
+    DOC (2): Re:Documents to Jane
+  cat.image (5 hits)
+    DOC (New York.jpg): New York.jpg
+    DOC (Nowhere): Nowhere
+    DOC (Otaniemi.jpg): Otaniemi.jpg
+  cat.contact (3 hits)
+    DOC (1): John Smith
+    DOC (3): John London
+    DOC (2): Jane Smith
+  cat.msg (2 hits)
+    DOC (2): Hello Jane
+    DOC (1): Hello John
+  cat.cal (3 hits)
+    DOC (6): London meeting with John
+    DOC (7): Talk to Jane
+    DOC (4): Beer with John
+  cat.music (1 hits)
+    DOC (\data\vasco_supportedfiles\audio\02waves.mp3): 02waves.mp3 Coldplay Clocks [Japan EP] Berryman/Buckland/Champion/Martin 
+
+Discover 'jo' in cat:
+  cat.contact (2 hits)
+    DOC (1): John Smith
+    DOC (3): John London
+  cat.msg (1 hits)
+    DOC (1): Hello John
+  cat.cal (2 hits)
+    DOC (6): London meeting with John
+    DOC (4): Beer with John
+
+Discover 'jp' in cat:
+  cat.image (5 hits)
+    DOC (New York.jpg): New York.jpg
+    DOC (Nowhere): Nowhere
+    DOC (Otaniemi.jpg): Otaniemi.jpg
+
+Discover 'ja' in cat:
+  cat.email (2 hits)
+    DOC (1): Documents to Jane
+    DOC (2): Re:Documents to Jane
+  cat.contact (1 hits)
+    DOC (2): Jane Smith
+  cat.msg (1 hits)
+    DOC (2): Hello Jane
+  cat.cal (1 hits)
+    DOC (7): Talk to Jane
+  cat.music (1 hits)
+    DOC (\data\vasco_supportedfiles\audio\02waves.mp3): 02waves.mp3 Coldplay Clocks [Japan EP] Berryman/Buckland/Champion/Martin 
+

@@ -1,0 +1,16 @@
+Discover 're' in cat.email:
+    DOC (2): Re:Documents to Jane
+    DOC (3): Re:Meeting docs
+
+Discover 'meeting' in cat.email:
+    DOC (3): Re:Meeting docs
+
+Discover 'document' in cat.email:
+    DOC (2): Re:Documents to Jane
+    DOC (1): Documents to Jane
+
+Discover 'd' in cat.email:
+    DOC (2): Re:Documents to Jane
+    DOC (3): Re:Meeting docs
+    DOC (1): Documents to Jane
+

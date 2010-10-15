@@ -22,6 +22,7 @@
 #include <MIndexingPluginObserver.h>
 #include <RSearchServerSession.h>
 #include <cactivitymanager.h>
+#include <cpixstateobserver.h>
 #include "cgaurdtimer.h"
 
 const TInt KFilePluginBaseAppClassMaxLen = 64;
@@ -32,6 +33,7 @@ class ContentInfoDbUpdate;
 class CIndexingManager : public CActive,
                          public MIndexingService,
                          public MActivityManagerObserver,
+                         public MCPiXStateObserver,
                          public MGaurdTimerHandler
 	{
 public:	
@@ -90,7 +92,14 @@ private:
 	 * StartPlugins starts all loaded plugins 
 	 */
 	void StartPlugins();
-
+	/**
+     * PausePluginsL call pause on all loaded plugins 
+     */
+	void PausePluginsL();
+	/**
+     * ResumePlugins pauses all loaded plugins 
+     */
+	void ResumePluginsL();
 	/**
 	 * Loading the state of the Plugins
 	 */
@@ -130,7 +139,10 @@ private:
 	void LoadHarvesterpluginL (TUid aPluginUid, TInt aVersion, const TDesC& aPluginName);
 	
 	//From MActivityManagerObserver
-	void ActivityChanged(const TBool aActive);
+	void ActivityChangedL( const TBool aActive );
+	
+	//From MCPiXStateObserver
+	void HandleStateObserverChangeL( const TBool aActive );
 	
 private:
 	CIndexingManager();
@@ -236,8 +248,9 @@ private:
 	ContentInfoDbUpdate* iContentInfodb;
 	//monitors device activity
 	CActivityManager* iActivityManager;
-	
+	CPiXStateObserver *iStateObserver;
 	CGaurdTimer *iGaurdTimer;
+	TBool iHarvestState;
 	};
 
 #endif // CINDEXINGMANAGER_H

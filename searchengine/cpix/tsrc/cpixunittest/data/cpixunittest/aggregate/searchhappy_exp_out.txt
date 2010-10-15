@@ -1,15 +1,19 @@
 Number of hits: 2
-DOC (multifield) (!:\data\cpixunittestcorpus\stem\en\4.txt):
+DOC (multifield) (!:\data\cpixunittestcorpus\stem\en\1.txt):
  o dummy: happy words
  o dummy2: christmas easter
  o dummy3: rabid happening
- o _excerpt: What is happening here?
- o _appclass: root file usrdoc text
+ o _appclass: root file content
  o _mimetype: text/plain
-DOC (multifield) (!:\data\cpixunittestcorpus\stem\en\1.txt):
- o dummy: important happiness
- o dummy2: vappu
- o dummy3: christmas is an important and happy happening
- o _excerpt: I am happy.
- o _appclass: root file usrdoc text
+ o Name: 1.txt
+ o Extension: txt
+ o _excerpt: I am <U>happy</U>
+DOC (multifield) (!:\data\cpixunittestcorpus\stem\en\longline.txt):
+ o Extension: txt
+ o Name: longline.txt
  o _mimetype: text/plain
+ o _appclass: root file content
+ o _excerpt: RLWER EGGKI RRBDB LTODM PMOJE WVUOX XGLSV QLTTG XDCVJ IVHFE
+ o dummy3: rabid happening
+ o dummy2: christmas easter
+ o dummy: happy words

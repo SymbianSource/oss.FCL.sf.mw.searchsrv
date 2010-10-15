@@ -36,7 +36,7 @@
 #include "config.h"
 #include "testutils.h"
 #include "suggestion.h"
-#include "std_log_result.h"
+
 
 const char * PdfDocsToIndex[8] = {
     "c:\\data\\cpixunittestcorpus\\pdf\\ctutor.pdf",
@@ -78,7 +78,7 @@ void pdfTestAppclassFilteredTermSearch(Itk::TestMgr * testMgr, const wchar_t* ap
     if ( cpix_Failed( &result) ) 
         {
             ITK_PANIC("Analyzer could not be created");
-            assert_failed = 1;
+            
         }
     
     for (int i = 0; PdfDocsToIndex[i]; i++) 
@@ -98,13 +98,11 @@ void pdfTestAppclassFilteredTermSearch(Itk::TestMgr * testMgr, const wchar_t* ap
             {
                 cpix_Analyzer_destroy( analyzer );
                 ITK_PANIC("Could not create query parser");
-                assert_failed = 1;
+                
             }
         
-        std::wostringstream queryString;
-        queryString<<L"adobe";
-        cpix_Query* query = cpix_QueryParser_parse(queryParser,
-                                                   queryString.str().c_str());
+
+        cpix_Query* query = cpix_QueryParser_parse(queryParser,PdfSearchParameters[i]);
         if (cpix_Failed(queryParser)
             || query == NULL)
             {
@@ -112,7 +110,7 @@ void pdfTestAppclassFilteredTermSearch(Itk::TestMgr * testMgr, const wchar_t* ap
                 cpix_ClearError(queryParser);
                 cpix_QueryParser_destroy(queryParser);
                 ITK_PANIC("Could not parse query string");
-                assert_failed = 1;
+       
             }
        
         cpix_Hits
@@ -121,27 +119,23 @@ void pdfTestAppclassFilteredTermSearch(Itk::TestMgr * testMgr, const wchar_t* ap
         
         int32_t hitsLength = cpix_Hits_length(hits);
                  
-        wprintf(L"Results for %S:\n", PdfSearchParameters[i]);
+        wprintf(L"Results for %S, and the hit len is : %d\n", PdfSearchParameters[i], hitsLength);
         
-        Suggestion::printSuggestions(hits,
-                                     testMgr);        
-        printf("\n"); 
         
-        cpix_Analyzer_destroy(analyzer);
         cpix_Hits_destroy( hits );
         cpix_Query_destroy( query );
         cpix_QueryParser_destroy(queryParser);
         
     }
+    cpix_Analyzer_destroy(analyzer);
 
 }
 // int32_t hitsLength = cpix_Hits_length(hits);
 void CreateSimplePdfSearch(Itk::TestMgr * testMgr) 
 {
-    char *xml_file = (char*)__FUNCTION__;
-    assert_failed = 0;
+    
     pdfTestAppclassFilteredTermSearch(testMgr, LPDFAPPCLASS);
-    testResultXml(xml_file);
+   
 }
 
 

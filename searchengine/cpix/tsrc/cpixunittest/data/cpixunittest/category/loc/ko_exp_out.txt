@@ -1,0 +1,6 @@
+Discover '스토리' in cat.file:
+    DOC (./cpixunittestcorpus/text/ko/1.txt): 제가 논스톱을 보는데요, 김지우가 스토리상으로 일본으로 간다구 하네요
+
+Discover '인물' in cat.file:
+    DOC (./cpixunittestcorpus/text/ko/4.txt): 그때 여승혁처럼 논스톱 극중 인물에서 빠트리는건가요?
+

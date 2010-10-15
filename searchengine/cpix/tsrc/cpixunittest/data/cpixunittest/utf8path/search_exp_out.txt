@@ -1,7 +1,7 @@
 Searching files with utf8 paths and content
 Number of hits: 5
-DOC (!:\Data\cpixunittest\_txt\finnish 5\äÄöÖ.txt): Syksyllä satoi vettä. Helsinki. Foobar.
-DOC (!:\Data\cpixunittest\_txt\japanese 4\日本語.txt): 10月25日（日曜日）、バグダッドにおいて連続爆発テロが発生し、 Tokyo. Foobar.
-DOC (!:\Data\cpixunittest\_txt\chinese 3\中文.txt): 解放军今年演习强度密度"罕见" 开放透明度空前 高清 Beijing. Foobar.
-DOC (!:\Data\cpixunittest\_txt\english 1\great ideas.txt): Some great ideas never catch on. London. Foobar.
+DOC (!:\Data\cpixunittest\_txt\finnish 5\äÄöÖ.txt): . Helsinki. <U>Foobar</U>
+DOC (!:\Data\cpixunittest\_txt\japanese 4\日本語.txt): . <U>Foobar</U>
+DOC (!:\Data\cpixunittest\_txt\chinese 3\中文.txt):  Beijing. <U>Foobar</U>
+DOC (!:\Data\cpixunittest\_txt\english 1\great ideas.txt): . <U>Foobar</U>
 DOC (!:\Data\cpixunittest\_txt\russian 2\Русский язык.txt): Подарок обошелся в $12 тысяч Голливудский актер Брэд Питт попал

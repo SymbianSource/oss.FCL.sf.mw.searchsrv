@@ -13,17 +13,14 @@ Indexed file: !:\data\cpixunittestcorpus\media\One Step For Man.mp3
 
 Indexed file: !:\data\cpixunittestcorpus\media\The Eagle Has Landed.mp3
 Results for a*:
-apollo 2
-armstrong 2
-albert 1
 
 Results for e*:
-e 1
-eagle 1
-einstein 1
 
 Results for h*:
-has 1
 
 Results for w*:
 
+
+Indexed file: !:\data\cpixunittestcorpus\stem\en\longline.txt
+
+Search Term JDFFH found in longline text

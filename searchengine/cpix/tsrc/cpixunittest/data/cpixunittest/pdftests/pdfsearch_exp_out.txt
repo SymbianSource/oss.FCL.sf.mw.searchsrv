@@ -1,0 +1,18 @@
+
+Indexed file: !:\data\cpixunittestcorpus\pdf\ctutor.pdf
+
+Indexed file: !:\data\cpixunittestcorpus\pdf\geology.pdf
+
+Indexed file: !:\data\cpixunittestcorpus\pdf\samplepdf.pdf
+
+Indexed file: !:\data\cpixunittestcorpus\pdf\windjack.pdf
+
+Indexed file: !:\data\cpixunittestcorpus\pdf\DCTDecode.pdf
+
+Indexed file: !:\data\cpixunittestcorpus\pdf\Empty.pdf
+
+Indexed file: !:\data\cpixunittestcorpus\pdf\start_enter.pdf
+Results for inline, and the hit len is : 1
+Results for CALDEBA, and the hit len is : 0
+Results for sample, and the hit len is : 1
+Results for reset, and the hit len is : 1

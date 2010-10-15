@@ -1,6 +1,6 @@
 
 Indexed SMS 5
 Number of hits: 3
-DOC (c, line 3): This is another happy message
-DOC (e, line 5): This is the 4th happy message
-DOC (f, line 6): This is the 5th happy message
+DOC (c, line 3): This is another <U>happy</U> message
+DOC (e, line 5): This is the 4th <U>happy</U> message
+DOC (f, line 6): This is the 5th <U>happy</U> message

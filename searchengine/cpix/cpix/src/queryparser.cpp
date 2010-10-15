@@ -30,23 +30,23 @@ namespace Cpix {
 	
 	IQueryParser::~IQueryParser() {}
 	
-	CLuceneQueryParser::CLuceneQueryParser(const wchar_t* defaultField, 
+	LuceneQueryParser::LuceneQueryParser(const wchar_t* defaultField, 
 										  lucene::analysis::Analyzer& analyzer) 
 	: parser_() {
 		parser_.reset(_CLNEW lucene::queryParser::QueryParser(defaultField, &analyzer));
 	}
 	
-	CLuceneQueryParser::~CLuceneQueryParser() {}
+	LuceneQueryParser::~LuceneQueryParser() {}
 	
-	std::auto_ptr<lucene::search::Query> CLuceneQueryParser::parse(const wchar_t* query) {
+	std::auto_ptr<lucene::search::Query> LuceneQueryParser::parse(const wchar_t* query) {
 		return std::auto_ptr<lucene::search::Query>( parser_->parse(query) ); 
 	}
 
-	const wchar_t* CLuceneQueryParser::getField() const {
+	const wchar_t* LuceneQueryParser::getField() const {
 		return parser_->getField();
 	}
 	
-	void CLuceneQueryParser::setDefaultOperator(cpix_QP_Operator op) {
+	void LuceneQueryParser::setDefaultOperator(cpix_QP_Operator op) {
  		parser_->setDefaultOperator(static_cast<int>(op)); 
 	}
 
@@ -72,7 +72,7 @@ namespace Cpix {
 		parser_->setDefaultOperator(op); 
 	}
 
-	CLuceneMultiFieldQueryParser::CLuceneMultiFieldQueryParser(
+	LuceneMultiFieldQueryParser::LuceneMultiFieldQueryParser(
 			const wchar_t** fields, 
 			lucene::analysis::Analyzer& analyzer, 
 			lucene::queryParser::BoostMap& boostMap)
@@ -82,19 +82,19 @@ namespace Cpix {
 		
 	}
 	
-	CLuceneMultiFieldQueryParser::~CLuceneMultiFieldQueryParser() {}
+	LuceneMultiFieldQueryParser::~LuceneMultiFieldQueryParser() {}
 	
 	std::auto_ptr<lucene::search::Query> 
-		CLuceneMultiFieldQueryParser::parse(const wchar_t* query) {
+		LuceneMultiFieldQueryParser::parse(const wchar_t* query) {
 		return std::auto_ptr<lucene::search::Query>( parser_->parse( query ) );
 		
 	}
 	
-	const wchar_t* CLuceneMultiFieldQueryParser::getField() const {
+	const wchar_t* LuceneMultiFieldQueryParser::getField() const {
 		THROW_CPIXEXC("Multi field query parser does not support getField operation"); 	
 	}
 	
-	void CLuceneMultiFieldQueryParser::setDefaultOperator(cpix_QP_Operator op) {
+	void LuceneMultiFieldQueryParser::setDefaultOperator(cpix_QP_Operator op) {
 		parser_->setDefaultOperator(static_cast<int>(op)); 
 	}
 	
@@ -103,7 +103,7 @@ namespace Cpix {
 		return 
 			new PrefixOptQueryParser(
 				std::auto_ptr<IQueryParser>(
-					new CLuceneQueryParser(defaultField, *analyzer)));
+					new LuceneQueryParser(defaultField, *analyzer)));
 	}
 	
 	IQueryParser* CreateCLuceneMultiFieldQueryParser(
@@ -113,7 +113,7 @@ namespace Cpix {
 		return 
 			new PrefixOptQueryParser(
 				std::auto_ptr<IQueryParser>(
-					new CLuceneMultiFieldQueryParser(fields, 
+					new LuceneMultiFieldQueryParser(fields, 
 													 *analyzer,
 													 *boostMap)));
 		

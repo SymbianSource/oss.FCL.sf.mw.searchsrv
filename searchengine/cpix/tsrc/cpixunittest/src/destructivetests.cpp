@@ -133,30 +133,24 @@ public: // Test cases
     }
 		
     void testWritingWhenHitIterating(Itk::TestMgr* testMgr) {
-        char *xml_file = (char *)__FUNCTION__;
-        assert_failed = 0;
         testWritingWhenHitIterating(testMgr,
                                     idxUtil_->idxDb(),
                                     &cpix_IdxDb_search,
                                     3);
-        testResultXml(xml_file);
+       
     }
 
 
     void testWritingWhenHitIterating2(Itk::TestMgr* testMgr) {
-        char *xml_file = (char *)__FUNCTION__;
-        assert_failed = 0;
         testWritingWhenHitIterating(testMgr,
                                     searcher(testMgr),
                                     &cpix_IdxSearcher_search,
                                     3);
-        testResultXml(xml_file);
+       
     }
 
     void testInvalidation(Itk::TestMgr* testMgr) 
     {
-        char *xml_file = (char *)__FUNCTION__;
-        assert_failed = 0;
         for (int i = 0; i < 25; i++) 
             {
                 idxUtil_->indexSms( i, 
@@ -177,7 +171,7 @@ public: // Test cases
         if ( cpix_Failed( idxUtil_->idxDb() ) ) {
             cpix_Query_destroy( query );
             ITK_PANIC( "Search failed" );
-            assert_failed = 1;
+            
         }
         printf("Accessing hits before closing... ");
 
@@ -203,10 +197,7 @@ public: // Test cases
         ITK_EXPECT(testMgr,
                    cpix_Succeeded(idxUtil_->idxDb()),
                    "Flushing failed");
-        if(cpix_Succeeded(idxUtil_->idxDb()))
-        {
-        assert_failed = 1;
-        }
+
 
         cpix_IdxSearcher_releaseDb(searcher_);
         searcher_ = NULL;
@@ -219,7 +210,7 @@ public: // Test cases
             **doc;                    
         ALLOC_DOC(doc, 1);        
         
-        printf("doc #0: ");
+        printf("doc #0: \n");
         cpix_Hits_doc(hits,
                       0,
                       doc,
@@ -245,7 +236,7 @@ public: // Test cases
                     
 
         ALLOC_DOC(doc, 1)
-        printf("\ndoc #20: ");
+        printf("doc #20: ");
         cpix_Hits_doc(hits,
                       20,
                       doc,
@@ -254,22 +245,23 @@ public: // Test cases
         ITK_EXPECT( testMgr, 
                 cpix_Failed( hits ), 
                 "Accessing hit(20) should NOT succeeded for closed database (hits still holds a reference to its originator)." ); 
-
-        if (cpix_Failed(hits))
-            {
-        wchar_t
-        buf[256];
-        cpix_Error_report(hits->err_,
-                buf,
-                sizeof(buf) / sizeof(wchar_t));
-        printf("%S\n", buf);
-        cpix_ClearError(hits);
-        assert_failed = 1;
-            }
         }
         
+        if (cpix_Failed(hits))
+            {
+            wchar_t
+            buf[256];
+            cpix_Error_report(hits->err_,
+                    buf,
+                    sizeof(buf) / sizeof(wchar_t));
+            printf("%S\n", buf);
+            cpix_ClearError(hits);
+            
+            }
+
+        
         FREE_DOC(doc, 1)
-        testResultXml(xml_file);
+       
         cpix_Hits_destroy( hits );
         cpix_Query_destroy( query );
     }
@@ -282,8 +274,6 @@ public: // Test cases
      */
     void testStackunwinding(Itk::TestMgr* testMgr) 
     {
-        char *xml_file = (char *)__FUNCTION__;
-        assert_failed = 0;
         SchemaId wrongSchema = idxUtil_->schemaId();
         cpix_Result
             result;
@@ -300,7 +290,7 @@ public: // Test cases
         if (cpix_Failed(&result))
             {
                 ITK_PANIC("Index could not be opened");
-                assert_failed = 1;
+                
             }
 
         // Try to index things
@@ -333,7 +323,7 @@ public: // Test cases
                 ITK_ASSERT( testMgr, !succeeded, "Schema is persistent?" );
 
             }
-        testResultXml(xml_file);	
+       	
         cpix_IdxDb_releaseDb(idxDb);
         idxDb = NULL; 
 			
@@ -354,6 +344,7 @@ private:
 
         // Index 
         for (int i = 0; i < 25; i++) {
+
             idxUtil_->indexSms( i, 
                                 testCorpus_.item(i).c_str(), 
                                 analyzer_, 
@@ -395,19 +386,13 @@ private:
 	
                     cpix_Hits_length( hits );
                     ITK_EXPECT( testMgr, cpix_Succeeded( hits  ), "Accessing hit of index 1 failed" ); 
-					if(!cpix_Succeeded( hits  ))
-					    {
-                        assert_failed = 1;
-					    }
+
                     printf("Hits after adding 1 item.\n");
                     idxUtil_->printHits( hits, testMgr ); 
 								
                     cpix_IdxDb_deleteDocuments(idxUtil_->idxDb(), GetItemId( 15 ).c_str() );
                     ITK_EXPECT( testMgr, cpix_Succeeded( idxUtil_->idxDb() ), "Deleting document 15 failed" ); 
-					if(!cpix_Succeeded( idxUtil_->idxDb() ))
-	                       {
-	                        assert_failed = 1;
-	                        }
+
                     printf("Line 16 deleted.\n");
 	
                     printf("Hits after deletion: \n");
@@ -416,30 +401,21 @@ private:
                     cpix_IdxDb_flush(idxUtil_->idxDb() );
                     ITK_EXPECT( testMgr, cpix_Succeeded( idxUtil_->idxDb() ), "Flushing failed" );
                     printf("Flushed.\n");
-                    if(!cpix_Succeeded( idxUtil_->idxDb() ))
-                           {
-                            assert_failed = 1;
-                            }
+
 					
                     printf("Hits after flush:\n");
                     idxUtil_->printHits( hits, testMgr, true ); 
 					 
                     cpix_IdxDb_deleteDocuments(idxUtil_->idxDb(), GetItemId( 14 ).c_str() );
                     ITK_EXPECT( testMgr, cpix_Succeeded( idxUtil_->idxDb() ), "Deleting document 14 failed" ); 
-                    if(!cpix_Succeeded( idxUtil_->idxDb() ))
-                           {
-                            assert_failed = 1;
-                            }
+
                     printf("Line 15 deleted.\n");
                     printf("Hits after deletion:\n");
                     idxUtil_->printHits( hits, testMgr ); 
 	
                     cpix_IdxDb_deleteDocuments(idxUtil_->idxDb(), GetItemId( 9 ).c_str() );
                     ITK_EXPECT( testMgr, cpix_Succeeded( idxUtil_->idxDb() ), "Deleting document 9 failed" ); 
-                    if(!cpix_Succeeded( idxUtil_->idxDb() ))
-                           {
-                            assert_failed = 1;
-                            }
+
                     printf("Line 10 deleted.\n");
                     printf("Hits after deletion:\n");
                     idxUtil_->printHits( hits, testMgr ); 
@@ -447,10 +423,7 @@ private:
                     cpix_IdxDb_flush(idxUtil_->idxDb() );
                     ITK_EXPECT( testMgr, cpix_Succeeded( idxUtil_->idxDb() ), "Flushing failed" );
                     printf("Flushed.\n");
-                    if(!cpix_Succeeded( idxUtil_->idxDb() ))
-                            {
-                             assert_failed = 1;
-                             }
+
                     printf("Hits after flush:\n");
                     idxUtil_->printHits( hits, testMgr, true ); 
 					 
@@ -462,12 +435,12 @@ private:
             else 
                 {
                     ITK_PANIC("Hits was null"); 
-                    assert_failed = 1;
+           
                 }
             cpix_Query_destroy( query );
         } else  {
             ITK_PANIC("Could not create query"); 
-            assert_failed = 1;
+
         }
         
     }

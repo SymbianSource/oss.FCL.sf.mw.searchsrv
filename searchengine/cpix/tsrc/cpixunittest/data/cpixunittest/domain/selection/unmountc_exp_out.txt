@@ -5,26 +5,26 @@ Unmounting volume @c:root file ...
 And now searching with all searchers
 Searching with domain selector 'root':
 Number of hits: 4
-DOC (dc): Happy birthday to ? ...... May all yr wishes come true. Work hard for yr A levels and never give up! Take care always...
-DOC (agb): Anyway i dun think i've really done a lot. As long as u r happy, things dat i can do for i'll do it for u..
-DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh happiness!
-DOC (!:\data\cpixunittestcorpus\stem\en\4.txt): What is happening here?
+DOC (dc): <U>Happy</U> birthday to ? ...... May
+DOC (agb):  <U>happy</U>, things
+DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh <U>happiness</U>
+DOC (!:\data\cpixunittestcorpus\stem\en\4.txt): What is <U>happening</U> here
 
 Searching with domain selector 'root msg':
 Number of hits: 2
-DOC (dc): Happy birthday to ? ...... May all yr wishes come true. Work hard for yr A levels and never give up! Take care always...
-DOC (agb): Anyway i dun think i've really done a lot. As long as u r happy, things dat i can do for i'll do it for u..
+DOC (dc): <U>Happy</U> birthday to ? ...... May
+DOC (agb):  <U>happy</U>, things
 
 Searching with domain selector '@d:root file,root msg phone sms':
 Number of hits: 3
-DOC (dc): Happy birthday to ? ...... May all yr wishes come true. Work hard for yr A levels and never give up! Take care always...
-DOC (agb): Anyway i dun think i've really done a lot. As long as u r happy, things dat i can do for i'll do it for u..
-DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh happiness!
+DOC (dc): <U>Happy</U> birthday to ? ...... May
+DOC (agb):  <U>happy</U>, things
+DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh <U>happiness</U>
 
 Searching with domain selector '@d:root file,@f:root file':
 Number of hits: 2
-DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh happiness!
-DOC (!:\data\cpixunittestcorpus\stem\en\4.txt): What is happening here?
+DOC (!:\data\cpixunittestcorpus\stem\en\2.txt): Oh <U>happiness</U>
+DOC (!:\data\cpixunittestcorpus\stem\en\4.txt): What is <U>happening</U> here
 
 
 

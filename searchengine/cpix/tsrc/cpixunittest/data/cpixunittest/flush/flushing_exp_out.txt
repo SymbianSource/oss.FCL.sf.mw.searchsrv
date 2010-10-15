@@ -7,45 +7,45 @@ Added one more item
 
 Indexed SMS 1
 Added one more item
-  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_1\segments
-  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_1\deletable
-  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_1\_0.cfs
+  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_0\segments
+  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_0\deletable
+  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_0\_0.cfs
 
 Indexed SMS 2
 Added one more item
-  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_1\segments
-  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_1\deletable
-  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_1\_0.cfs
+  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_0\segments
+  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_0\deletable
+  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_0\_0.cfs
 
 Indexed SMS 3
 Added one more item
-  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_1\segments
-  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_1\deletable
-  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_1\_0.cfs
+  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_0\segments
+  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_0\deletable
+  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_0\_0.cfs
 
 Indexed SMS 4
 Added one more item
-  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_1\segments
-  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_1\deletable
-  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_1\_0.cfs
+  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_0\segments
+  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_0\deletable
+  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_0\_0.cfs
 
 Indexed SMS 5
 Added one more item
-  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_1\segments
-  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_1\deletable
-  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_1\_0.cfs
+  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_0\segments
+  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_0\deletable
+  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_0\_0.cfs
 
 Indexed SMS 6
 Added one more item
-  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_1\segments
-  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_1\deletable
-  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_1\_0.cfs
+  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_0\segments
+  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_0\deletable
+  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_0\_0.cfs
 
 Indexed SMS 7
 Added one more item
-  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_1\segments
-  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_1\deletable
-  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_1\_0.cfs
+  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_0\segments
+  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_0\deletable
+  # index file c:\Data\indexing\indexdb\root\msg\phone\sms\_0\_0.cfs
 
 Indexed SMS 8
 Added one more item

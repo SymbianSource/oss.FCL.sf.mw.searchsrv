@@ -1,5 +1,6 @@
 #include "clucene/stdheader.h"
 #include "queryscorer.h"
+#include <wchar.h>
 
 CL_NS_DEF2(search,highlight)
 CL_NS_USE(index)
@@ -61,13 +62,54 @@ CL_NS_USE(analysis)
 		_totalScore=0;
 		
 	}
+	/*
+	 * Compares the Query term to Field text token if match, returns 1
+	 *
+	 */
+
+	int QueryScorer::matchQuryText(const TCHAR* termText)
+	{
+			CL_NS(util)::LHashMap<const TCHAR*, const WeightedTerm *,
+		CL_NS(util)::Compare::TChar,
+		CL_NS(util)::Equals::TChar,
+		CL_NS(util)::Deletor::tcArray,
+		CL_NS(util)::Deletor::Object<const WeightedTerm> >::iterator i = _termsToFind.begin();
+			for(; i != _termsToFind.end() ; i ++)
+			{ 
+				const TCHAR * temp = i->first;
+				int tempLen =  wcslen(temp);
+				int matchFlag = 1;
+				if(tempLen <= wcslen(termText))
+				{
+					for(int j = tempLen - 1 ; j >=0 ; j--)
+					{
+						if(temp[j] != termText[j])
+						{
+							matchFlag = 0;
+							break;
+						}
+					}
+				}
+				else
+				{
+					matchFlag = 0;
+				}
+				if(matchFlag)
+					return 1;
+				
+     		}
+			return 0;
+	}
+
 	
 	float_t QueryScorer::getTokenScore(Token * token)
 	{
 		const TCHAR* termText=token->termText();
 		
-		const WeightedTerm* queryTerm = _termsToFind.get(termText);
-		if(queryTerm==NULL)
+	//	const WeightedTerm* queryTerm = _termsToFind.get(termText);
+	// Instead of checking for weighted terms directly match qurey text to field text.
+	    int isQueryTerm = matchQuryText(termText);
+		if(isQueryTerm==0)
 		{
 			//not a query term - return
 			return 0;
@@ -75,11 +117,17 @@ CL_NS_USE(analysis)
 		//found a query term - is it unique in this doc?
 		if(_uniqueTermsInFragment.find(termText)==_uniqueTermsInFragment.end())
 		{
-			_totalScore+=queryTerm->getWeight();
+			//_totalScore+=queryTerm->getWeight();
+			/*
+			 * Keeping the Score value to 1 
+			 *
+			 */
+				_totalScore+=1;
 			TCHAR* owned_term = stringDuplicate(termText);
 			_uniqueTermsInFragment.insert(owned_term);
 		}
-		return queryTerm->getWeight();
+		//return queryTerm->getWeight();
+			return 1;
 	}
 	
 	/**

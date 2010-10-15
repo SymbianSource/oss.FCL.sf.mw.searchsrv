@@ -1,0 +1,51 @@
+
+Indexed file: ./cpixunittestcorpus/text/en/1.txt
+
+Indexed file: ./cpixunittestcorpus/text/en/2.txt
+
+Indexed file: ./cpixunittestcorpus/text/en/3.txt
+
+Indexed file: ./cpixunittestcorpus/text/en/4.txt
+
+Indexed SMS 0
+
+Indexed SMS 1
+
+Indexed SMS 2
+
+Indexed SMS 3
+
+Indexed SMS 4
+
+Indexed SMS 5
+
+Indexed SMS 6
+
+Indexed SMS 7
+
+Indexed SMS 8
+
+Indexed SMS 9
+Results for a*:
+a 1
+amore 1
+anyway 1
+asked 1
+available 1
+
+Results for e*:
+e 1
+
+Results for h*:
+haha 1
+having 1
+home 1
+huh 1
+
+Results for w*:
+wat 3
+w 1
+wear 1
+wondering 1
+world 1
+

@@ -1,0 +1,6 @@
+Analyzer "stdtokens>stdfilter>lowercase>stop(fr)":
+File ./cpixunittestcorpus/text/fr/1.txt tokenized:
+ 'approvisionnement' 'sûr' 'durable'
+File ./cpixunittestcorpus/text/fr/2.txt tokenized:
+ 'l'énergie' 'cœur' 'vies' 'dépendons' 'd'elle'
+

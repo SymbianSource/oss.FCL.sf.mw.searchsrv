@@ -1,0 +1,17 @@
+Discover 'm' in cat.music:
+    DOC (\data\vasco_supportedfiles\audio\midisample.mid): midisample.mid 
+    DOC (\data\vasco_supportedfiles\video\machine.m4a): machine.m4a 
+    DOC (\data\vasco_supportedfiles\audio\mediawaves.wma): mediawaves.wma 
+    DOC (\data\vasco_supportedfiles\audio\02waves.mp3): 02waves.mp3 Coldplay Clocks [Japan EP] Berryman/Buckland/Champion/Martin 
+
+Discover 'cold' in cat.music:
+    DOC (\data\vasco_supportedfiles\audio\02waves.mp3): 02waves.mp3 Coldplay Clocks [Japan EP] Berryman/Buckland/Champion/Martin 
+
+Discover 'w' in cat.music:
+    DOC (\data\vasco_supportedfiles\audio\audiodata.wav): audiodata.wav 
+    DOC (\data\vasco_supportedfiles\audio\mediawaves.wma): mediawaves.wma 
+    DOC (\data\vasco_supportedfiles\audio\02waves.mp3): 02waves.mp3 Coldplay Clocks [Japan EP] Berryman/Buckland/Champion/Martin 
+
+Discover '4o' in cat.music:
+    DOC (\data\vasco_supportedfiles\audio\4o 3 sindzhira bobi.awb): 4o 3 sindzhira bobi.awb 
+

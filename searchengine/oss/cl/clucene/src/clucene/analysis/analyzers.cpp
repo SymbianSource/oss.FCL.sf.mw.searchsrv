@@ -371,6 +371,32 @@ bool KeywordTokenizer::next(Token* token){
     return false;
 }
 
+TokenStream* PhoneNumberAnalyzer::tokenStream(const TCHAR* fieldName, CL_NS(util)::Reader* reader){
+    TokenStream* ret = _CLNEW PhoneNumberTokenizer(reader);
+    return ret;
+    
+}
+
+PhoneNumberTokenizer::PhoneNumberTokenizer(CL_NS(util)::Reader* input):
+    Tokenizer(input)
+{
+      termLen = input->read(termText);
+      
+      tokenLen = 0;
+}
+  bool PhoneNumberTokenizer::next(Token* token) {
+      
+         if(tokenLen < termLen)     
+         {
+            token->set(termText+tokenLen,0,termLen-tokenLen);
+            tokenLen ++;
+            return true;
+         }
+
+      return false;
+      
+ }
+
 
 LengthFilter::LengthFilter(TokenStream* in, int _min, int _max):
     TokenFilter(in)

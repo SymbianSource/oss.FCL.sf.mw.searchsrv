@@ -1,0 +1,206 @@
+Selected root media image:c:\data\cpixunittestcorpus\jpgs\New_York.jpg of cat.image with query jpg
+Discover 'j' in cat:
+  cat.image (5 hits)
+    DOC (Nowhere): Nowhere
+    DOC (Otaniemi.jpg): Otaniemi.jpg
+    DOC (New York.jpg): New York.jpg
+  cat.contact (3 hits)
+    DOC (3): John London
+    DOC (2): Jane Smith
+    DOC (1): John Smith
+  cat.msg (2 hits)
+    DOC (2): Hello Jane
+    DOC (1): Hello John
+  cat.email (2 hits)
+    DOC (2): Re:Documents to Jane
+    DOC (1): Documents to Jane
+  cat.cal (3 hits)
+    DOC (6): London meeting with John
+    DOC (7): Talk to Jane
+    DOC (4): Beer with John
+  cat.music (1 hits)
+    DOC (\data\vasco_supportedfiles\audio\02waves.mp3): 02waves.mp3 Coldplay Clocks [Japan EP] Berryman/Buckland/Champion/Martin 
+
+Discover 'l' in cat:
+  cat.image (1 hits)
+    DOC (08012009047.jpg): 08012009047.jpg
+  cat.contact (1 hits)
+    DOC (3): John London
+  cat.cal (2 hits)
+    DOC (6): London meeting with John
+    DOC (2): London calling
+  cat.file (1 hits)
+    DOC (./cpixunittestcorpus/text/en/3.txt): Nothing important in here. So don't even look. Because you
+
+Discover 't' in cat:
+  cat.image (1 hits)
+    DOC (Otaniemi.jpg): Otaniemi.jpg
+  cat.msg (3 hits)
+    DOC (6): It was nice to talk with you.
+    DOC (5): Nice, thank you.
+    DOC (4): I'm fine, thank you. How do you do?
+  cat.cal (1 hits)
+    DOC (7): Talk to Jane
+  cat.file (4 hits)
+    DOC (./cpixunittestcorpus/text/en/2.txt): Oh happiness!
+    DOC (./cpixunittestcorpus/text/en/1.txt): I am happy.
+    DOC (./cpixunittestcorpus/text/en/4.txt): What is happening here?
+
+Discover 's' in cat:
+  cat.image (2 hits)
+    DOC (New York.jpg): New York.jpg
+    DOC (08012009047.jpg): 08012009047.jpg
+  cat.contact (3 hits)
+    DOC (4):  Smith
+    DOC (2): Jane Smith
+    DOC (1): John Smith
+  cat.msg (1 hits)
+    DOC (7): See you
+  cat.cal (1 hits)
+    DOC (5): Sprint meeting
+  cat.music (3 hits)
+    DOC (\data\vasco_supportedfiles\audio\sample2.aac): sample2.aac 
+    DOC (\data\vasco_supportedfiles\audio\sound.amr): sound.amr 
+    DOC (\data\vasco_supportedfiles\audio\4o 3 sindzhira bobi.awb): 4o 3 sindzhira bobi.awb 
+  cat.file (1 hits)
+    DOC (./cpixunittestcorpus/text/en/3.txt): Nothing important in here. So don't even look. Because you
+
+Selected root contact:3 of cat.contact with query john
+Selected root contact:2 of cat.contact with query jane
+Discover 'j' in cat:
+  cat.contact (3 hits)
+    DOC (2): Jane Smith
+    DOC (3): John London
+    DOC (1): John Smith
+  cat.image (5 hits)
+    DOC (Nowhere): Nowhere
+    DOC (Otaniemi.jpg): Otaniemi.jpg
+    DOC (New York.jpg): New York.jpg
+  cat.msg (2 hits)
+    DOC (2): Hello Jane
+    DOC (1): Hello John
+  cat.email (2 hits)
+    DOC (2): Re:Documents to Jane
+    DOC (1): Documents to Jane
+  cat.cal (3 hits)
+    DOC (6): London meeting with John
+    DOC (7): Talk to Jane
+    DOC (4): Beer with John
+  cat.music (1 hits)
+    DOC (\data\vasco_supportedfiles\audio\02waves.mp3): 02waves.mp3 Coldplay Clocks [Japan EP] Berryman/Buckland/Champion/Martin 
+
+Discover 'l' in cat:
+  cat.contact (1 hits)
+    DOC (3): John London
+  cat.image (1 hits)
+    DOC (08012009047.jpg): 08012009047.jpg
+  cat.cal (2 hits)
+    DOC (6): London meeting with John
+    DOC (2): London calling
+  cat.file (1 hits)
+    DOC (./cpixunittestcorpus/text/en/3.txt): Nothing important in here. So don't even look. Because you
+
+Discover 't' in cat:
+  cat.image (1 hits)
+    DOC (Otaniemi.jpg): Otaniemi.jpg
+  cat.msg (3 hits)
+    DOC (6): It was nice to talk with you.
+    DOC (5): Nice, thank you.
+    DOC (4): I'm fine, thank you. How do you do?
+  cat.cal (1 hits)
+    DOC (7): Talk to Jane
+  cat.file (4 hits)
+    DOC (./cpixunittestcorpus/text/en/2.txt): Oh happiness!
+    DOC (./cpixunittestcorpus/text/en/1.txt): I am happy.
+    DOC (./cpixunittestcorpus/text/en/4.txt): What is happening here?
+
+Discover 's' in cat:
+  cat.contact (3 hits)
+    DOC (4):  Smith
+    DOC (2): Jane Smith
+    DOC (1): John Smith
+  cat.image (2 hits)
+    DOC (New York.jpg): New York.jpg
+    DOC (08012009047.jpg): 08012009047.jpg
+  cat.msg (1 hits)
+    DOC (7): See you
+  cat.cal (1 hits)
+    DOC (5): Sprint meeting
+  cat.music (3 hits)
+    DOC (\data\vasco_supportedfiles\audio\sample2.aac): sample2.aac 
+    DOC (\data\vasco_supportedfiles\audio\sound.amr): sound.amr 
+    DOC (\data\vasco_supportedfiles\audio\4o 3 sindzhira bobi.awb): 4o 3 sindzhira bobi.awb 
+  cat.file (1 hits)
+    DOC (./cpixunittestcorpus/text/en/3.txt): Nothing important in here. So don't even look. Because you
+
+Selected root media image:c:\data\cpixunittestcorpus\jpgsVerkkokauppa.jpg of cat.image with query verkko
+Selected root media image:c:\data\cpixunittestcorpus\jpgs\New_York.jpg of cat.image with query jpg
+Selected root media image:c:\data\cpixunittestcorpus\jpgsVerkkokauppa.jpg of cat.image with query verkko
+Selected root contact:2 of cat.contact with query jane
+Selected root msg phone sms:2 of cat.msg with query jane
+Discover 'j' in cat:
+  cat.msg (2 hits)
+    DOC (2): Hello Jane
+    DOC (1): Hello John
+  cat.contact (3 hits)
+    DOC (2): Jane Smith
+    DOC (3): John London
+    DOC (1): John Smith
+  cat.image (5 hits)
+    DOC (Nowhere): Nowhere
+    DOC (Otaniemi.jpg): Otaniemi.jpg
+    DOC (New York.jpg): New York.jpg
+  cat.email (2 hits)
+    DOC (2): Re:Documents to Jane
+    DOC (1): Documents to Jane
+  cat.cal (3 hits)
+    DOC (6): London meeting with John
+    DOC (7): Talk to Jane
+    DOC (4): Beer with John
+  cat.music (1 hits)
+    DOC (\data\vasco_supportedfiles\audio\02waves.mp3): 02waves.mp3 Coldplay Clocks [Japan EP] Berryman/Buckland/Champion/Martin 
+
+Discover 'l' in cat:
+  cat.image (1 hits)
+    DOC (08012009047.jpg): 08012009047.jpg
+  cat.contact (1 hits)
+    DOC (3): John London
+  cat.cal (2 hits)
+    DOC (6): London meeting with John
+    DOC (2): London calling
+  cat.file (1 hits)
+    DOC (./cpixunittestcorpus/text/en/3.txt): Nothing important in here. So don't even look. Because you
+
+Discover 't' in cat:
+  cat.image (1 hits)
+    DOC (Otaniemi.jpg): Otaniemi.jpg
+  cat.msg (3 hits)
+    DOC (6): It was nice to talk with you.
+    DOC (5): Nice, thank you.
+    DOC (4): I'm fine, thank you. How do you do?
+  cat.cal (1 hits)
+    DOC (7): Talk to Jane
+  cat.file (4 hits)
+    DOC (./cpixunittestcorpus/text/en/2.txt): Oh happiness!
+    DOC (./cpixunittestcorpus/text/en/1.txt): I am happy.
+    DOC (./cpixunittestcorpus/text/en/4.txt): What is happening here?
+
+Discover 's' in cat:
+  cat.image (2 hits)
+    DOC (New York.jpg): New York.jpg
+    DOC (08012009047.jpg): 08012009047.jpg
+  cat.contact (3 hits)
+    DOC (4):  Smith
+    DOC (2): Jane Smith
+    DOC (1): John Smith
+  cat.msg (1 hits)
+    DOC (7): See you
+  cat.cal (1 hits)
+    DOC (5): Sprint meeting
+  cat.music (3 hits)
+    DOC (\data\vasco_supportedfiles\audio\sample2.aac): sample2.aac 
+    DOC (\data\vasco_supportedfiles\audio\sound.amr): sound.amr 
+    DOC (\data\vasco_supportedfiles\audio\4o 3 sindzhira bobi.awb): 4o 3 sindzhira bobi.awb 
+  cat.file (1 hits)
+    DOC (./cpixunittestcorpus/text/en/3.txt): Nothing important in here. So don't even look. Because you
+

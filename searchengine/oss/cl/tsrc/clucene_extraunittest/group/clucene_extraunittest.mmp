@@ -51,6 +51,7 @@ STATICLIBRARY   libcrt0.lib
 STATICLIBRARY   libitk.lib
 STATICLIBRARY   libcpixtools.lib
 STATICLIBRARY   libclucene.lib
+STATICLIBRARY   libanalysis.lib
 
 // libc and euser are always needed when using main() entry point
 LIBRARY         libc.lib 

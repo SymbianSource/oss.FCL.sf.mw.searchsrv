@@ -119,132 +119,108 @@ public:
     //
     void testAdd_00(Itk::TestMgr * testMgr)
     {
-        char *xml_file = (char *)__FUNCTION__;
-        assert_failed = 0;
         testAddSms(testMgr,
                    1,
                    L"This is a happy message");
         util_->flush();
         testSearch(testMgr);
-        testResultXml(xml_file);
+       
     }
 
     void testAdd_01(Itk::TestMgr * testMgr)
     {
-        char *xml_file = (char *)__FUNCTION__;
-        assert_failed = 0;
         testAddSms(testMgr,
                    2,
                    L"This is another happy message");
         util_->flush();
         testSearch(testMgr);
-        testResultXml(xml_file);
+       
     }
 
     void testFlush_02(Itk::TestMgr * testMgr)
     {
-        char *xml_file = (char *)__FUNCTION__;
-        assert_failed = 0;
         testFlush(testMgr);
-        testResultXml(xml_file);
+       
     }
 
     void testAdd_03(Itk::TestMgr * testMgr)
     {
-        char *xml_file = (char *)__FUNCTION__;
-        assert_failed = 0;
         testAddSms(testMgr,
                    3,
                    L"This is a 3rd happy message");
         util_->flush();
         testSearch(testMgr);
-        testResultXml(xml_file);
+       
     }
 
     void testDelete_04(Itk::TestMgr * testMgr)
     {
-        char *xml_file = (char *)__FUNCTION__;
-        assert_failed = 0;
         testDeleteSms(3,
                       testMgr);
         util_->flush();
         testSearch(testMgr);
-        testResultXml(xml_file);
+       
     }
 
     void testDelete_05(Itk::TestMgr * testMgr)
     {
-        char *xml_file = (char *)__FUNCTION__;
-        assert_failed = 0;
         testDeleteSms(1,
                       testMgr);
         util_->flush();
         testSearch(testMgr);
-        testResultXml(xml_file);
+       
     }
 
     void testReOpenIdx_06(Itk::TestMgr * testMgr)
     {
-        char *xml_file = (char *)__FUNCTION__;
-        assert_failed = 0;
         testReOpenIdxDb(testMgr);
         testSearch(testMgr);
-        testResultXml(xml_file);
+       
     }
     
     void testAdd_07(Itk::TestMgr * testMgr)
     {
-        char *xml_file = (char *)__FUNCTION__;
-        assert_failed = 0;
         testAddSms(testMgr,
                    4,
                    L"This is the 4th happy message");
         util_->flush();
         testSearch(testMgr);
-        testResultXml(xml_file);
+       
     }
 
     void testAdd_08(Itk::TestMgr * testMgr)
     {
-        char *xml_file = (char *)__FUNCTION__;
-        assert_failed = 0;
         testAddSms(testMgr,
                    5,
                    L"This is the 5th happy message");
         util_->flush();
         testSearch(testMgr);
-        testResultXml(xml_file);
+       
     }
 
     void testDelete_09(Itk::TestMgr * testMgr)
     {
-        char *xml_file = (char *)__FUNCTION__;
-        assert_failed = 0;
         testDeleteSms(2,
                       testMgr);
         util_->flush();
         testSearch(testMgr);
-        testResultXml(xml_file);
+       
     }
 
     void testDelete_10(Itk::TestMgr * testMgr)
     {
-        char *xml_file = (char *)__FUNCTION__;
-        assert_failed = 0;
         testDeleteSms(4,
                       testMgr);
         util_->flush();
         testSearch(testMgr);
-        testResultXml(xml_file);
+       
     }
 
     void testReOpenIdx_11(Itk::TestMgr * testMgr)
     {
-        char *xml_file = (char *)__FUNCTION__;
-        assert_failed = 0;
         testReOpenIdxDb(testMgr);
         testSearch(testMgr);
-        testResultXml(xml_file);
+       
     }
     
 
@@ -300,11 +276,7 @@ private:
         ITK_EXPECT(testMgr,
                    cpix_Succeeded(util_->idxDb()),
                    "Could not flush idx");
-        if(!cpix_Succeeded(util_->idxDb()))
-        {
-        assert_failed = 1;
-        }
-                
+      
     }
 
 
@@ -330,7 +302,7 @@ private:
                            false,
                            "Failed to search");
                 cpix_ClearError(util_->idxDb());
-                assert_failed = 1;
+                
             }
         else
             {

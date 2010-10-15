@@ -1,0 +1,20 @@
+Analyzer "natural":
+File ./cpixunittestcorpus/text/en/1.txt tokenized:
+ 'i' 'am' 'happy'
+File ./cpixunittestcorpus/text/en/2.txt tokenized:
+ 'oh' 'happiness'
+File ./cpixunittestcorpus/text/en/3.txt tokenized:
+ 'nothing' 'important' 'in' 'here' 'so' 't' 'even' 'look' 'because' 'you' 'shall' 'find' 'nothing' 'whatsoever'
+File ./cpixunittestcorpus/text/en/4.txt tokenized:
+ 'what' 'is' 'happening' 'here'
+
+Analyzer "natural":
+File ./cpixunittestcorpus/text/fr/1.txt tokenized:
+ 'un' 'approvisionnement' 'sûr' 'et' 'durable'
+File ./cpixunittestcorpus/text/fr/2.txt tokenized:
+ 'énergie' 'est' 'au' 'cœur' 'de' 'nos' 'vies' 'nous' 'dépendons' 'elle' 'pour'
+File ./cpixunittestcorpus/text/fr/3.txt tokenized:
+ 'nous' 'déplacer' 'pour' 'chauffer' 'nos' 'maisons' 'ou' 'les' 'rafraîchir'
+File ./cpixunittestcorpus/text/fr/4.txt tokenized:
+ 'pour' 'faire' 'fonctionner' 'nos' 'usines' 'nos' 'exploitations' 'agricoles' 'et' 'nos'
+

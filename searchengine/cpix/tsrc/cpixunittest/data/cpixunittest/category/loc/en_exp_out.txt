@@ -1,0 +1,9 @@
+Discover 'happy' in cat.file:
+    DOC (./cpixunittestcorpus/text/en/1.txt): I am happy.
+
+Discover 'happiness' in cat.file:
+    DOC (./cpixunittestcorpus/text/en/2.txt): Oh happiness!
+
+Discover 'happening' in cat.file:
+    DOC (./cpixunittestcorpus/text/en/4.txt): What is happening here?
+

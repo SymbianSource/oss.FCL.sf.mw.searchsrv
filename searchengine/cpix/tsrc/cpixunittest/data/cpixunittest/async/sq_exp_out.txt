@@ -6,719 +6,1955 @@ Search/terms query SUCCEEDED
 Num of hits: 42
 
 Doc is retrieved
-DOC (b): happy bla
+DOC (b): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
 
-Doc is retrieved
-DOC (d): happy bla
+Clearing cancelled callback status...
 
-Doc is retrieved
-DOC (e): happy bla
 
-Doc is retrieved
-DOC (f): happy bla
+... clearing cancelled callback status done
 
-Doc retrieval CANCELLED (0)
 
 Doc is retrieved
-DOC (h): happy bla
+DOC (d): <U>happy</U> bla
 
 Doc is retrieved
-DOC (i): happy bla
+DOC (e): <U>happy</U> bla
 
 Doc is retrieved
-DOC (j): happy bla
+DOC (f): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+
+Doc is retrieved
+DOC (h): <U>happy</U> bla
+
+Doc is retrieved
+DOC (i): <U>happy</U> bla
+
+Doc is retrieved
+DOC (j): <U>happy</U> bla
+
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
 
 Search/terms query SUCCEEDED
 
 Num of hits: 430
 
 Doc is retrieved
-DOC (b): happy bla
+DOC (b): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
 
-Doc is retrieved
-DOC (d): happy bla
+Clearing cancelled callback status...
 
-Doc is retrieved
-DOC (e): happy bla
 
-Doc is retrieved
-DOC (f): happy bla
+... clearing cancelled callback status done
 
-Doc retrieval CANCELLED (0)
 
 Doc is retrieved
-DOC (h): happy bla
+DOC (d): <U>happy</U> bla
 
 Doc is retrieved
-DOC (i): happy bla
+DOC (e): <U>happy</U> bla
 
 Doc is retrieved
-DOC (j): happy bla
+DOC (f): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+
+Doc is retrieved
+DOC (h): <U>happy</U> bla
+
+Doc is retrieved
+DOC (i): <U>happy</U> bla
+
+Doc is retrieved
+DOC (j): <U>happy</U> bla
+
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
 
 Search/terms query CANCELLED (0)
 
-Search/terms query CANCELLED (0)
+Search/terms query CANCELLED (3)
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
 
 Search/terms query SUCCEEDED
 
 Num of hits: 42
 
 Doc is retrieved
-DOC (b): happy bla
+DOC (b): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
 
-Doc is retrieved
-DOC (d): happy bla
+Clearing cancelled callback status...
 
-Doc is retrieved
-DOC (e): happy bla
 
-Doc is retrieved
-DOC (f): happy bla
+... clearing cancelled callback status done
 
-Doc retrieval CANCELLED (0)
 
 Doc is retrieved
-DOC (h): happy bla
+DOC (d): <U>happy</U> bla
 
 Doc is retrieved
-DOC (i): happy bla
+DOC (e): <U>happy</U> bla
 
 Doc is retrieved
-DOC (j): happy bla
+DOC (f): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+
+Doc is retrieved
+DOC (h): <U>happy</U> bla
+
+Doc is retrieved
+DOC (i): <U>happy</U> bla
+
+Doc is retrieved
+DOC (j): <U>happy</U> bla
+
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
 
 Search/terms query SUCCEEDED
 
 Num of hits: 430
 
 Doc is retrieved
-DOC (b): happy bla
+DOC (b): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
 
-Doc is retrieved
-DOC (d): happy bla
+Clearing cancelled callback status...
 
-Doc is retrieved
-DOC (e): happy bla
 
-Doc is retrieved
-DOC (f): happy bla
+... clearing cancelled callback status done
 
-Doc retrieval CANCELLED (0)
 
 Doc is retrieved
-DOC (h): happy bla
+DOC (d): <U>happy</U> bla
 
 Doc is retrieved
-DOC (i): happy bla
+DOC (e): <U>happy</U> bla
 
 Doc is retrieved
-DOC (j): happy bla
+DOC (f): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+
+Doc is retrieved
+DOC (h): <U>happy</U> bla
+
+Doc is retrieved
+DOC (i): <U>happy</U> bla
+
+Doc is retrieved
+DOC (j): <U>happy</U> bla
+
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
 
 Search/terms query CANCELLED (0)
 
-Search/terms query CANCELLED (0)
+Search/terms query CANCELLED (3)
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
 
 Search/terms query SUCCEEDED
 
 Num of hits: 42
 
 Doc is retrieved
-DOC (b): happy bla
+DOC (b): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
 
-Doc is retrieved
-DOC (d): happy bla
+Clearing cancelled callback status...
 
-Doc is retrieved
-DOC (e): happy bla
 
-Doc is retrieved
-DOC (f): happy bla
+... clearing cancelled callback status done
 
-Doc retrieval CANCELLED (0)
 
 Doc is retrieved
-DOC (h): happy bla
+DOC (d): <U>happy</U> bla
 
 Doc is retrieved
-DOC (i): happy bla
+DOC (e): <U>happy</U> bla
 
 Doc is retrieved
-DOC (j): happy bla
+DOC (f): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+
+Doc is retrieved
+DOC (h): <U>happy</U> bla
+
+Doc is retrieved
+DOC (i): <U>happy</U> bla
+
+Doc is retrieved
+DOC (j): <U>happy</U> bla
+
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
 
 Search/terms query SUCCEEDED
 
 Num of hits: 430
 
 Doc is retrieved
-DOC (b): happy bla
+DOC (b): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
 
-Doc is retrieved
-DOC (d): happy bla
+Clearing cancelled callback status...
 
-Doc is retrieved
-DOC (e): happy bla
 
-Doc is retrieved
-DOC (f): happy bla
+... clearing cancelled callback status done
 
-Doc retrieval CANCELLED (0)
 
 Doc is retrieved
-DOC (h): happy bla
+DOC (d): <U>happy</U> bla
 
 Doc is retrieved
-DOC (i): happy bla
+DOC (e): <U>happy</U> bla
 
 Doc is retrieved
-DOC (j): happy bla
+DOC (f): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+
+Doc is retrieved
+DOC (h): <U>happy</U> bla
+
+Doc is retrieved
+DOC (i): <U>happy</U> bla
+
+Doc is retrieved
+DOC (j): <U>happy</U> bla
+
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
 
 Search/terms query CANCELLED (0)
 
-Search/terms query CANCELLED (0)
+Search/terms query CANCELLED (3)
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
 
 Search/terms query SUCCEEDED
 
 Num of hits: 42
 
 Doc is retrieved
-DOC (b): happy bla
+DOC (b): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
 
-Doc is retrieved
-DOC (d): happy bla
+Clearing cancelled callback status...
 
-Doc is retrieved
-DOC (e): happy bla
 
-Doc is retrieved
-DOC (f): happy bla
+... clearing cancelled callback status done
 
-Doc retrieval CANCELLED (0)
 
 Doc is retrieved
-DOC (h): happy bla
+DOC (d): <U>happy</U> bla
 
 Doc is retrieved
-DOC (i): happy bla
+DOC (e): <U>happy</U> bla
 
 Doc is retrieved
-DOC (j): happy bla
+DOC (f): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+
+Doc is retrieved
+DOC (h): <U>happy</U> bla
+
+Doc is retrieved
+DOC (i): <U>happy</U> bla
+
+Doc is retrieved
+DOC (j): <U>happy</U> bla
+
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
 
 Search/terms query SUCCEEDED
 
 Num of hits: 430
 
 Doc is retrieved
-DOC (b): happy bla
+DOC (b): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
 
-Doc is retrieved
-DOC (d): happy bla
+Clearing cancelled callback status...
 
-Doc is retrieved
-DOC (e): happy bla
 
-Doc is retrieved
-DOC (f): happy bla
+... clearing cancelled callback status done
 
-Doc retrieval CANCELLED (0)
 
 Doc is retrieved
-DOC (h): happy bla
+DOC (d): <U>happy</U> bla
 
 Doc is retrieved
-DOC (i): happy bla
+DOC (e): <U>happy</U> bla
 
 Doc is retrieved
-DOC (j): happy bla
+DOC (f): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+
+Doc is retrieved
+DOC (h): <U>happy</U> bla
+
+Doc is retrieved
+DOC (i): <U>happy</U> bla
+
+Doc is retrieved
+DOC (j): <U>happy</U> bla
+
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
 
 Search/terms query CANCELLED (0)
 
-Search/terms query CANCELLED (0)
+Search/terms query CANCELLED (3)
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
 
 Search/terms query SUCCEEDED
 
 Num of hits: 42
 
 Doc is retrieved
-DOC (b): happy bla
+DOC (b): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
 
-Doc is retrieved
-DOC (d): happy bla
+Clearing cancelled callback status...
 
-Doc is retrieved
-DOC (e): happy bla
 
-Doc is retrieved
-DOC (f): happy bla
+... clearing cancelled callback status done
 
-Doc retrieval CANCELLED (0)
 
 Doc is retrieved
-DOC (h): happy bla
+DOC (d): <U>happy</U> bla
 
 Doc is retrieved
-DOC (i): happy bla
+DOC (e): <U>happy</U> bla
 
 Doc is retrieved
-DOC (j): happy bla
+DOC (f): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+
+Doc is retrieved
+DOC (h): <U>happy</U> bla
+
+Doc is retrieved
+DOC (i): <U>happy</U> bla
+
+Doc is retrieved
+DOC (j): <U>happy</U> bla
+
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
 
 Search/terms query SUCCEEDED
 
 Num of hits: 430
 
 Doc is retrieved
-DOC (b): happy bla
+DOC (b): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
 
-Doc is retrieved
-DOC (d): happy bla
+Clearing cancelled callback status...
 
-Doc is retrieved
-DOC (e): happy bla
 
-Doc is retrieved
-DOC (f): happy bla
+... clearing cancelled callback status done
 
-Doc retrieval CANCELLED (0)
 
 Doc is retrieved
-DOC (h): happy bla
+DOC (d): <U>happy</U> bla
 
 Doc is retrieved
-DOC (i): happy bla
+DOC (e): <U>happy</U> bla
 
 Doc is retrieved
-DOC (j): happy bla
+DOC (f): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+
+Doc is retrieved
+DOC (h): <U>happy</U> bla
+
+Doc is retrieved
+DOC (i): <U>happy</U> bla
+
+Doc is retrieved
+DOC (j): <U>happy</U> bla
+
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
 
 Search/terms query CANCELLED (0)
 
-Search/terms query CANCELLED (0)
+Search/terms query CANCELLED (3)
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
 
 Search/terms query SUCCEEDED
 
 Num of hits: 42
 
 Doc is retrieved
-DOC (b): happy bla
+DOC (b): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
 
-Doc is retrieved
-DOC (d): happy bla
+Clearing cancelled callback status...
 
-Doc is retrieved
-DOC (e): happy bla
 
-Doc is retrieved
-DOC (f): happy bla
+... clearing cancelled callback status done
 
-Doc retrieval CANCELLED (0)
 
 Doc is retrieved
-DOC (h): happy bla
+DOC (d): <U>happy</U> bla
 
 Doc is retrieved
-DOC (i): happy bla
+DOC (e): <U>happy</U> bla
 
 Doc is retrieved
-DOC (j): happy bla
+DOC (f): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+
+Doc is retrieved
+DOC (h): <U>happy</U> bla
+
+Doc is retrieved
+DOC (i): <U>happy</U> bla
+
+Doc is retrieved
+DOC (j): <U>happy</U> bla
+
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
 
 Search/terms query SUCCEEDED
 
 Num of hits: 430
 
 Doc is retrieved
-DOC (b): happy bla
+DOC (b): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
 
-Doc is retrieved
-DOC (d): happy bla
+Clearing cancelled callback status...
 
-Doc is retrieved
-DOC (e): happy bla
 
-Doc is retrieved
-DOC (f): happy bla
+... clearing cancelled callback status done
 
-Doc retrieval CANCELLED (0)
 
 Doc is retrieved
-DOC (h): happy bla
+DOC (d): <U>happy</U> bla
 
 Doc is retrieved
-DOC (i): happy bla
+DOC (e): <U>happy</U> bla
 
 Doc is retrieved
-DOC (j): happy bla
+DOC (f): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+
+Doc is retrieved
+DOC (h): <U>happy</U> bla
+
+Doc is retrieved
+DOC (i): <U>happy</U> bla
+
+Doc is retrieved
+DOC (j): <U>happy</U> bla
+
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
 
 Search/terms query CANCELLED (0)
 
-Search/terms query CANCELLED (0)
+Search/terms query CANCELLED (3)
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
 
 Search/terms query SUCCEEDED
 
 Num of hits: 42
 
 Doc is retrieved
-DOC (b): happy bla
+DOC (b): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
 
-Doc is retrieved
-DOC (d): happy bla
+Clearing cancelled callback status...
 
-Doc is retrieved
-DOC (e): happy bla
 
-Doc is retrieved
-DOC (f): happy bla
+... clearing cancelled callback status done
 
-Doc retrieval CANCELLED (0)
 
 Doc is retrieved
-DOC (h): happy bla
+DOC (d): <U>happy</U> bla
 
 Doc is retrieved
-DOC (i): happy bla
+DOC (e): <U>happy</U> bla
 
 Doc is retrieved
-DOC (j): happy bla
+DOC (f): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+
+Doc is retrieved
+DOC (h): <U>happy</U> bla
+
+Doc is retrieved
+DOC (i): <U>happy</U> bla
+
+Doc is retrieved
+DOC (j): <U>happy</U> bla
+
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
 
 Search/terms query SUCCEEDED
 
 Num of hits: 430
 
 Doc is retrieved
-DOC (b): happy bla
+DOC (b): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
 
-Doc is retrieved
-DOC (d): happy bla
+Clearing cancelled callback status...
 
-Doc is retrieved
-DOC (e): happy bla
 
-Doc is retrieved
-DOC (f): happy bla
+... clearing cancelled callback status done
 
-Doc retrieval CANCELLED (0)
 
 Doc is retrieved
-DOC (h): happy bla
+DOC (d): <U>happy</U> bla
 
 Doc is retrieved
-DOC (i): happy bla
+DOC (e): <U>happy</U> bla
 
 Doc is retrieved
-DOC (j): happy bla
+DOC (f): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+
+Doc is retrieved
+DOC (h): <U>happy</U> bla
+
+Doc is retrieved
+DOC (i): <U>happy</U> bla
+
+Doc is retrieved
+DOC (j): <U>happy</U> bla
+
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
 
 Search/terms query CANCELLED (0)
 
-Search/terms query CANCELLED (0)
+Search/terms query CANCELLED (3)
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
 
 Search/terms query SUCCEEDED
 
 Num of hits: 42
 
 Doc is retrieved
-DOC (b): happy bla
+DOC (b): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
 
-Doc is retrieved
-DOC (d): happy bla
+Clearing cancelled callback status...
 
-Doc is retrieved
-DOC (e): happy bla
 
-Doc is retrieved
-DOC (f): happy bla
+... clearing cancelled callback status done
 
-Doc retrieval CANCELLED (0)
 
 Doc is retrieved
-DOC (h): happy bla
+DOC (d): <U>happy</U> bla
 
 Doc is retrieved
-DOC (i): happy bla
+DOC (e): <U>happy</U> bla
 
 Doc is retrieved
-DOC (j): happy bla
+DOC (f): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+
+Doc is retrieved
+DOC (h): <U>happy</U> bla
+
+Doc is retrieved
+DOC (i): <U>happy</U> bla
+
+Doc is retrieved
+DOC (j): <U>happy</U> bla
+
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
 
 Search/terms query SUCCEEDED
 
 Num of hits: 430
 
 Doc is retrieved
-DOC (b): happy bla
+DOC (b): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
 
-Doc is retrieved
-DOC (d): happy bla
+Clearing cancelled callback status...
 
-Doc is retrieved
-DOC (e): happy bla
 
-Doc is retrieved
-DOC (f): happy bla
+... clearing cancelled callback status done
 
-Doc retrieval CANCELLED (0)
 
 Doc is retrieved
-DOC (h): happy bla
+DOC (d): <U>happy</U> bla
 
 Doc is retrieved
-DOC (i): happy bla
+DOC (e): <U>happy</U> bla
 
 Doc is retrieved
-DOC (j): happy bla
+DOC (f): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+
+Doc is retrieved
+DOC (h): <U>happy</U> bla
+
+Doc is retrieved
+DOC (i): <U>happy</U> bla
+
+Doc is retrieved
+DOC (j): <U>happy</U> bla
+
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
 
 Search/terms query CANCELLED (0)
 
-Search/terms query CANCELLED (0)
+Search/terms query CANCELLED (3)
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
 
 Search/terms query SUCCEEDED
 
 Num of hits: 42
 
 Doc is retrieved
-DOC (b): happy bla
+DOC (b): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
 
-Doc is retrieved
-DOC (d): happy bla
+Clearing cancelled callback status...
 
-Doc is retrieved
-DOC (e): happy bla
 
-Doc is retrieved
-DOC (f): happy bla
+... clearing cancelled callback status done
 
-Doc retrieval CANCELLED (0)
 
 Doc is retrieved
-DOC (h): happy bla
+DOC (d): <U>happy</U> bla
 
 Doc is retrieved
-DOC (i): happy bla
+DOC (e): <U>happy</U> bla
 
 Doc is retrieved
-DOC (j): happy bla
+DOC (f): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+
+Doc is retrieved
+DOC (h): <U>happy</U> bla
+
+Doc is retrieved
+DOC (i): <U>happy</U> bla
+
+Doc is retrieved
+DOC (j): <U>happy</U> bla
+
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
 
 Search/terms query SUCCEEDED
 
 Num of hits: 430
 
 Doc is retrieved
-DOC (b): happy bla
+DOC (b): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
 
-Doc is retrieved
-DOC (d): happy bla
+Clearing cancelled callback status...
 
-Doc is retrieved
-DOC (e): happy bla
 
-Doc is retrieved
-DOC (f): happy bla
+... clearing cancelled callback status done
 
-Doc retrieval CANCELLED (0)
 
 Doc is retrieved
-DOC (h): happy bla
+DOC (d): <U>happy</U> bla
 
 Doc is retrieved
-DOC (i): happy bla
+DOC (e): <U>happy</U> bla
 
 Doc is retrieved
-DOC (j): happy bla
+DOC (f): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+
+Doc is retrieved
+DOC (h): <U>happy</U> bla
+
+Doc is retrieved
+DOC (i): <U>happy</U> bla
+
+Doc is retrieved
+DOC (j): <U>happy</U> bla
+
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
 
 Search/terms query CANCELLED (0)
 
-Search/terms query CANCELLED (0)
+Search/terms query CANCELLED (3)
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
 
 Search/terms query SUCCEEDED
 
 Num of hits: 42
 
 Doc is retrieved
-DOC (b): happy bla
+DOC (b): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
 
-Doc is retrieved
-DOC (d): happy bla
+Clearing cancelled callback status...
 
-Doc is retrieved
-DOC (e): happy bla
 
-Doc is retrieved
-DOC (f): happy bla
+... clearing cancelled callback status done
 
-Doc retrieval CANCELLED (0)
 
 Doc is retrieved
-DOC (h): happy bla
+DOC (d): <U>happy</U> bla
 
 Doc is retrieved
-DOC (i): happy bla
+DOC (e): <U>happy</U> bla
 
 Doc is retrieved
-DOC (j): happy bla
+DOC (f): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+
+Doc is retrieved
+DOC (h): <U>happy</U> bla
+
+Doc is retrieved
+DOC (i): <U>happy</U> bla
+
+Doc is retrieved
+DOC (j): <U>happy</U> bla
+
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
 
 Search/terms query SUCCEEDED
 
 Num of hits: 430
 
 Doc is retrieved
-DOC (b): happy bla
+DOC (b): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
 
-Doc is retrieved
-DOC (d): happy bla
+Clearing cancelled callback status...
 
-Doc is retrieved
-DOC (e): happy bla
 
-Doc is retrieved
-DOC (f): happy bla
+... clearing cancelled callback status done
 
-Doc retrieval CANCELLED (0)
 
 Doc is retrieved
-DOC (h): happy bla
+DOC (d): <U>happy</U> bla
 
 Doc is retrieved
-DOC (i): happy bla
+DOC (e): <U>happy</U> bla
 
 Doc is retrieved
-DOC (j): happy bla
+DOC (f): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+
+Doc is retrieved
+DOC (h): <U>happy</U> bla
+
+Doc is retrieved
+DOC (i): <U>happy</U> bla
+
+Doc is retrieved
+DOC (j): <U>happy</U> bla
+
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
 
 Search/terms query CANCELLED (0)
 
-Search/terms query CANCELLED (0)
+Search/terms query CANCELLED (3)
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
 
 Search/terms query SUCCEEDED
 
 Num of hits: 42
 
 Doc is retrieved
-DOC (b): happy bla
+DOC (b): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
 
-Doc is retrieved
-DOC (d): happy bla
+Clearing cancelled callback status...
 
-Doc is retrieved
-DOC (e): happy bla
 
-Doc is retrieved
-DOC (f): happy bla
+... clearing cancelled callback status done
 
-Doc retrieval CANCELLED (0)
 
 Doc is retrieved
-DOC (h): happy bla
+DOC (d): <U>happy</U> bla
 
 Doc is retrieved
-DOC (i): happy bla
+DOC (e): <U>happy</U> bla
 
 Doc is retrieved
-DOC (j): happy bla
+DOC (f): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+
+Doc is retrieved
+DOC (h): <U>happy</U> bla
+
+Doc is retrieved
+DOC (i): <U>happy</U> bla
+
+Doc is retrieved
+DOC (j): <U>happy</U> bla
+
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
+file:BooleanQuery.cpp line:136
+Warning: BooleanQuery::getClauses() is deprecated
 
 Search/terms query SUCCEEDED
 
 Num of hits: 430
 
 Doc is retrieved
-DOC (b): happy bla
+DOC (b): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
 
-Doc is retrieved
-DOC (d): happy bla
+Clearing cancelled callback status...
 
-Doc is retrieved
-DOC (e): happy bla
 
-Doc is retrieved
-DOC (f): happy bla
+... clearing cancelled callback status done
 
-Doc retrieval CANCELLED (0)
 
 Doc is retrieved
-DOC (h): happy bla
+DOC (d): <U>happy</U> bla
 
 Doc is retrieved
-DOC (i): happy bla
+DOC (e): <U>happy</U> bla
 
 Doc is retrieved
-DOC (j): happy bla
+DOC (f): <U>happy</U> bla
 
-Doc retrieval CANCELLED (0)
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+
+
+Doc is retrieved
+DOC (h): <U>happy</U> bla
+
+Doc is retrieved
+DOC (i): <U>happy</U> bla
+
+Doc is retrieved
+DOC (j): <U>happy</U> bla
+
+Doc retrieval CANCELLED (2)
+
+Clearing cancelled callback status...
+
+
+... clearing cancelled callback status done
+

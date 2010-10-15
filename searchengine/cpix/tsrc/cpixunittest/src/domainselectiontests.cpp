@@ -228,8 +228,6 @@ public:
 
     void testCreateIdxs(Itk::TestMgr * testMgr)
     {
-        char *xml_file = (char *)__FUNCTION__;
-        assert_failed = 0;
         const MVFTest
             * mvfTest = filesAndVols_;
 
@@ -282,11 +280,8 @@ public:
         searchAll(testMgr);
         suggestAll(testMgr);
         dumpAll(testMgr);
-        testResultXml(xml_file);
-    }
-
-    
-    void unmountC(Itk::TestMgr * testMgr)
+     }
+    void  unmountC(Itk::TestMgr * testMgr)
     {
         unmount(filesAndVols_[0].qualifiedBaseAppClass_);
         

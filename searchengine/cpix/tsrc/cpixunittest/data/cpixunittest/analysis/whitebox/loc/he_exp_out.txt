@@ -1,0 +1,20 @@
+Analyzer "natural":
+File ./cpixunittestcorpus/text/en/1.txt tokenized:
+ 'i' 'am' 'happy'
+File ./cpixunittestcorpus/text/en/2.txt tokenized:
+ 'oh' 'happiness'
+File ./cpixunittestcorpus/text/en/3.txt tokenized:
+ 'nothing' 'important' 'in' 'here' 'so' 'don't' 'even' 'look' 'because' 'you' 'shall' 'find' 'nothing' 'whatsoever'
+File ./cpixunittestcorpus/text/en/4.txt tokenized:
+ 'what' 'is' 'happening' 'here'
+
+Analyzer "natural":
+File ./cpixunittestcorpus/text/he/1.txt tokenized:
+ 'שפעת'|'פעת' 'החזירים'|'חזירים' 'תושבת'|'ושבת'|'שבת'|'בת'|'ת' 'נצרת'|'צרת' 'עילית' 'בת'|'ת' '51' 'ללא'|'לא'|'א' 'מחלות'|'חלות' 'רקע' 'מתה'|'תה'|'ה'
+File ./cpixunittestcorpus/text/he/2.txt tokenized:
+ 'בבית'|'בית'|'ית'|'ת' 'החולים'|'חולים' 'העמק'|'עמק' 'החולה'|'חולה' 'טופלה' 'אתמול'|'תמול'|'מול'|'ול'|'ל' 'בתרופה'|'תרופה'|'רופה' 'הניסיונית'|'ניסיונית'|'יסיונית'|'סיונית'
+File ./cpixunittestcorpus/text/he/3.txt tokenized:
+ 'פרהמיביר' 'אולם'|'ולם'|'לם'|'ם' 'מצבה'|'צבה' 'הוסיף'|'וסיף'|'סיף' 'להידרדר'|'הידרדר'|'ידרדר'|'דרדר'
+File ./cpixunittestcorpus/text/he/4.txt tokenized:
+ 'והבוקר'|'הבוקר'|'בוקר'|'וקר'|'קר' 'נקבע'|'קבע' 'מותה'|'ותה'|'תה'|'ה' 'החולה'|'חולה' 'תושבת'|'ושבת'|'שבת'|'בת'|'ת' 'נצרת'|'צרת' 'עילית'
+

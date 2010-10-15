@@ -42,13 +42,11 @@ void TestBaseAppClassCollision(Itk::TestMgr * testMgr)
 {
     cpix_Result
         result;
-    char *xml_file = (char*)__FUNCTION__;
-    assert_failed = 0;
     cpix_IdxDb_defineVolume(&result,
                             SMS_QBASEAPPCLASS,
                             NULL);
     if(!cpix_Succeeded(&result))
-        assert_failed = 1;        
+  
     ITK_ASSERT(testMgr,
                cpix_Succeeded(&result),
                "Definition of volume (%s, %s) failed.",
@@ -59,7 +57,7 @@ void TestBaseAppClassCollision(Itk::TestMgr * testMgr)
                             SMS_QBASEAPPCLASS,
                             NULL);
     if(!cpix_Succeeded(&result))
-        assert_failed = 1; 
+
     ITK_ASSERT(testMgr,
                cpix_Succeeded(&result),
                "Re-definition of identical volume (%s, %s) failed.",
@@ -72,8 +70,8 @@ void TestBaseAppClassCollision(Itk::TestMgr * testMgr)
     cpix_IdxDb_defineVolume(&result,
                             SMS_QBASEAPPCLASS,
                             dummyPath);
-    if(!cpix_Succeeded(&result))
-        assert_failed = 1; 
+
+         
     ITK_ASSERT(testMgr,
                cpix_Failed(&result),
                "Volume (%s, %s) definition should have failed.",
@@ -81,7 +79,7 @@ void TestBaseAppClassCollision(Itk::TestMgr * testMgr)
                dummyPath);
 
     cpix_IdxDb_undefineVolume("@0:root foo bar");
-    testResultXml(xml_file);
+   
 }
 
 
@@ -94,13 +92,11 @@ void TestIdxDbPathCollision(Itk::TestMgr * testMgr)
 {
     cpix_Result
         result;
-    char *xml_file = (char*)__FUNCTION__;
-    assert_failed = 0;
     cpix_IdxDb_defineVolume(&result,
                       DUMMY_QBASEAPPCLASS,
                       DUMMY_IDXDBPATH);
-    if(!cpix_Succeeded(&result))
-        assert_failed = 1;
+
+        
     ITK_ASSERT(testMgr,
                cpix_Succeeded(&result),
                "Defining volume %s, %s failed.",
@@ -110,14 +106,14 @@ void TestIdxDbPathCollision(Itk::TestMgr * testMgr)
     cpix_IdxDb_defineVolume(&result,
                       DUMMY2_QBASEAPPCLASS,
                       DUMMY_IDXDBPATH);
-    if(!cpix_Succeeded(&result))
-        assert_failed = 1;
+
+        
     ITK_ASSERT(testMgr,
                cpix_Failed(&result),
                "Defining volume %s, %s should have failed.",
                DUMMY2_QBASEAPPCLASS,
                DUMMY_IDXDBPATH);
-    testResultXml(xml_file);
+   
 }
 
 
@@ -126,8 +122,6 @@ void TestScrapAll(Itk::TestMgr * testMgr)
 {
     cpix_Result
         result;
-    char *xml_file = (char*)__FUNCTION__;
-    assert_failed = 0;
 
     cpix_IdxDb_defineVolume(&result,
                             SMS_QBASEAPPCLASS,
@@ -141,7 +135,7 @@ void TestScrapAll(Itk::TestMgr * testMgr)
 
             if (cpix_Succeeded(&result))
                 {
-            assert_failed = 1;
+            
                     cpix_IdxDb_releaseDb(idxDb);
                 }
         }
@@ -163,16 +157,13 @@ void TestScrapAll(Itk::TestMgr * testMgr)
         {
             cpix_IdxDb_releaseDb(idxDb);
         }
-    else
-        {
-            assert_failed = 1;
-        }
+
 
     ITK_ASSERT(testMgr,
                cpix_Failed(&result),
                "Opening IdxDb(%s) should have failed now.",
                SMS_QBASEAPPCLASS);
-    testResultXml(xml_file);
+   
 }
 
 const wchar_t * QryStrings[] = {
@@ -203,8 +194,6 @@ const wchar_t * QryStrings[] = {
 void TestUnifiedSearchParse(Itk::TestMgr * )
 {
     using namespace std;
-    char *xml_file = (char*)__FUNCTION__;
-    assert_failed = 0;
     printf("Whitebox testing parsing of unified search syntax\n\n");
 
     const wchar_t
@@ -237,15 +226,14 @@ void TestUnifiedSearchParse(Itk::TestMgr * )
                        qc.innerQryStr_.c_str());
                 
             } catch (CpixExc & cpixExc) {
-                assert_failed = 1;
+                
                 printf("Failed to parse: %S\n",
                        cpixExc.wWhat());
             } catch (...) {
-                assert_failed = 1;
                 printf("Failed t parse: for unknown reasons\n");
             }
         }
-    testResultXml(xml_file);
+   
 }
 
 
@@ -334,8 +322,6 @@ public:
 
     void testAddSome(Itk::TestMgr  * mgr)
     {
-        char *xml_file = (char*)__FUNCTION__;
-        assert_failed = 0;
         std::wstring
             firstBody,
             secondBody;
@@ -362,7 +348,7 @@ public:
                     }
             }
         util_->flush();
-        testResultXml(xml_file);
+       
     }
 
 
@@ -371,15 +357,13 @@ public:
         cpix_Hits
             * hits = cpix_IdxDb_search(util_->idxDb(),
                                        query_);
-        char *xml_file = (char*)__FUNCTION__;
-        assert_failed = 0;
         if (cpix_Failed(util_->idxDb()))
             {
                 ITK_EXPECT(mgr,
                            false,
                            "Failed to search index");
                 cpix_ClearError(util_->idxDb());
-                assert_failed = 1;
+                
             }
         else
             {
@@ -391,10 +375,7 @@ public:
                            "Did not get expected hitcounts (%d), but %d",
                            expectedHitCount_,
                            hitsLength);
-                if(expectedHitCount_ != hitsLength)
-                    {
-                    assert_failed = 1;
-                    }
+
                 
                 printf("Got %d hits\n",
                        hitsLength);
@@ -422,7 +403,7 @@ public:
             }
         
         cpix_Hits_destroy( hits );  
-        testResultXml(xml_file);
+       
     }
 
 
@@ -1025,8 +1006,6 @@ public:
     {
         using namespace lucene::index;
         using namespace std;
-        char *xml_file = (char*)__FUNCTION__;
-          assert_failed = 0;
         printf("Start state of index:\n");
 
         {
@@ -1051,7 +1030,7 @@ public:
             {
                 if (!reader_.isOpen())
                     {
-                assert_failed = 1;
+                
                         ITK_PANIC("Reader should be open");
                     }
 
@@ -1070,12 +1049,12 @@ public:
                                    result == 1,
                                    "Should have deleted exactly one doc");
                         if(result != 0)
-                            assert_failed = 1;
+                            
                         printf("... deleted doc %S\n",
                                DeltaSmsesToDelete[i]);
                     }
             }
-        testResultXml(xml_file);
+       
     }
 
 
@@ -1125,8 +1104,6 @@ public:
     {
         using namespace lucene::search;
         using namespace Cpix::Impl;
-        char *xml_file = (char*)__FUNCTION__;
-          assert_failed = 0;
         // The TestCommitStageAction instance we give is to emulate
         // interrupting the committing-to-disk process at different
         // stages, and see if we can recover whatever information can
@@ -1168,15 +1145,12 @@ public:
                                            "Complete, committed, updated idx dir should exist (%s): %s",
                                            test_.c_str(),
                                            deltaIdxDbPath.c_str());
-                                if(!Cpt::directoryexists(deltaIdxDbPath.c_str()))
-                                    {
-                                    assert_failed = 1;
-                                    }
+
                             }
                     }
                 else
                     {
-                assert_failed = 1;
+                
                         ITK_EXPECT(mgr,
                                    false,
                                    "Should have been interrupted at stage %d",
@@ -1185,7 +1159,7 @@ public:
             }
         catch (TestCommitStageExc & exc)
             {
-        assert_failed = 1;
+        
                 if (exc.commitStage_ == targetCommitStage_)
                     {
                         properlyInterrupted = true;
@@ -1205,19 +1179,13 @@ public:
                     || insertBuf_->isEmpty()
                     || targetCommitStage_ < CS_IBUF_COMMITTING),
                    "Expected the (test) insert buffer to be closed");
-        if(!properlyInterrupted || (haveReader_ || reader_.isOpen() ) ||  !((insertBuf_ == NULL 
-                || insertBuf_->isEmpty() || targetCommitStage_ < CS_IBUF_COMMITTING)))
-            {
-            assert_failed = 1;
-            }
-        testResultXml(xml_file);
+  
+       
     }
 
 
     void testRecoveredStage(Itk::TestMgr * )
     {
-        char *xml_file = (char*)__FUNCTION__;
-          assert_failed = 0;
         if (reader_.isOpen())
             {
                 printf("Reader (either the original or the re-created):\n");
@@ -1234,7 +1202,7 @@ public:
         printf("The recovered state of index:\n");
 
         searchAndPrint(reader_.getReader());
-        testResultXml(xml_file);
+       
     }
 
 

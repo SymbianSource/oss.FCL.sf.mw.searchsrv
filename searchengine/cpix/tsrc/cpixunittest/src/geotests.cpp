@@ -283,20 +283,12 @@ public:
 
     void testHarvestJpg(Itk::TestMgr * testMgr)
     {
-        char *xml_file = (char *)__FUNCTION__;
-        assert_failed = 0;
         testMgr_ = testMgr;
         Cpt::traverse(JPG_TEST_CORPUS_PATH,
                       this);
         util_->flush();
-        testResultXml(xml_file);
-    }
-
-
-    void testSearchJpg(Itk::TestMgr * testMgr)
+       tSearchJpg(Itk::TestMgr * testMgr)
     {
-        char *xml_file = (char *)__FUNCTION__;
-        assert_failed = 0;
         testMgr_ = testMgr;
 
         cpix_Hits
@@ -307,13 +299,11 @@ public:
                             10);
 
         cpix_Hits_destroy(hits);
-        testResultXml(xml_file);
+       
     }
 
 private:
-    void cleanup()
-    {
-        delete util_;
+          delete util_;
         util_ = NULL;
 
         cpix_Analyzer_destroy(analyzer_);
@@ -439,9 +429,7 @@ private:
                    qryStr);
         if(!cpix_Succeeded(queryParser_))
             {
-                assert_failed = 1;
-            }
-        
+                       
         cpix_Hits
             * hits = cpix_IdxDb_search(util_->idxDb(),
                                        query_);
@@ -450,7 +438,7 @@ private:
                    "Failed to search (geo)");
         if(!cpix_Succeeded(util_->idxDb()))
             {
-                assert_failed = 1;
+                
             }
         
         int32_t

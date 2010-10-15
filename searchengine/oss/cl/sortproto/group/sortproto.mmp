@@ -51,6 +51,7 @@ SYSTEMINCLUDE     /epoc32/include/stdapis/stlportv5
 STATICLIBRARY   libcrt0.lib
 STATICLIBRARY   libclucene.lib
 STATICLIBRARY   libcpixtools.lib
+STATICLIBRARY   libanalysis.lib
 
 // libc and euser are always needed when using main() entry point
 LIBRARY         libc.lib 

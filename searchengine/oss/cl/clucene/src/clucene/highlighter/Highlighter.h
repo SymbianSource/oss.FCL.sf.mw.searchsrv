@@ -67,6 +67,8 @@ private:
 	
 public:
 	LUCENE_STATIC_CONSTANT(int32_t, DEFAULT_MAX_DOC_BYTES_TO_ANALYZE=50*1024);
+	
+	LUCENE_STATIC_CONSTANT(int32_t, MAX_FRAGMENTS_TO_HIGHLIGHT=2);
 
 	/**
 	 * Constructs a Highlighter object with the provided scorer. The HighlightScorer object is owned

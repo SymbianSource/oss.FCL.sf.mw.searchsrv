@@ -1,15 +1,19 @@
 Number of hits: 2
-DOC (multifield) (!:\data\cpixunittestcorpus\stem\en\2.txt):
+DOC (multifield) (!:\data\cpixunittestcorpus\stem\en\4.txt):
+ o dummy: look at you
+ o dummy2: summer's midnight eve
+ o dummy3: look, important and happy robot
+ o _appclass: root file content
+ o _mimetype: text/plain
+ o Name: 4.txt
+ o Extension: txt
+ o _excerpt: What is <U>happening</U> here
+DOC (multifield) (!:\data\cpixunittestcorpus\stem\en\3.txt):
  o dummy: happening there
  o dummy2: thanksgiving
  o dummy3: christmas for ever
- o _excerpt: Oh happiness!
- o _appclass: root file usrdoc text
+ o _excerpt: Nothing important in here. So don't even look. Because you
+ o _appclass: root file content
  o _mimetype: text/plain
-DOC (multifield) (!:\data\cpixunittestcorpus\stem\en\4.txt):
- o dummy: happy words
- o dummy2: christmas easter
- o dummy3: rabid happening
- o _excerpt: What is happening here?
- o _appclass: root file usrdoc text
- o _mimetype: text/plain
+ o Name: 3.txt
+ o Extension: txt

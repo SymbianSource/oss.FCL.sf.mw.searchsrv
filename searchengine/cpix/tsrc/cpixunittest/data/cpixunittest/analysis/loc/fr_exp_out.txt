@@ -1,0 +1,34 @@
+using analyzer "natural(indexing)" for indexing
+
+using analyzer "natural(query)" for searching
+
+indexing:
+
+Indexed file: ./cpixunittestcorpus/text/fr/1.txt
+
+Indexed file: ./cpixunittestcorpus/text/fr/2.txt
+
+Indexed file: ./cpixunittestcorpus/text/fr/3.txt
+
+Indexed file: ./cpixunittestcorpus/text/fr/4.txt
+
+Indexed empty item.
+
+searching:
+
+search "d'énergie":
+Number of hits: 1
+DOC (./cpixunittestcorpus/text/fr/2.txt): L'énergie est au cœur de nos vies. Nous dépendons d'elle
+
+search "énergie":
+Number of hits: 1
+DOC (./cpixunittestcorpus/text/fr/2.txt): L'énergie est au cœur de nos vies. Nous dépendons d'elle
+
+search "approvisionnement":
+Number of hits: 1
+DOC (./cpixunittestcorpus/text/fr/1.txt): Un approvisionnement sûr et durable
+
+search "déplacer":
+Number of hits: 1
+DOC (./cpixunittestcorpus/text/fr/3.txt): nous déplacer, pour chauffer nos maisons ou les rafraîchir,
+

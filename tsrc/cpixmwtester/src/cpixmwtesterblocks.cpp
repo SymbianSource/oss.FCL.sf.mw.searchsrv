@@ -21,7 +21,7 @@
 #include <e32svr.h>
 #include <StifParser.h>
 #include <Stiftestinterface.h>
-#include <cpixcontentinfocommon.h>
+//#include <cpixcontentinfocommon.h>
 #include <sqldb.h>
 #include "CBlacklistMgr.h"
 //#include "contentinfomgr.h"
@@ -42,6 +42,7 @@ const TUid KTestUid = { 0x101D6348 };
 
 //For Watchdog
 _LIT(KTestHarvesterServer,"CPixHarvesterServer");
+_LIT(KContentInfoFileName,"cpixcontentinfo.sq");
 _LIT(aEXeFileName , "WatchDog.exe");
 _LIT(KDriveC, "c:");
 // MACROS

@@ -1,0 +1,2 @@
+"foo" "bar" "foobar" "foo" "bar" "foo" "bar" 
+"fo" "oo" "ba" "ar" "fo" "oo" "ob" "ba" "ar" "fo" "oo" "o*" "*b" "ba" "ar" "fo" "oo" "o_" "_b" "ba" "ar" 

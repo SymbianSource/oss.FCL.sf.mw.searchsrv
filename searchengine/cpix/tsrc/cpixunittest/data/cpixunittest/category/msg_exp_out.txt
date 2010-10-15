@@ -1,0 +1,14 @@
+Discover 'john' in cat.msg:
+    DOC (1): Hello John
+
+Discover 'you' in cat.msg:
+    DOC (7): See you
+    DOC (6): It was nice to talk with you.
+    DOC (5): Nice, thank you.
+    DOC (4): I'm fine, thank you. How do you do?
+    DOC (3): How do you do?
+
+Discover 'hello' in cat.msg:
+    DOC (2): Hello Jane
+    DOC (1): Hello John
+

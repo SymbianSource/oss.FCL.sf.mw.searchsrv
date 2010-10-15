@@ -1,0 +1,21 @@
+This is a sample text. Which has new-notes.
++nokia is a word. I should able to search -india and tamil-nadu.
+here are some words for testing *. The words are *shankar Ani*rban kumar*
+The carrot^ symbol is for boosting terms.
+This is a question?.
+I have worked for motorola .
+Pipe Symbol ||. I should able to search |pipe.
+The &&ambersend symbol. The !=Exclamation symbol. 
+AND and && are same.
+:colon is a special character. If i search :colon. I should get a hit.
+http:\\www.nokia.com. I have to test %percentage too. (testing) paranthesis.
+mail me. My mail-id is shankar.rajendran@nokia.com. Hoo I missed ~tild symbol.
+do i need to test `singlequote, "doublequote, 
+;semicolon
+ /slash \\backslash
+[squarebracket] and {flowerbracket}.
+And finally <lessthan and >greaterthan
+
+
+
+

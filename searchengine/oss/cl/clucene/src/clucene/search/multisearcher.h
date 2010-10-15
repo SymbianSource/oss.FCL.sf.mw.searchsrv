@@ -88,6 +88,7 @@ CL_NS_DEF(search)
         void _search(Query* query, Filter* filter, HitCollector* results);
 
 		Query* rewrite(Query* original);
+	
 		void explain(Query* query, int32_t doc, Explanation* ret);
     };
 

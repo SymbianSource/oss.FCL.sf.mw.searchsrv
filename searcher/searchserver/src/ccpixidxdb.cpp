@@ -86,6 +86,9 @@ void CpixDocFieldEnumDestroyer(TAny* aCpixDocFieldEnum)
 
 } // namespace
 
+
+Cpt::Mutex CCPixIdxDb::idxMutex_;
+
 CCPixIdxDb* CCPixIdxDb::NewL()
 	{
 	CCPixIdxDb* self = CCPixIdxDb::NewLC();
@@ -130,11 +133,16 @@ void CCPixIdxDb::CancelAll(const RMessage2& aMessage)
 void CCPixIdxDb::CompletionCallback(void *aCookie, cpix_JobId aJobId)
 	{
 	CCPixIdxDb* object = (CCPixIdxDb*)aCookie;
-
+    
+	{
+	    Cpt::SyncRegion
+	                sr(idxMutex_);
 	// Sanity check
 	if (object == NULL || 
 		object->iPendingJobId != aJobId)
 		return;
+	
+	}
 	
 	// Call the asyncronizers completion code
 	CCPixAsyncronizer* asyncronizer = object->iAsyncronizer;
@@ -299,12 +307,16 @@ void CCPixIdxDb::AddL(const CSearchDocument& aDocument, MCPixAsyncronizerObserve
 	OstTrace0( TRACE_NORMAL, CCPIXIDXDB_ADDL, "CCPixIdxDb::AddL" );
 	CPIXLOGSTRING("CCPixIdxDb::AddL");
 	DumpDocument(aDocument);
+	   {
+	        Cpt::SyncRegion
+	                    sr(idxMutex_);
 	iPendingJobId = cpix_IdxDb_asyncAdd(iIdxDb, document, iAnalyzer, (void*)this, &CompletionCallback);
 	CleanupStack::PopAndDestroy(document);
 	SearchServerHelper::CheckCpixErrorL(iIdxDb, KErrCannotAddDocument);
     iIsPending = ETrue;
 	
 	iAsyncronizer->Start(ECPixTaskTypeAdd, aObserver, aMessage);
+	   }
 	}
 	
 void CCPixIdxDb::AddCompleteL()
@@ -325,12 +337,16 @@ void CCPixIdxDb::UpdateL(const CSearchDocument& aDocument, MCPixAsyncronizerObse
 	OstTrace0( TRACE_NORMAL, CCPIXIDXDB_UPDATEL, "CCPixIdxDb::UpdateL" );
 	CPIXLOGSTRING("CCPixIdxDb::UpdateL");
 	DumpDocument(aDocument);
+	   {
+	        Cpt::SyncRegion
+	                    sr(idxMutex_);
     iPendingJobId = cpix_IdxDb_asyncUpdate(iIdxDb, document, iAnalyzer, (void*)this, &CompletionCallback);
 	CleanupStack::PopAndDestroy(document);
 	SearchServerHelper::CheckCpixErrorL(iIdxDb,KErrCannotUpdateDocument);
     iIsPending = ETrue;
 
     iAsyncronizer->Start(ECPixTaskTypeUpdate, aObserver, aMessage);
+	   }
 	}
 
 void CCPixIdxDb::UpdateCompleteL()
@@ -355,11 +371,15 @@ void CCPixIdxDb::DeleteDocumentsL(const TDesC& aDocUid, MCPixAsyncronizerObserve
 	const wchar_t* cDocumentId = reinterpret_cast<const wchar_t*>(docUidPtr.PtrZ());
 
     iIsPending = ETrue;
+    {
+        Cpt::SyncRegion
+                    sr(idxMutex_);
     iPendingJobId = cpix_IdxDb_asyncDeleteDocuments(iIdxDb, cDocumentId, (void*)this, &CompletionCallback);
     SearchServerHelper::CheckCpixErrorL(iIdxDb, KErrCannotDeleteDocument);
 	CleanupStack::PopAndDestroy(docUid);	 
 	
     iAsyncronizer->Start(ECPixTaskTypeDelete, aObserver, aMessage);
+    }
 	}
 
 void CCPixIdxDb::DeleteDocumentsCompleteL()
@@ -421,12 +441,15 @@ void CCPixIdxDb::FlushL(MCPixAsyncronizerObserver* aObserver, const RMessage2& a
     if (iIsPending)
         User::Leave(KErrInUse);
 
-    
+    {
+        Cpt::SyncRegion
+                    sr(idxMutex_);
     iPendingJobId = cpix_IdxDb_asyncFlush(iIdxDb, (void*)this, &CompletionCallback);
     SearchServerHelper::CheckCpixErrorL(iIdxDb, KErrDatabaseFlushFailed);
     iIsPending = ETrue;
     
     iAsyncronizer->Start(ECPixTaskTypeFlush, aObserver, aMessage);
+    }
     }
 
 const char* CCPixIdxDb::GetFieldCStrLC(const CSearchDocument& aDocument, const TDesC& aFieldName )
@@ -486,7 +509,6 @@ cpix_Document* CCPixIdxDb::ConvertToCpixDocumentLC(const CSearchDocument& aDocum
 	if (!doc)
 		{
 		SearchServerHelper::LogErrorL(*result.err_);
-		cpix_ClearError(doc);
 		User::Leave(KErrCannotCreateDocument);
 		}
 	// document created, push to cleanup stack.

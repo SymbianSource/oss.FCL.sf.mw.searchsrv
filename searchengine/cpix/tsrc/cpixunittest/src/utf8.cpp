@@ -46,8 +46,6 @@ const wchar_t * UcsTermsToSearch[5] = {
 
 void TestUtf8(Itk::TestMgr * testMgr)
 {
-    char *xml_file = (char*)__FUNCTION__;
-    assert_failed = 0;
         cpix_Result
             result;
 
@@ -65,7 +63,7 @@ void TestUtf8(Itk::TestMgr * testMgr)
 	
 	if ( cpix_Failed( &result) ) 
 	    {
-        assert_failed = 1;
+
         ITK_PANIC("Analyzer could not be created");
 	    }
 	
@@ -84,7 +82,7 @@ void TestUtf8(Itk::TestMgr * testMgr)
 													analyzer );
 		if (queryParser == NULL)
 			{
-                assert_failed = 1;
+
 				cpix_Analyzer_destroy( analyzer );
 				ITK_PANIC("Could not create query parser");
 			}
@@ -94,7 +92,7 @@ void TestUtf8(Itk::TestMgr * testMgr)
 		if (cpix_Failed(queryParser)
 			|| query == NULL)
 			{
-                assert_failed = 1;
+
 				cpix_Analyzer_destroy(analyzer);
 				cpix_ClearError(queryParser);
 				cpix_QueryParser_destroy(queryParser);
@@ -114,7 +112,7 @@ void TestUtf8(Itk::TestMgr * testMgr)
 	}
 	
 	cpix_Analyzer_destroy( analyzer ); 
-	testResultXml(xml_file);
+
 }
 
 Itk::TesterBase * CreateUtf8Tests()

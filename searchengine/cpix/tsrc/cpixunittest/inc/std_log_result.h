@@ -19,8 +19,7 @@
 #include <time.h>
 #include <string.h>
 #include <stdarg.h>
-extern int assert_failed;
-extern void testResultXml(char *filename);
+void testResultXml(const char *filename, bool verdict);
 
 #endif
 

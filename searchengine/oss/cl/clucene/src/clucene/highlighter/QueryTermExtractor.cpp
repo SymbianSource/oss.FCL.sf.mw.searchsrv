@@ -30,6 +30,9 @@ CL_NS_USE(index)
 			getTermsFromPhraseQuery((PhraseQuery *) query, terms);
 		else if (query->instanceOf( TermQuery::getClassName() ))
 			getTermsFromTermQuery((TermQuery *) query, terms);
+		// Adding support for prefix Query to have direct comparision of Query text
+		else if (query->instanceOf( PrefixQuery::getClassName() ))
+			getTermsFromPrefixQuery((PrefixQuery *) query, terms);
 		//else if(query->instanceOf(_T("SpanNearQuery"))
 		//	getTermsFromSpanNearQuery((SpanNearQuery*) query, terms);
 	}
@@ -113,6 +116,18 @@ CL_NS_USE(index)
 	void QueryTermExtractor::getTermsFromTermQuery(const TermQuery * query, WeightedTermList * terms)
 	{
 		Term * term = query->getTerm();
+		WeightedTerm * pWT = _CLNEW WeightedTerm(query->getBoost(),term->text());
+		_CLDECDELETE(term);
+		if (terms->find(pWT)==terms->end()) // possible memory leak if key already present
+			terms->insert(pWT);
+		else
+			_CLDELETE(pWT);
+	}
+
+                             
+	void QueryTermExtractor::getTermsFromPrefixQuery( PrefixQuery * query, WeightedTermList * terms)
+	{
+		Term *term =  query->getPrefix();
 		WeightedTerm * pWT = _CLNEW WeightedTerm(query->getBoost(),term->text());
 		_CLDECDELETE(term);
 		if (terms->find(pWT)==terms->end()) // possible memory leak if key already present

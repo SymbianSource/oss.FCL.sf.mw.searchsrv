@@ -72,7 +72,8 @@ CIndexingManager* CIndexingManager::NewL()
 //
 CIndexingManager::CIndexingManager()
 	: CActive(CActive::EPriorityStandard),
-	iState(EStateNone), iPreviousRun(0)
+	iState(EStateNone), iPreviousRun(0),
+	iHarvestState(EFalse)
 	{
 	CActiveScheduler::Add(this);
 	}
@@ -102,13 +103,18 @@ CIndexingManager::~CIndexingManager()
 	
 	// Close file system connection
 	iFs.Close();
-	
-	delete iBlacklistMgr;
-	
-	delete iContentInfodb;
-	
+	if(iBlacklistMgr)
+	    {
+	    delete iBlacklistMgr;
+	    iBlacklistMgr = NULL;
+	    }
+	if(iContentInfodb)
+	    {
+	    delete iContentInfodb;
+	    iContentInfodb = NULL;
+	    }	
 	delete iActivityManager;
-	
+	delete iStateObserver;	
 	delete iGaurdTimer;
 	}
 
@@ -152,8 +158,11 @@ void CIndexingManager::ConstructL()
 	
 	//release the Blacklist manager as the blacklist functionality is done
 	delete iBlacklistMgr;
+	iBlacklistMgr = NULL;
 	//release the content info manager as all the content details of all plugins are stored
 	delete iContentInfodb;
+	iContentInfodb = NULL;
+	
 	//Start the activity manager to monitor the user activity status
 	iActivityManager = CActivityManager::NewL( this );
 	if(iActivityManager)
@@ -161,6 +170,11 @@ void CIndexingManager::ConstructL()
         iActivityManager->Start();
         }
 	iGaurdTimer = CGaurdTimer::NewL( this );
+	iStateObserver = CPiXStateObserver::NewL(this, &iFs);
+	if(iStateObserver)
+	    {
+	    //iStateObserver->StartMonitoringL();
+	    }
 	StartPlugins();
 	
 	// Wait before running RunL
@@ -719,17 +733,25 @@ void CIndexingManager::LoadHarvesterpluginL (TUid aPluginUid, TInt aVersion, con
     OstTraceFunctionExit0( CINDEXINGMANAGER_LOADHARVESTERPLUGINL_EXIT );
     }
 
-// -----------------------------------------------------------------------------
-// CIndexingManager::ActivityChanged()
-// -----------------------------------------------------------------------------
-//
-void CIndexingManager::ActivityChanged(const TBool aActive)
+void CIndexingManager::PausePluginsL()
     {
-    //User is Inactive,so continue with harvesting
-    if(aActive)
-        {        
+    if(!iGaurdTimer->IsActive())
+        iGaurdTimer->StartgaurdTimer();
+    
+    for (TInt i = 0; i < iPluginArray.Count(); i++)
+        {
+        iPluginArray[i]->PausePluginL();
+        OstTrace0( TRACE_NORMAL, DUP1_CINDEXINGMANAGER_ACTIVITYCHANGED, "CIndexingManager::PausePluginsL" );
+        
+        }
+    }
+
+void CIndexingManager::ResumePluginsL()
+    {
+    if( !iHarvestState )
+        {
         if( iGaurdTimer->IsActive())
-                iGaurdTimer->Cancel();
+              iGaurdTimer->Cancel();
         
         for (TInt i = 0; i < iPluginArray.Count(); i++)
             {
@@ -738,20 +760,40 @@ void CIndexingManager::ActivityChanged(const TBool aActive)
             
             }
         }
+    }
+// -----------------------------------------------------------------------------
+// CIndexingManager::ActivityChanged()
+// -----------------------------------------------------------------------------
+//
+void CIndexingManager::ActivityChangedL(const TBool aActive)
+    {
+    //User is Inactive,so continue with harvesting
+    if(aActive)
+        {                
+        ResumePluginsL();
+        }
         else
-        {
+        {        
         //call pause on all the plugins and restart the gaurd timer
-        for (TInt i = 0; i < iPluginArray.Count(); i++)
-            {
-            iPluginArray[i]->PausePluginL();
-            OstTrace0( TRACE_NORMAL, DUP1_CINDEXINGMANAGER_ACTIVITYCHANGED, "CIndexingManager::PausePluginsL" );
-            
-            }
-        iGaurdTimer->StartgaurdTimer();
+        PausePluginsL();        
         }
     
     }
 
+void CIndexingManager::HandleStateObserverChangeL(const TBool aActive)
+    {
+    if (aActive)
+        {
+        iHarvestState = ETrue;
+        PausePluginsL();
+        }
+    else
+        {
+        iHarvestState = EFalse;
+        ResumePluginsL();        
+        }
+    }
+	
 // -----------------------------------------------------------------------------
 // CIndexingManager::HandleGaurdTimerL()
 // -----------------------------------------------------------------------------
@@ -759,26 +801,17 @@ void CIndexingManager::ActivityChanged(const TBool aActive)
 void CIndexingManager::HandleGaurdTimerL()
     {
      OstTraceFunctionEntry0( CINDEXINGMANAGER_HANDLEGAURDTIMERL_ENTRY );
-     //On gaurd timer expiry, check for the current useractive state,
-     //and update the status accordingly    
-     TBool isActive = iActivityManager->IsActive();     
-     if ( isActive )
-         {
-         for (TInt i = 0; i < iPluginArray.Count(); i++)
-             {
-             TRAPD(err, iPluginArray[i]->ResumePluginL());
-             OstTrace0( TRACE_NORMAL, CINDEXINGMANAGER_HANDLEGAURDTIMERL, "CIndexingManager::ResumePluginsL" );
-             
-             if (err != KErrNone)
-                 {
-                 // Failed to start the plugin
-                 }
-             }                  
-         }
-     else
-         {
-         // Start timer
+     //On gaurd timer expiry, Call save on all plugins to store
+	 //data to temporary file
+     
+     // Start timer
+     for(TInt i = 0; i < iPluginArray.Count(); i++)
+        {
+        iPluginArray[i]->SaveL();
+        }
+     
+     if(!iGaurdTimer->IsActive())
          iGaurdTimer->StartgaurdTimer();
-         }
+
     OstTraceFunctionExit0( CINDEXINGMANAGER_HANDLEGAURDTIMERL_EXIT );
     }

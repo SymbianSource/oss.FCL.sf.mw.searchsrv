@@ -1,0 +1,12 @@
+Discover '国際' in cat.file:
+    DOC (./cpixunittestcorpus/text/jp/1.txt): 国際交流基金（ジャパンファウンデーション）は、主に文化芸術交流、海外における日本語教育、
+    DOC (./cpixunittestcorpus/text/jp/3.txt): それぞれの分野で公募プログラムにより国際交流事業を企画する個人や
+    DOC (./cpixunittestcorpus/text/jp_old/1.txt): 国際交流基金（ジャパンファウンデーション）は、主に文化芸術交流、海外における日本語教育、
+    DOC (./cpixunittestcorpus/text/jp_old/3.txt): それぞれの分野で公募プログラムにより国際交流事業を企画する個人や
+
+Discover '日本' in cat.file:
+    DOC (./cpixunittestcorpus/text/jp/1.txt): 国際交流基金（ジャパンファウンデーション）は、主に文化芸術交流、海外における日本語教育、
+    DOC (./cpixunittestcorpus/text/jp/2.txt): 日本研究・知的交流の3つの分野において事業を実施しており、
+    DOC (./cpixunittestcorpus/text/jp_old/1.txt): 国際交流基金（ジャパンファウンデーション）は、主に文化芸術交流、海外における日本語教育、
+    DOC (./cpixunittestcorpus/text/jp_old/2.txt): 日本研究・知的交流の3つの分野において事業を実施しており、
+

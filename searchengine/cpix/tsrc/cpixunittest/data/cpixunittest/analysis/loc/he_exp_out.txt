@@ -1,0 +1,34 @@
+using analyzer "natural(indexing)" for indexing
+
+using analyzer "natural(query)" for searching
+
+indexing:
+
+Indexed file: ./cpixunittestcorpus/text/he/1.txt
+
+Indexed file: ./cpixunittestcorpus/text/he/2.txt
+
+Indexed file: ./cpixunittestcorpus/text/he/3.txt
+
+Indexed file: ./cpixunittestcorpus/text/he/4.txt
+
+Indexed empty item.
+
+searching:
+
+search "שפעת":
+Number of hits: 1
+DOC (./cpixunittestcorpus/text/he/1.txt): שפעת החזירים: תושבת נצרת עילית בת 51 ללא מחלות רקע
+
+search "פעת":
+Number of hits: 1
+DOC (./cpixunittestcorpus/text/he/1.txt): שפעת החזירים: תושבת נצרת עילית בת 51 ללא מחלות רקע
+
+search "שפע*":
+Number of hits: 1
+DOC (./cpixunittestcorpus/text/he/1.txt): שפעת החזירים: תושבת נצרת עילית בת 51 ללא מחלות רקע
+
+search "פר*":
+Number of hits: 1
+DOC (./cpixunittestcorpus/text/he/3.txt): "פרהמיביר",אולם מצבה הוסיף להידרדר
+

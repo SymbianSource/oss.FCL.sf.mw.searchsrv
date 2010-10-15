@@ -23,6 +23,7 @@
 #include <wchar.h>
 #include <glib.h>
 
+#include "cpixsynctools.h"
 #include "cpixidxdb.h"
 #include "cpix_async.h"
 //#include "MIndexingPluginObserver.h" //TODO: Bhuvi Not required 
@@ -57,6 +58,8 @@ public:
 	 * all resources until all handles to given database are closed.
 	 */
 	virtual ~CCPixIdxDb();
+	
+	   static Cpt::Mutex idxMutex_;
 
 public:
 	

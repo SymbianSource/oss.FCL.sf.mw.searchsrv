@@ -14,10 +14,11 @@
 * Description: 
 *
 */
-
+#include <QRegExp>
 #include <cpixdocumentfield.h>
 #include "cpixdocumentfieldprivate.h"
 
+#define SEPERATOR_EXP "\\s+"
 /**
  * Note: Code in this file should never throw OR leak symbian exceptions.
  * Convert all leaves to C++ exceptions.
@@ -74,6 +75,12 @@ void CpixDocumentField::setValue(const QString aValue)
 void CpixDocumentField::setConfig(const int aConfig)
     {
     iPvtImpl->iConfig = aConfig;
+    }
+
+QStringList CpixDocumentField::values() const
+    {
+      QString str = iPvtImpl->iValue;
+      return  str.split(QRegExp(SEPERATOR_EXP));
     }
 
 //End of File

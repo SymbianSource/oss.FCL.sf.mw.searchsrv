@@ -1,0 +1,12 @@
+Discover 'שפעת' in cat.file:
+    DOC (./cpixunittestcorpus/text/he/1.txt): שפעת החזירים: תושבת נצרת עילית בת 51 ללא מחלות רקע
+
+Discover 'פעת' in cat.file:
+    DOC (./cpixunittestcorpus/text/he/1.txt): שפעת החזירים: תושבת נצרת עילית בת 51 ללא מחלות רקע
+
+Discover 'שפע*' in cat.file:
+    DOC (./cpixunittestcorpus/text/he/1.txt): שפעת החזירים: תושבת נצרת עילית בת 51 ללא מחלות רקע
+
+Discover 'פר*' in cat.file:
+    DOC (./cpixunittestcorpus/text/he/3.txt): "פרהמיביר",אולם מצבה הוסיף להידרדר
+

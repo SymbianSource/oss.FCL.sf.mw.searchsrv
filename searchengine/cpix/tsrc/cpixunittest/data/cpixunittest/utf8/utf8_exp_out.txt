@@ -7,11 +7,11 @@ Indexed file: !:\data\cpixunittestcorpus\stem\fi\3.txt
 
 Indexed file: !:\data\cpixunittestcorpus\stem\fi\4.txt
 Number of hits: 1
-DOC (!:\data\cpixunittestcorpus\stem\fi\1.txt): Juon nyt teetä.
+DOC (!:\data\cpixunittestcorpus\stem\fi\1.txt): Juon nyt <U>teetä</U>
 Number of hits: 2
-DOC (!:\data\cpixunittestcorpus\stem\fi\2.txt): Tee näin!
-DOC (!:\data\cpixunittestcorpus\stem\fi\4.txt): Onko hyvä tehdä näin?
+DOC (!:\data\cpixunittestcorpus\stem\fi\2.txt): Tee <U>näin</U>
+DOC (!:\data\cpixunittestcorpus\stem\fi\4.txt): Onko hyvä tehdä <U>näin</U>
 Number of hits: 1
-DOC (!:\data\cpixunittestcorpus\stem\fi\4.txt): Onko hyvä tehdä näin?
+DOC (!:\data\cpixunittestcorpus\stem\fi\4.txt): Onko <U>hyvä</U> tehdä näin
 Number of hits: 1
-DOC (!:\data\cpixunittestcorpus\stem\fi\3.txt): Yötyössä tekemisen riemua.
+DOC (!:\data\cpixunittestcorpus\stem\fi\3.txt): <U>Yötyössä</U> tekemisen riemua

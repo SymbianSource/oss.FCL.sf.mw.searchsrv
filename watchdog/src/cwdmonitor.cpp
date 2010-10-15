@@ -238,6 +238,7 @@ void CWDMonitor::HandlecentrepL( TUint32 aKey )
             {
             //read harvester server name
             delete iHSName;
+            iHSName = NULL;
             if ( KErrNone == wdrepo->Get( KHarvesterServerNAMEKey, temp ))
                 {
                 iHSName = HBufC::NewL( temp.Length() );
@@ -273,6 +274,7 @@ void CWDMonitor::HandlecentrepL( TUint32 aKey )
             {
             //read search server name
             delete iSSName;
+            iSSName = NULL;
             if ( KErrNone == wdrepo->Get( KSearchServerNAMEKey, temp ))
                 {
                 iSSName = HBufC::NewL( temp.Length() );

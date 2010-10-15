@@ -1,5 +1,5 @@
 #include "../clucene/group/bld.inf"
 
 PRJ_TESTMMPFILES
-#include "../tsrc/clucene_unittest/group/bld.inf"
+//#include "../tsrc/clucene_unittest/group/bld.inf"
 #include "../tsrc/clucene_extraunittest/group/bld.inf"

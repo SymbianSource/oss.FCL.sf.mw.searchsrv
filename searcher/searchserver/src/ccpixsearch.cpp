@@ -27,7 +27,7 @@
 #endif
 
 
-
+Cpt::Mutex CCPixSearch::hitMutex_;
 
 CCPixSearch* CCPixSearch::NewL()
 	{
@@ -121,12 +121,15 @@ void CCPixSearch::LogCancelAction(cpix_CancelAction aCancelAction)
 void CCPixSearch::CompletionCallback(void *aCookie, cpix_JobId aJobId)
 	{
 	CCPixSearch* object = (CCPixSearch*)aCookie;
-
+    {
+    Cpt::SyncRegion
+                sr(hitMutex_);
 	// Sanity check
 	if (object == NULL || 
 		object->iPendingJobId != aJobId)
 		return;
-	
+
+    }
 	// Call the asyncronizers completion code
 	CCPixAsyncronizer* asyncronizer = object->iAsyncronizer;
 	asyncronizer->CompletionCallback();
@@ -174,11 +177,14 @@ TBool CCPixSearch::SearchL(const TDesC& aSearchTerms, MCPixAsyncronizerObserver*
     // Commit the search
     if ( iQuery )
 	    {
+        {
+        Cpt::SyncRegion
+                    sr(hitMutex_);
 	    iPendingJobId = cpix_IdxSearcher_asyncSearch(iIdxDb, iQuery, (void*)this, &CompletionCallback);
 	    SearchServerHelper::CheckCpixErrorL(iIdxDb, KErrDatabaseQueryFailed);
     	iPendingTask = EPendingTaskSearch;
 	    iAsyncronizer->Start(ECPixTaskTypeSearch, aObserver, aMessage);
-	    
+        }
         OstTraceFunctionExit0( CCPIXSEARCH_SEARCHL_EXIT );
         return ETrue;
         }
@@ -222,7 +228,11 @@ void CCPixSearch::GetDocumentL(TInt aIndex, MCPixAsyncronizerObserver* aObserver
     
     iCurrentCpixDocument = new cpix_Document;
     iCurrentCpixDocument->ptr_ = NULL;
+    {
+    Cpt::SyncRegion
+                sr(hitMutex_);
     iPendingJobId = cpix_Hits_asyncDoc(iHits, aIndex, &iCurrentCpixDocument, (void*)this, &CompletionCallback,1);
+
     if ( cpix_Failed(iHits) )
         {
         SearchServerHelper::LogErrorL(*(iHits->err_));
@@ -230,7 +240,9 @@ void CCPixSearch::GetDocumentL(TInt aIndex, MCPixAsyncronizerObserver* aObserver
         User::Leave(KErrDocumentAccessFailed);
         }
     iAsyncronizer->Start(ECPixTaskTypeGetDocument, aObserver, aMessage);
+    }
 	OstTraceFunctionExit0( CCPIXSEARCH_GETDOCUMENTL_EXIT );
+
 	}
 	
 void CCPixSearch::GetBatchDocumentL(TInt aIndex, MCPixAsyncronizerObserver* aObserver, const RMessage2& aMessage, TInt aCount)
@@ -254,7 +266,11 @@ void CCPixSearch::GetBatchDocumentL(TInt aIndex, MCPixAsyncronizerObserver* aObs
 	    }
 	
     iPendingTask = EPendingTaskDocument;
+    {
+    Cpt::SyncRegion
+                sr(hitMutex_);
     iPendingJobId = cpix_Hits_asyncDoc(iHits, aIndex, ibatchDocuments, (void*)this, &CompletionCallback, aCount);
+ 
     if ( cpix_Failed(iHits) )
         {
         SearchServerHelper::LogErrorL(*(iHits->err_));
@@ -262,6 +278,7 @@ void CCPixSearch::GetBatchDocumentL(TInt aIndex, MCPixAsyncronizerObserver* aObs
         User::Leave(KErrDocumentAccessFailed);
         }
     iAsyncronizer->Start(ECPixTaskTypeGetBatchDocument, aObserver, aMessage);
+    }
 	}
 
 CSearchDocument* CCPixSearch::GetDocumentCompleteL()
@@ -276,69 +293,6 @@ CSearchDocument* CCPixSearch::GetDocumentCompleteL()
 	SearchServerHelper::CheckCpixErrorL(iHits, KErrDocumentAccessFailed);
 	
 	return ConvertDocumentL( iCurrentCpixDocument );
-#if 0 // TODO XXX TIM
-	const wchar_t* documentId = cpix_Document_getFieldValue(&iCurrentCpixDocument, LCPIX_DOCUID_FIELD);
-	SearchServerHelper::CheckCpixErrorL(&iCurrentCpixDocument, KErrDatabaseQueryFailed);
-	
-	TPtrC documentIdPtr(KNullDesC);
-	if (documentId)
-		documentIdPtr.Set(reinterpret_cast<const TUint16*>(documentId));
-
-	const wchar_t* documentAppClass = cpix_Document_getFieldValue(&iCurrentCpixDocument, LCPIX_APPCLASS_FIELD);
-	SearchServerHelper::CheckCpixErrorL(&iCurrentCpixDocument, KErrDatabaseQueryFailed);
-	
-	TPtrC documentAppClassPtr(KNullDesC);
-	if (documentAppClass)
-		documentAppClassPtr.Set(reinterpret_cast<const TUint16*>(documentAppClass));
-
-	const wchar_t* documentExcerpt = cpix_Document_getFieldValue(&iCurrentCpixDocument, LCPIX_EXCERPT_FIELD);
-	SearchServerHelper::CheckCpixErrorL(&iCurrentCpixDocument, KErrDatabaseQueryFailed);
-	
-	TPtrC documentExcerptPtr(KNullDesC);
-	if (documentExcerpt)
-		documentExcerptPtr.Set(reinterpret_cast<const TUint16*>(documentExcerpt));
-
-	CSearchDocument* document = CSearchDocument::NewLC(documentIdPtr, documentAppClassPtr, documentExcerptPtr);
-
-	cpix_DocFieldEnum* docFieldEnum = cpix_Document_fields(&iCurrentCpixDocument);
-
-	// push to cleanup stack.
-	CleanupStack::PushL( TCleanupItem(CpixDocFieldEnumDestroyer, docFieldEnum) );
-
-	SearchServerHelper::CheckCpixErrorL(&iCurrentCpixDocument, KErrDocumentAccessFailed);
-
-	cpix_Field field;
-
-	while (cpix_DocFieldEnum_hasMore(docFieldEnum))
-		{
-		cpix_DocFieldEnum_next(docFieldEnum, &field);
-		SearchServerHelper::CheckCpixErrorL(docFieldEnum, KErrDatabaseQueryFailed);
-		
-		const wchar_t* name = cpix_Field_name(&field);
-		SearchServerHelper::CheckCpixErrorL(&field, KErrDatabaseQueryFailed);
-
-		TPtrC namePtr( reinterpret_cast<const TUint16*>( name ) );
-		if (    namePtr == TPtrC( (TUint16*)LCPIX_DOCUID_FIELD )
-			 || namePtr == TPtrC( (TUint16*)LCPIX_APPCLASS_FIELD )
-			 || namePtr == TPtrC( (TUint16*)LCPIX_EXCERPT_FIELD ) )
-			{
-			continue;  // These fields have already been added
-			}
-
-		const wchar_t* value = cpix_Field_stringValue(&field);
-		SearchServerHelper::CheckCpixErrorL(&field, KErrDatabaseQueryFailed);
-		
-		TPtrC stringvalue( reinterpret_cast<const TUint16*>( value ) );
-		document->AddFieldL(namePtr, stringvalue);
-		}
-
-	CleanupStack::PopAndDestroy(docFieldEnum);
-	
-	CleanupStack::Pop(document);
-	
-	OstTraceFunctionExit0( CCPIXSEARCH_GETDOCUMENTCOMPLETEL_EXIT );
-	return document;
-#endif // 0
 	}
 	
 RPointerArray<CSearchDocument> CCPixSearch::GetBatchDocumentCompleteL()

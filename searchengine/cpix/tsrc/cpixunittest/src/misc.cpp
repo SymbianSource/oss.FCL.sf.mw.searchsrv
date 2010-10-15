@@ -57,8 +57,6 @@ void TestSetError(Itk::TestMgr *)
 
 void TestCpixExc(Itk::TestMgr * )
     {
-    char *xml_file = (char*)__FUNCTION__;
-    assert_failed = 0;
     CpixExc *exc1 = new CpixExc(/*(const wchar_t *)NULL*/L"", "misc.cpp", __LINE__);
     CpixExc *exc2 = new CpixExc("", "misc.cpp", __LINE__);
     CpixExc exc3 = *exc1;
@@ -68,14 +66,14 @@ void TestCpixExc(Itk::TestMgr * )
     exc2->wWhat();
     free(exc1);
     free(exc2);
-    testResultXml(xml_file);
+   
     }
 
 void TestHitDocumentList(Itk::TestMgr * )
     {
     Cpix::HitDocumentList *hitdoclist = new Cpix::HitDocumentList;
     hitdoclist->remove(0);
-    free(hitdoclist);
+    delete hitdoclist;
     }
 
 void TestTermCreateDestroy(Itk::TestMgr * )
@@ -107,30 +105,7 @@ void TestPdfFileParser(Itk::TestMgr * )
     
     
     }
-void TestLuceneQryType(Itk::TestMgr * )
-    {
-    cpix_Result result;
-    
-    cpix_Analyzer* analyzer = cpix_CreateSimpleAnalyzer(&result);
-    if ( cpix_Failed( &result) ) 
-        {
-            ITK_PANIC("Analyzer could not be created");
-            assert_failed = 1;
-        }
-    cpix_QueryParser
-        * queryParser = cpix_QueryParser_create(&result,
-                                                LCPIX_DEFAULT_FIELD,
-                                                analyzer );
-    if (queryParser == NULL)
-        {
-            cpix_Analyzer_destroy( analyzer );
-            ITK_PANIC("Could not create query parser");
-        }
-    Cpix::LuceneQryType *QryType = new Cpix::LuceneQryType();
-    std::list<std::wstring> list (2, L"no argumnet");
-    //QryType->setUp(queryParser,list,L"Find this");
-    
-    }
+
 
 
 Itk::TesterBase * CreateMiscTests()
@@ -147,13 +122,11 @@ Itk::TesterBase * CreateMiscTests()
     
     misc->add("CpixExc", &TestCpixExc, "CpixExc");
 
-    misc->add("doclist", &TestHitDocumentList, "doclist");
-    
     misc->add("termCD", &TestTermCreateDestroy, "termCD");
 
     misc->add("pdfparser", &TestPdfFileParser, "pdfparser");
     
-    misc->add("lucenetype", &TestLuceneQryType, "lucenetype");
+    
     
     return misc;
     }
